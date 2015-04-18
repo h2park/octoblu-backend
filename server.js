@@ -93,7 +93,3 @@ var httpsServer = https.createServer(credentials, app);
 httpServer.listen(port, function(){
   console.log('HTTP listening on port ' + port);
 });
-
-httpsServer.listen(sslPort, function() {
-  console.log('HTTPS listening on port ' + sslPort);
-});

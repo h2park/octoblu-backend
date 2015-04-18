@@ -8,11 +8,10 @@ ENV PATH $PATH:/usr/local/bin
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
-RUN npm install -g bower gulp
+RUN npm install -g gulp
 
 COPY . /usr/src/app
 RUN cd /usr/src/app && npm install --production --silent
-RUN cd /usr/src/app && mkdir -p public/lib && bower --allow-root --silent install
 RUN cd /usr/src/app && NODE_ENV=production gulp
 
 CMD [ "npm", "start" ]

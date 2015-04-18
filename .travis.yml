@@ -8,7 +8,6 @@ cache:
   bundler: true
   directories:
   - node_modules
-  - public/lib
 env:
   global:
   - AWS_ACCESS_KEY_ID=AKIAIT4X4NDGM2WVL6VA
@@ -39,22 +38,9 @@ before_script:
   NODE_ENV=staging; fi
 - cp .npmrc ~/.npmrc
 - node_modules/.bin/npm rebuild
-- node_modules/.bin/bower install
 - node_modules/.bin/gulp
 - export NODE_ENV=test
-before_deploy:
-- mkdir -p build && tar czf build/public.tar.gz public
 deploy:
-- provider: s3
-  access_key_id: AKIAIT4X4NDGM2WVL6VA
-  secret_access_key: &1
-    secure: SUC78nnA3eIepYCqxrU+So32VUl7qvmP50Cc6ykR7bBmwI9BFmEUbrzC7M2l2IiMJa0P7QdXuRmA+jgtxFOw+5y8ISI6kHdUt/OG++j26zF1gqMzPxxynVcoi8P4gyBcQw+/YjEtw9j2QMTP1k0QgY4e4lcXZ4kO6bMPmkzT23o=
-  bucket: deploy-octoblu-static
-  region: us-west-2
-  skip_cleanup: true
-  local-dir: build
-  on:
-    branch: master
 - provider: opsworks
   access_key_id: AKIAIT4X4NDGM2WVL6VA
   secret_access_key: *1
@@ -64,28 +50,7 @@ deploy:
 - provider: opsworks
   access_key_id: AKIAIT4X4NDGM2WVL6VA
   secret_access_key: *1
-  app-id: 6829c218-74d9-4ff4-a7dc-9b5f810a05fe
-  on:
-    branch: master
-- provider: s3
-  access_key_id: AKIAIT4X4NDGM2WVL6VA
-  secret_access_key: *1
-  bucket: deploy-octoblu-static-staging
-  region: us-west-2
-  skip_cleanup: true
-  local-dir: build
-  on:
-    branch: staging
-- provider: opsworks
-  access_key_id: AKIAIT4X4NDGM2WVL6VA
-  secret_access_key: *1
   app-id: 1d628748-95d0-45bf-be4e-bf9d53630243
-  on:
-    branch: staging
-- provider: opsworks
-  access_key_id: AKIAIT4X4NDGM2WVL6VA
-  secret_access_key: *1
-  app-id: dd136ea2-946d-4301-a74b-f19ea1ae2518
   on:
     branch: staging
 - provider: s3
