@@ -64,9 +64,6 @@ app.use(meshbluHealthcheck())
 app.use(morgan('dev', {immediate:false})); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
 
-// app.use(express.bodyParser()); // get information from html forms
-// app.use(bodyParser());
-// increasing body size for resources
 app.use(bodyParser.urlencoded({ extended : true, limit : '50mb' }));
 
 app.use(bodyParser.json({ limit : '50mb' }));
@@ -79,7 +76,6 @@ app.use(expressSession);
 
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
-app.use(flash()); // use connect-flash for flash messages stored in session
 app.use(cors());
 if (process.env.NODE_ENV === 'development') {
   app.use(errorhandler());
