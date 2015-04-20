@@ -49,7 +49,7 @@ deploy:
   skip_cleanup: true
   bucket: octoblu-deploy
   on:
-    branch: staging
+    branch: master
 - provider: codedeploy
   access_key_id: AKIAIT4X4NDGM2WVL6VA
   secret_access_key: *1
@@ -60,4 +60,4 @@ deploy:
   application: docker-builder
   deployment_group: octoblu
   on:
-    branch: staging
+    branch: master
