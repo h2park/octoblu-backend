@@ -41,19 +41,6 @@ before_script:
 - node_modules/.bin/gulp
 - export NODE_ENV=test
 deploy:
-- provider: opsworks
-  access_key_id: AKIAIT4X4NDGM2WVL6VA
-  secret_access_key: &1
-    secure: SUC78nnA3eIepYCqxrU+So32VUl7qvmP50Cc6ykR7bBmwI9BFmEUbrzC7M2l2IiMJa0P7QdXuRmA+jgtxFOw+5y8ISI6kHdUt/OG++j26zF1gqMzPxxynVcoi8P4gyBcQw+/YjEtw9j2QMTP1k0QgY4e4lcXZ4kO6bMPmkzT23o=
-  app-id: 42f87aa6-8b69-47d5-b2a3-dcc9511281be
-  on:
-    branch: skipmaster
-- provider: opsworks
-  access_key_id: AKIAIT4X4NDGM2WVL6VA
-  secret_access_key: *1
-  app-id: 1d628748-95d0-45bf-be4e-bf9d53630243
-  on:
-    branch: staging
 - provider: s3
   access_key_id: AKIAIT4X4NDGM2WVL6VA
   secret_access_key: *1

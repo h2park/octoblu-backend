@@ -2,7 +2,7 @@ FROM node:0.10.38
 
 MAINTAINER Octoblu <docker@octoblu.com>
 
-EXPOSE 9000
+EXPOSE 80
 ENV PATH $PATH:/usr/local/bin
 
 RUN mkdir -p /usr/src/app

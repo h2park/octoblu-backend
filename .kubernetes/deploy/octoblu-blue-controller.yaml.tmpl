@@ -22,10 +22,10 @@ desiredState:
           - name: octoblu-blue
             image: octoblu/octoblu:$SHORT_COMMIT
             ports:
-              - containerPort: 9000
+              - containerPort: 80
             env:
               - name: OCTOBLU_PORT
-                value: 9000
+                value: 80
               - name: NODE_ENV
                 value: "production"
               - name: TEXT_CRYPT_KEY
