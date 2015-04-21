@@ -78,8 +78,8 @@ class SecurityController
     return next() if request.bypassAuth
 
     authenticateCallback = (error, user, userDevice) =>
-      return response.status(401).end() if error?
-      return response.status(404).end() unless user?
+      return response.status(401).send error: error.message if error?
+      return response.status(404).send error: 'user not found' unless user?
       user.userDevice = userDevice
       request.login user, next
 
