@@ -64,8 +64,6 @@ app.use(meshbluHealthcheck())
 app.use(morgan('dev', {immediate:false})); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
 
-// app.use(express.bodyParser()); // get information from html forms
-// app.use(bodyParser());
 // increasing body size for resources
 app.use(bodyParser.urlencoded({ extended : true, limit : '50mb' }));
 
@@ -74,11 +72,14 @@ app.use(bodyParser.json({ limit : '50mb' }));
 app.use(express.static(__dirname + '/public'));
 
 var session = require('cookie-session');
-app.use(session({
+app.use(session(
+  {
     name: 'octoblu:sess',
     secret: process.env.OCTOBLU_UUID + process.env.OCTOBLU_TOKEN,
-    domain: configAuth.domain
-  }));
+    domain: configAuth.domain,
+    secure: (process.env.NODE_ENV !== 'development')
+  }
+));
 
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
