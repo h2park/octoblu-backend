@@ -73,9 +73,12 @@ app.use(bodyParser.json({ limit : '50mb' }));
 
 app.use(express.static(__dirname + '/public'));
 
-var expressSession = require('./config/session');
-
-app.use(expressSession);
+var session = require('cookie-session');
+app.use(session({
+    name: 'octoblu:sess',
+    secret: process.env.OCTOBLU_UUID + process.env.OCTOBLU_TOKEN,
+    domain: configAuth.domain
+  }));
 
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
