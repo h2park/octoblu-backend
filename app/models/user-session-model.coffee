@@ -49,11 +49,11 @@ class UserSession
         callback null, sessionToken
 
   getDeviceFromMeshblu: (uuid, token, callback=->) =>
-    @_meshbluGetDevice uuid, token, (error, response, body) =>
+    @_meshbluGetDevice uuid, token, (error, response, device) =>
       return callback error if error?
-      return callback new Error(UserSession.ERROR_DEVICE_NOT_FOUND) if _.isEmpty body.devices
+      return callback new Error(UserSession.ERROR_DEVICE_NOT_FOUND) unless device?
 
-      callback null, _.first(body.devices)
+      callback null, device
 
   getUserByUuid: (uuid, callback=->) =>
     @users
@@ -82,7 +82,7 @@ class UserSession
     @_meshbluRequest uuid, token, 'POST', "/devices/#{uuid}/tokens", callback
 
   _meshbluGetDevice: (uuid, token, callback=->) =>
-    @_meshbluRequest uuid, token, 'GET', "/devices/#{uuid}", callback
+    @_meshbluRequest uuid, token, 'GET', "/v2/whoami", callback
 
   _meshbluRequest: (uuid, token, method, path, json=true, callback=->) =>
     if _.isFunction json

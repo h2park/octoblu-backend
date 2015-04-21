@@ -145,7 +145,7 @@ describe 'UserSession', ->
 
       it 'should try to retrieve the device from Meshblu', ->
         options =
-          uri: 'http://meshblu.octoblu.com:80/devices/uuid'
+          uri: 'http://meshblu.octoblu.com:80/v2/whoami'
           headers:
             meshblu_auth_uuid: 'uuid'
             meshblu_auth_token: 'token'
@@ -159,7 +159,7 @@ describe 'UserSession', ->
 
       it 'should try to retrieve the device from Meshblu', ->
         options =
-          uri: 'http://meshblu.octoblu.com:80/devices/forgot'
+          uri: 'http://meshblu.octoblu.com:80/v2/whoami'
           headers:
             meshblu_auth_uuid: 'forgot'
             meshblu_auth_token: 'to-breathe'
@@ -174,7 +174,7 @@ describe 'UserSession', ->
 
       it 'should try to retrieve the device from Meshblu', ->
         options =
-          uri: 'http://localhost:3000/devices/forgot'
+          uri: 'http://localhost:3000/v2/whoami'
           headers:
             meshblu_auth_uuid: 'forgot'
             meshblu_auth_token: 'to-breathe'
@@ -189,7 +189,7 @@ describe 'UserSession', ->
 
       it 'should use the https protocol', ->
         options =
-          uri: 'https://meshblu.octoblu.com:443/devices/abandoned'
+          uri: 'https://meshblu.octoblu.com:443/v2/whoami'
           json: true
           method: 'GET'
           headers:
@@ -207,7 +207,7 @@ describe 'UserSession', ->
 
     describe 'when called and meshblu responds with a device', ->
       beforeEach (done) ->
-        @request.yields null, null, devices: [{uuid: 'bear', name: 'rustle'}]
+        @request.yields null, null, {uuid: 'bear', name: 'rustle'}
         @sut.getDeviceFromMeshblu 'bear', 'grizzly', (@error, @result) => done()
 
       it 'should call its callback with no error', ->
@@ -218,7 +218,7 @@ describe 'UserSession', ->
 
     describe 'when called and meshblu responds with no device', ->
       beforeEach (done) ->
-        @request.yields null, null, devices: []
+        @request.yields null, null, null
         @sut.getDeviceFromMeshblu 'bear', 'grizzly', (@error, @result) => done()
 
       it 'should call its callback with an error', ->
@@ -324,6 +324,3 @@ describe 'UserSession', ->
 
       it 'should yield nothing!', ->
         expect(@error).not.to.exist
-
-
-
