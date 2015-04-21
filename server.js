@@ -77,7 +77,7 @@ app.use(session(
     name: 'octoblu:sess',
     secret: process.env.OCTOBLU_UUID + process.env.OCTOBLU_TOKEN,
     domain: configAuth.domain,
-    secure: (process.env.NODE_ENV !== 'development')
+    secureProxy: (process.env.NODE_ENV !== 'development')
   }
 ));
 
