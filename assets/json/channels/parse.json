@@ -1,0 +1,440 @@
+{
+  "_id": "583f48ds48350fs23230",
+  "application": {
+    "base": "https://api.parse.com",
+    "resources": [
+      {
+        "path": "/1/classes/:className",
+        "displayName": "Creating Objects",
+        "httpMethod": "POST",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":className",
+            "displayName": "Class Name",
+            "required": "true"
+          }
+        ],
+        "url": "https://api.parse.com/1/classes/:className"
+      },{
+        "path": "/1/classes/:className/:objectId",
+        "displayName": "Retrieving Objects",
+        "httpMethod": "GET",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":className",
+            "displayName": "Class Name",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":objectId",
+            "displayName": "Object Id",
+            "required": "true"
+          }
+        ],
+        "url": "https://api.parse.com/1/classes/:className/:objectId"
+      },
+      {
+        "path": "/1/classes/:className/:objectId",
+        "displayName": "Updating Objects",
+        "httpMethod": "PUT",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":className",
+            "displayName": "Class Name",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":objectId",
+            "displayName": "Object Id",
+            "required": "true"
+          }],
+        "url": "https://api.parse.com/1/classes/:className/:objectId"
+      },
+      {
+        "path": "/1/classes/:className",
+        "displayName": "Basic Queries",
+        "httpMethod": "GET",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":className",
+            "displayName": "Class Name",
+            "required": "true"
+          }
+        ],
+        "url": "https://api.parse.com/1/classes/:className"
+      },
+      {
+        "path": "/1/classes/:className/:objectId",
+        "displayName": "Delete A User",
+        "httpMethod": "DELETE",
+        "params": [{
+            "style": "url",
+            "type": "string",
+            "name": ":className",
+            "displayName": "Class Name",
+            "required": "true"
+          },{
+            "style": "url",
+            "type": "string",
+            "name": ":objectId",
+            "displayName": "Object Id",
+            "required": "true"
+          }],
+        "url": "https://api.parse.com/1/classes/:className/:objectId"
+      },
+      {
+        "path": "/1/users",
+        "displayName": "Signing Up Linking Users",
+        "httpMethod": "Post",
+        "params": [],
+        "url": "https://api.parse.com/1/users"
+      },
+      {
+        "path": "/1/login",
+        "displayName": "Logging In",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://api.parse.com/1/login"
+      },
+      {
+        "path": "/1/logout",
+        "displayName": "Logging Out",
+        "httpMethod": "Post",
+        "params": [],
+        "url": "https://api.parse.com/1/logout"
+      },
+      {
+        "path": "/1/users/:objectId",
+        "displayName": "Retrieving Users",
+        "httpMethod": "Get",
+        "params": [{
+            "style": "url",
+            "type": "string",
+            "name": ":objectId",
+            "displayName": "Object Id",
+            "required": "true"
+          }],
+        "url": "https://api.parse.com/1/users/:objectId"
+      },
+      {
+        "path": "/1/users/me",
+        "displayName": "Retrieving Current User",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://api.parse.com/1/users/me"
+      },
+      {
+        "path": "/1/users/:objectId",
+        "displayName": "Updating Users",
+        "httpMethod": "PUT",
+        "params": [],
+        "url": "https://api.parse.com/1/users/:objectId"
+      },
+      {
+        "path": "/1/users",
+        "displayName": "Querying Users",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://api.parse.com/1/users"
+      },
+      {
+        "path": "/1/users/:objectId",
+        "displayName": "Deleting Users",
+        "httpMethod": "Delete",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":id",
+            "displayName": "Id",
+            "required": "true"
+          }
+        ],
+        "url": "https://api.parse.com/1/users/:objectId"
+      },
+      {
+        "path": "/1/requestPasswordReset",
+        "displayName": "Requesting A Password Reset",
+        "httpMethod": "POST",
+        "params": [],
+        "url": "https://api.parse.com/1/requestPasswordReset"
+      },
+      {
+        "path": "/1/sessions",
+        "displayName": "Creating Restricted Sessions",
+        "httpMethod": "POST",
+        "params": [],
+        "url": "https://api.parse.com/1/sessions"
+      },
+      {
+        "path": "/1/sessions/:objectId",
+        "displayName": "Retrieving Sessions",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":objectId",
+            "displayName": "Object Id",
+            "required": "true"
+          }
+        ],
+        "url": "https://api.parse.com/1/sessions/:objectId"
+      },
+      {
+        "path": "/1/sessions/me",
+        "displayName": "Retrieving Current Session",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://api.parse.com/1/sessions/me"
+      },
+      {
+        "path": "/1/sessions/:objectId",
+        "displayName": "Updating Sessions",
+        "httpMethod": "PUT",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":objectId",
+            "displayName": "Object Id",
+            "required": "true"
+          }],
+        "url": "https://api.parse.com/1/sessions/:objectId"
+      },
+      {
+        "path": "/1/users",
+        "displayName": "Querying Sessions",
+        "httpMethod": "Get",
+        "params": [],
+        "url": "https://api.parse.com/1/users"
+      },
+      {
+        "path": "/1/sessions/:objectId",
+        "displayName": "Deleting Sessions",
+        "httpMethod": "Delete",
+        "params": [{
+            "style": "url",
+            "type": "string",
+            "name": ":objectId",
+            "displayName": "Object Id",
+            "required": "true"
+          }],
+        "url": "https://api.parse.com/1/sessions/:objectId"
+      },
+      {
+        "path": "/1/sessions/me",
+        "displayName": "Pairing with Installation",
+        "httpMethod": "PUT",
+        "params": [],
+        "url": "https://api.parse.com/1/sessions/me"
+      },
+      {
+        "path": "/1/roles",
+        "displayName": "Creating Roles",
+        "httpMethod": "Post",
+        "params": [],
+        "url": "https://api.parse.com/1/roles"
+      },
+      {
+        "path": "/1/roles/:objectId",
+        "displayName": "Retrieving Roles",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":objectId",
+            "displayName": "Object Id",
+            "required": "true"
+          }
+        ],
+        "url": "https://api.parse.com/1/roles/:objectId"
+      },
+      {
+        "path": "/1/roles/:objectId",
+        "displayName": "Updating Roles",
+        "httpMethod": "PUT",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":objectId",
+            "displayName": "Object Id",
+            "required": "true"
+          }
+        ],
+        "url": "https://api.parse.com/1/roles/:objectId"
+      },
+      {
+        "path": "/1/roles",
+        "displayName": "Querying Roles",
+        "httpMethod": "Get",
+        "params": [],
+        "url": "https://api.parse.com/1/roles"
+      },
+      {
+        "path": "/1/roles/:objectId",
+        "displayName": "Deleting Roles",
+        "httpMethod": "Delete",
+        "params": [],
+        "url": "https://api.parse.com/1/roles/:objectId"
+      },
+      {
+        "path": "/1/files/:fileName",
+        "displayName": "Uploading Files",
+        "httpMethod": "POST",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "displayName": "File Name",
+            "name": ":fileName",
+            "required": "true"
+          }],
+        "url": "https://api.parse.com/1/files/:fileName"
+      },
+      {
+        "path": "/1/events/AppOpened",
+        "displayName": "Analytics",
+        "httpMethod": "POST",
+        "params": [],
+        "url": "https://api.parse.com/1/events/AppOpened"
+      },
+      {
+        "path": "/1/events/:eventName",
+        "displayName": "Custom Analytics",
+        "httpMethod": "POST",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "displayName": "Event Name",
+            "name": ":eventName",
+            "required": "true"
+          }],
+        "url": "https://api.parse.com/1/events/:eventName"
+      },
+      {
+        "path": "/1/push",
+        "displayName": "Push Notifications",
+        "httpMethod": "POST",
+        "params": [],
+        "url": "https://api.parse.com/1/push"
+      },
+      {
+        "path": "/1/installations",
+        "displayName": "Uploading Installation Data",
+        "httpMethod": "POST",
+        "params": [],
+        "url": "https://api.parse.com/1/installations"
+      },
+      {
+        "path": "/1/installations/:objectId",
+        "displayName": "Retrieving Installations",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "url",
+            "type": "string",
+            "name": ":objectId",
+            "displayName": "Object Id",
+            "required": "true"
+          }],
+        "url": "https://api.parse.com/1/installations/:objectId"
+      },
+      {
+        "path": "/1/installations/:objectId",
+        "displayName": "Updating Installations",
+        "httpMethod": "PUT",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":objectId",
+            "displayName": "Object Id",
+            "required": "true"
+          }
+        ],
+        "url": "https://api.parse.Custom/1/installations/:objectId"
+      },{
+        "path": "/1/installations",
+        "displayName": "Querying Installations",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://api.parse.com/1/installations"
+      },{
+        "path": "/1/installations/:objectId",
+        "displayName": "Deleting Installations",
+        "httpMethod": "Delete",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":objectId",
+            "displayName": "Object Id",
+            "required": "true"
+          }
+        ],
+        "url": "https://api.parse.com/1/installations/:objectId"
+      },
+      {
+        "path": "/1/functions/:name",
+        "displayName": "Calling Cloud Functions",
+        "httpMethod": "POST",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name",
+            "required": "true"
+          }],
+        "url": "https://api.parse.com/1/functions/:name"
+      },
+      {
+        "path": "/1/jobs/:name",
+        "displayName": "Triggering Background Jobs",
+        "httpMethod": "POST",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": "name",
+            "displayName": "Name",
+            "required": "true"
+          }
+        ],
+        "url": "https://api.parse.com/1/jobs/:name"
+      }
+    ]
+  },
+  "type": "channel:parse",
+  "auth_strategy": "",
+  "name": "Parse",
+  "oauth": {
+    "development": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    },
+    "staging": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    },
+    "production": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    }
+  }
+}
