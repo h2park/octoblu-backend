@@ -1,0 +1,473 @@
+{
+  "_id": "303940293rfj29502322o3i",
+  "__v": 0,
+  "type": "channel:microsofttranslator",
+  "auth_strategy": "",
+  "documentation": "https://msdn.microsoft.com/en-us/library/ff512393.aspx",
+  "name": "Microsoft Translator",
+  "enabled": true,
+  "defaultParams": [],
+  "application": {
+    "base": "",
+    "resources": [
+      {
+        "path": "/AddTranslation",
+        "displayName": "Gets The Average Logon Duration",
+        "doc": {
+          "url": "http://api.microsofttranslator.com/V2/Ajax.svc/AddTranslation"
+        },
+        "httpMethod": "Put",
+        "params": [
+          {
+            "displayName": "App Id",
+            "style": "Body",
+            "type": "string",
+            "name": "appId",
+            "required": true
+          },{
+            "displayName": "Original Text",
+            "style": "Body",
+            "type": "string",
+            "name": "originalText",
+            "required": true
+          },{
+            "displayName": "Translated Text In The Target Language",
+            "style": "Body",
+            "type": "string",
+            "name": "translatedText",
+            "required": true
+          },{
+            "displayName": "Containing The Language Code Of The Source Language",
+            "style": "Body",
+            "type": "string",
+            "name": "from",
+            "required": true
+          },{
+            "displayName": "Containing The Language Code Of The Target Language",
+            "style": "Body",
+            "type": "string",
+            "name": "to",
+            "required": true
+          },{
+            "displayName": "Representing The Quality Rating",
+            "style": "Body",
+            "type": "Integer",
+            "name": "rating"
+          },{
+            "displayName": "The Format Of The Text Being Translated",
+            "style": "Body",
+            "type": "string",
+            "name": "contentType"
+          },{
+            "displayName": "Containing The Category (Domain) Of The Translation",
+            "style": "Body",
+            "type": "string",
+            "name": "category"
+          },{
+            "displayName": "Used To Track The Originator Of The Submission",
+            "style": "Body",
+            "type": "string",
+            "name": "user",
+            "required": true
+          },{
+            "displayName": "Containing The Content Location Of This Translation",
+            "style": "Body",
+            "type": "string",
+            "name": "uri"
+          }
+        ],
+        "url": "http://api.microsofttranslator.com/V2/Ajax.svc/AddTranslation"
+      },
+      {
+        "path": "/AddTranslationArray",
+        "displayName": "Adds An Array Of Translations To Add Translation Memor",
+        "doc": {
+          "url": "http://api.microsofttranslator.com/V2/Ajax.svc/AddTranslationArray"
+        },
+        "httpMethod": "Put",
+        "params": [
+          {
+            "displayName": "App Id",
+            "style": "Body",
+            "type": "string",
+            "name": "appId",
+            "required": true
+          },{
+            "displayName": "An Array Of Translations To Add To Translation Memory",
+            "style": "Body",
+            "type": "array",
+            "name": "translations",
+            "required": true
+          },{
+            "displayName": "Containing The Language Code Of The Source Language",
+            "style": "Body",
+            "type": "string",
+            "name": "from",
+            "required": true
+          },{
+            "displayName": "Containing The Language Code Of The Target Language",
+            "style": "Body",
+            "type": "string",
+            "name": "to",
+            "required": true
+          },{
+            "displayName": "A Set Of Options",
+            "style": "Body",
+            "type": "array",
+            "name": "options"
+          }
+        ],
+        "url": "http://api.microsofttranslator.com/V2/Ajax.svc/AddTranslationArray"
+      },
+      {
+        "path": "/BreakSentences",
+        "displayName": "Breaks A Piece Of Text Into Sentences & Returns An Array Containing The Lengths In Each Sentence",
+        "doc": {
+          "url": "http://api.microsofttranslator.com/V2/Ajax.svc/BreakSentences"
+        },
+        "httpMethod": "Get",
+        "params": [{
+            "displayName": "App Id",
+            "style": "query",
+            "type": "string",
+            "name": "appId",
+            "required": true
+          },{
+            "displayName": "representing the text to split into sentences",
+            "style": "query",
+            "type": "string",
+            "name": "text",
+            "required": true
+          },{
+            "displayName": "Representing The Language Code Of Input Text",
+            "style": "query",
+            "type": "string",
+            "name": "language",
+            "required": true
+          }],
+        "url": "http://api.microsofttranslator.com/V2/Ajax.svc/BreakSentences"
+      },
+      {
+        "path": "/Detect",
+        "displayName": "Identify The Language Of A Selected Piece Of Text",
+        "doc": {
+          "url": "http://api.microsofttranslator.com/V2/Ajax.svc/Detect"
+        },
+        "httpMethod": "Get",
+        "params": [{
+            "displayName": "App Id",
+            "style": "query",
+            "type": "string",
+            "name": "appId",
+            "required": true
+          },{
+            "displayName": "Representing The Text From An Unknown Language",
+            "style": "query",
+            "type": "string",
+            "name": "text",
+            "required": true
+          }],
+        "url": "http://api.microsofttranslator.com/V2/Ajax.svc/Detect"
+      },
+      {
+        "path": "/GetConnectionFailureTrend",
+        "displayName": "Identify The Language Of An Array Of Strings All At Once",
+        "doc": {
+          "url": "http://api.microsofttranslator.com/V2/Ajax.svc/DetectArray"
+        },
+        "httpMethod": "Get",
+        "params": [
+          {
+            "displayName": "App Id",
+            "style": "query",
+            "type": "string",
+            "name": "appId",
+            "required": true
+          },{
+            "displayName": "Representing The Text From An Unknown Language",
+            "style": "query",
+            "type": "string",
+            "name": "texts",
+            "required": true
+          }],
+        "url": "http://api.microsofttranslator.com/V2/Ajax.svc/DetectArray"
+      },
+      {
+        "path": "/GetLanguageNames",
+        "displayName": "Gets Friendly Names For The Languages",
+        "doc": {
+          "url": "http://api.microsofttranslator.com/V2/Ajax.svc/GetLanguageNames"
+        },
+        "httpMethod": "Get",
+        "params": [{
+            "displayName": "App Id",
+            "style": "query",
+            "type": "string",
+            "name": "appId",
+            "required": true
+          },{
+            "displayName": "Locale",
+            "style": "query",
+            "type": "string",
+            "name": "locale",
+            "required": true
+          },{
+            "displayName": "Language Codes",
+            "style": "query",
+            "type": "string",
+            "name": "languageCodes",
+            "required": true
+          }],
+        "url": "http://api.microsofttranslator.com/V2/Ajax.svc/GetLanguageNames"
+      },
+      {
+        "path": "/GetLanguagesForSpeak",
+        "displayName": "Gets The Languages Available For Speech Synthesis",
+        "doc": {
+         "url": "http://api.microsofttranslator.com/V2/Ajax.svc/GetLanguagesForSpeak"
+        },
+        "httpMethod": "Get",
+        "params": [{
+            "displayName": "App Id",
+            "style": "query",
+            "type": "string",
+            "name": "appId",
+            "required": true
+          }],
+        "url": "http://api.microsofttranslator.com/V2/Ajax.svc/GetLanguagesForSpeak"
+      },
+      {
+        "path": "/GetLanguagesForTranslate",
+        "displayName": "Obtains List Of Language Codes Representing Languages That Are Supported By The Translation Service",
+        "doc": {
+          "url": "http://api.microsofttranslator.com/V2/Ajax.svc/GetLanguagesForTranslate"
+        },
+        "httpMethod": "Get",
+        "params": [{
+            "displayName": "App Id",
+            "style": "query",
+            "type": "string",
+            "name": "appId",
+            "required": true
+          }],
+        "url": "http://api.microsofttranslator.com/V2/Ajax.svc/GetLanguagesForTranslate"
+      },
+      {
+        "path": "/GetTranslations",
+        "displayName": "Gets All Available Translations",
+        "doc": {
+          "url": "http://api.microsofttranslator.com/V2/Ajax.svc/GetTranslations"
+        },
+        "httpMethod": "Get",
+        "curl": "curl -X ",
+        "params": [
+          {
+            "displayName": "App Id",
+            "style": "query",
+            "type": "string",
+            "name": "appId",
+            "required": true
+          },{
+            "displayName": "Representing The Text To Translate",
+            "style": "query",
+            "type": "string",
+            "name": "text",
+            "required": true
+          },{
+            "displayName": "Representing The Language Code Of The Translation Text",
+            "style": "query",
+            "type": "string",
+            "name": "from",
+            "required": true
+          },{
+            "displayName": "Representing The Maximum Number Of Translations To Return",
+            "style": "query",
+            "type": "Integer",
+            "name": "maxTranslations",
+            "required": true
+          },{
+            "displayName": "Options",
+            "style": "query",
+            "type": "string",
+            "name": "options"
+          }
+        ],
+        "url": "http://api.microsofttranslator.com/V2/Ajax.svc/GetTranslations"
+      },
+      {
+        "path": "/GetTranslationsArray",
+        "displayName": "Gets Multiple Translation Candidates For Multiple Source Texts",
+        "doc": {
+          "url": "http://api.microsofttranslator.com/V2/Ajax.svc/GetTranslationsArray"
+        },
+        "httpMethod": "Get",
+        "curl": "curl -X ",
+        "params": [
+          {
+            "displayName": "App Id",
+            "style": "query",
+            "type": "string",
+            "name": "appId",
+            "required": true
+          },{
+            "displayName": "Representing The Texts For Translations",
+            "style": "query",
+            "type": "string",
+            "name": "texts",
+            "required": true
+          },{
+            "displayName": "Representing The Language Code Of The Translation Text",
+            "style": "query",
+            "type": "string",
+            "name": "from",
+            "required": true
+          },{
+            "displayName": "Representing The Maximum Number Of Translations To Return",
+            "style": "query",
+            "type": "Integer",
+            "name": "maxTranslations",
+            "required": true
+          },{
+            "displayName": "Options",
+            "style": "query",
+            "type": "string",
+            "name": "options"
+          }],
+        "url": "http://api.microsofttranslator.com/V2/Ajax.svc/GetTranslationsArray"
+      },
+      {
+        "path": "/Speak",
+        "displayName": "Gets String Which Is A URL To A Wave Or MP3 Stream Of The Passed-in Text Being Spoken In The Desired Language",
+        "doc": {
+          "url": "http://api.microsofttranslator.com/V2/Ajax.svc/Speak"
+        },
+        "httpMethod": "Get",
+        "curl": "curl -X ",
+        "params": [
+          {
+            "displayName": "App Id",
+            "style": "query",
+            "type": "string",
+            "name": "appId",
+            "required": true
+          },{
+            "displayName": "Containing A Sentence/s Of The Specified Language To Be Spoken For The Wave Stream",
+            "style": "query",
+            "type": "string",
+            "name": "text",
+            "required": true
+          },{
+            "displayName": "Representing The Supported Language Code To Speak The Text In",
+            "style": "query",
+            "type": "string",
+            "name": "language",
+            "required": true
+          },{
+            "displayName": "Specifying The Content-type ID",
+            "style": "query",
+            "type": "string",
+            "name": "format"
+          },{
+            "displayName": "Specifying The Quality Of The Audio Signals",
+            "style": "query",
+            "type": "string",
+            "name": "options"
+          }
+        ],
+        "url": "http://api.microsofttranslator.com/V2/Ajax.svc/Speak"
+      },
+      {
+        "path": "/Translate",
+        "displayName": "Translates A Text String From One Language To Another",
+        "doc": {
+          "url": "http://api.microsofttranslator.com/V2/Ajax.svc/Translate"
+        },
+        "httpMethod": "Get",
+        "curl": "curl -X ",
+        "params": [
+          {
+            "displayName": "App Id",
+            "style": "query",
+            "type": "string",
+            "name": "appId",
+            "required": true
+          },{
+            "displayName": "Representing The Text To Translate",
+            "style": "query",
+            "type": "string",
+            "name": "text",
+            "required": true
+          },{
+            "displayName": "Representing The Language Code Of The Translation Text",
+            "style": "query",
+            "type": "string",
+            "name": "from"
+          },{
+            "displayName": "Representing The Language Code To Translate The Text Into",
+            "style": "query",
+            "type": "string",
+            "name": "to",
+            "required": true
+          },{
+            "displayName": "The Format Of The Text Being Translated",
+            "style": "query",
+            "type": "string",
+            "name": "contentType",
+            "required": true
+          },{
+            "displayName": "Containing The Category (Domain) Of The Translation",
+            "style": "query",
+            "type": "string",
+            "name": "category"
+          }
+        ],
+        "url": "http://api.microsofttranslator.com/V2/Ajax.svc/Translate"
+      },
+      {
+        "path": "/TranslateArray",
+        "displayName": "Translates An Array Of Text Strings From One Language To Another",
+        "doc": {
+          "url": "http://api.microsofttranslator.com/V2/Ajax.svc/TranslateArray"
+        },
+        "httpMethod": "Get",
+        "curl": "curl -X ",
+        "params": [{
+            "displayName": "App Id",
+            "style": "query",
+            "type": "string",
+            "name": "appId",
+            "required": true
+          },{
+            "displayName": "Representing The Texts For Translation",
+            "style": "query",
+            "type": "string",
+            "name": "texts",
+            "required": true
+          },{
+            "displayName": "Representing The Language Code Of The Translation Text",
+            "style": "query",
+            "type": "string",
+            "name": "from"
+          },{
+            "displayName": "Representing The Language Code To Translate The Text To",
+            "style": "query",
+            "type": "string",
+            "name": "to",
+            "required": true
+          },{
+            "displayName": "The Format Of The Text Being Translated",
+            "style": "query",
+            "type": "string",
+            "name": "contentType",
+            "required": true
+          },{
+            "displayName": "Options",
+            "style": "query",
+            "type": "string",
+            "name": "options"
+          }],
+        "url": "http://api.microsofttranslator.com/V2/Ajax.svc/TranslateArray"
+      }
+    ]
+  }
+}
