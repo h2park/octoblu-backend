@@ -11,14 +11,14 @@ describe 'SecurityController', ->
       beforeEach (done) ->
         @response =
           status: sinon.spy(=> @response)
-          end: sinon.spy(=> done())
+          send: sinon.spy(=> done())
         @sut.isAuthenticated {}, @response
 
       it 'should call response.status with a 401', ->
         expect(@response.status).to.have.been.calledWith 401
 
-      it 'should call response.end()', ->
-        expect(@response.end).to.have.been.called
+      it 'should call response.send()', ->
+        expect(@response.send).to.have.been.called
 
     describe 'when called without a user, but bypassAuth', ->
       beforeEach (done) ->
@@ -37,6 +37,7 @@ describe 'SecurityController', ->
             skynet_auth_token: 'fries'
         @response =
           status: sinon.spy(=> @response)
+          send: sinon.spy(=> @response)
           end: sinon.spy()
         @sut.authenticateWithMeshblu = sinon.spy()
         @sut.isAuthenticated @request, @response, @next
@@ -53,6 +54,7 @@ describe 'SecurityController', ->
             meshblu_auth_token: 'sweet-potato-fries'
         @response =
           status: sinon.spy(=> @response)
+          send: sinon.spy(=> @response)
           end: sinon.spy()
         @sut.authenticateWithMeshblu = sinon.spy()
         @sut.isAuthenticated @request, @response, @next
@@ -71,6 +73,7 @@ describe 'SecurityController', ->
           login: sinon.stub().yields @next
         @response =
           status: sinon.spy(=> @response)
+          send: sinon.spy(=> @response)
           end: sinon.spy()
         @sut.authenticateWithMeshblu = sinon.stub()
         @sut.isAuthenticated @request, @response, @next
@@ -80,12 +83,12 @@ describe 'SecurityController', ->
 
       describe 'when authenticateWithMeshblu yields an error', ->
         beforeEach (done) ->
-          @response.end = sinon.spy(done)
+          @response.send = sinon.spy(=> done())
           @sut.authenticateWithMeshblu.yield new Error('no device')
 
         it 'should call response.status(401).end()', ->
           expect(@response.status).to.have.been.calledWith 401
-          expect(@response.end).to.have.been.called
+          expect(@response.send).to.have.been.called
 
       describe 'when authenticateWithMeshblu yields a device', ->
         beforeEach ->
@@ -107,6 +110,7 @@ describe 'SecurityController', ->
           login: sinon.stub().yields @next
         @response =
           status: sinon.spy(=> @response)
+          send: sinon.spy(=> @response)
           end: sinon.spy()
         @sut.authenticateWithMeshblu = sinon.stub()
         @sut.isAuthenticated @request, @response, @next
@@ -116,12 +120,12 @@ describe 'SecurityController', ->
 
       describe 'when authenticateWithMeshblu yields an error', ->
         beforeEach (done) ->
-          @response.end = sinon.spy(done)
+          @response.send = sinon.spy(=> done())
           @sut.authenticateWithMeshblu.yield new Error('no device')
 
         it 'should call response.status(401).end()', ->
           expect(@response.status).to.have.been.calledWith 401
-          expect(@response.end).to.have.been.called
+          expect(@response.send).to.have.been.called
 
       describe 'when authenticateWithMeshblu yields a device', ->
         beforeEach ->
@@ -143,18 +147,19 @@ describe 'SecurityController', ->
           login: sinon.stub().yields @next
         @response =
           status: sinon.spy(=> @response)
+          send: sinon.spy(=> @response)
           end: sinon.spy()
         @sut.authenticateWithMeshblu = sinon.stub()
         @sut.isAuthenticated @request, @response, @next
 
       describe 'when authenticateWithMeshblu yields an error', ->
         beforeEach (done) ->
-          @response.end = sinon.spy(done)
+          @response.send = sinon.spy(=> done())
           @sut.authenticateWithMeshblu.yield new Error('no device')
 
         it 'should call response.status(401).end()', ->
           expect(@response.status).to.have.been.calledWith 401
-          expect(@response.end).to.have.been.called
+          expect(@response.send).to.have.been.called
 
       describe 'when authenticateWithMeshblu yields a device', ->
         beforeEach ->
