@@ -42,6 +42,9 @@ module.exports = function(app, passport) {
     var ChannelApiKeyController = require('./controllers/channel-api-key-controller');
     var channelApiKeyController = new ChannelApiKeyController();
 
+    var OctoController = require('./controllers/octo-controller')
+    var octoController = new OctoController(conn)
+
     var FlowAuthCredentialsController = require('./controllers/flow-auth-credentials-controller');
     var flowAuthCredentialsController = new FlowAuthCredentialsController(meshbluJSON);
 
@@ -293,6 +296,8 @@ module.exports = function(app, passport) {
             app.get('/api/oauth/google/signup', signupController.verifyInvitationCode, signupController.storeTesterId, googleController.authorize);
             app.get('/api/oauth/twitter/signup', signupController.verifyInvitationCode, signupController.storeTesterId, twitterController.authorize);
 
+            app.post('/api/octos', octoController.create)
+            app.delete('/api/octos/:octoUuid', octoController.delete)
 
             app.post('/api/demo_flows', demoFlowController.create);
 
