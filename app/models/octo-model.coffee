@@ -26,22 +26,22 @@ class OctoModel
         payload =
           uuid: newDevice.uuid
           token: newDevice.token
-        @messageManagers managers, payload
+        @messageManagers 'create-octo', managerUuids, payload
         callback newDevice
 
-  messageManagers: (command, managers=[], payload={}) =>
+  messageManagers: (command, managerUuids=[], payload={}) =>
     deviceMessage =
       payload: payload
-      devices: managers
+      devices: managerUuids
       topic: command
 
     @meshblu.message deviceMessage
 
   delete: (octoUuid, callback=->) =>
-    @findManagers (managers) =>
+    @findManagers (managerUuids) =>
       payload =
         uuid: octoUuid
-      @messageManagers 'delete-octo', managers, payload
+      @messageManagers 'delete-octo', managerUuids, payload
       callback()
 
 
