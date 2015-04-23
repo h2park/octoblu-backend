@@ -68,7 +68,7 @@ describe 'SessionController', ->
       beforeEach ->
         @request  = query: {uuid: 'b', token: 'unotimetoken'}, login: sinon.stub().yields()
         @response = redirect: sinon.spy(), cookie: sinon.spy()
-
+        
         @dependencies.UserSession.instanceCreate.yields null, skynet: {uuid: 'b', token: 'reallypermatoken'}, 'reallypermatoken'
         @sut.show @request, @response
 
@@ -83,4 +83,3 @@ describe 'SessionController', ->
 
       it 'should set the auth_token cookie', ->
         expect(@response.cookie).to.have.been.calledWith 'meshblu_auth_token', 'reallypermatoken'
-

@@ -1,7 +1,6 @@
 var gulp         = require('gulp'),
   concat         = require('gulp-concat'),
   jsoncombine    = require('gulp-jsoncombine'),
-  less           = require('gulp-less'),
   plumber        = require('gulp-plumber'),
   sourcemaps     = require('gulp-sourcemaps'),
   nodemon        = require('gulp-nodemon'),
