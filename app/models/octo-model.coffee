@@ -6,7 +6,7 @@ class OctoModel
 
   findManagers: (callback=->) =>
     @meshblu.mydevices {}, (data) =>
-      octoManagers = _.where data.devices, type: 'octoblu:octo-manager'
+      octoManagers = _.where data.devices, type: 'octoblu:octo-master'
       octoManagerUuids = _.pluck octoManagers, 'uuid'
       callback octoManagerUuids
 
@@ -22,7 +22,7 @@ class OctoModel
 
   create: (ownerUuid, callback=->) =>
     @createDevice ownerUuid, (newDevice) =>
-      @findManagers (managers) =>
+      @findManagers (managerUuids) =>
         payload =
           uuid: newDevice.uuid
           token: newDevice.token
