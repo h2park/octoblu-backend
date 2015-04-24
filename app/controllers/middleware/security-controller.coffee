@@ -33,8 +33,6 @@ class SecurityController
     return uuid: uuid, token: token
 
   getAuthFromCookies: (request) =>
-    return {} unless request.user?
-    user = request.user
     cookies = request.cookies ? {}
 
     return uuid: cookies.meshblu_auth_uuid, token: cookies.meshblu_auth_token
