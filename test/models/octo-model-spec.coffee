@@ -77,6 +77,7 @@ describe 'OctoModel', ->
         expect(@meshblu.register).to.have.been.calledWith
           type: 'octoblu:octo'
           owner: 'yo'
+          name: 'Octo 1'
           configureWhitelist: ['yo']
           discoverWhitelist: ['yo']
           receiveWhitelist: ['yo']
@@ -112,6 +113,7 @@ describe 'OctoModel', ->
         expect(@meshblu.register).to.have.been.calledWith
           type: 'octoblu:octo'
           owner: 'hey'
+          name: 'Octo 1'
           configureWhitelist: ['hey']
           discoverWhitelist: ['hey']
           receiveWhitelist: ['hey']

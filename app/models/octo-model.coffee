@@ -14,6 +14,7 @@ class OctoModel
     deviceProperties =
       type: 'octoblu:octo'
       owner: ownerUuid
+      name: 'Octo 1'
       configureWhitelist: [ownerUuid]
       discoverWhitelist: [ownerUuid]
       receiveWhitelist: [ownerUuid]
