@@ -5,7 +5,7 @@ class OctoModel
     @meshblu = dependencies.meshblu
 
   findManager: (callback=->) =>
-    @meshblu.mydevices {}, (data) =>
+    @meshblu.mydevices type: 'octoblu:octo-master', online: true, (data) =>
       octoManagers = _.where data.devices, type: 'octoblu:octo-master'
       octoManagerUuids = _.pluck octoManagers, 'uuid'
       callback _.sample octoManagerUuids
