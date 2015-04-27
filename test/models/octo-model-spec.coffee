@@ -5,36 +5,36 @@ describe 'OctoModel', ->
     @meshblu = {}
     @sut = new OctoModel meshblu: @meshblu
 
-  describe '->findManagers', ->
+  describe '->findManager', ->
     describe 'when meshblu.mydevices yields one octo-master device', ->
       beforeEach (done) ->
         @meshblu.mydevices = sinon.stub().yields devices: [uuid: 'hello', type: 'octoblu:octo-master']
-        @sut.findManagers (@managers) => done()
+        @sut.findManager (@manager) => done()
 
       it 'should yield a octo-master device uuid', ->
-        expect(@managers).to.deep.equal ['hello']
+        expect(@manager).to.deep.equal 'hello'
 
     describe 'when meshblu.mydevices yields another octo-master device', ->
       beforeEach (done) ->
         @meshblu.mydevices = sinon.stub().yields devices: [uuid: 'goodbye', type: 'octoblu:octo-master']
-        @sut.findManagers (@managers) => done()
+        @sut.findManager (@manager) => done()
 
       it 'should yield a octo-master device uuid', ->
-        expect(@managers).to.deep.equal ['goodbye']
+        expect(@manager).to.deep.equal 'goodbye'
 
     describe 'when meshblu.mydevices yields no octo-master device', ->
       beforeEach (done) ->
         @meshblu.mydevices = sinon.stub().yields devices: [uuid: 'goodbye', type: 'something:else']
-        @sut.findManagers (@managers) => done()
+        @sut.findManager (@manager) => done()
 
       it 'should yield a octo-master device uuid', ->
-        expect(@managers).to.deep.equal []
+        expect(@managers).not.to.exist
 
-  describe '->messageManagers', ->
+  describe '->messageManager', ->
     describe 'when called uuid and token', ->
       beforeEach ->
         @meshblu.message = sinon.spy()
-        @sut.messageManagers 'create-octo', ['master'], {uuid: 'dude', token: 'bye'}
+        @sut.messageManager 'create-octo', 'master', {uuid: 'dude', token: 'bye'}
 
       it 'should send a meshblu message to start the octo', ->
         expect(@meshblu.message).to.have.been.calledWith
@@ -47,7 +47,7 @@ describe 'OctoModel', ->
     describe 'when called uuid and token', ->
       beforeEach ->
         @meshblu.message = sinon.spy()
-        @sut.messageManagers 'create-octo', ['super-master'], {uuid: 'hey you', token: '...'}
+        @sut.messageManager 'create-octo', 'super-master', {uuid: 'hey you', token: '...'}
 
       it 'should send a meshblu message to start the octo', ->
         expect(@meshblu.message).to.have.been.calledWith

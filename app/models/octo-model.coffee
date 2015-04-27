@@ -4,11 +4,11 @@ class OctoModel
   constructor: (dependencies={}) ->
     @meshblu = dependencies.meshblu
 
-  findManagers: (callback=->) =>
+  findManager: (callback=->) =>
     @meshblu.mydevices {}, (data) =>
       octoManagers = _.where data.devices, type: 'octoblu:octo-master'
       octoManagerUuids = _.pluck octoManagers, 'uuid'
-      callback octoManagerUuids
+      callback _.sample octoManagerUuids
 
   createDevice: (ownerUuid, callback=->) =>
     deviceProperties =
@@ -23,26 +23,26 @@ class OctoModel
 
   create: (ownerUuid, callback=->) =>
     @createDevice ownerUuid, (newDevice) =>
-      @findManagers (managerUuids) =>
+      @findManager (managerUuid) =>
         payload =
           uuid: newDevice.uuid
           token: newDevice.token
-        @messageManagers 'create-octo', managerUuids, payload
+        @messageManager 'create-octo', managerUuid, payload
         callback newDevice
 
-  messageManagers: (command, managerUuids=[], payload={}) =>
+  messageManager: (command, managerUuid, payload={}) =>
     deviceMessage =
       payload: payload
-      devices: managerUuids
+      devices: [managerUuid]
       topic: command
 
     @meshblu.message deviceMessage
 
   delete: (octoUuid, callback=->) =>
-    @findManagers (managerUuids) =>
+    @findManager (managerUuid) =>
       payload =
         uuid: octoUuid
-      @messageManagers 'delete-octo', managerUuids, payload
+      @messageManager 'delete-octo', managerUuid, payload
       callback()
 
 
