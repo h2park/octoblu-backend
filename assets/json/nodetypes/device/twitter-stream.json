@@ -1,0 +1,14 @@
+{
+  "_id": "553e9ef1c940d785ad48497a",
+  "category": "device",
+  "description": "Twitter Streaming",
+  "helpText": "Twitter streaming device, for retrieving real-time tweets",
+  "enabled": true,
+  "name": "Twitter Streaming",
+  "skynet": {
+    "type": "device",
+    "subtype": "twitter-stream"
+  },
+  "type": "device:twitter-stream",
+  "connector": "meshblu-twitter-stream"
+}
