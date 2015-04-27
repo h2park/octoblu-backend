@@ -11,6 +11,9 @@ describe 'OctoModel', ->
         @meshblu.mydevices = sinon.stub().yields devices: [uuid: 'hello', type: 'octoblu:octo-master']
         @sut.findManager (@manager) => done()
 
+      it 'should call mydevices with type: octo-master a octo-master device uuid', ->
+        expect(@meshblu.mydevices).to.have.been.calledWith type: 'octoblu:octo-master', online: true
+
       it 'should yield a octo-master device uuid', ->
         expect(@manager).to.deep.equal 'hello'
 
@@ -24,11 +27,8 @@ describe 'OctoModel', ->
 
     describe 'when meshblu.mydevices yields no octo-master device', ->
       beforeEach (done) ->
-        @meshblu.mydevices = sinon.stub().yields devices: []
+        @meshblu.mydevices = sinon.stub().yields error: 'No Devices found', code: 404
         @sut.findManager (@manager) => done()
-
-      it 'should call mydevices with type: octo-master a octo-master device uuid', ->
-        expect(@meshblu.mydevices).to.have.been.calledWith type: 'octoblu:octo-master', online: true
 
       it 'should yield a octo-master device uuid', ->
         expect(@managers).not.to.exist
