@@ -1,0 +1,686 @@
+{
+  "_id": "239bq0d324da20sd3",
+  "__v": 0,
+  "type": "channel:microsoft_azure_machine_learning",
+  "auth_strategy": "",
+  "documentation": "http://azure.microsoft.com/en-us/documentation/articles/machine-learning-recommendation-api-documentation-v1/",
+  "name": "Microsoft Azure Machine Learning",
+  "enabled": true,
+  "defaultParams": [{
+      "name": ":apiVersion",
+      "style": "url",
+      "type": "string",
+      "displayName": "Each API Call Will Have At The End Query Parameter Called 'apiVersion' That Should Be Set To 1.0"
+    }],
+  "application": {
+    "base": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1",
+    "resources": [
+      {
+        "path": "/CreateModel",
+        "displayName": "Create A Model",
+        "doc": {
+          "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/CreateModel"
+        },
+        "httpMethod": "Post",
+        "params": [
+          {
+            "displayName": "The Model's Unique Name",
+            "style": "URL",
+            "type": "string",
+            "name": ":modelName",
+            "required": true
+          }
+        ],
+        "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/CreateModel"
+      },
+      {
+        "path": "/GetModel",
+        "displayName": "Get Model",
+        "doc": {
+          "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/GetModel"
+        },
+        "httpMethod": "Get",
+        "params": [
+          {
+            "displayName": "The Unique Id Of The Model",
+            "style": "URL",
+            "type": "string",
+            "name": ":id",
+            "required": true
+          }
+        ],
+        "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/GetModel"
+      },
+      {
+        "path": "/GetAllModels",
+        "displayName": "Gets All Models Of Current User",
+        "doc": {
+          "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/GetAllModels"
+        },
+        "httpMethod": "Get",
+        "params": [],
+        "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/GetAllModels"
+      },
+      {
+        "path": "/UpdateModel",
+        "displayName": "Update Model Description Or Active Build Id",
+        "doc": {
+          "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/UpdateModel"
+        },
+        "httpMethod": "Put",
+        "params": [{
+            "displayName": "Unique Identifier Of The Model",
+            "style": "URL",
+            "type": "string",
+            "name": ":id",
+            "required": true
+          }],
+        "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/UpdateModel"
+      },
+      {
+        "path": "/DeleteModel",
+        "displayName": "Delete Existing Model By Id",
+        "doc": {
+          "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/DeleteModel"
+        },
+        "httpMethod": "Delete",
+        "params": [
+          {
+            "displayName": "Unique Identifier Of The Model",
+            "style": "URL",
+            "type": "string",
+            "name": ":id",
+            "required": true
+          }],
+        "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/DeleteModel"
+      },
+      {
+        "path": "/GetDataInsight",
+        "displayName": "Returns Statistical Data On The Usage Data That This Model Was Built With",
+        "doc": {
+          "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/GetDataInsight"
+        },
+        "httpMethod": "Get",
+        "params": [{
+            "displayName": "Unique Identifier Of The Model",
+            "style": "URL",
+            "type": "string",
+            "name": ":modelId",
+            "required": true
+          }],
+        "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/GetDataInsight"
+      },
+      {
+        "path": "/GetDataInsight",
+        "displayName": "Returns Model Insight On The Active Build Or If Given On A Specific Build",
+        "doc": {
+         "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/GetDataInsight"
+        },
+        "httpMethod": "Get",
+        "params": [{
+            "displayName": "Unique Identifier Of The Model",
+            "style": "URL",
+            "type": "string",
+            "name": ":modelId",
+            "required": true
+          },{
+            "displayName": "A Number That Identifies A Successfully Build",
+            "style": "query",
+            "type": "string",
+            "name": "buildId"
+          }],
+        "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/GetDataInsight"
+      },
+      {
+        "path": "/GetModelSample",
+        "displayName": "Get A Sample Of The Recommendation Model",
+        "doc": {
+          "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/GetModelSample"
+        },
+        "httpMethod": "Get",
+        "params": [{
+            "displayName": "Unique Identifier Of The Model",
+            "style": "URL",
+            "type": "string",
+            "name": ":modelId",
+            "required": true
+          }],
+        "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/GetModelSample"
+      },
+      {
+        "path": "/GetModelRules",
+        "displayName": "Get Model Rules",
+        "doc": {
+          "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/GetModelRules"
+        },
+        "httpMethod": "Get",
+        "curl": "curl -X ",
+        "params": [
+          {
+            "displayName": "Unique Identifier Of The Model",
+            "style": "URL",
+            "type": "string",
+            "name": ":modelId",
+            "required": true
+          }
+        ],
+        "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/GetModelRules"
+      },
+      {
+        "path": "/AddRule",
+        "displayName": "Add Rule",
+        "doc": {
+          "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/AddRule"
+        },
+        "httpMethod": "Post",
+        "curl": "curl -X ",
+        "params": [],
+        "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/AddRule"
+      },
+      {
+        "path": "/DeleteRule",
+        "displayName": "Delete Rule",
+        "doc": {
+          "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/DeleteRule"
+        },
+        "httpMethod": "Delete",
+        "curl": "curl -X ",
+        "params": [
+          {
+            "displayName": "Unique Identifier Of The Model",
+            "style": "URL",
+            "type": "string",
+            "name": ":modelId",
+            "required": true
+          },{
+            "displayName": "Unique Identifier Of The Filter",
+            "style": "URL",
+            "type": "string",
+            "name": ":filterId",
+            "required": true
+          }
+        ],
+        "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/DeleteRule"
+      },
+      {
+        "path": "/DeleteAllRules",
+        "displayName": "Delete All The Rules",
+        "doc": {
+          "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/DeleteAllRules"
+        },
+        "httpMethod": "Delete",
+        "curl": "curl -X ",
+        "params": [
+          {
+            "displayName": "Unique Identifier Of The Model",
+            "style": "URL",
+            "type": "string",
+            "name": ":modelId",
+            "required": true
+          }
+        ],
+        "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/DeleteAllRules"
+      },
+      {
+        "path": "/ImportCatalogFile",
+        "displayName": "Import Catalog Data",
+        "doc": {
+          "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ImportCatalogFile"
+        },
+        "httpMethod": "Post",
+        "curl": "curl -X ",
+        "params": [{
+            "displayName": "Unique Identifier Of The Model",
+            "style": "URL",
+            "type": "string",
+            "name": ":modelId",
+            "required": true
+          },{
+            "displayName": "Textual Identifier Of The Catalog",
+            "style": "URL",
+            "type": "string",
+            "name": ":filename",
+            "required": true
+          },{
+            "displayName": "Unique Identifier Of An Item",
+            "style": "body",
+            "type": "string",
+            "name": "<Item Id>",
+            "required": true
+          },{
+            "displayName": "The Item Name",
+            "style": "body",
+            "type": "string",
+            "name": "<Item Name>",
+            "required": true
+          },{
+            "displayName": "The Category To Which This Item Belongs",
+            "style": "body",
+            "type": "string",
+            "name": "<Item Category>",
+            "required": true
+          },{
+            "displayName": "A Description Of This Item",
+            "style": "body",
+            "type": "string",
+            "name": "<description>"
+          }],
+        "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ImportCatalogFile"
+      },
+      {
+        "path": "/GetCatalog",
+        "displayName": "Retrieves All Catalog Items",
+        "doc": {
+          "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/GetCatalog"
+        },
+        "httpMethod": "Get",
+        "curl": "curl -X ",
+        "params": [{
+            "displayName": "Unique Identifier Of The Model",
+            "style": "URL",
+            "type": "string",
+            "name": ":modelId",
+            "required": true
+          }],
+        "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/GetCatalog"
+      },{
+        "path": "/GetCatalogItemsByToken",
+        "displayName": "Get Catalog Items By Token",
+        "doc": {
+          "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/GetCatalogItemsByToken"
+        },
+        "httpMethod": "Get",
+        "params": [
+          {
+            "displayName": "Unique Identifier Of The Model",
+            "style": "URL",
+            "type": "string",
+            "name": ":modelId",
+            "required": true
+          },{
+            "displayName": "Token Of Catalog Item’s Name",
+            "style": "URL",
+            "type": "string",
+            "name": ":token",
+            "required": true
+          }],
+        "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/GetCatalogItemsByToken"
+      },{
+        "path": "/ImportUsageFile",
+        "displayName": "Import Usage Data Using A File",
+        "doc": {
+          "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ImportUsageFile"
+        },
+        "httpMethod": "Post",
+        "params": [
+          {
+            "displayName": "Model Name",
+            "style": "URL",
+            "type": "string",
+            "name": ":modelName",
+            "required": true
+          },{
+            "displayName": "Textual Identifier Of The Catalog",
+            "style": "URL",
+            "type": "string",
+            "name": ":filename",
+            "required": true
+          },{
+            "displayName": "Unique Identifier Of A User",
+            "style": "body",
+            "type": "string",
+            "name": "<User Id>",
+            "required": true
+          },{
+            "displayName": "Unique Identifier Of An Item",
+            "style": "body",
+            "type": "string",
+            "name": "<Item Id>",
+            "required": true
+          },{
+            "displayName": "Textual Identifier Of The Catalog",
+            "style": "body",
+            "type": "string",
+            "name": "<Time>"
+          },{
+            "displayName": "Event",
+            "style": "body",
+            "type": "string",
+            "name": "<Event>"
+          }
+        ],
+        "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ImportUsageFile"
+      },
+      {
+        "path": "/AddUsageEvent",
+        "displayName": "Using Data Acquisition",
+        "doc": {
+          "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/AddUsageEvent"
+        },
+        "httpMethod": "Post",
+        "params": [],
+        "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/AddUsageEvent"
+      },
+      {
+        "path": "/ListModelUsageFiles",
+        "displayName": "Retrieve Metadata Of All Model Usage Files",
+        "doc": {
+          "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ListModelUsageFiles"
+        },
+        "httpMethod": "Get",
+        "params": [{
+            "displayName": "Unique Identifier Of The Model",
+            "style": "URL",
+            "type": "string",
+            "name": ":forModelId",
+            "required": true
+          }],
+        "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ListModelUsageFiles"
+      },
+      {
+        "path": "/GetUsageStatistics",
+        "displayName": "Get Usage Statistics",
+        "doc": {
+          "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/UpdateModel"
+        },
+        "httpMethod": "Get",
+        "params": [{
+            "displayName": "Unique Identifier Of The Model",
+            "style": "URL",
+            "type": "string",
+            "name": ":modelId",
+            "required": true
+          },{
+            "displayName": "Start Date",
+            "style": "URL",
+            "type": "string",
+            "name": ":startDate",
+            "required": true
+          },{
+            "displayName": "End Date",
+            "style": "URL",
+            "type": "string",
+            "name": ":endDate",
+            "required": true
+          },{
+            "displayName": "Comma Separated String Of Event Types Or Null To Get All Events",
+            "style": "URL",
+            "type": "string",
+            "name": ":eventTypes",
+            "required": true
+          }],
+        "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/UpdateModel"
+      },
+      {
+        "path": "/GetUsageFileSample",
+        "displayName": "Retrieve First 2KB Of Usage File Content",
+        "doc": {
+          "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/GetUsageFileSample"
+        },
+        "httpMethod": "Get",
+        "params": [
+          {
+            "displayName": "Unique Identifier Of The Model",
+            "style": "URL",
+            "type": "string",
+            "name": ":modelId",
+            "required": true
+          },{
+            "displayName": "Unique Identifier Of The Model Usage File",
+            "style": "URL",
+            "type": "string",
+            "name": ":fileId",
+            "required": true
+          }],
+        "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/GetUsageFileSample"
+      },
+      {
+        "path": "/GetModelUsageFile",
+        "displayName": "Retrieves Full Content Of Usage File",
+        "doc": {
+          "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/GetModelUsageFile"
+        },
+        "httpMethod": "Get",
+        "params": [{
+            "displayName": "Unique Identifier Of The Model",
+            "style": "URL",
+            "type": "string",
+            "name": ":mid",
+            "required": true
+          },{
+            "displayName": "Unique Identifier Of The Model Usage File",
+            "style": "URL",
+            "type": "string",
+            "name": ":fid",
+            "required": true
+          },{
+            "displayName": "Download",
+            "style": "URL",
+            "type": "string",
+            "name": ":download",
+            "required": true
+          }],
+        "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/GetModelUsageFile"
+      },
+      {
+        "path": "/DeleteUsageFile",
+        "displayName": "Delete Specified Model Usage File",
+        "doc": {
+         "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/DeleteUsageFile"
+        },
+        "httpMethod": "Delete",
+        "params": [{
+            "displayName": "Unique Identifier Of The Model",
+            "style": "URL",
+            "type": "string",
+            "name": ":modelId",
+            "required": true
+          },{
+            "displayName": "Unique Identifier Of The File To Be Deleted",
+            "style": "URL",
+            "type": "string",
+            "name": ":fileId",
+            "required": true
+          }],
+        "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/DeleteUsageFile"
+      },
+      {
+        "path": "/DeleteAllUsageFiles",
+        "displayName": "Delete All Model Usage Files",
+        "doc": {
+          "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/DeleteAllUsageFiles"
+        },
+        "httpMethod": "Get",
+        "params": [{
+            "displayName": "Unique Identifier Of The Model",
+            "style": "URL",
+            "type": "string",
+            "name": ":modelId",
+            "required": true
+          }],
+        "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/DeleteAllUsageFiles"
+      },
+      {
+        "path": "/BuildModel",
+        "displayName": "Build A Model",
+        "doc": {
+          "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/BuildModel"
+        },
+        "httpMethod": "Post",
+        "curl": "curl -X ",
+        "params": [
+          {
+            "displayName": "Unique Identifier Of The Model",
+            "style": "URL",
+            "type": "string",
+            "name": ":modelId",
+            "required": true
+          },{
+            "displayName": "Textual Identifier Of The Catalog",
+            "style": "URL",
+            "type": "string",
+            "name": ":userDescription",
+            "required": true
+          }
+        ],
+        "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/BuildModel"
+      },
+      {
+        "path": "/GetModelBuildsStatus",
+        "displayName": "Retrieves Builds & Their Status For A Specified Model",
+        "doc": {
+          "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/GetModelBuildsStatus"
+        },
+        "httpMethod": "Get",
+        "curl": "curl -X ",
+        "params": [{
+            "displayName": "Unique Identifier Of The Model",
+            "style": "URL",
+            "type": "string",
+            "name": ":modelId",
+            "required": true
+          },{
+            "displayName": "Only Last Build",
+            "style": "URL",
+            "type": "string",
+            "name": ":onlyLastBuild",
+            "required": true
+          }],
+        "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/GetModelBuildsStatus"
+      },
+      {
+        "path": "/GetUserBuildsStatus",
+        "displayName": "Retrieves Build Statuses Of All Models Of A User",
+        "doc": {
+          "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/GetUserBuildsStatus"
+        },
+        "httpMethod": "Get",
+        "curl": "curl -X ",
+        "params": [
+          {
+            "displayName": "Only Last Build",
+            "style": "URL",
+            "type": "string",
+            "name": ":onlyLastBuild",
+            "required": true
+          }
+        ],
+        "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/GetUserBuildsStatus"
+      },
+      {
+        "path": "/DeleteBuild",
+        "displayName": "Deletes A Build (NOTE: You Cannot Delete An Active Build)",
+        "doc": {
+          "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/DeleteBuild"
+        },
+        "httpMethod": "Delete",
+        "curl": "curl -X ",
+        "params": [
+          {
+            "displayName": "Unique Identifier Of The Build",
+            "style": "URL",
+            "type": "string",
+            "name": ":buildId",
+            "required": true
+          }
+        ],
+        "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/DeleteBuild"
+      },
+      {
+        "path": "/CancelBuild",
+        "displayName": "Retrieves Build Parameters",
+        "doc": {
+          "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/CancelBuild"
+        },
+        "httpMethod": "Put",
+        "curl": "curl -X ",
+        "params": [{
+            "displayName": "Unique Identifier Of The Build",
+            "style": "URL",
+            "type": "string",
+            "name": ":buildId",
+            "required": true
+          }],
+        "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/CancelBuild"
+      },
+      {
+        "path": "/ItemRecommend",
+        "displayName": "Get Recommendations",
+        "doc": {
+          "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ItemRecommend"
+        },
+        "httpMethod": "Get",
+        "curl": "curl -X ",
+        "params": [{
+            "displayName": "Unique Identifier Of The Model",
+            "style": "URL",
+            "type": "string",
+            "name": ":modelId",
+            "required": true
+          },{
+            "displayName": "Comma Separated List Of The Items To Recommend For",
+            "style": "URL",
+            "type": "string",
+            "name": ":itemIds",
+            "required": true
+          },{
+            "displayName": "The Number Of Required Results",
+            "style": "URL",
+            "type": "string",
+            "name": ":numberOfResults",
+            "required": true
+          },{
+            "displayName": "Future Use, Put Always False",
+            "style": "URL",
+            "type": "string",
+            "name": ":includeMetatadata",
+            "required": true
+          }],
+        "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ItemRecommend"
+      },{
+        "path": "/GetNotifications",
+        "displayName": "Retrieves All Notification For All Models Or For A Single Model",
+        "doc": {
+          "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/GetNotifications"
+        },
+        "httpMethod": "Get",
+        "params": [
+          {
+            "displayName": "Unique Identifier Of The Model",
+            "style": "URL",
+            "type": "string",
+            "name": ":modelId",
+            "required": true
+          }],
+        "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/GetNotifications"
+      },{
+        "path": "/DeleteModelNotifications",
+        "displayName": "Deletes All Read Notifications For A Model",
+        "doc": {
+          "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/DeleteModelNotifications"
+        },
+        "httpMethod": "Delete",
+        "params": [
+          {
+            "displayName": "Unique Identifier Of The Model",
+            "style": "URL",
+            "type": "string",
+            "name": ":modelName",
+            "required": true
+          }
+        ],
+        "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/DeleteModelNotifications"
+      },
+      {
+        "path": "/DeleteUserNotifications",
+        "displayName": "Deletes All Notifications For All Models",
+        "doc": {
+          "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/DeleteUserNotifications"
+        },
+        "httpMethod": "Delete",
+        "params": [],
+        "url": "https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/DeleteUserNotifications"
+      }
+    ]
+  }
+}
