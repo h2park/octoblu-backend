@@ -1,11 +1,12 @@
 'use strict';
-var octobluDB  = require('../lib/database');
 var _          = require('lodash');
 var when       = require('when');
 var uuid       = require('node-uuid');
-var Flow       = require('./flow');
 
-function TemplateModel() {
+function TemplateModel(dependencies) {
+  dependencies = dependencies || {};
+  var octobluDB  = dependencies.Database || require('../lib/database');
+  var Flow       = dependencies.Flow || require('./flow');
   var collection = octobluDB.getCollection('templates');
 
   var methods = {
@@ -116,10 +117,15 @@ function TemplateModel() {
         'resource.owner.uuid' : uuid
       };
       return self.find(query);
+    },
+
+    findByPublic: function(tags) {
+      tags = tags || [];
+      return this.find({public: true, tags: { $all: tags }});
     }
   };
 
   return _.extend({}, collection, methods);
 }
 
-module.exports = new TemplateModel()
+module.exports = TemplateModel
