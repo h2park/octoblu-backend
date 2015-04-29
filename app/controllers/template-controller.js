@@ -1,10 +1,20 @@
-var _         = require('lodash');
-var Template  = require('../models/template-model');
-
-var TemplateController = function (options) {
+var _ = require('lodash');
+var when = require('when');
+var TemplateController = function (options, dependencies) {
   var self = this;
+  dependencies = dependencies || {};
+  var Template  = dependencies.Template || require('../models/template-model');
 
   var meshblu = options.meshblu;
+
+  self.findByPublic = function(req, res) {
+    return Template.findByPublic(req.query.tags).then(function(templates){
+      res.send(200, templates);
+    }, function(error) {
+      res.send(422, error);
+      return when.reject(error);
+    });
+  };
 
   self.create = function(req, res) {
     Template.createByUserUUID(req.user.resource.uuid, req.body).then(function(template){
