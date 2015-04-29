@@ -2,12 +2,13 @@ TemplateController = require '../../app/controllers/template-controller'
 When = require 'when'
 describe 'TemplateController', ->
   beforeEach ->
-    @TemplateModel =
+    @templateModel =
       findByPublic: sinon.stub().returns When.resolve()
-    @res =
-      send: sinon.stub()
 
-    @dependencies = Template: @TemplateModel
+    @res = send: sinon.stub()
+
+    @Template = => return @templateModel
+    @dependencies = Template: @Template
     @sut = new TemplateController meshblu: {}, @dependencies
 
   describe '->findByPublic', ->
@@ -18,8 +19,8 @@ describe 'TemplateController', ->
       beforeEach ->
         @sut.findByPublic {query: ''}, @res
 
-      it 'should called Template.findByPublic', ->
-        expect(@TemplateModel.findByPublic).to.have.been.called
+      it 'should call Template.findByPublic', ->
+        expect(@templateModel.findByPublic).to.have.been.called
 
 
     describe 'when called with a query string with a list of tags', ->
@@ -31,12 +32,12 @@ describe 'TemplateController', ->
         @sut.findByPublic @req, @res
 
 
-      it 'should call TemplateModel.findByPublic with those tags', ->
-        expect(@TemplateModel.findByPublic).to.have.been.calledWith ['espresso', 'americano']
+      it 'should call templateModel.findByPublic with those tags', ->
+        expect(@templateModel.findByPublic).to.have.been.calledWith ['espresso', 'americano']
 
-    describe 'when TemplateModel resolves with templates', ->
+    describe 'when templateModel resolves with templates', ->
       beforeEach (next) ->
-        @TemplateModel.findByPublic.returns When.resolve [{name:'asdf'}, {name: 'bleh'}]
+        @templateModel.findByPublic.returns When.resolve [{name:'asdf'}, {name: 'bleh'}]
         @req =
           query:
              tags: ['lolas', 'cartel']
@@ -46,9 +47,9 @@ describe 'TemplateController', ->
       it 'should respond with the templates', ->
         expect(@res.send).to.have.been.calledWith 200, [ {name: 'asdf'}, {name: 'bleh'} ]
 
-    describe 'when TemplateModel rejects its promise', ->
+    describe 'when templateModel rejects its promise', ->
       beforeEach (next) ->
-        @TemplateModel.findByPublic.returns When.reject 'error'
+        @templateModel.findByPublic.returns When.reject 'error'
         @req =
           query:
              tags: ['green', 'herbal']

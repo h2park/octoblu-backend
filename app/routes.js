@@ -486,6 +486,7 @@ module.exports = function(app, passport) {
             app.post('/api/templates/:id/flows', templateController.importTemplate);
             app.get('/api/flows/:flowId/templates', templateController.withFlowId);
             app.get('/api/users/:uuid/templates', templateController.withUserUUID);
+            app.get('/api/templates/public', templateController.findByPublic);
             app.get('/api/topics/summary', topicSummaryController.show);
             app.get('/api/messages/summary', messageSummaryController.show);
             app.get('/api/general/search', generalSearchController.show);
