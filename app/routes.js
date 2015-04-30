@@ -270,11 +270,11 @@ module.exports = function(app, passport, config, meshbluJSON){
             require('./controllers/designer')(app);
             require('./controllers/invitation')(app, passport, config);
 
-            app.post('/api/auth/aws/channel/:id', channelAWSAuthController.create);
-            app.post('/api/auth/clouddotcom/channel/:id', channelCloudDotComController.create);
-            app.post('/api/auth/google-places/channel/:id', channelGooglePlacesController.create);
-            app.post('/api/auth/basic/channel/:id', channelBasicAuthController.create);
-            app.post('/api/auth/apikey/channel/:id', channelApiKeyController.create);
+            app.post('/api/channel/aws/channel/:id', channelAWSAuthController.create);
+            app.post('/api/channel/clouddotcom/channel/:id', channelCloudDotComController.create);
+            app.post('/api/channel/google-places/channel/:id', channelGooglePlacesController.create);
+            app.post('/api/channel/basic/channel/:id', channelBasicAuthController.create);
+            app.post('/api/channel/apikey/channel/:id', channelApiKeyController.create);
 
             app.post('/api/auth/signup', signupController.checkForExistingUser, signupController.createUser);
             app.get('/api/oauth/facebook/signup', signupController.verifyInvitationCode, signupController.storeTesterId, facebookController.authorize);
