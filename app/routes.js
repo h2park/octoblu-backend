@@ -1,23 +1,10 @@
-module.exports = function(app, passport) {
+module.exports = function(app, passport, meshbluJSON){
     // setting env to app.settings.env
     var env = app.settings.env;
     var config = require('../config/auth');
     var meshblu = require('meshblu');
     var SecurityController = require('./controllers/middleware/security-controller');
     var security = new SecurityController();
-    var meshbluJSON;
-    try {
-        meshbluJSON  = require(process.cwd()+'/meshblu.json');
-    }
-    catch (error) {
-        meshbluJSON = {
-            uuid:   process.env.OCTOBLU_UUID,
-            token:  process.env.OCTOBLU_TOKEN,
-            server: config.skynet.host,
-            port:   config.skynet.port,
-            protocol: 'websocket'
-        };
-    }
 
     app.locals.skynetUrl = config.skynet.host + ':' + config.skynet.port;
 

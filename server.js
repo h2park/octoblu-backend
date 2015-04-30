@@ -71,11 +71,35 @@ app.use(bodyParser.json({ limit : '50mb' }));
 
 app.use(express.static(__dirname + '/public'));
 
+var meshbluJSON;
+try {
+    meshbluJSON  = require(process.cwd()+'/meshblu.json');
+}
+catch (error) {
+    meshbluJSON = {
+        uuid:   process.env.OCTOBLU_UUID,
+        token:  process.env.OCTOBLU_TOKEN,
+        server: config.skynet.host,
+        port:   config.skynet.port,
+        protocol: 'websocket'
+    };
+}
+
+if ( !meshbluJSON || typeof meshbluJSON.uuid === 'undefined' ) {
+  console.error("Octoblu UUID not defined in meshblu.json or OCTOBLU_UUID environment variable");
+  process.exit(1);
+}
+
+if ( !meshbluJSON || typeof meshbluJSON.token === 'undefined' ) {
+  console.error("Octoblu token not defined in meshblu.json or OCTOBLU_TOKEN environment variable");
+  process.exit(1);
+}
+
 var session = require('cookie-session');
 app.use(session(
   {
     name: 'octoblu:sess',
-    secret: process.env.OCTOBLU_UUID + process.env.OCTOBLU_TOKEN,
+    secret: meshbluJSON.uuid + meshbluJSON.token,
     domain: configAuth.domain,
     secureProxy: (process.env.NODE_ENV !== 'development')
   }
@@ -88,7 +112,7 @@ if (process.env.NODE_ENV === 'development') {
   app.use(errorhandler());
 }
 
-require('./app/routes.js')(app, passport);
+require('./app/routes.js')(app, passport, meshbluJSON);
 
 var httpServer = http.createServer(app);
 var httpsServer = https.createServer(credentials, app);
