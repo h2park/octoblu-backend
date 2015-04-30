@@ -5,36 +5,39 @@ describe 'OctoModel', ->
     @meshblu = {}
     @sut = new OctoModel meshblu: @meshblu
 
-  describe '->findManagers', ->
-    describe 'when meshblu.mydevices yields one octo-manager device', ->
+  describe '->findManager', ->
+    describe 'when meshblu.mydevices yields one octo-master device', ->
       beforeEach (done) ->
-        @meshblu.mydevices = sinon.stub().yields devices: [uuid: 'hello', type: 'octoblu:octo-manager']
-        @sut.findManagers (@managers) => done()
+        @meshblu.mydevices = sinon.stub().yields devices: [uuid: 'hello', type: 'octoblu:octo-master']
+        @sut.findManager (@manager) => done()
 
-      it 'should yield a octo-manager device uuid', ->
-        expect(@managers).to.deep.equal ['hello']
+      it 'should call mydevices with type: octo-master a octo-master device uuid', ->
+        expect(@meshblu.mydevices).to.have.been.calledWith type: 'octoblu:octo-master', online: true
 
-    describe 'when meshblu.mydevices yields another octo-manager device', ->
+      it 'should yield a octo-master device uuid', ->
+        expect(@manager).to.deep.equal 'hello'
+
+    describe 'when meshblu.mydevices yields another octo-master device', ->
       beforeEach (done) ->
-        @meshblu.mydevices = sinon.stub().yields devices: [uuid: 'goodbye', type: 'octoblu:octo-manager']
-        @sut.findManagers (@managers) => done()
+        @meshblu.mydevices = sinon.stub().yields devices: [uuid: 'goodbye', type: 'octoblu:octo-master']
+        @sut.findManager (@manager) => done()
 
-      it 'should yield a octo-manager device uuid', ->
-        expect(@managers).to.deep.equal ['goodbye']
+      it 'should yield a octo-master device uuid', ->
+        expect(@manager).to.deep.equal 'goodbye'
 
-    describe 'when meshblu.mydevices yields no octo-manager device', ->
+    describe 'when meshblu.mydevices yields no octo-master device', ->
       beforeEach (done) ->
-        @meshblu.mydevices = sinon.stub().yields devices: [uuid: 'goodbye', type: 'something:else']
-        @sut.findManagers (@managers) => done()
+        @meshblu.mydevices = sinon.stub().yields error: 'No Devices found', code: 404
+        @sut.findManager (@manager) => done()
 
-      it 'should yield a octo-manager device uuid', ->
-        expect(@managers).to.deep.equal []
+      it 'should yield a octo-master device uuid', ->
+        expect(@managers).not.to.exist
 
-  describe '->messageManagers', ->
+  describe '->messageManager', ->
     describe 'when called uuid and token', ->
       beforeEach ->
         @meshblu.message = sinon.spy()
-        @sut.messageManagers 'create-octo', ['master'], {uuid: 'dude', token: 'bye'}
+        @sut.messageManager 'create-octo', 'master', {uuid: 'dude', token: 'bye'}
 
       it 'should send a meshblu message to start the octo', ->
         expect(@meshblu.message).to.have.been.calledWith
@@ -47,7 +50,7 @@ describe 'OctoModel', ->
     describe 'when called uuid and token', ->
       beforeEach ->
         @meshblu.message = sinon.spy()
-        @sut.messageManagers 'create-octo', ['super-master'], {uuid: 'hey you', token: '...'}
+        @sut.messageManager 'create-octo', 'super-master', {uuid: 'hey you', token: '...'}
 
       it 'should send a meshblu message to start the octo', ->
         expect(@meshblu.message).to.have.been.calledWith
@@ -77,6 +80,7 @@ describe 'OctoModel', ->
         expect(@meshblu.register).to.have.been.calledWith
           type: 'octoblu:octo'
           owner: 'yo'
+          name: 'Octo 1'
           configureWhitelist: ['yo']
           discoverWhitelist: ['yo']
           receiveWhitelist: ['yo']
@@ -112,6 +116,7 @@ describe 'OctoModel', ->
         expect(@meshblu.register).to.have.been.calledWith
           type: 'octoblu:octo'
           owner: 'hey'
+          name: 'Octo 1'
           configureWhitelist: ['hey']
           discoverWhitelist: ['hey']
           receiveWhitelist: ['hey']
@@ -130,7 +135,7 @@ describe 'OctoModel', ->
 
   describe '->delete', ->
     beforeEach ->
-      @meshblu.mydevices = sinon.stub().yields devices: [uuid: 'not-so-super-master', type: 'octoblu:octo-manager']
+      @meshblu.mydevices = sinon.stub().yields devices: [uuid: 'not-so-super-master', type: 'octoblu:octo-master']
       @meshblu.message = sinon.spy()
       @sut.delete('hey you')
 

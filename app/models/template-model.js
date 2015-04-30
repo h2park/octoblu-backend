@@ -2,6 +2,7 @@
 var _          = require('lodash');
 var when       = require('when');
 var uuid       = require('node-uuid');
+var debug      = require('debug')
 
 function TemplateModel(dependencies) {
   dependencies = dependencies || {};
@@ -120,7 +121,11 @@ function TemplateModel(dependencies) {
     },
 
     findByPublic: function(tags) {
+      debug("Finding template with tags ", tags);
       tags = tags || [];
+      if( ! _.isArray(tags)){
+        tags = [tags]
+      }
       return this.find({public: true, tags: { $all: tags }});
     }
   };

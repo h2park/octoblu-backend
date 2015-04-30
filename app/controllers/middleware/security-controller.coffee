@@ -1,6 +1,7 @@
 _ = require 'lodash'
 UserSession = require '../../models/user-session-model'
 basicAuth = require 'basic-auth'
+debug = require('debug')('octoblu:security-controller')
 
 class SecurityController
   constructor: (dependencies={}) ->
@@ -26,6 +27,7 @@ class SecurityController
 
   getAuthFromHeaders: (request) =>
     headers = request.headers ? {}
+    debug 'getAuthFromHeaders', headers
 
     uuid  = headers.skynet_auth_uuid ? headers.meshblu_auth_uuid
     token = headers.skynet_auth_token ? headers.meshblu_auth_token
@@ -33,15 +35,15 @@ class SecurityController
     return uuid: uuid, token: token
 
   getAuthFromCookies: (request) =>
-    return {} unless request.user?
-    user = request.user
     cookies = request.cookies ? {}
+    debug 'getAuthFromCookies', cookies
 
     return uuid: cookies.meshblu_auth_uuid, token: cookies.meshblu_auth_token
 
   getAuthFromBasic: (request) =>
     return {} unless request.headers?
     auth = basicAuth request
+    debug 'getAuthFromBasic', auth
     return {} unless auth?
     {name, pass} = auth
     return {} unless name && pass
@@ -50,6 +52,7 @@ class SecurityController
   getAuthFromBearer: (request) =>
     return {} unless request.headers?
     parts = request.headers.authorization?.split(' ')
+    debug 'getAuthFromBearer', parts
     return {} unless parts? && parts[0] == 'Bearer'
 
     auth = new Buffer(parts[1], 'base64').toString().split(':')
@@ -64,9 +67,11 @@ class SecurityController
     {uuid, token} = @getAuthFromBearer(request) unless uuid && token
     {uuid, token} = @getAuthFromBasic(request) unless uuid && token
     {uuid, token} = @getAuthFromCookies(request) unless uuid && token
+    debug 'getAuthFromAnywhere', uuid, token
     return uuid: uuid, token: token
 
   authenticateWithMeshblu: (uuid, token, callback=->) =>
+    debug 'authenticateWithMeshblu', uuid, token
     return callback new Error('No UUID or Token found') unless uuid && token
     @userSession.getDeviceFromMeshblu uuid, token, (error, userDevice) =>
       return callback error if error?
