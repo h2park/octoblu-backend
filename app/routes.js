@@ -1,23 +1,9 @@
-module.exports = function(app, passport) {
+module.exports = function(app, passport, config, meshbluJSON){
     // setting env to app.settings.env
     var env = app.settings.env;
-    var config = require('../config/auth');
     var meshblu = require('meshblu');
     var SecurityController = require('./controllers/middleware/security-controller');
     var security = new SecurityController();
-    var meshbluJSON;
-    try {
-        meshbluJSON  = require(process.cwd()+'/meshblu.json');
-    }
-    catch (error) {
-        meshbluJSON = {
-            uuid:   process.env.OCTOBLU_UUID,
-            token:  process.env.OCTOBLU_TOKEN,
-            server: config.skynet.host,
-            port:   config.skynet.port,
-            protocol: 'websocket'
-        };
-    }
 
     app.locals.skynetUrl = config.skynet.host + ':' + config.skynet.port;
 
@@ -284,11 +270,11 @@ module.exports = function(app, passport) {
             require('./controllers/designer')(app);
             require('./controllers/invitation')(app, passport, config);
 
-            app.post('/api/auth/aws/channel/:id', channelAWSAuthController.create);
-            app.post('/api/auth/clouddotcom/channel/:id', channelCloudDotComController.create);
-            app.post('/api/auth/google-places/channel/:id', channelGooglePlacesController.create);
-            app.post('/api/auth/basic/channel/:id', channelBasicAuthController.create);
-            app.post('/api/auth/apikey/channel/:id', channelApiKeyController.create);
+            app.post('/api/channel/aws/channel/:id', channelAWSAuthController.create);
+            app.post('/api/channel/clouddotcom/channel/:id', channelCloudDotComController.create);
+            app.post('/api/channel/google-places/channel/:id', channelGooglePlacesController.create);
+            app.post('/api/channel/basic/channel/:id', channelBasicAuthController.create);
+            app.post('/api/channel/apikey/channel/:id', channelApiKeyController.create);
 
             app.post('/api/auth/signup', signupController.checkForExistingUser, signupController.createUser);
             app.get('/api/oauth/facebook/signup', signupController.verifyInvitationCode, signupController.storeTesterId, facebookController.authorize);
