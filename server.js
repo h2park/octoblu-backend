@@ -1,5 +1,6 @@
 'use strict';
 require('coffee-script/register');
+var config = require('./config/auth');
 
 if ((process.env.USE_NEWRELIC  || 'false').toLowerCase() === 'true') {
   require('newrelic');
@@ -112,7 +113,7 @@ if (process.env.NODE_ENV === 'development') {
   app.use(errorhandler());
 }
 
-require('./app/routes.js')(app, passport, meshbluJSON);
+require('./app/routes.js')(app, passport, config, meshbluJSON);
 
 var httpServer = http.createServer(app);
 var httpsServer = https.createServer(credentials, app);

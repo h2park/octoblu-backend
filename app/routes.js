@@ -1,7 +1,6 @@
-module.exports = function(app, passport, meshbluJSON){
+module.exports = function(app, passport, config, meshbluJSON){
     // setting env to app.settings.env
     var env = app.settings.env;
-    var config = require('../config/auth');
     var meshblu = require('meshblu');
     var SecurityController = require('./controllers/middleware/security-controller');
     var security = new SecurityController();
