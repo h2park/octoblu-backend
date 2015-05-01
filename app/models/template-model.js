@@ -2,7 +2,6 @@
 var _          = require('lodash');
 var when       = require('when');
 var uuid       = require('node-uuid');
-var debug      = require('debug')
 
 function TemplateModel(dependencies) {
   dependencies = dependencies || {};
@@ -11,6 +10,29 @@ function TemplateModel(dependencies) {
   var collection = octobluDB.getCollection('templates');
 
   var methods = {
+    createRawByUserUUID : function(userUUID, data) {
+      if(!data.flow) {
+        return when.reject(new Error('No flow data'))
+      }
+      var self = this;
+      var template = _.extend({
+        uuid: uuid.v1(),
+        created: new Date(),
+        resource: {
+          nodeType: 'template',
+          owner: {
+            uuid: userUUID,
+            nodeType: 'user'
+          }
+        }
+      }, data);
+
+      template.flow = self.cleanFlow(data.flow);
+      return self.insert(template).then(function(){
+        return template;
+      });
+    },
+
     createByUserUUID : function(userUUID, data) {
       var self = this;
       var template = _.extend({
