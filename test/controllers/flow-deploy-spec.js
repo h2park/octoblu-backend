@@ -48,7 +48,8 @@ describe('flowDeployController', function () {
         beforeEach(function () {
           var req = {
             params: {id: 'fake'},
-            cookies: {meshblu_auth_uuid: 'some.uuid', meshblu_auth_token: 'some.token'}
+            uuid: 'some.uuid',
+            token: 'some.token'
           };
           sut.startInstance(req, res);
         });
@@ -84,4 +85,3 @@ describe('flowDeployController', function () {
   };
 
 });
-

@@ -35,7 +35,7 @@ module.exports = function ( app, passport, config ) {
   });
 
   app.post('/api/reset-token', function(req, res, next){
-    User.resetToken(req.cookies.meshblu_auth_uuid, req.cookies.meshblu_auth_token).then(function(token){
+    User.resetToken(req.uuid, req.token).then(function(token){
       res.send(token);
     }).catch(function(err){
       res.send(500, err);

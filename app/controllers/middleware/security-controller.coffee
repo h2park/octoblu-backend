@@ -81,14 +81,16 @@ class SecurityController
 
   isAuthenticated: (request, response, next=->) =>
     return next() if request.bypassAuth
+    {uuid, token} = @getAuthFromAnywhere request
 
     authenticateCallback = (error, user, userDevice) =>
       return response.status(401).send(error: error.message) if error?
       return response.status(404).send(error: 'user not found') unless user?
       user.userDevice = userDevice
+      request.uuid = uuid
+      request.token = token
       request.login user, next
 
-    {uuid, token} = @getAuthFromAnywhere request
     @authenticateWithMeshblu uuid, token, authenticateCallback
 
 module.exports = SecurityController

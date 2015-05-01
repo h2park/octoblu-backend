@@ -34,7 +34,7 @@ module.exports = function (options) {
   };
 
   self.delete = function (req, res) {
-    Flow.deleteByFlowIdAndUser(req.params.id, req.cookies.meshblu_auth_uuid, req.cookies.meshblu_auth_token, meshblu)
+    Flow.deleteByFlowIdAndUser(req.params.id, req.uuid, req.token, meshblu)
       .then(function(){
         res.send(204);
       }, function (err) {

@@ -75,8 +75,8 @@ var TemplateController = function (options, dependencies) {
   };
 
   self.importTemplate = function(req, res) {
-    var uuid = req.cookies.meshblu_auth_uuid;
-    var token = req.cookies.meshblu_auth_token;
+    var uuid = req.uuid;
+    var token = req.token;
     self.getFlowNodeTypes(uuid, token).then(function (flowNodeTypes) {
       templateModel.importTemplate(req.user.resource.uuid, req.params.id, meshblu, flowNodeTypes).then(function(flow){
         res.send(201, flow);

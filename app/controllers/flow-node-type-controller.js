@@ -6,8 +6,8 @@ module.exports = function (options) {
   self = this;
 
   this.getFlowNodeTypes = function (req, res) {
-    var uuid = req.cookies.meshblu_auth_uuid;
-    var token = req.cookies.meshblu_auth_token;
+    var uuid = req.uuid;
+    var token = req.token;
     var flowNodeTypeCollection = self.getFlowNodeTypeCollection(uuid, token);
     flowNodeTypeCollection.fetch().then(function (flowNodeTypes) {
       res.send(200, addResourceType(flowNodeTypes));

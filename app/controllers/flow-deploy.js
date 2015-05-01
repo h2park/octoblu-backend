@@ -26,9 +26,9 @@ var FlowDeploy = function (options) {
   self.runOnInstance = function (req, cmd, activated) {
     var userUUID, userToken;
 
-    userUUID = req.cookies.meshblu_auth_uuid;
-    userToken = req.cookies.meshblu_auth_token;
-    
+    userUUID = req.uuid;
+    userToken = req.token;
+
     Flow.getFlow(req.params.id)
       .then(function (flow) {
         Flow.updateByFlowIdAndUser(flow.flowId, userUUID, {activated: activated});

@@ -116,7 +116,8 @@ describe('FlowController', function () {
       var req = {
         params: {id: '5'},
         user:   { skynet: {uuid: '1', token: 'tolkein'} },
-        cookies: { meshblu_auth_uuid: '1', meshblu_auth_token: 'tolkein'}
+        uuid: '1',
+        token: 'tolkein'
       };
       sut.delete(req, res);
     });

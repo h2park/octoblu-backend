@@ -47,8 +47,8 @@ module.exports = function (app, passport, config) {
 
     function logoutRoute(req, res) {
         var cookies = req.cookies || {};
-        var uuid = cookies.meshblu_auth_uuid || cookies.skynet_auth_uuid
-        var token = cookies.meshblu_auth_token || cookies.skynet_auth_token
+        var uuid = req.uuid;
+        var token = req.token;
         clearCookies(res);
 
         if (req.logout) {

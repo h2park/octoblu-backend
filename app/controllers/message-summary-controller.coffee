@@ -5,8 +5,8 @@ class MessageSummaryController
   constructor: (@elasticSearchUri) ->
 
   show: (request, response) =>
-    uuid = request.cookies.meshblu_auth_uuid
-    token = request.cookies.meshblu_auth_token
+    uuid = request.uuid
+    token = request.token
     message_summary = new MessageSummary @elasticSearchUri, uuid, token
     message_summary.fetch()
       .then (result) =>

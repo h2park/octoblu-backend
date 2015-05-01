@@ -57,8 +57,8 @@ var permissionsController = {
             newSourceGroup = req.body.sourceGroup,
             newTargetGroup = req.body.targetGroup;
         var userCredentials = {
-            uuid: req.cookies.meshblu_auth_uuid,
-            token: req.cookies.meshblu_auth_token
+            uuid: req.uuid,
+            token: req.token
         };
 
         newTargetGroup.members = _.map(newTargetGroup.members, function(member){
@@ -311,6 +311,3 @@ module.exports = function (app) {
 
     app.get('/api/permissions/shared/:type?', permissionsController.getMySharedResourceTargets);
 };
-
-
-
