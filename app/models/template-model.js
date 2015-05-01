@@ -122,11 +122,14 @@ function TemplateModel(dependencies) {
 
     findByPublic: function(tags) {
       debug("Finding template with tags ", tags);
-      tags = tags || [];
-      if( ! _.isArray(tags)){
-        tags = [tags]
+      var query = {public: true};
+      if(tags) {
+        if( ! _.isArray(tags)){
+          tags = [tags]
+        }
+        query.tags = {$all: tags};
       }
-      return this.find({public: true, tags: { $all: tags }});
+      return this.find(query);
     }
   };
 
