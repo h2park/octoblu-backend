@@ -466,13 +466,13 @@ module.exports = function(app, passport, config, meshbluJSON){
 
             app.post('/api/templates', templateController.create);
             app.get('/api/templates', templateController.getAllTemplates);
+            app.get('/api/templates/public', templateController.findByPublic);
             app.delete('/api/templates/:id', templateController.delete);
             app.put('/api/templates/:id', templateController.update);
             app.get('/api/templates/:id', templateController.findOne);
             app.post('/api/templates/:id/flows', templateController.importTemplate);
             app.get('/api/flows/:flowId/templates', templateController.withFlowId);
             app.get('/api/users/:uuid/templates', templateController.withUserUUID);
-            app.get('/api/templates/public', templateController.findByPublic);
             app.get('/api/topics/summary', topicSummaryController.show);
             app.get('/api/messages/summary', messageSummaryController.show);
             app.get('/api/general/search', generalSearchController.show);
