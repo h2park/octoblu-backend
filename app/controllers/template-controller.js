@@ -1,5 +1,7 @@
 var _ = require('lodash');
 var when = require('when');
+var FlowNodeTypeCollection = require('../collections/flow-node-type-collection');
+
 var TemplateController = function (options, dependencies) {
   var self = this;
   dependencies = dependencies || {};
@@ -73,12 +75,25 @@ var TemplateController = function (options, dependencies) {
   };
 
   self.importTemplate = function(req, res) {
-    templateModel.importTemplate(req.user.resource.uuid, req.params.id, meshblu).then(function(flow){
-      res.send(201, flow);
-    }, function(error) {
+    var uuid = req.cookies.meshblu_auth_uuid;
+    var token = req.cookies.meshblu_auth_token;
+    self.getFlowNodeTypes(uuid, token).then(function (flowNodeTypes) {
+      templateModel.importTemplate(req.user.resource.uuid, req.params.id, meshblu, flowNodeTypes).then(function(flow){
+        res.send(201, flow);
+      }, function(error) {
+        res.send(422, error);
+      });
+    }, function(error){
       res.send(422, error);
     });
   };
+
+  self.getFlowNodeTypes = function(uuid, token){
+    var flowNodeTypeCollection = new FlowNodeTypeCollection(uuid, token);
+    return flowNodeTypeCollection.fetch().then(function (flowNodeTypes) {
+      return flowNodeTypes;
+    });
+  }
 
   self.withFlowId = function(req, res) {
     templateModel.withFlowId(req.params.flowId).then(function(templates) {

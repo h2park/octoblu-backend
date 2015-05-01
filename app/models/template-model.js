@@ -69,11 +69,12 @@ function TemplateModel(dependencies) {
       });
     },
 
-    importFlow : function(userUUID, flow, meshblu) {
+    importFlow : function(userUUID, flow, meshblu, flowNodeTypes) {
       var self = this;
       var newFlow = self.cleanFlow(flow);
       _.each(newFlow.nodes, function(node){
         self.cleanId(node, newFlow.links);
+        self.populateNode(node, flowNodeTypes);
       });
 
       return Flow.createByUserUUID(userUUID, newFlow, meshblu);
@@ -125,6 +126,23 @@ function TemplateModel(dependencies) {
       _.each(fromLinks, function(fromLink){
         fromLink.from = newId;
       });
+    },
+
+    populateNode: function(node, flowNodeTypes){
+      if(node.type === 'operation:device'){
+        return;
+      }
+      node.needsConfiguration = !_.findWhere(flowNodeTypes, {uuid: node.uuid});
+      node.needsSetup         = !_.findWhere(flowNodeTypes, {type: node.type});
+
+      if(node.needsConfiguration && !node.needsSetup){
+        var matchingNode = _.findWhere(flowNodeTypes, {type: node.type});
+
+        node.channelActivationId = matchingNode.defaults.channelActivationId;
+        node.uuid                = matchingNode.defaults.uuid;
+        node.token               = matchingNode.defaults.token;
+        node.needsConfiguration  = false;
+      }
     },
 
     withFlowId : function(flowId) {
