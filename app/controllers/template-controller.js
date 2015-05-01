@@ -24,6 +24,14 @@ var TemplateController = function (options, dependencies) {
     });
   };
 
+  self.createRaw = function(req, res) {
+    templateModel.createRawByUserUUID(req.user.resource.uuid, req.body).then(function(template){
+      res.send(201, template);
+    }, function(error) {
+      res.send(422, error);
+    });
+  };
+
   self.update = function(req, res) {
     var query = {uuid: req.params.id};
     templateModel.findOne(query).then(function(template){

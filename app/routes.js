@@ -471,6 +471,7 @@ module.exports = function(app, passport, config, meshbluJSON){
             app.put('/api/templates/:id', templateController.update);
             app.get('/api/templates/:id', templateController.findOne);
             app.post('/api/templates/:id/flows', templateController.importTemplate);
+            app.post('/api/templates/raw', templateController.createRaw);
             app.get('/api/flows/:flowId/templates', templateController.withFlowId);
             app.get('/api/users/:uuid/templates', templateController.withUserUUID);
             app.get('/api/topics/summary', topicSummaryController.show);
