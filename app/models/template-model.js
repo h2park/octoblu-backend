@@ -2,6 +2,7 @@
 var _          = require('lodash');
 var when       = require('when');
 var uuid       = require('node-uuid');
+var debug      = require('debug')('octoblu:template-model');
 
 function TemplateModel(dependencies) {
   dependencies = dependencies || {};
