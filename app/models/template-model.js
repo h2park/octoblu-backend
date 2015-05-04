@@ -57,13 +57,14 @@ function TemplateModel(dependencies) {
       });
     },
 
-    importTemplate : function(userUUID, templateId, meshblu) {
+    importTemplate : function(userUUID, templateId, meshblu, flowNodeTypes) {
       var self = this;
       return self.findOne({uuid: templateId}).then(function(template) {
         var newFlow = _.clone(template.flow);
         newFlow.name = template.name;
         _.each(newFlow.nodes, function(node){
           self.cleanId(node, newFlow.links);
+          self.populateNode(node, flowNodeTypes);
         });
 
         return Flow.createByUserUUID(userUUID, newFlow, meshblu);
@@ -101,7 +102,7 @@ function TemplateModel(dependencies) {
       }
 
       var self = this;
-      var stuffToKeep = ['type', 'category', 'name', 'channelid', 'useStaticMessage', 'staticMessage'];
+      var stuffToKeep = ['type', 'category', 'name', 'channelid', 'useStaticMessage', 'staticMessage', 'connector'];
       _.each(_.keys(node.defaults), function(key){
         if (_.contains(stuffToKeep, key)){
           return ;
