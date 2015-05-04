@@ -50,6 +50,7 @@ function TemplateModel(dependencies) {
 
       return Flow.findOne({flowId: data.flowId}).then(function(flow) {
         template.flow = self.cleanFlow(flow);
+        template.tags = self.getTags(template.flow);
         return self.insert(template).then(function(){
           return template;
         });
@@ -159,6 +160,16 @@ function TemplateModel(dependencies) {
         'resource.owner.uuid' : uuid
       };
       return self.find(query);
+    },
+
+    getTags: function(template) {
+      var tags = _.map(template.nodes, 'type');
+      tags = _.map(tags, function(tag){
+        tag = tag.split(":")
+        return tag[1];
+      })
+      debug('got tags', tags);
+      return tags;
     },
 
     findByPublic: function(tags) {
