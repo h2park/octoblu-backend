@@ -39,19 +39,20 @@ function TemplateModel(dependencies) {
       var self = this;
       var result;
       return self.getNameFromUuid(userUUID).then(function(author){
-        return _.extend(
-          {
-            uuid: uuid.v1(),
-            created: new Date(),
-            resource: {
-              nodeType: 'template',
-              owner: {
-                uuid: userUUID,
-                name: author,
-                nodeType: 'user'
-              }
+        return _.extend({
+          uuid: uuid.v1(),
+          created: new Date(),
+          likedBy: [],
+          sharedBy: [],
+          resource: {
+            nodeType: 'template',
+            owner: {
+              uuid: userUUID,
+              name: author,
+              nodeType: 'user'
             }
-          }, data);
+          }
+        }, data);
         }).then(function(template){
             return Flow.findOne({flowId: data.flowId})
             .then(function(flow) {
