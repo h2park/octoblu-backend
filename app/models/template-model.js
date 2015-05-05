@@ -6,6 +6,7 @@ var debug      = require('debug')('octoblu:template-model');
 
 function TemplateModel(dependencies) {
   dependencies = dependencies || {};
+  var User       = require('./user');
   var octobluDB  = dependencies.Database || require('../lib/database');
   var Flow       = dependencies.Flow || require('./flow');
   var collection = octobluDB.getCollection('templates');
@@ -36,25 +37,34 @@ function TemplateModel(dependencies) {
 
     createByUserUUID : function(userUUID, data) {
       var self = this;
-      var template = _.extend({
-        uuid: uuid.v1(),
-        created: new Date(),
-        resource: {
-          nodeType: 'template',
-          owner: {
-            uuid: userUUID,
-            nodeType: 'user'
-          }
-        }
-      }, data);
-
-      return Flow.findOne({flowId: data.flowId}).then(function(flow) {
-        template.flow = self.cleanFlow(flow);
-        template.tags = self.getTags(template.flow);
-        return self.insert(template).then(function(){
-          return template;
+      var result;
+      return self.getNameFromUuid(userUUID).then(function(author){
+        return _.extend(
+          {
+            uuid: uuid.v1(),
+            created: new Date(),
+            resource: {
+              nodeType: 'template',
+              owner: {
+                uuid: userUUID,
+                name: author,
+                nodeType: 'user'
+              }
+            }
+          }, data);
+        }).then(function(template){
+            return Flow.findOne({flowId: data.flowId})
+            .then(function(flow) {
+              template.flow = self.cleanFlow(flow);
+              template.tags = self.getTags(template.flow);
+              return template;
+            });
+          }).then(function(template){
+            result = template;
+            return self.insert(template);
+          }).then(function(){
+            return result;
         });
-      });
     },
 
     importTemplate : function(userUUID, templateId, meshblu, flowNodeTypes) {
@@ -171,6 +181,14 @@ function TemplateModel(dependencies) {
       })
       debug('got tags', tags);
       return tags;
+    },
+
+    getNameFromUuid: function(uuid){
+      return User.findBySkynetUUID(uuid).then(function(user){
+        var fullName = user.userDevice.octoblu.firstName + " " + user.userDevice.octoblu.lastName;
+        debug("Template created by ", fullName);
+        return fullName;
+      });
     },
 
     findByPublic: function(tags) {

@@ -63,7 +63,6 @@ function UserModel() {
 
       return self.findBySkynetUUID(skynetuuid)
         .then(function(user) {
-          console.log(user);
         })
         .catch(function(error) {
           return when.reject('Error updating profile');
