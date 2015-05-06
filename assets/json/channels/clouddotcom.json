@@ -4,7 +4,7 @@
   "bodyFormat": "json",
   "custom_tokens": [ ],
   "description": "",
-  "enabled": "true",
+  "enabled": false,
   "name": "CloudDotCom",
   "type": "channel:clouddotcom",
   "application": {
