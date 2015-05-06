@@ -14,16 +14,16 @@ class FlowAuthCredentialsController
     uuid = request.params.id
     {token, type, access_token} = request.query
     @verifyDevice uuid, token, (error, device) =>
-      return response.status(401).send() if error?
+      return response.status(401).send("Unable to verify device: #{error?.message}") if error?
       debug 'found device', device
       @getAccessToken device.owner, type, access_token, (error, auth) =>
         debug 'got token', auth, error
-        return response.status(401).send() if error?
-        response.status(200).send access_token: auth.token, expiresOn: auth.expiresOn
+        return response.status(401).send("Error getting access token: #{error?.message}") if error?
+        response.status(200).send access_token: auth.token, expiresOn: auth.expiresOn, refreshToken: auth.refreshToken
 
   verifyDevice: (uuid, token, callback=(->)) =>
     debug 'verifyDevice', uuid, token
-    @meshbluHttp = new @MeshbluHttp _.extend({}, @meshbluJSON, protocol: 'http', uuid: uuid, token: token)
+    @meshbluHttp = new @MeshbluHttp _.extend({}, @meshbluJSON, uuid: uuid, token: token)
     @meshbluHttp.device uuid, callback
 
   getAccessToken: (uuid, type, access_token, callback=(->)) =>
@@ -58,6 +58,6 @@ class FlowAuthCredentialsController
       User.addApiToUserByChannelType uuid, type, channelAuth
       .catch callback
       .then ->
-        callback null, token: accessToken, expiresOn: expiresOn
+        callback null, token: accessToken, expiresOn: expiresOn, refreshToken: refreshToken
 
 module.exports = FlowAuthCredentialsController
