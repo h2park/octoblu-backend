@@ -3,7 +3,7 @@
   "category": "channel",
   "description": "Cloud Dot Com",
   "helpText": "A mobile-as-a-service platform from Citrix.",
-  "enabled": true,
+  "enabled": false,
   "name": "CloudDotCom",
   "skynet": {
     "type": "channel",

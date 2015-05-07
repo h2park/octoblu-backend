@@ -4,7 +4,7 @@
   "bodyFormat": "json",
   "custom_tokens": [ ],
   "description": "",
-  "enabled": "true",
+  "enabled": "false",
   "name": "CloudDotCom",
   "type": "channel:clouddotcom",
   "application": {
@@ -52,7 +52,7 @@
         "displayName": "Get Channels",
         "path": "/push/channels",
         "httpMethod": "GET",
-        "params": [  
+        "params": [
           {
             "name": "offset",
             "displayName": "Offset",
