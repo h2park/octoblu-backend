@@ -34,19 +34,6 @@ var TemplateController = function (options, dependencies) {
     });
   };
 
-  self.update = function(req, res) {
-    var query = {uuid: req.params.id};
-    templateModel.findOne(query).then(function(template){
-      var updatedTemplate = _.extend({}, template, req.body);
-      return templateModel.update(query, updatedTemplate);
-    }).then(function(){
-      res.send(204);
-    }, function(error) {
-      res.send(422, error);
-    });
-  };
-
-
   self.updateByUserId = function(req, res){
     return templateModel.updateByUserId(req.user.uuid, req.body)
       .then(function(){
@@ -104,12 +91,8 @@ var TemplateController = function (options, dependencies) {
     });
   }
 
-  self.delete = function(req, res) {
-    templateModel.remove({uuid: req.params.id}).then(function() {
-      res.send(200);
-    }, function(error) {
-      res.send(422, error);
-    });
+  self.deleteByUserId = function(req, res) {
+    return templateModel.deleteByUserId()
   }
 };
 
