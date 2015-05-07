@@ -3,9 +3,12 @@ When = require 'when'
 
 describe 'TemplateModel', ->
   beforeEach ->
+    @collection =
+      find: sinon.stub()
+
     @Database =
-      getCollection: sinon.stub().returns
-        find: sinon.stub()
+      getCollection: sinon.stub().returns @collection
+
 
     @Flow = {}
     @dependencies = Database: @Database, Flow: @Flow
@@ -20,18 +23,18 @@ describe 'TemplateModel', ->
         @sut.findByPublic()
 
       it 'should call find on itself with the public property equal to "true"', ->
-        expect(@sut.find).to.have.been.calledWithMatch public:true
+        expect(@collection.find).to.have.been.calledWithMatch public:true
 
     describe 'when called with tags', ->
       beforeEach ->
         @sut.findByPublic(['whatevs', 'ok'])
 
       it 'should call find on itself with the public property equal to "true"', ->
-        expect(@sut.find).to.have.been.calledWith {public: true, tags: $all: ['whatevs', 'ok']}
+        expect(@collection.find).to.have.been.calledWith {public: true, tags: $all: ['whatevs', 'ok']}
 
     describe 'when find resolves with some templates', ->
       beforeEach (done) ->
-        @sut.find.returns When.resolve [ {name: 'doc1'}, {name: 'doc2'} ]
+        @collection.find.returns When.resolve [ {name: 'doc1'}, {name: 'doc2'} ]
         @sut.findByPublic().then (results) =>
           @results = results
           done()
@@ -41,7 +44,7 @@ describe 'TemplateModel', ->
 
     describe 'when find rejects with an error', ->
       beforeEach (done) ->
-        @sut.find.returns When.reject 'error'
+        @collection.find.returns When.reject 'error'
         @sut.findByPublic().catch (error) =>
           @results = error
           done()

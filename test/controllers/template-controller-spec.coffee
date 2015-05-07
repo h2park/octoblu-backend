@@ -8,7 +8,7 @@ describe 'TemplateController', ->
     @res = send: sinon.stub()
 
     @Template = => return @templateModel
-    
+
     @dependencies = Template: @Template
     @sut = new TemplateController meshblu: {}, @dependencies
 

@@ -468,8 +468,8 @@ module.exports = function(app, passport, config, meshbluJSON){
             app.get('/api/templates', templateController.getAllTemplates);
             app.get('/api/templates/public', templateController.findByPublic);
             app.delete('/api/templates/:id', templateController.delete);
-            app.put('/api/templates/:id', templateController.update);
-            app.get('/api/templates/:id', templateController.findOne);
+            app.put('/api/templates/:id', templateController.updateByUserId);
+            app.get('/api/templates/:id', templateController.findByTemplateId);
             app.post('/api/templates/:id/flows', templateController.importTemplate);
             app.post('/api/templates/raw', templateController.createRaw);
             app.get('/api/flows/:flowId/templates', templateController.withFlowId);

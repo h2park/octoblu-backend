@@ -46,15 +46,16 @@ var TemplateController = function (options, dependencies) {
     });
   };
 
-  self.findOne = function(req, res) {
-    var query = {
-      uuid: req.params.id
-    };
-    return templateModel.findOne(query).then(function(template) {
-      res.send(200, template);
-    }, function(error) {
-      res.send(404, error);
-    });
+
+  self.updateByUserId = function(req, res){
+    return templateModel.updateByUserId(req.user.uuid, req.body)
+      .then(function(){
+        res.status(204).send();
+      })
+      .catch( function(error){
+        res.status(403).send(error);
+        return when.reject(error);
+      });
   };
 
   self.withUserUUID = function(req, res) {

@@ -30,7 +30,7 @@ function TemplateModel(dependencies) {
       }, data);
 
       template.flow = self.cleanFlow(data.flow);
-      return self.insert(template).then(function(){
+      return collection.insert(template).then(function(){
         return template;
       });
     },
@@ -62,7 +62,7 @@ function TemplateModel(dependencies) {
             });
           }).then(function(template){
             result = template;
-            return self.insert(template);
+            return collection.insert(template);
           }).then(function(){
             return result;
         });
@@ -70,7 +70,7 @@ function TemplateModel(dependencies) {
 
     importTemplate : function(userUUID, templateId, meshblu, flowNodeTypes) {
       var self = this;
-      return self.findOne({uuid: templateId}).then(function(template) {
+      return collection.findOne({uuid: templateId}).then(function(template) {
         var newFlow = _.clone(template.flow);
         newFlow.name = template.name;
         _.each(newFlow.nodes, function(node){
@@ -163,7 +163,7 @@ function TemplateModel(dependencies) {
       var query = {
         flowId: flowId
       };
-      return self.find(query);
+      return collection.find(query);
     },
 
     withUserUUID : function(uuid) {
@@ -171,7 +171,7 @@ function TemplateModel(dependencies) {
       var query = {
         'resource.owner.uuid' : uuid
       };
-      return self.find(query);
+      return collection.find(query);
     },
 
     getTags: function(template) {
@@ -201,11 +201,11 @@ function TemplateModel(dependencies) {
         }
         query.tags = {$all: tags};
       }
-      return this.find(query);
+      return collection.find(query);
     }
   };
 
-  return _.extend({}, collection, methods);
+  return methods;
 }
 
 module.exports = TemplateModel
