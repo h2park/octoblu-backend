@@ -16,24 +16,6 @@ describe 'TemplateCollection', ->
   it 'should exist', ->
     expect(@sut).to.exist
 
-  describe 'TemplateCollection.hasUser', ->
-    it 'should exist', ->
-      expect(@sut.hasUser).to.exist
-
-    describe 'when a TemplateCollection is contructed without a user', ->
-      beforeEach ->
-        @sut = new TemplateCollection()
-
-      it 'hasUser should return false', ->
-        expect(@sut.hasUser()).to.be.false
-
-    describe 'when a TemplateCollection is contructed with a user', ->
-      beforeEach ->
-        @sut = new TemplateCollection owner: 'Koshin'
-
-      it 'should return true', ->
-        expect(@sut.hasUser()).to.be.true
-
   describe '->create', ->
     it 'should exist', ->
       expect(@sut.create).to.exist
@@ -41,7 +23,7 @@ describe 'TemplateCollection', ->
     describe "when called and hasUser returns false", ->
       it 'should reject its promise with an error saying a user is required in order to create a template', ->
         @sut.create().catch (error) =>
-          expect(error.message).to.equal 'a user is required in order to create a template'
+          expect(error).to.exist
 
     describe "when called and hasUser returns true", ->
       beforeEach ->
@@ -95,13 +77,10 @@ describe 'TemplateCollection', ->
     it 'should exist', ->
       expect(@sut.update).to.exist
 
-    describe "when called and hasUser returns false", ->
-      beforeEach ->
-        @sut.hasUser = sinon.stub().returns false
-
-      it 'should reject its promise with an error saying a user is required in order to update a template', ->
+    describe "We don't have a user", ->
+      it 'should reject its promise with an error', ->
         @sut.update().catch (error) =>
-          expect(error.message).to.equal 'a user is required in order to update a template'
+          expect(error).to.exist
 
     describe "when called and the user owns the template", ->
       beforeEach () ->
@@ -144,8 +123,22 @@ describe 'TemplateCollection', ->
       describe "When called with a bunch of data", ->
         beforeEach ->
           @sut = new TemplateCollection {owner: 1}, @dependencies
-          oldTemplate = uuid: 3, owner: 1, name: 'reaaroned'
-          newTemplate = uuid: 5, name: 'mine', owner: 44, flow: null
+          oldTemplate =
+            uuid: 3
+            owner: 1
+            name: 'reaaroned'
+            flow: 'whatevs'
+            public: true
+
+          newTemplate =
+            uuid: 5
+            name: 'mine'
+            owner: 44
+            tags: ['hey', 'lo']
+            flow: 'simian'
+            public: false
+            description: 'basically a monkey'
+
           @collection.insert(oldTemplate)
             .then =>
               @sut.update({uuid: 3}, newTemplate)
@@ -155,7 +148,20 @@ describe 'TemplateCollection', ->
                @template = template
 
         it "should update the name", ->
-          expect(@template).to.exist
+          expect(@template.name).to.equal 'mine'
+
+        it "should update the tags", ->
+          expect(@template.tags).to.deep.equal ['hey', 'lo']
+
+        it "should update public", ->
+          expect(@template.public).to.equal false
+
+        it "should update the description", ->
+          expect(@template.description).to.equal 'basically a monkey'
+
 
         it "should not update the uuid", ->
           expect(@template.uuid).to.equal 3
+
+        it "should not update the owner", ->
+          expect(@template.owner).to.equal 1
