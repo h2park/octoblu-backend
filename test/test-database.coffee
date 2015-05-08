@@ -11,12 +11,16 @@ class TestDatabase
   @open: (callback=->) =>
     if USE_MONGO
       mongojs = require 'mongojs'
+      callCallback = _.after @collectionNames.length, callback
       db = mongojs 'octoblu-test', @collectionNames
+      _.each @collectionNames, (name) =>
+        db[name].remove (error) =>
+          callCallback error, @wrap(db)
+
     else
       Datastore = require 'nedb'
       db = {}
       callCallback = _.after @collectionNames.length, => callback null, @wrap(db)
-
       _.each @collectionNames, (name) =>
         db[name] = new Datastore
           inMemoryOnly: true
@@ -24,7 +28,7 @@ class TestDatabase
           onload: callCallback
 
   @wrap: (db) =>
-    functionsToWrap = ['find', 'findOne', 'remove', 'insert', 'update']
+    functionsToWrap = ['find', 'findOne', 'remove', 'insert', 'update', 'count']
     wrappedDatabase = {}
 
     _.each @collectionNames, (name) =>
