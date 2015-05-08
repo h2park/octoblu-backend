@@ -6,10 +6,13 @@ _ = require 'lodash'
 describe 'TemplateCollection', ->
   beforeEach (done)->
     @uuid = v4: sinon.stub()
+    @User = findBySkynetUUID: sinon.stub()
     @dependencies = {uuid: @uuid}
     TestDatabase.open (error, database) =>
       @collection = database.templates
+      @userCollection = database.users
       @dependencies.collection = @collection
+      @dependencies.User = @User
       done error
 
     @sut = new TemplateCollection()
@@ -48,11 +51,15 @@ describe 'TemplateCollection', ->
       describe 'when creating a template and the uuid generator generates "ID1"', ->
         beforeEach ->
           @uuid.v4.returns 'ID1'
+          @sut.create(name: 'repetered').then (templateId) =>
+             @templateId = templateId
 
         it 'should give the template that uuid', ->
-          @sut.create(name: 'repetered').then =>
             @collection.findOne(name: 'repetered')
             .then (template) => expect(template.uuid).to.equal 'ID1'
+
+        it 'should return the uuid of the created template', ->
+          expect(@templateId).to.equal 'ID1'
 
       describe 'when creating a template and the uuid generator generates "ID2"', ->
         beforeEach ->

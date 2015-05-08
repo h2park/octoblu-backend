@@ -2,18 +2,21 @@ _ = require 'lodash'
 When = require 'when'
 
 class TemplateCollection
-  @updateProperties : ['name', 'tags', 'description', 'public']
+  @updateProperties : ['name', 'tags', 'description', 'public', 'flow']
   constructor: (options={}, dependencies={}) ->
     @owner = options.owner
     @collection = dependencies.collection
-    @uuid = dependencies.uuid
+    @uuid = dependencies.uuid || require 'node-uuid'
 
   create: (template={})=>
     @requireUser().then =>
       template.uuid = @uuid.v4()
       template.owner = @owner
+      template.created = new Date()
     .then =>
       @collection.insert template
+    .then =>
+      template.uuid
 
   update: (query={}, template={}) =>
     @requireUser().then =>
@@ -41,6 +44,7 @@ class TemplateCollection
       query.owner = @owner
     else
       query.public = true
+
     query
 
   requireUser: (errorMsg='a user is required for this operation') =>
