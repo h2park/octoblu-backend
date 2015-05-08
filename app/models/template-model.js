@@ -9,77 +9,48 @@ function TemplateModel(dependencies) {
   var User       = require('./user');
   var octobluDB  = dependencies.Database || require('../lib/database');
   var Flow       = dependencies.Flow || require('./flow');
-  var collection = octobluDB.getCollection('templates');
+  var TemplateCollection = dependencies.TemplateCollection || require('../collections/template-collection');
 
   var methods = {
-    createRawByUserUUID : function(userUUID, data) {
-      if(!data.flow) {
+    createRawByUserUUID : function(userUUID, template) {
+      if(!template.flow) {
         return when.reject(new Error('No flow data'))
       }
       var self = this;
-      var template = _.extend({
-        uuid: uuid.v1(),
-        created: new Date(),
-        resource: {
-          nodeType: 'template',
-          owner: {
-            uuid: userUUID,
-            nodeType: 'user'
-          }
-        }
-      }, data);
+      templateCollection = new TemplateCollection({owner: userUUID});
+      template.flow = self.cleanFlow(template.flow);
+      template.tags = template.tags || self.getTags(template.flow);
 
-      template.flow = self.cleanFlow(data.flow);
-      return collection.insert(template).then(function(){
-        return template;
-      });
+      return templateCollection.create(template)
+        .then(function(templateId){
+          return templateCollection.get({uuid: templateId});
+        });
     },
 
     createByUserUUID : function(userUUID, data) {
       var self = this;
-      var result;
-      return self.getNameFromUuid(userUUID).then(function(author){
-        return _.extend({
-          uuid: uuid.v1(),
-          created: new Date(),
-          likedBy: [],
-          sharedBy: [],
-          resource: {
-            nodeType: 'template',
-            owner: {
-              uuid: userUUID,
-              name: author,
-              nodeType: 'user'
-            }
-          }
-        }, data);
-        }).then(function(template){
-            return Flow.findOne({flowId: data.flowId})
-            .then(function(flow) {
-              template.flow = self.cleanFlow(flow);
-              template.tags = self.getTags(template.flow);
-              return template;
-            });
-          }).then(function(template){
-            result = template;
-            return collection.insert(template);
-          }).then(function(){
-            return result;
+      var templateCollection = new TemplateCollection({owner: userUUID});
+
+      return Flow.findOne({flowId: data.flowId})
+        .then(function(flow){
+          sef.createRawByUserUUID(userUUID, self.cleanFlow(flow));
         });
     },
 
     importTemplate : function(userUUID, templateId, meshblu, flowNodeTypes) {
       var self = this;
-      return collection.findOne({uuid: templateId}).then(function(template) {
-        var newFlow = _.clone(template.flow);
-        newFlow.name = template.name;
-        _.each(newFlow.nodes, function(node){
-          self.cleanId(node, newFlow.links);
-          self.populateNode(node, flowNodeTypes);
-        });
+      var templateCollection = new TemplateCollection({owner: userUUID});
+      return templateCollection.get({uuid: templateId})
+        .then(function(template) {
+          var newFlow = _.clone(template.flow);
+          newFlow.name = template.name;
+          _.each(newFlow.nodes, function(node){
+            self.cleanId(node, newFlow.links);
+            self.populateNode(node, flowNodeTypes);
+          });
 
-        return Flow.createByUserUUID(userUUID, newFlow, meshblu);
-      });
+          return Flow.createByUserUUID(userUUID, newFlow, meshblu);
+        });
     },
 
     importFlow : function(userUUID, flow, meshblu, flowNodeTypes) {
@@ -124,7 +95,7 @@ function TemplateModel(dependencies) {
       return node;
     },
 
-    cleanId : function(node, links){
+    cleanId : function(node, links) {
       var oldId = node.id;
       var newId = uuid.v1();
       var toLinks = _.filter(links, {to: oldId});
@@ -160,22 +131,21 @@ function TemplateModel(dependencies) {
 
     withFlowId : function(flowId) {
       var self = this;
+      var templateCollection = new TemplateCollection()
       var query = {
         flowId: flowId
       };
-      return collection.find(query);
+      return templateCollection.list(query);
     },
 
     withUserUUID : function(uuid) {
       var self = this;
-      var query = {
-        'resource.owner.uuid' : uuid
-      };
-      return collection.find(query);
+      var templateCollection = new TemplateCollection({owner: uuid});
+      return templateCollection.list();
     },
 
     getTags: function(template) {
-      var tags = _.map(template.nodes, 'type');
+      var tags = _.pluck(template.nodes, 'type');
       tags = _.map(tags, function(tag){
         tag = tag.split(":")
         return tag[1];
@@ -184,24 +154,17 @@ function TemplateModel(dependencies) {
       return tags;
     },
 
-    getNameFromUuid: function(uuid){
-      return User.findBySkynetUUID(uuid).then(function(user){
-        var fullName = user.userDevice.octoblu.firstName + " " + user.userDevice.octoblu.lastName;
-        debug("Template created by ", fullName);
-        return fullName;
-      });
-    },
-
     findByPublic: function(tags) {
       debug("Finding template with tags ", tags);
-      var query = {public: true};
+      var templateCollection = new TemplateCollection();
+      var query = {};
       if(tags) {
         if( ! _.isArray(tags)){
           tags = [tags]
         }
-        query.tags = {$all: tags};
+        query = {tags: {$all: tags}};
       }
-      return collection.find(query);
+      return templateCollection.list(query);
     }
   };
 

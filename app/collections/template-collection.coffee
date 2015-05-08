@@ -13,6 +13,7 @@ class TemplateCollection
       template.uuid = @uuid.v4()
       template.owner = @owner
       template.created = new Date()
+      template.likedBy = template.likedBy || []
     .then =>
       @collection.insert template
     .then =>
@@ -38,10 +39,10 @@ class TemplateCollection
     query = @allowPublic query
     @collection.find query
 
-  allowPublic: (query) =>
+  allowPublic: (query={}) =>
     query = _.clone query
     if @owner?
-      query.owner = @owner
+      query.owner = @owner unless query.public
     else
       query.public = true
 
