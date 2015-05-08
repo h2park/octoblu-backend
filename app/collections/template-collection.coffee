@@ -1,3 +1,4 @@
+_ = require 'lodash'
 When = require 'when'
 
 class TemplateCollection
@@ -16,8 +17,8 @@ class TemplateCollection
   update: (query={}, template) =>
     return When.reject new Error('a user is required in order to update a template') unless @hasUser()
     query.owner = @owner
-    console.log 'updating', query, template
-    @collection.update query, template
+    template = _.pick template, 'name', 'tags', 'description'
+    @collection.update query, $set: template
 
 
   hasUser: =>
