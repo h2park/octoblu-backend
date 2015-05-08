@@ -13,27 +13,32 @@ function TemplateModel(dependencies) {
 
   var methods = {
     createRawByUserUUID : function(userUUID, template) {
+      debug('createRawByUserUUID called with', template);
       if(!template.flow) {
+        debug('aaron will be wrong if it gets here');
         return when.reject(new Error('No flow data'))
       }
       var self = this;
-      templateCollection = new TemplateCollection({owner: userUUID});
+      var templateCollection = new TemplateCollection({owner: userUUID});
       template.flow = self.cleanFlow(template.flow);
       template.tags = template.tags || self.getTags(template.flow);
 
       return templateCollection.create(template)
         .then(function(templateId){
+          debug('templateId', templateId);
           return templateCollection.get({uuid: templateId});
         });
     },
 
-    createByUserUUID : function(userUUID, data) {
+    createByUserUUID : function(userUUID, template) {
+      debug('entering createByUserUUID');
       var self = this;
       var templateCollection = new TemplateCollection({owner: userUUID});
-
-      return Flow.findOne({flowId: data.flowId})
+      return Flow.findOne({flowId: template.flowId})
         .then(function(flow){
-          sef.createRawByUserUUID(userUUID, self.cleanFlow(flow));
+          debug('found flow', flow);
+          template.flow = self.cleanFlow(flow);
+          return self.createRawByUserUUID(userUUID, template);
         });
     },
 
@@ -165,6 +170,16 @@ function TemplateModel(dependencies) {
         query = {tags: {$all: tags}};
       }
       return templateCollection.list(query);
+    },
+    //URGENT: functions to remove:
+    findOne: function(owner, query) {
+      var templateCollection = new TemplateCollection({owner: owner});
+      return templateCollection.get(query);
+    },
+
+    update: function(owner, query, template) {
+      var templateCollection = new TemplateCollection({owner: owner});
+      return templateCollection.update(query, template);
     }
   };
 

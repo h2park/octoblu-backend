@@ -1,11 +1,11 @@
 _ = require 'lodash'
 When = require 'when'
-
+octobluDb = require '../lib/database'
 class TemplateCollection
   @updateProperties : ['name', 'tags', 'description', 'public', 'flow']
   constructor: (options={}, dependencies={}) ->
     @owner = options.owner
-    @collection = dependencies.collection
+    @collection = dependencies.collection || octobluDb.getCollection 'templates'
     @uuid = dependencies.uuid || require 'node-uuid'
 
   create: (template={})=>
