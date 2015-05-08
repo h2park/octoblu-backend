@@ -59,16 +59,3 @@ describe 'TemplateController', ->
 
       it 'should respond with 422 and error', ->
         expect(@res.send).to.have.been.calledWith 422, 'error'
-
-  describe '->deleteByUserId', ->
-    beforeEach ->
-      @templateModel.deleteByUserId = sinon.stub()
-    it 'should exist', ->
-      expect(@sut.deleteByUserId).to.exist
-
-    describe 'when called', ->
-      beforeEach ->
-        @sut.deleteByUserId()
-
-      it 'should call templateModel.deleteByUserId', ->
-        expect(@templateModel.deleteByUserId).to.have.been.called
