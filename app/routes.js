@@ -464,34 +464,29 @@ module.exports = function(app, passport, config, meshbluJSON){
 
             app.post('/api/witai/auth', witaiController.authorize, witaiController.redirectToDesigner);
 
-            app.post('/api/templates',  templateController.create,
-                                        templateController.sendTemplate);
+            app.post('/api/templates',  templateController.create);
 
             app.get('/api/templates',   templateController.getAllTemplates,
-                                        templateController.addOwnerNames,
-                                        templateController.sendTemplates);
+                                        templateController.addOwnerNames);
 
             app.get('/api/templates/public',  templateController.findByPublic,
-                                              templateController.addOwnerNames,
-                                              templateController.sendTemplates);
+                                              templateController.addOwnerNames);
 
             app.delete('/api/templates/:id', templateController.delete);
 
             app.put('/api/templates/:id', templateController.update);
 
-            app.get('/api/templates/:id', templateController.findOne,
-                                          templateController.sendTemplate);
+            app.get('/api/templates/:id', templateController.findOne);
 
             app.post('/api/templates/:id/flows', templateController.importTemplate);
 
-            app.post('/api/templates/raw',  templateController.createRaw,
-                                            templateController.sendTemplate);
+            app.post('/api/templates/raw',  templateController.createRaw);
 
-            app.get('/api/flows/:flowId/templates', templateController.withFlowId,
-                                                    templateController.sendTemplate);
+            app.all('/api/templates*', templateController.send);
 
-            app.get('/api/users/:uuid/templates', templateController.withUserUUID, 
-                                                  templateController.sendTemplate);
+            app.get('/api/flows/:flowId/templates', templateController.withFlowId);
+
+            app.get('/api/users/:uuid/templates', templateController.withUserUUID);
 
             app.get('/api/topics/summary', topicSummaryController.show);
             app.get('/api/messages/summary', messageSummaryController.show);

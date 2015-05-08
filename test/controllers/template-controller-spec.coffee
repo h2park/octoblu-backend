@@ -18,7 +18,7 @@ describe 'TemplateController', ->
 
     describe 'when called', ->
       beforeEach ->
-        @sut.findByPublic {query: ''}, @res
+        @sut.findByPublic {query: ''}, @res, => @res.send req.templates
 
       it 'should call Template.findByPublic', ->
         expect(@templateModel.findByPublic).to.have.been.called
@@ -30,7 +30,7 @@ describe 'TemplateController', ->
           query:
              tags: ['espresso', 'americano']
 
-        @sut.findByPublic @req, @res
+        @sut.findByPublic @req, @res, => @res.send req.templates
 
 
       it 'should call templateModel.findByPublic with those tags', ->
@@ -43,7 +43,9 @@ describe 'TemplateController', ->
           query:
              tags: ['lolas', 'cartel']
 
-        @sut.findByPublic(@req, @res).then => next()
+        @sut.findByPublic @req, @res, =>
+          @res.send 200, @req.templates
+          next()
 
       it 'should respond with the templates', ->
         expect(@res.send).to.have.been.calledWith 200, [ {name: 'asdf'}, {name: 'bleh'} ]
@@ -55,7 +57,7 @@ describe 'TemplateController', ->
           query:
              tags: ['green', 'herbal']
 
-        @sut.findByPublic(@req, @res).catch => next()
+        @sut.findByPublic(@req, @res, next).then => next()
 
       it 'should respond with 422 and error', ->
         expect(@res.send).to.have.been.calledWith 422, 'error'

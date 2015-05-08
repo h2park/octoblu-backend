@@ -46,7 +46,20 @@ class TemplateCollection
     else
       query.public = true
 
+    @shimQuery query
+
+  shimQuery: (query) =>
+    return query unless query.owner?
+
+    query.$or = [
+        { owner: query.owner},
+        {'resource.owner.uuid': query.owner}
+      ]
+      
+    delete query.owner
+
     query
+
 
   requireUser: (errorMsg='a user is required for this operation') =>
     return When.reject new Error(errorMsg) unless @owner?

@@ -22,7 +22,11 @@ describe 'TemplateTransformer', ->
             name: 'bluprint number one'
             owner: 123
 
-          @User.findBySkynetUUID.returns When.resolve firstName: 'self', lastName: 'immolation'
+          @User.findBySkynetUUID.returns When.resolve
+            userDevice:
+              octoblu:
+                firstName: 'self'
+                lastName: 'immolation'
           @sut.addOwnerName(@bluprint).then (@result) =>
 
         it 'should return the bluprint with the owner name added', ->
@@ -34,7 +38,7 @@ describe 'TemplateTransformer', ->
             name: 'horse'
             owner: 999
 
-          @User.findBySkynetUUID.returns When.resolve {}
+          @User.findBySkynetUUID.returns When.resolve userDevice: octoblu: {}
           @sut.addOwnerName(@bluprint).then (@result) =>
 
         it 'should return the bluprint with the ownerName Anonymous', ->
@@ -63,14 +67,20 @@ describe 'TemplateTransformer', ->
         ]
         @authors =
           123:
-            firstName: 'self'
-            lastName: 'immolation'
+            userDevice:
+              octoblu:
+                firstName: 'self'
+                lastName: 'immolation'
           456:
-            firstName: 'non-lethal'
-            lastName: 'shot'
+            userDevice:
+              octoblu:
+                firstName: 'non-lethal'
+                lastName: 'shot'
           666:
-            firstName: 'robotify'
-            lastName: 'SCIENCE'
+            userDevice:
+              octoblu:
+                firstName: 'robotify'
+                lastName: 'SCIENCE'
 
         @User.findBySkynetUUID.onCall(0).returns When.resolve @authors[123]
         @User.findBySkynetUUID.onCall(1).returns When.resolve @authors[456]

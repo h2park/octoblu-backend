@@ -32,6 +32,9 @@ var TemplateController = function (options, dependencies) {
       .then(function(templates) {
         req.templates = templates;
         next();
+      })
+      .catch(function(error){
+        res.send(422, error);
       });
   };
 
@@ -40,6 +43,9 @@ var TemplateController = function (options, dependencies) {
       .then(function(template){
         req.template = template;
         next();
+      })
+      .catch(function(error){
+        res.send(422, error);
       });
   };
 
@@ -48,19 +54,25 @@ var TemplateController = function (options, dependencies) {
       .then(function(template){
         req.template = template;
         next();
+      })
+      .catch(function(error){
+        res.send(422, error);
       });
   };
 
   self.update = function(req, res, next) {
     var query = {uuid: req.params.id};
-    templateModel.findOne(req.uuid, query).then(function(template){
-      var updatedTemplate = _.extend({}, template, req.body);
-      return templateModel.update(req.uuid, query, updatedTemplate);
-    }).then(function(){
-      res.send(204);
-    }, function(error) {
-      res.send(422, error);
-    });
+    templateModel.findOne(req.uuid, query)
+      .then(function(template){
+        var updatedTemplate = _.extend({}, template, req.body);
+        return templateModel.update(req.uuid, query, updatedTemplate);
+      })
+      .then(function(){
+        next();
+      })
+      .catch(function(error) {
+        res.send(422, error);
+      });
   };
 
   self.findOne = function(req, res, next) {
@@ -71,6 +83,9 @@ var TemplateController = function (options, dependencies) {
       .then(function(template) {
         req.template = template;
         next();
+      })
+      .catch(function(error){
+        res.send(422, error);
       });
   };
 
@@ -79,6 +94,9 @@ var TemplateController = function (options, dependencies) {
       .then(function(templates) {
         req.templates = templates;
         next();
+      })
+      .catch(function(error){
+        res.send(422, error);
       });
   };
 
@@ -88,21 +106,23 @@ var TemplateController = function (options, dependencies) {
         var sortedTemplates = _.sortBy(templates, 'created').reverse()
         req.templates = sortedTemplates;
         next();
+      })
+      .catch(function(error){
+        res.send(422, error);
       });
   };
 
   self.importTemplate = function(req, res) {
-    var uuid = req.uuid;
-    var token = req.token;
-    self.getFlowNodeTypes(uuid, token).then(function (flowNodeTypes) {
-      templateModel.importTemplate(req.user.resource.uuid, req.params.id, meshblu, flowNodeTypes).then(function(flow){
+    self.getFlowNodeTypes(req.uuid, req.token)
+      .then(function (flowNodeTypes) {
+        return templateModel.importTemplate(req.user.resource.uuid, req.params.id, meshblu, flowNodeTypes);
+      })
+      .then(function(flow){
         res.send(201, flow);
-      }, function(error) {
+      })
+      .catch(function(error){
         res.send(422, error);
       });
-    }, function(error){
-      res.send(422, error);
-    });
   };
 
   self.withFlowId = function(req, res, next) {
@@ -110,7 +130,10 @@ var TemplateController = function (options, dependencies) {
       .then(function(templates) {
         req.templates = templates;
         next();
-    });
+      })
+      .catch(function(error){
+        res.send(422, error);
+      });
   }
 
   self.getFlowNodeTypes = function(uuid, token){
@@ -118,17 +141,32 @@ var TemplateController = function (options, dependencies) {
     return flowNodeTypeCollection.fetch()
       .then(function (flowNodeTypes) {
         return flowNodeTypes;
-    });
+      });
   }
 
-  self.delete = function(req, res) {
-    templateModel.remove({uuid: req.params.id}).then(function() {
-      res.send(200);
-    }, function(error) {
-      res.send(422, error);
-    });
+  self.delete = function(req, res, next) {
+    templateModel.remove({uuid: req.params.id})
+      .then(function() {
+        next();
+      })
+      .then(function(error) {
+        res.send(422, error);
+      });
   }
+
+  self.send = function(req, res) {
+    if(req.templates)
+      return res.send(200, req.templates);
+
+    if(req.template)
+      return res.send(200, req.templates);
+
+    if(req.templateId)
+      return res.send(200, req.templateId);
+
+    return res.send(204);
+  };
+
 };
-
 
 module.exports = TemplateController;

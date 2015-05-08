@@ -2,12 +2,14 @@ When = require 'when'
 class TemplateTransformer
 
   constructor: (dependencies) ->
-    {@User} = dependencies || require '../models/user'
+    dependencies = dependencies || {}
+    @User = dependencies.User || require '../models/user'
 
   addOwnerName: (bluprint) =>
+    bluprint.owner = bluprint.resource.owner.uuid unless bluprint.owner?
     @User.findBySkynetUUID(bluprint.owner).then (user) =>
-      if user.firstName?
-        bluprint.ownerName = "#{user.firstName} #{user.lastName?[0]}."
+      if user.userDevice.octoblu.firstName?
+        bluprint.ownerName = "#{user.userDevice.octoblu.firstName} #{user.userDevice.octoblu.lastName?[0]}."
       else
         bluprint.ownerName = 'Anonymous'
 
