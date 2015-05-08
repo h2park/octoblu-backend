@@ -22,6 +22,27 @@ class TemplateCollection
     .then =>
       @collection.update query, $set: template
 
+  delete: (query={}) =>
+    @requireUser().then =>
+      query.owner = @owner
+      @collection.remove query
+
+  get: (query={}) =>
+    query = @allowPublic query
+    @collection.findOne query
+
+  list: (query={}) =>
+    query = @allowPublic query
+    @collection.find query
+
+  allowPublic: (query) =>
+    query = _.clone query
+    if @owner?
+      query.owner = @owner
+    else
+      query.public = true
+    query
+
   requireUser: (errorMsg='a user is required for this operation') =>
     return When.reject new Error(errorMsg) unless @owner?
     When.resolve()

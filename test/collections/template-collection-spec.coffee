@@ -1,6 +1,7 @@
 TemplateCollection = require '../../app/collections/template-collection'
 TestDatabase = require '../test-database'
 When = require 'when'
+_ = require 'lodash'
 
 describe 'TemplateCollection', ->
   beforeEach (done)->
@@ -65,7 +66,7 @@ describe 'TemplateCollection', ->
 
     describe 'when constructed with a different uuid', ->
       beforeEach ->
-          @sut = new TemplateCollection({owner: 'Aaron'}, @dependencies)
+          @sut = new TemplateCollection {owner: 'Aaron'}, @dependencies
 
       it 'should set the owner of the template', ->
         @sut.create(name: 'repetered').then =>
@@ -120,7 +121,7 @@ describe 'TemplateCollection', ->
             @collection.find(name: 'repetered')
               .then (templates) => expect(templates).to.be.empty
 
-      describe "When called with a bunch of data", ->
+      describe "When called with a template", ->
         beforeEach ->
           @sut = new TemplateCollection {owner: 1}, @dependencies
           oldTemplate =
@@ -159,9 +160,127 @@ describe 'TemplateCollection', ->
         it "should update the description", ->
           expect(@template.description).to.equal 'basically a monkey'
 
-
         it "should not update the uuid", ->
           expect(@template.uuid).to.equal 3
 
         it "should not update the owner", ->
           expect(@template.owner).to.equal 1
+
+  describe '->delete', ->
+    beforeEach ->
+      @collection.insert [
+        { name: 'Homer',  uuid: 5, owner: 'Smithers' }
+        { name: 'Janet',  uuid: 7, owner: 'Marge' }
+        { name: 'Bart',  uuid: 7, owner: 'Marge' }
+      ]
+
+    it 'should exist', ->
+      expect(@sut.delete).to.exist
+
+    describe "We don't have a user", ->
+      it 'should reject its promise with an error', ->
+        @sut.delete().catch (error) =>
+          expect(error).to.exist
+
+    describe "when called with a query for a template owned by the user", ->
+      beforeEach ->
+        @sut = new TemplateCollection {owner: 'Smithers'}, @dependencies
+        @sut.delete name: 'Homer'
+
+      it 'should delete the template', ->
+        @collection.findOne(name: 'Homer').then (template)=>
+          expect(template).to.not.exist
+
+      it 'should not have deleted anything else', ->
+        @collection.find({}).then (templates) =>
+          expect(templates.length).to.equal 2
+
+    describe "when called with a query for a template not owned by the user", ->
+      beforeEach ->
+        @sut = new TemplateCollection {owner: 'Smithers'}, @dependencies
+        @sut.delete name: 'Janet'
+
+      it 'should not have deleted anything at all', ->
+        @collection.find({}).then (templates) =>
+          expect(templates.length).to.equal 3
+
+  describe '->get', ->
+    beforeEach ->
+      @collection.insert [
+        { name: 'Homer',  uuid: 5, owner: 'Smithers' }
+        { name: 'Janet',  uuid: 7, owner: 'Marge', public: true }
+        { name: 'Bart',  uuid: 7, owner: 'Marge', public: true }
+        { name: 'Secrets and Lies',  uuid: 7, owner: 'Marge', public: false }
+        { name: 'Shady Bidness',  uuid: 7, owner: 'Lisa' }
+      ]
+
+    it 'should exist', ->
+      expect(@sut.get).to.exist
+
+    describe "when called and the collection doesn't have a user", ->
+      beforeEach ->
+        @sut = new TemplateCollection {}, @dependencies
+        @sut.get().then (template)=>
+          @template = template
+
+      it 'should only return the public templates', ->
+        expect(@template.public).to.be.true
+
+    describe "when called and the collection has a user with a template matching the query", ->
+      beforeEach ->
+        @sut = new TemplateCollection {owner: 'Marge'}, @dependencies
+        @sut.get( name: 'Secrets and Lies').then (template)=>
+          @template = template
+
+      it 'should only return template they own', ->
+        expect(@template.name).to.equal 'Secrets and Lies'
+
+      describe "when called and the collection has a user without a template matching the query", ->
+        beforeEach ->
+          @sut = new TemplateCollection {owner: 'Marge'}, @dependencies
+          @sut.get( name: 'Shady Bidness').then (template)=>
+            @template = template
+
+        it 'should only return template they own', ->
+          expect(@template).to.not.exist
+
+  describe '->list', ->
+    beforeEach ->
+      @collection.insert [
+        { name: 'Homer',  uuid: 5, owner: 'Smithers' }
+        { name: 'Janet',  uuid: 7, owner: 'Marge', public: true }
+        { name: 'Bart',  uuid: 7, owner: 'Marge', public: true }
+        { name: 'Secrets and Lies',  uuid: 7, owner: 'Marge', public: false }
+        { name: 'Shady Bidness',  uuid: 7, owner: 'Lisa' }
+      ]
+
+    it 'should exist', ->
+      expect(@sut.list).to.exist
+
+    describe "when called and the collection doesn't have a user", ->
+      beforeEach ->
+        @sut = new TemplateCollection {}, @dependencies
+        @sut.list().then (templates)=>
+          @templates = templates
+
+      it 'should only return the public templates', ->
+        _.each @templates, (template) =>
+            expect(template.public).to.be.true
+
+    # describe "when called and the collection has a user with a template matching the query", ->
+    #   beforeEach ->
+    #     @sut = new TemplateCollection {owner: 'Marge'}, @dependencies
+    #     @sut.list( name: 'Secrets and Lies').then (template)=>
+    #       @template = template
+    #
+    #   it 'should only return template they own', ->
+    #     expect(@template.name).to.equal 'Secrets and Lies'
+    #
+    #   describe "when called and the collection has a user without a template matching the query", ->
+    #     beforeEach ->
+    #       @sut = new TemplateCollection {owner: 'Marge'}, @dependencies
+    #       @sut.list( name: 'Shady Bidness').then (template)=>
+    #         @template = template
+    #
+    #     it 'should only return template they own', ->
+    #       expect(@template).to.not.exist
