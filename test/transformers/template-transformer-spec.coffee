@@ -44,6 +44,18 @@ describe 'TemplateTransformer', ->
         it 'should return the bluprint with the ownerName Anonymous', ->
           expect(@result.ownerName).to.equal 'Anonymous'
 
+      describe 'and the user does not have a userDevice property containing a name', ->
+        beforeEach ->
+          @bluprint =
+            name: 'horse'
+            owner: 999
+
+          @User.findBySkynetUUID.returns When.resolve email: 'cats@awesome.com'
+          @sut.addOwnerName(@bluprint).then (@result) =>
+
+        it 'should return the bluprint with the ownerName Anonymous', ->
+          expect(@result.ownerName).to.equal 'Anonymous'
+
   describe '->addOwnerNames', ->
 
     it 'should exist', ->

@@ -8,7 +8,7 @@ class TemplateTransformer
   addOwnerName: (bluprint) =>
     bluprint.owner = bluprint.resource.owner.uuid unless bluprint.owner?
     @User.findBySkynetUUID(bluprint.owner).then (user) =>
-      if user.userDevice.octoblu.firstName?
+      if user.userDevice?.octoblu?.firstName?
         bluprint.ownerName = "#{user.userDevice.octoblu.firstName} #{user.userDevice.octoblu.lastName?[0]}."
       else
         bluprint.ownerName = 'Anonymous'
