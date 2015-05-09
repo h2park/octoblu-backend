@@ -20,7 +20,7 @@ describe 'TemplateTransformer', ->
         beforeEach ->
           @bluprint =
             name: 'bluprint number one'
-            owner: 123
+            owner: 1234
 
           @User.findBySkynetUUID.returns When.resolve
             userDevice:
