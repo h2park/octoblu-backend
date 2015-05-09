@@ -224,19 +224,19 @@ describe 'TemplateCollection', ->
     it 'should exist', ->
       expect(@sut.get).to.exist
 
-    describe "when called and the collection doesn't have a user", ->
+    describe "when called without an id", ->
       beforeEach ->
         @sut = new TemplateCollection {}, @dependencies
-        @sut.get().then (template)=>
-          @template = template
+        @sut.get().catch (error) =>
+          @error = error
 
-      it 'should only return the public templates', ->
-        expect(@template.public).to.be.true
+      it 'should reject the promise with an error', ->
+        expect(@error).to.exist
 
     describe "when called and the collection has a user with a template matching the query", ->
       beforeEach ->
         @sut = new TemplateCollection {owner: 'Marge'}, @dependencies
-        @sut.get( name: 'Secrets and Lies').then (template)=>
+        @sut.get(uuid: 7, name: 'Secrets and Lies').then (template)=>
           @template = template
 
       it 'should only return template they own', ->
@@ -245,7 +245,7 @@ describe 'TemplateCollection', ->
       describe "when called and the collection has a user without a template matching the query", ->
         beforeEach ->
           @sut = new TemplateCollection {owner: 'Marge'}, @dependencies
-          @sut.get( name: 'Shady Bidness').then (template)=>
+          @sut.get(uuid:7, name: 'Shady Bidness').then (template)=>
             @template = template
 
         it 'should only return template they own', ->

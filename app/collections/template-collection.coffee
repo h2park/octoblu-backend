@@ -32,6 +32,7 @@ class TemplateCollection
       @collection.remove query
 
   get: (query={}) =>
+    return When.reject(new Error 'you must specify an id in order to get a template') unless query.uuid?   
     query = @allowPublic query
     @collection.findOne query
 
@@ -55,7 +56,7 @@ class TemplateCollection
         { owner: query.owner},
         {'resource.owner.uuid': query.owner}
       ]
-      
+
     delete query.owner
 
     query
