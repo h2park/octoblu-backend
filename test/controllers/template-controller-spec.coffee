@@ -52,7 +52,7 @@ describe 'TemplateController', ->
 
     describe 'when templateModel rejects its promise', ->
       beforeEach (next) ->
-        @templateModel.findByPublic.returns When.reject 'error'
+        @templateModel.findByPublic.returns When.reject new Error('error')
         @req =
           query:
              tags: ['green', 'herbal']

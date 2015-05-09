@@ -180,6 +180,11 @@ function TemplateModel(dependencies) {
     update: function(owner, query, template) {
       var templateCollection = new TemplateCollection({owner: owner});
       return templateCollection.update(query, template);
+    },
+
+    remove: function(owner, query) {
+      var templateCollection = new TemplateCollection({owner: owner});
+      return templateCollection.delete(query);
     }
   };
 

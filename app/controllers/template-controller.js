@@ -34,7 +34,7 @@ var TemplateController = function (options, dependencies) {
         next();
       })
       .catch(function(error){
-        res.send(422, error);
+        res.send(422, error.message);
       });
   };
 
@@ -45,7 +45,7 @@ var TemplateController = function (options, dependencies) {
         next();
       })
       .catch(function(error){
-        res.send(422, error);
+        res.send(422, error.message);
       });
   };
 
@@ -56,7 +56,7 @@ var TemplateController = function (options, dependencies) {
         next();
       })
       .catch(function(error){
-        res.send(422, error);
+        res.send(422, error.message);
       });
   };
 
@@ -71,7 +71,7 @@ var TemplateController = function (options, dependencies) {
         next();
       })
       .catch(function(error) {
-        res.send(422, error);
+        res.send(422, error.message);
       });
   };
 
@@ -79,13 +79,13 @@ var TemplateController = function (options, dependencies) {
     var query = {
       uuid: req.params.id
     };
-    return templateModel.findOne(query)
+    return templateModel.findOne(req.uuid, query)
       .then(function(template) {
         req.template = template;
         next();
       })
       .catch(function(error){
-        res.send(422, error);
+        res.send(422, error.message);
       });
   };
 
@@ -96,7 +96,7 @@ var TemplateController = function (options, dependencies) {
         next();
       })
       .catch(function(error){
-        res.send(422, error);
+        res.send(422, error.message);
       });
   };
 
@@ -108,7 +108,7 @@ var TemplateController = function (options, dependencies) {
         next();
       })
       .catch(function(error){
-        res.send(422, error);
+        res.send(422, error.message);
       });
   };
 
@@ -121,7 +121,7 @@ var TemplateController = function (options, dependencies) {
         res.send(201, flow);
       })
       .catch(function(error){
-        res.send(422, error);
+        res.send(422, error.message);
       });
   };
 
@@ -132,7 +132,7 @@ var TemplateController = function (options, dependencies) {
         next();
       })
       .catch(function(error){
-        res.send(422, error);
+        res.send(422, error.message);
       });
   }
 
@@ -145,12 +145,12 @@ var TemplateController = function (options, dependencies) {
   }
 
   self.delete = function(req, res, next) {
-    templateModel.remove({uuid: req.params.id})
+    templateModel.remove(req.uuid, {uuid: req.params.id})
       .then(function() {
         next();
       })
-      .then(function(error) {
-        res.send(422, error);
+      .catch(function(error) {
+        res.send(422, error.message);
       });
   }
 
@@ -159,7 +159,7 @@ var TemplateController = function (options, dependencies) {
       return res.send(200, req.templates);
 
     if(req.template)
-      return res.send(200, req.templates);
+      return res.send(200, req.template);
 
     if(req.templateId)
       return res.send(200, req.templateId);

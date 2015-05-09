@@ -24,7 +24,9 @@ class TemplateCollection
       query.owner = @owner
       template = _.pick template, TemplateCollection.updateProperties
     .then =>
-      @collection.update query, $set: template
+      @collection.update(query, $set: template)
+    .then (response) =>
+      When.reject(new Error 'could not find a template to update') if response.n == 0
 
   delete: (query={}) =>
     @requireUser().then =>
@@ -32,7 +34,6 @@ class TemplateCollection
       @collection.remove query
 
   get: (query={}) =>
-    return When.reject(new Error 'you must specify an id in order to get a template') unless query.uuid?   
     query = @allowPublic query
     @collection.findOne query
 
@@ -43,7 +44,7 @@ class TemplateCollection
   allowPublic: (query={}) =>
     query = _.clone query
     if @owner?
-      query.owner = @owner unless query.public
+      query.owner = @owner unless query.public? || query.uuid?
     else
       query.public = true
 

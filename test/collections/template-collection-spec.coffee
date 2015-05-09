@@ -224,15 +224,6 @@ describe 'TemplateCollection', ->
     it 'should exist', ->
       expect(@sut.get).to.exist
 
-    describe "when called without an id", ->
-      beforeEach ->
-        @sut = new TemplateCollection {}, @dependencies
-        @sut.get().catch (error) =>
-          @error = error
-
-      it 'should reject the promise with an error', ->
-        expect(@error).to.exist
-
     describe "when called and the collection has a user with a template matching the query", ->
       beforeEach ->
         @sut = new TemplateCollection {owner: 'Marge'}, @dependencies
@@ -245,7 +236,7 @@ describe 'TemplateCollection', ->
       describe "when called and the collection has a user without a template matching the query", ->
         beforeEach ->
           @sut = new TemplateCollection {owner: 'Marge'}, @dependencies
-          @sut.get(uuid:7, name: 'Shady Bidness').then (template)=>
+          @sut.get(name: 'Shady Bidness').then (template)=>
             @template = template
 
         it 'should only return template they own', ->

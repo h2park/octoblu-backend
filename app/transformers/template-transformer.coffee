@@ -13,9 +13,11 @@ class TemplateTransformer
       else
         bluprint.ownerName = 'Anonymous'
 
+      bluprint.tags || []
       bluprint
 
   addOwnerNames: (bluprints) =>
     When.map bluprints, @addOwnerName
+
 
 module.exports = TemplateTransformer
