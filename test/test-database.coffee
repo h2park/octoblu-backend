@@ -7,25 +7,34 @@ console.log "  using #{if USE_MONGO then 'mongo' else 'nedb'}"
 console.log "================================================"
 
 class TestDatabase
+  @collectionNames : ['users', 'templates']
   @open: (callback=->) =>
     if USE_MONGO
       mongojs = require 'mongojs'
-      db = mongojs 'octoblu-test', ['users']
-      db.users.remove (error) =>
-        callback error, @wrap(db)
+      callCallback = _.after @collectionNames.length, callback
+      db = mongojs 'octoblu-test', @collectionNames
+      _.each @collectionNames, (name) =>
+        db[name].remove (error) =>
+          callCallback error, @wrap(db)
+
     else
       Datastore = require 'nedb'
-      datastore = new Datastore
-        inMemoryOnly: true
-        autoload: true
-        onload: => callback null, @wrap({users: datastore})
-  
-  @wrap: (database) =>
-    users:
-      find:    nodefn.lift(_.bind(database.users.find,    database.users))
-      findOne: nodefn.lift(_.bind(database.users.findOne, database.users))
-      remove:  nodefn.lift(_.bind(database.users.remove,  database.users))
-      insert:  nodefn.lift(_.bind(database.users.insert,  database.users))
-      update:  nodefn.lift(_.bind(database.users.update,  database.users))
+      db = {}
+      callCallback = _.after @collectionNames.length, => callback null, @wrap(db)
+      _.each @collectionNames, (name) =>
+        db[name] = new Datastore
+          inMemoryOnly: true
+          autoload: true
+          onload: callCallback
 
+  @wrap: (db) =>
+    functionsToWrap = ['find', 'findOne', 'remove', 'insert', 'update', 'count']
+    wrappedDatabase = {}
+
+    _.each @collectionNames, (name) =>
+      wrappedDatabase[name] = {}
+      _.each functionsToWrap, (fn) =>
+        wrappedDatabase[name][fn] = nodefn.lift(_.bind(db[name][fn], db[name]))
+
+    wrappedDatabase
 module.exports = TestDatabase

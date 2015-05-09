@@ -1,116 +1,172 @@
 var _ = require('lodash');
 var when = require('when');
 var FlowNodeTypeCollection = require('../collections/flow-node-type-collection');
-
 var TemplateController = function (options, dependencies) {
   var self = this;
   dependencies = dependencies || {};
   var Template  = dependencies.Template || require('../models/template-model');
+  var TemplateTransformer = dependencies.TemplateTransformer || require('../transformers/template-transformer');
+  templateTransformer = new TemplateTransformer();
+
   templateModel = new Template();
   var meshblu = options.meshblu;
 
-  self.findByPublic = function(req, res) {
-    return templateModel.findByPublic(req.query.tags).then(function(templates){
-      res.send(200, templates);
-    }, function(error) {
-      res.send(422, error);
-      return when.reject(error);
-    });
+  self.addOwnerName = function(req, res, next) {
+      templateTransformer.addOwnerName(req.template)
+        .then(function(template){
+          req.template = template;
+          next();
+        });
   };
 
-  self.create = function(req, res) {
-    templateModel.createByUserUUID(req.user.resource.uuid, req.body).then(function(template){
-      res.send(201, template);
-    }, function(error) {
-      res.send(422, error);
-    });
+  self.addOwnerNames = function(req, res, next) {
+      templateTransformer.addOwnerNames(req.templates)
+        .then(function(templates){
+          req.templates = templates;
+          next();
+        });
   };
 
-  self.createRaw = function(req, res) {
-    templateModel.createRawByUserUUID(req.user.resource.uuid, req.body).then(function(template){
-      res.send(201, template);
-    }, function(error) {
-      res.send(422, error);
-    });
+  self.findByPublic = function(req, res, next) {
+    return templateModel.findByPublic(req.query.tags)
+      .then(function(templates) {
+        req.templates = templates;
+        next();
+      })
+      .catch(function(error){
+        res.send(422, error.message);
+      });
   };
 
-  self.update = function(req, res) {
+  self.create = function(req, res, next) {
+    return templateModel.createByUserUUID(req.user.resource.uuid, req.body)
+      .then(function(template){
+        req.template = template;
+        next();
+      })
+      .catch(function(error){
+        res.send(422, error.message);
+      });
+  };
+
+  self.createRaw = function(req, res, next) {
+    return templateModel.createRawByUserUUID(req.user.resource.uuid, req.body)
+      .then(function(template){
+        req.template = template;
+        next();
+      })
+      .catch(function(error){
+        res.send(422, error.message);
+      });
+  };
+
+  self.update = function(req, res, next) {
     var query = {uuid: req.params.id};
-    templateModel.findOne(query).then(function(template){
-      var updatedTemplate = _.extend({}, template, req.body);
-      return templateModel.update(query, updatedTemplate);
-    }).then(function(){
-      res.send(204);
-    }, function(error) {
-      res.send(422, error);
-    });
+    templateModel.findOne(req.uuid, query)
+      .then(function(template){
+        var updatedTemplate = _.extend({}, template, req.body);
+        return templateModel.update(req.uuid, query, updatedTemplate);
+      })
+      .then(function(){
+        next();
+      })
+      .catch(function(error) {
+        res.send(422, error.message);
+      });
   };
 
-  self.findOne = function(req, res) {
+  self.findOne = function(req, res, next) {
     var query = {
       uuid: req.params.id
     };
-    return templateModel.findOne(query).then(function(template) {
-      res.send(200, template);
-    }, function(error) {
-      res.send(404, error);
-    });
+    return templateModel.findOne(req.uuid, query)
+      .then(function(template) {
+        req.template = template;
+        next();
+      })
+      .catch(function(error){
+        res.send(422, error.message);
+      });
   };
 
-  self.withUserUUID = function(req, res) {
-    return templateModel.withUserUUID(req.params.uuid).then(function(templates) {
-      res.send(200, templates);
-    }, function(error) {
-      res.send(404, error);
-    });
+  self.withUserUUID = function(req, res, next) {
+    return templateModel.withUserUUID(req.params.uuid)
+      .then(function(templates) {
+        req.templates = templates;
+        next();
+      })
+      .catch(function(error){
+        res.send(422, error.message);
+      });
   };
 
-  self.getAllTemplates = function(req, res) {
-    return templateModel.withUserUUID(req.user.resource.uuid).then(function(templates) {
-      var sortedTemplates = _.sortBy(templates, 'created').reverse()
-      res.send(200, sortedTemplates);
-    }, function(error) {
-      res.send(404, error);
-    });
+  self.getAllTemplates = function(req, res, next) {
+    return templateModel.withUserUUID(req.user.resource.uuid)
+      .then(function(templates) {
+        var sortedTemplates = _.sortBy(templates, 'created').reverse()
+        req.templates = sortedTemplates;
+        next();
+      })
+      .catch(function(error){
+        res.send(422, error.message);
+      });
   };
 
   self.importTemplate = function(req, res) {
-    var uuid = req.uuid;
-    var token = req.token;
-    self.getFlowNodeTypes(uuid, token).then(function (flowNodeTypes) {
-      templateModel.importTemplate(req.user.resource.uuid, req.params.id, meshblu, flowNodeTypes).then(function(flow){
+    self.getFlowNodeTypes(req.uuid, req.token)
+      .then(function (flowNodeTypes) {
+        return templateModel.importTemplate(req.user.resource.uuid, req.params.id, meshblu, flowNodeTypes);
+      })
+      .then(function(flow){
         res.send(201, flow);
-      }, function(error) {
-        res.send(422, error);
+      })
+      .catch(function(error){
+        res.send(422, error.message);
       });
-    }, function(error){
-      res.send(422, error);
-    });
   };
+
+  self.withFlowId = function(req, res, next) {
+    templateModel.withFlowId(req.params.flowId)
+      .then(function(templates) {
+        req.templates = templates;
+        next();
+      })
+      .catch(function(error){
+        res.send(422, error.message);
+      });
+  }
 
   self.getFlowNodeTypes = function(uuid, token){
     var flowNodeTypeCollection = new FlowNodeTypeCollection(uuid, token);
-    return flowNodeTypeCollection.fetch().then(function (flowNodeTypes) {
-      return flowNodeTypes;
-    });
+    return flowNodeTypeCollection.fetch()
+      .then(function (flowNodeTypes) {
+        return flowNodeTypes;
+      });
   }
 
-  self.withFlowId = function(req, res) {
-    templateModel.withFlowId(req.params.flowId).then(function(templates) {
-      res.send(200, templates);
-    }, function(error) {
-      res.send(422, error);
-    });
+  self.delete = function(req, res, next) {
+    templateModel.remove(req.uuid, {uuid: req.params.id})
+      .then(function() {
+        next();
+      })
+      .catch(function(error) {
+        res.send(422, error.message);
+      });
   }
 
-  self.delete = function(req, res) {
-    templateModel.remove({uuid: req.params.id}).then(function() {
-      res.send(200);
-    }, function(error) {
-      res.send(422, error);
-    });
-  }
+  self.send = function(req, res) {
+    if(req.templates)
+      return res.send(200, req.templates);
+
+    if(req.template)
+      return res.send(200, req.template);
+
+    if(req.templateId)
+      return res.send(200, req.templateId);
+
+    return res.send(204);
+  };
+
 };
-
 
 module.exports = TemplateController;
