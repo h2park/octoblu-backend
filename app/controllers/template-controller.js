@@ -16,6 +16,9 @@ var TemplateController = function (options, dependencies) {
         .then(function(template){
           req.template = template;
           next();
+        })
+        .catch(function(error){
+          res.send(500, error.message);
         });
   };
 
@@ -24,6 +27,9 @@ var TemplateController = function (options, dependencies) {
         .then(function(templates){
           req.templates = templates;
           next();
+        })
+        .catch(function(error){
+          res.send(500, error.message);
         });
   };
 
