@@ -156,7 +156,7 @@ function TemplateModel(dependencies) {
         return tag[1];
       })
       debug('got tags', tags);
-      return tags;
+      return _.uniq(tags);
     },
 
     findByPublic: function(tags) {
