@@ -24,14 +24,14 @@ class TemplateCollection
       query.owner = @owner
       template = _.pick template, TemplateCollection.updateProperties
     .then =>
-      @collection.update(query, $set: template)
+      @collection.update(@shimQuery(query), $set: template)
     .then (response) =>
       When.reject(new Error 'could not find a template to update') if response.n == 0
 
   delete: (query={}) =>
     @requireUser().then =>
       query.owner = @owner
-      @collection.remove query
+      @collection.remove @shimQuery(query)
 
   get: (query={}) =>
     query = @allowPublic query
