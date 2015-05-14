@@ -3,7 +3,7 @@
   "category": "microblu",
   "description": "Intel Galileo",
   "helpText": "The first in a line of Arduino-certified development boards based on Intel x86 architecture and is designed for the maker and education communities.",
-  "enabled": true,
+  "enabled": false,
   "name": "Intel Galileo",
   "skynet": {
     "type": "device",
