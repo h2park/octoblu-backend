@@ -1,0 +1,14 @@
+{
+  "_id": "5557c75bd09572cd87af1ed9",
+  "category": "device",
+  "description": "Gateblu Beacon",
+  "helpText": "Gateblu plugin for scanning beacons.",
+  "enabled": true,
+  "name": "Beacon",
+  "skynet": {
+    "type": "device",
+    "subtype": "beacon"
+  },
+  "connector": "meshblu-beacon",
+  "type": "device:beacon"
+}
