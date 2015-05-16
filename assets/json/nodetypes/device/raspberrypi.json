@@ -7,7 +7,7 @@
   "name": "RaspberryPi",
   "skynet": {
     "type": "device",
-    "subtype": "other"
+    "subtype": "rpi-servo"
   },
   "type": "device:rpi-servo"
 }
