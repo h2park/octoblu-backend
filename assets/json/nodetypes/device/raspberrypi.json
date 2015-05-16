@@ -1,16 +1,15 @@
 {
   "_id": "53c9b830f400e177dca325a8",
-  "category": "microblu",
+  "category": "device",
   "description": "Raspberry Pi",
   "helpText": "A low cost, credit-card sized computer that plugs into a computer monitor or TV, and uses a standard keyboard and mouse.",
   "enabled": true,
   "name": "RaspberryPi",
   "skynet": {
     "type": "device",
-    "subtype": "arduino"
+    "subtype": "rpi-servo"
   },
-  "type": "device:raspberrypi",
-  "connector": "meshblu-pi"
+  "type": "device:rpi-servo"
 }
 
 
