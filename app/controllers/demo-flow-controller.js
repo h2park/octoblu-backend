@@ -5,13 +5,12 @@ var User     = require('../models/user');
 var when     = require('when');
 
 var DemoFlowController = function (options) {
-  var self, meshblu, Template;
-  self = this;
+  var self = this;
 
-  options = options || {};
-
-  Template    = options.Template || require('../models/template-model');
-  meshblu = options.meshblu;
+  var options  = options || {};
+  var Template = options.Template || require('../models/template-model');
+  var template = new Template();
+  var meshblu  = options.meshblu;
 
   self.create = function (req, res) {
     var user = req.user;
@@ -22,7 +21,7 @@ var DemoFlowController = function (options) {
       User.addApiAuthorization(user, 'channel:sms-send', {authtype: 'basic', token : req.uuid, secret : req.token }),
       User.addApiAuthorization(user, 'channel:email', {authtype: 'basic', token : req.uuid, secret : req.token })
     ]).then(function(){
-      Template.importFlow(user.resource.uuid, demoFlow, meshblu).then(function(flow){
+      template.importFlow(user.resource.uuid, demoFlow, meshblu).then(function(flow){
         res.send(201, flow);
       }).catch(function(error) {
         res.send(422, error);
