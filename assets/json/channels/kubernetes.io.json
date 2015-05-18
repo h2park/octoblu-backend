@@ -1,0 +1,3691 @@
+{
+  "_id": "2394sj3i4aw324032193",
+  "type": "channel:kubernetes.io",
+  "auth_strategy": "",
+  "bodyFormat": "json",
+  "name": "Kubernetes.io",
+  "oauth": {
+    "development": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    },
+    "staging": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    },
+    "production": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    }
+  },
+  "application": {
+    "base": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec",
+    "resources": [
+      {
+        "path": "/api",
+        "displayName": "Get Available API Versions",
+        "httpMethod": "Get",
+        "params": [],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api"
+      },{
+        "path": "/api/v1beta1/bindings",
+        "displayName": "Create A Binding",
+        "httpMethod": "POST",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/bindings"
+      },
+      {
+        "path": "/api/v1beta1/endpoints",
+        "displayName": "List Or Watch Objects Of Kind Endpoints",
+        "httpMethod": "Get",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Fields"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "labels",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Labels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resourceVersion",
+            "displayName": "Resource Version"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "watch",
+            "displayName": "Watch For Changes To The Described Resources & Return Them As A Stream"
+          }],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/endpoints"
+      },
+      {
+        "path": "/api/v1beta1/endpoints",
+        "displayName": "Create An Endpoints",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/endpoints"
+      },
+      {
+        "path": "/api/v1beta1/endpoints/:name",
+        "displayName": "Delete An Endpoints",
+        "httpMethod": "Delete",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Endpoints",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/endpoints/:name"
+      },
+      {
+        "path": "/api/v1beta1/endpoints/:name",
+        "displayName": "Read The Specified Endpoints",
+        "httpMethod": "GET",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Endpoints",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/endpoints/:name"
+      },
+      {
+        "path": "/api/v1beta1/endpoints/:name",
+        "displayName": "Partially Update The Specified Endpoints",
+        "httpMethod": "Patch",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Endpoints",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/endpoints/:name"
+      },
+      {
+        "path": "/api/v1beta1/endpoints/:name",
+        "displayName": "Replace The Specified Endpoints",
+        "httpMethod": "Put",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Endpoints",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/endpoints/:name"
+      },
+      {
+        "path": "/api/v1beta1/events",
+        "displayName": "List Or Watch Objects Of Kind Event",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Fields"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "labels",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Labels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resourceVersion",
+            "displayName": "Resource Version"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "watch",
+            "displayName": "Watch For Changes To The Described Resources & Return Them As A Stream"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/events"
+      },
+      {
+        "path": "/api/v1beta1/events",
+        "displayName": "Create An Event",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/events"
+      },
+      {
+        "path": "/api/v1beta1/events/:name",
+        "displayName": "Delete An Event",
+        "httpMethod": "Delete",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Event",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/events/:name"
+      },
+      {
+        "path": "/api/v1beta1/events/:name",
+        "displayName": "Read The Specified Event",
+        "httpMethod": "GET",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Event",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/events/:name"
+      },
+      {
+        "path": "/api/v1beta1/events/:name",
+        "displayName": "Partially Update The Specified Event",
+        "httpMethod": "Patch",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Event",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/events/:name"
+      },
+      {
+        "path": "/api/v1beta1/events/:name",
+        "displayName": "Replace The Specified Event",
+        "httpMethod": "Put",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Event",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/events/:name"
+      },
+      {
+        "path": "/api/v1beta1/limitRanges",
+        "displayName": "List Or Watch Objects Of Kind LimitRange",
+        "httpMethod": "Get",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Fields"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "labels",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Labels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resourceVersion",
+            "displayName": "Resource Version"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "watch",
+            "displayName": "Watch For Changes To The Described Resources & Return Them As A Stream"
+          }],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/limitRanges"
+      },
+      {
+        "path": "/api/v1beta1/limitRanges",
+        "displayName": "Create A LimitRange",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/limitRanges"
+      },
+      {
+        "path": "/api/v1beta1/limitRanges/:name",
+        "displayName": "Delete A LimitRange",
+        "httpMethod": "Delete",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The LimitRange",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/limitRanges/:name"
+      },{
+        "path": "/api/v1beta1/limitRanges/:name",
+        "displayName": "Read The Specified LimitRange",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The LimitRange",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/limitRanges/:name"
+      },
+      {
+        "path": "/api/v1beta1/limitRanges/:name",
+        "displayName": "Partially Update The Specified LimitRange",
+        "httpMethod": "Patch",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The LimitRange",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/limitRanges/:name"
+      },
+      {
+        "path": "/api/v1beta1/limitRanges/:name",
+        "displayName": "Replace The Specified LimitRange",
+        "httpMethod": "Put",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The LimitRange",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/limitRanges/:name"
+      },
+      {
+        "path": "/api/v1beta1/minions",
+        "displayName": "List Or Watch Objects Of Kind Node",
+        "httpMethod": "POST",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Fields"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "labels",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Labels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resourceVersion",
+            "displayName": "Resource Version"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "watch",
+            "displayName": "Watch For Changes To The Described Resources & Return Them As A Stream"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/minions"
+      },
+      {
+        "path": "/api/v1beta1/minions",
+        "displayName": "Create A Node",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/minions"
+      },
+      {
+        "path": "/api/v1beta1/minions/:name",
+        "displayName": "Delete A Node",
+        "httpMethod": "Delete",
+        "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":name",
+              "displayName": "Name Of The Node",
+              "required": "true"
+            },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/minions/:name"
+      },
+      {
+        "path": "/api/v1beta1/minions/:name",
+        "displayName": "Read The Specified Node",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Node",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/minions/:name"
+      },
+      {
+        "path": "/api/v1beta1/minions/:name",
+        "displayName": "Partially Update The Specified Node",
+        "httpMethod": "Patch",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Node",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/minions/:name"
+      },
+      {
+        "path": "/api/v1beta1/minions/:name",
+        "displayName": "Replace The Specified Node",
+        "httpMethod": "Put",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Node",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/minions/:name"
+      },
+      {
+        "path": "/api/v1beta1/minions/:name/status",
+        "displayName": "Replace The Specified Node",
+        "httpMethod": "Put",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Node",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/minions/:name/status"
+      },
+      {
+        "path": "/api/v1beta1/namespaces",
+        "displayName": "List Or Watch Objects Of Kind Namespace",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Fields"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "labels",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Labels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resourceVersion",
+            "displayName": "Resource Version"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "watch",
+            "displayName": "Watch For Changes To The Described Resources & Return Them As A Stream"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/namespaces"
+      },
+      {
+        "path": "/api/v1beta1/namespaces",
+        "displayName": "Create A Namespace",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/namespaces"
+      },
+      {
+        "path": "/api/v1beta1/namespaces/:name",
+        "displayName": "Delete A Namespace",
+        "httpMethod": "Delete",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Namespace",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/namespaces/:name"
+      },
+      {
+        "path": "/api/v1beta1/namespaces/:name",
+        "displayName": "Read The Specified Namespace",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Namespace",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/namespaces/:name"
+      },
+      {
+        "path": "/api/v1beta1/namespaces/:name",
+        "displayName": "Partially Update The Specified Namespace",
+        "httpMethod": "Patch",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Namespace",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/namespaces/:name"
+      },
+      {
+        "path": "/api/v1beta1/namespaces/:name",
+        "displayName": "Replace The Specified Namespace",
+        "httpMethod": "Put",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Namespace",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/namespaces/:name"
+      },
+      {
+        "path": "/api/v1beta1/namespaces/:name/finalize",
+        "displayName": "Replace The Specified Namespace",
+        "httpMethod": "Put",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Namespace",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/namespaces/:name/finalize"
+      },
+      {
+        "path": "/api/v1beta1/namespaces/:name/status",
+        "displayName": "Replace The Specified Namespace",
+        "httpMethod": "Put",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Namespace",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/namespaces/:name/status"
+      },
+      {
+        "path": "/api/v1beta1/nodes",
+        "displayName": "List Or Watch Objects Of Kind Node",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Fields"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "labels",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Labels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resourceVersion",
+            "displayName": "Resource Version"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "watch",
+            "displayName": "Watch For Changes To The Described Resources & Return Them As A Stream"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/nodes"
+      },
+      {
+        "path": "/api/v1beta1/nodes",
+        "displayName": "Create A Node",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/nodes"
+      },
+      {
+        "path": "/api/v1beta1/nodes/:name",
+        "displayName": "Delete A Node",
+        "httpMethod": "Delete",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Node",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/nodes/:name"
+      },
+      {
+        "path": "/api/v1beta1/nodes/:name",
+        "displayName": "Read The Specified Node",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Node",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/nodes/:name"
+      },
+      {
+        "path": "/api/v1beta1/nodes/:name",
+        "displayName": "Partially Update The Specified Node",
+        "httpMethod": "Patch",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Node",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/nodes/:name"
+      },
+      {
+        "path": "/api/v1beta1/nodes/:name",
+        "displayName": "Replace The Specified Node",
+        "httpMethod": "Put",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Node",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/nodes/:name"
+      },
+      {
+        "path": "/api/v1beta1/nodes/:name/status",
+        "displayName": "Replace The Specified Node",
+        "httpMethod": "Put",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Node",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/nodes/:name/status"
+      },
+      {
+        "path": "/api/v1beta1/persistentVolumeClaims",
+        "displayName": "List Or Watch Objects Of Kind PersistentVolumeClaim",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Fields"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "labels",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Labels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resourceVersion",
+            "displayName": "Resource Version"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "watch",
+            "displayName": "Watch For Changes To The Described Resources & Return Them As A Stream"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/persistentVolumeClaims"
+      },
+      {
+        "path": "/api/v1beta1/persistentVolumeClaims",
+        "displayName": "Create A PersistentVolumeClaim",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/persistentVolumeClaims"
+      },
+      {
+        "path": "/api/v1beta1/persistentVolumeClaims/:name",
+        "displayName": "Delete A PersistentVolumeClaim",
+        "httpMethod": "Delete",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The PersistentVolumeClaim",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/persistentVolumeClaims/:name"
+      },
+      {
+        "path": "/api/v1beta1/persistentVolumeClaims/:name",
+        "displayName": "Read The Specified PersistentVolumeClaim",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The PersistentVolumeClaim",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/persistentVolumeClaims/:name"
+      },
+      {
+        "path": "/api/v1beta1/persistentVolumeClaims/:name",
+        "displayName": "Partially Update The Specified PersistentVolumeClaim",
+        "httpMethod": "Patch",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The PersistentVolumeClaim",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/persistentVolumeClaims/:name"
+      },
+      {
+        "path": "/api/v1beta1/persistentVolumeClaims/:name",
+        "displayName": "Replace The Specified PersistentVolumeClaim",
+        "httpMethod": "Put",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The PersistentVolumeClaim",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/persistentVolumeClaims/:name"
+      },
+      {
+        "path": "/api/v1beta1/persistentVolumeClaims/:name/status",
+        "displayName": "Replace The Specified PersistentVolumeClaim",
+        "httpMethod": "PUT",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The PersistentVolumeClaim",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/persistentVolumeClaims/:name/status"
+      },
+      {
+        "path": "/api/v1beta1/persistentVolumes",
+        "displayName": "List Or Watch Objects Of Kind PersistentVolume",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Fields"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "labels",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Labels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resourceVersion",
+            "displayName": "Resource Version"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "watch",
+            "displayName": "Watch For Changes To The Described Resources & Return Them As A Stream"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/persistentVolumes"
+      },
+      {
+        "path": "/api/v1beta1/persistentVolumes",
+        "displayName": "Create A PersistentVolume",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/persistentVolumes"
+      },
+      {
+        "path": "/api/v1beta1/persistentVolumes/:name",
+        "displayName": "Delete A PersistentVolume",
+        "httpMethod": "Delete",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The PersistentVolume",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/persistentVolumes/:name"
+      },
+      {
+        "path": "/api/v1beta1/persistentVolumes/:name",
+        "displayName": "Read The Specified PersistentVolume",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The PersistentVolume",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/api/v1beta1/persistentVolumes/:name"
+      },
+      {
+        "path": "/api/v1beta1/persistentVolumes/:name",
+        "displayName": "Partially Update The Specified PersistentVolume",
+        "httpMethod": "Patch",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The PersistentVolume",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/api/v1beta1/persistentVolumes/:name"
+      },
+      {
+        "path": "/api/v1beta1/persistentVolumes/:name",
+        "displayName": "Replace The Specified PersistentVolume",
+        "httpMethod": "Put",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The PersistentVolume",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/api/v1beta1/persistentVolumes/:name"
+      },
+      {
+        "path": "/api/v1beta1/persistentVolumes/:name/status",
+        "displayName": "Replace The Specified PersistentVolume",
+        "httpMethod": "Put",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The PersistentVolume",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/persistentVolumes/:name/status"
+      },
+      {
+        "path": "/api/v1beta1/pods",
+        "displayName": "List Or Watch Objects Of Kind Pod",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Fields"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "labels",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Labels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resourceVersion",
+            "displayName": "Resource Version"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "watch",
+            "displayName": "Watch For Changes To The Described Resources & Return Them As A Stream"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/pods"
+      },
+      {
+        "path": "/api/v1beta1/pods",
+        "displayName": "Create A Pod",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/pods"
+      },
+      {
+        "path": "/api/v1beta1/pods/:name",
+        "displayName": "Delete A Pod",
+        "httpMethod": "Delete",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Pod",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/pods/:name"
+      },
+      {
+        "path": "/api/v1beta1/pods/:name",
+        "displayName": "Read The Specified Pod",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Pod",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/pods/:name"
+      },
+      {
+        "path": "/api/v1beta1/pods/:name",
+        "displayName": "Partially Update The Specified Pod",
+        "httpMethod": "Patch",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Pod",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/pods/:name"
+      },
+      {
+        "path": "/api/v1beta1/pods/:name",
+        "displayName": "Replace The Specified Pod",
+        "httpMethod": "Put",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Pod",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/pods/:name"
+      },
+      {
+        "path": "/api/v1beta1/pods/:name/binding",
+        "displayName": "Create A Binding",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Binding",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/pods/:name/binding"
+      },
+      {
+        "path": "/api/v1beta1/pods/:name/log",
+        "displayName": "Read The Specified PodLogOptions",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The PodLogOptions",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/pods/:name/log"
+      },
+      {
+        "path": "/api/v1beta1/pods/:name/status",
+        "displayName": "Replace The Specified Pod",
+        "httpMethod": "Put",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The PodLogOptions",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/pods/:name/status"
+      },
+      {
+        "path": "/api/v1beta1/proxy/minions/:name",
+        "displayName": "Proxy Delete Requests To Node",
+        "httpMethod": "Delete",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Node",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/proxy/minions/:name"
+      },
+      {
+        "path": "/api/v1beta1/proxy/minions/:name",
+        "displayName": "Proxy Get Requests To Node",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Node",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/proxy/minions/:name"
+      },
+      {
+        "path": "/api/v1beta1/proxy/minions/:name",
+        "displayName": "Proxy Post Requests To Node",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Node",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/proxy/minions/:name"
+      },
+      {
+        "path": "/api/v1beta1/proxy/minions/:name",
+        "displayName": "Proxy Put Requests To Node",
+        "httpMethod": "Put",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Node",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/proxy/minions/:name"
+      },
+      {
+        "path": "/api/v1beta1/proxy/minions/:name/:path:*",
+        "displayName": "Proxy Delete Requests To Node",
+        "httpMethod": "Delete",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Node",
+            "required": "true"
+          },{
+            "style": "url",
+            "type": "string",
+            "name": ":path:*",
+            "displayName": "Path To The Resource",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/proxy/minions/:name/:path:*"
+      },
+      {
+        "path": "/api/v1beta1/proxy/minions/:name/:path:*",
+        "displayName": "Proxy Get Requests To Node",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Node",
+            "required": "true"
+          },{
+            "style": "url",
+            "type": "string",
+            "name": ":path:*",
+            "displayName": "Path To The Resource",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/proxy/minions/:name/:path:*"
+      },
+      {
+        "path": "/api/v1beta1/proxy/minions/:name/:path:*",
+        "displayName": "Proxy Post Requests To Node",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Node",
+            "required": "true"
+          },{
+            "style": "url",
+            "type": "string",
+            "name": ":path:*",
+            "displayName": "Path To The Resource",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/proxy/minions/:name/:path:*"
+      },
+      {
+        "path": "/api/v1beta1/proxy/minions/:name/:path:*",
+        "displayName": "Proxy Put Requests To Node",
+        "httpMethod": "Put",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Node",
+            "required": "true"
+          },{
+            "style": "url",
+            "type": "string",
+            "name": ":path:*",
+            "displayName": "Path To The Resource",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/proxy/minions/:name/:path:*"
+      },
+      {
+        "path": "/api/v1beta1/proxy/nodes/:name",
+        "displayName": "Proxy Delete Requests To Node",
+        "httpMethod": "Delete",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Node",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/proxy/nodes/:name"
+      },
+      {
+        "path": "/api/v1beta1/proxy/nodes/:name",
+        "displayName": "Proxy Get Requests To Node",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Node",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/proxy/nodes/:name"
+      },
+      {
+        "path": "/api/v1beta1/proxy/nodes/:name",
+        "displayName": "Proxy Post Requests To Node",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Node",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/proxy/nodes/:name"
+      },
+      {
+        "path": "/api/v1beta1/proxy/nodes/:name",
+        "displayName": "Proxy Put Requests To Node",
+        "httpMethod": "Put",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Node",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/proxy/nodes/:name"
+      },
+      {
+        "path": "/api/v1beta1/proxy/nodes/:name/:path:*",
+        "displayName": "Proxy Delete Requests To Node",
+        "httpMethod": "Delete",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Node",
+            "required": "true"
+          },{
+            "style": "url",
+            "type": "string",
+            "name": ":path:*",
+            "displayName": "Path To The Resource",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/proxy/nodes/:name/:path:*"
+      },
+      {
+        "path": "/api/v1beta1/proxy/nodes/:name/:path:*",
+        "displayName": "Proxy Get Requests To Node",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Node",
+            "required": "true"
+          },{
+            "style": "url",
+            "type": "string",
+            "name": ":path:*",
+            "displayName": "Path To The Resource",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/proxy/nodes/:name/:path:*"
+      },
+      {
+        "path": "/api/v1beta1/proxy/nodes/:name/:path:*",
+        "displayName": "Proxy Post Requests To Node",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Node",
+            "required": "true"
+          },{
+            "style": "url",
+            "type": "string",
+            "name": ":path:*",
+            "displayName": "Path To The Resource",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/proxy/nodes/:name/:path:*"
+      },
+      {
+        "path": "/api/v1beta1/proxy/nodes/:name/:path:*",
+        "displayName": "Proxy Put Requests To Node",
+        "httpMethod": "Put",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Node",
+            "required": "true"
+          },{
+            "style": "url",
+            "type": "string",
+            "name": ":path:*",
+            "displayName": "Path To The Resource",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/proxy/nodes/:name/:path:*"
+      },
+      {
+        "path": "/api/v1beta1/proxy/pods/:name",
+        "displayName": "Proxy Delete Requests To Pod",
+        "httpMethod": "Delete",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Pod",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/proxy/pods/:name"
+      },
+      {
+        "path": "/api/v1beta1/proxy/pods/:name",
+        "displayName": "Proxy Get Requests To Pod",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Pod",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/proxy/pods/:name"
+      },
+      {
+        "path": "/api/v1beta1/proxy/pods/:name",
+        "displayName": "Proxy Post Requests To Pod",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Pod",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/proxy/pods/:name"
+      },
+      {
+        "path": "/api/v1beta1/proxy/pods/:name",
+        "displayName": "Proxy Put Requests To Pod",
+        "httpMethod": "Put",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Pod",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/proxy/pods/:name"
+      },
+      {
+        "path": "/api/v1beta1/proxy/pods/:name/:path:*",
+        "displayName": "Proxy Delete Requests To Pod",
+        "httpMethod": "Delete",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Pod",
+            "required": "true"
+          },{
+            "style": "url",
+            "type": "string",
+            "name": ":path:*",
+            "displayName": "Path To The Resource",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/proxy/pods/:name/:path:*"
+      },
+      {
+        "path": "/api/v1beta1/proxy/pods/:name/:path:*",
+        "displayName": "Proxy Get Requests To Pod",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Pod",
+            "required": "true"
+          },{
+            "style": "url",
+            "type": "string",
+            "name": ":path:*",
+            "displayName": "Path To The Resource",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/proxy/pods/:name/:path:*"
+      },
+      {
+        "path": "/api/v1beta1/proxy/pods/:name/:path:*",
+        "displayName": "Proxy Post Requests To Pod",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Pod",
+            "required": "true"
+          },{
+            "style": "url",
+            "type": "string",
+            "name": ":path:*",
+            "displayName": "Path To The Resource",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/proxy/pods/:name/:path:*"
+      },
+      {
+        "path": "/api/v1beta1/proxy/pods/:name/:path:*",
+        "displayName": "Proxy Put Requests To Pod",
+        "httpMethod": "Put",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Pod",
+            "required": "true"
+          },{
+            "style": "url",
+            "type": "string",
+            "name": ":path:*",
+            "displayName": "Path To The Resource",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/proxy/pods/:name/:path:*"
+      },
+      {
+        "path": "/api/v1beta1/proxy/services/:name",
+        "displayName": "Proxy Delete Requests To Service",
+        "httpMethod": "Delete",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Service",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/proxy/services/:name"
+      },
+      {
+        "path": "/api/v1beta1/proxy/services/:name",
+        "displayName": "Proxy Get Requests To Service",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Service",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/proxy/services/:name"
+      },
+      {
+        "path": "/api/v1beta1/proxy/services/:name",
+        "displayName": "Proxy Post Requests To Service",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Service",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/proxy/services/:name"
+      },
+      {
+        "path": "/api/v1beta1/proxy/services/:name",
+        "displayName": "Proxy Put Requests To Service",
+        "httpMethod": "Put",
+        "params": [{
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Service",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          }],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/proxy/services/:name"
+      },
+      {
+        "path": "/api/v1beta1/proxy/services/:name/:path:*",
+        "displayName": "Proxy Delete Requests To Service",
+        "httpMethod": "Delete",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Service",
+            "required": "true"
+          },{
+            "style": "url",
+            "type": "string",
+            "name": ":path:*",
+            "displayName": "Path To The Resource",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/proxy/services/:name/:path:*"
+      },
+      {
+        "path": "/api/v1beta1/proxy/services/:name/:path:*",
+        "displayName": "Proxy Get Requests To Service",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Service",
+            "required": "true"
+          },{
+            "style": "url",
+            "type": "string",
+            "name": ":path:*",
+            "displayName": "Path To The Resource",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/proxy/services/:name/:path:*"
+      },
+      {
+        "path": "/api/v1beta1/proxy/services/:name/:path:*",
+        "displayName": "Proxy Post Requests To Service",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Service",
+            "required": "true"
+          },{
+            "style": "url",
+            "type": "string",
+            "name": ":path:*",
+            "displayName": "Path To The Resource",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/proxy/services/:name/:path:*"
+      },
+      {
+        "path": "/api/v1beta1/proxy/services/:name/:path:*",
+        "displayName": "Proxy Put Requests To Service",
+        "httpMethod": "Put",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Service",
+            "required": "true"
+          },{
+            "style": "url",
+            "type": "string",
+            "name": ":path:*",
+            "displayName": "Path To The Resource",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/proxy/services/:name/:path:*"
+      },
+      {
+        "path": "/api/v1beta1/redirect/minions/:name",
+        "displayName": "Redirect Get Request To Node",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Node",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/redirect/minions/:name"
+      },
+      {
+        "path": "/api/v1beta1/redirect/nodes/:name",
+        "displayName": "Redirect Get Request To Node",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Node",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/redirect/nodes/:name"
+      },
+      {
+        "path": "/api/v1beta1/redirect/pods/:name",
+        "displayName": "Redirect Get Request To Pod",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Pod",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/redirect/pods/:name"
+      },
+      {
+        "path": "/api/v1beta1/redirect/services/:name",
+        "displayName": "Redirect Get Request To Service",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Pod",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/redirect/services/:name"
+      },
+      {
+        "path": "/api/v1beta1/replicationControllers",
+        "displayName": "List Or Watch Objects Of Kind Replication Controller",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Fields"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "labels",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Labels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resourceVersion",
+            "displayName": "Resource Version"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "watch",
+            "displayName": "Watch For Changes To The Described Resources & Return Them As A Stream"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/replicationControllers"
+      },
+      {
+        "path": "/api/v1beta1/replicationControllers",
+        "displayName": "Create A Replication Controller",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/replicationControllers"
+      },
+      {
+        "path": "/api/v1beta1/replicationControllers/:name",
+        "displayName": "Delete A Replication Controller",
+        "httpMethod": "Delete",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Pod",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/replicationControllers/:name"
+      },
+      {
+        "path": "/api/v1beta1/replicationControllers/:name",
+        "displayName": "Read The Specified Replication Controller",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Pod",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/replicationControllers/:name"
+      },
+      {
+        "path": "/api/v1beta1/replicationControllers/:name",
+        "displayName": "Partially Update The Specified Replication Controller",
+        "httpMethod": "Patch",
+        "params": [{
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Pod",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/replicationControllers/:name"
+      },
+      {
+        "path": "/api/v1beta1/replicationControllers/:name",
+        "displayName": "Replace The Specified Replication Controller",
+        "httpMethod": "Put",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Pod",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/replicationControllers/:name"
+      },
+      {
+        "path": "/api/v1beta1/resourceQuotas",
+        "displayName": "List Or Watch Objects Of Kind Resource Quota",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Fields"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "labels",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Labels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resourceVersion",
+            "displayName": "Resource Version"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "watch",
+            "displayName": "Watch For Changes To The Described Resources & Return Them As A Stream"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/resourceQuotas"
+      },
+      {
+        "path": "/api/v1beta1/resourceQuotas",
+        "displayName": "Create A Resource Quota",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/resourceQuotas"
+      },
+      {
+        "path": "/api/v1beta1/resourceQuotas/:name",
+        "displayName": "Delete A Resource Quota",
+        "httpMethod": "Delete",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The ResourceQuota",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/resourceQuotas/:name"
+      },
+      {
+        "path": "/api/v1beta1/resourceQuotas/:name",
+        "displayName": "Read The Specified ResourceQuota",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The ResourceQuota",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/resourceQuotas/:name"
+      },
+      {
+        "path": "/api/v1beta1/resourceQuotas/:name",
+        "displayName": "Partially Update The Specified ResourceQuota",
+        "httpMethod": "Patch",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The ResourceQuota",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/resourceQuotas/:name"
+      },
+      {
+        "path": "/api/v1beta1/resourceQuotas/:name",
+        "displayName": "Replace The Specified ResourceQuota",
+        "httpMethod": "Put",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The ResourceQuota",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/resourceQuotas/:name"
+      },
+      {
+        "path": "/api/v1beta1/resourceQuotas/:name/status",
+        "displayName": "Replace The Specified ResourceQuota",
+        "httpMethod": "Put",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The ResourceQuota",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/resourceQuotas/:name/status"
+      },
+      {
+        "path": "/api/v1beta1/secrets",
+        "displayName": "List Or Watch Objects Of Kind Secret",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Fields"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "labels",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Labels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resourceVersion",
+            "displayName": "Resource Version"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "watch",
+            "displayName": "Watch For Changes To The Described Resources & Return Them As A Stream"
+          }],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/secrets"
+      },
+      {
+        "path": "/api/v1beta1/secrets",
+        "displayName": "Create A Secret",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/secrets"
+      },
+      {
+        "path": "/api/v1beta1/secrets/:name",
+        "displayName": "Delete A Secret",
+        "httpMethod": "Delete",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Secret",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/secrets/:name"
+      },
+      {
+        "path": "/api/v1beta1/secrets/:name",
+        "displayName": "Read The Specified Secret",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Secret",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/secrets/:name"
+      },
+      {
+        "path": "/api/v1beta1/secrets/:name",
+        "displayName": "Partially Update The Specified Secret",
+        "httpMethod": "Patch",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The ResourceQuota",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/secrets/:name"
+      },
+      {
+        "path": "/api/v1beta1/secrets/:name",
+        "displayName": "Replace The Specified Secret",
+        "httpMethod": "Put",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The ResourceQuota",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/secrets/:name"
+      },
+      {
+        "path": "/api/v1beta1/services",
+        "displayName": "List Or Watch Objects Of Kind Service",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Fields"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "labels",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Labels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resourceVersion",
+            "displayName": "Resource Version"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "watch",
+            "displayName": "Watch For Changes To The Described Resources & Return Them As A Stream"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/services"
+      },{
+        "path": "/api/v1beta1/services",
+        "displayName": "Create A Service",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/services"
+      },
+      {
+        "path": "/api/v1beta1/services/:name",
+        "displayName": "Delete A Service",
+        "httpMethod": "Delete",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Service",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/services/:name"
+      },
+      {
+        "path": "/api/v1beta1/services/:name",
+        "displayName": "Read The Specified Service",
+        "httpMethod": "GET",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Service",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/services/:name"
+      },
+      {
+        "path": "/api/v1beta1/services/:name",
+        "displayName": "Partially Update The Specified Service",
+        "httpMethod": "Patch",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Service",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": ":body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/services/:name"
+      },
+      {
+        "path": "/api/v1beta1/services/:name",
+        "displayName": "Replace The Specified Service",
+        "httpMethod": "Put",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Service",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": ":body",
+            "displayName": "Body",
+            "required": "true"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/services/:name"
+      },
+      {
+        "path": "/api/v1beta1/watch/endpoints",
+        "displayName": "Watch Individual Changes To A List Of Endpoints",
+        "httpMethod": "GET",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Endpoints",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Fields"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "labels",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Labels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resourceVersion",
+            "displayName": "Resource Version"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "watch",
+            "displayName": "Watch For Changes To The Described Resources & Return Them As A Stream"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/watch/endpoints"
+      },
+      {
+        "path": "/api/v1beta1/watch/events",
+        "displayName": "Watch Changes To An Object Of Kind Endpoints",
+        "httpMethod": "GET",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Fields"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "labels",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Labels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resourceVersion",
+            "displayName": "Resource Version"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "watch",
+            "displayName": "Watch For Changes To The Described Resources & Return Them As A Stream"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/watch/endpoints/:name"
+      },
+      {
+        "path": "/api/v1beta1/watch/events/:name",
+        "displayName": "Watch Changes To An Object Of Kind Event",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Event",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Fields"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "labels",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Labels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resourceVersion",
+            "displayName": "Resource Version"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "watch",
+            "displayName": "Watch For Changes To The Described Resources & Return Them As A Stream"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/watch/events/:name"
+      },
+      {
+        "path": "/api/v1beta1/watch/limitRanges",
+        "displayName": "Watch Individual Changes To A List Of LimitRange",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Fields"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "labels",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Labels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resourceVersion",
+            "displayName": "Resource Version"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "watch",
+            "displayName": "Watch For Changes To The Described Resources & Return Them As A Stream"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/watch/limitRanges"
+      },
+      {
+        "path": "/api/v1beta1/watch/limitRanges/:name",
+        "displayName": "Watch Changes To An Object Of Kind LimitRange",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Event",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Fields"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "labels",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Labels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resourceVersion",
+            "displayName": "Resource Version"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "watch",
+            "displayName": "Watch For Changes To The Described Resources & Return Them As A Stream"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/watch/limitRanges/:name"
+      },
+      {
+        "path": "/api/v1beta1/watch/minions",
+        "displayName": "Watch Individual Changes To A List Of Node",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Fields"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "labels",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Labels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resourceVersion",
+            "displayName": "Resource Version"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "watch",
+            "displayName": "Watch For Changes To The Described Resources & Return Them As A Stream"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/watch/minions"
+      },
+      {
+        "path": "/api/v1beta1/watch/minions/:name",
+        "displayName": "Watch Changes To An Object Of Kind Node",
+        "httpMethod": "GET",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Node",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Fields"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "labels",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Labels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resourceVersion",
+            "displayName": "Resource Version"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "watch",
+            "displayName": "Watch For Changes To The Described Resources & Return Them As A Stream"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/watch/minions/:name"
+      },
+      {
+        "path": "/api/v1beta1/watch/namespaces",
+        "displayName": "Watch Individual Changes To A List Of Namespace",
+        "httpMethod": "GET",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Namespace",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Fields"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "labels",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Labels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resourceVersion",
+            "displayName": "Resource Version"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "watch",
+            "displayName": "Watch For Changes To The Described Resources & Return Them As A Stream"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/watch/namespaces"
+      },
+      {
+        "path": "/api/v1beta1/watch/nodes",
+        "displayName": "Watch Individual Changes To A List Of Node",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Fields"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "labels",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Labels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resourceVersion",
+            "displayName": "Resource Version"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "watch",
+            "displayName": "Watch For Changes To The Described Resources & Return Them As A Stream"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/watch/nodes"
+      },
+      {
+        "path": "/api/v1beta1/watch/nodes/:name",
+        "displayName": "Watch Changes To An Object Of Kind Node",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Node",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Fields"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "labels",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Labels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resourceVersion",
+            "displayName": "Resource Version"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "watch",
+            "displayName": "Watch For Changes To The Described Resources & Return Them As A Stream"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/watch/nodes/:name"
+      },
+      {
+        "path": "/api/v1beta1/watch/persistentVolumeClaims",
+        "displayName": "Watch Individual Changes To A List Of PersistentVolumeClaim",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Fields"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "labels",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Labels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resourceVersion",
+            "displayName": "Resource Version"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "watch",
+            "displayName": "Watch For Changes To The Described Resources & Return Them As A Stream"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/watch/persistentVolumeClaims"
+      },
+      {
+        "path": "/api/v1beta1/watch/persistentVolumeClaims/:name",
+        "displayName": "Watch Changes To An Object Of Kind PersistentVolumeClaim",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Node",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Fields"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "labels",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Labels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resourceVersion",
+            "displayName": "Resource Version"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "watch",
+            "displayName": "Watch For Changes To The Described Resources & Return Them As A Stream"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/watch/persistentVolumeClaims/:name"
+      },
+      {
+        "path": "/api/v1beta1/watch/persistentVolumes",
+        "displayName": "Watch Individual Changes To A List Of PersistentVolume",
+        "httpMethod": "GET",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Fields"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "labels",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Labels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resourceVersion",
+            "displayName": "Resource Version"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "watch",
+            "displayName": "Watch For Changes To The Described Resources & Return Them As A Stream"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/watch/persistentVolumes"
+      },
+      {
+        "path": "/api/v1beta1/watch/persistentVolumes/:name",
+        "displayName": "Watch Changes To An Object Of Kind PersistentVolume",
+        "httpMethod": "GET",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "displayName": "Name Of The PersistentVolume",
+            "name": ":name",
+            "required": "true"
+          },
+          {
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Fields"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "labels",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Labels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resourceVersion",
+            "displayName": "Resource Version"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "watch",
+            "displayName": "Watch For Changes To The Described Resources & Return Them As A Stream"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/watch/persistentVolumes/:name"
+      },
+      {
+        "path": "/api/v1beta1/watch/pods",
+        "displayName": "Watch Individual Changes To A List Of Pod",
+        "httpMethod": "GET",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Fields"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "labels",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Labels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resourceVersion",
+            "displayName": "Resource Version"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "watch",
+            "displayName": "Watch For Changes To The Described Resources & Return Them As A Stream"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/watch/pods"
+      },
+      {
+        "path": "/api/v1beta1/watch/pods/:name",
+        "displayName": "Watch Changes To An Object Of Kind Pod",
+        "httpMethod": "GET",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Pod",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Fields"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "labels",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Labels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resourceVersion",
+            "displayName": "Resource Version"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "watch",
+            "displayName": "Watch For Changes To The Described Resources & Return Them As A Stream"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/watch/pods/:name"
+      },
+      {
+        "path": "/api/v1beta1/watch/replicationControllers",
+        "displayName": "Watch Individual Changes To A List Of ReplicationController",
+        "httpMethod": "GET",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Fields"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "labels",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Labels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resourceVersion",
+            "displayName": "Resource Version"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "watch",
+            "displayName": "Watch For Changes To The Described Resources & Return Them As A Stream"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/watch/replicationControllers"
+      },
+      {
+        "path": "/api/v1beta1/watch/replicationControllers/:name",
+        "displayName": "Watch Changes To An Object Of Kind ReplicationController",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The ReplicationController",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Fields"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "labels",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Labels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resourceVersion",
+            "displayName": "Resource Version"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "watch",
+            "displayName": "Watch For Changes To The Described Resources & Return Them As A Stream"
+          }],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/watch/replicationControllers/:name"
+      },
+      {
+        "path": "/api/v1beta1/watch/resourceQuotas",
+        "displayName": "Watch Individual Changes To A List Of ResourceQuota",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Fields"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "labels",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Labels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resourceVersion",
+            "displayName": "Resource Version"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "watch",
+            "displayName": "Watch For Changes To The Described Resources & Return Them As A Stream"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/watch/resourceQuotas"
+      },
+      {
+        "path": "/api/v1beta1/watch/resourceQuotas/:name",
+        "displayName": "Watch Changes To An Object Of Kind ResourceQuota",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The ResourceQuota",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Fields"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "labels",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Labels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resourceVersion",
+            "displayName": "Resource Version"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "watch",
+            "displayName": "Watch For Changes To The Described Resources & Return Them As A Stream"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/watch/resourceQuotas/:name"
+      },
+      {
+        "path": "/api/v1beta1/watch/secrets",
+        "displayName": "Watch Individual Changes To A List Of Secret",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Fields"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "labels",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Labels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resourceVersion",
+            "displayName": "Resource Version"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "watch",
+            "displayName": "Watch For Changes To The Described Resources & Return Them As A Stream"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/watch/secrets"
+      },
+      {
+        "path": "/api/v1beta1/watch/secrets/:name",
+        "displayName": "Watch Changes To An Object Of Kind Secret",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Secret",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Fields"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "labels",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Labels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resourceVersion",
+            "displayName": "Resource Version"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "watch",
+            "displayName": "Watch For Changes To The Described Resources & Return Them As A Stream"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/watch/secrets/:name"
+      },
+      {
+        "path": "/api/v1beta1/watch/services",
+        "displayName": "Watch Individual Changes To A List Of Service",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Fields"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "labels",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Labels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resourceVersion",
+            "displayName": "Resource Version"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "watch",
+            "displayName": "Watch For Changes To The Described Resources & Return Them As A Stream"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/watch/services"
+      },
+      {
+        "path": "/api/v1beta1/watch/services/:name",
+        "displayName": "Watch Changes To An Object Of Kind Service",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":name",
+            "displayName": "Name Of The Service",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Fields"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "labels",
+            "displayName": "Selector To Restrict The List Of Returned Objects By Their Labels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "namespace",
+            "displayName": "Object Name & Auth Scope"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resourceVersion",
+            "displayName": "Resource Version"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "watch",
+            "displayName": "Watch For Changes To The Described Resources & Return Them As A Stream"
+          }
+        ],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/api/v1beta1/watch/services/:name"
+      },
+      {
+        "path": "/version",
+        "displayName": "Get The Code Version",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "http://kubernetes.io/third_party/swagger-ui/../../swagger-spec/version"
+      }
+    ]
+  }
+}
