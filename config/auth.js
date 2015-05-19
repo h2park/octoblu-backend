@@ -72,7 +72,7 @@ var config = {
         'musixmatch' : {
           'base_url'       : 'http://api.musixmatch.com/ws/1.1/',
         },
-        
+
         'email' : {
           'from': 'serveradmin@octoblu.com',
           'SMTP': {
@@ -94,8 +94,8 @@ var config = {
          'override_token' : process.env.SKYNET_OVERRIDE_TOKEN || 'w0rldd0m1n4t10n',
         // 'host' : process.env.SKYNET_HOST || 'skynet.im',
         // 'port' : process.env.SKYNET_PORT || 80
-        'host' : process.env.SKYNET_HOST || 'meshblu.octoblu.com',
-        'port' : process.env.SKYNET_PORT || 80
+        'host' : process.env.SKYNET_HOST || 'socket.octoblu.com',
+        'port' : process.env.SKYNET_PORT || 443
       },
       'designer': {
         'host': process.env.DESIGNER_HOST || 'http://designer.octoblu.com',
@@ -214,9 +214,9 @@ var config = {
         },
 
         'skynet' : {
-         'host' : process.env.SKYNET_HOST || 'meshblu.octoblu.com',
+         'host' : process.env.SKYNET_HOST || 'socket.octoblu.com',
          'override_token' : process.env.SKYNET_OVERRIDE_TOKEN || 'w0rldd0m1n4t10n',
-         'port' : process.env.SKYNET_PORT || 80
+         'port' : process.env.SKYNET_PORT || 443
        },
        'designer': {
         'host': process.env.DESIGNER_HOST || 'http://designer.octoblu.com',
