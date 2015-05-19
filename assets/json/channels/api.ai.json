@@ -1,0 +1,265 @@
+{
+  "_id": "235923posef9w4t0we2303958",
+  "type": "channel:api.ai",
+  "auth_strategy": "",
+  "bodyFormat": "json",
+  "name": "api.ai",
+  "oauth": {
+    "development": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    },
+    "staging": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    },
+    "production": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    }
+  },
+  "application": {
+    "base": "https://api.api.ai/v1",
+    "resources": [
+      {
+        "path": "/query",
+        "displayName": "Takes Natural Language Text & Info As Query Params & Returns Info As JSON",
+        "httpMethod": "Get",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": "query",
+            "displayName": "Natural Language Text To Be Processed",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "Number",
+            "name": "confidence",
+            "displayName": "Confidence",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "sessionId",
+            "displayName": "Used To Identify The Client",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "subscription-key",
+            "displayName": "The Azure API Manager Subscription Key",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "lang",
+            "displayName": "Language Tag",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "contexts",
+            "displayName": "List Of Contexts For The Query"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "resetContexts",
+            "displayName": "If true, All Current Contexts In A Session Will Be Reset"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "timezone",
+            "displayName": "Time Zone"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "access_token",
+            "displayName": "The Client Access Token"
+          }],
+        "url": "https://api.api.ai/v1/query"
+      },{
+        "path": "/query",
+        "displayName": "Takes Natural Language Text & Info As JSON In The POST Body & Returns Info As JSON",
+        "httpMethod": "POST",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": "query",
+            "displayName": "Natural Language Text To Be Processed",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "Number",
+            "name": "confidence",
+            "displayName": "Confidence",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "sessionId",
+            "displayName": "Used To Identify The Client",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "subscription-key",
+            "displayName": "The Azure API Manager Subscription Key",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "lang",
+            "displayName": "Language Tag",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "contexts",
+            "displayName": "List Of Contexts For The Query"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "resetContexts",
+            "displayName": "If true, All Current Contexts In A Session Will Be Reset"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "timezone",
+            "displayName": "TimeZone"
+          }
+        ],
+        "url": "https://api.api.ai/v1/query"
+      },
+      {
+        "path": "/tts",
+        "displayName": "Takes Text & Returns Generated Speech (WAV)",
+        "httpMethod": "Get",
+        "params": [],
+        "url": "https://api.api.ai/v1/tts"
+      },
+      {
+        "path": "/entities",
+        "displayName": "Gets A List of all entities for the agent",
+        "httpMethod": "Get",
+        "params": [],
+        "url": "https://api.api.ai/v1/entities"
+      },
+      {
+        "path": "/entities/:eid",
+        "displayName": "Get The Specified Entity",
+        "httpMethod": "Get",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":eid",
+            "displayName": "ID Of The Entity To Retrieve",
+            "required": "true"
+          }],
+        "url": "https://api.api.ai/v1/entities/:eid"
+      },
+      {
+        "path": "/entities",
+        "displayName": "Creates A New Entity",
+        "httpMethod": "POST",
+        "params": [],
+        "url": "https://api.api.ai/v1/entities"
+      },
+      {
+        "path": "/entities/:eid",
+        "displayName": "Updates The Specified Entity",
+        "httpMethod": "Put",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":eid",
+            "displayName": "ID Of The Entity To Retrieve",
+            "required": "true"
+          }
+        ],
+        "url": "https://api.api.ai/v1/entities/:eid"
+      },
+      {
+        "path": "/entities/:eid",
+        "displayName": "Deletes The Specified Entity",
+        "httpMethod": "Delete",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":eid",
+            "displayName": "ID Of The Entity To Retrieve",
+            "required": "true"
+          }
+        ],
+        "url": "https://api.api.ai/v1/entities/:eid"
+      },
+      {
+        "path": "/intents",
+        "displayName": "Gets A List Of All Intents For The Agent",
+        "httpMethod": "Get",
+        "params": [],
+        "url": "https://api.api.ai/v1/intents"
+      },
+      {
+        "path": "/intents/:iid",
+        "displayName": "Gets The Specified Intent",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":iid",
+            "displayName": "ID Of The Intent To Retrieve",
+            "required": "true"
+          }
+        ],
+        "url": "https://api.api.ai/v1/intents/:iid"
+      },
+      {
+        "path": "/intents",
+        "displayName": "Creates A New Intent",
+        "httpMethod": "Post",
+        "params": [],
+        "url": "https://api.api.ai/v1/intents"
+      },
+      {
+        "path": "/intents/:iid",
+        "displayName": "Updates The Specified Intent",
+        "httpMethod": "Put",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":iid",
+            "displayName": "ID Of The Intent To Update",
+            "required": "true"
+          }
+        ],
+        "url": "https://api.api.ai/v1/intents/:iid"
+      },
+      {
+        "path": "/intents/:iid",
+        "displayName": "Deletes The Specified Intent",
+        "httpMethod": "Delete",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":iid",
+            "displayName": "ID Of The Intent To Delete",
+            "required": "true"
+          }
+        ],
+        "url": "https://api.api.ai/v1/intents/:iid"
+      }
+    ]
+  }
+}
