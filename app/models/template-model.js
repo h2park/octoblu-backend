@@ -5,11 +5,11 @@ var uuid       = require('node-uuid');
 var debug      = require('debug')('octoblu:template-model');
 
 function TemplateModel(dependencies) {
-  dependencies = dependencies || {};
-  var User       = require('./user');
-  var octobluDB  = dependencies.Database || require('../lib/database');
-  var Flow       = dependencies.Flow || require('./flow');
-  var TemplateCollection = dependencies.TemplateCollection || require('../collections/template-collection');
+  dependencies                = dependencies || {};
+  var User                    = require('./user');
+  var octobluDB               = dependencies.Database || require('../lib/database');
+  var Flow                    = dependencies.Flow || require('./flow');
+  var TemplateCollection      = dependencies.TemplateCollection || require('../collections/template-collection');
 
   var methods = {
     createRawByUserUUID : function(userUUID, template) {
