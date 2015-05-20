@@ -45,21 +45,5 @@ describe('FlowDeviceCollection', function () {
       });
     });
 
-    describe('when getDevicesByOwner returns a non octoblu flow', function () {
-      beforeEach(function () {
-        var defer = when.defer();
-        getDevicesByOwner = sinon.stub(sut, 'getDevicesByOwner');
-        getDevicesByOwner.returns(defer.promise);
-        defer.resolve([{type: 'device'}]);
-      });
-
-      it('should filter them out of the response', function (done) {
-        result = sut.fetch();
-        result.then(function(devices){
-          expect(devices).to.have.be.empty;
-          done();
-        }).catch(done);
-      });
-    });
   });
 });
