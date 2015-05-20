@@ -10,7 +10,7 @@ var NodeController = function(options){
     var token = req.token;
     var collection = self.getNodeCollection(uuid, token);
     collection.fetch().then(function(nodes){
-      res.send(200, addResourceType(nodes));
+      res.status(200).send(addResourceType(nodes));
     });
   };
 
