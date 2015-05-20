@@ -30,7 +30,7 @@ describe('NodeController', function () {
       });
 
       it('should return 200 and a resourceful O.w.L.', function(){
-        expect(fakeResponse.send).to.have.been.calledWith(200, [{resourceType: 'node'},{resourceType: 'node'}]);
+        expect(fakeResponse.send).to.have.been.calledWith([{resourceType: 'node'},{resourceType: 'node'}]);
       });
     });
 
@@ -40,7 +40,7 @@ describe('NodeController', function () {
       });
 
       it('should return 200 and sauron', function(){
-        expect(fakeResponse.send).to.have.been.calledWith(200, [{resourceType: 'node'}]);
+        expect(fakeResponse.send).to.have.been.calledWith([{resourceType: 'node'}]);
       });
     });
 
@@ -63,6 +63,7 @@ var FakeResponse = function(){
   var self = this;
 
   self.send = sinon.spy();
+  self.status = sinon.stub().returns(self);
 
   return self;
 };

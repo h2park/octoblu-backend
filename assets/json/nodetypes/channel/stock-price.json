@@ -1,8 +1,8 @@
 {
   "_id": "53c9b836f400e177dca325bd",
   "category": "channel",
-  "description": "Get YAHOO! Finance stock price",
-  "helpText": "Get YAHOO! Finance stock price.",
+  "description": "Get real time stock quotes using the YAHOO finance api.",
+  "helpText": "Get real time stock quotes.",
   "enabled": true,
   "name": "StockPrice",
   "skynet": {
