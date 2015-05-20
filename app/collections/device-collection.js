@@ -1,10 +1,7 @@
 var config = require('../../config/auth'),
   _ = require('lodash'),
   when = require('when'),
-  rest = require('rest'),
-  mime = require('rest/interceptor/mime'),
-  errorCode = require('rest/interceptor/errorCode'),
-  client = rest.wrap(mime).wrap(errorCode);
+  MeshbluHttp = require('meshblu-http');
 
 var DeviceCollection = function (userUUID, userToken) {
   var self = this;
@@ -13,7 +10,7 @@ var DeviceCollection = function (userUUID, userToken) {
   self.fetch = function () {
     return self.fetchAll().then(function(devices){
       return _.reject(devices, function(device){
-        return device.type === 'octoblu:flow' || device.type === 'octoblu:user' 
+        return device.type === 'octoblu:flow' || device.type === 'octoblu:user'
       });
     });
   };
@@ -23,21 +20,21 @@ var DeviceCollection = function (userUUID, userToken) {
   };
 
   self.getDevicesByOwner = function () {
-    var requestParams = {
-      method: 'GET',
-      path: 'http://' + config.skynet.host + ':' +
-        config.skynet.port + '/mydevices',
-      headers: {
-        meshblu_auth_uuid: userUUID,
-        meshblu_auth_token: userToken
-      }
-    };
-
-    return client(requestParams).then(function (result) {
-      return result.entity.devices;
-    }).catch(function () {
-      return [];
+    var meshbluHttp = new MeshbluHttp({
+      server: config.skynet.host,
+      port: config.skynet.port,
+      uuid: userUUID,
+      token: userToken
     });
+
+    var deferred = when.defer();
+    meshbluHttp.mydevices({}, function(error, result){
+      if (error) {
+        deferred.reject(error);
+      }
+      deferred.resolve(result.devices);
+    });
+    return deferred.promise;
   };
 };
 
