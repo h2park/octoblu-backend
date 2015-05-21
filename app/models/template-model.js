@@ -89,7 +89,17 @@ function TemplateModel(dependencies) {
       }
 
       var self = this;
-      var stuffToKeep = ['type', 'category', 'name', 'channelid', 'useStaticMessage', 'staticMessage', 'connector', 'logo'];
+      var stuffToKeep = [
+        'type',
+        'nodeType',
+        'category',
+        'name',
+        'channelid',
+        'useStaticMessage',
+        'staticMessage',
+        'connector',
+        'logo'
+      ];
       _.each(_.keys(node.defaults), function(key){
         if (_.contains(stuffToKeep, key)){
           return ;
