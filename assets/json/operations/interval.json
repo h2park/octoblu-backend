@@ -1,7 +1,7 @@
 {
   "name": "Interval",
   "class": "interval",
-  "helpText": "Emit a message at the specified interval.<br> ```{ \"on\": true || false, \"repeat\": 1000 } ```",
+  "helpText": "Emit a message at the specified interval.",
   "category": "operation",
   "uuid": "37f0a966-2f17-11e4-9617-a6c5e4d22fb7",
   "type": "operation:interval",

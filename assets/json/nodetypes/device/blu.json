@@ -4,7 +4,7 @@
   "description": "Blu Flow Trigger Application",
   "helpText": "Trigger your Octoblu triggers remotely.",
   "enabled": true,
-  "name": "Blu",
+  "name": "Blu Web",
   "skynet": {
     "type": "device",
     "subtype": "blu"

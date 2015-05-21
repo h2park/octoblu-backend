@@ -27,7 +27,7 @@
           },
           {
             "name": "text",
-            "displayName": "Message ( Add data to text using {{payload.values}} )",
+            "displayName": "Message ( Add data to text using {{msg.values}} )",
             "style": "body",
             "type": "string",
             "required" : true

@@ -81,8 +81,7 @@ catch (error) {
         uuid:   process.env.OCTOBLU_UUID,
         token:  process.env.OCTOBLU_TOKEN,
         server: config.skynet.host,
-        port:   config.skynet.port,
-        protocol: 'websocket'
+        port:   config.skynet.port
     };
 }
 
