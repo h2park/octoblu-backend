@@ -16,7 +16,7 @@ var DemoFlowController = function (options) {
   self.create = function (req, res) {
     var user = req.user;
     var cookies = req.cookies || {};
-    var flowNodeTypes = new flowNodeTypeCollection(req.user, req.token);
+    var flowNodeTypes = new flowNodeTypeCollection(req.uuid, req.token);
     when.all([
       User.addApiAuthorization(user, 'channel:weather', {authtype: 'none'}),
       User.addApiAuthorization(user, 'channel:stock-price', {authtype: 'none'}),
