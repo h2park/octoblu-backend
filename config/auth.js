@@ -105,6 +105,7 @@ var config = {
       'port' : process.env.PORT || 8080,
       'sslPort' : process.env.SSL_PORT || 8081,
       'elasticSearchUri' : process.env.ELASTIC_SEARCH_URI,
+      'flowDeployUri' : 'http://localhost:8899',
       'domain': null
     },
     test: {
@@ -226,6 +227,7 @@ var config = {
       'port' : process.env.PORT || 80,
       'sslPort' : process.env.SSL_PORT || 443,
       'elasticSearchUri' : process.env.ELASTIC_SEARCH_URI,
+      'flowDeployUri' : 'https://flow-deploy.octoblu.com',
       'domain': '.octoblu.com'
     },
     staging: {
@@ -326,6 +328,7 @@ var config = {
       'port' : process.env.PORT || 80,
       'sslPort' : process.env.SSL_PORT || 443,
       'elasticSearchUri' : process.env.ELASTIC_SEARCH_URI,
+      'flowDeployUri' : 'https://flow-deploy.octoblu-staging.com',
       'domain': '.octoblu.com'
     }
   };

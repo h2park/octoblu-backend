@@ -4,6 +4,7 @@ var _ = require('lodash'),
     textCrypt = require('../lib/textCrypt'),
     Channel = require('../models/channel'),
     mongojs = require('mongojs'),
+    request = require('request'),
     url = require('url');
 
 var FlowDeploy = function(options){
@@ -110,12 +111,31 @@ var FlowDeploy = function(options){
 
   self.startFlow = function(flow){
     self.updateMeshbluFlow(flow).then(function(){
-      self.sendMessage(flow, 'nodered-instance-start');
+      self.startFlowDeploy(flow);
     });
   };
 
+  self.startFlowDeploy = function(flow) {
+    var url = config.flowDeployUri + '/flows/' + flow.flowId + '/instance';
+    var options = {
+      auth: {
+        user: userUUID,
+        pass: userToken
+      }
+    };
+    request.post(url, options);
+  }
+
   self.stopFlow = function(flow){
     self.sendMessage(flow, 'nodered-instance-stop');
+    var url = config.flowDeployUri + '/flows/' + flow.flowId + '/instance';
+    var options = {
+      auth: {
+        user: userUUID,
+        pass: userToken
+      }
+    };
+    request.del(url, options);
   };
 
   self.sendMessage = function(flow, topic) {
