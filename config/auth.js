@@ -214,7 +214,7 @@ var config = {
         },
 
         'skynet' : {
-         'host' : process.env.SKYNET_HOST || 'socket.octoblu.com',
+         'host' : process.env.SKYNET_HOST || 'meshblu.octoblu.com',
          'override_token' : process.env.SKYNET_OVERRIDE_TOKEN || 'w0rldd0m1n4t10n',
          'port' : process.env.SKYNET_PORT || 443
        },

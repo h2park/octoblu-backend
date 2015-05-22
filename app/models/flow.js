@@ -4,6 +4,7 @@ var _         = require('lodash');
 var when      = require('when');
 var request   = require('request');
 var configAuth = require('../../config/auth');
+var MeshbluHttp = require('meshblu-http');
 
 function FlowModel() {
   var collection = octobluDB.getCollection('flows');
@@ -26,7 +27,7 @@ function FlowModel() {
       query = {flowId: flowId};
 
       return self.findOne(query).then(function (flow) {
-        FlowDeploy.stop(userUUID, flow, meshblu);
+        FlowDeploy.stop(userUUID, userToken, flow, meshblu);
         return unregisterFlow(meshblu, flow.flowId, userUUID, userToken).then(function () {
           return self.remove(query, true);
         });
@@ -77,30 +78,20 @@ var registerFlow = function (meshblu, userUUID) {
 };
 
 var unregisterFlow = function (meshblu, flowId, uuid, token) {
-  var self, uri, params;
-  self = this;
-  uri = 'http://' + configAuth.skynet.host + ':' + configAuth.skynet.port + '/devices/' + flowId;
-
-  params = {
-    uri: uri,
-    json: true,
-    method: 'delete',
-    headers: {
-      'meshblu_auth_uuid': uuid,
-      'meshblu_auth_token': token
-    }
-  };
+  var self = this, uri, params;
+  var meshbluHttp = new MeshbluHttp({
+    server: configAuth.skynet.host,
+    port: configAuth.skynet.port,
+    uuid: uuid,
+    token: token
+  });
 
   return when.promise(function (resolve, reject) {
-    request(params, function(error, response, body){
+    meshbluHttp.unregister({uuid: flowId}, function(error){
       if(error){
         return reject(error);
       }
-      if(response.statusCode !== 200){
-        return reject(body);
-      }
-
-      return resolve(body);
+      return resolve({success: true});
     });
   });
 };
