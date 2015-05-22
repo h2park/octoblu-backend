@@ -200,6 +200,18 @@ describe 'SecurityController', ->
       it 'should call the callback with an error', ->
         expect(@error).to.exist
 
+    describe 'when called with a valid device but getDeviceFromMeshblu yields an error', ->
+      beforeEach (done) ->
+        callback = (@error, @user) => done()
+        @userSession.getDeviceFromMeshblu = sinon.stub().yields new Error()
+        @sut.authenticateWithMeshblu 'milk-milk', 'lemonade', callback
+
+      it 'should call userSession.getDeviceFromMeshblu with the uuid and token', ->
+        expect(@userSession.getDeviceFromMeshblu).to.have.been.calledWith 'milk-milk', 'lemonade'
+
+      it 'should call the callback with an error', ->
+        expect(@error.message).to.equal @sut.MESHBLU_CONNECTION_ERROR
+
     describe 'when called with a valid device', ->
       beforeEach (done) ->
         callback = (@error, @user) => done()

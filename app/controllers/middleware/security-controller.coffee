@@ -3,9 +3,11 @@ UserSession = require '../../models/user-session-model'
 basicAuth = require 'basic-auth'
 debug = require('debug')('octoblu:security-controller')
 
+
 class SecurityController
   constructor: (dependencies={}) ->
     @userSession = dependencies.userSession ? new UserSession
+    @MESHBLU_CONNECTION_ERROR="Error connecting to meshblu"
 
   bypassAuth: (request, response, next=->) =>
     request.bypassAuth = true
@@ -74,7 +76,7 @@ class SecurityController
     debug 'authenticateWithMeshblu', uuid, token
     return callback new Error('No UUID or Token found') unless uuid && token
     @userSession.getDeviceFromMeshblu uuid, token, (error, userDevice) =>
-      return callback error if error?
+      return callback new Error(@MESHBLU_CONNECTION_ERROR) if error?
       @userSession.ensureUserExists uuid, (error, user) =>
         return callback error if error?
         callback null, user, userDevice
@@ -84,6 +86,7 @@ class SecurityController
     {uuid, token} = @getAuthFromAnywhere request
 
     authenticateCallback = (error, user, userDevice) =>
+      return response.status(502).send(error: error.message) if error && error.message == @MESHBLU_CONNECTION_ERROR
       return response.status(401).send(error: error.message) if error?
       return response.status(404).send(error: 'user not found') unless user?
       user.userDevice = userDevice
