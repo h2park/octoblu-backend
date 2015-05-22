@@ -263,10 +263,11 @@ describe 'SecurityController', ->
   describe '->enforceTerms', ->
     describe 'when called with a user that has not accepted the terms', ->
       beforeEach (done) ->
-        request = user: {terms_accepted_at: null}
+        request = user: userDevice: octoblu: terms_accepted_at: null
         @response =
           status: sinon.spy(=> @response)
           send: sinon.spy(=> done())
+          end: sinon.spy(=> done())
         @sut.enforceTerms request, @response
 
       it 'should call response.status(403)', ->
@@ -277,17 +278,33 @@ describe 'SecurityController', ->
 
     describe 'when called with a user that has an undefined terms_accepted_at', ->
       beforeEach (done) ->
-        request = user: {}
+        request = user: { userDevice: null }
         @response =
           status: sinon.spy(=> @response)
           send: sinon.spy(=> done())
+          end: sinon.spy(=> done())
         @sut.enforceTerms request, @response
 
       it 'should call response.status(403)', ->
-        expect(@response.status).to.have.been.calledWith 403
+        expect(@response.status).to.have.been.calledWith 401
 
       it 'should call send with the terms of service', ->
-        expect(@response.send).to.have.been.calledWith 'Terms of service must be accepted'
+        expect(@response.end).to.have.been.called
+
+    describe 'when called with a userDevice has an error', ->
+      beforeEach (done) ->
+        request = user: userDevice: error: new Error()
+        @response =
+          status: sinon.spy(=> @response)
+          send: sinon.spy(=> done())
+          end: sinon.spy(=> done())
+        @sut.enforceTerms request, @response
+
+      it 'should call response.status(403)', ->
+        expect(@response.status).to.have.been.calledWith 401
+
+      it 'should call send with the terms of service', ->
+        expect(@response.end).to.have.been.called
 
     describe 'when called with a user that has accepted the terms before they were last updated', ->
       beforeEach (done) ->
