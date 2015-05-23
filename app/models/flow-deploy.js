@@ -111,7 +111,8 @@ var FlowDeploy = function(options){
 
   self.startFlow = function(flow){
     self.updateMeshbluFlow(flow).then(function(){
-      self.startFlowDeploy(flow);
+      self.sendMessage(flow, 'nodered-instance-start');
+      //self.startFlowDeploy(flow);
     });
   };
 
