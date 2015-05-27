@@ -1,0 +1,849 @@
+{
+  "_id": "2384wx59672sfu0234r0",
+  "type": "channel:firebase",
+  "auth_strategy": "",
+  "bodyFormat": "json",
+  "name": "Firebase",
+  "oauth": {
+    "development": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    },
+    "staging": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    },
+    "production": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    }
+  },
+  "application": {
+    "base": "https://my-firebase.firebaseio.com",
+    "resources": [
+      {
+        "path": "/getAuth",
+        "displayName": "Gets The Current Auth State Of The Client",
+        "httpMethod": "Get",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "uid",
+            "displayName": "User's Unique ID Across All Providers"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "provider",
+            "displayName": "Unique String Identifying The Auth Provider"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "token",
+            "displayName": "Firebase Auth Token Used To Auth The Client"
+          },{
+            "style": "query",
+            "type": "number",
+            "name": "expires",
+            "displayName": "Session Expiration Time In Seconds Since The Unix Epoch"
+          },{
+            "style": "query",
+            "type": "Object",
+            "name": "auth",
+            "displayName": "Contents Of The Auth. Token, Available As Auth In Your Security & Firebase Rules"
+          }],
+        "url": "https://my-firebase.firebaseio.com/getAuth"
+      },{
+        "path": "/onAuth",
+        "displayName": "Listens For Changes To The Client's Auth State",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "Function",
+            "name": "onComplete",
+            "displayName": "A Callback That Fires When The Client's Authenticate State Changes",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "Object",
+            "name": "context",
+            "displayName": "This Object Will Be Used As This When Calling Your Callback"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "uid",
+            "displayName": "User's Unique ID Across All Providers"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "provider",
+            "displayName": "Unique String Identifying The Auth Provider"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "token",
+            "displayName": "Firebase Auth Token Used To Auth The Client"
+          },{
+            "style": "query",
+            "type": "number",
+            "name": "expires",
+            "displayName": "Session Expiration Time In Seconds Since The Unix Epoch"
+          },{
+            "style": "query",
+            "type": "Object",
+            "name": "auth",
+            "displayName": "Contents Of The Auth. Token, Available As Auth In Your Security & Firebase Rules"
+          }
+        ],
+        "url": "https://my-firebase.firebaseio.com/onAuth"
+      },
+      {
+        "path": "/offAuth",
+        "displayName": "Detaches A Callback Previously Attached With OnAuth",
+        "httpMethod": "Put",
+        "params": [{
+            "style": "body",
+            "type": "Function",
+            "name": "onComplete",
+            "displayName": "The Callback Function That Was Passed To OnAuth",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "Object",
+            "name": "context",
+            "displayName": "The Context That Was Passed To OnAuth"
+          }],
+        "url": "https://my-firebase.firebaseio.com/offAuth"
+      },
+      {
+        "path": "/unauth",
+        "displayName": "Unauthenticates A Firebase Client",
+        "httpMethod": "Delete",
+        "params": [],
+        "url": "https://my-firebase.firebaseio.com/unauth"
+      },
+      {
+        "path": "/child",
+        "displayName": "Gets A Firebase Reference For The Location At The Specified Relative Path",
+        "httpMethod": "Get",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "childPath",
+            "displayName": "Relative Path From This Location To The Desired Child Location",
+            "required": "true"
+          }],
+        "url": "https://my-firebase.firebaseio.com/child"
+      },
+      {
+        "path": "/parent",
+        "displayName": "Gets A Firebase Reference To The Parent Location",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://my-firebase.firebaseio.com/parent"
+      },
+      {
+        "path": "/root",
+        "displayName": "Gets Firebase Reference To The Root Of The Firebase",
+        "httpMethod": "Get",
+        "params": [],
+        "url": "https://my-firebase.firebaseio.com/root"
+      },
+      {
+        "path": "/key",
+        "displayName": "Gets the Last Token In A Firebase Location",
+        "httpMethod": "Get",
+        "params": [],
+        "url": "https://my-firebase.firebaseio.com/key"
+      },
+      {
+        "path": "/name",
+        "displayName": "Returns The Last Token In A Firebase Location",
+        "httpMethod": "Get",
+        "params": [],
+        "url": "https://my-firebase.firebaseio.com/name"
+      },
+      {
+        "path": "/toString",
+        "displayName": "Gets The Absolute URL Corresponding To This Firebase Reference's Location",
+        "httpMethod": "Get",
+        "params": [],
+        "url": "https://my-firebase.firebaseio.com/toString"
+      },
+      {
+        "path": "/set",
+        "displayName": "Writes Data To This Firebase Location",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "body",
+            "type": "Object",
+            "name": "value",
+            "displayName": "The Value To Be Written To Your Firebase",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "onComplete",
+            "displayName": "A Callback Function That Will Be Called When Synchronization To The Firebase servers has completed"
+          }
+        ],
+        "url": "https://my-firebase.firebaseio.com/set"
+      },
+      {
+        "path": "/update",
+        "displayName": "Writes The Enumerated Children To This Firebase Location",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "body",
+            "type": "Object",
+            "name": "value",
+            "displayName": "An Object Containing The Children & Associated Values To Be Written",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "Function",
+            "name": "onComplete",
+            "displayName": "A Callback Function That Will Be Called When Synchronization To The Firebase Servers Has Completed"
+          }
+        ],
+        "url": "/update"
+      },
+      {
+        "path": "/remove",
+        "displayName": "Removes The Data At This Firebase Location",
+        "httpMethod": "Delete",
+        "params": [
+          {
+            "style": "query",
+            "type": "Function",
+            "name": "onComplete",
+            "displayName": "Callback Function That Will Be Called When Synchronization To The Firebase Servers Has Completed"
+          }
+        ],
+        "url": "https://my-firebase.firebaseio.com/remove"
+      },
+      {
+        "path": "/push",
+        "displayName": "Generates A New Child Location Using A unique Key & Returns A Firebase Reference To It",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "body",
+            "type": "Object",
+            "name": "value",
+            "displayName": "The Value To Be Written At The Generated Location",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "Function",
+            "name": "onComplete",
+            "displayName": "A Callback Function That Will Be Called When Synchronization To The Firebase Servers"
+          }
+        ],
+        "url": "https://my-firebase.firebaseio.com/push"
+      },
+      {
+        "path": "/setWithPriority",
+        "displayName": "Writes Data To This Firebase Location, Like Set But Also Specifies The Priority For That Data",
+        "httpMethod": "Post",
+        "params": [{
+            "style": "body",
+            "type": "Object",
+            "name": "value",
+            "displayName": "The Value To Be Written To The Firebase Location",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "priority",
+            "displayName": "The Priority For The Data Being Written",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "Function",
+            "name": "onComplete",
+            "displayName": "A Callback Function That Will Be Called When Synchronization To The Firebase Servers"
+          }],
+        "url": "https://my-firebase.firebaseio.com/setWithPriority"
+      },
+      {
+        "path": "/setPriority",
+        "displayName": "Sets A Priority For The Data At This Firebase Location",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "body",
+            "type": "string",
+            "name": "priority",
+            "displayName": "The Priority For The Data Being Written",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "Function",
+            "name": "onComplete",
+            "displayName": "A Callback Function That Will Be Called When Synchronization To The Firebase Servers"
+          }
+        ],
+        "url": "https://my-firebase.firebaseio.com/setPriority"
+      },
+      {
+        "path": "/transaction",
+        "displayName": "Atomically Modifies The Data At This Location",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "body",
+            "type": "Function",
+            "name": "updateFunction",
+            "displayName": "A Developer-Supplied Function Which Will Be Passed The Current Data Stored At This Location",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "Function",
+            "name": "onComplete",
+            "displayName": "A Callback Function That Will Be Called When The Transaction Completes"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "applyLocally",
+            "displayName": "By Default, Events Are Raised Each Time The Transaction Update Function Runs"
+          }
+        ],
+        "url": "https://my-firebase.firebaseio.com/transaction"
+      },{
+        "path": "/createUser",
+        "displayName": "Creates A New User Account Using An Email/Password Combination",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "body",
+            "type": "Object",
+            "name": "credentials",
+            "displayName": "Contains Email & Password Attributes Corresponding To The New User Account",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "Function",
+            "name": "onComplete",
+            "displayName": "A Callback Function That Will Be Called When The User Account Has Been Created"
+          }
+        ],
+        "url": "https://my-firebase.firebaseio.com/createUser"
+      },
+      {
+        "path": "/changeEmail",
+        "displayName": "Updates Email Associated With An Email/Password User Account",
+        "httpMethod": "Put",
+        "params": [
+          {
+            "style": "body",
+            "type": "Object",
+            "name": "credentials",
+            "displayName": "An Object Containing OldEmail, Password, & NewEmail Attributes Corresponding To The User Account",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "Function",
+            "name": "onComplete",
+            "displayName": "A Callback Function That Will Be Called When The User Account's Password Has Been Changed",
+            "required": "true"
+          }
+        ],
+        "url": "https://my-firebase.firebaseio.com/changeEmail"
+      },
+      {
+        "path": "/changePassword",
+        "displayName": "Changes The Password Of An Existing User Using An Email/Password Combination",
+        "httpMethod": "Put",
+        "params": [
+          {
+            "style": "body",
+            "type": "Object",
+            "name": "credentials",
+            "displayName": "Object Containing Email, OldPassword, & NewPassword Attributes Corresponding To The User Account",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "Function",
+            "name": "onComplete",
+            "displayName": "A Callback Function That Will Be Called When The User Account's Password Has Been Changed",
+            "required": "true"
+          }
+        ],
+        "url": "https://my-firebase.firebaseio.com/changePassword"
+      },
+      {
+        "path": "/removeUser",
+        "displayName": "Removes An Existing User Account Using An Email/Password Combo",
+        "httpMethod": "Delete",
+        "params": [
+         {
+            "style": "query",
+            "type": "Object",
+            "name": "credentials",
+            "displayName": "Object Containing Email & Password Attributes Corresponding To The User Account",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "Function",
+            "name": "onComplete",
+            "displayName": "A Callback Function That Will Be Called When The User Account Has Been Removed",
+            "required": "true"
+          }
+        ],
+        "url": "https://my-firebase.firebaseio.com/removeUser"
+      },
+      {
+        "path": "/resetPassword",
+        "displayName": "Sends A Password-Reset Email To The Owner Of The Account, Containing A Token That May Be Used To Auth & Change The User's Password",
+        "httpMethod": "Put",
+        "params": [
+          {
+            "style": "body",
+            "type": "Object",
+            "name": "credentials",
+            "displayName": "Object Containing Email Attributes Corresponding To The User Account",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "Function",
+            "name": "onComplete",
+            "displayName": "A Callback Function That Will Be Called When The User Account's Has Been Reset",
+            "required": "true"
+          }
+        ],
+        "url": "https://my-firebase.firebaseio.com/resetPassword"
+      },
+      {
+        "path": "/goOnline",
+        "displayName": "Manually Reestablishes A Connection To The Firebase Server & Enables Automatic Reconnection",
+        "httpMethod": "Put",
+        "params": [],
+        "url": "https://my-firebase.firebaseio.com/goOnline"
+      },
+      {
+        "path": "/goOffline",
+        "displayName": "Manually Disconnects The Firebase Client From The Server & Disables Automatic Reconnection",
+        "httpMethod": "Delete",
+        "params": [],
+        "url": "https://my-firebase.firebaseio.com/goOffline"
+      },
+      {
+        "path": "/on",
+        "displayName": "Listens For Data Changes At A Particular Location",
+        "httpMethod": "Get",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "eventType",
+            "displayName": "EventType",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "Function",
+            "name": "callback",
+            "displayName": "A Callback That Fires When The Specified Event Occurs",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "Function",
+            "name": "cancelCallback",
+            "displayName": "Cancel Callback"
+          },{
+            "style": "query",
+            "type": "Object",
+            "name": "context",
+            "displayName": "This Object Will Be Used As This When Calling Your Callback"
+          }],
+        "url": "https://my-firebase.firebaseio.com/on"
+      },
+      {
+        "path": "/off",
+        "displayName": "Detaches A Callback Previously Attached With On",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "eventType",
+            "displayName": "EventType"
+          },{
+            "style": "query",
+            "type": "Function",
+            "name": "callback",
+            "displayName": "The Callback Function That Was Passed To On"
+          },{
+            "style": "query",
+            "type": "Object",
+            "name": "context",
+            "displayName": "The Context That Was Passed To On"
+          }
+        ],
+        "url": "https://my-firebase.firebaseio.com/off"
+      },
+      {
+        "path": "/once",
+        "displayName": "Listens For Exactly One Event Of The Specified Event Type & Then Stops Listening",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "eventType",
+            "displayName": "EventType",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "Function",
+            "name": "successCallback",
+            "displayName": "A Callback That Fires When The Specified Event Occurs",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "Function",
+            "name": "failureCallback",
+            "displayName": "Callback That Will Be Notified If Your Client Does Not Have Permission To Read This Data"
+          },{
+            "style": "query",
+            "type": "Object",
+            "name": "context",
+            "displayName": "This Object Will Be Used As This When Calling Your Callback"
+          }
+        ],
+        "url": "https://my-firebase.firebaseio.com/once"
+      },
+      {
+        "path": "/orderByChild",
+        "displayName": "Generates A New Query Object Ordered By The Specified Child Key",
+        "httpMethod": "Put",
+        "params": [
+          {
+            "style": "query",
+            "type": "body",
+            "name": "key",
+            "displayName": "The Child Key To Order By",
+            "required": "true"
+          }
+        ],
+        "url": "https://my-firebase.firebaseio.com/orderByChild"
+      },
+      {
+        "path": "/orderByKey",
+        "displayName": "Generates A New Query Object Ordered By Key",
+        "httpMethod": "Put",
+        "params": [],
+        "url": "https://my-firebase.firebaseio.com/orderByKey"
+      },
+      {
+        "path": "/orderByValue",
+        "displayName": "Generates A New Query Object Ordered By Child Values",
+        "httpMethod": "Put",
+        "params": [],
+        "url": "https://my-firebase.firebaseio.com/orderByValue"
+      },
+      {
+        "path": "/orderByPriority",
+        "displayName": "Generates A New Query Object Ordered By Priority",
+        "httpMethod": "Put",
+        "params": [],
+        "url": "https://my-firebase.firebaseio.com/orderByPriority"
+      },
+      {
+        "path": "/startAt",
+        "displayName": "Creates A Query With The Specified Starting Point",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "body",
+            "type": "string",
+            "name": "value",
+            "displayName": "The Value To Start At",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "key",
+            "displayName": "The Child Key To Start At, Among The Children With The Previously Specified Priority"
+          }
+        ],
+        "url": "https://my-firebase.firebaseio.com/startAt"
+      },
+      {
+        "path": "/endAt",
+        "displayName": "Creates A Query With The Specified Ending Point",
+        "httpMethod": "Post",
+        "params": [],
+        "url": "https://my-firebase.firebaseio.com/endAt"
+      },
+      {
+        "path": "/equalTo",
+        "displayName": "Creates A Query Which Includes Children Which Match The Specified Value",
+        "httpMethod": "Post",
+        "params": [],
+        "url": "https://my-firebase.firebaseio.com/equalTo"
+      },
+      {
+        "path": "/limitToFirst",
+        "displayName": "Generates A New Query Object Limited To The First Certain Number Of Children",
+        "httpMethod": "Put",
+        "params": [
+          {
+            "style": "body",
+            "type": "number",
+            "name": "limit",
+            "displayName": "Maximum Number Of Nodes To Include",
+            "required": "true"
+          }
+        ],
+        "url": "https://my-firebase.firebaseio.com/limitToFirst"
+      },
+      {
+        "path": "/limitToLast",
+        "displayName": "Generates A New Query Object Limited To The Last Certain Number Of Children",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "Query",
+            "type": "number",
+            "name": "limit",
+            "displayName": "Maximum Number Of Nodes To Include",
+            "required": "true"
+          }
+        ],
+        "url": "https://my-firebase.firebaseio.com/limitToLast"
+      },
+      {
+        "path": "/limit",
+        "displayName": "Generates A New Query Object Limited To The Specified Number Of Children",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "number",
+            "name": "limit",
+            "displayName": "The Number Of Items To Include In This Query",
+            "required": "true"
+          }
+        ],
+        "url": "https://my-firebase.firebaseio.com/limit"
+      },
+      {
+        "path": "/ref",
+        "displayName": "Gets A Firebase Reference To The Query's Location",
+        "httpMethod": "Get",
+        "params": [],
+        "url": "https://my-firebase.firebaseio.com/ref"
+      },
+      {
+        "path": "/set",
+        "displayName": "Ensures The Data At This Location Is Set To The Specified Value When The Client Is Disconnected",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "Object",
+            "name": "value",
+            "displayName": "The Value To Be Written To This Firebase Location On Disconnect",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "onComplete",
+            "displayName": "Callback Function That Will Be Called When Synchronization To The Firebase Servers Has Completed"
+          }
+        ],
+        "url": "https://my-firebase.firebaseio.com/set"
+      },
+      {
+        "path": "/update",
+        "displayName": "Writes The Enumerated Children At This Firebase Location When The Client Is Disconnected",
+        "httpMethod": "Put",
+        "params": [
+          {
+            "style": "body",
+            "type": "Object",
+            "name": "value",
+            "displayName": "Object Containing The Children & Associated Values To Be Written",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "Function",
+            "name": "onComplete",
+            "displayName": "Callback Function That Will Be Called When Synchronization To The Firebase Servers Has Completed"
+          }
+        ],
+        "url": "https://my-firebase.firebaseio.com/update"
+      },
+      {
+        "path": "/remove",
+        "displayName": "Ensures The Data At This Location Is Deleted When The Client Is Disconnected",
+        "httpMethod": "Delete",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": "onComplete",
+            "displayName": "Callback Function That Will Be Called When Synchronization To The Firebase Servers Has Completed"
+          }
+        ],
+        "url": "https://my-firebase.firebaseio.com/remove"
+      },
+      {
+        "path": "/setWithPriority",
+        "displayName": "Ensures Data Is Set To The Specified Value & Priority When The Client Is Disconnected",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "value",
+            "displayName": "Value To Be Written To This Firebase Location On Disconnect",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "priority",
+            "displayName": "Priority (String Or Number) For The Data Being Written",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "function",
+            "name": "onComplete",
+            "displayName": "Callback Function That Will Be Called When Synchronization To The Firebase Servers Has Completed"
+          }
+        ],
+        "url": "https://my-firebase.firebaseio.com/setWithPriority"
+      },
+      {
+        "path": "/cancel",
+        "displayName": "Cancels All Previously Queued OnDisconnect Set Or Update Events For This Location & All Children",
+        "httpMethod": "Delete",
+        "params": [
+          {
+            "style": "query",
+            "type": "function",
+            "name": "onComplete",
+            "displayName": "Callback Function That Will Be Called When Synchronization To The Firebase Servers Has Completed"
+          }
+        ],
+        "url": "https://my-firebase.firebaseio.com/cancel"
+      },
+      {
+        "path": "/exists",
+        "displayName": "Returns True If This DataSnapshot Contains Any Data",
+        "httpMethod": "Get",
+        "params": [],
+        "url": "https://my-firebase.firebaseio.com/exists"
+      },
+      {
+        "path": "/val",
+        "displayName": "Gets The JavaScript Object Representation Of The DataSnapshot",
+        "httpMethod": "Get",
+        "params": [],
+        "url": "https://my-firebase.firebaseio.com/val"
+      },
+      {
+        "path": "/child",
+        "displayName": "Gets A DataSnapshot For The Location At The Specified Relative Path",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "childPath",
+            "displayName": "A Relative Path To The Location Of Child Data",
+            "required": "true"
+          }
+        ],
+        "url": "https://my-firebase.firebaseio.com/child"
+      },
+      {
+        "path": "/forEach",
+        "displayName": "Enumerates Through The DataSnapshot’s Children",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "Function",
+            "name": "childAction",
+            "displayName": "A Function Which Will Be Called For Each Child DataSnapshot",
+            "required": "true"
+          }
+        ],
+        "url": "https://my-firebase.firebaseio.com/forEach"
+      },
+      {
+        "path": "/hasChild",
+        "displayName": "Returns True If The Specified Child Exists",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "childPath",
+            "displayName": "Relative Path To The Location Of A Potential Child",
+            "required": "true"
+          }
+        ],
+        "url": "https://my-firebase.firebaseio.com/hasChild"
+      },
+      {
+        "path": "/hasChildren",
+        "displayName": "Returns True If The DataSnapshot Has Any Children",
+        "httpMethod": "Get",
+        "params": [],
+        "url": "https://my-firebase.firebaseio.com/hasChildren"
+      },
+      {
+        "path": "/key",
+        "displayName": "Gets The Key Of The Location That Generated This DataSnapshot",
+        "httpMethod": "Get",
+        "params": [],
+        "url": "https://my-firebase.firebaseio.com/key"
+      },
+      {
+        "path": "/name",
+        "displayName": "Gets the key of the location that generated this DataSnapshot",
+        "httpMethod": "Get",
+        "params": [],
+        "url": "https://my-firebase.firebaseio.com/name"
+      },
+      {
+        "path": "/numChildren",
+        "displayName": "Gets The Number Of Children For This DataSnapshot",
+        "httpMethod": "Get",
+        "params": [],
+        "url": "https://my-firebase.firebaseio.com/numChildren"
+      },
+      {
+        "path": "/ref",
+        "displayName": "Gets The Firebase Reference For The Location That Generated This DataSnapshot",
+        "httpMethod": "Get",
+        "params": [],
+        "url": "https://my-firebase.firebaseio.com/ref"
+      },
+      {
+        "path": "/getPriority",
+        "displayName": "Gets The Priority Of The Data In This DataSnapshot",
+        "httpMethod": "Get",
+        "params": [],
+        "url": "https://my-firebase.firebaseio.com/getPriority"
+      },
+      {
+        "path": "/exportVal",
+        "displayName": "Exports The Entire Contents Of The DataSnapshot As A JavaScript Object",
+        "httpMethod": "Put",
+        "params": [],
+        "url": "https://my-firebase.firebaseio.com/exportVal"
+      }
+    ]
+  }
+}
