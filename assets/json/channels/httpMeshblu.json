@@ -1,0 +1,242 @@
+{
+  "_id": "258201jd3570344eif934w3ef2",
+  "type": "channel:Meshblu",
+  "auth_strategy": "",
+  "bodyFormat": "json",
+  "name": "Meshblu",
+  "oauth": {
+    "development": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    },
+    "staging": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    },
+    "production": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    }
+  },
+  "application": {
+    "base": "http(s)://meshblu.octoblu.com",
+    "resources": [
+      {
+        "path": "/status",
+        "displayName": "Gets The Meshblu Platform Status",
+        "httpMethod": "Get",
+        "params": [],
+        "url": "http(s)://meshblu.octoblu.com/status"
+      },{
+        "path": "/devices",
+        "displayName": "Registers A Node Or Device With Meshblu",
+        "httpMethod": "Post",
+        "params": [],
+        "url": "http(s)://meshblu.octoblu.com/devices"
+      },
+      {
+        "path": "/devices",
+        "displayName": "Gets An Array Of Device UUIDs Based On Key/Value Query Criteria",
+        "httpMethod": "Get",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "key",
+            "displayName": "Key Value"
+          }],
+        "url": "http(s)://meshblu.octoblu.com/devices"
+      },
+      {
+        "path": "/devices/:uuid",
+        "displayName": "Returns All Info (Except The Token) Of A Specific Device/Node",
+        "httpMethod": "Delete",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":uuid",
+            "displayName": "UUID",
+            "required": "true"
+          }],
+        "url": "http(s)://meshblu.octoblu.com/devices/:uuid"
+      },
+      {
+        "path": "/devices/:uuid/publickey",
+        "displayName": "Gets The Base64-encoded Public Key For The Device, Or Null If The Device Doesn't Have A Public Key",
+        "httpMethod": "Get",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":uuid",
+            "displayName": "UUID",
+            "required": "true"
+          }],
+        "url": "http(s)://meshblu.octoblu.com/devices/:uuid/publickey"
+      },
+      {
+        "path": "/devices/:uuid/tokens",
+        "displayName": "Returns A New Session Token For The Device",
+        "httpMethod": "Post",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":uuid",
+            "displayName": "UUID",
+            "required": "true"
+          }],
+        "url": "http(s)://meshblu.octoblu.com/devices/:uuid/tokens"
+      },
+      {
+        "path": "/devices/:uuid",
+        "displayName": "Updates A Node Or Device Currently Registered With Meshblu That You Have Access To Update",
+        "httpMethod": "Put",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":uuid",
+            "displayName": "UUID",
+            "required": "true"
+          }],
+        "url": "http(s)://meshblu.octoblu.com/devices/:uuid"
+      },
+      {
+        "path": "/devices/:uuid",
+        "displayName": "Deletes Or Unregisters A Node Or Device Currently Registered With Meshblu That You Have Access To Update",
+        "httpMethod": "Delete",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":uuid",
+            "displayName": "UUID",
+            "required": "true"
+          }],
+        "url": "http(s)://meshblu.octoblu.com/devices/:uuid"
+      },
+      {
+        "path": "/localdevices",
+        "displayName": "Gets A List Of Unclaimed Devices That Are On The Same Network As The Requesting Resource",
+        "httpMethod": "Get",
+        "params": [],
+        "url": "http(s)://meshblu.octoblu.com/localdevices"
+      },
+      {
+        "path": "/claimdevice/:uuid",
+        "displayName": "Gets The Absolute URL Corresponding To This Firebase Reference's Location",
+        "httpMethod": "Put",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":uuid",
+            "displayName": "UUID",
+            "required": "true"
+          }],
+        "url": "http(s)://meshblu.octoblu.com/claimdevice/:uuid"
+      },
+      {
+        "path": "/mydevices",
+        "displayName": "Gets All Info (Including Tokens) Of All Devices/ Nodes Belonging To A User's UUID",
+        "httpMethod": "Get",
+        "params": [],
+        "url": "http(s)://meshblu.octoblu.com/mydevices"
+      },
+      {
+        "path": "/messages",
+        "displayName": "Send A Message To A Specific Device, Array Of Devices, Or All Devices Subscribing To A UUID On The Meshblu Platform",
+        "httpMethod": "Post",
+        "params": [],
+        "url": "http(s)://meshblu.octoblu.com/messages"
+      },
+      {
+        "path": "/events/:uuid",
+        "displayName": "Gets Last 10 Events Related To A Specific Device Or Node",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":uuid",
+            "displayName": "UUID",
+            "required": "true"
+          }
+        ],
+        "url": "http(s)://meshblu.octoblu.com/events/:uuid"
+      },
+      {
+        "path": "/subscribe",
+        "displayName": "Gets Device/Node Messages As They Are Sent & Received",
+        "httpMethod": "Get",
+        "params": [],
+        "url": "http(s)://meshblu.octoblu.com/subscribe"
+      },
+      {
+        "path": "/subscribe/:uuid",
+        "displayName": "Gets Device/Node Broadcasts Messages As They Are Sent",
+        "httpMethod": "Get",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":uuid",
+            "displayName": "UUID",
+            "required": "true"
+          }],
+        "url": "http(s)://meshblu.octoblu.com/subscribe/:uuid"
+      },
+      {
+        "path": "/ipaddress",
+        "displayName": "Gets The Public IP Address Of The Request",
+        "httpMethod": "Get",
+        "params": [],
+        "url": "http(s)://meshblu.octoblu.com/ipaddress"
+      },
+      {
+        "path": "/data/:uuid",
+        "displayName": "Stores Sensor Data For A Particular UUID",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":uuid",
+            "displayName": "UUID",
+            "required": "true"
+          }
+        ],
+        "url": "http(s)://meshblu.octoblu.com/data/:uuid"
+      },{
+        "path": "/data/:uuid",
+        "displayName": "Gets Last 10 Data Updates Related To A Specific Device/Node",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":uuid",
+            "displayName": "UUID",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "start",
+            "displayName": "Time To Start From"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "finish",
+            "displayName": "Time To End"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "limit",
+            "displayName": "Overrides The Default 10 Updates"
+          }
+        ],
+        "url": "http(s)://meshblu.octoblu.com/data/:uuid"
+      }
+    ]
+  }
+}
