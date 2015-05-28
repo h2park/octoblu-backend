@@ -1,0 +1,99 @@
+{
+  "_id": "3295095028dfka032r3285023",
+  "type": "channel:temboo",
+  "auth_strategy": "",
+  "bodyFormat": "json",
+  "name": "Temboo",
+  "oauth": {
+    "development": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    },
+    "staging": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    },
+    "production": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    }
+  },
+  "application": {
+    "base": "https://ACCOUNT_NAME.temboolive.com/temboo-api/1.0",
+    "resources": [
+      {
+        "path": "/choreos",
+        "displayName": "Get Available Choreos",
+        "httpMethod": "Get",
+        "params": [],
+        "url": "https://ACCOUNT_NAME.temboolive.com/temboo-api/1.0/choreos"
+      },{
+        "path": "/choreos/:id",
+        "displayName": "Specified Choreos Details",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":id",
+            "displayName": "ID For Specific Choreo",
+            "required": "true"
+          }
+        ],
+        "url": "https://ACCOUNT_NAME.temboolive.com/temboo-api/1.0/choreos/:id"
+      },
+      {
+        "path": "/choreos/:id",
+        "displayName": "Run A Choreos",
+        "httpMethod": "Post",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":id",
+            "displayName": "ID For Specific Choreo To Run",
+            "required": "true"
+          }],
+        "url": "https://ACCOUNT_NAME.temboolive.com/temboo-api/1.0/choreos/:id"
+      },
+      {
+        "path": "/choreo-executions",
+        "displayName": "List Running Choreos",
+        "httpMethod": "Get",
+        "params": [],
+        "url": "https://ACCOUNT_NAME.temboolive.com/temboo-api/1.0/choreo-executions"
+      },
+      {
+        "path": "/choreo-executions/:id",
+        "displayName": "Retrieve Status Of Specific Execution",
+        "httpMethod": "Get",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":id",
+            "displayName": "ID For Specific Execution",
+            "required": "true"
+          }],
+        "url": "https://ACCOUNT_NAME.temboolive.com/temboo-api/1.0/choreo-executions/:id"
+      },
+      {
+        "path": "/choreo-executions/:id",
+        "displayName": "Delete A Specific Running Choreo Execution",
+        "httpMethod": "Delete",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":id",
+            "displayName": "ID For Specific Execution",
+            "required": "true"
+          }],
+        "url": "https://ACCOUNT_NAME.temboolive.com/temboo-api/1.0/choreo-executions/:id"
+      }
+    ]
+  }
+}
