@@ -1,0 +1,14 @@
+{
+  "_id": "1f284cf69ab2799ee3da4a91",
+  "category": "channel",
+  "description": "",
+  "enabled": true,
+  "helpText": "For more help, visit the <a href='https://developer.octoblu.com'>Meshblu documentation</a>.",
+  "name": "Meshblu HTTP",
+  "skynet": {
+    "type": "channel",
+    "subtype": "meshblu-http"
+  },
+  "channelid": "2d5d4fa1978df21d8c0d36b4",
+  "type": "channel:meshblu-http"
+}
