@@ -44,6 +44,16 @@ var TemplateController = function (options, dependencies) {
       });
   };
 
+  self.like = function(req, res) {
+    return templateModel.like(req.uuid, req.params.id)
+      .then(function(){
+        res.send(201);
+      })
+      .catch(function(error){
+        res.send(422, error.message);
+      });
+  };
+
   self.create = function(req, res, next) {
     return templateModel.createByUserUUID(req.user.resource.uuid, req.body)
       .then(function(template){

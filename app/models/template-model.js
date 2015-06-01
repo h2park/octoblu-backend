@@ -181,6 +181,12 @@ function TemplateModel(dependencies) {
       }
       return templateCollection.list(query);
     },
+
+    like: function(userUuid, bluprintId) {
+      var templateCollection = new TemplateCollection();
+      return templateCollection.like(userUuid, bluprintId);
+    },
+
     //URGENT: functions to remove:
     findOne: function(owner, query) {
       var templateCollection = new TemplateCollection({owner: owner});

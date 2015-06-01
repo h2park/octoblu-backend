@@ -41,6 +41,14 @@ class TemplateCollection
     query = @allowPublic query
     @collection.find query
 
+  like: (userUuid, bluprintId) =>
+    query = {uuid: bluprintId}
+    @collection.findOne(query)
+      .then (template) =>
+        if _.contains template.likedBy, userUuid
+          return When.reject(new Error 'bluprint already liked')
+        @collection.update(uuid: template.uuid, {$push: likedBy: userUuid})
+
   allowPublic: (query={}) =>
     query = _.clone query
     if @owner?
