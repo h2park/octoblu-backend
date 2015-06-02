@@ -54,6 +54,16 @@ var TemplateController = function (options, dependencies) {
       });
   };
 
+  self.unlike = function(req, res) {
+    return templateModel.unlike(req.uuid, req.params.id)
+      .then(function(){
+        res.send(200);
+      })
+      .catch(function(error){
+        res.send(422, error.message);
+      });
+  };
+
   self.create = function(req, res, next) {
     return templateModel.createByUserUUID(req.user.resource.uuid, req.body)
       .then(function(template){

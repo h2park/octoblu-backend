@@ -187,6 +187,11 @@ function TemplateModel(dependencies) {
       return templateCollection.like(userUuid, bluprintId);
     },
 
+    unlike: function(userUuid, bluprintId) {
+      var templateCollection = new TemplateCollection();
+      return templateCollection.unlike(userUuid, bluprintId);
+    },
+
     //URGENT: functions to remove:
     findOne: function(owner, query) {
       var templateCollection = new TemplateCollection({owner: owner});

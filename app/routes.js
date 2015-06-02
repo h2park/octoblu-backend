@@ -474,6 +474,8 @@ module.exports = function(app, passport, config, meshbluJSON){
 
             app.put('/api/templates/:id/like', templateController.like);
 
+            app.delete('/api/templates/:id/unlike', templateController.unlike);
+
             app.delete('/api/templates/:id', templateController.delete);
 
             app.put('/api/templates/:id', templateController.update);

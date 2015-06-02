@@ -5,6 +5,7 @@ describe 'TemplateController', ->
     @templateModel =
       findByPublic: sinon.stub().returns When.resolve()
       like: sinon.stub().returns When.resolve()
+      unlike: sinon.stub().returns When.resolve()
 
     @res = send: sinon.stub()
 
@@ -92,7 +93,7 @@ describe 'TemplateController', ->
 
     describe 'when templateModel rejects the promise', ->
       beforeEach ->
-        @templateModel.like.returns When.reject new Error 'Error'
+        @templateModel.like.returns When.reject new Error 'NO LIKE'
         @req =
           uuid: 'cartel'
           params:
@@ -100,4 +101,43 @@ describe 'TemplateController', ->
         @sut.like(@req, @res).catch (error) => @res.send(422, error.message)
 
       it 'should respond with 422 and the error', ->
-        expect(@res.send).to.have.been.calledWith 422, 'Error'
+        expect(@res.send).to.have.been.calledWith 422, 'NO LIKE'
+
+  describe '->unlike', ->
+    it 'should exist', ->
+      expect(@sut.unlike).to.exist
+
+    describe 'when called', ->
+      beforeEach ->
+        @req =
+          uuid: 'youme'
+          params:
+            id: 'ghost'
+        @sut.unlike(@req, @res).then => @res.send 201
+
+      it 'should call templateModel.unlike with the bluprintID and userUUID', ->
+        expect(@templateModel.unlike).to.have.been.calledWith @req.uuid, @req.params.id
+
+    describe 'when templateModel resolves the promise', ->
+      beforeEach ->
+        @templateModel.unlike.returns When.resolve {}
+        @req =
+          uuid: 'little sister'
+          params:
+            id: 'big daddy'
+        @sut.unlike(@req, @res).then => @res.send 200
+
+      it 'should respond with 200', ->
+        expect(@res.send).to.have.been.calledWith 200
+
+    describe 'when templateModel rejects the promise', ->
+      beforeEach ->
+        @templateModel.unlike.returns When.reject new Error 'YOU CANNOT ESCAPE MY LOVE'
+        @req =
+          uuid: 'adam'
+          params:
+            id: 'plasmids'
+        @sut.unlike(@req, @res).catch (error) => @res.send(422, error.message)
+
+      it 'should respond with 422 and the error', ->
+        expect(@res.send).to.have.been.calledWith 422, 'YOU CANNOT ESCAPE MY LOVE'

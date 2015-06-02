@@ -288,7 +288,7 @@ describe 'TemplateCollection', ->
     it 'should exist', ->
       expect(@sut.like).to.exist
 
-    describe 'when called with a bluprintId and userUuid', ->
+    describe 'when called with a bluprintId and userUuid not in the likedBy array', ->
       beforeEach ->
         @collection.insert [
           { name: 'Slow', uuid: 13, owner: 'Magic', public: true, likedBy:[] }
@@ -303,11 +303,11 @@ describe 'TemplateCollection', ->
         @collection.findOne({uuid: @bluprintId}).then (bluprint) =>
           expect(bluprint.uuid).to.equal @bluprintId
 
-      it 'should update the bluprint with the new likedBy array', ->
+      it 'should add the userUuid to the likedBy array and update the bluprint', ->
         @collection.findOne({uuid: @bluprintId}).then (bluprint) =>
           expect(bluprint.likedBy).to.include @userUuid
 
-    describe 'when the userUuid is not in the likedBy array', ->
+    describe 'when the userUuid is in the likedBy array', ->
       beforeEach ->
         @collection.insert [
           {name: 'RV', uuid: 69, owner: 'River', public: true, likedBy: [33]}
@@ -316,6 +316,47 @@ describe 'TemplateCollection', ->
         @bluprintId = 69
         @sut = new TemplateCollection {}, @dependencies
         @sut.like(@userUuid, @bluprintId).catch (error) =>
+          @error = error
+
+      it 'should call findOne and return the bluprint', ->
+        @collection.findOne({uuid: @bluprintId}).then (bluprint) =>
+          expect(bluprint.uuid).to.equal @bluprintId
+
+      it 'should reject the promise with an error', ->
+        expect(@error).to.exist
+
+  describe '->unlike', ->
+    it 'should exist', ->
+      expect(@sut.unlike).to.exist
+
+    describe 'when called with a bluprintId and userUuid in the likedBy array', ->
+      beforeEach ->
+        @collection.insert [
+          { name: 'Docto', uuid: 63, owner: 'Who', public: true, likedBy:[] }
+          { name: 'Jack', uuid: 14, owner: 'Heartless', public: true, likedBy:[11,16,42] }
+        ]
+        @userUuid = 42
+        @bluprintId = 14
+        @sut = new TemplateCollection {}, @dependencies
+        @sut.unlike(@userUuid, @bluprintId)
+
+      it 'should call findOne and return the bluprint', ->
+        @collection.findOne({uuid: @bluprintId}).then (bluprint) =>
+          expect(bluprint.uuid).to.equal @bluprintId
+
+      it 'should remove the userUuid from the likedBy array and update the bluprint', ->
+        @collection.findOne({uuid: @bluprintId}).then (bluprint) =>
+          expect(bluprint.likedBy).to.not.include @userUuid
+
+    describe 'when the userUuid is not in the likedBy array', ->
+      beforeEach ->
+        @collection.insert [
+          {name: 'RV', uuid: 69, owner: 'River', public: true, likedBy: []}
+        ]
+        @userUuid = 33
+        @bluprintId = 69
+        @sut = new TemplateCollection {}, @dependencies
+        @sut.unlike(@userUuid, @bluprintId).catch (error) =>
           @error = error
 
       it 'should call findOne and return the bluprint', ->
