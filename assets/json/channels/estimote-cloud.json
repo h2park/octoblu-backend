@@ -1,0 +1,368 @@
+{
+  "_id": "029182748wjr82940w34",
+  "type": "channel:estimote-cloud",
+  "auth_strategy": "",
+  "bodyFormat": "json",
+  "name": "Estimote-Cloud",
+  "documentation": "https://cloud.estimote.com/docs/",
+  "oauth": {
+    "development": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    },
+    "staging": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    },
+    "production": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    }
+  },
+  "application": {
+    "base": "https://cloud.estimote.com/v1",
+    "resources": [
+      {
+        "path": "/analytics/:region/unique_visitors",
+        "displayName": "Gets Unique Visitors For Region",
+        "httpMethod": "Get",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":region",
+            "displayName": "ID Of A Region In An iBeacon Compatible Format",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "from",
+            "displayName": "Lower Bound Of Timeframe"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "to",
+            "displayName": "Upper Bound Of Timeframe"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resolution",
+            "displayName": "One Of Two Options: Daily Or Hourly"
+          }],
+        "url": "https://cloud.estimote.com/v1/analytics/:region/unique_visitors"
+      },{
+        "path": "/analytics/:region/visits",
+        "displayName": "Gets Visits For Region",
+        "httpMethod": "Get",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":region",
+            "displayName": "ID Of A Region In An iBeacon Compatible Format",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "from",
+            "displayName": "Lower Bound Of Timeframe"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "to",
+            "displayName": "Upper Bound Of Timeframe"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resolution",
+            "displayName": "One Of Two Options: Daily Or Hourly"
+          }],
+        "url": "https://cloud.estimote.com/v1/analytics/:region/visits"
+      },{
+        "path": "/analytics/beacons/:id/daily",
+        "displayName": "Gets The Number Of Pings Per Day For Given Beacon",
+        "httpMethod": "Get",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":id",
+            "displayName": "MAC Address Or proximityUUID",
+            "required": "true"
+          }],
+        "url": "https://cloud.estimote.com/v1/analytics/beacons/:id/daily"
+      },
+      {
+        "path": "/beacons",
+        "displayName": "Gets Beacons Connected To Your Estimote Cloud Account",
+        "httpMethod": "Get",
+        "params": [],
+        "url": "https://cloud.estimote.com/v1/beacons"
+      },
+      {
+        "path": "/beacons/pending_settings",
+        "displayName": "Gets Array Of Beacons That Need Update",
+        "httpMethod": "Get",
+        "params": [],
+        "url": "https://cloud.estimote.com/v1/beacons/pending_settings"
+      },
+      {
+        "path": "/beacons/pending_settings",
+        "displayName": "Store Asynchronous Setting Changes To Be Set In Multiple Beacons",
+        "httpMethod": "Post",
+        "params": [{
+            "style": "body",
+            "type": "string",
+            "name": "beacons",
+            "displayName": "List Of MAC Addresses Of Beacons That Has To Be Updated",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "object",
+            "name": "settings",
+            "displayName": "Beacon Settings To Be Set"
+          },{
+            "style": "body",
+            "type": "number",
+            "name": "interval",
+            "displayName": "Advertising Interval In MS"
+          },{
+            "style": "body",
+            "type": "number",
+            "name": "power",
+            "displayName": "Beacon's Transmitter Ouput Power"
+          },{
+            "style": "body",
+            "type": "number",
+            "name": "uuid",
+            "displayName": "Beacon's Proximity UUID"
+          },{
+            "style": "body",
+            "type": "number",
+            "name": "major",
+            "displayName": "Beacon's Major"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "basic_power_mode",
+            "displayName": "True If Basic Power Mode Should Be Enabled"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "smart_power_mode",
+            "displayName": "True If Smart Power Mode Should Be Enabled"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "security",
+            "displayName": "True If Rotating ID Should Be Enabled"
+          }],
+        "url": "https://cloud.estimote.com/v1/beacons/pending_settings"
+      },
+      {
+        "path": "/beacons/:id/pending_settings",
+        "displayName": "Store Asynchronous Setting",
+        "httpMethod": "Post",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": "mac",
+            "displayName": "MAC Address Of Beacon That Has To Be Updated",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "number",
+            "name": "interval",
+            "displayName": "Advertising Interval In MS"
+          },{
+            "style": "body",
+            "type": "number",
+            "name": "power",
+            "displayName": "Beacon's Transmitter Ouput Power"
+          },{
+            "style": "body",
+            "type": "number",
+            "name": "uuid",
+            "displayName": "Beacon's Proximity UUID"
+          },{
+            "style": "body",
+            "type": "number",
+            "name": "major",
+            "displayName": "Beacon's Major"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "basic_power_mode",
+            "displayName": "True If Basic Power Mode Should Be Enabled"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "smart_power_mode",
+            "displayName": "True If Smart Power Mode Should Be Enabled"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "security",
+            "displayName": "True If Rotating ID Should Be Enabled"
+          }],
+        "url": "https://cloud.estimote.com/v1/beacons/:id/pending_settings"
+      },
+      {
+        "path": "/devices",
+        "displayName": "Get List Of User Devices",
+        "httpMethod": "Get",
+        "params": [],
+        "url": "http://api.thingsee.com/v1/devices"
+      },
+      {
+        "path": "/devices/:deviceAuthUuid/configuration",
+        "displayName": "Gets The Device Info & Configuration",
+        "httpMethod": "Get",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":deviceAuthUuid",
+            "displayName": "The UUID Of The Device",
+            "required": "true"
+          }],
+        "url": "http://api.thingsee.com/v1/devices/:deviceAuthUuid/configuration"
+      },
+      {
+        "path": "/devices/:deviceAuthUuid/configuration",
+        "displayName": "Updates A Device",
+        "httpMethod": "Put",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":deviceAuthUuid",
+            "displayName": "The UUID Of The Device",
+            "required": "true"
+          }],
+        "url": "http://api.thingsee.com/v1/devices/:deviceAuthUuid/configuration"
+      },
+      {
+        "path": "/devices/profile",
+        "displayName": "Installing New Profile On User Devices",
+        "httpMethod": "Put",
+        "params": [],
+        "url": "http://api.thingsee.com/v1/devices/profile"
+      },
+      {
+        "path": "/devices/:deviceAuthUuid",
+        "displayName": "Deletes Device & Related Device Data",
+        "httpMethod": "Delete",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":deviceAuthUuid",
+            "displayName": "The UUID Of The Device",
+            "required": "true"
+          }
+        ],
+        "url": "http://api.thingsee.com/v1/devices/:deviceAuthUuid"
+      },
+      {
+        "path": "/events/:deviceAuthUuid",
+        "displayName": "Gets Device Events",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":deviceAuthUuid",
+            "displayName": "The UUID Of The Device",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "type",
+            "displayName": "Type Of Event",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "senses",
+            "displayName": "Filter For Sensors In Sense Type Event"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "limit",
+            "displayName": "Max Number Of Events To Return"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "start",
+            "displayName": "Timestamp Of The First Event"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "end",
+            "displayName": "Timestamp Of The Last Event"
+          }
+        ],
+        "url": "http://api.thingsee.com/v1/events/:deviceAuthUuid"
+      },
+      {
+        "path": "/purposes",
+        "displayName": "Register New Purpose",
+        "httpMethod": "Post",
+        "params": [],
+        "url": "http://api.thingsee.com/v1/purposes"
+      },
+      {
+        "path": "/purposes/:purposeUuid",
+        "displayName": "Get Purpose Info",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":purposeUuid",
+            "displayName": "ID Of The Purpose",
+            "required": "true"
+          }
+        ],
+        "url": "http://api.thingsee.com/v1/purposes/:purposeUuid"
+      },
+      {
+        "path": "/purposes/:purposeUuid",
+        "displayName": "Update Purpose",
+        "httpMethod": "Put",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":purposeUuid",
+            "displayName": "ID Of The Purpose",
+            "required": "true"
+          }],
+        "url": "http://api.thingsee.com/v1/purposes/:purposeUuid"
+      },
+      {
+        "path": "/purposes/:purposeUuid",
+        "displayName": "Deletes Purpose",
+        "httpMethod": "Delete",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":purposeUuid",
+            "displayName": "ID Of The Purpose",
+            "required": "true"
+          }
+        ],
+        "url": "http://api.thingsee.com/v1/purposes/:purposeUuid"
+      },
+      {
+        "path": "/status",
+        "displayName": "Gets Service Status",
+        "httpMethod": "Get",
+        "params": [],
+        "url": "http://api.thingsee.com/v1/status"
+      }
+    ]
+  }
+}
