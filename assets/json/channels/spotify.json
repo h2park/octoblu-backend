@@ -60,22 +60,6 @@
         "url": "http://api.spotify.com/v1/artists/:id"
       },
       {
-        "path": "/artists/:id",
-        "params": [
-          {
-            "name": ":id",
-            "displayName": "Artist ID",
-            "type": "string",
-            "style": "query",
-            "required": "true"
-          }
-        ],
-        "category": "Artist",
-        "displayName": "Retrieve Artist",
-        "httpMethod": "GET",
-        "url": "http://api.spotify.com/v1/artists/:id"
-      },
-      {
         "path": "/search",
         "doc": {
           "t": "Search for Spotify metadata by track.",
@@ -122,6 +106,162 @@
         "displayName": "Search Tracks / Albums / Artist / Playlist",
         "httpMethod": "GET",
         "url": "http://api.spotify.com/v1/search"
+      },
+      {
+        "path": "/albums/:id/tracks",
+        "params": [
+          {
+            "name": ":id",
+            "displayName": "Album ID",
+            "type": "string",
+            "style": "query",
+            "required": "true"
+          },
+          {
+            "name": "limit",
+            "displayName": "Number of Tracks (min:1 max:50 default:20)",
+            "type": "integer",
+            "style": "query",
+            "required": "false"
+          },
+          {
+            "name": "offset",
+            "displayName": "Index of the First Track (default:0)",
+            "type": "integer",
+            "style": "query",
+            "required": "false"
+          },
+          {
+            "name": "market",
+            "displayName": "ISO 3166-1 Alpha-2 Country Code (for track relinking)",
+            "type": "string",
+            "style": "query",
+            "required": "false"
+          }
+        ],
+        "doc": {
+          "t": "Get Spotify catalog information about an album’s tracks. Optional parameters can be used to limit the number of tracks returned.",
+          "url": "https://developer.spotify.com/web-api/get-albums-tracks/"
+        },
+        "category": "Album",
+        "displayName": "Get tracks from an album.",
+        "httpMethod": "GET",
+        "url": "https://api.spotify.com/v1/albums/{id}/tracks"
+      },
+      {
+        "path": "/artists?ids=:ids",
+        "params": [
+          {
+            "name": ":ids",
+            "displayName": "Artist IDs (separate by commas, max:50)",
+            "type": "string",
+            "style": "query",
+            "required": "true"
+          }
+        ],
+        "doc": {
+          "t": "Get Spotify catalog information for several artists based on their Spotify IDs.",
+          "url": "https://developer.spotify.com/web-api/get-several-artists/"
+        },
+        "category": "Artist",
+        "displayName": "Get information on several artists.",
+        "httpMethod": "GET",
+        "url": "https://api.spotify.com/v1/artists"
+      },
+      {
+        "path": "/artists/:id/top-tracks",
+        "params": [
+          {
+            "name": ":id",
+            "displayName": "Artist ID",
+            "type": "string",
+            "style": "query",
+            "required": "true"
+          },
+          {
+            "name": "country",
+            "displayName": "Country (use the ISO 3166-1 Alpha-2 Country Code)",
+            "type": "string",
+            "style": "query",
+            "required": "true"
+          }
+        ],
+        "doc": {
+          "t": "Get Spotify catalog information about an artist’s top tracks by country.",
+          "url": "https://developer.spotify.com/web-api/get-artists-top-tracks/"
+        },
+        "category": "Artist",
+        "displayName": "Gets the top tracks for a specific artist.",
+        "httpMethod": "GET",
+        "url": "https://api.spotify.com/v1/artists/{id}/top-tracks"
+      },
+      {
+        "path": "/artists/:id/related-artists",
+        "params": [
+          {
+            "name": ":id",
+            "displayName": "Artist ID",
+            "type": "string",
+            "style": "query",
+            "required": "true"
+          }
+        ],
+        "doc": {
+          "t": "Get Spotify catalog information about artists similar to a given artist. Similarity is based on analysis of the Spotify community’s listening history.",
+          "url": "https://developer.spotify.com/web-api/get-related-artists/"
+        },
+        "category": "Artist",
+        "displayName": "Gets artists related to the artist searched.",
+        "httpMethod": "GET",
+        "url": "https://api.spotify.com/v1/artists/{id}/related-artists"
+      },
+      {
+        "path": "/artists/:id/albums",
+        "params": [
+          {
+            "name": ":id",
+            "displayName": "Artist ID",
+            "type": "string",
+            "style": "query",
+            "required": "true"
+          },
+          {
+            "name": "album_type",
+            "displayName": "Keywords separated by commas (ex: album, single, compilation)",
+            "type": "string",
+            "style": "query",
+            "required": "false"
+          },
+          {
+            "name": "country",
+            "displayName": "Narrow Down to Geographical Market (accepts ISO 3166-1 Alpha-2 Country Code)",
+            "type": "string",
+            "style": "query",
+            "required": "false"
+          },
+          {
+            "name": "limit",
+            "displayName": "Number of Albums (min:1 max:50 default:20)",
+            "type": "integer",
+            "style": "query",
+            "required": "false"
+          },
+          {
+            "name": "offset",
+            "displayName": "The Index of the First Album (default:0)",
+            "type": "integer",
+            "style": "query",
+            "required": "false"
+          }
+        ],
+        "doc": {
+          "t": "Get Spotify catalog information about an artist’s albums. Optional parameters can be specified in the query string to filter and sort the response.",
+          "url": "https://developer.spotify.com/web-api/get-artists-albums/"
+        },
+        "category": "Artist",
+        "displayName": "Gets the albums of a specific artist.",
+        "httpMethod": "GET",
+        "url": "https://api.spotify.com/v1/artists/{id}/albums"
       }
     ]
   },
