@@ -1,0 +1,11 @@
+{
+  "name": "Null",
+  "class": "null",
+  "helpText": "Check if a value is null",
+  "category": "operation",
+  "uuid": "556e03455230011d3ce028a6",
+  "type": "operation:null",
+  "input": 1,
+  "output": 1,
+  "formTemplatePath": "/pages/node_forms/null_form.html"
+}
