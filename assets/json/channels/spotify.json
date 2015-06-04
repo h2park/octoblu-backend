@@ -10,7 +10,7 @@
             "name": ":id",
             "displayName": "Album ID",
             "type": "string",
-            "style": "query",
+            "style": "url",
             "required": "true"
           }
         ],
@@ -30,7 +30,7 @@
             "name": ":id",
             "displayName": "Track ID",
             "type": "string",
-            "style": "query",
+            "style": "url",
             "required": "true"
           }
         ],
@@ -50,7 +50,7 @@
             "name": ":id",
             "displayName": "Artist ID",
             "type": "string",
-            "style": "query",
+            "style": "url",
             "required": "true"
           }
         ],
@@ -114,7 +114,7 @@
             "name": ":id",
             "displayName": "Album ID",
             "type": "string",
-            "style": "query",
+            "style": "url",
             "required": "true"
           },
           {
@@ -175,7 +175,7 @@
             "name": ":id",
             "displayName": "Artist ID",
             "type": "string",
-            "style": "query",
+            "style": "url",
             "required": "true"
           },
           {
@@ -202,7 +202,7 @@
             "name": ":id",
             "displayName": "Artist ID",
             "type": "string",
-            "style": "query",
+            "style": "url",
             "required": "true"
           }
         ],
@@ -222,7 +222,7 @@
             "name": ":id",
             "displayName": "Artist ID",
             "type": "string",
-            "style": "query",
+            "style": "url",
             "required": "true"
           },
           {
@@ -262,6 +262,902 @@
         "displayName": "Gets the albums of a specific artist.",
         "httpMethod": "GET",
         "url": "https://api.spotify.com/v1/artists/{id}/albums"
+      },
+      {
+        "path": "/albums?ids=:ids",
+        "params": [
+          {
+            "name": ":ids",
+            "displayName": "Album IDs (separated by commas, max:20)",
+            "type": "string",
+            "style": "url",
+            "required": "true"
+          },
+          {
+            "name": "market",
+            "displayName": "Country (needs an ISO 3166-1 Alpha-2 Country Code)",
+            "type": "string",
+            "style": "query",
+            "required": "false"
+          }
+        ],
+        "doc": {
+          "t": "Get Spotify catalog information for multiple albums identified by their Spotify IDs.",
+          "url": "https://developer.spotify.com/web-api/get-several-albums/"
+        },
+        "category": "Album",
+        "displayName": "Gets albums by their IDs.",
+        "httpMethod": "GET",
+        "url": "https://api.spotify.com/v1/albums"
+      },
+      {
+        "path": "/browse/featured-playlists",
+        "params": [
+          {
+            "name": "locale",
+            "displayName": "Desired Language (a lowercase ISO 639 language code and an uppercase ISO 3166-1 alpha-2 country code, joined by an underscore. ex:es_MX = Spanish, Mexico)",
+            "type": "string",
+            "style": "query",
+            "required": "false"
+          },
+          {
+            "name": "country",
+            "displayName": "Country (needs an ISO 3166-1 Alpha-2 Country Code)",
+            "type": "string",
+            "style": "query",
+            "required": "false"
+          },
+          {
+            "name": "timestamp",
+            "displayName": "Timestamp (ISO 8601 format: yyyy-MM-ddTHH:mm:ss)",
+            "type": "string",
+            "style": "query",
+            "required": "false"
+          },
+          {
+            "name": "limit",
+            "displayName": "Maximum Items to Return (min:1 max:50 default:20)",
+            "type": "integer",
+            "style": "query",
+            "required": "false"
+          },
+          {
+            "name": "offset",
+            "displayName": "Index of the First Item (default:0)",
+            "type": "integer",
+            "style": "query",
+            "required": "false"
+          }
+        ],
+        "doc": {
+          "t": "Get a list of Spotify featured playlists (shown, for example, on a Spotify player’s “Browse” tab).",
+          "url": "https://developer.spotify.com/web-api/get-list-featured-playlists/"
+        },
+        "category": "Playlist",
+        "displayName": "Gets featured playlists.",
+        "httpMethod": "GET",
+        "url": "https://api.spotify.com/v1/browse/featured-playlists"
+      },
+      {
+        "path": "/browse/new-releases",
+        "params": [
+          {
+            "name": "country",
+            "displayName": "Country (needs an ISO 3166-1 Alpha-2 Country Code)",
+            "type": "string",
+            "style": "query",
+            "required": "false"
+          },
+          {
+            "name": "limit",
+            "displayName": "Maximum Items to Return (min:1 max:50 default:20)",
+            "type": "integer",
+            "style": "query",
+            "required": "false"
+          },
+          {
+            "name": "offset",
+            "displayName": "Index of the First Item (default:0)",
+            "type": "integer",
+            "style": "query",
+            "required": "false"
+          }
+        ],
+        "doc": {
+          "t": "Get a list of new album releases featured in Spotify (shown, for example, on a Spotify player’s “Browse” tab).",
+          "url": "https://developer.spotify.com/web-api/get-list-new-releases/"
+        },
+        "category": "Album",
+        "displayName": "Gets new album releases.",
+        "httpMethod": "GET",
+        "url": "https://api.spotify.com/v1/browse/new-releases"
+      },
+      {
+        "path": "/browse/categories",
+        "params": [
+          {
+            "name": "country",
+            "displayName": "Country (needs an ISO 3166-1 Alpha-2 Country Code)",
+            "type": "string",
+            "style": "query",
+            "required": "false"
+          },
+          {
+            "name": "locale",
+            "displayName": "Desired Language (a lowercase ISO 639 language code and an uppercase ISO 3166-1 alpha-2 country code, joined by an underscore. ex:es_MX = Spanish, Mexico)",
+            "type": "string",
+            "style": "query",
+            "required": "false"
+          },
+          {
+            "name": "limit",
+            "displayName": "Maximum Items to Return (min:1 max:50 default:20)",
+            "type": "integer",
+            "style": "query",
+            "required": "false"
+          },
+          {
+            "name": "offset",
+            "displayName": "Index of the First Item (default:0)",
+            "type": "integer",
+            "style": "query",
+            "required": "false"
+          }
+        ],
+        "doc": {
+          "t": "Get a list of categories used to tag items in Spotify (on, for example, the Spotify player’s “Browse” tab).",
+          "url": "https://developer.spotify.com/web-api/get-list-categories/"
+        },
+        "category": "Category",
+        "displayName": "Gets categories on Spotify.",
+        "httpMethod": "GET",
+        "url": "https://api.spotify.com/v1/browse/categories"
+      },
+      {
+        "path": "/browse/categories/:id",
+        "params": [
+          {
+            "name": ":id",
+            "displayName": "Category ID",
+            "type": "string",
+            "style": "url",
+            "required": "true"
+          },
+          {
+            "name": "country",
+            "displayName": "Country (needs an ISO 3166-1 Alpha-2 Country Code)",
+            "type": "string",
+            "style": "query",
+            "required": "false"
+          },
+          {
+            "name": "locale",
+            "displayName": "Desired Language (a lowercase ISO 639 language code and an uppercase ISO 3166-1 alpha-2 country code, joined by an underscore. ex:es_MX = Spanish, Mexico)",
+            "type": "string",
+            "style": "query",
+            "required": "false"
+          }
+        ],
+        "doc": {
+          "t": "Get a single category used to tag items in Spotify (on, for example, the Spotify player’s “Browse” tab).",
+          "url": "https://developer.spotify.com/web-api/get-category/"
+        },
+        "category": "Category",
+        "displayName": "Gets category by its ID.",
+        "httpMethod": "GET",
+        "url": "https://api.spotify.com/v1/browse/categories/{category_id}"
+      },
+      {
+        "path": "/browse/categories/:id/playlists",
+        "params": [
+          {
+            "name": ":id",
+            "displayName": "Category ID",
+            "type": "string",
+            "style": "url",
+            "required": "true"
+          },
+          {
+            "name": "country",
+            "displayName": "Country (needs an ISO 3166-1 Alpha-2 Country Code)",
+            "type": "string",
+            "style": "query",
+            "required": "false"
+          },
+          {
+            "name": "limit",
+            "displayName": "Maximum Items to Return (min:1 max:50 default:20)",
+            "type": "integer",
+            "style": "query",
+            "required": "false"
+          },
+          {
+            "name": "offset",
+            "displayName": "Index of the First Item (default:0)",
+            "type": "integer",
+            "style": "query",
+            "required": "false"
+          }
+        ],
+        "doc": {
+          "t": "Get a list of Spotify playlists tagged with a particular category.",
+          "url": "https://developer.spotify.com/web-api/get-categorys-playlists/"
+        },
+        "category": "Playlist",
+        "displayName": "Gets playlists for a category by its ID.",
+        "httpMethod": "GET",
+        "url": "https://api.spotify.com/v1/browse/categories/{category_id}/playlists"
+      },
+      {
+        "path": "/me",
+        "params": [],
+        "doc": {
+          "t": "Get detailed profile information about the current user (including the current user’s username).",
+          "url": "https://developer.spotify.com/web-api/get-current-users-profile/"
+        },
+        "category": "Profile",
+        "displayName": "Gets current users profile.",
+        "httpMethod": "GET",
+        "url": "https://api.spotify.com/v1/me"
+      },
+      {
+        "path": "/me/following",
+        "params": [
+          {
+            "name": "type",
+            "displayName": "Either \"artist\" or \"user\".",
+            "type": "string",
+            "style": "query",
+            "required": "false"
+          },
+          {
+            "name": "ids",
+            "displayName": "Comma Separated List of Spotify IDs",
+            "type": "string",
+            "style": "query",
+            "required": "false"
+          },
+          {
+            "name": "ids",
+            "displayName": "JSON Array of Spotify IDs.",
+            "type": "string",
+            "style": "body",
+            "required": "false"
+          }
+        ],
+        "doc": {
+          "t": "Add the current user as a follower of one or more artists or other Spotify users.",
+          "url": "https://developer.spotify.com/web-api/follow-artists-users/"
+        },
+        "category": "Profile",
+        "displayName": "Makes the current user follow based on spotify IDs.",
+        "httpMethod": "PUT",
+        "url": "https://api.spotify.com/v1/me/following"
+      },
+      {
+        "path": "/me/following",
+        "params": [
+          {
+            "name": "type",
+            "displayName": "Either \"artist\" or \"user\".",
+            "type": "string",
+            "style": "query",
+            "required": "false"
+          },
+          {
+            "name": "ids",
+            "displayName": "Comma Separated List of Spotify IDs",
+            "type": "string",
+            "style": "query",
+            "required": "false"
+          },
+          {
+            "name": "ids",
+            "displayName": "JSON Array of Spotify IDs.",
+            "type": "string",
+            "style": "body",
+            "required": "false"
+          }
+        ],
+        "doc": {
+          "t": "Remove the current user as a follower of one or more artists or other Spotify users.",
+          "url": "https://developer.spotify.com/web-api/unfollow-artists-users/"
+        },
+        "category": "Profile",
+        "displayName": "Makes the current user unfollow based on spotify IDs.",
+        "httpMethod": "DELETE",
+        "url": "https://api.spotify.com/v1/me/following"
+      },
+      {
+        "path": "/me/following/contains",
+        "params": [
+          {
+            "name": "type",
+            "displayName": "Either \"artist\" or \"user\".",
+            "type": "string",
+            "style": "query",
+            "required": "false"
+          },
+          {
+            "name": "ids",
+            "displayName": "Comma Separated List of Spotify IDs",
+            "type": "string",
+            "style": "query",
+            "required": "false"
+          }
+        ],
+        "doc": {
+          "t": "Check to see if the current user is following one or more artists or other Spotify users.",
+          "url": "https://developer.spotify.com/web-api/check-current-user-follows/"
+        },
+        "category": "Profile",
+        "displayName": "Checks if a user is following the current user.",
+        "httpMethod": "GET",
+        "url": "https://api.spotify.com/v1/me/following/contains"
+      },
+      {
+        "path": "/users/:owner_id/playlists/:playlist_id/followers",
+        "params": [
+          {
+            "name": ":owner_id",
+            "displayName": "ID of the Owner of the Playlist.",
+            "type": "string",
+            "style": "url",
+            "required": "true"
+          },
+          {
+            "name": ":playlist_id",
+            "displayName": "ID of the Playlist",
+            "type": "string",
+            "style": "url",
+            "required": "true"
+          },
+          {
+            "name": "public",
+            "displayName": "Follow the Playlist publicly(true) or privately(false).",
+            "type": "boolean",
+            "style": "body",
+            "required": "false"
+          }
+        ],
+        "doc": {
+          "t": "Add the current user as a follower of a playlist.",
+          "url": "https://developer.spotify.com/web-api/follow-playlist/"
+        },
+        "category": "Playlist",
+        "displayName": "Follows a playlist.",
+        "httpMethod": "PUT",
+        "url": "https://api.spotify.com/v1/users/{owner_id}/playlists/{playlist_id}/followers"
+      },
+      {
+        "path": "/users/:owner_id/playlists/:playlist_id/followers",
+        "params": [
+          {
+            "name": ":owner_id",
+            "displayName": "ID of the Owner of the Playlist.",
+            "type": "string",
+            "style": "url",
+            "required": "true"
+          },
+          {
+            "name": ":playlist_id",
+            "displayName": "ID of the Playlist",
+            "type": "string",
+            "style": "url",
+            "required": "true"
+          }
+        ],
+        "doc": {
+          "t": "Removes the current user as a follower of a playlist.",
+          "url": "https://developer.spotify.com/web-api/unfollow-playlist/"
+        },
+        "category": "Playlist",
+        "displayName": "Unfollows a playlist.",
+        "httpMethod": "DELETE",
+        "url": "https://api.spotify.com/v1/users/{owner_id}/playlists/{playlist_id}/followers"
+      },
+      {
+        "path": "/me/tracks?ids=:ids",
+        "params": [
+          {
+            "name": ":ids",
+            "displayName": "Spotify IDs Separated by Commas (max:50)",
+            "type": "string",
+            "style": "query",
+            "required": "true"
+          }
+        ],
+        "doc": {
+          "t": "Save one or more tracks to the current user’s “Your Music” library.",
+          "url": "https://developer.spotify.com/web-api/save-tracks-user/"
+        },
+        "category": "Track",
+        "displayName": "Saves tracks for the user.",
+        "httpMethod": "PUT",
+        "url": "https://api.spotify.com/v1/me/tracks"
+      },
+      {
+        "path": "/me/tracks",
+        "params": [
+          {
+            "name": "limit",
+            "displayName": "Number of Tracks (min:1 max:50 default:20)",
+            "type": "integer",
+            "style": "query",
+            "required": "false"
+          },
+          {
+            "name": "offset",
+            "displayName": "Index of the First Track (default:0)",
+            "type": "integer",
+            "style": "query",
+            "required": "false"
+          },
+          {
+            "name": "market",
+            "displayName": "ISO 3166-1 Alpha-2 Country Code (for track relinking)",
+            "type": "string",
+            "style": "query",
+            "required": "false"
+          }
+        ],
+        "doc": {
+          "t": "Get a list of the songs saved in the current Spotify user’s “Your Music” library.",
+          "url": "https://developer.spotify.com/web-api/get-users-saved-tracks/"
+        },
+        "category": "Track",
+        "displayName": "Gets saved tracks for the user.",
+        "httpMethod": "GET",
+        "url": "https://api.spotify.com/v1/me/tracks"
+      },
+      {
+        "path": "/me/tracks?ids=:ids",
+        "params": [
+          {
+            "name": ":ids",
+            "displayName": "Spotify IDs Separated by Commas (max:50)",
+            "type": "string",
+            "style": "query",
+            "required": "true"
+          }
+        ],
+        "doc": {
+          "t": "Remove one or more tracks from the current user’s “Your Music” library.",
+          "url": "https://developer.spotify.com/web-api/remove-tracks-user/"
+        },
+        "category": "Track",
+        "displayName": "Removes saved track(s) for the user.",
+        "httpMethod": "DELETE",
+        "url": "https://api.spotify.com/v1/me/tracks"
+      },
+      {
+        "path": "/me/tracks/contains?ids=:ids",
+        "params": [
+          {
+            "name": ":ids",
+            "displayName": "Spotify IDs Separated by Commas (max:50)",
+            "type": "string",
+            "style": "query",
+            "required": "true"
+          }
+        ],
+        "doc": {
+          "t": "Check if one or more tracks is already saved in the current Spotify user’s “Your Music” library.",
+          "url": "https://developer.spotify.com/web-api/check-users-saved-tracks/"
+        },
+        "category": "Track",
+        "displayName": "Checks if the user has a specific track.",
+        "httpMethod": "GET",
+        "url": "https://api.spotify.com/v1/me/tracks/contains"
+      },
+      {
+        "path": "/users/:user_id",
+        "params": [
+          {
+            "name": ":user_id",
+            "displayName": "The User's Spotify ID.",
+            "type": "string",
+            "style": "url",
+            "required": "true"
+          }
+        ],
+        "doc": {
+          "t": "Get public profile information about a Spotify user.",
+          "url": "https://developer.spotify.com/web-api/get-users-profile/"
+        },
+        "category": "Profile",
+        "displayName": "Gets a specific user's public profile information.",
+        "httpMethod": "GET",
+        "url": "https://api.spotify.com/v1/users/{user_id}"
+      },
+      {
+        "path": "/users/:user_id/playlists",
+        "params": [
+          {
+            "name": ":user_id",
+            "displayName": "The User's Spotify ID.",
+            "type": "string",
+            "style": "url",
+            "required": "true"
+          },
+          {
+            "name": "limit",
+            "displayName": "Number of Tracks (min:1 max:50 default:20)",
+            "type": "integer",
+            "style": "query",
+            "required": "false"
+          },
+          {
+            "name": "offset",
+            "displayName": "Index of the First Track (default:0)",
+            "type": "integer",
+            "style": "query",
+            "required": "false"
+          }
+        ],
+        "doc": {
+          "t": "Get a list of the playlists owned or followed by a Spotify user.",
+          "url": "https://developer.spotify.com/web-api/get-list-users-playlists/"
+        },
+        "category": "Playlist",
+        "displayName": "Gets a specific user's playlists.",
+        "httpMethod": "GET",
+        "url": "https://api.spotify.com/v1/users/{user_id}/playlists"
+      },
+      {
+        "path": "/users/:user_id/playlists/:playlist_id",
+        "params": [
+          {
+            "name": ":user_id",
+            "displayName": "The User's Spotify ID.",
+            "type": "string",
+            "style": "url",
+            "required": "true"
+          },
+          {
+            "name": ":playlist_id",
+            "displayName": "The Playlist's Spotify ID.",
+            "type": "string",
+            "style": "url",
+            "required": "true"
+          },
+          {
+            "name": "market",
+            "displayName": "ISO 3166-1 Alpha-2 Country Code (for track relinking)",
+            "type": "string",
+            "style": "query",
+            "required": "false"
+          }
+        ],
+        "doc": {
+          "t": "Get a playlist owned by a Spotify user.",
+          "url": "https://developer.spotify.com/web-api/get-playlist/"
+        },
+        "category": "Playlist",
+        "displayName": "Get a playlist owned by a Spotify user.",
+        "httpMethod": "GET",
+        "url": "https://api.spotify.com/v1/users/{user_id}/playlists/{playlist_id}"
+      },
+      {
+        "path": "/users/:user_id/playlists/:playlist_id/tracks",
+        "params": [
+          {
+            "name": ":user_id",
+            "displayName": "The User's Spotify ID.",
+            "type": "string",
+            "style": "url",
+            "required": "true"
+          },
+          {
+            "name": ":playlist_id",
+            "displayName": "The Playlist's Spotify ID.",
+            "type": "string",
+            "style": "url",
+            "required": "true"
+          },
+          {
+            "name": "market",
+            "displayName": "ISO 3166-1 Alpha-2 Country Code (for track relinking)",
+            "type": "string",
+            "style": "query",
+            "required": "false"
+          },
+          {
+            "name": "limit",
+            "displayName": "Number of Tracks (min:1 max:50 default:20)",
+            "type": "integer",
+            "style": "query",
+            "required": "false"
+          },
+          {
+            "name": "offset",
+            "displayName": "Index of the First Track (default:0)",
+            "type": "integer",
+            "style": "query",
+            "required": "false"
+          }
+        ],
+        "doc": {
+          "t": "Get full details of the tracks of a playlist owned by a Spotify user.",
+          "url": "https://developer.spotify.com/web-api/get-playlists-tracks/"
+        },
+        "category": "Tracks",
+        "displayName": "Get full details of the tracks of a playlist owned by a Spotify user.",
+        "httpMethod": "GET",
+        "url": "https://api.spotify.com/v1/users/{user_id}/playlists/{playlist_id}/tracks"
+      },
+      {
+        "path": "/users/:user_id/playlists",
+        "params": [
+          {
+            "name": ":user_id",
+            "displayName": "The User's Spotify ID.",
+            "type": "string",
+            "style": "url",
+            "required": "true"
+          },
+          {
+            "name": "name",
+            "displayName": "Name of Your New Playlist.",
+            "type": "string",
+            "style": "body",
+            "required": "true"
+          },
+          {
+            "name": "public",
+            "displayName": "Set Your New Playlist to Public(true) or Private(false).",
+            "type": "string",
+            "style": "body",
+            "required": "false"
+          }
+        ],
+        "doc": {
+          "t": "Create a playlist for a Spotify user. (The playlist will be empty until you add tracks.)",
+          "url": "https://developer.spotify.com/web-api/create-playlist/"
+        },
+        "category": "Playlist",
+        "displayName": "Create a playlist for a Spotify user.",
+        "httpMethod": "POST",
+        "url": "https://api.spotify.com/v1/users/{user_id}/playlists"
+      },
+      {
+        "path": "/users/:user_id/playlists/:playlist_id",
+        "params": [
+          {
+            "name": ":user_id",
+            "displayName": "The User's Spotify ID.",
+            "type": "string",
+            "style": "url",
+            "required": "true"
+          },
+          {
+            "name": ":playlist_id",
+            "displayName": "The Playlist's Spotify ID.",
+            "type": "string",
+            "style": "url",
+            "required": "true"
+          },
+          {
+            "name": "name",
+            "displayName": "Name of Your New Playlist.",
+            "type": "string",
+            "style": "body",
+            "required": "true"
+          },
+          {
+            "name": "public",
+            "displayName": "Set Your New Playlist to Public(true) or Private(false).",
+            "type": "string",
+            "style": "body",
+            "required": "false"
+          }
+        ],
+        "doc": {
+          "t": "Change a playlist’s name and public/private state. (The user must, of course, own the playlist.)",
+          "url": "https://developer.spotify.com/web-api/change-playlist-details/"
+        },
+        "category": "Playlist",
+        "displayName": "Change a playlist for a Spotify user.",
+        "httpMethod": "PUT",
+        "url": "https://api.spotify.com/v1/users/{user_id}/playlists/{playlist_id}"
+      },
+      {
+        "path": "/users/:user_id/playlists/:playlist_id/tracks",
+        "params": [
+          {
+            "name": ":user_id",
+            "displayName": "The User's Spotify ID.",
+            "type": "string",
+            "style": "url",
+            "required": "true"
+          },
+          {
+            "name": ":playlist_id",
+            "displayName": "The Playlist's Spotify ID.",
+            "type": "string",
+            "style": "url",
+            "required": "true"
+          },
+          {
+            "name": "uris",
+            "displayName": "Spotify Track URIs Separated by Commas (max:100).",
+            "type": "string",
+            "style": "query",
+            "required": "true"
+          },
+          {
+            "name": "position",
+            "displayName": "Position Track Will be Inserted into.",
+            "type": "integer",
+            "style": "query",
+            "required": "true"
+          }
+        ],
+        "doc": {
+          "t": "Add one or more tracks to a user’s playlist.",
+          "url": "https://developer.spotify.com/web-api/add-tracks-to-playlist/"
+        },
+        "category": "Playlist",
+        "displayName": "Add one or more tracks to a user’s playlist.",
+        "httpMethod": "POST",
+        "url": "https://api.spotify.com/v1/users/{user_id}/playlists/{playlist_id}/tracks"
+      },
+      {
+        "path": "/users/:user_id/playlists/:playlist_id/tracks",
+        "params": [
+          {
+            "name": ":user_id",
+            "displayName": "The User's Spotify ID.",
+            "type": "string",
+            "style": "url",
+            "required": "true"
+          },
+          {
+            "name": ":playlist_id",
+            "displayName": "The Playlist's Spotify ID.",
+            "type": "string",
+            "style": "url",
+            "required": "true"
+          },
+          {
+            "name": "tracks",
+            "displayName": "Spotify Track URIs in JSON format (max:100).",
+            "type": "string",
+            "style": "query",
+            "required": "true"
+          }
+        ],
+        "doc": {
+          "t": "Remove one or more tracks to a user’s playlist.",
+          "url": "https://developer.spotify.com/web-api/remove-tracks-playlist/"
+        },
+        "category": "Playlist",
+        "displayName": "Remove one or more tracks to a user’s playlist.",
+        "httpMethod": "DELETE",
+        "url": "https://api.spotify.com/v1/users/{user_id}/playlists/{playlist_id}/tracks"
+      },
+      {
+        "path": "/users/:user_id/playlists/:playlist_id/tracks",
+        "params": [
+          {
+            "name": ":user_id",
+            "displayName": "The User's Spotify ID.",
+            "type": "string",
+            "style": "url",
+            "required": "true"
+          },
+          {
+            "name": ":playlist_id",
+            "displayName": "The Playlist's Spotify ID.",
+            "type": "string",
+            "style": "url",
+            "required": "true"
+          },
+          {
+            "name": "range_start",
+            "displayName": "The position of the first track to be reordered.",
+            "type": "integer",
+            "style": "body",
+            "required": "true"
+          },
+          {
+            "name": "range_length",
+            "displayName": "The amount of tracks to be reordered.",
+            "type": "integer",
+            "style": "body",
+            "required": "false"
+          },
+          {
+            "name": "insert_before",
+            "displayName": "Where the tracks should be inserted.",
+            "type": "integer",
+            "style": "body",
+            "required": "true"
+          },
+          {
+            "name": "snapshot_id",
+            "displayName": "The playlist's snapshot ID against which you want to make the changes.",
+            "type": "string",
+            "style": "body",
+            "required": "false"
+          }
+        ],
+        "doc": {
+          "t": "Reorder a track or a group of tracks in a playlist.",
+          "url": "https://developer.spotify.com/web-api/reorder-playlists-tracks/"
+        },
+        "category": "Playlist",
+        "displayName": "Reorder a track or a group of tracks in a playlist.",
+        "httpMethod": "PUT",
+        "url": "https://api.spotify.com/v1/users/{user_id}/playlists/{playlist_id}/tracks"
+      },
+      {
+        "path": "/users/:user_id/playlists/:playlist_id/tracks",
+        "params": [
+          {
+            "name": ":user_id",
+            "displayName": "The User's Spotify ID.",
+            "type": "string",
+            "style": "url",
+            "required": "true"
+          },
+          {
+            "name": ":playlist_id",
+            "displayName": "The Playlist's Spotify ID.",
+            "type": "string",
+            "style": "url",
+            "required": "true"
+          },
+          {
+            "name": "uris",
+            "displayName": "Spotify Track URIs Separated by Commas (max:100).",
+            "type": "string",
+            "style": "query",
+            "required": "false"
+          }
+        ],
+        "doc": {
+          "t": "Replace all the tracks in a playlist, overwriting its existing tracks. This powerful request can be useful for replacing tracks, re-ordering existing tracks, or clearing the playlist.",
+          "url": "https://developer.spotify.com/web-api/replace-playlists-tracks/"
+        },
+        "category": "Playlist",
+        "displayName": "Replace all tracks in a playlist.",
+        "httpMethod": "PUT",
+        "url": "https://api.spotify.com/v1/users/{user_id}/playlists/{playlist_id}/tracks"
+      },
+      {
+        "path": "/users/:user_id/playlists/:playlist_id/followers/contains",
+        "params": [
+          {
+            "name": ":user_id",
+            "displayName": "The User's Spotify ID.",
+            "type": "string",
+            "style": "url",
+            "required": "true"
+          },
+          {
+            "name": ":playlist_id",
+            "displayName": "The Playlist's Spotify ID.",
+            "type": "string",
+            "style": "url",
+            "required": "true"
+          },
+          {
+            "name": "ids",
+            "displayName": "The Spotify IDs of the users (max:5)",
+            "type": "string",
+            "style": "query",
+            "required": "true"
+          }
+        ],
+        "doc": {
+          "t": "Check to see if one or more Spotify users are following a specified playlist.",
+          "url": "https://developer.spotify.com/web-api/check-user-following-playlist/"
+        },
+        "category": "Playlist",
+        "displayName": "Check to see if one or more Spotify users are following a specified playlist.",
+        "httpMethod": "GET",
+        "url": "https://api.spotify.com/v1/users/{owner_id}/playlists/{playlist_id}/followers/contains"
       }
     ]
   },
