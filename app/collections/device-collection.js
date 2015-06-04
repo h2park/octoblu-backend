@@ -30,7 +30,10 @@ var DeviceCollection = function (userUUID, userToken) {
     var deferred = when.defer();
     meshbluHttp.mydevices({}, function(error, result){
       if (error) {
-        deferred.reject(error);
+        return deferred.reject(error);
+      }
+      if (!result) {
+        return deferred.reject(new Error('no devices found'));
       }
       deferred.resolve(result.devices);
     });

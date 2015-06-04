@@ -2,6 +2,7 @@ url = require 'url'
 async = require 'async'
 bcrypt = require 'bcrypt'
 _ = require 'lodash'
+debug = require('debug')('octoblu:user-session-model')
 
 class UserSession
   @ERROR_DEVICE_NOT_FOUND: 'Meshblu device not found'
@@ -66,11 +67,12 @@ class UserSession
       bcrypt.compare token, tokenObj.hash, (error, result) =>
         cb result
 
+    debug 'invalidateOneTimeToken', uuid, token
     @getDeviceFromMeshblu uuid, token, (error, device) =>
       return callback error if error?
 
       async.reject device.tokens, rejectToken, (tokens) =>
-        @updateDevice uuid, token, {uuid: 'uuid', tokens: tokens}, callback
+        @updateDevice uuid, token, {uuid: uuid, tokens: tokens}, callback
 
   updateDevice: (uuid, token, device, callback=->) =>
     @_meshbluRequest uuid, token, 'PUT', "/devices/#{uuid}", device, (error, response) =>
@@ -82,6 +84,7 @@ class UserSession
     @_meshbluRequest uuid, token, 'POST', "/devices/#{uuid}/tokens", callback
 
   _meshbluGetDevice: (uuid, token, callback=->) =>
+    debug '_meshbluGetDevice', uuid, token
     @_meshbluRequest uuid, token, 'GET', "/v2/whoami", callback
 
   _meshbluRequest: (uuid, token, method, path, json=true, callback=->) =>
