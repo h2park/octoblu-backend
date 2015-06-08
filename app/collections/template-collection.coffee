@@ -14,6 +14,7 @@ class TemplateCollection
       template.owner = @owner
       template.created = new Date()
       template.likedBy = template.likedBy || []
+      template.description = template.description
     .then =>
       @collection.insert template
     .then =>

@@ -101,6 +101,7 @@ var mergeFlowData = function (userUUID, flowData, device) {
     flowId: device.uuid,
     token: device.token,
     name: flowData.name || ('Flow ' + device.uuid.substr(0, 8)),
+    description: flowData.description,
     resource: {
       nodeType: 'flow',
       owner: {
