@@ -1,0 +1,14 @@
+{
+  "_id": "54a91a102ef277e103b65404",
+  "category": "device",
+  "description": "Relayr",
+  "helpText": "Connect your Relayr devices!",
+  "enabled": true,
+  "name": "Relayr",
+  "skynet": {
+    "type": "device",
+    "subtype": "relayr"
+  },
+  "type": "device:relayr",
+  "connector": "meshblu-relayr"
+}
