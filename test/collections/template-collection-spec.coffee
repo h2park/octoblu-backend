@@ -34,24 +34,24 @@ describe 'TemplateCollection', ->
         @sut = new TemplateCollection({owner: 'Michael'}, @dependencies)
 
       it 'should insert template into the database', ->
-        @sut.create(name: 'repetered').then =>
+        @sut.create(name: 'repetered', flow: description: 'describe', flow: description: 'Green').then =>
           @collection.find(name: 'repetered')
           .then (templates) => expect(templates.length).to.equal 1
 
       it 'should set the owner of the template', ->
-        @sut.create(name: 'repetered').then =>
+        @sut.create(name: 'repetered', flow: description: 'describe').then =>
           @collection.findOne(name: 'repetered')
           .then (template) => expect(template.owner).to.equal 'Michael'
 
       it 'should insert a different template into the database', ->
-        @sut.create(name: 'awesomepeter').then =>
+        @sut.create(name: 'awesomepeter', flow: description: 'not-aaron').then =>
           @collection.find(name: 'awesomepeter')
           .then (records) => expect(records.length).to.equal 1
 
       describe 'when creating a template and the uuid generator generates "ID1"', ->
         beforeEach ->
           @uuid.v4.returns 'ID1'
-          @sut.create(name: 'repetered').then (templateId) =>
+          @sut.create(name: 'repetered', flow: description: 'describe').then (templateId) =>
              @templateId = templateId
 
         it 'should give the template that uuid', ->
@@ -66,7 +66,7 @@ describe 'TemplateCollection', ->
           @uuid.v4.returns 'ID2'
 
         it 'should give the template that uuid', ->
-          @sut.create(name: 'repetered').then =>
+          @sut.create(name: 'repetered', flow: description: 'describe').then =>
             @collection.findOne(name: 'repetered')
             .then (template) =>
               expect(template.uuid).to.equal 'ID2'
@@ -76,7 +76,7 @@ describe 'TemplateCollection', ->
           @sut = new TemplateCollection {owner: 'Aaron'}, @dependencies
 
       it 'should set the owner of the template', ->
-        @sut.create(name: 'repetered').then =>
+        @sut.create(name: 'repetered', flow: description: 'describe').then =>
           @collection.findOne(name: 'repetered')
         .then (template) =>
           expect(template.owner).to.equal 'Aaron'
