@@ -10,5 +10,5 @@
     "subtype": "polar"
   },
   "type": "device:polar",
-  "connector": "meshblu-polar"
+  "connector": "meshblu-ble-heartrate"
 }
