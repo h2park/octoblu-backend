@@ -1,0 +1,106 @@
+{
+  "_id": "35230kdf2395",
+  "type": "channel:Intel_AIM_HTTP_API",
+  "auth_strategy": "",
+  "bodyFormat": "json",
+  "name": "Intel_AIM_HTTP_API",
+  "documentation": "",
+  "API description": "HTTP API For Accessing Anonymous Audience Data That Has Been Collected Through The Intel® AIM Suite Viewer Analytics App",
+  "oauth": {
+    "development": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    },
+    "staging": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    },
+    "production": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    }
+  },
+  "application": {
+    "base": "https://aimsuite.intel.com/analytics",
+    "resources": [
+      {
+        "path": "/rpc_get_aimview_log.php",
+        "displayName": "Gets Impression/ Viewership Data For A Desired Date Range From The Intel AIM Suite Audience Counter",
+        "httpMethod": "Get",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "username",
+            "displayName": "Analytics Username",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "password",
+            "displayName": "Analytics Password",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "did | ac",
+            "displayName": "The Device ID (did) Or Activation Code (ac)",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "start_year",
+            "displayName": "Year For The Start Of The Date Range",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "start_month",
+            "displayName": "Month For Start Of The Date Range",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "start_day",
+            "displayName": "Day For Start Of The Date Range",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "end_year",
+            "displayName": "Year For The End Of The Date Range",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "end_month",
+            "displayName": "Month For The End Of The Date Range",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "end_day",
+            "displayName": "Day For The End Of The Date Range",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "v",
+            "displayName": "A Version Number (Must Be Set To 2)",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "show_fields",
+            "displayName": "Whether To Include Field Names On The First Line. Set To 1 To Show Field Names Or 0 To Omit Field Names"
+          }],
+        "url": "https://aimsuite.intel.com/analytics/rpc_get_aimview_log.php"
+      }
+    ]
+  }
+}
