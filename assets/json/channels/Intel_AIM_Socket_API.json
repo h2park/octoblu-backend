@@ -1,0 +1,103 @@
+{
+  "_id": "23985d0123asdf09",
+  "type": "channel:Intel_AIM_Socket_API",
+  "auth_strategy": "",
+  "bodyFormat": "json",
+  "name": "Intel_AIM_Socket_API",
+  "documentation": "",
+  "API description": "Socket API Allows Developers To Connect To The Intel AIM Suite Application Using TCP/IP",
+  "oauth": {
+    "development": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    },
+    "staging": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    },
+    "production": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    }
+  },
+  "application": {
+    "base": "https://aimsuite.intel.com/analytics",
+    "resources": [
+      {
+        "path": "/apiGetAudienceStatus",
+        "displayName": "Gets Status Info From AIM View Regarding Number Of Viewers Currently In Front Of The Display",
+        "httpMethod": "Get",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "ID",
+            "displayName": "Unique Unsigned Integer That Defines An Individual"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "Gender",
+            "displayName": "Defines Gender Of The Individual"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "Age",
+            "displayName": "Defines Age Of An Individual"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "Reserved",
+            "displayName": "Reserved For Future Use"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "Reserved2",
+            "displayName": "Reserved For Future Use"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "ViewingTime",
+            "displayName": "Number Of Milliseconds That An Individual Has Been Facing Towards The Camera"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "Gender",
+            "displayName": "Defines Gender Of The Individual"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "Gender",
+            "displayName": "Defines Gender Of The Individual"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "Gender",
+            "displayName": "Defines Gender Of The Individual"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "Gender",
+            "displayName": "Defines Gender Of The Individual"
+          }],
+        "url": "https://aimsuite.intel.com/analytics/apiGetAudienceStatus"
+      },{
+        "path": "/apiGetAudienceDetails",
+        "displayName": "Gets Status Info From AIM View Regarding Details Of All Viewers Currently In Front Of The Display",
+        "httpMethod": "Post",
+        "params": [],
+        "url": "https://aimsuite.intel.com/analytics/apiGetAudienceDetails"
+      },{
+        "path": "/apiGetViewerEvents",
+        "displayName": "Gets Continuous Info From Intel AIM Suite Audience Counter Regarding Number Of Viewers Currently In Front Of The Display. Events Are Sent Each Time A Viewer Starts/ Stops Looking At The Display Or when Another Significant Visual Change Occurs (Such As A Viewer Changing Directions)",
+        "httpMethod": "Get",
+        "params": [],
+        "url": "https://aimsuite.intel.com/analytics/apiGetViewerEvents"
+      }
+    ]
+  }
+}
