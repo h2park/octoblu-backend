@@ -49,6 +49,7 @@ function TemplateModel(dependencies) {
         .then(function(template) {
           var newFlow = _.clone(template.flow);
           newFlow.name = template.name;
+          newFlow.description = template.description;
           _.each(newFlow.nodes, function(node){
             self.cleanId(node, newFlow.links);
             self.populateNode(node, flowNodeTypes);
