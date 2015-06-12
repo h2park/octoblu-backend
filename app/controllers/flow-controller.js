@@ -33,6 +33,18 @@ module.exports = function (options) {
     });
   };
 
+  self.getFlow = function (req, res) {
+    return Flow.getFlowWithOwner(req.params.id, req.user.resource.uuid).then(function(flow){
+      if (!flow) {
+        return res.status(404).json({error: 'Flow not found'});
+      }
+      
+      res.send(flow);
+    }, function(error){
+      res.send(500, error);
+    });
+  };
+
   self.delete = function (req, res) {
     Flow.deleteByFlowIdAndUser(req.params.id, req.uuid, req.token, meshblu)
       .then(function(){
