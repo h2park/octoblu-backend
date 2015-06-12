@@ -11,7 +11,7 @@
             "displayName": "Album ID",
             "type": "string",
             "style": "url",
-            "required": "true"
+            "required": true
           }
         ],
         "doc": {
@@ -31,7 +31,7 @@
             "displayName": "Track ID",
             "type": "string",
             "style": "url",
-            "required": "true"
+            "required": true
           }
         ],
         "doc": {
@@ -51,7 +51,7 @@
             "displayName": "Artist ID",
             "type": "string",
             "style": "url",
-            "required": "true"
+            "required": true
           }
         ],
         "category": "Artist",
@@ -71,35 +71,35 @@
             "displayName": "Query",
             "type": "string",
             "style": "query",
-            "required": "true"
+            "required": true
           },
           {
             "name": "type",
             "displayName": "Type",
             "type": "string",
             "style": "query",
-            "required": "true"
+            "required": true
           },
           {
             "name": "market",
             "displayName": "Market",
             "type": "string",
             "style": "query",
-            "required": "false"
+            "required": false
           },
           {
             "name": "limit",
             "displayName": "Limit",
             "type": "string",
             "style": "query",
-            "required": "false"
+            "required": false
           },
           {
             "name": "offset",
             "displayName": "Offset",
             "type": "string",
             "style": "query",
-            "required": "false"
+            "required": false
           }
         ],
         "category": "Track",
@@ -115,28 +115,28 @@
             "displayName": "Album ID",
             "type": "string",
             "style": "url",
-            "required": "true"
+            "required": true
           },
           {
             "name": "limit",
             "displayName": "Number of Tracks (min:1 max:50 default:20)",
             "type": "integer",
             "style": "query",
-            "required": "false"
+            "required": false
           },
           {
             "name": "offset",
             "displayName": "Index of the First Track (default:0)",
             "type": "integer",
             "style": "query",
-            "required": "false"
+            "required": false
           },
           {
             "name": "market",
             "displayName": "ISO 3166-1 Alpha-2 Country Code (for track relinking)",
             "type": "string",
             "style": "query",
-            "required": "false"
+            "required": false
           }
         ],
         "doc": {
@@ -156,7 +156,7 @@
             "displayName": "Artist IDs (separate by commas, max:50)",
             "type": "string",
             "style": "query",
-            "required": "true"
+            "required": true
           }
         ],
         "doc": {
@@ -176,14 +176,14 @@
             "displayName": "Artist ID",
             "type": "string",
             "style": "url",
-            "required": "true"
+            "required": true
           },
           {
             "name": "country",
             "displayName": "Country (use the ISO 3166-1 Alpha-2 Country Code)",
             "type": "string",
             "style": "query",
-            "required": "true"
+            "required": true
           }
         ],
         "doc": {
@@ -203,7 +203,7 @@
             "displayName": "Artist ID",
             "type": "string",
             "style": "url",
-            "required": "true"
+            "required": true
           }
         ],
         "doc": {
@@ -223,35 +223,35 @@
             "displayName": "Artist ID",
             "type": "string",
             "style": "url",
-            "required": "true"
+            "required": true
           },
           {
             "name": "album_type",
             "displayName": "Keywords separated by commas (ex: album, single, compilation)",
             "type": "string",
             "style": "query",
-            "required": "false"
+            "required": false
           },
           {
             "name": "country",
             "displayName": "Narrow Down to Geographical Market (accepts ISO 3166-1 Alpha-2 Country Code)",
             "type": "string",
             "style": "query",
-            "required": "false"
+            "required": false
           },
           {
             "name": "limit",
             "displayName": "Number of Albums (min:1 max:50 default:20)",
             "type": "integer",
             "style": "query",
-            "required": "false"
+            "required": false
           },
           {
             "name": "offset",
             "displayName": "The Index of the First Album (default:0)",
             "type": "integer",
             "style": "query",
-            "required": "false"
+            "required": false
           }
         ],
         "doc": {
@@ -271,14 +271,14 @@
             "displayName": "Album IDs (separated by commas, max:20)",
             "type": "string",
             "style": "query",
-            "required": "true"
+            "required": true
           },
           {
             "name": "market",
             "displayName": "Country (needs an ISO 3166-1 Alpha-2 Country Code)",
             "type": "string",
             "style": "query",
-            "required": "false"
+            "required": false
           }
         ],
         "doc": {
@@ -298,35 +298,35 @@
             "displayName": "Desired Language (a lowercase ISO 639 language code and an uppercase ISO 3166-1 alpha-2 country code, joined by an underscore. ex:es_MX = Spanish, Mexico)",
             "type": "string",
             "style": "query",
-            "required": "false"
+            "required": false
           },
           {
             "name": "country",
             "displayName": "Country (needs an ISO 3166-1 Alpha-2 Country Code)",
             "type": "string",
             "style": "query",
-            "required": "false"
+            "required": false
           },
           {
             "name": "timestamp",
             "displayName": "Timestamp (ISO 8601 format: yyyy-MM-ddTHH:mm:ss)",
             "type": "string",
             "style": "query",
-            "required": "false"
+            "required": false
           },
           {
             "name": "limit",
             "displayName": "Maximum Items to Return (min:1 max:50 default:20)",
             "type": "integer",
             "style": "query",
-            "required": "false"
+            "required": false
           },
           {
             "name": "offset",
             "displayName": "Index of the First Item (default:0)",
             "type": "integer",
             "style": "query",
-            "required": "false"
+            "required": false
           }
         ],
         "doc": {
@@ -346,21 +346,21 @@
             "displayName": "Country (needs an ISO 3166-1 Alpha-2 Country Code)",
             "type": "string",
             "style": "query",
-            "required": "false"
+            "required": false
           },
           {
             "name": "limit",
             "displayName": "Maximum Items to Return (min:1 max:50 default:20)",
             "type": "integer",
             "style": "query",
-            "required": "false"
+            "required": false
           },
           {
             "name": "offset",
             "displayName": "Index of the First Item (default:0)",
             "type": "integer",
             "style": "query",
-            "required": "false"
+            "required": false
           }
         ],
         "doc": {
@@ -380,28 +380,28 @@
             "displayName": "Country (needs an ISO 3166-1 Alpha-2 Country Code)",
             "type": "string",
             "style": "query",
-            "required": "false"
+            "required": false
           },
           {
             "name": "locale",
             "displayName": "Desired Language (a lowercase ISO 639 language code and an uppercase ISO 3166-1 alpha-2 country code, joined by an underscore. ex:es_MX = Spanish, Mexico)",
             "type": "string",
             "style": "query",
-            "required": "false"
+            "required": false
           },
           {
             "name": "limit",
             "displayName": "Maximum Items to Return (min:1 max:50 default:20)",
             "type": "integer",
             "style": "query",
-            "required": "false"
+            "required": false
           },
           {
             "name": "offset",
             "displayName": "Index of the First Item (default:0)",
             "type": "integer",
             "style": "query",
-            "required": "false"
+            "required": false
           }
         ],
         "doc": {
@@ -421,21 +421,21 @@
             "displayName": "Category ID",
             "type": "string",
             "style": "url",
-            "required": "true"
+            "required": true
           },
           {
             "name": "country",
             "displayName": "Country (needs an ISO 3166-1 Alpha-2 Country Code)",
             "type": "string",
             "style": "query",
-            "required": "false"
+            "required": false
           },
           {
             "name": "locale",
             "displayName": "Desired Language (a lowercase ISO 639 language code and an uppercase ISO 3166-1 alpha-2 country code, joined by an underscore. ex:es_MX = Spanish, Mexico)",
             "type": "string",
             "style": "query",
-            "required": "false"
+            "required": false
           }
         ],
         "doc": {
@@ -455,28 +455,28 @@
             "displayName": "Category ID",
             "type": "string",
             "style": "url",
-            "required": "true"
+            "required": true
           },
           {
             "name": "country",
             "displayName": "Country (needs an ISO 3166-1 Alpha-2 Country Code)",
             "type": "string",
             "style": "query",
-            "required": "false"
+            "required": false
           },
           {
             "name": "limit",
             "displayName": "Maximum Items to Return (min:1 max:50 default:20)",
             "type": "integer",
             "style": "query",
-            "required": "false"
+            "required": false
           },
           {
             "name": "offset",
             "displayName": "Index of the First Item (default:0)",
             "type": "integer",
             "style": "query",
-            "required": "false"
+            "required": false
           }
         ],
         "doc": {
@@ -508,21 +508,21 @@
             "displayName": "Either \"artist\" or \"user\".",
             "type": "string",
             "style": "query",
-            "required": "false"
+            "required": false
           },
           {
             "name": "ids",
             "displayName": "Comma Separated List of Spotify IDs",
             "type": "string",
             "style": "query",
-            "required": "false"
+            "required": false
           },
           {
             "name": "ids",
             "displayName": "JSON Array of Spotify IDs.",
             "type": "string",
             "style": "body",
-            "required": "false"
+            "required": false
           }
         ],
         "doc": {
@@ -542,21 +542,21 @@
             "displayName": "Either \"artist\" or \"user\".",
             "type": "string",
             "style": "query",
-            "required": "false"
+            "required": false
           },
           {
             "name": "ids",
             "displayName": "Comma Separated List of Spotify IDs",
             "type": "string",
             "style": "query",
-            "required": "false"
+            "required": false
           },
           {
             "name": "ids",
             "displayName": "JSON Array of Spotify IDs.",
             "type": "string",
             "style": "body",
-            "required": "false"
+            "required": false
           }
         ],
         "doc": {
@@ -576,14 +576,14 @@
             "displayName": "Either \"artist\" or \"user\".",
             "type": "string",
             "style": "query",
-            "required": "false"
+            "required": false
           },
           {
             "name": "ids",
             "displayName": "Comma Separated List of Spotify IDs",
             "type": "string",
             "style": "query",
-            "required": "false"
+            "required": false
           }
         ],
         "doc": {
@@ -603,21 +603,21 @@
             "displayName": "ID of the Owner of the Playlist.",
             "type": "string",
             "style": "url",
-            "required": "true"
+            "required": true
           },
           {
             "name": ":playlist_id",
             "displayName": "ID of the Playlist",
             "type": "string",
             "style": "url",
-            "required": "true"
+            "required": true
           },
           {
             "name": "public",
             "displayName": "Follow the Playlist publicly(true) or privately(false).",
             "type": "boolean",
             "style": "body",
-            "required": "false"
+            "required": false
           }
         ],
         "doc": {
@@ -637,14 +637,14 @@
             "displayName": "ID of the Owner of the Playlist.",
             "type": "string",
             "style": "url",
-            "required": "true"
+            "required": true
           },
           {
             "name": ":playlist_id",
             "displayName": "ID of the Playlist",
             "type": "string",
             "style": "url",
-            "required": "true"
+            "required": true
           }
         ],
         "doc": {
@@ -664,7 +664,7 @@
             "displayName": "Spotify IDs Separated by Commas (max:50)",
             "type": "string",
             "style": "query",
-            "required": "true"
+            "required": true
           }
         ],
         "doc": {
@@ -684,21 +684,21 @@
             "displayName": "Number of Tracks (min:1 max:50 default:20)",
             "type": "integer",
             "style": "query",
-            "required": "false"
+            "required": false
           },
           {
             "name": "offset",
             "displayName": "Index of the First Track (default:0)",
             "type": "integer",
             "style": "query",
-            "required": "false"
+            "required": false
           },
           {
             "name": "market",
             "displayName": "ISO 3166-1 Alpha-2 Country Code (for track relinking)",
             "type": "string",
             "style": "query",
-            "required": "false"
+            "required": false
           }
         ],
         "doc": {
@@ -718,7 +718,7 @@
             "displayName": "Spotify IDs Separated by Commas (max:50)",
             "type": "string",
             "style": "query",
-            "required": "true"
+            "required": true
           }
         ],
         "doc": {
@@ -738,7 +738,7 @@
             "displayName": "Spotify IDs Separated by Commas (max:50)",
             "type": "string",
             "style": "query",
-            "required": "true"
+            "required": true
           }
         ],
         "doc": {
@@ -758,7 +758,7 @@
             "displayName": "The User's Spotify ID.",
             "type": "string",
             "style": "url",
-            "required": "true"
+            "required": true
           }
         ],
         "doc": {
@@ -778,21 +778,21 @@
             "displayName": "The User's Spotify ID.",
             "type": "string",
             "style": "url",
-            "required": "true"
+            "required": true
           },
           {
             "name": "limit",
             "displayName": "Number of Tracks (min:1 max:50 default:20)",
             "type": "integer",
             "style": "query",
-            "required": "false"
+            "required": false
           },
           {
             "name": "offset",
             "displayName": "Index of the First Track (default:0)",
             "type": "integer",
             "style": "query",
-            "required": "false"
+            "required": false
           }
         ],
         "doc": {
@@ -812,21 +812,21 @@
             "displayName": "The User's Spotify ID.",
             "type": "string",
             "style": "url",
-            "required": "true"
+            "required": true
           },
           {
             "name": ":playlist_id",
             "displayName": "The Playlist's Spotify ID.",
             "type": "string",
             "style": "url",
-            "required": "true"
+            "required": true
           },
           {
             "name": "market",
             "displayName": "ISO 3166-1 Alpha-2 Country Code (for track relinking)",
             "type": "string",
             "style": "query",
-            "required": "false"
+            "required": false
           }
         ],
         "doc": {
@@ -846,35 +846,35 @@
             "displayName": "The User's Spotify ID.",
             "type": "string",
             "style": "url",
-            "required": "true"
+            "required": true
           },
           {
             "name": ":playlist_id",
             "displayName": "The Playlist's Spotify ID.",
             "type": "string",
             "style": "url",
-            "required": "true"
+            "required": true
           },
           {
             "name": "market",
             "displayName": "ISO 3166-1 Alpha-2 Country Code (for track relinking)",
             "type": "string",
             "style": "query",
-            "required": "false"
+            "required": false
           },
           {
             "name": "limit",
             "displayName": "Number of Tracks (min:1 max:50 default:20)",
             "type": "integer",
             "style": "query",
-            "required": "false"
+            "required": false
           },
           {
             "name": "offset",
             "displayName": "Index of the First Track (default:0)",
             "type": "integer",
             "style": "query",
-            "required": "false"
+            "required": false
           }
         ],
         "doc": {
@@ -894,21 +894,21 @@
             "displayName": "The User's Spotify ID.",
             "type": "string",
             "style": "url",
-            "required": "true"
+            "required": true
           },
           {
             "name": "name",
             "displayName": "Name of Your New Playlist.",
             "type": "string",
             "style": "body",
-            "required": "true"
+            "required": true
           },
           {
             "name": "public",
             "displayName": "Set Your New Playlist to Public(true) or Private(false).",
             "type": "string",
             "style": "body",
-            "required": "false"
+            "required": false
           }
         ],
         "doc": {
@@ -928,28 +928,28 @@
             "displayName": "The User's Spotify ID.",
             "type": "string",
             "style": "url",
-            "required": "true"
+            "required": true
           },
           {
             "name": ":playlist_id",
             "displayName": "The Playlist's Spotify ID.",
             "type": "string",
             "style": "url",
-            "required": "true"
+            "required": true
           },
           {
             "name": "name",
             "displayName": "Name of Your New Playlist.",
             "type": "string",
             "style": "body",
-            "required": "true"
+            "required": false
           },
           {
             "name": "public",
             "displayName": "Set Your New Playlist to Public(true) or Private(false).",
-            "type": "string",
+            "type": "boolean",
             "style": "body",
-            "required": "false"
+            "required": false
           }
         ],
         "doc": {
@@ -969,28 +969,28 @@
             "displayName": "The User's Spotify ID.",
             "type": "string",
             "style": "url",
-            "required": "true"
+            "required": true
           },
           {
             "name": ":playlist_id",
             "displayName": "The Playlist's Spotify ID.",
             "type": "string",
             "style": "url",
-            "required": "true"
+            "required": true
           },
           {
             "name": "uris",
-            "displayName": "Spotify Track URIs Separated by Commas (max:100).",
+            "displayName": "Spotify Track URIs Separated by Commas (max:100 \"spotify:track:{trackId}\").",
             "type": "string",
             "style": "query",
-            "required": "true"
+            "required": true
           },
           {
             "name": "position",
-            "displayName": "Position Track Will be Inserted into.",
+            "displayName": "Position Track Will be Inserted into the Playlist.",
             "type": "integer",
             "style": "query",
-            "required": "false"
+            "required": false
           }
         ],
         "doc": {
@@ -1010,21 +1010,21 @@
             "displayName": "The User's Spotify ID.",
             "type": "string",
             "style": "url",
-            "required": "true"
+            "required": true
           },
           {
             "name": ":playlist_id",
             "displayName": "The Playlist's Spotify ID.",
             "type": "string",
             "style": "url",
-            "required": "true"
+            "required": true
           },
           {
             "name": "tracks",
             "displayName": "Spotify Track URIs in JSON format (max:100).",
             "type": "string",
             "style": "query",
-            "required": "true"
+            "required": true
           }
         ],
         "doc": {
@@ -1044,42 +1044,42 @@
             "displayName": "The User's Spotify ID.",
             "type": "string",
             "style": "url",
-            "required": "true"
+            "required": true
           },
           {
             "name": ":playlist_id",
             "displayName": "The Playlist's Spotify ID.",
             "type": "string",
             "style": "url",
-            "required": "true"
+            "required": true
           },
           {
             "name": "range_start",
             "displayName": "The position of the first track to be reordered.",
             "type": "integer",
             "style": "body",
-            "required": "true"
+            "required": true
           },
           {
             "name": "range_length",
             "displayName": "The amount of tracks to be reordered.",
             "type": "integer",
             "style": "body",
-            "required": "false"
+            "required": false
           },
           {
             "name": "insert_before",
             "displayName": "Where the tracks should be inserted.",
             "type": "integer",
             "style": "body",
-            "required": "true"
+            "required": true
           },
           {
             "name": "snapshot_id",
             "displayName": "The playlist's snapshot ID against which you want to make the changes.",
             "type": "string",
             "style": "body",
-            "required": "false"
+            "required": false
           }
         ],
         "doc": {
@@ -1099,21 +1099,21 @@
             "displayName": "The User's Spotify ID.",
             "type": "string",
             "style": "url",
-            "required": "true"
+            "required": true
           },
           {
             "name": ":playlist_id",
             "displayName": "The Playlist's Spotify ID.",
             "type": "string",
             "style": "url",
-            "required": "true"
+            "required": true
           },
           {
             "name": "uris",
             "displayName": "Spotify Track URIs Separated by Commas (max:100).",
             "type": "string",
             "style": "query",
-            "required": "false"
+            "required": false
           }
         ],
         "doc": {
@@ -1133,14 +1133,14 @@
             "displayName": "The User's Spotify ID.",
             "type": "string",
             "style": "url",
-            "required": "true"
+            "required": true
           },
           {
             "name": ":playlist_id",
             "displayName": "The Playlist's Spotify ID.",
             "type": "string",
             "style": "url",
-            "required": "true"
+            "required": true
           },
           {
             "name": "ids",
