@@ -1,0 +1,14 @@
+{
+  "_id": "327c783e-9706-488f-865a-65490c45b0ff",
+  "category": "device",
+  "description": "Microsoft Azure Machine Learning",
+  "helpText": "Feed data into your experiment's web service in Microsoft Azure Machine Learning Studio.",
+  "enabled": true,
+  "name": "Microsoft Azure ML",
+  "skynet": {
+    "type": "device",
+    "subtype": "ms-azure-ml"
+  },
+  "connector": "meshblu-ms-azure-ml",
+  "type": "device:msml"
+}
