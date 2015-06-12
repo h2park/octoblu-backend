@@ -33,7 +33,6 @@ class FixLastFmParams
           "hidden": true,
           "required": true
         }
-        console.log resource.params
 
     prettyChannel = JSON.stringify channel, null, 2
     fs.writeFileSync @channel_filename, prettyChannel

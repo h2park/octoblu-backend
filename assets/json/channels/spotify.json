@@ -614,7 +614,7 @@
           },
           {
             "name": "public",
-            "displayName": "Follow the Playlist publicly(true) or privately(false).",
+            "displayName": "Follow the Playlist privately.",
             "type": "boolean",
             "style": "body",
             "required": false
@@ -901,12 +901,12 @@
             "displayName": "Name of Your New Playlist.",
             "type": "string",
             "style": "body",
-            "required": true
+            "required": false
           },
           {
             "name": "public",
-            "displayName": "Set Your New Playlist to Public(true) or Private(false).",
-            "type": "string",
+            "displayName": "Set Your New Playlist to Private.",
+            "type": "boolean",
             "style": "body",
             "required": false
           }
@@ -946,7 +946,7 @@
           },
           {
             "name": "public",
-            "displayName": "Set Your New Playlist to Public(true) or Private(false).",
+            "displayName": "Set Your New Playlist to Private.",
             "type": "boolean",
             "style": "body",
             "required": false
@@ -1129,8 +1129,15 @@
         "path": "/users/:user_id/playlists/:playlist_id/followers/contains",
         "params": [
           {
+            "name": "ids",
+            "displayName": "The Spotify IDs of the followers (max:5)",
+            "type": "string",
+            "style": "query",
+            "required": true
+          },
+          {
             "name": ":user_id",
-            "displayName": "The User's Spotify ID.",
+            "displayName": "The Playlist Owner's Spotify ID.",
             "type": "string",
             "style": "url",
             "required": true
@@ -1141,13 +1148,6 @@
             "type": "string",
             "style": "url",
             "required": true
-          },
-          {
-            "name": "ids",
-            "displayName": "The Spotify IDs of the users (max:5)",
-            "type": "string",
-            "style": "query",
-            "required": "true"
           }
         ],
         "doc": {

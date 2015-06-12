@@ -23,8 +23,6 @@ class TitleCaseParams
       endpoint = resource.path
 
       resource.displayName = endpoints["#{method} #{endpoint}"] || 'REPLACEME'
-      console.log resource.displayName
-
 
     prettyChannel = JSON.stringify channel, null, 2
     fs.writeFileSync @channel_filename, prettyChannel
