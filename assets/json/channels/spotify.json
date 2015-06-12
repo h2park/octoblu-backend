@@ -85,21 +85,21 @@
             "displayName": "Market",
             "type": "string",
             "style": "query",
-            "required": "true"
+            "required": "false"
           },
           {
             "name": "limit",
             "displayName": "Limit",
             "type": "string",
             "style": "query",
-            "required": "true"
+            "required": "false"
           },
           {
             "name": "offset",
             "displayName": "Offset",
             "type": "string",
             "style": "query",
-            "required": "true"
+            "required": "false"
           }
         ],
         "category": "Track",
@@ -146,10 +146,10 @@
         "category": "Album",
         "displayName": "Get tracks from an album.",
         "httpMethod": "GET",
-        "url": "https://api.spotify.com/v1/albums/{id}/tracks"
+        "url": "https://api.spotify.com/v1/albums/:id/tracks"
       },
       {
-        "path": "/artists?ids=:ids",
+        "path": "/artists",
         "params": [
           {
             "name": ":ids",
@@ -193,7 +193,7 @@
         "category": "Artist",
         "displayName": "Gets the top tracks for a specific artist.",
         "httpMethod": "GET",
-        "url": "https://api.spotify.com/v1/artists/{id}/top-tracks"
+        "url": "https://api.spotify.com/v1/artists/:id/top-tracks"
       },
       {
         "path": "/artists/:id/related-artists",
@@ -213,7 +213,7 @@
         "category": "Artist",
         "displayName": "Gets artists related to the artist searched.",
         "httpMethod": "GET",
-        "url": "https://api.spotify.com/v1/artists/{id}/related-artists"
+        "url": "https://api.spotify.com/v1/artists/:id/related-artists"
       },
       {
         "path": "/artists/:id/albums",
@@ -261,16 +261,16 @@
         "category": "Artist",
         "displayName": "Gets the albums of a specific artist.",
         "httpMethod": "GET",
-        "url": "https://api.spotify.com/v1/artists/{id}/albums"
+        "url": "https://api.spotify.com/v1/artists/:id/albums"
       },
       {
-        "path": "/albums?ids=:ids",
+        "path": "/albums",
         "params": [
           {
             "name": ":ids",
             "displayName": "Album IDs (separated by commas, max:20)",
             "type": "string",
-            "style": "url",
+            "style": "query",
             "required": "true"
           },
           {
@@ -445,7 +445,7 @@
         "category": "Category",
         "displayName": "Gets category by its ID.",
         "httpMethod": "GET",
-        "url": "https://api.spotify.com/v1/browse/categories/{category_id}"
+        "url": "https://api.spotify.com/v1/browse/categories/:id"
       },
       {
         "path": "/browse/categories/:id/playlists",
@@ -486,7 +486,7 @@
         "category": "Playlist",
         "displayName": "Gets playlists for a category by its ID.",
         "httpMethod": "GET",
-        "url": "https://api.spotify.com/v1/browse/categories/{category_id}/playlists"
+        "url": "https://api.spotify.com/v1/browse/categories/:id/playlists"
       },
       {
         "path": "/me",
@@ -627,7 +627,7 @@
         "category": "Playlist",
         "displayName": "Follows a playlist.",
         "httpMethod": "PUT",
-        "url": "https://api.spotify.com/v1/users/{owner_id}/playlists/{playlist_id}/followers"
+        "url": "https://api.spotify.com/v1/users/:owner_id/playlists/:playlist_id/followers"
       },
       {
         "path": "/users/:owner_id/playlists/:playlist_id/followers",
@@ -654,10 +654,10 @@
         "category": "Playlist",
         "displayName": "Unfollows a playlist.",
         "httpMethod": "DELETE",
-        "url": "https://api.spotify.com/v1/users/{owner_id}/playlists/{playlist_id}/followers"
+        "url": "https://api.spotify.com/v1/users/:owner_id/playlists/:playlist_id/followers"
       },
       {
-        "path": "/me/tracks?ids=:ids",
+        "path": "/me/tracks",
         "params": [
           {
             "name": ":ids",
@@ -711,7 +711,7 @@
         "url": "https://api.spotify.com/v1/me/tracks"
       },
       {
-        "path": "/me/tracks?ids=:ids",
+        "path": "/me/tracks",
         "params": [
           {
             "name": ":ids",
@@ -731,7 +731,7 @@
         "url": "https://api.spotify.com/v1/me/tracks"
       },
       {
-        "path": "/me/tracks/contains?ids=:ids",
+        "path": "/me/tracks/contains",
         "params": [
           {
             "name": ":ids",
@@ -768,7 +768,7 @@
         "category": "Profile",
         "displayName": "Gets a specific user's public profile information.",
         "httpMethod": "GET",
-        "url": "https://api.spotify.com/v1/users/{user_id}"
+        "url": "https://api.spotify.com/v1/users/:user_id"
       },
       {
         "path": "/users/:user_id/playlists",
@@ -802,7 +802,7 @@
         "category": "Playlist",
         "displayName": "Gets a specific user's playlists.",
         "httpMethod": "GET",
-        "url": "https://api.spotify.com/v1/users/{user_id}/playlists"
+        "url": "https://api.spotify.com/v1/users/:user_id/playlists"
       },
       {
         "path": "/users/:user_id/playlists/:playlist_id",
@@ -836,7 +836,7 @@
         "category": "Playlist",
         "displayName": "Get a playlist owned by a Spotify user.",
         "httpMethod": "GET",
-        "url": "https://api.spotify.com/v1/users/{user_id}/playlists/{playlist_id}"
+        "url": "https://api.spotify.com/v1/users/:user_id/playlists/:playlist_id"
       },
       {
         "path": "/users/:user_id/playlists/:playlist_id/tracks",
@@ -884,7 +884,7 @@
         "category": "Tracks",
         "displayName": "Get full details of the tracks of a playlist owned by a Spotify user.",
         "httpMethod": "GET",
-        "url": "https://api.spotify.com/v1/users/{user_id}/playlists/{playlist_id}/tracks"
+        "url": "https://api.spotify.com/v1/users/:user_id/playlists/:playlist_id/tracks"
       },
       {
         "path": "/users/:user_id/playlists",
@@ -918,7 +918,7 @@
         "category": "Playlist",
         "displayName": "Create a playlist for a Spotify user.",
         "httpMethod": "POST",
-        "url": "https://api.spotify.com/v1/users/{user_id}/playlists"
+        "url": "https://api.spotify.com/v1/users/:user_id/playlists"
       },
       {
         "path": "/users/:user_id/playlists/:playlist_id",
@@ -959,7 +959,7 @@
         "category": "Playlist",
         "displayName": "Change a playlist for a Spotify user.",
         "httpMethod": "PUT",
-        "url": "https://api.spotify.com/v1/users/{user_id}/playlists/{playlist_id}"
+        "url": "https://api.spotify.com/v1/users/:user_id/playlists/:playlist_id"
       },
       {
         "path": "/users/:user_id/playlists/:playlist_id/tracks",
@@ -990,7 +990,7 @@
             "displayName": "Position Track Will be Inserted into.",
             "type": "integer",
             "style": "query",
-            "required": "true"
+            "required": "false"
           }
         ],
         "doc": {
@@ -1000,7 +1000,7 @@
         "category": "Playlist",
         "displayName": "Add one or more tracks to a user’s playlist.",
         "httpMethod": "POST",
-        "url": "https://api.spotify.com/v1/users/{user_id}/playlists/{playlist_id}/tracks"
+        "url": "https://api.spotify.com/v1/users/:user_id/playlists/:playlist_id/tracks"
       },
       {
         "path": "/users/:user_id/playlists/:playlist_id/tracks",
@@ -1034,7 +1034,7 @@
         "category": "Playlist",
         "displayName": "Remove one or more tracks to a user’s playlist.",
         "httpMethod": "DELETE",
-        "url": "https://api.spotify.com/v1/users/{user_id}/playlists/{playlist_id}/tracks"
+        "url": "https://api.spotify.com/v1/users/:user_id/playlists/:playlist_id/tracks"
       },
       {
         "path": "/users/:user_id/playlists/:playlist_id/tracks",
@@ -1089,7 +1089,7 @@
         "category": "Playlist",
         "displayName": "Reorder a track or a group of tracks in a playlist.",
         "httpMethod": "PUT",
-        "url": "https://api.spotify.com/v1/users/{user_id}/playlists/{playlist_id}/tracks"
+        "url": "https://api.spotify.com/v1/users/:user_id/playlists/:playlist_id/tracks"
       },
       {
         "path": "/users/:user_id/playlists/:playlist_id/tracks",
@@ -1123,7 +1123,7 @@
         "category": "Playlist",
         "displayName": "Replace all tracks in a playlist.",
         "httpMethod": "PUT",
-        "url": "https://api.spotify.com/v1/users/{user_id}/playlists/{playlist_id}/tracks"
+        "url": "https://api.spotify.com/v1/users/:user_id/playlists/:playlist_id/tracks"
       },
       {
         "path": "/users/:user_id/playlists/:playlist_id/followers/contains",
@@ -1157,7 +1157,7 @@
         "category": "Playlist",
         "displayName": "Check to see if one or more Spotify users are following a specified playlist.",
         "httpMethod": "GET",
-        "url": "https://api.spotify.com/v1/users/{owner_id}/playlists/{playlist_id}/followers/contains"
+        "url": "https://api.spotify.com/v1/users/:owner_id/playlists/:playlist_id/followers/contains"
       }
     ]
   },
