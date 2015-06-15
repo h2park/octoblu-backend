@@ -3,7 +3,9 @@
   "name" : "Google Drive",
   "type" : "channel:google-drive",
   "auth_strategy" : "oauth",
-  "oauth": {},
+  "oauth": {
+    "tokenMethod" : "access_token_query"
+  },
   "application" : {
     "base" : "https://www.googleapis.com/drive/v2",
     "resources" : [

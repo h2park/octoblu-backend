@@ -5,7 +5,9 @@
   "documentation": "https://developers.google.com/places/documentation/search",
   "name": "GooglePlaces",
   "enabled": true,
-  "oauth": {},
+  "oauth": {
+    "tokenMethod" : "access_token_query"
+  },
   "application": {
     "base": "https://maps.googleapis.com/maps/api/place",
     "resources": [
