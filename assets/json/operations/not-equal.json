@@ -1,0 +1,14 @@
+{
+  "name": "Not Equal",
+  "class": "not-equal",
+  "helpText": "Filter out messages that pass an equality test. Reference incoming messages using {{msg.values}}  \n  \nSupported inputs include: date and numbers",
+  "category": "operation",
+  "uuid": "3b7a9463-f485-4cee-a55e-e6df341c27b5",
+  "type": "operation:not-equal",
+  "defaults": {
+    "value": 0
+  },
+  "input": 1,
+  "output": 1,
+  "formTemplatePath": "/pages/node_forms/not_equal_form.html"
+}
