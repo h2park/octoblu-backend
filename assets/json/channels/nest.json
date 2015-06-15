@@ -36,6 +36,12 @@
     "resources": [
       {
         "httpMethod": "GET",
+        "path": "/structures.json",
+        "displayName": "Get All Structures",
+        "url": "https://developer-api.nest.com/structures.json"
+      },
+      {
+        "httpMethod": "GET",
         "path": "/devices.json",
         "displayName": "Get All Devices",
         "url": "https://developer-api.nest.com/devices.json"
