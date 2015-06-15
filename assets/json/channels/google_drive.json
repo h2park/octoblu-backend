@@ -4,15 +4,7 @@
   "type" : "channel:google-drive",
   "auth_strategy" : "oauth",
   "oauth": {
-    "development" : {
-      "tokenMethod" : "access_token_query"
-    },
-    "staging" : {
-      "tokenMethod" : "access_token_query"
-    },
-    "development" : {
-      "tokenMethod" : "access_token_query"
-    }
+    "tokenMethod" : "access_token_query"
   },
   "application" : {
     "base" : "https://www.googleapis.com/drive/v2",
