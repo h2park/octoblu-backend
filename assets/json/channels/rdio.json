@@ -538,7 +538,8 @@
           {
             "name": "types",
             "displayName": "Types ( Album / Artist / Label / MusicGenre / Playlist / Track / User ) comma separated",
-            "style": "body"
+            "style": "body",
+            "required": true
           },
           {
             "name": "never_or",
