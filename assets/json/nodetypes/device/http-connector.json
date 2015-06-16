@@ -1,0 +1,14 @@
+{
+  "_id": "f8374d439bdc7c70c09b23c2",
+  "category": "device",
+  "description": "HTTP Connector for Gateblu",
+  "helpText": "Gateblu plugin for making http requests.",
+  "enabled": true,
+  "name": "HTTP Connector",
+  "skynet": {
+    "type": "device",
+    "subtype": "http-connector"
+  },
+  "connector": "meshblu-http-connector",
+  "type": "device:http-connector"
+}
