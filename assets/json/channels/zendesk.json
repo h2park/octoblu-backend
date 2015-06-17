@@ -70,7 +70,7 @@
         "path": "/api/v2/organizations/:organization_id/tickets.json",
         "displayName": "Get Tickets for an Organization",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/organizations/{organization_id}/tickets.json"
+          "url": "https://{subdomain}.zendesk.com/api/v2/organizations/:organization_id/tickets.json"
         },
         "httpMethod": "GET",
         "params": [
@@ -88,7 +88,7 @@
         "path": "/api/v2/users/:user_id/tickets/requested.json",
         "displayName": "Get Tickets for a User",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/users/{user_id}/tickets/requested.json"
+          "url": "https://{subdomain}.zendesk.com/api/v2/users/:user_id/tickets/requested.json"
         },
         "httpMethod": "GET",
         "params": [
@@ -106,7 +106,7 @@
         "path": "/api/v2/users/:user_id/tickets/ccd.json",
         "displayName": "Get Tickets by CCD",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/users/{user_id}/tickets/ccd.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/users/:user_id/tickets/ccd.json"
         },
         "httpMethod": "GET",
         "params": [
@@ -121,10 +121,26 @@
         "url": "https://:subdomain.zendesk.com/api/v2/users/:user_id/tickets/ccd.json"
       },
       {
+        "path": "/api/v2/users/:user_id/tickets/assigned.json",
+        "displayName": "Get Assigned Tickets",
+        "doc": {
+          "url": "https://:subdomain.zendesk.com/api/v2/users/:user_id/tickets/assigned.json"
+        },
+        "httpMethod": "GET",
+        "params": [{
+            "name": ":user_id",
+            "displayName": "User ID",
+            "style": "url",
+            "type": "string",
+            "required": "true"
+          }],
+        "url": "https://:subdomain.zendesk.com/api/v2/users/:user_id/tickets/assigned.json"
+      },
+      {
         "path": "/api/v2/tickets/recent.json",
         "displayName": "Get Recent Tickets",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/tickets/recent.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/tickets/recent.json"
         },
         "httpMethod": "GET",
         "params": [],
@@ -132,9 +148,9 @@
       },
       {
         "path": "/api/v2/tickets/:id.json",
-        "displayName": "Get Tickets",
+        "displayName": "Getting Tickets",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/tickets/{id}.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/tickets/:id.json"
         },
         "httpMethod": "GET",
         "params": [
@@ -152,16 +168,15 @@
         "path": "/api/v2/tickets/show_many.json",
         "displayName": "Get Multiple Tickets",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/tickets/show_many.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/tickets/show_many.json"
         },
-        "httpMethod": "POST",
+        "httpMethod": "GET",
         "params": [
           {
-            "style": "url",
+            "style": "query",
             "type": "string",
-            "name": ":event_id",
-            "displayName": "Event ID",
-            "required": "true"
+            "name": "ids",
+            "displayName": "IDs"
           }
         ],
         "url": "https://:subdomain.zendesk.com/api/v2/tickets/show_many.json"
@@ -170,7 +185,7 @@
         "path": "/api/v2/tickets.json",
         "displayName": "Create Tickets",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/tickets.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/tickets.json"
         },
         "httpMethod": "POST",
         "params": [
@@ -178,113 +193,135 @@
             "style": "body",
             "type": "string",
             "name": "subject",
-            "displayName": "Subject"
+            "displayName": "Subject Of The Ticket"
           },
           {
             "style": "body",
             "type": "string",
             "name": "comment",
-            "displayName": "Comment",
+            "displayName": "Comment Object That Describes The Problem, Incident, Question, Or Task",
             "required": "true"
           },
           {
             "style": "body",
             "type": "string",
             "name": "requester_id",
-            "displayName": "Requester ID"
+            "displayName": "Numeric ID Of The User Asking For Support Through The Ticket"
           },
           {
             "style": "body",
             "type": "string",
             "name": "submitter_id",
-            "displayName": "Submitter ID"
+            "displayName": "Numeric ID Of The User Submitting The Ticket"
           },
           {
             "style": "body",
             "type": "string",
             "name": "assignee_id",
-            "displayName": "Assignee ID"
+            "displayName": "Numeric ID Of The Agent To Assign The Ticket To"
           },
           {
             "style": "body",
             "type": "string",
             "name": "group_id",
-            "displayName": "Group ID"
+            "displayName": "Numeric ID Of The Group To Assign The Ticket To"
           },
           {
             "style": "body",
             "type": "string",
-            "displayName": "Collaborator IDs",
-            "name": "collaborator_ids"
+            "name": "collaborator_ids",
+            "displayName": "Array Of The Numeric IDs Of Agents/ End-Users To CC On The Ticket"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "collaborators",
+            "displayName": "Array Of Numeric IDs, Emails, Or Objects Containing Name & Email Properties"
           },
           {
             "style": "body",
             "type": "string",
             "name": "type",
-            "displayName": "Type"
+            "displayName": "Allowed Values: Problem, Incident, Question, Or Task"
           },
           {
             "style": "body",
             "type": "string",
             "name": "priority",
-            "displayName": "Priority"
+            "displayName": "Allowed Values: Urgent, High, Normal, Or Low"
           },
           {
             "style": "body",
             "type": "string",
             "name": "status",
-            "displayName": "Status"
+            "displayName": "Allowed Values: New, Open, Pending, Hold, Solved Or Closed"
           },
           {
             "style": "body",
             "type": "string",
             "name": "tags",
-            "displayName": "Tags"
+            "displayName": "Array Of Tags To Add To The Ticket"
           },
           {
             "style": "body",
             "type": "string",
-            "displayName": "External ID",
-            "name": "external_id"
+            "name": "external_id",
+            "displayName": "ID To Link Zendesk Tickets To Local Records"
           },
           {
             "style": "body",
             "type": "string",
-            "displayName": "Forum Topic ID",
-            "name": "forum_topic_id"
+            "name": "forum_topic_id",
+            "displayName": "Numeric ID Of Topic The Ticket Originated From, If Any"
           },
           {
             "style": "body",
             "type": "string",
-            "displayName": "Problem ID",
-            "name": "problem_id"
+            "name": "problem_id",
+            "displayName": "Tickets Of Type 'Incident', The Numeric ID Of The Problem The Incident Is Linked To, If Any"
           },
           {
             "style": "body",
             "type": "string",
-            "displayName": "Due At",
-            "name": "due_at"
+            "name": "due_at",
+            "displayName": "For Tickets Of Type 'Task', The Due Date Of The Task"
           },
           {
             "style": "body",
             "type": "string",
-            "displayName": "Ticket Form ID",
-            "name": "ticket_form_id"
+            "name": "ticket_form_id",
+            "displayName": "ID Of The Ticket Form To Render For The Ticket"
           },
           {
             "style": "body",
             "type": "string",
-            "displayName": "Custom Fields",
-            "name": "custom_fields"
+            "name": "custom_fields",
+            "displayName": "Array Of Custom Fields Of The Ticket"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "via_followup_source_id",
+            "displayName": "The ID Of A Closed Ticket For A Follow-Up Ticket"
           }
         ],
         "url": "https://:subdomain.zendesk.com/api/v2/tickets.json"
       },
       {
+        "path": "/api/v2/tickets/create_many.json",
+        "displayName": "Creating Many Tickets",
+        "doc": {
+          "url": "https://:subdomain.zendesk.com/api/v2/tickets/create_many.json"
+        },
+        "httpMethod": "PUT",
+        "params": [],
+        "url": "https://:subdomain.zendesk.com/api/v2/tickets/create_many.json"
+      },
+      {
         "path": "/api/v2/tickets/:id.json",
         "displayName": "Update Ticket",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/tickets/{id}.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/tickets/:id.json"
         },
         "httpMethod": "PUT",
         "params": [
@@ -292,103 +329,115 @@
             "style": "body",
             "type": "string",
             "name": "subject",
-            "displayName": "Subject"
+            "displayName": "Subject Of The Ticket"
           },
           {
             "style": "body",
             "type": "string",
-            "displayName": "Comment",
-            "name": "comment"
+            "name": "comment",
+            "displayName": "An Object That Adds A Comment To The Ticket"
           },
           {
             "style": "body",
             "type": "numeric",
             "name": "requester_id",
-            "displayName": "Requester ID"
+            "displayName": "Numeric ID Of The User Asking For Support Through The Ticket"
           },
           {
             "style": "body",
             "type": "numeric",
             "name": "assignee_id",
-            "displayName": "Assignee ID"
+            "displayName": "Numeric ID Of The Agent To Assign The Ticket To"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "assignee_email",
+            "displayName": "Email Address Of The Agent To Assign The Ticket To"
           },
           {
             "style": "body",
             "type": "numeric",
             "name": "group_id",
-            "displayName": "Group ID"
+            "displayName": "Numeric ID Of The Group To Assign The Ticket To"
           },
           {
             "style": "body",
             "type": "ARRAY",
-            "displayName": "Collaborator IDs",
-            "name": "collaborator_ids"
+            "name": "collaborator_ids",
+            "displayName": "Array Of The Numeric IDs Of Agents/ End-Users To CC"
+          },
+          {
+            "style": "body",
+            "type": "array",
+            "name": "collaborators",
+            "displayName": "Array Of Numeric IDs, Emails, Or Objects Containing Name & Email Properties"
           },
           {
             "style": "body",
             "type": "string",
             "name": "type",
-            "displayName": "Type"
+            "displayName": "Allowed Values: Problem, Incident, Question, Or Task"
           },
           {
             "style": "body",
             "type": "string",
             "name": "priority",
-            "displayName": "Priority"
+            "displayName": "Allowed Values: Urgent, High, Normal, Or Low"
           },
           {
             "style": "body",
             "type": "string",
             "name": "status",
-            "displayName": "Status"
+            "displayName": "Allowed Values: Open, Pending, Hold, Solved Or Closed"
           },
           {
             "style": "body",
-            "type": "string",
+            "type": "array",
             "name": "tags",
-            "displayName": "Tags"
+            "displayName": "Array Of Tags To Add To The Ticket"
           },
           {
             "style": "body",
             "type": "string",
-            "displayName": "External ID",
-            "name": "external_id"
+            "name": "external_id",
+            "displayName": "ID To Link Zendesk Tickets To Local Records"
           },
           {
             "style": "body",
             "type": "string",
-            "displayName": "Forum Topic ID",
-            "name": "forum_topic_id"
+            "name": "forum_topic_id",
+            "displayName": "Numeric ID Of The Topic The Ticket Originated From, If Any"
           },
           {
             "style": "body",
             "type": "string",
-            "displayName": "Problem ID",
-            "name": "problem_id"
+            "name": "problem_id",
+            "displayName": "Numeric ID Of The Problem The Incident Is Linked To, If Any"
           },
           {
             "style": "body",
             "type": "string",
-            "displayName": "Due At",
-            "name": "due_at"
+            "name": "due_at",
+            "displayName": "Due Date Of The Task"
           },
           {
             "style": "body",
-            "type": "string",
-            "displayName": "Custom Fields",
-            "name": "custom_fields"
+            "type": "array",
+            "name": "custom_fields",
+            "displayName": "Array Of The Custom Field Objects Consisting Of Ids & Values"
           },
           {
             "style": "body",
             "type": "string",
             "name": "updated_stamp",
-            "displayName": "Updated Stamp"
+            "displayName": "Datetime Of Last Update Received From API"
           },
           {
             "style": "body",
             "type": "BOOLEAN",
             "name": "safe_update",
-            "displayName": "Safe Updated"
+            "displayName": "Prevents Updates With Outdated Ticket Data (Updated_Stamp Param Required When True)"
           },
           {
             "name": ":id",
@@ -401,10 +450,10 @@
         "url": "https://:subdomain.zendesk.com/api/v2/tickets/:id.json"
       },
       {
-        "path": "/api/v2/tickets/update_many.json?ids=:ids",
+        "path": "/api/v2/tickets/update_many.json",
         "displayName": "Update Many Tickets",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/tickets/update_many.json?ids={ids}"
+          "url": "https://:subdomain.zendesk.com/api/v2/tickets/update_many.json"
         },
         "httpMethod": "PUT",
         "params": [
@@ -420,9 +469,9 @@
       },
       {
         "path": "/api/v2/tickets/:id/mark_as_spam.json",
-        "displayName": "Mark as Spam",
+        "displayName": "Mark A Ticket As Spam",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/tickets/{id}/mark_as_spam.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/tickets/:id/mark_as_spam.json"
         },
         "httpMethod": "PUT",
         "params": [
@@ -437,10 +486,10 @@
         "url": "https://:subdomain.zendesk.com/api/v2/tickets/:id/mark_as_spam.json"
       },
       {
-        "path": "/api/v2/tickets/mark_many_as_spam.json?ids=:ids",
-        "displayName": "Mark Many as Spam",
+        "path": "/api/v2/tickets/mark_many_as_spam.json",
+        "displayName": "Mark Many As Spam Tickets",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/tickets/mark_many_as_spam.json?ids={ids}"
+          "url": "https://:subdomain.zendesk.com/api/v2/tickets/mark_many_as_spam.json"
         },
         "httpMethod": "PUT",
         "params": [
@@ -456,9 +505,9 @@
       },
       {
         "path": "/api/v2/tickets/:id/merge.json",
-        "displayName": "Merge Tickets",
+        "displayName": "Merge Tickets Into Target Ticket",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/tickets/{id}/merge.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/tickets/:id/merge.json"
         },
         "httpMethod": "POST",
         "params": [
@@ -474,9 +523,9 @@
       },
       {
         "path": "/api/v2/tickets/:id/related.json",
-        "displayName": "Get Related Tickets",
+        "displayName": "Get Tickets Related Info",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/tickets/{id}/related.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/tickets/:id/related.json"
         },
         "httpMethod": "GET",
         "params": [
@@ -494,7 +543,7 @@
         "path": "/api/v2/tickets/:id.json",
         "displayName": "Delete Ticket",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/tickets/{id}.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/tickets/:id.json"
         },
         "httpMethod": "DELETE",
         "params": [
@@ -509,10 +558,10 @@
         "url": "https://:subdomain.zendesk.com/api/v2/tickets/:id.json"
       },
       {
-        "path": "/api/v2/tickets/destroy_many.json?ids=:ids",
+        "path": "/api/v2/tickets/destroy_many.json",
         "displayName": "Delete Many Tickets",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/tickets/destroy_many.json?ids={ids}"
+          "url": "https://:subdomain.zendesk.com/api/v2/tickets/destroy_many.json"
         },
         "httpMethod": "DELETE",
         "params": [
@@ -528,9 +577,9 @@
       },
       {
         "path": "/api/v2/tickets/:id/collaborators.json",
-        "displayName": "Get Collaborators",
+        "displayName": "Get Collaborators For A Ticket",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/tickets/{id}/collaborators.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/tickets/:id/collaborators.json"
         },
         "httpMethod": "GET",
         "params": [
@@ -546,9 +595,9 @@
       },
       {
         "path": "/api/v2/tickets/:id/incidents.json",
-        "displayName": "Get Incidents",
+        "displayName": "Get Ticket Incidents",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/tickets/{id}/incidents.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/tickets/:id/incidents.json"
         },
         "httpMethod": "GET",
         "params": [
@@ -564,19 +613,19 @@
       },
       {
         "path": "/api/v2/problems.json",
-        "displayName": "Add Problem",
+        "displayName": "Get Ticket Problems",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/problems.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/problems.json"
         },
-        "httpMethod": "POST",
+        "httpMethod": "GET",
         "params": [],
         "url": "https://:subdomain.zendesk.com/api/v2/problems.json"
       },
       {
-        "path": "/api/v2/problems/autocomplete.json?text=:name",
+        "path": "/api/v2/problems/autocomplete.json",
         "displayName": "Autocomplete Problems",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/problems/autocomplete.json?text={name}"
+          "url": "https://:subdomain.zendesk.com/api/v2/problems/autocomplete.json"
         },
         "httpMethod": "POST",
         "params": [
@@ -592,9 +641,9 @@
       },
       {
         "path": "/api/v2/channels/twitter/tickets.json",
-        "displayName": "Create Ticket",
+        "displayName": "Create Ticket From Tweet",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/channels/twitter/tickets.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/channels/twitter/tickets.json"
         },
         "httpMethod": "POST",
         "params": [],
@@ -602,9 +651,9 @@
       },
       {
         "path": "/api/v2/channels/twitter/tickets/:id/statuses.json",
-        "displayName": "Get Statuses",
+        "displayName": "Get Ticket Statuses",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/channels/twitter/tickets/{id}/statuses.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/channels/twitter/tickets/:id/statuses.json"
         },
         "httpMethod": "GET",
         "params": [
@@ -629,13 +678,13 @@
         "path": "/api/v2/tickets/:ticket_id/audits.json",
         "displayName": "Get Audits",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/tickets/{ticket_id}/audits.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/tickets/:ticket_id/audits.json"
         },
         "httpMethod": "GET",
         "params": [
           {
             "name": ":ticket_id",
-            "displayName": "Ticket ID",
+            "displayName": "ID Of The Associated Ticket",
             "style": "url",
             "type": "string",
             "required": "true"
@@ -645,22 +694,22 @@
       },
       {
         "path": "/api/v2/tickets/:ticket_id/audits/:id.json",
-        "displayName": "Create Autdit",
+        "displayName": "Show Audit",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/tickets/{ticket_id}/audits/{id}.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/tickets/:ticket_id/audits/:id.json"
         },
-        "httpMethod": "POST",
+        "httpMethod": "GET",
         "params": [
           {
             "name": ":ticket_id",
-            "displayName": "Ticket ID",
+            "displayName": "ID Of The Associated Ticket",
             "style": "url",
             "type": "string",
             "required": "true"
           },
           {
             "name": ":id",
-            "displayName": "ID",
+            "displayName": "Automatically Assigned When Creating Audits",
             "style": "url",
             "type": "string",
             "required": "true"
@@ -670,9 +719,9 @@
       },
       {
         "path": "/api/v2/tickets/:ticket_id/audits/:id/make_private.json",
-        "displayName": "Make Private",
+        "displayName": "Make A Comment Private",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/tickets/{ticket_id}/audits/{id}/make_private.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/tickets/:ticket_id/audits/:id/make_private.json"
         },
         "httpMethod": "PUT",
         "params": [
@@ -689,17 +738,29 @@
             "style": "url",
             "type": "string",
             "required": "true"
+          },
+          {
+            "name": "channel",
+            "displayName": "Tells You How Ticket/ Event Was Created",
+            "style": "body",
+            "type": "string"
+          },
+          {
+            "name": "source",
+            "displayName": "Gives More Info About How/ Why The Ticket/ Event Was Created",
+            "style": "body",
+            "type": "object"
           }
         ],
         "url": "https://:subdomain.zendesk.com/api/v2/tickets/:ticket_id/audits/:id/make_private.json"
       },
       {
         "path": "/api/v2/tickets/:ticket_id/comments.json",
-        "displayName": "Create Comment",
+        "displayName": "Get Comment",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/tickets/:ticket_id/comments.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/tickets/:ticket_id/comments.json"
         },
-        "httpMethod": "POST",
+        "httpMethod": "GET",
         "params": [
           {
             "name": ":ticket_id",
@@ -713,11 +774,11 @@
       },
       {
         "path": "/api/v2/tickets/:ticket_id/comments/:id/redact.json",
-        "displayName": "Redact Comment",
+        "displayName": "Redact String In Comment",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/tickets/:ticket_id/comments/:id/redact.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/tickets/:ticket_id/comments/:id/redact.json"
         },
-        "httpMethod": "POST",
+        "httpMethod": "PUT",
         "params": [
           {
             "name": ":ticket_id",
@@ -738,9 +799,9 @@
       },
       {
         "path": "/api/v2/tickets/:ticket_id/comments/:id/make_private.json",
-        "displayName": "Make Private",
+        "displayName": "Make Comment Private",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/tickets/{ticket_id}/comments/{id}/make_private.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/tickets/:ticket_id/comments/:id/make_private.json"
         },
         "httpMethod": "PUT",
         "params": [
@@ -772,35 +833,32 @@
           {
             "style": "query",
             "type": "string",
-            "displayName": "Start Time",
+            "displayName": "Time Of Oldest Event You Are Interested In",
             "name": "start_time"
           }
         ],
         "url": "https://:subdomain.zendesk.com/api/v2/exports/tickets.json"
       },
       {
-        "path": "/api/v2/exports/tickets/sample.json",
-        "displayName": "Export Sample Ticket",
-        "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/exports/tickets/sample.json"
-        },
-        "httpMethod": "GET",
-        "params": [],
-        "url": "https://:subdomain.zendesk.com/api/v2/exports/tickets/sample.json"
-      },
-      {
         "path": "/api/v2/incremental/tickets.json",
-        "displayName": "Get Incremental Tickets",
+        "displayName": "Get Incremental Ticket Export",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/incremental/tickets.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/incremental/tickets.json"
         },
         "httpMethod": "GET",
         "params": [
           {
-            "style": "url",
+            "style": "query",
             "type": "string",
-            "displayName": "Start Time",
             "name": "start_time",
+            "displayName": "Time Of Oldest Event You Are Interested In",
+            "required": "true"
+          },
+          {
+            "style": "query",
+            "type": "string",
+            "name": "include",
+            "displayName": "List Of Entities To Be Side-Loaded",
             "required": "true"
           }
         ],
@@ -810,15 +868,15 @@
         "path": "/api/v2/incremental/ticket_events.json",
         "displayName": "Get Ticket Events",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/incremental/ticket_events.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/incremental/ticket_events.json"
         },
         "httpMethod": "GET",
         "params": [
           {
-            "style": "url",
+            "style": "query",
             "type": "string",
-            "displayName": "Start Time",
             "name": "start_time",
+            "displayName": "Time Of Oldest Event You Are Interested In",
             "required": "true"
           }
         ],
@@ -828,15 +886,21 @@
         "path": "/api/v2/incremental/organizations.json",
         "displayName": "Get Incremental Organizations",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/incremental/organizations.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/incremental/organizations.json"
         },
         "httpMethod": "GET",
         "params": [
           {
             "style": "query",
             "type": "string",
-            "displayName": "Start Time",
             "name": "start_time",
+            "displayName": "Time Of Oldest Event You Are Interested In",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "include",
+            "displayName": "List Of Entities To Be Side-Loaded",
             "required": "true"
           }
         ],
@@ -844,17 +908,23 @@
       },
       {
         "path": "/api/v2/incremental/users.json",
-        "displayName": "Get Incremental Users",
+        "displayName": "Get Info About Incremental Users",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/incremental/users.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/incremental/users.json"
         },
         "httpMethod": "GET",
         "params": [
           {
             "style": "query",
             "type": "string",
-            "displayName": "Start Time",
             "name": "start_time",
+            "displayName": "Time Of Oldest Event You Are Interested In",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "include",
+            "displayName": "List Of Entities To Be Side-Loaded",
             "required": "true"
           }
         ],
@@ -864,7 +934,7 @@
         "path": "/api/v2/ticket_fields.json",
         "displayName": "Get Ticket Fields",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/ticket_fields.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/ticket_fields.json"
         },
         "httpMethod": "GET",
         "params": [],
@@ -874,7 +944,7 @@
         "path": "/api/v2/ticket_fields/:id.json",
         "displayName": "Get Ticket Field",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/ticket_fields/{id}.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/ticket_fields/:id.json"
         },
         "httpMethod": "GET",
         "params": [
@@ -892,7 +962,7 @@
         "path": "/api/v2/ticket_fields.json",
         "displayName": "Create Ticket Field",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/ticket_fields.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/ticket_fields.json"
         },
         "httpMethod": "POST",
         "params": [],
@@ -902,7 +972,7 @@
         "path": "/api/v2/ticket_fields/:id.json",
         "displayName": "Update Ticket Field",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/ticket_fields/{id}.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/ticket_fields/:id.json"
         },
         "httpMethod": "PUT",
         "params": [
@@ -920,7 +990,7 @@
         "path": "/api/v2/ticket_fields/:id.json",
         "displayName": "Delete Ticket Field",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/ticket_fields/{id}.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/ticket_fields/:id.json"
         },
         "httpMethod": "DELETE",
         "params": [
@@ -938,7 +1008,7 @@
         "path": "/api/v2/ticket_forms.json",
         "displayName": "Get Ticket Forms",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/ticket_forms.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/ticket_forms.json"
         },
         "httpMethod": "GET",
         "params": [],
@@ -948,7 +1018,7 @@
         "path": "/api/v2/ticket_forms.json",
         "displayName": "Create Ticket Form",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/ticket_forms.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/ticket_forms.json"
         },
         "httpMethod": "POST",
         "params": [],
@@ -958,7 +1028,7 @@
         "path": "/api/v2/ticket_forms/:id.json",
         "displayName": "Get Ticket Form",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/ticket_forms/{id}.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/ticket_forms/:id.json"
         },
         "httpMethod": "GET",
         "params": [
@@ -976,7 +1046,7 @@
         "path": "/api/v2/ticket_forms/:id.json",
         "displayName": "Update Ticket Form",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/ticket_forms/{id}.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/ticket_forms/:id.json"
         },
         "httpMethod": "Put",
         "params": [
@@ -994,7 +1064,7 @@
         "path": "/api/v2/ticket_forms/:id.json",
         "displayName": "Delete Ticket Form",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/ticket_forms/{id}.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/ticket_forms/:id.json"
         },
         "httpMethod": "DELETE",
         "params": [
@@ -1012,7 +1082,7 @@
         "path": "/api/v2/ticket_forms/reorder.json",
         "displayName": "Reorder Ticket Forms",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/ticket_forms/reorder.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/ticket_forms/reorder.json"
         },
         "httpMethod": "PUT",
         "params": [],
@@ -1022,7 +1092,7 @@
         "path": "/api/v2/ticket_forms/:id/clone.json",
         "displayName": "Clone Ticket Form",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/ticket_forms/{id}/clone.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/ticket_forms/:id/clone.json"
         },
         "httpMethod": "POST",
         "params": [
@@ -1040,7 +1110,7 @@
         "path": "/api/v2/imports/tickets.json",
         "displayName": "Import Tickets",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/imports/tickets.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/imports/tickets.json"
         },
         "httpMethod": "POST",
         "params": [
@@ -1053,14 +1123,20 @@
           {
             "style": "body",
             "type": "string",
+            "name": "assignee_id",
+            "displayName": "Assignee ID"
+          },
+          {
+            "style": "body",
+            "type": "string",
             "name": "subject",
             "displayName": "Subject"
           },
           {
             "style": "body",
             "type": "string",
-            "displayName": "Description",
-            "name": "description"
+            "name": "description",
+            "displayName": "Description"
           },
           {
             "style": "body",
@@ -1071,39 +1147,104 @@
           {
             "style": "body",
             "type": "string",
-            "displayName": "Comments",
-            "name": "comments"
+            "name": "comments",
+            "displayName": "Comments"
           }
         ],
         "url": "https://:subdomain.zendesk.com/api/v2/imports/tickets.json"
       },
       {
+        "path": "/api/v2/imports/tickets/create_many.json",
+        "displayName": "Import Bulk Tickets",
+        "doc": {
+          "url": "https://:subdomain.zendesk.com/api/v2/imports/tickets/create_many.json"
+        },
+        "httpMethod": "POST",
+        "params": [
+          {
+            "style": "body",
+            "type": "string",
+            "name": "requester_id",
+            "displayName": "Requester ID"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "assignee_id",
+            "displayName": "Assignee ID"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "subject",
+            "displayName": "Subject"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "description",
+            "displayName": "Description"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "tags",
+            "displayName": "Tags"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "comments",
+            "displayName": "Comments"
+          }
+        ],
+        "url": "https://:subdomain.zendesk.com/api/v2/imports/tickets/create_many.json"
+      },
+      {
         "path": "/api/v2/ticket_metrics.json",
         "displayName": "Get Ticket Metrics",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/ticket_metrics.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/ticket_metrics.json"
         },
         "httpMethod": "GET",
         "params": [],
         "url": "https://:subdomain.zendesk.com/api/v2/ticket_metrics.json"
       },
       {
-        "path": "/api/v2/ticket_metrics/:id.json",
+        "path": "/api/v2/ticket_metrics/:ticket_metric_id.json",
         "displayName": "Get Ticket Metric",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/ticket_metrics/{id}.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/ticket_metrics/:ticket_metric_id.json"
         },
         "httpMethod": "GET",
         "params": [
           {
-            "name": ":id",
-            "displayName": "ID",
+            "name": ":ticket_metric_id",
+            "displayName": "Ticket Metric Id",
             "style": "url",
             "type": "string",
             "required": "true"
           }
         ],
-        "url": "https://:subdomain.zendesk.com/api/v2/ticket_metrics/:id.json"
+        "url": "https://:subdomain.zendesk.com/api/v2/ticket_metrics/:ticket_metric_id.json"
+      },
+      {
+        "path": "/api/v2/tickets/:ticket_id/metrics.json",
+        "displayName": "Get Ticket Metric",
+        "doc": {
+          "url": "https://:subdomain.zendesk.com/api/v2/tickets/:ticket_id/metrics.json"
+        },
+        "httpMethod": "GET",
+        "params": [
+          {
+            "name": ":ticket_id",
+            "displayName": "Ticket Id",
+            "style": "url",
+            "type": "string",
+            "required": "true"
+          }
+        ],
+        "url": "https://:subdomain.zendesk.com/api/v2/tickets/:ticket_id/metrics.json"
       },
       {
         "path": "/api/v2/tickets/:id/metrics.json",
@@ -1127,7 +1268,7 @@
         "path": "/api/v2/requests.json",
         "displayName": "Get Requests",
         "doc": {
-          "url": "https://{subdomain}.zendesk.com/api/v2/requests.json"
+          "url": "https://:subdomain.zendesk.com/api/v2/requests.json"
         },
         "httpMethod": "GET",
         "params": [
