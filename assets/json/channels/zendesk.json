@@ -3037,7 +3037,7 @@
       },
       {
         "path": "/api/v2/dynamic_content/items/:id/variants/:id.json",
-        "displayName": "/api/v2/dynamic_content/items/:id/variants/:id.json",
+        "displayName": "Delete Variant",
         "httpMethod": "DELETE",
         "params": [
           {
@@ -3240,14 +3240,14 @@
       },
       {
         "path": "/api/v2/oauth/clients.json",
-        "displayName": "List Oauth Clients",
+        "displayName": "List All Oauth Clients",
         "httpMethod": "GET",
         "params": [],
         "url": "https://:subdomain.zendesk.com/api/v2/oauth/clients.json"
       },
       {
         "path": "/api/v2/users/me/oauth/clients.json",
-        "displayName": "Get Oauth Clients",
+        "displayName": "Get My Oauth Clients",
         "httpMethod": "GET",
         "params": [],
         "url": "https://:subdomain.zendesk.com/api/v2/users/me/oauth/clients.json"
