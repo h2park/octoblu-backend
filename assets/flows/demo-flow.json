@@ -226,8 +226,8 @@
       "id": "0b116160-4448-11e4-b69f-ebd95511d992"
     },
     {
-      "y": 336.6131591796875,
-      "x": 1037.484130859375,
+      "y": 405.931640625,
+      "x": 1051.7479248046875,
       "outputLocations": [],
       "inputLocations": [],
       "logo": "https://ds78apnml6was.cloudfront.net/operation/comment.svg",
@@ -238,26 +238,9 @@
       "uuid": "37f0be60-2f17-11e4-9617-a6c5e4d22fb7",
       "category": "operation",
       "class": "comment",
-      "name": "click this debug to see\nthe output of StockPrice",
+      "name": "click the debug tab\nto see the output of the\nWeather and StockPrice nodes",
       "resourceType": "flow-node",
       "id": "6ea61630-4448-11e4-b69f-ebd95511d992"
-    },
-    {
-      "y": 523.1043090820312,
-      "x": 1023.5509033203125,
-      "outputLocations": [],
-      "inputLocations": [],
-      "logo": "https://ds78apnml6was.cloudfront.net/operation/comment.svg",
-      "formTemplatePath": "/pages/node_forms/comment_form.html",
-      "output": 0,
-      "input": 0,
-      "type": "operation:comment",
-      "uuid": "37f0be60-2f17-11e4-9617-a6c5e4d22fb7",
-      "category": "operation",
-      "class": "comment",
-      "name": "click this debug to see\nthe output of Weather",
-      "resourceType": "flow-node",
-      "id": "841b4030-4448-11e4-b69f-ebd95511d992"
     },
     {
       "y": 137.26058959960938,

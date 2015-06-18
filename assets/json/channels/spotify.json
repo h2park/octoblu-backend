@@ -152,7 +152,7 @@
         "path": "/artists",
         "params": [
           {
-            "name": ":ids",
+            "name": "ids",
             "displayName": "Artist IDs (separate by commas, max:50)",
             "type": "string",
             "style": "query",
@@ -267,7 +267,7 @@
         "path": "/albums",
         "params": [
           {
-            "name": ":ids",
+            "name": "ids",
             "displayName": "Album IDs (separated by commas, max:20)",
             "type": "string",
             "style": "query",
@@ -660,7 +660,7 @@
         "path": "/me/tracks",
         "params": [
           {
-            "name": ":ids",
+            "name": "ids",
             "displayName": "Spotify IDs Separated by Commas (max:50)",
             "type": "string",
             "style": "query",
@@ -714,7 +714,7 @@
         "path": "/me/tracks",
         "params": [
           {
-            "name": ":ids",
+            "name": "ids",
             "displayName": "Spotify IDs Separated by Commas (max:50)",
             "type": "string",
             "style": "query",
@@ -734,7 +734,7 @@
         "path": "/me/tracks/contains",
         "params": [
           {
-            "name": ":ids",
+            "name": "ids",
             "displayName": "Spotify IDs Separated by Commas (max:50)",
             "type": "string",
             "style": "query",
