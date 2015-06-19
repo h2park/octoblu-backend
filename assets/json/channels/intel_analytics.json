@@ -6,8 +6,8 @@
   "description": "",
   "documentation": "http://www.intel.com",
   "enabled": true,
-  "name": "Banjo Canyon",
-  "type": "channel:banjo_canyon",
+  "name": "Intel Analytics",
+  "type": "channel:intel_analytics",
   "application": {
     "base": "https://www.intel.com",
     "resources": [

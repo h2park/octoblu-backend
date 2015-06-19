@@ -1,14 +1,14 @@
 {
   "_id": "ced95b60-7fef-11e4-ad43-5b5922958876",
   "category": "device",
-  "description": "Banjo Canyon",
+  "description": "Intel Analytics",
   "helpText": "Intel analytics platform.",
   "enabled": true,
-  "name": "Banjo Canyon",
+  "name": "Intel Analytics",
   "skynet": {
     "type": "device",
-    "subtype": "banjocanyon"
+    "subtype": "intelanalytics"
   },
-  "connector": "meshblu-banjocanyon",
-  "type": "device:banjocanyon"
+  "connector": "meshblu-intelanalytics",
+  "type": "device:intelanalytics"
 }
