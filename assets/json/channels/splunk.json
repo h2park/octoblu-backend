@@ -8,8 +8,17 @@
   "type": "channel:splunk",
   "skipVerifySSL": true,
   "__v": 0,
+  "defaultParams": [
+    {
+      "name": ":domain",
+      "displayName": "Splunk Domain",
+      "style": "url",
+      "type": "string",
+      "required": true
+    }
+  ],
   "application": {
-    "base": "http://splunk.octoblu.com:8089/services",
+    "base": "http://:domain/services",
     "resources": [
       {
         "params": [
@@ -71,7 +80,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTsearch#alerts.2Ffired_alerts"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/alerts/fired_alerts"
+        "url": "https://:domain/services/alerts/fired_alerts"
       },
       {
         "path": "/alerts/fired_alerts/:name",
@@ -83,7 +92,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTsearch#alerts.2Ffired_alerts.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/alerts/fired_alerts/:name",
+        "url": "https://:domain/services/alerts/fired_alerts/:name",
         "params": [
           {
             "name": ":name",
@@ -123,7 +132,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTsearch#alerts.2Ffired_alerts.2F.7Bname.7D"
         },
         "httpMethod": "DELETE",
-        "url": "https://splunk.octoblu.com:8089/services/alerts/fired_alerts/:name"
+        "url": "https://:domain/services/alerts/fired_alerts/:name"
       },
       {
         "params": [
@@ -153,7 +162,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTapps#apps.2Fappinstall"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/apps/appinstall"
+        "url": "https://:domain/services/apps/appinstall"
       },
       {
         "params": [
@@ -215,7 +224,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTapps#apps.2Fapptemplates"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/apps/apptemplates"
+        "url": "https://:domain/services/apps/apptemplates"
       },
       {
         "path": "/apps/apptemplates/:name",
@@ -227,7 +236,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTapps#apps.2Fapptemplates.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/apps/apptemplates/:name",
+        "url": "https://:domain/services/apps/apptemplates/:name",
         "params": [
           {
             "name": ":name",
@@ -307,7 +316,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTapps#apps.2Flocal"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/apps/local"
+        "url": "https://:domain/services/apps/local"
       },
       {
         "params": [
@@ -425,7 +434,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTapps#apps.2Flocal"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/apps/local"
+        "url": "https://:domain/services/apps/local"
       },
       {
         "params": [
@@ -455,7 +464,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTapps#apps.2Flocal.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/apps/local/:name"
+        "url": "https://:domain/services/apps/local/:name"
       },
       {
         "path": "/apps/local/:name",
@@ -467,7 +476,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTapps#apps.2Flocal.2F.7Bname.7D"
         },
         "httpMethod": "DELETE",
-        "url": "https://splunk.octoblu.com:8089/services/apps/local/:name",
+        "url": "https://:domain/services/apps/local/:name",
         "params": [
           {
             "name": ":name",
@@ -555,7 +564,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTapps#apps.2Flocal.2F.7Bname.7D"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/apps/local/:name"
+        "url": "https://:domain/services/apps/local/:name"
       },
       {
         "path": "/apps/local/:name/package",
@@ -567,7 +576,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTapps#apps.2Flocal.2F.7Bname.7D.2Fpackage"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/apps/local/:name/package",
+        "url": "https://:domain/services/apps/local/:name/package",
         "params": [
           {
             "name": ":name",
@@ -589,7 +598,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTapps#apps.2Flocal.2F.7Bname.7D.2Fsetup"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/apps/local/:name/setup",
+        "url": "https://:domain/services/apps/local/:name/setup",
         "params": [
           {
             "name": ":name",
@@ -611,7 +620,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTapps#apps.2Flocal.2F.7Bname.7D.2Fupdate"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/apps/local/:name/update",
+        "url": "https://:domain/services/apps/local/:name/update",
         "params": [
           {
             "name": ":name",
@@ -651,7 +660,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTaccess#auth.2Flogin"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/auth/login"
+        "url": "https://:domain/services/auth/login"
       },
       {
         "params": [
@@ -713,7 +722,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTaccess#authentication.2Fcurrent-context"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/authentication/current-context"
+        "url": "https://:domain/services/authentication/current-context"
       },
       {
         "path": "/authentication/current-context/:name",
@@ -725,7 +734,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTaccess#authentication.2Fcurrent-context.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/authentication/current-context/:name",
+        "url": "https://:domain/services/authentication/current-context/:name",
         "params": [
           {
             "name": ":name",
@@ -797,7 +806,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTaccess#authentication.2Fhttpauth-tokens"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/authentication/httpauth-tokens"
+        "url": "https://:domain/services/authentication/httpauth-tokens"
       },
       {
         "path": "/authentication/httpauth-tokens/:name",
@@ -809,7 +818,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTaccess#authentication.2Fhttpauth-tokens.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/authentication/httpauth-tokens/:name",
+        "url": "https://:domain/services/authentication/httpauth-tokens/:name",
         "params": [
           {
             "name": ":name",
@@ -831,7 +840,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTaccess#authentication.2Fhttpauth-tokens.2F.7Bname.7D"
         },
         "httpMethod": "DELETE",
-        "url": "https://splunk.octoblu.com:8089/services/authentication/httpauth-tokens/:name",
+        "url": "https://:domain/services/authentication/httpauth-tokens/:name",
         "params": [
           {
             "name": ":name",
@@ -903,7 +912,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTaccess#authentication.2Fusers"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/authentication/users"
+        "url": "https://:domain/services/authentication/users"
       },
       {
         "params": [
@@ -989,7 +998,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTaccess#authentication.2Fusers"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/authentication/users"
+        "url": "https://:domain/services/authentication/users"
       },
       {
         "path": "/authentication/users/:name",
@@ -1001,7 +1010,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTaccess#authentication.2Fusers.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/authentication/users/:name",
+        "url": "https://:domain/services/authentication/users/:name",
         "params": [
           {
             "name": ":name",
@@ -1023,7 +1032,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTaccess#authentication.2Fusers.2F.7Bname.7D"
         },
         "httpMethod": "DELETE",
-        "url": "https://splunk.octoblu.com:8089/services/authentication/users/:name",
+        "url": "https://:domain/services/authentication/users/:name",
         "params": [
           {
             "name": ":name",
@@ -1119,7 +1128,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTaccess#authentication.2Fusers.2F.7Bname.7D"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/authentication/users/:name"
+        "url": "https://:domain/services/authentication/users/:name"
       },
       {
         "params": [
@@ -1189,7 +1198,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/latest/RESTAPI/RESTlist"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/authorization/capabilities"
+        "url": "https://:domain/services/authorization/capabilities"
       },
       {
         "path": "/authorization/capabilities/:name",
@@ -1201,7 +1210,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTaccess#authorization.2Fcapabilities.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/authorization/capabilities/:name",
+        "url": "https://:domain/services/authorization/capabilities/:name",
         "params": [
           {
             "name": ":name",
@@ -1273,7 +1282,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTaccess#authorization.2Froles"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/authorization/roles"
+        "url": "https://:domain/services/authorization/roles"
       },
       {
         "params": [
@@ -1391,7 +1400,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTaccess#authorization.2Froles"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/authorization/roles"
+        "url": "https://:domain/services/authorization/roles"
       },
       {
         "path": "/authorization/roles/:name",
@@ -1403,7 +1412,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTaccess#authorization.2Froles.2F.7Bname.7D"
         },
         "httpMethod": "DELETE",
-        "url": "https://splunk.octoblu.com:8089/services/authorization/roles/:name",
+        "url": "https://:domain/services/authorization/roles/:name",
         "params": [
           {
             "name": ":name",
@@ -1425,7 +1434,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTaccess#authorization.2Froles.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/authorization/roles/:name",
+        "url": "https://:domain/services/authorization/roles/:name",
         "params": [
           {
             "name": ":name",
@@ -1553,7 +1562,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTaccess#authorization.2Froles.2F.7Bname.7D"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/authorization/roles/:name"
+        "url": "https://:domain/services/authorization/roles/:name"
       },
       {
         "params": [
@@ -1615,7 +1624,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTcluster#cluster.2Fconfig"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/cluster/config"
+        "url": "https://:domain/services/cluster/config"
       },
       {
         "path": "/cluster/config/:name",
@@ -1627,7 +1636,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTcluster#cluster.2Fconfig.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/cluster/config/:name",
+        "url": "https://:domain/services/cluster/config/:name",
         "params": [
           {
             "name": ":name",
@@ -1649,7 +1658,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTcluster#cluster.2Fconfig.2F.7Bname.7D"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/cluster/config/:name",
+        "url": "https://:domain/services/cluster/config/:name",
         "params": [
           {
             "name": ":name",
@@ -1729,7 +1738,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTcluster#cluster.2Fmaster.2Fbuckets"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/cluster/master/buckets"
+        "url": "https://:domain/services/cluster/master/buckets"
       },
       {
         "params": [
@@ -1759,7 +1768,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTcluster#cluster.2Fmaster.2Fbuckets.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/cluster/master/buckets/:name"
+        "url": "https://:domain/services/cluster/master/buckets/:name"
       },
       {
         "path": "/cluster/master/control/control/rebalance_primaries",
@@ -1771,7 +1780,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTcluster#cluster.2Fmaster.2Fcontrol"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/cluster/master/control/control/rebalance_primaries",
+        "url": "https://:domain/services/cluster/master/control/control/rebalance_primaries",
         "params": []
       },
       {
@@ -1834,7 +1843,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTcluster#cluster.2Fmaster.2Fgeneration"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/cluster/master/generation"
+        "url": "https://:domain/services/cluster/master/generation"
       },
       {
         "params": [
@@ -1888,7 +1897,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTcluster#cluster.2Fmaster.2Fgeneration"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/cluster/master/generation"
+        "url": "https://:domain/services/cluster/master/generation"
       },
       {
         "path": "/cluster/master/generation/:name",
@@ -1900,7 +1909,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTcluster#cluster.2Fmaster.2Fgeneration.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/cluster/master/generation/:name",
+        "url": "https://:domain/services/cluster/master/generation/:name",
         "params": [
           {
             "name": ":name",
@@ -1964,7 +1973,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTcluster#cluster.2Fmaster.2Fgeneration.2F.7Bname.7D"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/cluster/master/generation/:name"
+        "url": "https://:domain/services/cluster/master/generation/:name"
       },
       {
         "params": [
@@ -1986,7 +1995,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTcluster#cluster.2Fmaster.2Findexes"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/cluster/master/indexes"
+        "url": "https://:domain/services/cluster/master/indexes"
       },
       {
         "path": "/cluster/master/indexes/:name",
@@ -1998,7 +2007,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTcluster#cluster.2Fmaster.2Findexes.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/cluster/master/indexes/:name",
+        "url": "https://:domain/services/cluster/master/indexes/:name",
         "params": [
           {
             "name": ":name",
@@ -2070,7 +2079,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTcluster#cluster.2Fmaster.2Finfo"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/cluster/master/info"
+        "url": "https://:domain/services/cluster/master/info"
       },
       {
         "params": [
@@ -2140,7 +2149,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTcluster#cluster.2Fmaster.2Fpeers"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/cluster/master/peers"
+        "url": "https://:domain/services/cluster/master/peers"
       },
       {
         "params": [
@@ -2170,7 +2179,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTcluster#cluster.2Fmaster.2Fpeers.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/cluster/master/peers/:name"
+        "url": "https://:domain/services/cluster/master/peers/:name"
       },
       {
         "path": "/cluster/master/sites",
@@ -2183,7 +2192,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTcluster#cluster.2Fmaster.2Fsites"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/cluster/master/sites",
+        "url": "https://:domain/services/cluster/master/sites",
         "params": []
       },
       {
@@ -2196,7 +2205,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTcluster#cluster.2Fmaster.2Fsites.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/cluster/master/sites/:name",
+        "url": "https://:domain/services/cluster/master/sites/:name",
         "params": [
           {
             "name": ":name",
@@ -2268,7 +2277,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTcluster#cluster.2Fsearchhead.2Fgeneration"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/cluster/searchhead/generation"
+        "url": "https://:domain/services/cluster/searchhead/generation"
       },
       {
         "path": "/cluster/searchhead/generation/:name",
@@ -2280,7 +2289,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTcluster#cluster.2Fsearchhead.2Fgeneration.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/cluster/searchhead/generation/:name",
+        "url": "https://:domain/services/cluster/searchhead/generation/:name",
         "params": [
           {
             "name": ":name",
@@ -2352,7 +2361,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTcluster#cluster.2Fsearchhead.2Fsearchheadconfig"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/cluster/searchhead/searchheadconfig"
+        "url": "https://:domain/services/cluster/searchhead/searchheadconfig"
       },
       {
         "params": [
@@ -2382,7 +2391,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTcluster#cluster.2Fsearchhead.2Fsearchheadconfig"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/cluster/searchhead/searchheadconfig"
+        "url": "https://:domain/services/cluster/searchhead/searchheadconfig"
       },
       {
         "path": "/cluster/searchhead/searchheadconfig/:name",
@@ -2394,7 +2403,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTcluster#cluster.2Fsearchhead.2Fsearchheadconfig.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/cluster/searchhead/searchheadconfig/:name",
+        "url": "https://:domain/services/cluster/searchhead/searchheadconfig/:name",
         "params": [
           {
             "name": ":name",
@@ -2416,7 +2425,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTcluster#cluster.2Fsearchhead.2Fsearchheadconfig.2F.7Bname.7D"
         },
         "httpMethod": "DELETE",
-        "url": "https://splunk.octoblu.com:8089/services/cluster/searchhead/searchheadconfig/:name",
+        "url": "https://:domain/services/cluster/searchhead/searchheadconfig/:name",
         "params": [
           {
             "name": ":name",
@@ -2464,7 +2473,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTcluster#cluster.2Fsearchhead.2Fsearchheadconfig.2F.7Bname.7D"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/cluster/searchhead/searchheadconfig/:name"
+        "url": "https://:domain/services/cluster/searchhead/searchheadconfig/:name"
       },
       {
         "params": [
@@ -2534,7 +2543,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/latest/RESTAPI/RESTlist"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/cluster/slave/buckets"
+        "url": "https://:domain/services/cluster/slave/buckets"
       },
       {
         "params": [
@@ -2564,7 +2573,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTcluster#cluster.2Fslave.2Fbuckets.2F.7Bname.7D"
         },
         "httpMethod": "DELETE",
-        "url": "https://splunk.octoblu.com:8089/services/cluster/slave/buckets/:name"
+        "url": "https://:domain/services/cluster/slave/buckets/:name"
       },
       {
         "params": [
@@ -2594,7 +2603,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTcluster#cluster.2Fslave.2Fbuckets.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/cluster/slave/buckets/:name"
+        "url": "https://:domain/services/cluster/slave/buckets/:name"
       },
       {
         "params": [
@@ -2656,7 +2665,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTcluster#cluster.2Fslave.2Finfo"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/cluster/slave/info"
+        "url": "https://:domain/services/cluster/slave/info"
       },
       {
         "params": [
@@ -2686,7 +2695,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTcluster#cluster.2Fslave.2Finfo.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/cluster/slave/info/:name"
+        "url": "https://:domain/services/cluster/slave/info/:name"
       },
       {
         "params": [
@@ -2748,7 +2757,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTconfig#configs.2Fconf-.7Bfile.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/configs/conf-:file"
+        "url": "https://:domain/services/configs/conf-:file"
       },
       {
         "params": [
@@ -2778,7 +2787,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTconfig#configs.2Fconf-.7Bfile.7D"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/configs/conf-:file"
+        "url": "https://:domain/services/configs/conf-:file"
       },
       {
         "path": "/configs/conf-:file/:name",
@@ -2790,7 +2799,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTconfig#configs.2Fconf-.7Bfile.7D.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/configs/conf-:file/:name",
+        "url": "https://:domain/services/configs/conf-:file/:name",
         "params": [
           {
             "name": ":name",
@@ -2812,7 +2821,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTconfig#configs.2Fconf-.7Bfile.7D.2F.7Bname.7D"
         },
         "httpMethod": "DELETE",
-        "url": "https://splunk.octoblu.com:8089/services/configs/conf-:file/:name",
+        "url": "https://:domain/services/configs/conf-:file/:name",
         "params": [
           {
             "name": ":name",
@@ -2852,7 +2861,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTconfig#configs.2Fconf-.7Bfile.7D.2F.7Bname.7D"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/configs/conf-:file/:name"
+        "url": "https://:domain/services/configs/conf-:file/:name"
       },
       {
         "path": "/data/commands/:name",
@@ -2864,7 +2873,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTsearch#data.2Fcommands.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/commands/:name",
+        "url": "https://:domain/services/data/commands/:name",
         "params": [
           {
             "name": ":name",
@@ -2886,7 +2895,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTindex#data.2Findex-volumes"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/index-volumes",
+        "url": "https://:domain/services/data/index-volumes",
         "params": []
       },
       {
@@ -2899,7 +2908,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTindex#data.2Findex-volumes.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/index-volumes/:name",
+        "url": "https://:domain/services/data/index-volumes/:name",
         "params": [
           {
             "name": ":name",
@@ -2921,7 +2930,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTindex#data.2Findexes"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/indexes",
+        "url": "https://:domain/services/data/indexes",
         "params": []
       },
       {
@@ -3232,7 +3241,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTindex#data.2Findexes"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/data/indexes"
+        "url": "https://:domain/services/data/indexes"
       },
       {
         "path": "/data/indexes/:name",
@@ -3244,7 +3253,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTindex#data.2Findexes.2F.7Bname.7D"
         },
         "httpMethod": "DELETE",
-        "url": "https://splunk.octoblu.com:8089/services/data/indexes/:name",
+        "url": "https://:domain/services/data/indexes/:name",
         "params": [
           {
             "name": ":name",
@@ -3284,7 +3293,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTindex#data.2Findexes.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/indexes/:name"
+        "url": "https://:domain/services/data/indexes/:name"
       },
       {
         "params": [
@@ -3570,7 +3579,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTindex#data.2Findexes.2F.7Bname.7D"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/data/indexes/:name"
+        "url": "https://:domain/services/data/indexes/:name"
       },
       {
         "path": "/data/indexes-extended",
@@ -3582,7 +3591,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTindex#data.2Findexes-extended"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/indexes-extended",
+        "url": "https://:domain/services/data/indexes-extended",
         "params": []
       },
       {
@@ -3595,7 +3604,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTindex#data.2Findexes-extended.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/indexes-extended/:name",
+        "url": "https://:domain/services/data/indexes-extended/:name",
         "params": [
           {
             "name": ":name",
@@ -3667,7 +3676,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Fad"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/ad"
+        "url": "https://:domain/services/data/inputs/ad"
       },
       {
         "params": [
@@ -3761,7 +3770,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Fad"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/ad"
+        "url": "https://:domain/services/data/inputs/ad"
       },
       {
         "path": "/data/inputs/ad/:name",
@@ -3773,7 +3782,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Fad.2F.7Bname.7D"
         },
         "httpMethod": "DELETE",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/ad/:name",
+        "url": "https://:domain/services/data/inputs/ad/:name",
         "params": [
           {
             "name": ":name",
@@ -3795,7 +3804,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Fad.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/ad/:name",
+        "url": "https://:domain/services/data/inputs/ad/:name",
         "params": [
           {
             "name": ":name",
@@ -3899,7 +3908,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Fad.2F.7Bname.7D"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/ad/:name"
+        "url": "https://:domain/services/data/inputs/ad/:name"
       },
       {
         "params": [
@@ -3969,7 +3978,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Fall"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/all"
+        "url": "https://:domain/services/data/inputs/all"
       },
       {
         "params": [
@@ -4007,7 +4016,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Fall.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/all/:name"
+        "url": "https://:domain/services/data/inputs/all/:name"
       },
       {
         "params": [
@@ -4069,7 +4078,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Fmonitor"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/monitor"
+        "url": "https://:domain/services/data/inputs/monitor"
       },
       {
         "params": [
@@ -4227,7 +4236,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Fmonitor"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/monitor"
+        "url": "https://:domain/services/data/inputs/monitor"
       },
       {
         "path": "/data/inputs/monitor/:name",
@@ -4239,7 +4248,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Fmonitor.2F.7Bname.7D"
         },
         "httpMethod": "DELETE",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/monitor/:name",
+        "url": "https://:domain/services/data/inputs/monitor/:name",
         "params": [
           {
             "name": ":name",
@@ -4261,7 +4270,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Fmonitor.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/monitor/:name",
+        "url": "https://:domain/services/data/inputs/monitor/:name",
         "params": [
           {
             "name": ":name",
@@ -4429,7 +4438,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Fmonitor.2F.7Bname.7D"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/monitor/:name"
+        "url": "https://:domain/services/data/inputs/monitor/:name"
       },
       {
         "params": [
@@ -4499,7 +4508,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Fmonitor.2F.7Bname.7D.2Fmembers"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/monitor/:name/members"
+        "url": "https://:domain/services/data/inputs/monitor/:name/members"
       },
       {
         "params": [
@@ -4561,7 +4570,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/latest/RESTAPI/RESTlist"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/oneshot"
+        "url": "https://:domain/services/data/inputs/oneshot"
       },
       {
         "params": [
@@ -4631,7 +4640,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Foneshot"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/oneshot"
+        "url": "https://:domain/services/data/inputs/oneshot"
       },
       {
         "path": "/data/inputs/oneshot/:name",
@@ -4643,7 +4652,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Foneshot.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/oneshot/:name",
+        "url": "https://:domain/services/data/inputs/oneshot/:name",
         "params": [
           {
             "name": ":name",
@@ -4715,7 +4724,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Fregistry"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/registry"
+        "url": "https://:domain/services/data/inputs/registry"
       },
       {
         "params": [
@@ -4793,7 +4802,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Fregistry"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/registry"
+        "url": "https://:domain/services/data/inputs/registry"
       },
       {
         "path": "/data/inputs/registry/:name",
@@ -4805,7 +4814,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Fregistry.2F.7Bname.7D"
         },
         "httpMethod": "DELETE",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/registry/:name",
+        "url": "https://:domain/services/data/inputs/registry/:name",
         "params": [
           {
             "name": ":name",
@@ -4827,7 +4836,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Fregistry.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/registry/:name",
+        "url": "https://:domain/services/data/inputs/registry/:name",
         "params": [
           {
             "name": ":name",
@@ -4915,7 +4924,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Fregistry.2F.7Bname.7D"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/registry/:name"
+        "url": "https://:domain/services/data/inputs/registry/:name"
       },
       {
         "params": [
@@ -4977,7 +4986,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Fscript"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/script"
+        "url": "https://:domain/services/data/inputs/script"
       },
       {
         "params": [
@@ -5063,7 +5072,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Fscript"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/script"
+        "url": "https://:domain/services/data/inputs/script"
       },
       {
         "params": [
@@ -5085,7 +5094,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Fscript.2Frestart"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/script/restart"
+        "url": "https://:domain/services/data/inputs/script/restart"
       },
       {
         "params": [
@@ -5115,7 +5124,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Fscript.2F.7Bname.7D"
         },
         "httpMethod": "DELETE",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/script/:name"
+        "url": "https://:domain/services/data/inputs/script/:name"
       },
       {
         "path": "/data/inputs/script/:name",
@@ -5127,7 +5136,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Fscript.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/script/:name",
+        "url": "https://:domain/services/data/inputs/script/:name",
         "params": [
           {
             "name": ":name",
@@ -5223,7 +5232,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Fscript.2F.7Bname.7D"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/script/:name"
+        "url": "https://:domain/services/data/inputs/script/:name"
       },
       {
         "params": [
@@ -5285,7 +5294,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Ftcp.2Fcooked"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/tcp/cooked"
+        "url": "https://:domain/services/data/inputs/tcp/cooked"
       },
       {
         "params": [
@@ -5347,7 +5356,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Ftcp.2Fcooked"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/tcp/cooked"
+        "url": "https://:domain/services/data/inputs/tcp/cooked"
       },
       {
         "path": "/data/inputs/tcp/cooked/:name",
@@ -5359,7 +5368,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Ftcp.2Fcooked.2F.7Bname.7D"
         },
         "httpMethod": "DELETE",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/tcp/cooked/:name",
+        "url": "https://:domain/services/data/inputs/tcp/cooked/:name",
         "params": [
           {
             "name": ":name",
@@ -5381,7 +5390,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Ftcp.2Fcooked.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/tcp/cooked/:name",
+        "url": "https://:domain/services/data/inputs/tcp/cooked/:name",
         "params": [
           {
             "name": ":name",
@@ -5453,7 +5462,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Ftcp.2Fcooked.2F.7Bname.7D"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/tcp/cooked/:name"
+        "url": "https://:domain/services/data/inputs/tcp/cooked/:name"
       },
       {
         "path": "/data/inputs/tcp/cooked/:name/connections",
@@ -5465,7 +5474,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Ftcp.2Fcooked.2F.7Bname.7D.2Fconnections"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/tcp/cooked/:name/connections",
+        "url": "https://:domain/services/data/inputs/tcp/cooked/:name/connections",
         "params": [
           {
             "name": ":name",
@@ -5537,7 +5546,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Ftcp.2Fraw"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/tcp/raw"
+        "url": "https://:domain/services/data/inputs/tcp/raw"
       },
       {
         "params": [
@@ -5639,7 +5648,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Ftcp.2Fraw"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/tcp/raw"
+        "url": "https://:domain/services/data/inputs/tcp/raw"
       },
       {
         "path": "/data/inputs/tcp/raw/:name",
@@ -5651,7 +5660,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Ftcp.2Fraw.2F.7Bname.7D"
         },
         "httpMethod": "DELETE",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/tcp/raw/:name",
+        "url": "https://:domain/services/data/inputs/tcp/raw/:name",
         "params": [
           {
             "name": ":name",
@@ -5673,7 +5682,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Ftcp.2Fraw.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/tcp/raw/:name",
+        "url": "https://:domain/services/data/inputs/tcp/raw/:name",
         "params": [
           {
             "name": ":name",
@@ -5785,7 +5794,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Ftcp.2Fraw.2F.7Bname.7D"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/tcp/raw/:name"
+        "url": "https://:domain/services/data/inputs/tcp/raw/:name"
       },
       {
         "path": "/data/inputs/tcp/raw/:name/connections",
@@ -5797,7 +5806,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Ftcp.2Fraw.2F.7Bname.7D.2Fconnections"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/tcp/raw/:name/connections",
+        "url": "https://:domain/services/data/inputs/tcp/raw/:name/connections",
         "params": [
           {
             "name": ":name",
@@ -5869,7 +5878,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Ftcp.2Fssl"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/tcp/ssl"
+        "url": "https://:domain/services/data/inputs/tcp/ssl"
       },
       {
         "path": "/data/inputs/tcp/ssl/:name",
@@ -5881,7 +5890,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Ftcp.2Fssl.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/tcp/ssl/:name",
+        "url": "https://:domain/services/data/inputs/tcp/ssl/:name",
         "params": [
           {
             "name": ":name",
@@ -5953,7 +5962,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Ftcp.2Fssl.2F.7Bname.7D"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/tcp/ssl/:name"
+        "url": "https://:domain/services/data/inputs/tcp/ssl/:name"
       },
       {
         "params": [
@@ -6015,7 +6024,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Fudp"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/udp"
+        "url": "https://:domain/services/data/inputs/udp"
       },
       {
         "params": [
@@ -6117,7 +6126,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Fudp"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/udp"
+        "url": "https://:domain/services/data/inputs/udp"
       },
       {
         "params": [
@@ -6147,7 +6156,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Fudp.2F.7Bname.7D"
         },
         "httpMethod": "DELETE",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/udp/:name"
+        "url": "https://:domain/services/data/inputs/udp/:name"
       },
       {
         "path": "/data/inputs/udp/:name",
@@ -6159,7 +6168,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Fudp.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/udp/:name",
+        "url": "https://:domain/services/data/inputs/udp/:name",
         "params": [
           {
             "name": ":name",
@@ -6271,7 +6280,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Fudp.2F.7Bname.7D"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/udp/:name"
+        "url": "https://:domain/services/data/inputs/udp/:name"
       },
       {
         "path": "/data/inputs/udp/:name/connections",
@@ -6283,7 +6292,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Fudp.2F.7Bname.7D.2Fconnections"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/udp/:name/connections",
+        "url": "https://:domain/services/data/inputs/udp/:name/connections",
         "params": [
           {
             "name": ":name",
@@ -6363,7 +6372,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Fwin-event-log-collections"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/win-event-log-collections"
+        "url": "https://:domain/services/data/inputs/win-event-log-collections"
       },
       {
         "params": [
@@ -6417,7 +6426,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Fwin-event-log-collections"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/win-event-log-collections"
+        "url": "https://:domain/services/data/inputs/win-event-log-collections"
       },
       {
         "path": "/data/inputs/win-event-log-collections/:name",
@@ -6429,7 +6438,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Fwin-event-log-collections.2F.7Bname.7D"
         },
         "httpMethod": "DELETE",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/win-event-log-collections/:name",
+        "url": "https://:domain/services/data/inputs/win-event-log-collections/:name",
         "params": [
           {
             "name": ":name",
@@ -6469,7 +6478,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Fwin-event-log-collections.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/win-event-log-collections/:name"
+        "url": "https://:domain/services/data/inputs/win-event-log-collections/:name"
       },
       {
         "params": [
@@ -6523,7 +6532,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#data.2Finputs.2Fwin-event-log-collections.2F.7Bname.7D"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/win-event-log-collections/:name"
+        "url": "https://:domain/services/data/inputs/win-event-log-collections/:name"
       },
       {
         "httpMethod": "GET",
@@ -6585,7 +6594,7 @@
             "displayName": "Sort Mode"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/win-perfmon"
+        "url": "https://:domain/services/data/inputs/win-perfmon"
       },
       {
         "httpMethod": "POST",
@@ -6671,7 +6680,7 @@
             "displayName": "Source Type"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/win-perfmon"
+        "url": "https://:domain/services/data/inputs/win-perfmon"
       },
       {
         "httpMethod": "DELETE",
@@ -6683,7 +6692,7 @@
         },
         "displayName": "Delete Manage Windows Perfmon Config Stanza",
         "path": "/data/inputs/win-perfmon/:name",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/win-perfmon/:name",
+        "url": "https://:domain/services/data/inputs/win-perfmon/:name",
         "params": [
           {
             "name": ":name",
@@ -6705,7 +6714,7 @@
         },
         "displayName": "Get Manage Windows Perfmon Config Stanza",
         "path": "/data/inputs/win-perfmon/:name",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/win-perfmon/:name",
+        "url": "https://:domain/services/data/inputs/win-perfmon/:name",
         "params": [
           {
             "name": ":name",
@@ -6801,7 +6810,7 @@
             "displayName": "Name"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/win-perfmon/:name"
+        "url": "https://:domain/services/data/inputs/win-perfmon/:name"
       },
       {
         "httpMethod": "GET",
@@ -6871,7 +6880,7 @@
             "displayName": ""
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/win-wmi-collections"
+        "url": "https://:domain/services/data/inputs/win-wmi-collections"
       },
       {
         "httpMethod": "POST",
@@ -6957,7 +6966,7 @@
             "displayName": "Server"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/win-wmi-collections"
+        "url": "https://:domain/services/data/inputs/win-wmi-collections"
       },
       {
         "httpMethod": "DELETE",
@@ -6987,7 +6996,7 @@
             "displayName": "Name"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/win-wmi-collections/:name"
+        "url": "https://:domain/services/data/inputs/win-wmi-collections/:name"
       },
       {
         "httpMethod": "GET",
@@ -6999,7 +7008,7 @@
         },
         "displayName": "Get Manage Specific Wmi Collection",
         "path": "/data/inputs/win-wmi-collections/:name",
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/win-wmi-collections/:name",
+        "url": "https://:domain/services/data/inputs/win-wmi-collections/:name",
         "params": [
           {
             "name": ":name",
@@ -7095,7 +7104,7 @@
             "displayName": "Name"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/data/inputs/win-wmi-collections/:name"
+        "url": "https://:domain/services/data/inputs/win-wmi-collections/:name"
       },
       {
         "httpMethod": "GET",
@@ -7157,7 +7166,7 @@
             "displayName": "Sort Mode"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/data/lookup-table-files"
+        "url": "https://:domain/services/data/lookup-table-files"
       },
       {
         "httpMethod": "POST",
@@ -7187,7 +7196,7 @@
             "displayName": "Name"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/data/lookup-table-files"
+        "url": "https://:domain/services/data/lookup-table-files"
       },
       {
         "httpMethod": "DELETE",
@@ -7199,7 +7208,7 @@
         },
         "displayName": "Delete Manage Specific Lookup Table File",
         "path": "/data/lookup-table-files/:name",
-        "url": "https://splunk.octoblu.com:8089/services/data/lookup-table-files/:name",
+        "url": "https://:domain/services/data/lookup-table-files/:name",
         "params": [
           {
             "name": ":name",
@@ -7221,7 +7230,7 @@
         },
         "displayName": "Get Manage Specific Lookup Table File",
         "path": "/data/lookup-table-files/:name",
-        "url": "https://splunk.octoblu.com:8089/services/data/lookup-table-files/:name",
+        "url": "https://:domain/services/data/lookup-table-files/:name",
         "params": [
           {
             "name": ":name",
@@ -7261,7 +7270,7 @@
             "displayName": "Name"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/data/lookup-table-files/:name"
+        "url": "https://:domain/services/data/lookup-table-files/:name"
       },
       {
         "httpMethod": "GET",
@@ -7323,7 +7332,7 @@
             "displayName": "Sort Mode"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/data/modular-inputs"
+        "url": "https://:domain/services/data/modular-inputs"
       },
       {
         "httpMethod": "GET",
@@ -7335,7 +7344,7 @@
         },
         "displayName": "Get Manage Specific Modular Input",
         "path": "/data/modular-inputs/:name",
-        "url": "https://splunk.octoblu.com:8089/services/data/modular-inputs/:name",
+        "url": "https://:domain/services/data/modular-inputs/:name",
         "params": [
           {
             "name": ":name",
@@ -7407,7 +7416,7 @@
             "displayName": "Sort Mode"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/data/outputs/tcp/default"
+        "url": "https://:domain/services/data/outputs/tcp/default"
       },
       {
         "httpMethod": "POST",
@@ -7485,7 +7494,7 @@
             "displayName": "Send Cooked Data"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/data/outputs/tcp/default"
+        "url": "https://:domain/services/data/outputs/tcp/default"
       },
       {
         "httpMethod": "DELETE",
@@ -7497,7 +7506,7 @@
         },
         "displayName": "Delete Manage Tcp Output Property Setting",
         "path": "/data/outputs/tcp/default/:name",
-        "url": "https://splunk.octoblu.com:8089/services/data/outputs/tcp/default/:name",
+        "url": "https://:domain/services/data/outputs/tcp/default/:name",
         "params": [
           {
             "name": ":name",
@@ -7519,7 +7528,7 @@
         },
         "displayName": "Get Manage Tcp Output Property Setting",
         "path": "/data/outputs/tcp/default/:name",
-        "url": "https://splunk.octoblu.com:8089/services/data/outputs/tcp/default/:name",
+        "url": "https://:domain/services/data/outputs/tcp/default/:name",
         "params": [
           {
             "name": ":name",
@@ -7607,7 +7616,7 @@
             "displayName": "Name"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/data/outputs/tcp/default/:name"
+        "url": "https://:domain/services/data/outputs/tcp/default/:name"
       },
       {
         "httpMethod": "GET",
@@ -7669,7 +7678,7 @@
             "displayName": "Sort Mode"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/data/outputs/tcp/group"
+        "url": "https://:domain/services/data/outputs/tcp/group"
       },
       {
         "httpMethod": "POST",
@@ -7755,7 +7764,7 @@
         "doc": {
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESToutput#data.2Foutputs.2Ftcp.2Fgroup"
         },
-        "url": "https://splunk.octoblu.com:8089/services/data/outputs/tcp/group"
+        "url": "https://:domain/services/data/outputs/tcp/group"
       },
       {
         "path": "/data/outputs/tcp/group/:name",
@@ -7767,7 +7776,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESToutput#data.2Foutputs.2Ftcp.2Fgroup.2F.7Bname.7D"
         },
         "httpMethod": "DELETE",
-        "url": "https://splunk.octoblu.com:8089/services/data/outputs/tcp/group/:name",
+        "url": "https://:domain/services/data/outputs/tcp/group/:name",
         "params": [
           {
             "name": ":name",
@@ -7789,7 +7798,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESToutput#data.2Foutputs.2Ftcp.2Fgroup.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/outputs/tcp/group/:name",
+        "url": "https://:domain/services/data/outputs/tcp/group/:name",
         "params": [
           {
             "name": ":name",
@@ -7885,7 +7894,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESToutput#data.2Foutputs.2Ftcp.2Fgroup.2F.7Bname.7D"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/data/outputs/tcp/group/:name"
+        "url": "https://:domain/services/data/outputs/tcp/group/:name"
       },
       {
         "params": [
@@ -7944,7 +7953,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESToutput#data.2Foutputs.2Ftcp.2Fserver"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/outputs/tcp/server"
+        "url": "https://:domain/services/data/outputs/tcp/server"
       },
       {
         "params": [
@@ -8038,7 +8047,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESToutput#data.2Foutputs.2Ftcp.2Fserver"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/data/outputs/tcp/server"
+        "url": "https://:domain/services/data/outputs/tcp/server"
       },
       {
         "path": "/data/outputs/tcp/server/:name",
@@ -8050,7 +8059,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESToutput#data.2Foutputs.2Ftcp.2Fserver.2F.7Bname.7D"
         },
         "httpMethod": "DELETE",
-        "url": "https://splunk.octoblu.com:8089/services/data/outputs/tcp/server/:name",
+        "url": "https://:domain/services/data/outputs/tcp/server/:name",
         "params": [
           {
             "name": ":name",
@@ -8072,7 +8081,7 @@
           "url": "http://app.octoblu.com/connect/advanced/custom_channels/editor/53e8ea018e3257fb7d6fdae0"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/outputs/tcp/server/:name",
+        "url": "https://:domain/services/data/outputs/tcp/server/:name",
         "params": [
           {
             "name": ":name",
@@ -8176,7 +8185,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESToutput#data.2Foutputs.2Ftcp.2Fserver.2F.7Bname.7D"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/data/outputs/tcp/server/:name"
+        "url": "https://:domain/services/data/outputs/tcp/server/:name"
       },
       {
         "path": "/data/outputs/tcp/server/:name/allconnections",
@@ -8188,7 +8197,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESToutput#data.2Foutputs.2Ftcp.2Fserver.2F.7Bname.7D.2Fallconnections"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/outputs/tcp/server/:name/allconnections",
+        "url": "https://:domain/services/data/outputs/tcp/server/:name/allconnections",
         "params": [
           {
             "name": ":name",
@@ -8284,7 +8293,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESToutput#data.2Foutputs.2Ftcp.2Fsyslog"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/outputs/tcp/syslog"
+        "url": "https://:domain/services/data/outputs/tcp/syslog"
       },
       {
         "params": [
@@ -8354,7 +8363,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESToutput#data.2Foutputs.2Ftcp.2Fsyslog"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/data/outputs/tcp/syslog"
+        "url": "https://:domain/services/data/outputs/tcp/syslog"
       },
       {
         "path": "/data/outputs/tcp/syslog/:name",
@@ -8366,7 +8375,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESToutput#data.2Foutputs.2Ftcp.2Fsyslog.2F.7Bname.7D"
         },
         "httpMethod": "DELETE",
-        "url": "https://splunk.octoblu.com:8089/services/data/outputs/tcp/syslog/:name",
+        "url": "https://:domain/services/data/outputs/tcp/syslog/:name",
         "params": [
           {
             "name": ":name",
@@ -8388,7 +8397,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESToutput#data.2Foutputs.2Ftcp.2Fsyslog.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/data/outputs/tcp/syslog/:name",
+        "url": "https://:domain/services/data/outputs/tcp/syslog/:name",
         "params": [
           {
             "name": ":name",
@@ -8468,7 +8477,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESToutput#data.2Foutputs.2Ftcp.2Fsyslog.2F.7Bname.7D"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/data/outputs/tcp/syslog/:name"
+        "url": "https://:domain/services/data/outputs/tcp/syslog/:name"
       },
       {
         "httpMethod": "GET",
@@ -8530,7 +8539,7 @@
             "displayName": "Sort Mode"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/data/props/calcfields"
+        "url": "https://:domain/services/data/props/calcfields"
       },
       {
         "httpMethod": "POST",
@@ -8568,7 +8577,7 @@
             "displayName": "Value"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/data/props/calcfields"
+        "url": "https://:domain/services/data/props/calcfields"
       },
       {
         "httpMethod": "DELETE",
@@ -8580,7 +8589,7 @@
         },
         "displayName": "Delete Manage Specific Propsconf File Calculated Field",
         "path": "/data/props/calcfields/:name",
-        "url": "https://splunk.octoblu.com:8089/services/data/props/calcfields/:name",
+        "url": "https://:domain/services/data/props/calcfields/:name",
         "params": [
           {
             "name": ":name",
@@ -8602,7 +8611,7 @@
         },
         "displayName": "Get Manage Specific Propsconf File Calculated Field",
         "path": "/data/props/calcfields/:name",
-        "url": "https://splunk.octoblu.com:8089/services/data/props/calcfields/:name",
+        "url": "https://:domain/services/data/props/calcfields/:name",
         "params": [
           {
             "name": ":name",
@@ -8642,7 +8651,7 @@
             "displayName": "Name"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/data/props/calcfields/:name"
+        "url": "https://:domain/services/data/props/calcfields/:name"
       },
       {
         "httpMethod": "GET",
@@ -8704,7 +8713,7 @@
             "displayName": "Sort Mode"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/data/props/extractions"
+        "url": "https://:domain/services/data/props/extractions"
       },
       {
         "params": [
@@ -8750,7 +8759,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTknowledge#data.2Fprops.2Fextractions"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/data/props/extractions"
+        "url": "https://:domain/services/data/props/extractions"
       },
       {
         "httpMethod": "DELETE",
@@ -8762,7 +8771,7 @@
         },
         "displayName": "Delete Manage Specific Propsconf File Field Extraction",
         "path": "/data/props/extractions/:name",
-        "url": "https://splunk.octoblu.com:8089/services/data/props/extractions/:name",
+        "url": "https://:domain/services/data/props/extractions/:name",
         "params": [
           {
             "name": ":name",
@@ -8784,7 +8793,7 @@
         },
         "displayName": "Get Manage Specific Propsconf File Field Extraction",
         "path": "/data/props/extractions/:name",
-        "url": "https://splunk.octoblu.com:8089/services/data/props/extractions/:name",
+        "url": "https://:domain/services/data/props/extractions/:name",
         "params": [
           {
             "name": ":name",
@@ -8824,7 +8833,7 @@
             "displayName": "Name"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/data/props/extractions/:name"
+        "url": "https://:domain/services/data/props/extractions/:name"
       },
       {
         "httpMethod": "GET",
@@ -8886,7 +8895,7 @@
             "displayName": "Sort Mode"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/data/props/fieldaliases"
+        "url": "https://:domain/services/data/props/fieldaliases"
       },
       {
         "httpMethod": "POST",
@@ -8924,7 +8933,7 @@
             "displayName": "Alias"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/data/props/fieldaliases"
+        "url": "https://:domain/services/data/props/fieldaliases"
       },
       {
         "httpMethod": "DELETE",
@@ -8936,7 +8945,7 @@
         },
         "displayName": "Delete Manage Propsconf File Field Alias",
         "path": "/data/props/fieldaliases/:name",
-        "url": "https://splunk.octoblu.com:8089/services/data/props/fieldaliases/:name",
+        "url": "https://:domain/services/data/props/fieldaliases/:name",
         "params": [
           {
             "name": ":name",
@@ -8958,7 +8967,7 @@
         },
         "displayName": "Get Manage Propsconf File Field Alias",
         "path": "/data/props/fieldaliases/:name",
-        "url": "https://splunk.octoblu.com:8089/services/data/props/fieldaliases/:name",
+        "url": "https://:domain/services/data/props/fieldaliases/:name",
         "params": [
           {
             "name": ":name",
@@ -8998,7 +9007,7 @@
             "displayName": "Name"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/data/props/fieldaliases/:name"
+        "url": "https://:domain/services/data/props/fieldaliases/:name"
       },
       {
         "httpMethod": "GET",
@@ -9060,7 +9069,7 @@
             "displayName": "Sort Mode"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/data/props/lookups"
+        "url": "https://:domain/services/data/props/lookups"
       },
       {
         "httpMethod": "POST",
@@ -9122,7 +9131,7 @@
             "displayName": "Lookup Field Output"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/data/props/lookups"
+        "url": "https://:domain/services/data/props/lookups"
       },
       {
         "httpMethod": "DELETE",
@@ -9134,7 +9143,7 @@
         },
         "displayName": "Delete Manage Specific Propsconf File Automatic Lookup",
         "path": "/data/props/lookups/:name",
-        "url": "https://splunk.octoblu.com:8089/services/data/props/lookups/:name",
+        "url": "https://:domain/services/data/props/lookups/:name",
         "params": [
           {
             "name": ":name",
@@ -9156,7 +9165,7 @@
         },
         "displayName": "Get Manage Specific Propsconf File Automatic Lookup",
         "path": "/data/props/lookups/:name",
-        "url": "https://splunk.octoblu.com:8089/services/data/props/lookups/:name",
+        "url": "https://:domain/services/data/props/lookups/:name",
         "params": [
           {
             "name": ":name",
@@ -9217,7 +9226,7 @@
             "displayName": "Name"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/data/props/lookups/:name"
+        "url": "https://:domain/services/data/props/lookups/:name"
       },
       {
         "httpMethod": "GET",
@@ -9279,7 +9288,7 @@
             "displayName": "Sort Mode"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/data/props/sourcetype-rename"
+        "url": "https://:domain/services/data/props/sourcetype-rename"
       },
       {
         "httpMethod": "POST",
@@ -9309,7 +9318,7 @@
             "displayName": "Value"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/data/props/sourcetype-rename"
+        "url": "https://:domain/services/data/props/sourcetype-rename"
       },
       {
         "httpMethod": "DELETE",
@@ -9321,7 +9330,7 @@
         },
         "displayName": "Delete Manage Specific Propsconf File Sourcetype Name",
         "path": "/data/props/sourcetype-rename/:name",
-        "url": "https://splunk.octoblu.com:8089/services/data/props/sourcetype-rename/:name",
+        "url": "https://:domain/services/data/props/sourcetype-rename/:name",
         "params": [
           {
             "name": ":name",
@@ -9343,7 +9352,7 @@
         },
         "displayName": "Get Manage Specific Propsconf File Sourcetype Name",
         "path": "/data/props/sourcetype-rename/:name",
-        "url": "https://splunk.octoblu.com:8089/services/data/props/sourcetype-rename/:name",
+        "url": "https://:domain/services/data/props/sourcetype-rename/:name",
         "params": [
           {
             "name": ":name",
@@ -9383,7 +9392,7 @@
             "displayName": "Name"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/data/props/sourcetype-rename/:name"
+        "url": "https://:domain/services/data/props/sourcetype-rename/:name"
       },
       {
         "httpMethod": "GET",
@@ -9445,7 +9454,7 @@
             "displayName": "Sort Mode"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/data/transforms/extractions"
+        "url": "https://:domain/services/data/transforms/extractions"
       },
       {
         "httpMethod": "POST",
@@ -9523,7 +9532,7 @@
             "displayName": "Disabled"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/data/transforms/extractions"
+        "url": "https://:domain/services/data/transforms/extractions"
       },
       {
         "httpMethod": "DELETE",
@@ -9535,7 +9544,7 @@
         },
         "displayName": "Delete Manage Specific Field Extraction Definition",
         "path": "/data/transforms/extractions/:name",
-        "url": "https://splunk.octoblu.com:8089/services/data/transforms/extractions/:name",
+        "url": "https://:domain/services/data/transforms/extractions/:name",
         "params": [
           {
             "name": ":name",
@@ -9557,7 +9566,7 @@
         },
         "displayName": "Get Manage Specific Field Extraction Definition",
         "path": "/data/transforms/extractions/:name",
-        "url": "https://splunk.octoblu.com:8089/services/data/transforms/extractions/:name",
+        "url": "https://:domain/services/data/transforms/extractions/:name",
         "params": [
           {
             "name": ":name",
@@ -9653,7 +9662,7 @@
             "displayName": "Name"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/data/transforms/extractions/:name"
+        "url": "https://:domain/services/data/transforms/extractions/:name"
       },
       {
         "httpMethod": "GET",
@@ -9715,7 +9724,7 @@
             "displayName": "Sort Mode"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/data/transforms/lookups"
+        "url": "https://:domain/services/data/transforms/lookups"
       },
       {
         "httpMethod": "POST",
@@ -9825,7 +9834,7 @@
             "displayName": "Time Format"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/data/transforms/lookups"
+        "url": "https://:domain/services/data/transforms/lookups"
       },
       {
         "httpMethod": "DELETE",
@@ -9837,7 +9846,7 @@
         },
         "displayName": "Delete Manage Specific Transformsconf File Lookup Definition",
         "path": "/data/transforms/lookups/:name",
-        "url": "https://splunk.octoblu.com:8089/services/data/transforms/lookups/:name",
+        "url": "https://:domain/services/data/transforms/lookups/:name",
         "params": [
           {
             "name": ":name",
@@ -9859,7 +9868,7 @@
         },
         "displayName": "Get Manage Specific Transformsconf File Lookup Definition",
         "path": "/data/transforms/lookups/:name",
-        "url": "https://splunk.octoblu.com:8089/services/data/transforms/lookups/:name",
+        "url": "https://:domain/services/data/transforms/lookups/:name",
         "params": [
           {
             "name": ":name",
@@ -9979,7 +9988,7 @@
             "displayName": "Name"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/data/transforms/lookups/:name"
+        "url": "https://:domain/services/data/transforms/lookups/:name"
       },
       {
         "params": [
@@ -10049,7 +10058,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTknowledge#datamodel.2Fmodel"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/datamodel/model"
+        "url": "https://:domain/services/datamodel/model"
       },
       {
         "params": [
@@ -10095,7 +10104,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTknowledge#datamodel.2Fmodel"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/datamodel/model"
+        "url": "https://:domain/services/datamodel/model"
       },
       {
         "path": "/datamodel/model/:name",
@@ -10107,7 +10116,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTknowledge#datamodel.2Fmodel.2F.7Bname.7D"
         },
         "httpMethod": "DELETE",
-        "url": "https://splunk.octoblu.com:8089/services/datamodel/model/:name",
+        "url": "https://:domain/services/datamodel/model/:name",
         "params": [
           {
             "name": ":name",
@@ -10147,7 +10156,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTknowledge#datamodel.2Fmodel.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/datamodel/model/:name"
+        "url": "https://:domain/services/datamodel/model/:name"
       },
       {
         "params": [
@@ -10201,7 +10210,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTknowledge#datamodel.2Fmodel.2F.7Bname.7D"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/datamodel/model/:name"
+        "url": "https://:domain/services/datamodel/model/:name"
       },
       {
         "params": [
@@ -10263,7 +10272,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTknowledge#datamodel.2Facceleration"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/datamodel/acceleration"
+        "url": "https://:domain/services/datamodel/acceleration"
       },
       {
         "path": "/datamodel/acceleration/:name",
@@ -10275,7 +10284,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTknowledge#datamodel.2Facceleration.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/datamodel/acceleration/:name",
+        "url": "https://:domain/services/datamodel/acceleration/:name",
         "params": [
           {
             "name": ":name",
@@ -10363,7 +10372,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTknowledge#datamodel.2Fpivot"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/datamodel/pivot/:name"
+        "url": "https://:domain/services/datamodel/pivot/:name"
       },
       {
         "params": [
@@ -10425,7 +10434,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTdeploy#deployment.2Fclient"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/deployment/client"
+        "url": "https://:domain/services/deployment/client"
       },
       {
         "params": [
@@ -10487,7 +10496,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTdeploy#deployment.2Fclient.2Fconfig"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/deployment/client/config"
+        "url": "https://:domain/services/deployment/client/config"
       },
       {
         "path": "/deployment/client/config/listIsDisabled",
@@ -10499,7 +10508,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTdeploy#deployment.2Fclient.2Fconfig.2FlistIsDisabled"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/deployment/client/config/listIsDisabled",
+        "url": "https://:domain/services/deployment/client/config/listIsDisabled",
         "params": []
       },
       {
@@ -10512,7 +10521,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTdeploy#deployment.2Fclient.2Fconfig.2Freload"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/deployment/client/config/reload",
+        "url": "https://:domain/services/deployment/client/config/reload",
         "params": []
       },
       {
@@ -10525,7 +10534,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTdeploy#deployment.2Fclient.2F.7Bname.7D.2Freload"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/deployment/client/:name/reload",
+        "url": "https://:domain/services/deployment/client/:name/reload",
         "params": [
           {
             "name": ":name",
@@ -10613,7 +10622,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTdeploy#deployment.2Fserver.2Fapplications"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/deployment/server/applications"
+        "url": "https://:domain/services/deployment/server/applications"
       },
       {
         "path": "/deployment/server/applications/:name",
@@ -10625,7 +10634,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTdeploy#deployment.2Fserver.2Fapplications"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/deployment/server/applications/:name",
+        "url": "https://:domain/services/deployment/server/applications/:name",
         "params": [
           {
             "name": ":name",
@@ -10777,7 +10786,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTdeploy#deployment.2Fserver.2Fapplications"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/deployment/server/applications/:name"
+        "url": "https://:domain/services/deployment/server/applications/:name"
       },
       {
         "path": "/deployment/server/clients/countClients_by_machineType",
@@ -10789,7 +10798,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTdeploy#deployment.2Fserver.2Fclients.2FcountClients_by_machineType"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/deployment/server/clients/countClients_by_machineType",
+        "url": "https://:domain/services/deployment/server/clients/countClients_by_machineType",
         "params": []
       },
       {
@@ -10860,7 +10869,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTdeploy#deployment.2Fserver.2Fclients.2FcountRecentDownloads"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/deployment/server/clients/countRecentDownloads"
+        "url": "https://:domain/services/deployment/server/clients/countRecentDownloads"
       },
       {
         "path": "/deployment/server/clients/:name",
@@ -10872,7 +10881,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTdeploy#deployment.2Fserver.2Fclients.2F.7Bname.7D"
         },
         "httpMethod": "DELETE",
-        "url": "https://splunk.octoblu.com:8089/services/deployment/server/clients/:name",
+        "url": "https://:domain/services/deployment/server/clients/:name",
         "params": [
           {
             "name": ":name",
@@ -10952,7 +10961,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTdeploy#deployment.2Fserver.2Fclients.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/deployment/server/clients/:name"
+        "url": "https://:domain/services/deployment/server/clients/:name"
       },
       {
         "params": [
@@ -11014,7 +11023,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTdeploy#deployment.2Fserver.2Fconfig"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/deployment/server/config"
+        "url": "https://:domain/services/deployment/server/config"
       },
       {
         "path": "/deployment/server/config/attributesUnsupportedInUI",
@@ -11026,7 +11035,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTdeploy#deployment.2Fserver.2Fconfig.2FattributesUnsupportedInUI"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/deployment/server/config/attributesUnsupportedInUI",
+        "url": "https://:domain/services/deployment/server/config/attributesUnsupportedInUI",
         "params": []
       },
       {
@@ -11039,7 +11048,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTdeploy#deployment.2Fserver.2Fconfig.2FlistIsDisabled"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/deployment/server/config/listIsDisabled",
+        "url": "https://:domain/services/deployment/server/config/listIsDisabled",
         "params": []
       },
       {
@@ -11118,7 +11127,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTdeploy#deployment.2Fserver.2Fserverclasses"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/deployment/server/serverclasses"
+        "url": "https://:domain/services/deployment/server/serverclasses"
       },
       {
         "params": [
@@ -11228,7 +11237,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTdeploy#deployment.2Fserver.2Fserverclasses"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/deployment/server/serverclasses"
+        "url": "https://:domain/services/deployment/server/serverclasses"
       },
       {
         "path": "/deployment/server/serverclasses/:name",
@@ -11240,7 +11249,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTdeploy#deployment.2Fserver.2Fserverclasses.2F.7Bname.7D"
         },
         "httpMethod": "DELETE",
-        "url": "https://splunk.octoblu.com:8089/services/deployment/server/serverclasses/:name",
+        "url": "https://:domain/services/deployment/server/serverclasses/:name",
         "params": [
           {
             "name": ":name",
@@ -11288,7 +11297,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTdeploy#deployment.2Fserver.2Fserverclasses.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/deployment/server/serverclasses/:name"
+        "url": "https://:domain/services/deployment/server/serverclasses/:name"
       },
       {
         "params": [
@@ -11398,7 +11407,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTdeploy#deployment.2Fserver.2Fserverclasses.2F.7Bname.7D"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/deployment/server/serverclasses/:name"
+        "url": "https://:domain/services/deployment/server/serverclasses/:name"
       },
       {
         "params": [
@@ -11428,7 +11437,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTdeploy#deployment.2Fserver.2Fserverclasses.2Frename"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/deployment/server/serverclasses/rename"
+        "url": "https://:domain/services/deployment/server/serverclasses/rename"
       },
       {
         "params": [
@@ -11490,7 +11499,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTknowledge#directory"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/directory"
+        "url": "https://:domain/services/directory"
       },
       {
         "path": "/directory/:name",
@@ -11502,7 +11511,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTknowledge#directory"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/directory/:name",
+        "url": "https://:domain/services/directory/:name",
         "params": [
           {
             "name": ":name",
@@ -11524,7 +11533,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#indexing.2Fpreview"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/indexing/preview",
+        "url": "https://:domain/services/indexing/preview",
         "params": []
       },
       {
@@ -11555,7 +11564,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#indexing.2Fpreview"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/indexing/preview"
+        "url": "https://:domain/services/indexing/preview"
       },
       {
         "path": "/indexing/preview/:job_id",
@@ -11567,7 +11576,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#indexing.2Fpreview.2F.7Bjob_id.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/indexing/preview/:job_id",
+        "url": "https://:domain/services/indexing/preview/:job_id",
         "params": [
           {
             "name": ":job_id",
@@ -11639,7 +11648,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTlicense#licenser.2Fgroups"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/licenser/groups"
+        "url": "https://:domain/services/licenser/groups"
       },
       {
         "path": "/licenser/groups/:name",
@@ -11651,7 +11660,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTlicense#licenser.2Fgroups.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/licenser/groups/:name",
+        "url": "https://:domain/services/licenser/groups/:name",
         "params": [
           {
             "name": ":name",
@@ -11691,7 +11700,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTlicense#licenser.2Fgroups.2F.7Bname.7D"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/licenser/groups/:name"
+        "url": "https://:domain/services/licenser/groups/:name"
       },
       {
         "params": [
@@ -11753,7 +11762,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTlicense#licenser.2Flicenses"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/licenser/licenses"
+        "url": "https://:domain/services/licenser/licenses"
       },
       {
         "params": [
@@ -11799,7 +11808,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTlicense#licenser.2Flicenses"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/licenser/licenses"
+        "url": "https://:domain/services/licenser/licenses"
       },
       {
         "path": "/licenser/licenses/:name",
@@ -11811,7 +11820,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTlicense#licenser.2Flicenses.2F.7Bname.7D"
         },
         "httpMethod": "DELETE",
-        "url": "https://splunk.octoblu.com:8089/services/licenser/licenses/:name",
+        "url": "https://:domain/services/licenser/licenses/:name",
         "params": [
           {
             "name": ":name",
@@ -11833,7 +11842,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTlicense#licenser.2Flicenses.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/licenser/licenses/:name",
+        "url": "https://:domain/services/licenser/licenses/:name",
         "params": [
           {
             "name": ":name",
@@ -11905,7 +11914,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTlicense#licenser.2Fmessages"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/licenser/messages"
+        "url": "https://:domain/services/licenser/messages"
       },
       {
         "path": "/licenser/messages/:name",
@@ -11917,7 +11926,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTlicense#licenser.2Fmessages.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/licenser/messages/:name",
+        "url": "https://:domain/services/licenser/messages/:name",
         "params": [
           {
             "name": ":name",
@@ -11989,7 +11998,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTlicense#licenser.2Fpools"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/licenser/pools"
+        "url": "https://:domain/services/licenser/pools"
       },
       {
         "params": [
@@ -12043,7 +12052,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTlicense#licenser.2Fpools"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/licenser/pools"
+        "url": "https://:domain/services/licenser/pools"
       },
       {
         "path": "/licenser/pools/:name",
@@ -12055,7 +12064,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTlicense#licenser.2Fpools.2F.7Bname.7D"
         },
         "httpMethod": "DELETE",
-        "url": "https://splunk.octoblu.com:8089/services/licenser/pools/:name",
+        "url": "https://:domain/services/licenser/pools/:name",
         "params": [
           {
             "name": ":name",
@@ -12077,7 +12086,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTlicense#licenser.2Fpools.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/licenser/pools/:name",
+        "url": "https://:domain/services/licenser/pools/:name",
         "params": [
           {
             "name": ":name",
@@ -12141,7 +12150,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTlicense#licenser.2Fpools.2F.7Bname.7D"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/licenser/pools/:name"
+        "url": "https://:domain/services/licenser/pools/:name"
       },
       {
         "params": [
@@ -12203,7 +12212,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTlicense#licenser.2Fslaves"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/licenser/slaves"
+        "url": "https://:domain/services/licenser/slaves"
       },
       {
         "path": "/licenser/slaves/:name",
@@ -12215,7 +12224,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTlicense#licenser.2Fslaves.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/licenser/slaves/:name",
+        "url": "https://:domain/services/licenser/slaves/:name",
         "params": [
           {
             "name": ":name",
@@ -12287,7 +12296,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTlicense#licenser.2Fstacks"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/licenser/stacks"
+        "url": "https://:domain/services/licenser/stacks"
       },
       {
         "path": "/licenser/stacks/:name",
@@ -12299,7 +12308,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTlicense#licenser.2Fstacks.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/licenser/stacks/:name",
+        "url": "https://:domain/services/licenser/stacks/:name",
         "params": [
           {
             "name": ":name",
@@ -12321,7 +12330,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTsystem#messages"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/messages",
+        "url": "https://:domain/services/messages",
         "params": []
       },
       {
@@ -12360,7 +12369,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTsystem#messages"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/messages"
+        "url": "https://:domain/services/messages"
       },
       {
         "path": "/messages/:name",
@@ -12372,7 +12381,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTsystem#messages.2F.7Bname.7D"
         },
         "httpMethod": "DELETE",
-        "url": "https://splunk.octoblu.com:8089/services/messages/:name",
+        "url": "https://:domain/services/messages/:name",
         "params": [
           {
             "name": ":name",
@@ -12394,7 +12403,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTsystem#messages.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/messages/:name",
+        "url": "https://:domain/services/messages/:name",
         "params": [
           {
             "name": ":name",
@@ -12416,7 +12425,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTconfig#properties"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/properties",
+        "url": "https://:domain/services/properties",
         "params": []
       },
       {
@@ -12439,7 +12448,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTconfig#properties"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/properties"
+        "url": "https://:domain/services/properties"
       },
       {
         "path": "/properties/:file_name",
@@ -12451,7 +12460,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTconfig#properties.2F.7Bfile_name.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/properties/:file_name",
+        "url": "https://:domain/services/properties/:file_name",
         "params": [
           {
             "name": ":file_name",
@@ -12491,7 +12500,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTconfig#properties.2F.7Bfile_name.7D"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/properties/:file_name"
+        "url": "https://:domain/services/properties/:file_name"
       },
       {
         "path": "/properties/:file_name/:stanza_name",
@@ -12503,7 +12512,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTconfig#properties.2F.7Bfile_name.7D.2F.7Bstanza_name.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/properties/:file_name/:stanza_name",
+        "url": "https://:domain/services/properties/:file_name/:stanza_name",
         "params": [
           {
             "name": ":file_name",
@@ -12559,7 +12568,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTconfig#properties.2F.7Bfile_name.7D.2F.7Bstanza_name.7D"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/properties/:file_name/:stanza_name"
+        "url": "https://:domain/services/properties/:file_name/:stanza_name"
       },
       {
         "path": "/properties/:file_name/:stanza_name/:key_name",
@@ -12571,7 +12580,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTconfig#properties.2F.7Bfile_name.7D.2F.7Bstanza_name.7D.2F.7Bkey_name.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/properties/:file_name/:stanza_name/:key_name",
+        "url": "https://:domain/services/properties/:file_name/:stanza_name/:key_name",
         "params": [
           {
             "name": ":file_name",
@@ -12643,7 +12652,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTconfig#properties.2F.7Bfile_name.7D.2F.7Bstanza_name.7D.2F.7Bkey_name.7D"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/properties/:file_name/:stanza_name/:key_name"
+        "url": "https://:domain/services/properties/:file_name/:stanza_name/:key_name"
       },
       {
         "params": [
@@ -12705,7 +12714,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#receivers.2Fsimple"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/receivers/simple"
+        "url": "https://:domain/services/receivers/simple"
       },
       {
         "params": [
@@ -12767,7 +12776,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTinput#receivers.2Fstream"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/receivers/stream"
+        "url": "https://:domain/services/receivers/stream"
       },
       {
         "httpMethod": "GET",
@@ -12829,7 +12838,7 @@
             "displayName": "Sort Mode"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/saved/eventtypes"
+        "url": "https://:domain/services/saved/eventtypes"
       },
       {
         "httpMethod": "POST",
@@ -12891,7 +12900,7 @@
             "displayName": "Tags"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/saved/eventtypes"
+        "url": "https://:domain/services/saved/eventtypes"
       },
       {
         "httpMethod": "DELETE",
@@ -12903,7 +12912,7 @@
         },
         "displayName": "Delete Manage Specific Saved Event Type",
         "path": "/saved/eventtypes/:name",
-        "url": "https://splunk.octoblu.com:8089/services/saved/eventtypes/:name",
+        "url": "https://:domain/services/saved/eventtypes/:name",
         "params": [
           {
             "name": ":name",
@@ -12925,7 +12934,7 @@
         },
         "displayName": "Get Manage Specific Saved Event Type",
         "path": "/saved/eventtypes/:name",
-        "url": "https://splunk.octoblu.com:8089/services/saved/eventtypes/:name",
+        "url": "https://:domain/services/saved/eventtypes/:name",
         "params": [
           {
             "name": ":name",
@@ -13005,7 +13014,7 @@
             "displayName": "Name"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/saved/eventtypes/:name"
+        "url": "https://:domain/services/saved/eventtypes/:name"
       },
       {
         "httpMethod": "GET",
@@ -13091,7 +13100,7 @@
             "displayName": "Sort Mode"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/saved/searches"
+        "url": "https://:domain/services/saved/searches"
       },
       {
         "httpMethod": "POST",
@@ -14057,7 +14066,7 @@
             "displayName": "Vsid"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/saved/searches"
+        "url": "https://:domain/services/saved/searches"
       },
       {
         "httpMethod": "DELETE",
@@ -14069,7 +14078,7 @@
         },
         "displayName": "Delete Manage Specific Saved Search",
         "path": "/saved/searches/:name",
-        "url": "https://splunk.octoblu.com:8089/services/saved/searches/:name",
+        "url": "https://:domain/services/saved/searches/:name",
         "params": [
           {
             "name": ":name",
@@ -14125,7 +14134,7 @@
             "displayName": "Name"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/saved/searches/:name"
+        "url": "https://:domain/services/saved/searches/:name"
       },
       {
         "params": [
@@ -15091,7 +15100,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTsearch#saved.2Fsearches.2F.7Bname.7D"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/saved/searches/:name"
+        "url": "https://:domain/services/saved/searches/:name"
       },
       {
         "params": [
@@ -15121,7 +15130,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTsearch#saved.2Fsearches.2F.7Bname.7D.2Facknowledge"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/saved/searches/:name/acknowledge"
+        "url": "https://:domain/services/saved/searches/:name/acknowledge"
       },
       {
         "params": [
@@ -15191,7 +15200,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTsearch#saved.2Fsearches.2F.7Bname.7D.2Fdispatch"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/saved/searches/:name/dispatch"
+        "url": "https://:domain/services/saved/searches/:name/dispatch"
       },
       {
         "path": "/saved/searches/:name/history",
@@ -15203,7 +15212,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTsearch#saved.2Fsearches.2F.7Bname.7D.2Fhistory"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/saved/searches/:name/history",
+        "url": "https://:domain/services/saved/searches/:name/history",
         "params": [
           {
             "name": ":name",
@@ -15243,7 +15252,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTsearch#saved.2Fsearches.2F.7Bname.7D.2Freschedule"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/saved/searches/:name/reschedule"
+        "url": "https://:domain/services/saved/searches/:name/reschedule"
       },
       {
         "params": [
@@ -15281,7 +15290,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTsearch#saved.2Fsearches.2F.7Bname.7D.2Fscheduled_times"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/saved/searches/:name/scheduled_times"
+        "url": "https://:domain/services/saved/searches/:name/scheduled_times"
       },
       {
         "params": [
@@ -15319,7 +15328,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTsearch#saved.2Fsearches.2F.7Bname.7D.2Fsuppress"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/saved/searches/:name/suppress"
+        "url": "https://:domain/services/saved/searches/:name/suppress"
       },
       {
         "params": [
@@ -15381,7 +15390,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTsearch#scheduled.2Fviews"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/scheduled/views"
+        "url": "https://:domain/services/scheduled/views"
       },
       {
         "path": "/scheduled/views/:name",
@@ -15393,7 +15402,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTsearch#scheduled.2Fviews.2F.7Bname.7D"
         },
         "httpMethod": "DELETE",
-        "url": "https://splunk.octoblu.com:8089/services/scheduled/views/:name",
+        "url": "https://:domain/services/scheduled/views/:name",
         "params": [
           {
             "name": ":name",
@@ -15415,7 +15424,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTsearch#scheduled.2Fviews.2F.7Bname.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/scheduled/views/:name",
+        "url": "https://:domain/services/scheduled/views/:name",
         "params": [
           {
             "name": ":name",
@@ -15503,7 +15512,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTsearch#scheduled.2Fviews.2F.7Bname.7D"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/scheduled/views/:name"
+        "url": "https://:domain/services/scheduled/views/:name"
       },
       {
         "params": [
@@ -15581,7 +15590,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTsearch#scheduled.2Fviews.2F.7Bname.7D.2Fdispatch"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/scheduled/views/:name/dispatch"
+        "url": "https://:domain/services/scheduled/views/:name/dispatch"
       },
       {
         "path": "/scheduled/views/:name/history",
@@ -15593,7 +15602,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTsearch#scheduled.2Fviews.2F.7Bname.7D.2Fhistory"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/scheduled/views/:name/history",
+        "url": "https://:domain/services/scheduled/views/:name/history",
         "params": [
           {
             "name": ":name",
@@ -15633,7 +15642,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTsearch#scheduled.2Fviews.2F.7Bname.7D.2Freschedule"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/scheduled/views/:name/reschedule"
+        "url": "https://:domain/services/scheduled/views/:name/reschedule"
       },
       {
         "params": [
@@ -15671,7 +15680,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTsearch#scheduled.2Fviews.2F.7Bname.7D.2Fscheduled_times"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/scheduled/views/:name/scheduled_times"
+        "url": "https://:domain/services/scheduled/views/:name/scheduled_times"
       },
       {
         "params": [
@@ -15741,7 +15750,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTdeploy#search.2Fdistributed.2Fbundle-replication-files"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/search/distributed/bundle-replication-files"
+        "url": "https://:domain/services/search/distributed/bundle-replication-files"
       },
       {
         "params": [
@@ -15771,7 +15780,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/latest/RESTAPI/RESTlist"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/search/distributed/bundle-replication-files/:name"
+        "url": "https://:domain/services/search/distributed/bundle-replication-files/:name"
       },
       {
         "params": [
@@ -15841,7 +15850,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTdeploy#search.2Fdistributed.2Fconfig"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/search/distributed/config"
+        "url": "https://:domain/services/search/distributed/config"
       },
       {
         "params": [
@@ -15903,7 +15912,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTdeploy#search.2Fdistributed.2Fpeers"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/search/distributed/peers"
+        "url": "https://:domain/services/search/distributed/peers"
       },
       {
         "params": [
@@ -15941,7 +15950,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTdeploy#search.2Fdistributed.2Fpeers"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/search/distributed/peers"
+        "url": "https://:domain/services/search/distributed/peers"
       },
       {
         "path": "/search/fields",
@@ -15953,7 +15962,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTknowledge#search.2Ffields"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/search/fields",
+        "url": "https://:domain/services/search/fields",
         "params": []
       },
       {
@@ -15966,7 +15975,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTknowledge#search.2Ffields.2F.7Bfield_name.7D"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/search/fields/:field_name",
+        "url": "https://:domain/services/search/fields/:field_name",
         "params": [
           {
             "name": ":field_name",
@@ -15988,7 +15997,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTknowledge#search.2Ffields.2F.7Bfield_name.7D.2Ftags"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/search/fields/:field_name/tags",
+        "url": "https://:domain/services/search/fields/:field_name/tags",
         "params": [
           {
             "name": ":field_name",
@@ -16044,7 +16053,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTknowledge#search.2Ffields.2F.7Bfield_name.7D.2Ftags"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/search/fields/:field_name/tags"
+        "url": "https://:domain/services/search/fields/:field_name/tags"
       },
       {
         "params": [
@@ -16098,7 +16107,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTsearch#search.2Fjobs"
         },
         "httpMethod": "GET",
-        "url": "https://splunk.octoblu.com:8089/services/search/jobs"
+        "url": "https://:domain/services/search/jobs"
       },
       {
         "params": [
@@ -16400,7 +16409,7 @@
           "url": "http://docs.splunk.com/Documentation/Splunk/6.1.3/RESTAPI/RESTsearch#search.2Fjobs"
         },
         "httpMethod": "POST",
-        "url": "https://splunk.octoblu.com:8089/services/search/jobs"
+        "url": "https://:domain/services/search/jobs"
       },
       {
         "httpMethod": "DELETE",
@@ -16412,7 +16421,7 @@
         },
         "displayName": "Delete Manage Specific Search Job",
         "path": "/search/jobs/:search_id",
-        "url": "https://splunk.octoblu.com:8089/services/search/jobs/:search_id",
+        "url": "https://:domain/services/search/jobs/:search_id",
         "params": [
           {
             "name": ":search_id",
@@ -16434,7 +16443,7 @@
         },
         "displayName": "Get Manage Specific Search Job",
         "path": "/search/jobs/:search_id",
-        "url": "https://splunk.octoblu.com:8089/services/search/jobs/:search_id",
+        "url": "https://:domain/services/search/jobs/:search_id",
         "params": [
           {
             "name": ":search_id",
@@ -16474,7 +16483,7 @@
             "displayName": "Search Id"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/search/jobs/:search_id"
+        "url": "https://:domain/services/search/jobs/:search_id"
       },
       {
         "httpMethod": "POST",
@@ -16504,7 +16513,7 @@
             "displayName": "Search Id"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/search/jobs/:search_id/control"
+        "url": "https://:domain/services/search/jobs/:search_id/control"
       },
       {
         "httpMethod": "GET",
@@ -16622,7 +16631,7 @@
             "displayName": "Search Id"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/search/jobs/:search_id/events"
+        "url": "https://:domain/services/search/jobs/:search_id/events"
       },
       {
         "httpMethod": "GET",
@@ -16692,7 +16701,7 @@
             "displayName": "Search Id"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/search/jobs/:search_id/results"
+        "url": "https://:domain/services/search/jobs/:search_id/results"
       },
       {
         "httpMethod": "GET",
@@ -16722,7 +16731,7 @@
             "displayName": "Search Id"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/search/jobs/:search_id/search.log"
+        "url": "https://:domain/services/search/jobs/:search_id/search.log"
       },
       {
         "httpMethod": "GET",
@@ -16824,7 +16833,7 @@
             "displayName": "Search Id"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/search/jobs/:search_id/summary"
+        "url": "https://:domain/services/search/jobs/:search_id/summary"
       },
       {
         "httpMethod": "GET",
@@ -16862,7 +16871,7 @@
             "displayName": "Search Id"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/search/jobs/:search_id/timeline"
+        "url": "https://:domain/services/search/jobs/:search_id/timeline"
       },
       {
         "httpMethod": "GET",
@@ -17108,7 +17117,7 @@
             "displayName": "Timeout"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/search/jobs/export"
+        "url": "https://:domain/services/search/jobs/export"
       },
       {
         "httpMethod": "GET",
@@ -17162,7 +17171,7 @@
             "displayName": "Reload Macros"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/search/parser"
+        "url": "https://:domain/services/search/parser"
       },
       {
         "httpMethod": "GET",
@@ -17174,7 +17183,7 @@
         },
         "displayName": "List Search Time Tags",
         "path": "/search/tags",
-        "url": "https://splunk.octoblu.com:8089/services/search/tags",
+        "url": "https://:domain/services/search/tags",
         "params": []
       },
       {
@@ -17187,7 +17196,7 @@
         },
         "displayName": "Delete Manage Specific Search Time Tag",
         "path": "/search/tags/:tag_name",
-        "url": "https://splunk.octoblu.com:8089/services/search/tags/:tag_name",
+        "url": "https://:domain/services/search/tags/:tag_name",
         "params": [
           {
             "name": ":tag_name",
@@ -17209,7 +17218,7 @@
         },
         "displayName": "Get Manage Specific Search Time Tag",
         "path": "/search/tags/:tag_name",
-        "url": "https://splunk.octoblu.com:8089/services/search/tags/:tag_name",
+        "url": "https://:domain/services/search/tags/:tag_name",
         "params": [
           {
             "name": ":tag_name",
@@ -17257,7 +17266,7 @@
             "displayName": "Tag Name"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/search/tags/:tag_name"
+        "url": "https://:domain/services/search/tags/:tag_name"
       },
       {
         "httpMethod": "GET",
@@ -17303,7 +17312,7 @@
             "displayName": "Time Format"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/search/timeparser"
+        "url": "https://:domain/services/search/timeparser"
       },
       {
         "httpMethod": "GET",
@@ -17341,7 +17350,7 @@
             "displayName": "Output Mode"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/search/typeahead"
+        "url": "https://:domain/services/search/typeahead"
       },
       {
         "httpMethod": "GET",
@@ -17353,7 +17362,7 @@
         },
         "displayName": "List Server Controls",
         "path": "/server/control",
-        "url": "https://splunk.octoblu.com:8089/services/server/control",
+        "url": "https://:domain/services/server/control",
         "params": []
       },
       {
@@ -17366,7 +17375,7 @@
         },
         "displayName": "Update Restart Splunk Enterprise Server",
         "path": "/server/control/restart",
-        "url": "https://splunk.octoblu.com:8089/services/server/control/restart",
+        "url": "https://:domain/services/server/control/restart",
         "params": []
       },
       {
@@ -17379,7 +17388,7 @@
         },
         "displayName": "List Server Configuration",
         "path": "/server/info",
-        "url": "https://splunk.octoblu.com:8089/services/server/info",
+        "url": "https://:domain/services/server/info",
         "params": []
       },
       {
@@ -17392,7 +17401,7 @@
         },
         "displayName": "List Logging Categories",
         "path": "/server/logger",
-        "url": "https://splunk.octoblu.com:8089/services/server/logger",
+        "url": "https://:domain/services/server/logger",
         "params": []
       },
       {
@@ -17405,7 +17414,7 @@
         },
         "displayName": "Get Manage Specific Logging Category",
         "path": "/server/logger/:name",
-        "url": "https://splunk.octoblu.com:8089/services/server/logger/:name",
+        "url": "https://:domain/services/server/logger/:name",
         "params": [
           {
             "name": ":name",
@@ -17445,7 +17454,7 @@
             "displayName": "Name"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/server/logger/:name"
+        "url": "https://:domain/services/server/logger/:name"
       },
       {
         "httpMethod": "GET",
@@ -17457,7 +17466,7 @@
         },
         "displayName": "List Server Role Information",
         "path": "/server/roles",
-        "url": "https://splunk.octoblu.com:8089/services/server/roles",
+        "url": "https://:domain/services/server/roles",
         "params": []
       },
       {
@@ -17470,7 +17479,7 @@
         },
         "displayName": "List Server Configuration",
         "path": "/server/settings",
-        "url": "https://splunk.octoblu.com:8089/services/server/settings",
+        "url": "https://:domain/services/server/settings",
         "params": []
       },
       {
@@ -17483,7 +17492,7 @@
         },
         "displayName": "List System Status Information",
         "path": "/server/status",
-        "url": "https://splunk.octoblu.com:8089/services/server/status",
+        "url": "https://:domain/services/server/status",
         "params": []
       },
       {
@@ -17496,7 +17505,7 @@
         },
         "displayName": "List Search Job Information",
         "path": "/server/status/dispatch-artifacts",
-        "url": "https://splunk.octoblu.com:8089/services/server/status/dispatch-artifacts",
+        "url": "https://:domain/services/server/status/dispatch-artifacts",
         "params": []
       },
       {
@@ -17509,7 +17518,7 @@
         },
         "displayName": "List Information About Btree Database",
         "path": "/server/status/fishbucket",
-        "url": "https://splunk.octoblu.com:8089/services/server/status/fishbucket",
+        "url": "https://:domain/services/server/status/fishbucket",
         "params": []
       },
       {
@@ -17522,7 +17531,7 @@
         },
         "displayName": "List Search Concurrency Metrics",
         "path": "/server/status/limits/search-concurrency",
-        "url": "https://splunk.octoblu.com:8089/services/server/status/limits/search-concurrency",
+        "url": "https://:domain/services/server/status/limits/search-concurrency",
         "params": []
       },
       {
@@ -17535,7 +17544,7 @@
         },
         "displayName": "List Disk Utilization Information",
         "path": "/server/status/partitions-space",
-        "url": "https://splunk.octoblu.com:8089/services/server/status/partitions-space",
+        "url": "https://:domain/services/server/status/partitions-space",
         "params": []
       },
       {
@@ -17548,7 +17557,7 @@
         },
         "displayName": "List Resource Utilization Information",
         "path": "/server/status/resource-usage",
-        "url": "https://splunk.octoblu.com:8089/services/server/status/resource-usage",
+        "url": "https://:domain/services/server/status/resource-usage",
         "params": []
       },
       {
@@ -17561,7 +17570,7 @@
         },
         "displayName": "List Host Level Resource Utilization Info",
         "path": "/server/status/resource-usage/hostwide",
-        "url": "https://splunk.octoblu.com:8089/services/server/status/resource-usage/hostwide",
+        "url": "https://:domain/services/server/status/resource-usage/hostwide",
         "params": []
       },
       {
@@ -17574,7 +17583,7 @@
         },
         "displayName": "List O S Resource Utilization Information",
         "path": "/server/status/resource-usage/splunk-processes",
-        "url": "https://splunk.octoblu.com:8089/services/server/status/resource-usage/splunk-processes",
+        "url": "https://:domain/services/server/status/resource-usage/splunk-processes",
         "params": []
       },
       {
@@ -17637,7 +17646,7 @@
             "displayName": "Sort Mode"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/storage/passwords"
+        "url": "https://:domain/services/storage/passwords"
       },
       {
         "httpMethod": "POST",
@@ -17675,7 +17684,7 @@
             "displayName": "Realm"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/storage/passwords"
+        "url": "https://:domain/services/storage/passwords"
       },
       {
         "httpMethod": "DELETE",
@@ -17687,7 +17696,7 @@
         },
         "displayName": "Delete Manage Authentication Credential",
         "path": "/storage/passwords/:name",
-        "url": "https://splunk.octoblu.com:8089/services/storage/passwords/:name",
+        "url": "https://:domain/services/storage/passwords/:name",
         "params": [
           {
             "name": ":name",
@@ -17709,7 +17718,7 @@
         },
         "displayName": "Get Manage Authentication Credential",
         "path": "/storage/passwords/:name",
-        "url": "https://splunk.octoblu.com:8089/services/storage/passwords/:name",
+        "url": "https://:domain/services/storage/passwords/:name",
         "params": [
           {
             "name": ":name",
@@ -17749,7 +17758,7 @@
             "displayName": "Name"
           }
         ],
-        "url": "https://splunk.octoblu.com:8089/services/storage/passwords/:name"
+        "url": "https://:domain/services/storage/passwords/:name"
       }
     ]
   }
