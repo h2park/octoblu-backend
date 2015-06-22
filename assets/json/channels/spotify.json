@@ -901,7 +901,7 @@
             "displayName": "Name of Your New Playlist.",
             "type": "string",
             "style": "body",
-            "required": false
+            "required": true
           },
           {
             "name": "public",
