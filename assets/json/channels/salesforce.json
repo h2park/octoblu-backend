@@ -1,35 +1,1165 @@
 {
   "_id": "542ed0142df9c20401f53dcc",
   "application": {
-    "base": "https://:subdomain.salesforce.com/services/data/v20.0",
+    "base": "https://na1.salesforce.com/services",
     "resources": [
       {
-        "path": "/query",
-        "displayName": "/query",
-        "doc": {
-          "url": "GET https://:subdomain.salesforce.com/services/data/v20.0/query"
-        },
+        "path": "/data",
+        "displayName": "Lists Available REST API Versions",
         "httpMethod": "GET",
-        "curl": "curl -X",
-        "params": [
-          {
-            "name": "q",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data"
+      },{
+        "path": "/data/v26.0/",
+        "displayName": "Lists Available REST Resources",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v26.0/"
+      },{
+        "path": "/data/v26.0/sobjects/",
+        "displayName": "Gets A List Of Objects",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v26.0/sobjects/"
+      },{
+        "path": "/data/v34.0/sobjects",
+        "displayName": "Gets A List Of Objects If Metadata Has Changed",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/sobjects"
+      },{
+        "path": "/data/v20.0/sobjects/Account/",
+        "displayName": "Retrieves Metadata For An Object",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v20.0/sobjects/Account/"
+      },{
+        "path": "/data/v20.0/Account/describe/",
+        "displayName": "Gets Field & Other Metadata For An Object",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v20.0/Account/describe/"
+      },{
+        "path": "/data/v29.0/sobjects/Merchandise__c/describe",
+        "displayName": "Gets Object Metadata Changes",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v29.0/sobjects/Merchandise__c/describe"
+      },{
+        "path": "/data/v20.0/sobjects/Account/",
+        "displayName": "Create A Record",
+        "httpMethod": "POST",
+        "params": [{
+            "style": "body",
+            "type": "string",
+            "name": "Name",
+            "displayName": "Name",
+            "required": "true"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v20.0/sobjects/Account/"
+      },{
+        "path": "/data/v20.0/sobjects/Account/001D000000INjVe",
+        "displayName": "Update A Record",
+        "httpMethod": "PATCH",
+        "params": [{
+            "style": "body",
+            "type": "string",
+            "name": "BillingCity",
+            "displayName": "Billing City",
+            "required": "true"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v20.0/sobjects/Account/001D000000INjVe"
+      },{
+        "path": "/data/v20.0/sobjects/Account/001D000000INjVe",
+        "displayName": "Delete A Record",
+        "httpMethod": "DELETE",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v20.0/sobjects/Account/001D000000INjVe"
+      },{
+        "path": "/data/v20.0/sobjects/Account/001D000000INjVe",
+        "displayName": "Gets Field Values From A Standard Object Record",
+        "httpMethod": "GET",
+        "params": [{
             "style": "query",
             "type": "string",
-            "displayName": "Query",
-            "required": true,
-            "default": ""
-          },
-          {
-            "name": ":subdomain",
-            "displayName": "Subdomain",
-            "style": "url",
+            "name": "fields",
+            "displayName": "Fields",
+            "required": "true"
+          },{
+            "style": "query",
             "type": "string",
-            "required": true,
-            "default": "na1"
-          }
-        ],
-        "url": "https://:subdomain.salesforce.com/services/data/v20.0/query"
+            "name": "BillingPostalCode",
+            "displayName": "Billing Postal Code",
+            "required": "true"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v20.0/sobjects/Account/001D000000INjVe"
+      },{
+        "path": "/services/data/v32.0/sobjects/Customer__x/x01D0000000002RIAQ",
+        "displayName": "Gets Field Values From A High-Data-Volume External Object Record",
+        "httpMethod": "Get",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Fields",
+            "required": "true"
+          }],
+        "url": "https://na1.salesforce.com/services/services/data/v32.0/sobjects/Customer__x/x01D0000000002RIAQ"
+      },{
+        "path": "/data/v32.0/sobjects/Customer__x/CACTU",
+        "displayName": "Gets Field Values From An External Object Record",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Fields",
+            "required": "true"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v32.0/sobjects/Customer__x/CACTU"
+      },{
+        "path": "/data/v20.0/sobjects/Merchandise__c/MerchandiseExtID__c/123",
+        "displayName": "Gets A Record Using An External ID",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v20.0/sobjects/Merchandise__c/MerchandiseExtID__c/123"
+      },{
+        "path": "/data/v20.0/sobjects/Account/customExtIdField__c/11999",
+        "displayName": "Upserting New Records",
+        "httpMethod": "PATCH",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v20.0/sobjects/Account/customExtIdField__c/11999"
+      },{
+        "path": "/data/v25.0/sobjects/Line_Item__c/LineItemExtID__c/456",
+        "displayName": "Upserting Records & Associating With An External ID",
+        "httpMethod": "PATCH",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v25.0/sobjects/Line_Item__c/LineItemExtID__c/456"
+      },{
+        "path": "/data/v20.0/sobjects/Attachment/001D000000INjVe/body",
+        "displayName": "Gets Attachment Content From A Record",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v20.0/sobjects/Attachment/001D000000INjVe/body"
+      },{
+        "path": "/data/v23.0/Document/015D0000000N3ZZIA0",
+        "displayName": "Updating A Document",
+        "httpMethod": "PATCH",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v23.0/Document/015D0000000N3ZZIA0"
+      },{
+        "path": "/data/v29.0/sobjects/Merchandise__c/deleted/",
+        "displayName": "Gets A List Of Deleted Records W/I A Given Timeframe",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "start",
+            "displayName": "Start"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "end",
+            "displayName": "End"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v29.0/sobjects/Merchandise__c/deleted/"
+      },{
+        "path": "/data/v29.0/sobjects/Merchandise__c/updated/",
+        "displayName": "Get A List Of Updated Records W/I A Given Timeframe",
+        "httpMethod": "Get",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "start",
+            "displayName": "Start"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "end",
+            "displayName": "End"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v29.0/sobjects/Merchandise__c/updated/"
+      },{
+        "path": "/data/v20.0/query/",
+        "displayName": "Gets All Results In A Single Response Or Returns Part Of The Results",
+        "httpMethod": "Get",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "q",
+            "displayName": "Q"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v20.0/query/"
+      },{
+        "path": "/data/v20.0/query/01gD0000002HU6KIAW-2000",
+        "displayName": "Gets The Remaining SOQL Query Results",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v20.0/query/01gD0000002HU6KIAW-2000"
+      },{
+        "path": "/data/v29.0/queryAll/",
+        "displayName": "Execute A SOQL Query That Includes Deleted Items",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "q",
+            "displayName": "Q"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v29.0/queryAll/"
+      },{
+        "path": "/data/v29.0/query/01gD0000002HU6KIAW-2000",
+        "displayName": "Gets The Remaining SOQL Query Results",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v29.0/query/01gD0000002HU6KIAW-2000"
+      },{
+        "path": "/data/v34.0/query/",
+        "displayName": "Gets Feedback On Query Performance",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "explain",
+            "displayName": "Explain"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v34.0/query/"
+      },{
+        "path": "/data/v26.0/search/scopeOrder",
+        "displayName": "Gets The Default Search Scope & Order",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v26.0/search/scopeOrder"
+      },{
+        "path": "/data/v28.0/searchlayout/",
+        "displayName": "Gets Search Result Layouts For Objects",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "q",
+            "displayName": "Q"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v28.0/searchlayout/"
+      },{
+        "path": "/data/v28.0/recent/",
+        "displayName": "View Recently Viewed Records",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "limit",
+            "displayName": "Limit"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v28.0/recent/"
+      },{
+        "path": "/data/v28.0/query/",
+        "displayName": "Marks Records As Recently Viewed",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v28.0/query/"
+      },{
+        "path": "/data/v25.0/sobjects/User/005D0000001KyEIIA0/password",
+        "displayName": "Gets Password Expiration Status",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v25.0/sobjects/User/005D0000001KyEIIA0/password"
+      },{
+        "path": "/data/v25.0/sobjects/User/005D0000001KyEIIA0/password",
+        "displayName": "Sets The Password",
+        "httpMethod": "POST",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v25.0/sobjects/User/005D0000001KyEIIA0/password"
+      },{
+        "path": "/data/v25.0/sobjects/User/005D0000001KyEIIA0/password",
+        "displayName": "Reset The Password",
+        "httpMethod": "DELETE",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v25.0/sobjects/User/005D0000001KyEIIA0/password/"
+      },{
+        "path": "/data/v30.0/process/approvals/",
+        "displayName": "Gets A List Of All Approval Processes",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v30.0/process/approvals/"
+      },{
+        "path": "/data/v30.0/process/rules/",
+        "displayName": "Gets A List Of Process Rules",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v30.0/process/rules/"
+      },{
+        "path": "/data/v30.0/process/rules/Account/01QD0000000APli",
+        "displayName": "Gets A Particular Process Rule",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v30.0/process/rules/Account/01QD0000000APli"
+      },{
+        "path": "/data/v32.0/sobjects/EventLogFile/describe",
+        "displayName": "Gets All Metadata For An Object, Including Info About Fields, URLs, & Child Relationships",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v32.0/sobjects/EventLogFile/describe"
+      },{
+        "path": "/data/v32.0/query",
+        "displayName": "Gets Field Values From A Record",
+        "httpMethod": "GET",
+        "params": {
+            "style": "query",
+            "type": "string",
+            "name": "q",
+            "displayName": "Q"
+          },
+        "url": "https://na1.salesforce.com/services/data/v32.0/query"
+      },{
+        "path": "/data/v32.0/sobjects/EventLogFile/0ATD000000000pyOAA/LogFile",
+        "displayName": "Gets Event Monitoring Content From A Record",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v32.0/sobjects/EventLogFile/0ATD000000000pyOAA/LogFile"
+      },{
+        "path": "/data/v34.0/composite/batch/",
+        "displayName": "Update Record & Query It's Name & Billing Postal Code In A Single Request",
+        "httpMethod": "PATCH",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/composite/batch/"
+      },{
+        "path": "/data/v34.0/composite/tree/Account/",
+        "displayName": "Create Multiple Records",
+        "httpMethod": "POST",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/composite/tree/Account/"
+      },{
+        "path": "/",
+        "displayName": "Gets Summary Info About Each Salesforce Version Currently Available",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/"
+      },{
+        "path": "/v34.0/",
+        "displayName": "Gets Available Resources For Specified API Version, Including Resource Name & URI",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/"
+      },{
+        "path": "/v34.0/limits/",
+        "displayName": "Gets Info About Limits In Your Organization",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/limits/"
+      },{
+        "path": "/v34.0/sobjects/",
+        "displayName": "Gets Available Objects & Their Metadata For Your Organization’s Data",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/sobjects/"
+      },{
+        "path": "/v34.0/sobjects/SObjectName/",
+        "displayName": "Gets Metadata For The Account Object",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/sobjects/SObjectName/"
+      },{
+        "path": "/v34.0/sobjects/SObjectName/",
+        "displayName": "Create A New Account Object",
+        "httpMethod": "POST",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/sobjects/SObjectName/"
+      },{
+        "path": "/v34.0/sobjects/SObjectName/describe/",
+        "displayName": "Describes Individual Metadata At All Levels For Specified Object",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/sobjects/SObjectName/describe/"
+      },{
+        "path": "/v34.0/sobjects/SObjectName/deleted/",
+        "displayName": "Gets List Of Individual Records That Have Been Deleted W/I Given Timespan For Specified Object",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "start",
+            "displayName": "Starting Date/Time"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "end",
+            "displayName": "Ending Date/Time"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v34.0/sobjects/SObjectName/deleted/"
+      },{
+        "path": "/v34.0/sobjects/SObjectName/updated/",
+        "displayName": "Gets List Of Individual Records That Have Been Updated, Added, Or Changed Within Given Timespan For Specified Object",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "start",
+            "displayName": "Starting Date/Time"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "end",
+            "displayName": "Ending Date/Time"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v34.0/sobjects/SObjectName/updated/"
+      },{
+        "path": "/v34.0/sobjects/Object/describe/namedLayouts/layoutName",
+        "displayName": "Gets Info About Alternate Named Layouts For A Given Object",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/sobjects/Object/describe/namedLayouts/layoutName"
+      },{
+        "path": "/v34.0/sobjects/SObjectName/id/",
+        "displayName": "Gets Records Or Fields",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Fields"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v34.0/sobjects/SObjectName/id/"
+      },{
+        "path": "/v34.0/sobjects/SObjectName/id/",
+        "displayName": "Update Records",
+        "httpMethod": "Patch",
+        "params": [{
+            "style": "body",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Fields"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v34.0/sobjects/SObjectName/id/"
+      },{
+        "path": "/v34.0/sobjects/SObjectName/id/",
+        "displayName": "Delete Records",
+        "httpMethod": "DELETE",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Fields"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v34.0/sobjects/SObjectName/id/"
+      },{
+        "path": "/v34.0/sobjects/SObjectName/fieldName/fieldValue",
+        "displayName": "Gets A Record Using an External ID",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/sobjects/SObjectName/fieldName/fieldValue"
+      },{
+        "path": "/v34.0/sobjects/SObjectName/fieldName/fieldValue",
+        "displayName": "Creates New Records",
+        "httpMethod": "POST",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/sobjects/SObjectName/fieldName/fieldValue"
+      },{
+        "path": "/v34.0/sobjects/SObjectName/fieldName/fieldValue",
+        "displayName": "Updates Existing Records (Upserts Records)",
+        "httpMethod": "PATCH",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/sobjects/SObjectName/fieldName/fieldValue"
+      },{
+        "path": "/v34.0/sobjects/SObjectName/fieldName/fieldValue",
+        "displayName": "Deletes A Record",
+        "httpMethod": "DELETE",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/sobjects/SObjectName/fieldName/fieldValue"
+      },{
+        "path": "/v34.0/sobjects/SObjectName/id/blobField",
+        "displayName": "Gets Specified Blob Field From An Individual Record",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/sobjects/SObjectName/id/blobField"
+      },{
+        "path": "/v34.0/sobjects/SObjectName/describe/approvalLayouts/",
+        "displayName": "Gets An Approval Layout Description For A Specified Object",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/sobjects/SObjectName/describe/approvalLayouts/"
+      },{
+        "path": "/v34.0/sobjects/SObjectName/describe/approvalLayouts/approvalProcessName",
+        "displayName": "Gets An Approval Layout Description For A Particular Approval Process",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/sobjects/SObjectName/describe/approvalLayouts/approvalProcessName"
+      },{
+        "path": "/data/v34.0/sobjects/Account/describe/compactLayouts",
+        "displayName": "Gets Compact Layouts",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/sobjects/Account/describe/compactLayouts"
+      },{
+        "path": "/v34.0/sobjects/Object/describe/compactLayouts/",
+        "displayName": "Gets Compact Layout Description For A Specific Object",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/sobjects/Object/describe/compactLayouts/"
+      },{
+        "path": "/v34.0/sobjects/Global/describe/layouts/",
+        "displayName": "Gets Descriptions Of Global Publisher Layouts",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/sobjects/Global/describe/layouts/"
+      },{
+        "path": "/v34.0/sobjects/Object/describe/layouts/",
+        "displayName": "Gets Layout Description For A Specific Object",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/sobjects/Object/describe/layouts/"
+      },{
+        "path": "/v34.0/sobjects/PlatformAction",
+        "displayName": "Gets Description Of The PlatformAction",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/sobjects/PlatformAction"
+      },{
+        "path": "/v34.0/sobjects/object/quickActions/",
+        "displayName": "Gets A Specific Object’s Actions As Well As Global Actions",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/sobjects/object/quickActions/"
+      },{
+        "path": "/v34.0/sobjects/Account/quickActions/CreateContact",
+        "displayName": "Create A Contact On Account Using An Action",
+        "httpMethod": "POST",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/data/v34.0/sobjects/Account/quickActions/CreateContact"
+      },{
+        "path": "/v34.0/sobjects/Case/suggestedArticles",
+        "displayName": "Gets Suggested Articles For A Case That Is Being Created",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "articleTypes",
+            "displayName": "Three-Character ID Prefixes Indicating The Desired Article Types"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "categoryIds",
+            "displayName": "IDs Of Desired Data Categories"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "description",
+            "displayName": "Text Of Case’s Description"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "language",
+            "displayName": "Language Article Is Written In",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "limit",
+            "displayName": "Specifies Max Number Of Suggested Articles"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "publishStatus",
+            "displayName": "Article’s Publication Status"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "subject",
+            "displayName": "Text Of Case’s Subject"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "validationStatus",
+            "displayName": "Validation Status Of Articles"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v34.0/sobjects/Case/suggestedArticles"
+      },{
+        "path": "/v34.0/sobjects/Case/ID/suggestedArticles",
+        "displayName": "Gets Suggested Articles For An Existing Case With An ID",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "articleTypes",
+            "displayName": "Three-Character ID Prefixes Indicating Desired Article Types"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "categoryIds",
+            "displayName": "IDs Of Desired Data Categories"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "description",
+            "displayName": "Text Of Case’s Description"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "language",
+            "displayName": "Language Article Is Written In",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "limit",
+            "displayName": "Specifies Max Number Of Suggested Articles"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "publishStatus",
+            "displayName": "Article’s Publication Status"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "subject",
+            "displayName": "Text Of Case’s Subject"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "validationStatus",
+            "displayName": "Validation Status Of Articles"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v34.0/sobjects/Case/ID/suggestedArticles"
+      },{
+        "path": "/v34.0/sobjects/User/userID/password",
+        "displayName": "Gets Info About A User Password",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/sobjects/User/userID/password"
+      },{
+        "path": "/v34.0/sobjects/User/userID/password",
+        "displayName": "Set Info About A User Password",
+        "httpMethod": "PATCH",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/sobjects/User/userID/password"
+      },{
+        "path": "/v34.0/sobjects/User/userID/password",
+        "displayName": "Reset User Password To An Auto-Generated Password",
+        "httpMethod": "DELETE",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/sobjects/User/userID/password"
+      },{
+        "path": "/v34.0/appMenu/AppSwitcher/",
+        "displayName": "Gets A List Of Salesforce App Drop-Down Menu Items",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/appMenu/AppSwitcher/"
+      },{
+        "path": "/v34.0/appMenu/Salesforce1/",
+        "displayName": "Gets A List Of Salesforce1 Navigation Menu Items",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/appMenu/Salesforce1/"
+      },{
+        "path": "/v34.0/compactLayouts",
+        "displayName": "Gets A List Of Compact Layouts For Multiple Objects",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "q",
+            "displayName": "A Comma-Delimited List Of Objects"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v34.0/compactLayouts"
+      },{
+        "path": "/v34.0/flexiPage/",
+        "displayName": "Gets All Details Of A Lightning Page",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/flexiPage/"
+      },{
+        "path": "/v34.0/flexiPage/Deliveries",
+        "displayName": "Gets A Lightning Page Whose Name Is Deliveries",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/flexiPage/Deliveries"
+      },{
+        "path": "/v34.0/actions",
+        "displayName": "Gets A List Of Custom Actions",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/actions"
+      },{
+        "path": "/v34.0/actions/standard",
+        "displayName": "Gets A List Of Standard Actions",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/actions/standard"
+      },{
+        "path": "/v34.0/actions/custom",
+        "displayName": "Gets A List Of Custom Actions",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/actions/custom"
+      },{
+        "path": "/v34.0/sobjects/:sobjectType/listviews/:queryLocator/describe",
+        "displayName": "Gets Detailed Info About A List View, Including The ID, Columns, & SOQL Query",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":sobjectType",
+            "displayName": "sObject Type",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":queryLocator",
+            "displayName": "Query Locator",
+            "required": "true"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v34.0/sobjects/:sobjectType/listviews/:queryLocator/describe"
+      },{
+        "path": "/v34.0/sobjects/:sobjectType/listviews/:listViewID/results",
+        "displayName": "Lists View Results",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":sobjectType",
+            "displayName": "sObject Type",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":listViewID",
+            "displayName": "List View ID",
+            "required": "true"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v34.0/sobjects/:sobjectType/listviews/:listViewID/results"
+      },{
+        "path": "/v34.0/sobjects/:sobjectType/listviews",
+        "displayName": "Gets A List Of List Views",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":sobjectType",
+            "displayName": "sObject Type",
+            "required": "true"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v34.0/sobjects/:sobjectType/listviews"
+      },{
+        "path": "/v34.0/sobjects/:sobjectType/listviews/:listViewID",
+        "displayName": "Gets Basic Info About One List View",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":sobjectType",
+            "displayName": "sObject Type",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":listViewID",
+            "displayName": "List View ID",
+            "required": "true"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v34.0/sobjects/:sobjectType/listviews/:listViewID"
+      },{
+        "path": "/v34.0/process/approvals/",
+        "displayName": "Get A List Of The Approvals",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "actionType",
+            "displayName": "Action Types: Submit, Approve, Or Reject"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "contextActorId",
+            "displayName": "ID Of Submitter Who’s Requesting The Approval Record"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "contextId",
+            "displayName": "ID Of Item Being Acted Upon"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "comments",
+            "displayName": "Comment To Add To The History Step"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "nextApproverIds",
+            "displayName": "ID Of The User To Be Assigned The Next Request"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "procesDefinitionNameOrId",
+            "displayName": "Developer Name Or ID Of The Process Definition"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "skipEntryCriteria",
+            "displayName": "If True, Evaluate Entry Criteria For The Process, If False The Process Definition Name Or ID Isn’t Null"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v34.0/process/approvals/"
+      },{
+        "path": "/v34.0/process/approvals/",
+        "displayName": "Bulk Record Approvals",
+        "httpMethod": "POST",
+        "params": [{
+            "style": "body",
+            "type": "string",
+            "name": "actionType",
+            "displayName": "Action Types: Submit, Approve, Or Reject"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "contextActorId",
+            "displayName": "ID Of Submitter Who’s Requesting Approval Record"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "contextId",
+            "displayName": "ID Of Item Being Acted Upon"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "comments",
+            "displayName": "Comment To Add To The History Step"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "nextApproverIds",
+            "displayName": "ID Of The User To Be Assigned The Next Request"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "procesDefinitionNameOrId",
+            "displayName": "Developer Name Or ID Of Process Definition"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "skipEntryCriteria",
+            "displayName": "If True, Evaluate Entry Criteria For The Process. If False The Process Definition Name Or ID Isn’t Null"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v34.0/process/approvals/"
+      },{
+        "path": "/v34.0/process/rules/",
+        "displayName": "Gets A List Of Workflow Rules",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "contextId",
+            "displayName": "ID Of Item That Is Being Acted Upon"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v34.0/process/rules/"
+      },{
+        "path": "/v34.0/process/rules/",
+        "displayName": "Triggers One Or More Workflow Rules",
+        "httpMethod": "POST",
+        "params": [{
+            "style": "body",
+            "type": "string",
+            "name": "contextId",
+            "displayName": "ID Of Item That Is Being Acted Upon"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v34.0/process/rules/"
+      },{
+        "path": "/v34.0/process/rules/SObjectName",
+        "displayName": "Gets Rules For A Particular Object",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "contextId",
+            "displayName": "ID Of Item That Is Being Acted Upon"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v34.0/process/rules/SObjectName"
+      },{
+        "path": "/v34.0/process/rules/SObjectName/workflowRuleId",
+        "displayName": "Gets Metadata For A Particular Rule",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "contextId",
+            "displayName": "ID Of Item That Is Being Acted Upon"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v34.0/process/rules/SObjectName/workflowRuleId"
+      },{
+        "path": "/v34.0/query/",
+        "displayName": "Executes The Specified SOQL Query",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "q",
+            "displayName": "A SOQL Query"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "explain",
+            "displayName": "A SOQL Query To Get Performance Feedback On"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v34.0/query/"
+      },{
+        "path": "/v34.0/queryAll/",
+        "displayName": "Gets Deleted Records As Well As Info About Archived Task & Event Records",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "q",
+            "displayName": "A SOQL Query"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v34.0/queryAll/"
+      },{
+        "path": "/v34.0/quickActions/",
+        "displayName": "Gets A List Of Global Actions & Object-Specific Actions",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/quickActions/"
+      },{
+        "path": "/v34.0/quickActions/",
+        "displayName": "Create Using An Action",
+        "httpMethod": "POST",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/quickActions/"
+      },{
+        "path": "/v34.0/sobjects/:sobjectType/listviews/recent",
+        "displayName": "Gets List Of Recently Used List Views",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":sobjectType",
+            "displayName": "sObject Type",
+            "required": "true"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v34.0/sobjects/:sobjectType/listviews/recent"
+      },{
+        "path": "/v34.0/search/",
+        "displayName": "Executes The Specified SOSL Search",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "q",
+            "displayName": "A SOSL Statement That Is Properly URL-Encoded"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v34.0/search/"
+      },{
+        "path": "/v34.0/search/scopeOrder",
+        "displayName": "Gets An Ordered List Of Objects In  Default Global Search Scope Of A Logged-in User",
+        "httpMethod": "POST",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/search/scopeOrder"
+      },{
+        "path": "/v34.0/search/layout/",
+        "displayName": "Gets Search Result Layout Info For Objects In Query String",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/search/layout/"
+      },{
+        "path": "/v34.0/search/suggestions",
+        "displayName": "Gets List Of Suggested Records Whose Names Match User’s Search String",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "q",
+            "displayName": "User’s Search Query String, Properly URL-Encoded",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "sobject",
+            "displayName": "Object That Search Is Scoped To, Such As Account Or Offer__c",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "limit",
+            "displayName": "Specifies Max Number Of Suggested Records To Return"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v34.0/search/suggestions"
+      },{
+        "path": "/v34.0/search/suggestTitleMatches",
+        "displayName": "Gets List Of Salesforce Knowledge Articles Whose Titles Match User’s Search Query String",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "articleTypes",
+            "displayName": "Three-Character ID Prefixes Indicating Desired Article Type"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "categories",
+            "displayName": "Name Of Data Category Group & Name Of Data Category For Desired Articles"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "channel",
+            "displayName": "Channel Where Matching Articles Are Visible"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "language",
+            "displayName": "Language Of User’s Query",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "limit",
+            "displayName": "Specifies Max Number of Articles"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "publishStatus",
+            "displayName": "Article’s Publication Status",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "q",
+            "displayName": "User’s Search Query String, Properly URL-Encoded",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "validationStatus",
+            "displayName": "Validation Status Of Returned Articles"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v34.0/search/suggestTitleMatches"
+      },{
+        "path": "/v34.0/search/suggestSearchQueries",
+        "displayName": "Gets List Of Suggested Searches",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "channel",
+            "displayName": "Channel Where Matching Articles Are Visible"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "language",
+            "displayName": "Language Of User’s Query",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "limit",
+            "displayName": "Specifies Max Number Of Articles"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "q",
+            "displayName": "User’s Search Query String, Properly URL-Encoded",
+            "required": "true"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v34.0/search/suggestSearchQueries"
+      },{
+        "path": "/v34.0/recent",
+        "displayName": "Gets Most Recently Viewed Items",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "limit",
+            "displayName": "Specifies Max Number Of Articles"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v34.0/recent"
+      },{
+        "path": "/v34.0/tabs/",
+        "displayName": "Gets A List Of All Tabs",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/tabs/"
+      },{
+        "path": "/v34.0/theme",
+        "displayName": "Gets List Of Icons & Colors Used By Themes In The Salesforce App",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://na1.salesforce.com/services/data/v34.0/theme"
+      },{
+        "path": "/v34.0/composite/batch",
+        "displayName": "Executes Up To 25 Subrequests In A Single Request To Improve Your App’s Performance",
+        "httpMethod": "POST",
+        "params": [{
+            "style": "body",
+            "type": "string",
+            "name": "batchRequests",
+            "displayName": "Collection Of Subrequests To Execute",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "haltOnError",
+            "displayName": "Halt On Error"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "binaryPartName",
+            "displayName": "Name Of Binary Part In The Multipart Request"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "haltOnError",
+            "displayName": "Name Parameter In Content-Disposition Header Of The Binary Body Part"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "method",
+            "displayName": "The Method To Use With The Requested Resource"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "richInput",
+            "displayName": "Input Body For Request"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "url",
+            "displayName": "Filter Response Bodies"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "hasErrors",
+            "displayName": "True If, At Least One Of The Results Is An HTTP Status Code In The 400 Or 500 Range"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "results",
+            "displayName": "Collection Of Subrequest Results"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "result",
+            "displayName": "Response Body Of This Subrequest"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "statusCode",
+            "displayName": "An HTTP Status Code Indicating Status If This Subrequest"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v34.0/composite/batch"
+      },{
+        "path": "/v34.0/composite/tree/SObjectName",
+        "displayName": "Create Using An Action",
+        "httpMethod": "POST",
+        "params": [{
+            "style": "body",
+            "type": "string",
+            "name": "type",
+            "displayName": "Record’s Type",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "referenceId",
+            "displayName": "Reference ID For This Record",
+            "required": "true"
+          }],
+        "url": "https://na1.salesforce.com/services/data/v34.0/composite/tree/SObjectName"
       }
     ]
   },
@@ -54,7 +1184,7 @@
     }
   },
   "auth_strategy": "oauth",
-  "documentation": "https://www.salesforce.com/us/developer/docs/api_rest",
+  "documentation": "https://resources.docs.salesforce.com/sfdc/pdf/api_rest.pdf",
   "enabled": true,
   "name": "SalesForce",
   "isPassport": true,
