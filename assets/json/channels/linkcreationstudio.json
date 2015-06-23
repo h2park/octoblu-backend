@@ -1,0 +1,1113 @@
+{
+  "_id": "23508efj3o52052341",
+  "application": {
+    "base": "https://www.livepaperapi.com",
+    "resources": [
+      {
+        "path": "/api/v1/payoffs",
+        "displayName": "Create Payoff",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "body",
+            "type": "enum",
+            "Accept": "application/json",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "enum",
+            "Content-Type": "application/json",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "name",
+            "displayName": "Name Of Payoff",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "URL",
+            "displayName": "URL To Destination",
+            "required": "true"
+          }
+        ],
+        "url": "https://www.livepaperapi.com/api/v1/payoffs"
+      },{
+        "path": "/api/v1/payoffs",
+        "displayName": "Create Rich Payoff",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "body",
+            "type": "enum",
+            "Accept": "application/json",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "enum",
+            "Content-Type": "application/json",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "content-type",
+            "displayName": "Must Be Custom-base64"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "data",
+            "displayName": "Must Be Base64 Encoded JSON As Specified On The Rich Payoff Data Page"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "url",
+            "displayName": "URL That Will Be Used By Other Readers"
+          }
+        ],
+        "url": "https://www.livepaperapi.com/api/v1/payoffs"
+      },{
+        "path": "/payoffs/:payoff_id",
+        "displayName": "Get Payoff Info Using Payoff Id",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":payoff_id",
+            "displayName": "ID Of The Purpose",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "enum",
+            "Accept": "application/json",
+            "required": "true"
+          }
+        ],
+        "url": "https://www.livepaperapi.com/payoffs/:payoff_id"
+      },{
+        "path": "/api/v1/payoffs/:payoff_id",
+        "displayName": "Update Payoff",
+        "httpMethod": "Put",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":payoff_id",
+            "displayName": "ID Of The Purpose",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "enum",
+            "Accept": "application/json",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "enum",
+            "Content-Type": "application/json",
+            "required": "true"
+          }
+        ],
+        "url": "https://www.livepaperapi.com/api/v1/payoffs/:payoff_id"
+      },{
+        "path": "/api/v1/payoffs",
+        "displayName": "List Payoffs",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "enum",
+            "Accept": "application/json",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "offset",
+            "displayName": "Indicates The Start Index For Paginating"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "limit",
+            "displayName": "Max Number Of Items That Should Be Included"
+          }
+        ],
+        "url": "https://www.livepaperapi.com/api/v1/payoffs"
+      },{
+        "path": "/api/v1/payoffs/:payoff-id",
+        "displayName": "Delete Payoff",
+        "httpMethod": "Delete",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":payoff_id",
+            "displayName": "ID Of The Payoff",
+            "required": "true"
+          }
+        ],
+        "url": "https://www.livepaperapi.com/api/v1/payoffs/:payoff-id"
+      },{
+        "path": "/api/v1/triggers",
+        "displayName": "Create Trigger (Shorturl)",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "body",
+            "type": "enum",
+            "Accept": "application/json",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "enum",
+            "Content-Type": "application/json",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "name",
+            "displayName": "Name Of ShortURL Trigger",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "type",
+            "displayName": "Shorturl",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "typeFriendy",
+            "displayName": "Type Friendy"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "startDate",
+            "displayName": "Date The Trigger Becomes Active"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "endDate",
+            "displayName": "Date When The Trigger Will Expire"
+          }
+        ],
+        "url": "https://www.livepaperapi.com/api/v1/triggers"
+      },{
+        "path": "/api/v1/triggers",
+        "displayName": "Create Trigger (QR Code)",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "body",
+            "type": "enum",
+            "Accept": "application/json",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "enum",
+            "Content-Type": "application/json",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "name",
+            "displayName": "Name Of QR Code Trigger",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "type",
+            "displayName": "QR Code",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "startDate",
+            "displayName": "Date The Trigger Becomes Active"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "endDate",
+            "displayName": "Date The Trigger Becomes Active"
+          }
+        ],
+        "url": "https://www.livepaperapi.com/api/v1/triggers"
+      },{
+        "path": "/api/v1/triggers",
+        "displayName": "Create Trigger (Watermark)",
+        "httpMethod": "POST",
+        "params": [
+          {
+            "style": "body",
+            "type": "enum",
+            "Accept": "application/json",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "enum",
+            "Content-Type": "application/json",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "name",
+            "displayName": "Name Of Watermark Trigger",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "type",
+            "displayName": "Watermark",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "startDate",
+            "displayName": "Date The Trigger Becomes Active"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "endDate",
+            "displayName": "Date The Trigger Becomes Active"
+          }
+        ],
+        "url": "https://www.livepaperapi.com/api/v1/triggers"
+      },{
+        "path": "/api/v1/triggers/:trigger-id",
+        "displayName": "Get Trigger",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":trigger-id",
+            "displayName": "Trigger Id",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "enum",
+            "Accept": "application/json",
+            "required": "true"
+          }
+        ],
+        "url": "https://www.livepaperapi.com/api/v1/triggers/:trigger-id"
+      },{
+        "path": "/watermark/v1/triggers/:trigger-id/image",
+        "displayName": "Accessing Watermark Image",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "enum",
+            "Accept": "image/jpg",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "enum",
+            "Accept": "image/jpeg",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "enum",
+            "Accept": "image/png",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":trigger-id",
+            "displayName": "Trigger Id",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "access_token",
+            "displayName": "URL Encoded Token",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "imageUrl",
+            "displayName": "Input Image URL Pointing To File Object Under Link Storage Domain",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "resolution",
+            "displayName": "Watermark Resolution Value For Watermarked Image"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "strength",
+            "displayName": "Watermark Strength Value For Watermarked Image"
+          }
+        ],
+        "url": "https://www.livepaperapi.com/watermark/v1/triggers/:trigger-id/image"
+      },{
+        "path": "/api/v1/triggers/12345/image",
+        "displayName": "Accessing QR Code Image",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "enum",
+            "Accept": "image/jpg",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "enum",
+            "Accept": "image/jpeg",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "enum",
+            "Accept": "image/png",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "access_token",
+            "displayName": "URL Encoded Token Or Pass In Header",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "height",
+            "displayName": "Height Of Image"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "width",
+            "displayName": "Width Of Image"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "margin",
+            "displayName": "Positive Integer"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "errorCorrection",
+            "displayName": "Low, Medium, Quartile & High, Default Is Low"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "scale",
+            "displayName": "If Scale=True, Then Margin Is Ignored",
+            "required": "true"
+          }
+        ],
+        "url": "http://www.livepaperapi.com/api/v1/triggers/12345/image"
+      },{
+        "path": "/api/v1/triggers/:trigger-id",
+        "displayName": "Update Trigger",
+        "httpMethod": "Put",
+        "params": [
+          {
+            "style": "body",
+            "type": "enum",
+            "Accept": "application/json",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "enum",
+            "Content-Type": "application/json",
+            "required": "true"
+          },{
+            "style": "url",
+            "type": "string",
+            "name": ":trigger-id",
+            "displayName": "Trigger Id",
+            "required": "true"
+          }
+        ],
+        "url": "https://www.livepaperapi.com/api/v1/triggers/:trigger-id"
+      },{
+        "path": "/api/v1/triggers",
+        "displayName": "List Triggers",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "enum",
+            "Accept": "application/json",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "offset",
+            "displayName": "Must Be Custom-base64"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "limit",
+            "displayName": "Max Number Of Items That Should Be Included"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "type",
+            "displayName": "Particular Type Of Trigger To Be Fetched (Watermark, QR Code, Shorturl), Default: Fetches All Trigger Types"
+          }
+        ],
+        "url": "https://www.livepaperapi.com/api/v1/triggers"
+      },{
+        "path": "/api/v1/triggers/:trigger-id",
+        "displayName": "Delete Trigger",
+        "httpMethod": "Delete",
+        "params": [
+          {
+            "style": "query",
+            "type": "enum",
+            "Accept": "application/json",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string", 
+            "name": ":trigger-id",
+            "displayName": "ID Of The Trigger",
+            "required": "true"
+          }
+        ],
+        "url": "https://www.livepaperapi.com/api/v1/triggers/:trigger-id"
+      },{
+        "path": "/api/v1/links",
+        "displayName": "Create Link",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "body",
+            "type": "enum",
+            "Content-Type": "application/json",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "enum",
+            "Accept": "application/json",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "name",
+            "displayName": "Name Of Link",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "payoffId",
+            "displayName": "Id Of Payoff To Associate",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "triggerId",
+            "displayName": "Id Of Trigger To Associate",
+            "required": "true"
+          }
+        ],
+        "url": "https://www.livepaperapi.com/api/v1/links"
+      },{
+        "path": "/api/v1/links/:link-id",
+        "displayName": "Get Link",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":link-id",
+            "displayName": "Link Id",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "enum",
+            "Accept": "application/json",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Retrieve Link With Expanded Trigger & Payoff"
+          }
+        ],
+        "url": "https://www.livepaperapi.com/api/v1/payoffs"
+      },{
+        "path": "/api/v1/links",
+        "displayName": "List Links",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "enum",
+            "Accept": "application/json",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "All Or Expand"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "payoff",
+            "displayName": "Filtering List Of Links Based On Given Payoff Id"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "trigger",
+            "displayName": "Filtering List Of Links Based On Given Trigger Id"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "offset",
+            "displayName": "Indicates The Start Index For Paginating"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "limit",
+            "displayName": "Max Number Of Items That Should Be Included"
+          }
+        ],
+        "url": "https://www.livepaperapi.com/api/v1/links"
+      },{
+        "path": "/api/v1/links/:link-id",
+        "displayName": "Update Link",
+        "httpMethod": "Put",
+        "params": [
+          {
+            "style": "body",
+            "type": "enum",
+            "Accept": "application/json",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "enum",
+            "Content-Type": "application/json",
+            "required": "true"
+          },{
+            "style": "url",
+            "type": "string",
+            "name": ":link-id",
+            "displayName": "Link Id",
+            "required": "true"
+          }
+        ],
+        "url": "https://www.livepaperapi.com/api/v1/payoffs"
+      },{
+        "path": "/api/v1/links/:link-id",
+        "displayName": "Delete Link",
+        "httpMethod": "Delete",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":link-id",
+            "displayName": "Link Id",
+            "required": "true"
+          }
+        ],
+        "url": "https://www.livepaperapi.com/api/v1/links/:link-id"
+      },{
+        "path": "/objects/v1/files",
+        "displayName": "File Upload",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "body",
+            "type": "enum",
+            "Accept": "application/json",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "enum",
+            "Content-Type": "application/json",
+            "required": "true"
+          }
+        ],
+        "url": "https://storage.livepaperapi.com/objects/v1/files"
+      },{
+        "path": "/objects/v1/files/234235w45",
+        "displayName": "File Download",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "enum",
+            "Accept": "image/jpg"
+          },{
+            "style": "query",
+            "type": "enum",
+            "Accept": "image/jpeg"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "width",
+            "displayName": "Requested Width In Pixels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "height",
+            "displayName": "Requested Height In Pixels"
+          }
+        ],
+        "url": "https://storage.livepaperapi.com/objects/v1/files/234235w45"
+      },{
+        "path": "/objects/v1/files",
+        "displayName": "File Upload",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "body",
+            "type": "enum",
+            "Content-Type": "image/jpeg",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "enum",
+            "Accept": "application/json",
+            "required": "true"
+          }
+        ],
+        "url": "https://storage.livepaperapi.com/objects/v1/files"
+      },{
+        "path": "/objects/v1/files/234235w45",
+        "displayName": "File Download",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "enum",
+            "Accept": "image/jpg"
+          },{
+            "style": "query",
+            "type": "enum",
+            "Accept": "image/jpeg"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "width",
+            "displayName": "Requested Width In Pixels"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "height",
+            "displayName": "Requested Height In Pixels"
+          }
+        ],
+        "url": "https://storage.livepaperapi.com/objects/v1/files/234235w45"
+      },{
+        "path": "/analytics/v1/links/:link-id",
+        "displayName": "Access Link Analytics",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":link-id",
+            "displayName": "Link Id",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "enum",
+            "Accept": "application/json",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "startDate",
+            "displayName": "Start Date From Which Analytics Are Required"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "endDate",
+            "displayName": "End Date Till Which Analytics Are Required"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "groupBy",
+            "displayName": "Groups The Scan Count Based On Time"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "uniqueDevices",
+            "displayName": "Return Unique Scans For A Given StartDate & EndDate"
+          }
+        ],
+        "url": "https://www.livepaperapi.com/analytics/v1/links/:link-id"
+      },{
+        "path": "/analytics/v1/links/:link-id",
+        "displayName": "Get Scan Count",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":link-id",
+            "displayName": "Link Id",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "enum",
+            "Accept": "application/json",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "startDate",
+            "displayName": "Start Date"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "endDate",
+            "displayName": "End Date"
+          }
+        ],
+        "url": "https://www.livepaperapi.com/api/v1/payoffs"
+      },{
+        "path": "/analytics/v1/links/:link-id",
+        "displayName": "Get Scan Count, Grouping By Week",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":link-id",
+            "displayName": "ID Of The Link",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "enum",
+            "Accept": "application/json",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "startDate",
+            "displayName": "Start Date"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "endDate",
+            "displayName": "End Date"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "groupBy",
+            "displayName": "Group By Week"
+          }
+        ],
+        "url": "https://www.livepaperapi.com/analytics/v1/links/:link-id"
+      },{
+        "path": "/analytics/v1/links/:link-id",
+        "displayName": "Get Count Of Scans From Unique Devices, Grouping By Day",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":link-id",
+            "displayName": "ID Of The Link",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "enum",
+            "Accept": "application/json",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "startDate",
+            "displayName": "Start Date"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "endDate",
+            "displayName": "End Date"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "groupBy",
+            "displayName": "Group By Day"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "uniqueDevices",
+            "displayName": "Unique Devices"
+          }
+        ],
+        "url": "https://www.livepaperapi.com/analytics/v1/links/:link-id"
+      },{
+        "path": "/analytics/v1/triggers/:trigger-id",
+        "displayName": "Access Trigger Analytics",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":trigger-id",
+            "displayName": "ID Of The Trigger",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "enum",
+            "Accept": "application/json",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "startDate",
+            "displayName": "Start Date From Which Analytics Are Required"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "endDate",
+            "displayName": "End Date Till Which Analytics Are Required"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "groupBy",
+            "displayName": "Group The Scan Count Based On Time"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "uniqueDevices",
+            "displayName": "Used With The GroupBy Parameter, Each Item Will Return Unique Scans For A Given StartDate & EndDate"
+          }
+        ],
+        "url": "https://www.livepaperapi.com/analytics/v1/triggers/:trigger-id"
+      },{
+        "path": "/analytics/v1/links/:trigger-id",
+        "displayName": "Get scan count",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":trigger-id",
+            "displayName": "ID Of The Trigger",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "enum",
+            "Accept": "application/json",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "startDate",
+            "displayName": "Start Date"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "endDate",
+            "displayName": "End Date"
+          }
+        ],
+        "url": "https://www.livepaperapi.com/analytics/v1/links/:trigger-id"
+      },
+      {
+        "path": "/analytics/v1/links/:trigger-id",
+        "displayName": "Get Count Of Scans From Unique Devices, Grouping By Day",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":trigger-id",
+            "displayName": "ID Of The Trigger",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "enum",
+            "Accept": "application/json",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "startDate",
+            "displayName": "Start Date"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "endDate",
+            "displayName": "End Date"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "groupBy",
+            "displayName": "Group By Day"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "uniqueDevices",
+            "displayName": "Unique Devices"
+          }
+        ],
+        "url": "https://www.livepaperapi.com/analytics/v1/links/:trigger-id"
+      },{
+        "path": "/analytics/v1/payoffs/:payoff-id",
+        "displayName": "Access Payoff Analytics",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":payoff-id",
+            "displayName": "ID Of The Payoff",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "enum",
+            "Accept": "application/json",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "startDate",
+            "displayName": "Start Date From Which Analytics Are Required"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "endDate",
+            "displayName": "End Date Till Which Analytics Are Required"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "groupBy",
+            "displayName": "Group Scan Count Based On Time (Hour, Day, Week or Month)"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "uniqueDevices",
+            "displayName": "When Used With The groupBy Parameter, Each Item Will Return Unique Scans For A Given Start Date & End Date"
+          }
+        ],
+        "url": "https://www.livepaperapi.com/api/v1/payoffs"
+      },{
+        "path": "/analytics/v1/links/:payoff-id",
+        "displayName": "Get Scan count",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":payoff-id",
+            "displayName": "ID Of The Payoff",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "enum",
+            "Accept": "application/json",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "startDate",
+            "displayName": "Start Date From Which Analytics Are Required"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "endDate",
+            "displayName": "End Date Till Which Analytics Are Required"
+          }
+        ],
+        "url": "https://www.livepaperapi.com/analytics/v1/links/:payoff-id"
+      },{
+        "path": "/analytics/v1/links/:payoff-id",
+        "displayName": "Get Scan Count, Grouping By Week",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":payoff-id",
+            "displayName": "ID Of The Payoff",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "enum",
+            "Accept": "application/json",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "startDate",
+            "displayName": "Start Date"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "endDate",
+            "displayName": "End Date"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "groupBy",
+            "displayName": "Group By Week"
+          }
+        ],
+        "url": "https://www.livepaperapi.com/analytics/v1/links/:payoff-id"
+      },{
+        "path": "/analytics/v1/links/:payoff-id",
+        "displayName": "Get Count Of Scans From Unique Devices, Grouping By Day",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "URL",
+            "type": "string",
+            "name": ":payoff-id",
+            "displayName": "ID Of The Payoff",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "enum",
+            "Accept": "application/json",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "startDate",
+            "displayName": "Start Date"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "endDate",
+            "displayName": "End Date"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "groupBy",
+            "displayName": "Group By Day"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "uniqueDevices",
+            "displayName": "Unique Devices"
+          }
+        ],
+        "url": "https://www.livepaperapi.com/analytics/v1/links/:payoff-id"
+      }
+    ]
+  },
+  "oauth":{
+    "development": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    },
+    "production": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    },
+    "staging": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    }
+  },
+  "auth_strategy": "",
+  "documentation": "https://www.linkcreationstudio.com/developer/documentation/",
+  "enabled": true,
+  "name": "LinkCreationStudio",
+  "isPassport": true,
+  "type": "channel:LinkCreationStudio"
+}
