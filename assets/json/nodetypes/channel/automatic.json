@@ -2,7 +2,7 @@
   "_id": "cc4448af94b97ca266b76f63",
   "category": "channel",
   "description": "",
-  "helpText": "For more help, visit the <a href='https://developer.automatic.com/documentation/#user'>Automatic documentation</a>.",
+  "helpText": "Automatic connects your car to the rest of your digital life",
   "enabled": true,
   "name": "Automatic",
   "skynet": {
