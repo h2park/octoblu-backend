@@ -596,10 +596,10 @@
         "url": "https://api.spotify.com/v1/me/following/contains"
       },
       {
-        "path": "/users/:owner_id/playlists/:playlist_id/followers",
+        "path": "/users/:user_id/playlists/:playlist_id/followers",
         "params": [
           {
-            "name": ":owner_id",
+            "name": ":user_id",
             "displayName": "ID of the Owner of the Playlist.",
             "type": "string",
             "style": "url",
@@ -627,13 +627,13 @@
         "category": "Playlist",
         "displayName": "Follows a playlist.",
         "httpMethod": "PUT",
-        "url": "https://api.spotify.com/v1/users/:owner_id/playlists/:playlist_id/followers"
+        "url": "https://api.spotify.com/v1/users/:user_id/playlists/:playlist_id/followers"
       },
       {
-        "path": "/users/:owner_id/playlists/:playlist_id/followers",
+        "path": "/users/:user_id/playlists/:playlist_id/followers",
         "params": [
           {
-            "name": ":owner_id",
+            "name": ":user_id",
             "displayName": "ID of the Owner of the Playlist.",
             "type": "string",
             "style": "url",
@@ -654,7 +654,7 @@
         "category": "Playlist",
         "displayName": "Unfollows a playlist.",
         "httpMethod": "DELETE",
-        "url": "https://api.spotify.com/v1/users/:owner_id/playlists/:playlist_id/followers"
+        "url": "https://api.spotify.com/v1/users/:user_id/playlists/:playlist_id/followers"
       },
       {
         "path": "/me/tracks",
@@ -884,7 +884,7 @@
         "category": "Tracks",
         "displayName": "Get full details of the tracks of a playlist owned by a Spotify user.",
         "httpMethod": "GET",
-        "url": "https://api.spotify.com/v1/users/:user_id/playlists/:playlist_id/tracks"
+        "url": "https://api.spotify.com/v1/users/:user_id_id/playlists/:playlist_id/tracks"
       },
       {
         "path": "/users/:user_id/playlists",
@@ -1157,7 +1157,7 @@
         "category": "Playlist",
         "displayName": "Check to see if one or more Spotify users are following a specified playlist.",
         "httpMethod": "GET",
-        "url": "https://api.spotify.com/v1/users/:owner_id/playlists/:playlist_id/followers/contains"
+        "url": "https://api.spotify.com/v1/users/:user_id/playlists/:playlist_id/followers/contains"
       }
     ]
   },
