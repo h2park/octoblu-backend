@@ -9,6 +9,6 @@
     "type": "device",
     "subtype": "intelaim"
   },
-  "connector": "meshblu-intelaim",
+  "connector": "meshblu-aim",
   "type": "device:intelaim"
 }
