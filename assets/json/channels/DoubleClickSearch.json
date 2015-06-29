@@ -1,8 +1,8 @@
 {
-  "_id": "54611b01e25a5834531cbbe3",
+  "_id": "40f9dd2f955243aa8dc20bd21d865fb3",
+  "name": "DoubleClickSearch",
   "type": "channel:doubleclicksearch",
   "auth_strategy": "oauth",
-  "name": "DoubleClickSearch",
   "oauth": {
     "tokenMethod" : "access_token_query"
   },
