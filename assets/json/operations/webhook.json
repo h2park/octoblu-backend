@@ -8,5 +8,6 @@
   "defaults": {},
   "input": 0,
   "output": 1,
+  "enabled": false,
   "formTemplatePath": "/pages/node_forms/webhook_form.html"
 }

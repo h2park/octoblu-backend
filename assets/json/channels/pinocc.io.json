@@ -5,7 +5,7 @@
   "auth_strategy": "",
   "documentation": "https://docs.pinocc.io/api.html",
   "name": "Pinocc.io",
-  "enabled": true,
+  "enabled": false,
   "oauth": {
     "development": {
       "clientID": "",
