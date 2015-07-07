@@ -12,25 +12,17 @@ desiredState:
       never: {}
     containers:
       - name: docker-builder-$SHORT_COMMIT
-        image: octoblu/dind-codedeploy
+        image: octoblu/dind-codedeploy-quay-io
         volumeMounts:
           - name: docker-sock
             mountPath: /var/run/docker.sock
         env:
-          - name: NODE_ENV
-            value: "production"
-          - name: SKIP_CLEAN
-            value: "true"
-          - name: GIT_REPO
-            value: $GIT_REPO
-          - name: GIT_TAG
-            value: $TRAVIS_COMMIT
-          - name: IMAGE_NAME
-            value: $TRAVIS_REPO_SLUG:$SHORT_COMMIT
-          - name: USERNAME
-            value: $DOCKER_USERNAME
-          - name: PASSWORD
-            value: $DOCKER_PASSWORD
+          - name: QUAY_TOKEN
+            value: $QUAY_TOKEN
+          - name: QUAY_REPOSITORY
+            value: $TRAVIS_REPO_SLUG
+          - name: QUAY_TAG
+            value: $TRAVIS_TAG
           - name: DEPLOY_APPLICATION_NAME
             value: $DEPLOY_APPLICATION_NAME
           - name: DEPLOY_REGION
@@ -45,8 +37,3 @@ desiredState:
             value: $AWS_ACCESS_KEY_ID
           - name: AWS_SECRET_ACCESS_KEY
             value: $AWS_SECRET_ACCESS_KEY
-    volumes:
-      - name: docker-sock
-        source:
-          hostDir:
-            path: /var/run/docker.sock
