@@ -15,15 +15,17 @@ class TopicSummary
       uuids.unshift @ownerUuid
       When.promise (resolve, reject) =>
         params = @requestParams uuids
-        @request params, (error, response, body) =>
-          return reject error if error?
-          unless response.statusCode == 200
-            error = new Error('elasticsearch error')
-            error.statusCode    = response.statusCode
-            error.body          = response.body
-            error.requestParams = params
-            return reject error
-          resolve @parseResponse body
+        return resolve []
+
+        # @request params, (error, response, body) =>
+        #   return reject error if error?
+        #   unless response.statusCode == 200
+        #     error = new Error('elasticsearch error')
+        #     error.statusCode    = response.statusCode
+        #     error.body          = response.body
+        #     error.requestParams = params
+        #     return reject error
+        #   resolve @parseResponse body
 
   parseResponse: (response) =>
     _.map response.aggregations.topic_summary.topics.buckets, (bucket) =>
