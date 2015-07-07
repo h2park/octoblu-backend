@@ -1,7 +1,7 @@
 {
   "_id": "53c9b839f400e177dca325c8",
   "category": "channel",
-  "categories": ["Work"],
+  "categories": ["Social"],
   "description": "",
   "helpText": "A web-based Git repository hosting service, which offers all of the distributed revision control and source code management functionality of Git as well as adding its own features.",
   "enabled": true,

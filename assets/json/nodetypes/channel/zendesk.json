@@ -1,7 +1,7 @@
 {
   "_id": "4623fff30392d6c7118eb37",
   "category": "channel",
-  "categories": ["Work"],
+  "categories": ["Office"],
   "description": "Zendesk",
   "helpText": "Software for better customer service.",
   "enabled": true,

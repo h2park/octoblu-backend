@@ -1,7 +1,7 @@
 {
   "_id": "53c9b831f400e177dca325b0",
   "category": "device",
-  "categories":["Work"],
+  "categories":["Octoblu"],
   "description": "Meshblu device connection manager",
   "helpText": "Meshblu device connection manager.",
   "enabled": true,

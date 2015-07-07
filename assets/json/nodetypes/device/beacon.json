@@ -1,7 +1,7 @@
 {
   "_id": "5557c75bd09572cd87af1ed9",
   "category": "device",
-  "categories":["Robotics"],
+  "categories":["Maker"],
   "description": "Gateblu Beacon",
   "helpText": "Gateblu plugin for scanning beacons.",
   "enabled": true,

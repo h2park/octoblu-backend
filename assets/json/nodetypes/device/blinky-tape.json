@@ -1,6 +1,7 @@
 {
   "_id": "5595920af0dd9a2e968a8a9b",
   "category": "device",
+  "categories": ["Maker"],
   "description": "BlinkyTape USB LED Light",
   "helpText": "A stripe of colorful LEDs, easily programable.",
   "enabled": true,

@@ -1,7 +1,7 @@
 {
   "_id": "518848988ddcbc59718772e7",
   "category": "channel",
-  "categories": ["Work"],
+  "categories": ["Productivity"],
   "description": "",
   "helpText": "A build environment that provides different runtimes for different languages, for instance multiple versions of Ruby, PHP, and Node.js.",
   "enabled": true,
