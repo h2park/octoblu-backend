@@ -1,5 +1,6 @@
 #!/bin/bash
-source ./env
+SCRIPT_DIR=`dirname $0`
+source $SCRIPT_DIR/env
 
 WAITING=true
 COUNT=0
@@ -19,5 +20,3 @@ while $WAITING; do
     exit 1
   fi
 done
-
-aws deploy create-deployment --application-name ${DEPLOY_APPLICATION_NAME} --region ${DEPLOY_REGION} --deployment-group ${DEPLOYMENT_GROUP} --revision "{\"revisionType\":\"S3\", \"s3Location\": {\"bucket\": \"${DEPLOY_BUCKET}\", \"key\": \"${DEPLOY_KEY}\", \"bundleType\": \"zip\"}}"
