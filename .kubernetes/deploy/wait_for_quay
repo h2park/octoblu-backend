@@ -1,7 +1,6 @@
 #!/bin/bash
-source env
+source ./env
 
-QUAY_TAG=$TRAVIS_TAG
 WAITING=true
 COUNT=0
 

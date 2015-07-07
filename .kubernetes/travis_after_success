@@ -6,7 +6,7 @@ export DOCKER_LABEL_NAME=`echo $TRAVIS_REPO_SLUG | sed 's/\//\./g'`
 REPLACE_REGEX='s;(\\*)(\$([a-zA-Z_][a-zA-Z_0-9]*)|\$\{([a-zA-Z_][a-zA-Z_0-9]*)\})?;substr($1,0,int(length($1)/2)).($2&&length($1)%2?$2:$ENV{$3||$4});eg'
 
 mkdir -p dpl_cd_upload/octoblu
-env > .kubernetes/deploy/env
+perl -pe $REPLACE_REGEX .kubernetes/deploy/env.tmpl > .kubernetes/deploy/env
 perl -pe $REPLACE_REGEX .kubernetes/deploy/appspec.yml.tmpl > .kubernetes/deploy/appspec.yml
 perl -pe $REPLACE_REGEX .kubernetes/deploy/octoblu-blue-controller.yaml.tmpl > .kubernetes/deploy/octoblu-blue-controller.yaml
 perl -pe $REPLACE_REGEX .kubernetes/deploy/octoblu-green-controller.yaml.tmpl > .kubernetes/deploy/octoblu-green-controller.yaml

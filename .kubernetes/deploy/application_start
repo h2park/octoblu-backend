@@ -7,7 +7,7 @@ export PATH=/usr/local/bin:$PATH
 
 $SCRIPT_DIR/wait_for_quay
 
-if  [ $? -neq 0 ]; then
+if  [ $? -ne 0 ]; then
   echo "Waiting for quay failed, exiting."
   exit 1
 fi
