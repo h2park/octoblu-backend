@@ -10,6 +10,13 @@ if ((process.env.USE_APP_DYNAMICS || 'false').toLowerCase() === 'true') {
   require('./config/appdynamics.js');
 }
 
+if (process.env.NODE_ENV === 'production') {
+  require('nodetime').profile({
+    accountKey: '60365e1c40570f2f9e9e05586d8cda6fee19b4c8',
+    appName: 'Octoblu'
+  });
+}
+
 var express        = require('express');
 var path           = require('path');
 var errorhandler   = require('errorhandler');
