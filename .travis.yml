@@ -56,10 +56,10 @@ deploy:
   access_key_id: AWS_ACCESS_KEY_ID
   secret_access_key: *1
   bucket: octoblu-deploy
-  key: docker-builder/octoblu-$TRAVIS_COMMIT.zip
+  key: octoblu/octoblu-$TRAVIS_COMMIT.zip
   bundle_type: zip
   region: us-west-2
-  application: docker-builder
+  application: octoblu
   deployment_group: octoblu
   on:
     tags: true
