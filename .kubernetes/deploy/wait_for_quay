@@ -9,7 +9,7 @@ echo "Looking for $QUAY_REPOSITORY:$QUAY_TAG"
 
 while $WAITING; do
   sleep 5
-  STATUS=`curl --silent -L -H "Authorization: Bearer $QUAY_TOKEN" https://quay.io/api/v1/repository/$QUAY_REPOSITORY/build | jq -r ".builds[] | if (.tags | contains([\"$QUAY_TAG\"])) then .phase else \"not-found\" end"`
+  STATUS=`curl --silent -L -H "Authorization: Bearer $QUAY_TOKEN" https://quay.io/api/v1/repository/$QUAY_REPOSITORY/build | jq -r ".builds | map(select(.tags | contains([\"$QUAY_TAG\"])))[0].phase"`
   echo "Got Status: $STATUS"
   if [ "$STATUS" == 'complete' ]; then
     WAITING=false
