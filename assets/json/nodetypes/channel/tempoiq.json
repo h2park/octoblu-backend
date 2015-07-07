@@ -1,6 +1,7 @@
 {
   "_id": "5524219ee85c1cec24d61a36",
   "category": "channel",
+  "categories": ["Work"],
   "description": "TempoIQ",
   "helpText": "APIs to collect, monitor, analyze, & store sensor data in realtime",
   "enabled": true,

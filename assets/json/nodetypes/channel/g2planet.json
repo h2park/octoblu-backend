@@ -1,6 +1,7 @@
 {
   "_id": "ccee44abafc8a52611ad01a7",
   "category": "channel",
+  "categories": ["Work"],
   "description": "Badge Reader",
   "helpText": "Reads Badge ID's",
   "enabled": true,

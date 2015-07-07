@@ -1,6 +1,7 @@
 {
   "_id": "1f284cf69ab2799ee3da4a91",
   "category": "channel",
+  "categories": ["Work"],
   "description": "",
   "enabled": true,
   "helpText": "For more help, visit the <a href='https://developer.octoblu.com'>Meshblu documentation</a>.",

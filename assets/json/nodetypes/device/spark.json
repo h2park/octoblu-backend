@@ -1,6 +1,7 @@
 {
   "_id": "53c9b830f400e177dca325ab",
   "category": "device",
+  "categories":[""],
   "description": "Spark device",
   "helpText": "Microblu for spark core device.",
   "enabled": true,

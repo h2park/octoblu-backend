@@ -1,6 +1,7 @@
 {
   "_id": "4251418bac23bc96fe6577b1",
   "category": "device",
+  "categories":[""],
   "description": "Node Copter",
   "helpText": "Plugin for remote controlling drones.",
   "enabled": true,

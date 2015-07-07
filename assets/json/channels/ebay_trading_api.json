@@ -1,0 +1,1154 @@
+{
+  "_id": "325729102840wfjwr2394952",
+  "type": "channel:ebay_trading_api",
+  "auth_strategy": "",
+  "bodyFormat": "json",
+  "name": "ebay_trading_api",
+  "documentation URL": "http://developer.ebay.com/DevZone/XML/docs/Reference/eBay/",
+  "oauth": {
+    "development": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    },
+    "staging": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    },
+    "production": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    }
+  },
+  "application": {
+    "base": "http://open.api.ebay.com/tracking",
+    "resources": [
+      {
+        "path": "/AddDispute",
+        "displayName": "Enables A Seller To Create An Unpaid Item Case Against A Buyer Or To Cancel A Single Line Item Order",
+        "httpMethod": "Post",
+        "params": [{
+            "style": "body",
+            "type": "enum",
+            "name": "DisputeExplanation",
+            "displayName": "Gives The Explanation Of Why The Buyer/ Seller Opened A Case",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "DisputeReason",
+            "displayName": "The Type Of Dispute Being Created",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "ItemID",
+            "displayName": "Unique Identifier For An eBay Item Listing"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "OrderLineItemID",
+            "displayName": "Unique Identifier Of An Order Line Item & Is Based Upon The Concatenation Of ItemID & TransactionID"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "TransactionID",
+            "displayName": "Unique Identifier Of An Order Line Item"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "ErrorLanguage",
+            "displayName": " To Return Error Strings For The Call In A Different Language From The Language Commonly Associated With The Site"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "MessageID",
+            "displayName": "Tracks A Response"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Version",
+            "displayName": "Version Number Of The API Code That You Are Programming Against"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "WarningLevel",
+            "displayName": "Controls Whether Or Not To Return Warnings When The App Passes Unrecognized/ Deprecated Elements"
+          }],
+        "url": "http://open.api.ebay.com/tracking/AddDispute"
+      },{
+        "path": "/AddDisputeResponse",
+        "displayName": "Allows A Seller To Respond To An Item Not Received Dispute Opened By A Buyer Through PayPal's Purchase Protection Program Or To Update An Unpaid Item Dispute",
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "body",
+            "type": "enum",
+            "name": "DisputeActivity",
+            "displayName": "Type Of Activity The Seller Is Taking On The Dispute",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "DisputeID",
+            "displayName": "Unique Identifier Of The eBay Or PayPal Dispute",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "MessageText",
+            "displayName": "Text Of A Comment/ Response Being Posted To The Dispute"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "ShipmentTrackNumber",
+            "displayName": "Tracking Number Associated With One Package Of A Shipment"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "ShippingCarrierUsed",
+            "displayName": "Shipping Carrier Used To Ship The Item In Dispute"
+          },{
+            "style": "body",
+            "type": "dateTime",
+            "name": "ShippingTime",
+            "displayName": "Timestamp Indicates The Date & Time When The Item Under Dispute Was Shipped"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "ErrorLanguage",
+            "displayName": "ErrorLanguage To Return Error Strings For The Call In A Different Language From The Language Commonly Associated With The Site"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "MessageID",
+            "displayName": "Tracks A Response"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Version",
+            "displayName": "Version Number Of The API Code That You Are Programming Against"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "WarningLevel",
+            "displayName": "Controls Whether Or Not To Return Warnings When The App Passes Unrecognized/ Deprecated Elements"
+          }
+        ],
+        "url": "http://open.api.ebay.com/tracking/AddDisputeResponse"
+      },
+      {
+        "path": "/AddFixedPriceItem",
+        "displayName": "To Define & List A New Fixed-Price Item",
+        "httpMethod": "Post",
+        "params": [{
+            "style": "body",
+            "type": "ItemType",
+            "name": "Item",
+            "displayName": "Root Container Holding All Values That Define A New Fixed-Price Listing",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.ApplicationData",
+            "displayName": "Returns Custom, Application-Specific Data Associated With The Item"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "Item.AutoPay",
+            "displayName": "Create A Requirement That A Buyer Pays Immediately (Through PayPal Or PaisaPay) For An Auction (Buy It Now Only) Or Fixed-Price Item"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.BestOfferDetails",
+            "displayName": "Enable The Best Offer Feature On A Listing"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "Item.BestOfferDetails.BestOfferEnabled",
+            "displayName": "Indicates Whether Or Not Best Offer Feature Is Enabled For This Item"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.BuyerRequirementDetails",
+            "displayName": "When This Container Is Present In An AddItem/ AddFixedPriceItem Call, All Buyer Requirements For The Resulting Listing Are Set By This Container"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "Item.BuyerRequirementDetails.LinkedPayPalAccount",
+            "displayName": "Seller Includes & Sets This Field To 'True' As A Mechanism To Block Bidders Who Do Not Have A PayPal Account Linked To Their eBay Account"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.BuyerRequirementDetails.MaximumBuyerPolicyViolations",
+            "displayName": "Seller Uses This As A Mechanism To Block Prospective Buyers Who Have One Or More Buyer Policy Violations On Their Account During A Specified Time Period"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "Item.BuyerRequirementDetails.MaximumBuyerPolicyViolations.Count",
+            "displayName": "Sets The Max Number Of Buyer Policy Violations That A Prospective Buyer Is Allowed To Have During A Specified Time Period Before Being Blocked From Buying/Bidding On The Item"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.BuyerRequirementDetails.MaximumBuyerPolicyViolations.Period",
+            "displayName": "Defines The Length Of Time Over Which A Prospective Buyer's Buyer Policy Violations Will Be Counted"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.BuyerRequirementDetails.MaximumItemRequirements",
+            "displayName": "Seller Uses This Container As A Mechanism To Restrict The Number Of Items A Prospective Buyer Can Purchase From The Seller During A 10-Day Period"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "Item.BuyerRequirementDetails.MaximumItemRequirements.MaximumItemCount",
+            "displayName": "Value Of This Field Specifies The Max Number Of Items A Prospective Buyer Can Purchase From The Seller During A 10-Day Period"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "Item.BuyerRequirementDetails.MaximumItemRequirements.MinimumFeedbackScore",
+            "displayName": "Prospective Buyer Is Blocked From Bidding/Buying If They Have Reached/ Exceeded The MaximumItemCount & Their Feedback Score Is Less Than The Value Of This Field"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.BuyerRequirementDetails.MaximumUnpaidItemStrikesInfo",
+            "displayName": "Uses This To Block Prospective Buyers Who Have One Or More Unpaid Item Strikes On Their Account During A Specified Time Period"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "Item.BuyerRequirementDetails.MaximumUnpaidItemStrikesInfo.Count",
+            "displayName": "Sets The Max Number Of Unpaid Item Strikes That A Prospective Buyer Is Allowed To Have During A Specified Time Period Before Being Blocked From Buying/Bidding On The Item"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.BuyerRequirementDetails.MaximumUnpaidItemStrikesInfo.Period",
+            "displayName": "Defines Length Of Time Over Which A Prospective Buyer's Unpaid Item Strikes Will Be Counted"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "Item.BuyerRequirementDetails.MinimumFeedbackScore",
+            "displayName": "Seller Includes This Field As A Mechanism To Block Bidders Who Have A Feedback Score Less Than The Specified Value"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.BuyerRequirementDetails.ShipToRegistrationCountry",
+            "displayName": "Block Bidders Who Reside (According To Their eBay Primary Shipping Address) In Countries That Are On The Ship-To Exclusion List"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.BuyerRequirementDetails.VerifiedUserRequirements",
+            "displayName": "Seller Uses This As A Mechanism To Block Prospective Buyers Who Are Not Verified Users On PayPal, Or In The Case Of eBay India, Not Verified Users On PaisaPay"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "Item.BuyerRequirementDetails.VerifiedUserRequirements.MinimumFeedbackScore",
+            "displayName": "To Block Verified Users Who Have A Feedback Score Less Than The Specified Value"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "Item.BuyerRequirementDetails.VerifiedUserRequirements.VerifiedUser",
+            "displayName": "To Block Non-Verified Users From Buying/Bidding On Their Items, The Seller Should Include This Field & Set Its Value To True"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "Item.BuyerRequirementDetails.ZeroFeedbackScore",
+            "displayName": "Only Available To Sellers On The China Site & Is Only Applicable To Fixed-Price/ Auction Buy It Now Items"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "Item.CategoryBasedAttributesPrefill",
+            "displayName": "Field Is Included In The Request & Set To 'True', eBay Will Auto-Fill Some Of A Listing's Item Specifics Values Based On The Listing's Category (Or Categories)"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "Item.CategoryMappingAllowed",
+            "displayName": "Controls How eBay Handles Cases In Which An Category ID Specified In PrimaryCategory & Or SecondaryCategory No Longer Exists In The Current Category Structure"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.Charity",
+            "displayName": "Identifies A Giving Works Listing & The Benefiting Nonprofit Charity Organization Selected By The Charity Seller (If Any)"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.Charity.CharityID",
+            "displayName": "Unique ID Number Assigned By eBay To Registered Nonprofit Charity Organizations"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "Item.Charity.CharityNumber",
+            "displayName": "Unique ID Assigned To A Nonprofit Charity Organization"
+          },{
+            "style": "body",
+            "type": "float",
+            "name": "Item.Charity.DonationPercent",
+            "displayName": "Percentage Of The Purchase Price That The Seller Chooses To Donate To The Selected Nonprofit Organization"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.ConditionDescription",
+            "displayName": "Used By The Seller To More Clearly Describe The Condition Of Items That Are Not Brand New"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.Country",
+            "displayName": "Two-Letter Code That Represents The Country In Which The Item Is Located",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.CrossBorderTrade",
+            "displayName": "Used By Sellers Who Want Their Listing To Be Returned In The Search Results For Other eBay Sites"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.Currency",
+            "displayName": "Currency Associated With The Item's Price info. 3-Letter ISO 4217 Currency Code That Corresponds To The Site Specified In The Listing Request",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.Description",
+            "displayName": "Used By The Seller To Provide A Description Of The Item. In Listing Requests, You Can Submit Your Description Using CDATA If You Want To Use HTML Or XML-Reserved Characters In The Description"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "Item.DisableBuyerRequirements",
+            "displayName": "If True All Buyer Requirements Are Ignored"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.DiscountPriceInfo",
+            "displayName": "This Container Provides Info For An Item That Has A Strikethrough Price (STP) Or A Min Advertised Price (MAP) Discount Pricing Treatment"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.DiscountPriceInfo.MadeForOutletComparisonPrice",
+            "displayName": "Applicable Only If The Item Was Specifically Made For Sale Through Dedicated eBay Outlet Pages"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.DiscountPriceInfo.MinimumAdvertisedPrice",
+            "displayName": "Minimum Advertised Price (MAP) Is An Agreement Between Suppliers (Or Manufacturers (OEM)) & The Retailers (Sellers) Stipulating The Lowest Price An Item Is Allowed To Be Advertised At"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.DiscountPriceInfo.MinimumAdvertisedPriceExposure",
+            "displayName": "Buyer Can Either Click On A Pop-Up On eBay's View Item Page Or The Discount Price Will Be Shown During Checkout"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.DiscountPriceInfo.OriginalRetailPrice",
+            "displayName": "Compare The StartPrice/BuyItNowPrice To OriginalRetailPrice To Determine The Amount Of Savings To The Buyer"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "Item.DiscountPriceInfo.SoldOffeBay",
+            "displayName": "Used By The eBay UK & eBay Germany Sites, This Flag Indicates That The Discount Price (Specified As StartPrice)"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.DiscountPriceInfo.SoldOneBay",
+            "displayName": "Item Discount Price Info Sold One Bay"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "Item.DispatchTimeMax",
+            "displayName": "Specifies The Max Number Of Business Days The Seller Commits To For Preparing An Item To Be Shipped After Receiving A Cleared Payment"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "Item.eBayNowEligible",
+            "displayName": "Add/Revise/Relist Calls To Enable The Listing For eBay Now Delivery"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "Item.GiftIcon",
+            "displayName": "GiftIcon Must Be Included At Listing Time & Set To '1' To Be Able To Use One Or More GiftServices Options"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.GiftServices",
+            "displayName": "Field Allows The Seller To Offer Optional Gift Services To The Buyer"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.HitCounter",
+            "displayName": "Indicates Whether An Optional Hit Counter Is Displayed On The Item's Listing Page & If So, What Type"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "Item.IncludeRecommendations",
+            "displayName": "Included & Set To True In The Request Of An Add/Revise/Relist/Verify API Call, The Call Response Will Include Any Listing Recommendations That Will Help The Seller Improve The Quality Of The Listing"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.InventoryTrackingMethod",
+            "displayName": "Indicates Whether You Prefer To Track Your eBay Listings By eBay Item ID Or By Your Own SKU"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.ItemCompatibilityList",
+            "displayName": "A List Of Parts Compatibility Info Specified As Name & Value Pairs"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.ItemCompatibilityList.Compatibility",
+            "displayName": "Details For An Individual Compatible App, Consisting Of The Name-Value Pair & Related Compatibility Notes"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.ItemCompatibilityList.Compatibility.CompatibilityNotes",
+            "displayName": "To Specify The Placement Of The Part On A Vehicle Or The Type Of Vehicle A Part Fits"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.ItemCompatibilityList.Compatibility.NameValueList",
+            "displayName": "A Name-Value Pair Describing A Single Compatible Application"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.ItemCompatibilityList.Compatibility.NameValueList.Name",
+            "displayName": "A Name In A Name/Value Pair"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.ItemCompatibilityList.Compatibility.NameValueList.Value",
+            "displayName": "A Value Associated With The Name"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.ItemSpecifics",
+            "displayName": "A List Of Item Specific Name & Value Pairs That The Seller Specified For The Item"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.ItemSpecifics.NameValueList",
+            "displayName": "Item Specifics Name Value List"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.ItemSpecifics.NameValueList.Name",
+            "displayName": "A Name In A Name/Value Pair"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.ItemSpecifics.NameValueList.Value",
+            "displayName": "A Value Associated With The Name"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.ListingCheckoutRedirectPreference",
+            "displayName": "Container Consisting Of The ProStores Store Name & User Name"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.ListingCheckoutRedirectPreference.ProStoresStoreName",
+            "displayName": "The Name Of The ProStores Store"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.ListingCheckoutRedirectPreference.SellerThirdPartyUsername",
+            "displayName": "The Username Of The ProStores Store"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.ListingDesigner",
+            "displayName": "Contains Detail Data For The Listing Designer Theme & Template, Which Can Optionally Be Used To Enhance The Appearance Of The Description Area Of An Item's Description"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "Item.ListingDesigner.LayoutID",
+            "displayName": "Identifies The Layout Template To Use When Displaying The Item's Description"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "Item.ListingDesigner.OptimalPictureSize",
+            "displayName": "If True, Indicates That The Item's Picture Will Be Enlarged To Fit Description Of The Item"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "Item.ListingDesigner.ThemeID",
+            "displayName": "ID For The Listing Designer Theme Template To Use When Displaying The Item's Description"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.ListingDetails",
+            "displayName": "Various Details About A Listing, Some Of Which Sre Calculated Or Derived After The Item Is Listed"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.ListingDetails.BestOfferAutoAcceptPrice",
+            "displayName": "The Price At Which Best Offers Are Automatically Accepted"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.ListingDetails.LocalListingDistance",
+            "displayName": "Specifies A Distance (In Miles) Used As The Radius Of The Area About The Supplied Postal Code That Constitutes The Local Market"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.ListingDetails.MinimumBestOfferPrice",
+            "displayName": "Specifies The Min Acceptable Best Offer Price"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.ListingDuration",
+            "displayName": "Describes Number Of Days Seller Wants The Listing To Be Active (Available For Bidding/Buying)",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.ListingEnhancement",
+            "displayName": "Used By Seller To Activate One Or More Listing Upgrades For A Listing, Such As A Bold Title, A Subtitle, Or A Value Pack Bundle"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.ListingType",
+            "displayName": "Format Of The Listing The Seller Wants To Use, Such As Auction Style Or Fixed Price"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.Location",
+            "displayName": "Indicates Geographical Location Of The Item (Along With Country) To Be Displayed On eBay Listing Pages"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.PaymentMethods",
+            "displayName": "Identifies Payment Method (Such As PayPal) That The Seller Will Accept When The Buyer Pays For The Item"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.PayPalEmailAddress",
+            "displayName": "Valid PayPal Email Address For The PayPal Account That The Seller Will Use If They Offer PayPal As A Payment Method For The Listing"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.PickupInStoreDetails",
+            "displayName": "Used In Add/Revise/Relist Calls To Enable The Listing For In-Store Pickup Via The EligibleForPickupInStore Boolean Field"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "Item.PickupInStoreDetails.EligibleForPickupDropOff",
+            "displayName": "Used In Add/Revise/Relist Calls To Enable The Listing For The (Click & Collect) Feature"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "Item.PickupInStoreDetails.EligibleForPickupInStore",
+            "displayName": "Used In Add/Revise/Relist Calls To Enable The Listing For In-Store Pickup"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.PictureDetails",
+            "displayName": "Contains The Data For Pictures Associated With An Item",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.PictureDetails.GalleryDuration",
+            "displayName": "Number Of Days That The Featured Gallery Type Applies To A Listing"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Specifies The Gallery Enhancement Type For The Listing",
+            "displayName": "Available Items Only"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.PictureDetails.GalleryURL",
+            "displayName": "The Gallery Image Is Always The First PictureURL Passed In & This Field Is Set To That Value"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.PictureDetails.PhotoDisplay",
+            "displayName": "Specifies The Type Of Image Display Used In A Listing"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.PictureDetails.PictureSource",
+            "displayName": "This Info Is Primarily Useful For Picture Manager Subscribers, Who Pay A Flat Subscription Fee Instead of individual picture fees per listing"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "Item.PictureDetails.PictureURL",
+            "displayName": "Contains URL For A Picture Of The Item"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.PostalCode",
+            "displayName": "Postal Code Of The Place Where The Item Is Located"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "Item.PostCheckoutExperienceEnabled",
+            "displayName": "Reserved For Future Use"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.PrimaryCategory",
+            "displayName": "Category ID For The First (Or Only) Category In Which The Item Is Listed (Or Will Be Listed, If The Item Is New)",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.PrimaryCategory.CategoryID",
+            "displayName": "Distinct Numeric ID For A Category On eBay",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "Item.PrivateListing",
+            "displayName": "Used By Seller In The Add/Relist/Revise Family Of Calls To Obscure Item Title, Item ID, & Item Price From Post-Order Feedback Comments Left By Buyers"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.PrivateNotes",
+            "displayName": "A Note A User Makes On An Item In Their My eBay Account"
+          },{
+            "style": "body",
+            "type": "enum",
+            "name": "Item.ProductListingDetails",
+            "displayName": "Specifies Stock Product Info To Include In A Listing"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.ProductListingDetails.BrandMPN",
+            "displayName": "The Combo Of Brand & MPN (Manufacturer Part Number) Can Be Used As A Unique Identifier For A Product"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.ProductListingDetails.BrandMPN.Brand",
+            "displayName": "The Brand Of The Product"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.ProductListingDetails.BrandMPN.MPN",
+            "displayName": "The Manufacturer Part Number Of The Product"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.ProductListingDetails.EAN",
+            "displayName": "EAN (European Article Number) Is A Unique 8 or 13 Digit Identifier That Many Industries (Such As Book Publishers) Use To Identify Products"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "Item.ProductListingDetails.IncludePrefilledItemInformation",
+            "displayName": "If True, Specifies That The Listing Should Include Additional Information About The Product, Such As A Publisher's Description Or Film Credits"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "Item.ProductListingDetails.IncludeStockPhotoURL",
+            "displayName": "When Set To True In The Add/Relist/Revise Calls, Causes Stock Photo Of The Item (If Available) To Be Used In The Listing"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.ProductListingDetails.ISBN",
+            "displayName": "ISBN (International Standard Book Number) Unique 10-13-Character Id For Books"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.ProductListingDetails.ProductID",
+            "displayName": "eBay's Unique Identifier For A Specific Version Of A Product"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "Item.ProductListingDetails.ProductReferenceID",
+            "displayName": "eBay's Short Global Reference ID For A Catalog Product"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "Item.ProductListingDetails.ReturnSearchResultOnDuplicates",
+            "displayName": "Indicates What eBay Should Do If More Than One Product Matches The External Product ID (ISBN, UPC, EAN, BrandMPN, or TicketListingDetails)"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.ProductListingDetails.TicketListingDetails",
+            "displayName": "Only Applicable When You Are Listing Event Tickets"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.ProductListingDetails.TicketListingDetails.EventTitle",
+            "displayName": "The Name Of The Event, As Shown On The Ticket"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.ProductListingDetails.TicketListingDetails.PrintedDate",
+            "displayName": "The Date Of The Event, As Shown On The Ticket"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.ProductListingDetails.TicketListingDetails.PrintedTime",
+            "displayName": "The Time Of The Event, As Shown On The Ticket"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.ProductListingDetails.TicketListingDetails.Venue",
+            "displayName": "The Name Of The Venue, As Shown On The Ticket"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.ProductListingDetails.UPC",
+            "displayName": "UPC (Universal Product Code) Is A Unique, 12-Character Identifier That Many Industries Use To Identify Products"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "Item.ProductListingDetails.UseFirstProduct",
+            "displayName": "Indicates What eBay Should Do If More Than One Product In The eBay Product Catalog Matches The External Product ID (ISBN, UPC, EAN, BrandMPN, or TicketListingDetails)"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "Item.ProductListingDetails.UseStockPhotoURLAsGallery",
+            "displayName": "If Set To True, Causes The Stock Photo Of The Item To Be Used As The Gallery Thumbnail"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "Item.Quantity",
+            "displayName": "The Value Indicates Quantity Of Items Available For Purchase In The Listing"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.QuantityInfo",
+            "displayName": "Used To Set The Min Number Of Event Tickets That Should Remain Available After A Buyer Makes A Purchase"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "Item.QuantityInfo.MinimumRemnantSet",
+            "displayName": "Enables The Seller To Avoid Being Left With 1 Item In Your Listing"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.QuantityRestrictionPerBuyer",
+            "displayName": "Seller To Restrict The Quantity Of Items That May Be Purchased By One Buyer During The Duration Of A Fixed-Price Listing (Single Or Multi-Variation)"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "Item.QuantityRestrictionPerBuyer.MaximumQuantity",
+            "displayName": "Indicates Maximum Quantity Of Items That A Single Buyer May Purchase During Duration Of A Fixed-Price Listing (Single/ Multi-Variation)"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.ReturnPolicy",
+            "displayName": "Container That Describes The Seller's Return Policy"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.ReturnPolicy.Description",
+            "displayName": "Explanation Of Seller's Return Policy"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Item.ReturnPolicy.EAN",
+            "displayName": "The European Article Number (EAN) Associated With Item, If Any"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "Item.ReturnPolicy.ExtendedHolidayReturns",
+            "displayName": "Enables A Holiday Returns Policy For The Item"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "Item.ReturnPolicy.RefundOption",
+            "displayName": "Indicates How The Seller Will Compensate The Buyer For A Returned Item"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "Item.ReturnPolicy.RestockingFeeValueOption",
+            "displayName": "Indicates The Restocking Fee Charged By The Seller For Returned Items"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "AvailableItemsOnly",
+            "displayName": "Available Items Only"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "AvailableItemsOnly",
+            "displayName": "Available Items Only"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "AvailableItemsOnly",
+            "displayName": "Available Items Only"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "AvailableItemsOnly",
+            "displayName": "Available Items Only"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "AvailableItemsOnly",
+            "displayName": "Available Items Only"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "AvailableItemsOnly",
+            "displayName": "Available Items Only"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "AvailableItemsOnly",
+            "displayName": "Available Items Only"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "AvailableItemsOnly",
+            "displayName": "Available Items Only"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "AvailableItemsOnly",
+            "displayName": "Available Items Only"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "AvailableItemsOnly",
+            "displayName": "Available Items Only"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "AvailableItemsOnly",
+            "displayName": "Available Items Only"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "AvailableItemsOnly",
+            "displayName": "Available Items Only"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "AvailableItemsOnly",
+            "displayName": "Available Items Only"
+          }],
+        "url": "http://open.api.ebay.com/tracking/AddFixedPriceItem"
+      },
+      {
+        "path": "/FindProducts",
+        "displayName": "Searches For Stock Catalog Info For Products",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "boolean",
+            "name": "AvailableItemsOnly",
+            "displayName": "Available Items Only"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "CategoryID",
+            "displayName": "Restrict Your Query To A Specific Category"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "DomainName",
+            "displayName": "A Domain To Search In"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "HideDuplicateItems",
+            "displayName": "Specifies Whether Or Not To Remove Duplicate Items From Search Results"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "IncludeSelector",
+            "displayName": "Defines Standard Subsets Of Fields To Return W/I The Response"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "MaxEntries",
+            "displayName": "Specifies Max Number Of Products To Return Per Page In A Single Call"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "PageNumber",
+            "displayName": "Specifies Which Page Of Data To Return In The Current Call"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "ProductID",
+            "displayName": "Use This To Retrieve Product Details For One Specific Product"
+          },{
+            "style": "query",
+            "type": "enum",
+            "name": "ProductID",
+            "displayName": "Use This To Retrieve Product Details For One Specific Product"
+          },{
+            "style": "query",
+            "type": "enum",
+            "name": "ProductSort",
+            "displayName": "Sorts The List Of Products Returned"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "QueryKeywords",
+            "displayName": "One Or More Keywords To Search For"
+          },{
+            "style": "query",
+            "type": "enum",
+            "name": "SortOrder",
+            "displayName": "Sorts Search Results In Ascending/ Descending Order"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "MessageID",
+            "displayName": "Tracks A Response"
+          }
+        ],
+        "url": "http://open.api.ebay.com/tracking/FindProducts"
+      },
+      {
+        "path": "/FindReviewsAndGuides",
+        "displayName": "Searches Reviews/ Guides & Provides Info Based On Product, Category, Or User",
+        "httpMethod": "Get",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "CategoryID",
+            "displayName": "Specify A Single CategoryID To Restrict Your Query To A Specific Guide Category"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "MaxResultsPerPage",
+            "displayName": "Specifies The Max Number Of Reviews Per Page (Not Guides)"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "PageNumber",
+            "displayName": "Specifies The Number Of The Page Of Data"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "ProductID",
+            "displayName": "Retrieve Reviews (Not Guides) For One Specific Product"
+          },{
+            "style": "query",
+            "type": "enum",
+            "name": "ProductID",
+            "displayName": "Use This To Retrieve Reviews (Not Guides) For One Specific Product"
+          },{
+            "style": "query",
+            "type": "enum",
+            "name": "ReviewSort",
+            "displayName": "To Sort By A Parameter, Such As CreationTime"
+          },{
+            "style": "query",
+            "type": "enum",
+            "name": "SortOrder",
+            "displayName": "Sorts Search Results In Ascending/ Descending Order"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "UserID",
+            "displayName": "Retrieves Reviews & Guides Written By The Specified User"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "MessageID",
+            "displayName": "Tracks A Response"
+          }],
+        "url": "http://open.api.ebay.com/shopping/FindReviewsAndGuides"
+      },
+      {
+        "path": "/GetCategoryInfo",
+        "displayName": "Gets High-Level Category Info, Relevant For A Buy-Side Application",
+        "httpMethod": "GET",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "CategoryID",
+            "displayName": "Use ID Of -1 To Retrieve The Root Category & The Top-Level (Level 1) Meta Categories"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "IncludeSelector",
+            "displayName": "Defines Standard Subsets Of Fields To Return W/I The Response"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "MessageID",
+            "displayName": "Tracks A Response"
+          }
+        ],
+        "url": "http://open.api.ebay.com/shopping/GetCategoryInfo"
+      },
+      {
+        "path": "/GeteBayTime",
+        "displayName": "Gets The Official eBay System Time In GMT",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "MessageID",
+            "displayName": "Tracks A Response"
+          }
+        ],
+        "url": "http://open.api.ebay.com/shopping/GeteBayTime"
+      },
+      {
+        "path": "/GetItemStatus",
+        "displayName": "Gets Item Status Info For A List Of Up To 10 Specified ItemIDs",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "ItemID",
+            "displayName": "Uniquely Identifies The Item Listing For Which To Retrieve The Data"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "MessageID",
+            "displayName": "Tracks A Response"
+          }
+        ],
+        "url": "http://open.api.ebay.com/shopping/GetItemStatus"
+      },
+      {
+        "path": "/GetMultipleItems",
+        "displayName": "Gets Publicly Available Data For One Or More Listings",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "IncludeSelector",
+            "displayName": "Defines Standard Subsets Of Fields To Return W/I The Response"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "ItemID",
+            "displayName": "Uniquely Identifies The Item Listing For Which To Retrieve The Data",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "MessageID",
+            "displayName": "Tracks A Response"
+          }
+        ],
+        "url": "http://open.api.ebay.com/shopping/GetMultipleItems"
+      },
+      {
+        "path": "/GetShippingCosts",
+        "displayName": "Gets Shipping Costs For An Item",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "enum",
+            "name": "DestinationCountryCode",
+            "displayName": "Destination Country Code"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "DestinationPostalCode",
+            "displayName": "Destination Country Postal Code (Or Zip Code, For US)"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "IncludeDetails",
+            "displayName": "Indicates Whether To Return The ShippingDetails Container In The Response"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "ItemID",
+            "displayName": "Uniquely Identifies The Item Listing For Which To Retrieve The Data",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "QuantitySold",
+            "displayName": "Number Of Items Sold To A Single Buyer & To Be Shipped Together"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "MessageID",
+            "displayName": "Tracks A Response"
+          }
+        ],
+        "url": "http://open.api.ebay.com/shopping/GetShippingCosts"
+      },
+      {
+        "path": "/GetSingleItem",
+        "displayName": "Gets Publicly Visible Details About One Listing On eBay",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "IncludeSelector",
+            "displayName": "Defines Standard Subsets Of Fields To Return"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "ItemID",
+            "displayName": "Uniquely Identifies The Item Listing",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "VariationSKU",
+            "displayName": "Uniquely Identifies A Variation W/I The Listing Identified By ItemID"
+          },{
+            "style": "query",
+            "type": "enum",
+            "name": "VariationSpecifics",
+            "displayName": "Name-Value Pairs That Identify One Or More Variations W/I The Listing Identified By ItemID"
+          },{
+            "style": "query",
+            "type": "enum",
+            "name": "VariationSpecifics.NameValueList",
+            "displayName": "List Is An Array Of Item Specifics, Which Are Category-Specific Fields That The Seller Added To Describe The Listing"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "VariationSpecifics.NameValueList.Name",
+            "displayName": "The Name Of The Item Specific"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "VariationSpecifics.NameValueList.Value",
+            "displayName": "A Value For The Item Specific"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "MessageID",
+            "displayName": "Tracks A Response"
+          }
+        ],
+        "url": "http://open.api.ebay.com/shopping/GetSingleItem"
+      },
+      {
+        "path": "/GetUserProfile",
+        "displayName": "Gets Public User Info Based On The User ID You Specify",
+        "httpMethod": "GET",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "IncludeSelector",
+            "displayName": "Defines Standard Subsets Of Fields To Return"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "UserID",
+            "displayName": "Specifies The User Whose Data",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "MessageID",
+            "displayName": "Tracks A Response"
+          }
+        ],
+        "url": "http://open.api.ebay.com/shopping/GetUserProfile"
+      }
+    ]
+  }
+}

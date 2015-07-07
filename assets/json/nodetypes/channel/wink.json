@@ -1,6 +1,7 @@
 {
   "_id": "54959935136677144d6f6d8b",
   "category": "channel",
+  "categories": ["Home Automation","Robotics"],
   "description": "Wink",
   "helpText": "Building a smart home is easier than ever before. Start with connected products from your favorite brands and control them all from a single app.",
   "enabled": true,

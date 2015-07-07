@@ -1,6 +1,7 @@
 {
   "_id": "54ad7b9552be5d4347422fef",
   "category": "channel",
+  "categories": ["Car Automation"],
   "description": "Uber",
   "helpText": "Get a taxi, private car or rideshare from your mobile phone. Uber connects you with a driver in minutes.",
   "enabled": true,

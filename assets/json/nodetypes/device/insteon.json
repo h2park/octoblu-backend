@@ -1,6 +1,7 @@
 {
   "_id": "53c9b82ff400e177dca325a6",
   "category": "device",
+  "categories":[""],
   "description": "Insteon home automation",
   "helpText": "A home automation technology that enables light switches, lights, thermostats, motion sensors, and other electrical devices to interpret through power lines, radio frequency communications, or both.",
   "enabled": true,

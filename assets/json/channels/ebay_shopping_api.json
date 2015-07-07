@@ -1,0 +1,498 @@
+{
+  "_id": "39528cwdlf2935ty2304240",
+  "type": "channel:ebay_shopping_api",
+  "auth_strategy": "",
+  "bodyFormat": "json",
+  "name": "ebay_shopping_api",
+  "documentation URL": "http://developer.ebay.com/DevZone/shopping/docs/CallRef/",
+  "oauth": {
+    "development": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    },
+    "staging": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    },
+    "production": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    }
+  },
+  "application": {
+    "base": "http://open.api.ebay.com/shopping",
+    "resources": [
+      {
+        "path": "/FindHalfProducts",
+        "displayName": "Searches Half.com Stock Catalog Info For Half Priced Products",
+        "httpMethod": "Get",
+        "params": [{
+            "style": "query",
+            "type": "boolean",
+            "name": "AvailableItemsOnly",
+            "displayName": "Available Items Only On The Half.com Site"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "DomainName",
+            "displayName": "A Domain To Search In, This Is Like Searching A Section Of A Catalog"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "IncludeSelector",
+            "displayName": "Defines Standard Subsets Of Fields To Return W/I The Response"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "MaxEntries",
+            "displayName": "Specifies The Max Number Of Products To Return Per Page"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "PageNumber",
+            "displayName": "Specifies Which Page Of Data To Return In The Current Call"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "ProductID",
+            "displayName": "This Retrieves Product Details For One Specific Product"
+          },{
+            "style": "query",
+            "type": "enum",
+            "name": "ProductID",
+            "displayName": "Indicates The Nature Of The ID You Are Specifying"
+          },{
+            "style": "query",
+            "type": "enum",
+            "name": "ProductSort",
+            "displayName": "Sorts List Of Products Returned, Useful With QueryKeywords"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "QueryKeywords",
+            "displayName": "One Or More Keywords To Search For"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "SellerID",
+            "displayName": "The ID Of A Specific Seller"
+          },{
+            "style": "query",
+            "type": "enum",
+            "name": "SortOrder",
+            "displayName": "Sorts The List Of Products Returned"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "MessageID",
+            "displayName": "MessageID Is Useful If You're Making A Lot Of Calls, Used For Tracking A Response"
+          }],
+        "url": "http://open.api.ebay.com/shopping/FindHalfProducts"
+      },{
+        "path": "/FindPopularItems",
+        "displayName": "Searches For Popular Items (WatchCount) Based On A Category Or Keyword",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "CategoryID",
+            "displayName": "Specify CategoryID To Restrict Your Query To A Specific Category"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "CategoryIDExclude",
+            "displayName": "Filters Search Results"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "MaxEntries",
+            "displayName": "Maximum Number Of Entries"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "QueryKeywords",
+            "displayName": "A Query That Specifies A String For Searching Titles Of Items On eBay"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "MessageID",
+            "displayName": "Tracks A Response"
+          }
+        ],
+        "url": "http://open.api.ebay.com/shopping/FindPopularItems"
+      },
+      {
+        "path": "/FindPopularSearches",
+        "displayName": "Gets The Words More Frequently Used By eBay Users When Searching For Listings",
+        "httpMethod": "Get",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "CategoryID",
+            "displayName": "Restricts Your Query To A Specific Category"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "IncludeChildCategories",
+            "displayName": "Keywords Are Returned For That Category/Subcategories"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "MaxKeywords",
+            "displayName": "Maximum Number Of Keywords"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "MaxResultsPerPage",
+            "displayName": "Max Number Of PopularSearchResults Per Page"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "PageNumber",
+            "displayName": "Number Of The Page Of Data To Return"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "QueryKeywords",
+            "displayName": "Specify Search Terms & Retrieve Related Search Terms/ Alternative Search Terms"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "MessageID",
+            "displayName": "Tracks A Response"
+          }],
+        "url": "http://open.api.ebay.com/shopping/FindPopularSearches"
+      },
+      {
+        "path": "/FindProducts",
+        "displayName": "Searches For Stock Catalog Info For Products",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "boolean",
+            "name": "AvailableItemsOnly",
+            "displayName": "Available Items Only"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "CategoryID",
+            "displayName": "Restrict Your Query To A Specific Category"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "DomainName",
+            "displayName": "A Domain To Search In"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "HideDuplicateItems",
+            "displayName": "Specifies Whether Or Not To Remove Duplicate Items From Search Results"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "IncludeSelector",
+            "displayName": "Defines Standard Subsets Of Fields To Return W/I The Response"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "MaxEntries",
+            "displayName": "Specifies Max Number Of Products To Return Per Page In A Single Call"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "PageNumber",
+            "displayName": "Specifies Which Page Of Data To Return In The Current Call"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "ProductID",
+            "displayName": "Use This To Retrieve Product Details For One Specific Product"
+          },{
+            "style": "query",
+            "type": "enum",
+            "name": "ProductID",
+            "displayName": "Use This To Retrieve Product Details For One Specific Product"
+          },{
+            "style": "query",
+            "type": "enum",
+            "name": "ProductSort",
+            "displayName": "Sorts The List Of Products Returned"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "QueryKeywords",
+            "displayName": "One Or More Keywords To Search For"
+          },{
+            "style": "query",
+            "type": "enum",
+            "name": "SortOrder",
+            "displayName": "Sorts Search Results In Ascending/ Descending Order"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "MessageID",
+            "displayName": "Tracks A Response"
+          }
+        ],
+        "url": "http://open.api.ebay.com/shopping/FindProducts"
+      },
+      {
+        "path": "/FindReviewsAndGuides",
+        "displayName": "Searches Reviews/ Guides & Provides Info Based On Product, Category, Or User",
+        "httpMethod": "Get",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "CategoryID",
+            "displayName": "Specify A Single CategoryID To Restrict Your Query To A Specific Guide Category"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "MaxResultsPerPage",
+            "displayName": "Specifies The Max Number Of Reviews Per Page (Not Guides)"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "PageNumber",
+            "displayName": "Specifies The Number Of The Page Of Data"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "ProductID",
+            "displayName": "Retrieve Reviews (Not Guides) For One Specific Product"
+          },{
+            "style": "query",
+            "type": "enum",
+            "name": "ProductID",
+            "displayName": "Use This To Retrieve Reviews (Not Guides) For One Specific Product"
+          },{
+            "style": "query",
+            "type": "enum",
+            "name": "ReviewSort",
+            "displayName": "To Sort By A Parameter, Such As CreationTime"
+          },{
+            "style": "query",
+            "type": "enum",
+            "name": "SortOrder",
+            "displayName": "Sorts Search Results In Ascending/ Descending Order"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "UserID",
+            "displayName": "Retrieves Reviews & Guides Written By The Specified User"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "MessageID",
+            "displayName": "Tracks A Response"
+          }],
+        "url": "http://open.api.ebay.com/shopping/FindReviewsAndGuides"
+      },
+      {
+        "path": "/GetCategoryInfo",
+        "displayName": "Gets High-Level Category Info, Relevant For A Buy-Side Application",
+        "httpMethod": "GET",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "CategoryID",
+            "displayName": "Use ID Of -1 To Retrieve The Root Category & The Top-Level (Level 1) Meta Categories"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "IncludeSelector",
+            "displayName": "Defines Standard Subsets Of Fields To Return W/I The Response"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "MessageID",
+            "displayName": "Tracks A Response"
+          }
+        ],
+        "url": "http://open.api.ebay.com/shopping/GetCategoryInfo"
+      },
+      {
+        "path": "/GeteBayTime",
+        "displayName": "Gets The Official eBay System Time In GMT",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "MessageID",
+            "displayName": "Tracks A Response"
+          }
+        ],
+        "url": "http://open.api.ebay.com/shopping/GeteBayTime"
+      },
+      {
+        "path": "/GetItemStatus",
+        "displayName": "Gets Item Status Info For A List Of Up To 10 Specified ItemIDs",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "ItemID",
+            "displayName": "Uniquely Identifies The Item Listing For Which To Retrieve The Data"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "MessageID",
+            "displayName": "Tracks A Response"
+          }
+        ],
+        "url": "http://open.api.ebay.com/shopping/GetItemStatus"
+      },
+      {
+        "path": "/GetMultipleItems",
+        "displayName": "Gets Publicly Available Data For One Or More Listings",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "IncludeSelector",
+            "displayName": "Defines Standard Subsets Of Fields To Return W/I The Response"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "ItemID",
+            "displayName": "Uniquely Identifies The Item Listing For Which To Retrieve The Data",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "MessageID",
+            "displayName": "Tracks A Response"
+          }
+        ],
+        "url": "http://open.api.ebay.com/shopping/GetMultipleItems"
+      },
+      {
+        "path": "/GetShippingCosts",
+        "displayName": "Gets Shipping Costs For An Item",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "enum",
+            "name": "DestinationCountryCode",
+            "displayName": "Destination Country Code"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "DestinationPostalCode",
+            "displayName": "Destination Country Postal Code (Or Zip Code, For US)"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "IncludeDetails",
+            "displayName": "Indicates Whether To Return The ShippingDetails Container In The Response"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "ItemID",
+            "displayName": "Uniquely Identifies The Item Listing For Which To Retrieve The Data",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "QuantitySold",
+            "displayName": "Number Of Items Sold To A Single Buyer & To Be Shipped Together"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "MessageID",
+            "displayName": "Tracks A Response"
+          }
+        ],
+        "url": "http://open.api.ebay.com/shopping/GetShippingCosts"
+      },
+      {
+        "path": "/GetSingleItem",
+        "displayName": "Gets Publicly Visible Details About One Listing On eBay",
+        "httpMethod": "Get",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "IncludeSelector",
+            "displayName": "Defines Standard Subsets Of Fields To Return"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "ItemID",
+            "displayName": "Uniquely Identifies The Item Listing",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "VariationSKU",
+            "displayName": "Uniquely Identifies A Variation W/I The Listing Identified By ItemID"
+          },{
+            "style": "query",
+            "type": "enum",
+            "name": "VariationSpecifics",
+            "displayName": "Name-Value Pairs That Identify One Or More Variations W/I The Listing Identified By ItemID"
+          },{
+            "style": "query",
+            "type": "enum",
+            "name": "VariationSpecifics.NameValueList",
+            "displayName": "List Is An Array Of Item Specifics, Which Are Category-Specific Fields That The Seller Added To Describe The Listing"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "VariationSpecifics.NameValueList.Name",
+            "displayName": "The Name Of The Item Specific"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "VariationSpecifics.NameValueList.Value",
+            "displayName": "A Value For The Item Specific"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "MessageID",
+            "displayName": "Tracks A Response"
+          }
+        ],
+        "url": "http://open.api.ebay.com/shopping/GetSingleItem"
+      },
+      {
+        "path": "/GetUserProfile",
+        "displayName": "Gets Public User Info Based On The User ID You Specify",
+        "httpMethod": "GET",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "IncludeSelector",
+            "displayName": "Defines Standard Subsets Of Fields To Return"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "UserID",
+            "displayName": "Specifies The User Whose Data",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "MessageID",
+            "displayName": "Tracks A Response"
+          }
+        ],
+        "url": "http://open.api.ebay.com/shopping/GetUserProfile"
+      }
+    ]
+  }
+}

@@ -1,6 +1,7 @@
 {
   "_id": "53c9b838f400e177dca325c5",
   "category": "channel",
+  "categories": ["Home Automation"],
   "description": "",
   "helpText": "Reinvents unloved but important home products, like the thermostat and the smoke alarm.",
   "enabled": true,
