@@ -60,7 +60,7 @@ deploy:
   bundle_type: zip
   region: us-west-2
   application: octoblu
-  deployment_group: octoblu
+  deployment_group: master
   on:
     tags: true
     all_branches: true
