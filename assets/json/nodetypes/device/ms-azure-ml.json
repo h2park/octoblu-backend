@@ -1,7 +1,7 @@
 {
   "_id": "327c783e-9706-488f-865a-65490c45b0ff",
   "category": "device",
-  "categories":["Work","Robotics"],
+  "categories":["Work","Robotics","Artificial Intelligence"],
   "description": "Microsoft Azure Machine Learning",
   "helpText": "Feed data into your experiment's web service in Microsoft Azure Machine Learning Studio.",
   "enabled": true,

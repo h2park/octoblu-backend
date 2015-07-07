@@ -1,7 +1,7 @@
 {
   "_id": "553e9ef1c940d785ad48497a",
   "category": "device",
-  "categories":["Robotics","Social"],
+  "categories":["Social"],
   "description": "Twitter Streaming",
   "helpText": "Twitter streaming device, for retrieving real-time tweets",
   "enabled": true,
