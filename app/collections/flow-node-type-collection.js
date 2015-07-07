@@ -1,13 +1,15 @@
 var NodeCollection = require('./node-collection');
 var when = require('when');
 var _ = require('lodash');
+var fs = require('fs');
+
+var operations = JSON.parse(fs.readFileSync('assets/json/operations.json'));
 
 var FlowNodeTypeCollection = function(userUUID, userToken, options){
-  var self, fs;
+  var self;
   self = this;
 
   options  = options || {};
-  fs       = options.fs || require('fs');
 
   self.convertNode = function(node){
     return {
@@ -33,9 +35,7 @@ var FlowNodeTypeCollection = function(userUUID, userToken, options){
 
   self.fromFile = function(){
     var promise = when.promise(function(resolve){
-      fs.readFile('assets/json/operations.json', {encoding: 'utf8'}, function(error, nodeTypes){
-        resolve(JSON.parse(nodeTypes));
-      });
+      resolve(operations);
     });
 
     return promise;
