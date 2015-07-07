@@ -1,0 +1,14 @@
+{
+  "_id": "5595920af0dd9a2e968a8a9b",
+  "category": "device",
+  "description": "BlinkyTape USB LED Light",
+  "helpText": "A stripe of colorful LEDs, easily programable.",
+  "enabled": true,
+  "name": "Blinky Tape",
+  "skynet": {
+    "type": "device",
+    "subtype": "blinky-tape"
+  },
+  "connector": "meshblu-blinky-tape",
+  "type": "device:blinky-tape"
+}

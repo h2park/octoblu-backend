@@ -12,7 +12,9 @@
     "bodyEncoding": "json",
     "bodyKeys": [
       ""
-    ]
+    ],
+    "queryKeys": [],
+    "queryValues": []
   },
   "input": 1,
   "output": 1,

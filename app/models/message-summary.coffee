@@ -14,18 +14,19 @@ class MessageSummary
       When.promise (resolve, reject) =>
         uuids = [@ownerUuid].concat _.pluck(devices, 'uuid')
 
-        requestParams = @requestParams(uuids)
-        @request requestParams, (error, response, body) =>
-          return reject error if error?
-
-          unless response.statusCode == 200
-            error = new Error('elasticsearch error')
-            error.statusCode    = response.statusCode
-            error.body          = response.body
-            error.requestParams = requestParams
-            return reject error
-
-          resolve @processResponse body.aggregations
+        return resolve []
+        # requestParams = @requestParams(uuids)
+        # @request requestParams, (error, response, body) =>
+        #   return reject error if error?
+        #
+        #   unless response.statusCode == 200
+        #     error = new Error('elasticsearch error')
+        #     error.statusCode    = response.statusCode
+        #     error.body          = response.body
+        #     error.requestParams = requestParams
+        #     return reject error
+        #
+        #   resolve @processResponse body.aggregations
 
   processResponse: (aggregations) =>
     results = {}
