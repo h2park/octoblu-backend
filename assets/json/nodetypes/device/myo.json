@@ -1,7 +1,7 @@
 {
   "_id": "543ee87c979057a612382e18",
   "category": "device",
-  "categories":[""],
+  "categories":["Robotics"],
   "description": "Thalmic Labs MYO",
   "helpText": "A gesture control armband.",
   "enabled": true,

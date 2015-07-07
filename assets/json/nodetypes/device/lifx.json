@@ -1,7 +1,7 @@
 {
   "_id": "5445510577c022a84ec48c5b",
   "category": "device",
-  "categories":[""],
+  "categories":["Robotics"],
   "description": "Lifx",
   "helpText": "An energy-efficient, multi-color, Wi-Fi enabled LED bulb that can be controlled via any Wi-Fi equipped device such as a smartphone.",
   "enabled": true,

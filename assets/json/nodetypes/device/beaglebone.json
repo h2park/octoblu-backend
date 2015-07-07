@@ -1,7 +1,7 @@
 {
   "_id": "53c9b830f400e177dca325aa",
   "category": "device",
-  "categories":[""],
+  "categories":["Robotics"],
   "description": "Beagle Bone",
   "helpText": "A credit-card-sized Linux computer that connects to the Internet and runs software such as Android 4.0 and Ubuntu.",
   "enabled": true,

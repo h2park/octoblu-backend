@@ -1,7 +1,7 @@
 {
   "_id": "54a91a102ef277e103b65404",
   "category": "device",
-  "categories":[""],
+  "categories":["Robotics"],
   "description": "Relayr",
   "helpText": "Connect your Relayr devices!",
   "enabled": true,

@@ -1,7 +1,7 @@
 {
   "_id": "53c9b830f400e177dca325ac",
   "category": "device",
-  "categories":[""],
+  "categories":["Robotics"],
   "description": "Pinoccio device",
   "helpText": "Remote-io plugin to control Pinoccio devices.",
   "enabled": true,

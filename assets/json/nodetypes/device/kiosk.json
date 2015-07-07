@@ -1,7 +1,7 @@
 {
   "_id": "557efb9a2c221fe2d1f01d17",
   "category": "device",
-  "categories":[""],
+  "categories":["Work"],
   "description": "A meshblu service for displaying webpages",
   "helpText": "A meshblu service for displaying webpages",
   "enabled": true,

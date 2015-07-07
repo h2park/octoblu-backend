@@ -1,7 +1,7 @@
 w{
   "_id": "55022639b85ed301b818d521",
   "category": "device",
-  "categories":[""],
+  "categories":["Home Automation","Robotics"],
   "description": "Chromecast",
   "helpText": "A thumb-sized media streaming device that plugs into the HDMI port on your TV.",
   "enabled": true,

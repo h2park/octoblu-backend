@@ -1,7 +1,7 @@
 {
   "_id": "5f8f2fa1349c4a1293109486",
   "category": "device",
-  "categories":[""],
+  "categories":["Robotics"],
   "description": "Lightblue Bean",
   "helpText": "A microcontroller that is programmed wirelessly over Bluetooth Low Energy.",
   "enabled": true,

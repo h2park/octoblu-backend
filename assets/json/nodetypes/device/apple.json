@@ -1,7 +1,7 @@
 {
   "_id": "53c9b831f400e177dca325ae",
   "category": "device",
-  "categories":[""],
+  "categories":["Mobile"],
   "description": "Mobiblu iOS",
   "helpText": "The Mobiblu app for iOS.",
   "enabled": false,

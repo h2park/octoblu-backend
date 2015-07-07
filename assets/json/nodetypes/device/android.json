@@ -1,7 +1,7 @@
 {
   "_id": "53c9b831f400e177dca325af",
   "category": "device",
-  "categories":[""],
+  "categories":["Mobile"],
   "description": "Mobiblu Android",
   "helpText": "The Mobiblu app for Android.",
   "enabled": false,

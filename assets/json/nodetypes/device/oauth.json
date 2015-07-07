@@ -1,7 +1,7 @@
 {
   "_id": "551478c1537bdd6e20c9c608",
   "category": "device",
-  "categories":[""],
+  "categories":["Work"],
   "description": "Oauth Application",
   "helpText": "Oauth application to authorize requests on another user's behalf",
   "enabled": true,

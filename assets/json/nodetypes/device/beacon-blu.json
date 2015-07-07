@@ -1,7 +1,7 @@
 {
   "_id": "813b4dadbee582e6075b1847",
   "category": "device",
-  "categories":[""],
+  "categories":["Robotics"],
   "description": "BeaconBlu",
   "helpText": "An iOS and Android app for iBeacons.",
   "enabled": true,
