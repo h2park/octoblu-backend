@@ -2,7 +2,7 @@ _ = require 'lodash'
 UserSession = require '../../app/models/user-session-model'
 TestDatabase = require '../test-database'
 
-describe 'UserSession', ->
+xdescribe 'UserSession', ->
   beforeEach ->
     @config = skynet: {host: 'meshblu.octoblu.com', port: 80}
     @request = sinon.stub()
