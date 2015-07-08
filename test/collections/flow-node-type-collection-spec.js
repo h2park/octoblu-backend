@@ -6,8 +6,7 @@ describe('FlowNodeTypeCollection', function () {
   var sut, stub, fakeFS, fakeNodeCollection;
 
   beforeEach(function () {
-    fakeFS = new FakeFS();
-    sut = new FlowNodeTypeCollection('user uuid', 'user token', {fs: fakeFS});
+    sut = new FlowNodeTypeCollection('user uuid', 'user token');
 
     fakeNodeCollection = new FakeNodeCollection();
     stub = sinon.stub(sut, 'getNodeCollection');
@@ -32,25 +31,6 @@ describe('FlowNodeTypeCollection', function () {
 
     it('should call nodeCollection.fetch', function(){
       expect(fakeNodeCollection.fetch).to.have.been.called;
-    });
-  });
-
-  describe('fromFile', function () {
-    it('should call readFile with the filename', function () {
-      sut.fromFile();
-      expect(fakeFS.readFile).to.have.been.calledWith('assets/json/operations.json');
-    });
-
-    it('should return the nodetypes in a promise', function (done) {
-      sut.fromFile()
-      .then(function(nodeTypes) {
-        expect(_.size(nodeTypes)).to.equal(2);
-        done();
-      });
-
-      _.defer(function(){
-        fakeFS.readFile.resolve(null, JSON.stringify([{}, {}]));
-      });
     });
   });
 

@@ -1,7 +1,7 @@
 TopicSummary = require '../../app/models/topic-summary'
 When = require 'when'
 
-describe 'TopicSummary', ->
+xdescribe 'TopicSummary', ->
   beforeEach ->
     @request = sinon.stub().yields null, {}, null
     @DeviceCollection = sinon.stub()
@@ -142,7 +142,3 @@ describe 'TopicSummary', ->
 
         it 'should reject with the request error', ->
           expect(@error.message).to.equal 'elasticsearch error'
-
-
-
-

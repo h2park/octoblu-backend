@@ -5,6 +5,13 @@ DISTRIBUTION_DIR=`dirname $SCRIPT_DIR`
 
 export PATH=/usr/local/bin:$PATH
 
+$SCRIPT_DIR/wait_for_quay
+
+if  [ $? -ne 0 ]; then
+  echo "Waiting for quay failed, exiting."
+  exit 1
+fi
+
 BLUE_PORT=`AWS_DEFAULT_REGION=us-west-2 aws elb describe-tags --load-balancer-name api-octoblu-com | jq '.TagDescriptions[0].Tags[] | select(.Key == "blue") | .Value | tonumber'`
 GREEN_PORT=`AWS_DEFAULT_REGION=us-west-2 aws elb describe-tags --load-balancer-name api-octoblu-com | jq '.TagDescriptions[0].Tags[] | select(.Key == "green") | .Value | tonumber'`
 

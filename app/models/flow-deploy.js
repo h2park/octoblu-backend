@@ -127,7 +127,6 @@ var FlowDeploy = function(options){
   }
 
   self.stopFlow = function(flow){
-    self.sendMessage(flow, 'nodered-instance-stop');
     var url = config.flowDeployUri + '/flows/' + flow.flowId + '/instance';
     var options = {
       auth: {
@@ -136,25 +135,6 @@ var FlowDeploy = function(options){
       }
     };
     request.del(url, options);
-  };
-
-  self.sendMessage = function(flow, topic) {
-    meshblu.mydevices({}, function(data){
-      managerDevices = _.where(data.devices, {type: 'nodered-docker-manager'});
-      devices = _.pluck(managerDevices, 'uuid');
-      var msg = {
-        devices: devices,
-        topic: topic,
-        qos: 0
-      };
-      debug('sendMessage.token', flow.token);
-      msg.payload = {
-        uuid: flow.flowId,
-        token: flow.token,
-        flow: self.convertFlow(flow)
-      };
-      meshblu.message(msg);
-    });
   };
 
   self.largestPortNumber = function(groupedLinks){

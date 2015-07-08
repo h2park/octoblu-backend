@@ -1,4 +1,12 @@
 'use strict';
+
+if (process.env.NODE_ENV === 'production') {
+  require('nodetime').profile({
+    accountKey: '60365e1c40570f2f9e9e05586d8cda6fee19b4c8',
+    appName: 'Octoblu'
+  });
+}
+
 require('coffee-script/register');
 var config = require('./config/auth');
 
@@ -69,8 +77,6 @@ app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.urlencoded({ extended : true, limit : '50mb' }));
 
 app.use(bodyParser.json({ limit : '50mb' }));
-
-app.use(express.static(__dirname + '/public'));
 
 var meshbluJSON;
 try {
