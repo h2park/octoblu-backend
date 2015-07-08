@@ -18,7 +18,8 @@ class UserSession
     if @databaseConfig?.redisSessionUrl?
       @redis = dependencies.redis ? require 'redis'
       @parseRedis = require('parse-redis-url')()
-      @redisClient = @redis.createClient @parseRedis.parse(@databaseConfig.redisSessionUrl)
+      parsedConfig = @parseRedis.parse @databaseConfig.redisSessionUrl
+      @redisClient = @redis.createClient parsedConfig.port, parsedConfig.host
 
   create: (uuid, token, callback=->) =>
     @exchangeOneTimeTokenForSessionToken uuid, token, (error, sessionToken) =>
