@@ -1,6 +1,6 @@
 {
   "name": "octoblu",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "octoblu.com",
   "main": "server.js",
   "private": true,
@@ -41,7 +41,7 @@
     "meshblu": "^1.22.0",
     "meshblu-http": "^2.2.0",
     "moment": "^2.5.1",
-    "mongojs": "^0.15.1",
+    "mongojs": "^1.0.2",
     "morgan": "^1.2.0",
     "nedb": "^0.11.1",
     "newrelic": "^1.13.0",

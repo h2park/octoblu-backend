@@ -3,6 +3,7 @@ async = require 'async'
 bcrypt = require 'bcrypt'
 _ = require 'lodash'
 debug = require('debug')('octoblu:user-session-model')
+nodefn = require 'when/node'
 
 class UserSession
   @ERROR_DEVICE_NOT_FOUND: 'Meshblu device not found'
@@ -58,10 +59,7 @@ class UserSession
       callback null, device
 
   getUserByUuid: (uuid, callback=->) =>
-    @users
-      .findOne('skynet.uuid': uuid)
-      .then (user) => callback null, user
-      .catch (error) => callback error
+    nodefn.bindCallback @users.findOne('skynet.uuid': uuid), callback
 
   invalidateOneTimeToken: (uuid, token, callback=->) =>
     rejectToken = (tokenObj, cb=->) =>

@@ -78,6 +78,7 @@ class SecurityController
     debug 'authenticateWithMeshblu', uuid, token
     return callback new Error('No UUID or Token found') unless uuid && token
     @userSession.getDeviceFromMeshblu uuid, token, (error, userDevice) =>
+      debug 'gotDeviceFromMeshblu'
       return callback new Error(@MESHBLU_CONNECTION_ERROR) if error?
       @userSession.ensureUserExists uuid, (error, user) =>
         return callback error if error?
