@@ -51,9 +51,7 @@ module.exports = function (app, passport, config) {
         var token = req.token;
         clearCookies(res);
 
-        if (req.logout) {
-            req.logout();
-        }
+        delete req.user;
 
         userSession.invalidateOneTimeToken(uuid, token, function(error){
             if(error) {
@@ -67,10 +65,7 @@ module.exports = function (app, passport, config) {
 
     function logoutAndRedirectRoute(req, res) {
         clearCookies(res);
-
-        if (req.logout) {
-            req.logout();
-        }
+        delete req.user;
 
         res.redirect('/');
     }
