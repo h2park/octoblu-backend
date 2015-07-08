@@ -1,4 +1,12 @@
 'use strict';
+
+if (process.env.NODE_ENV === 'production') {
+  require('nodetime').profile({
+    accountKey: '60365e1c40570f2f9e9e05586d8cda6fee19b4c8',
+    appName: 'Octoblu'
+  });
+}
+
 require('coffee-script/register');
 var config = require('./config/auth');
 
@@ -8,13 +16,6 @@ if ((process.env.USE_NEWRELIC  || 'false').toLowerCase() === 'true') {
 
 if ((process.env.USE_APP_DYNAMICS || 'false').toLowerCase() === 'true') {
   require('./config/appdynamics.js');
-}
-
-if (process.env.NODE_ENV === 'production') {
-  require('nodetime').profile({
-    accountKey: '60365e1c40570f2f9e9e05586d8cda6fee19b4c8',
-    appName: 'Octoblu'
-  });
 }
 
 var express        = require('express');
