@@ -500,10 +500,6 @@ module.exports = function(app, passport, config, meshbluJSON){
             app.all(['/api/*', '/angular/*', '/assets/*', '/lib/*', '/pages/*'], function(req, res) {
                 res.send(404, req.url);
             });
-
-            app.get('/*', function(req, res) {
-                res.sendfile('./public/index.html');
-            });
         } catch(err) {
             console.log(err.stack);
             throw err;
