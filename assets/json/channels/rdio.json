@@ -10,20 +10,20 @@
   "name": "Rdio",
   "oauth": {
     "development": {
-      "consumerKey": "INSERT_SECERT_HERE",
-      "consumerSecret": "INSERT_SECERT_HERE",
+      "clientID": "INSERT_SECERT_HERE",
+      "clientSecret": "INSERT_SECERT_HERE",
       "callbackURL": "http://localhost:8080/api/oauth/rdio/callback",
       "tokenMethod": "oauth_signed"
     },
     "staging": {
-      "consumerKey": "INSERT_SECERT_HERE",
-      "consumerSecret": "INSERT_SECERT_HERE",
+      "clientID": "INSERT_SECERT_HERE",
+      "clientSecret": "INSERT_SECERT_HERE",
       "callbackURL": "https://staging.octoblu.com/api/oauth/rdio/callback",
       "tokenMethod": "oauth_signed"
     },
     "production": {
-      "consumerKey": "jrpmrtppjtps6k3277dzb7yq",
-      "consumerSecret": "WKRnJg7cWa",
+      "clientID": "jrpmrtppjtps6k3277dzb7yq",
+      "clientSecret": "WKRnJg7cWa",
       "callbackURL": "https://app.octoblu.com/api/oauth/rdio/callback",
       "tokenMethod": "oauth_signed"
     }

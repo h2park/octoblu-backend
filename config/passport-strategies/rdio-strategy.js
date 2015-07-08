@@ -1,5 +1,5 @@
 'use strict';
-var RdioStrategy = require('passport-rdio').Strategy;
+var RdioStrategy = require('passport-rdio-oauth2').Strategy;
 var User         = require('../../app/models/user');
 var Channel      = require('../../app/models/channel');
 

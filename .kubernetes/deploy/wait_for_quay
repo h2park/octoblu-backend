@@ -1,0 +1,22 @@
+#!/bin/bash
+SCRIPT_DIR=`dirname $0`
+source $SCRIPT_DIR/env
+
+WAITING=true
+COUNT=0
+
+echo "Looking for $QUAY_REPOSITORY:$QUAY_TAG"
+
+while $WAITING; do
+  sleep 5
+  STATUS=`curl --silent -L -H "Authorization: Bearer $QUAY_TOKEN" https://quay.io/api/v1/repository/$QUAY_REPOSITORY/build | jq -r ".builds | map(select(.tags | contains([\"$QUAY_TAG\"])))[0].phase"`
+  echo "Got Status: $STATUS"
+  if [ "$STATUS" == 'complete' ]; then
+    WAITING=false
+  fi
+  COUNT=$((COUNT+1))
+  if [ $COUNT -gt 120 ]; then
+    echo "Wait time exceeded, giving up."
+    exit 1
+  fi
+done

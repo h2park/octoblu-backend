@@ -20,7 +20,7 @@ desiredState:
         id: octoblu-green
         containers:
           - name: octoblu-green
-            image: octoblu/octoblu:$SHORT_COMMIT
+            image: quay.io/octoblu/octoblu:$TRAVIS_TAG
             ports:
               - containerPort: 80
             env:

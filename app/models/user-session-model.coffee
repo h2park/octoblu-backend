@@ -3,6 +3,7 @@ async = require 'async'
 bcrypt = require 'bcrypt'
 _ = require 'lodash'
 debug = require('debug')('octoblu:user-session-model')
+nodefn = require 'when/node'
 
 class UserSession
   @ERROR_DEVICE_NOT_FOUND: 'Meshblu device not found'
@@ -12,7 +13,13 @@ class UserSession
   constructor: (dependencies={}) ->
     @request = dependencies.request ? require 'request'
     @config  = dependencies.config ? require '../../config/auth'
+    @databaseConfig = dependencies.databaseConfig ? require '../../config/database'
     @users = dependencies.database?.users ? require('../lib/database').getCollection('users')
+    if @databaseConfig?.redisSessionUrl?
+      @redis = dependencies.redis ? require 'redis'
+      @parseRedis = require('parse-redis-url')()
+      parsedConfig = @parseRedis.parse @databaseConfig.redisSessionUrl
+      @redisClient = @redis.createClient parsedConfig.port, parsedConfig.host
 
   create: (uuid, token, callback=->) =>
     @exchangeOneTimeTokenForSessionToken uuid, token, (error, sessionToken) =>
@@ -22,6 +29,7 @@ class UserSession
         return callback error, user, sessionToken
 
   createNewSessionToken: (uuid, token, callback) =>
+    debug('createNewSessionToken', uuid, token)
     @_meshbluCreateSessionToken uuid, token, (error, response, body) =>
       return callback error if error?
       return callback new Error(UserSession.ERROR_FAILED_TO_GET_SESSION_TOKEN) unless response.statusCode == 200
@@ -50,17 +58,14 @@ class UserSession
         callback null, sessionToken
 
   getDeviceFromMeshblu: (uuid, token, callback=->) =>
-    @_meshbluGetDevice uuid, token, (error, response, device) =>
+    @_meshbluGetDevice uuid, token, (error, device) =>
       return callback error if error?
       return callback new Error(UserSession.ERROR_DEVICE_NOT_FOUND) unless device?
 
       callback null, device
 
   getUserByUuid: (uuid, callback=->) =>
-    @users
-      .findOne('skynet.uuid': uuid)
-      .then (user) => callback null, user
-      .catch (error) => callback error
+    nodefn.bindCallback @users.findOne('skynet.uuid': uuid), callback
 
   invalidateOneTimeToken: (uuid, token, callback=->) =>
     rejectToken = (tokenObj, cb=->) =>
@@ -71,7 +76,8 @@ class UserSession
     @getDeviceFromMeshblu uuid, token, (error, device) =>
       return callback error if error?
 
-      async.reject device.tokens, rejectToken, (tokens) =>
+      deviceTokens = device.tokens ? []
+      async.reject deviceTokens, rejectToken, (tokens) =>
         @updateDevice uuid, token, {uuid: uuid, tokens: tokens}, callback
 
   updateDevice: (uuid, token, device, callback=->) =>
@@ -85,7 +91,12 @@ class UserSession
 
   _meshbluGetDevice: (uuid, token, callback=->) =>
     debug '_meshbluGetDevice', uuid, token
-    @_meshbluRequest uuid, token, 'GET', "/v2/whoami", callback
+    @_findDeviceInCache uuid, token, (error, device) =>
+      debug 'foundDevice', device?.uuid
+      return callback null, device if device?
+      @_meshbluRequest uuid, token, 'GET', "/v2/whoami", (error, response, device) =>
+        @_addDeviceToCache uuid, token, device if device?
+        callback error, device
 
   _meshbluRequest: (uuid, token, method, path, json=true, callback=->) =>
     if _.isFunction json
@@ -109,5 +120,19 @@ class UserSession
     }
 
     @request options, callback
+
+  _addDeviceToCache: (uuid, token, device, callback=->) =>
+    return callback null unless @redisClient?
+    debug 'addDeviceToCache', uuid, token
+    @redisClient.setex "#{uuid}-#{token}", 30, JSON.stringify(device), callback
+
+  _findDeviceInCache: (uuid, token, callback=->) =>
+    return callback null unless @redisClient?
+    debug 'findDeviceInCache', uuid, token
+    @redisClient.get "#{uuid}-#{token}", (error, reply) =>
+      debug 'foundDeviceInCache', uuid, token
+      return callback error if error?
+      return callback null unless reply?
+      callback null, JSON.parse(reply)
 
 module.exports = UserSession
