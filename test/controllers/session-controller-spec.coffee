@@ -52,8 +52,8 @@ describe 'SessionController', ->
         @dependencies.UserSession.instanceCreate.yields null, skynet: {uuid: 'a', token: 'permatoken'}, 'permatoken'
         @sut.show @request, @response
 
-      it 'should call request.login with the user', ->
-        expect(@request.login).to.have.been.calledWith skynet: {uuid: 'a', token: 'permatoken'}
+      it 'should set request.user with the user', ->
+        expect(@request.user).to.deep.equal skynet: {uuid: 'a', token: 'permatoken'}
 
       it 'should call response.send with the uuid and token', ->
         expect(@response.redirect).to.have.been.calledWith '/'
@@ -68,12 +68,12 @@ describe 'SessionController', ->
       beforeEach ->
         @request  = query: {uuid: 'b', token: 'unotimetoken'}, login: sinon.stub().yields()
         @response = redirect: sinon.spy(), cookie: sinon.spy()
-        
+
         @dependencies.UserSession.instanceCreate.yields null, skynet: {uuid: 'b', token: 'reallypermatoken'}, 'reallypermatoken'
         @sut.show @request, @response
 
-      it 'should call request.login with the user', ->
-        expect(@request.login).to.have.been.calledWith skynet: {uuid: 'b', token: 'reallypermatoken'}
+      it 'should call request.user with the user', ->
+        expect(@request.user).to.deep.equal skynet: {uuid: 'b', token: 'reallypermatoken'}
 
       it 'should call response.send with the uuid and token', ->
         expect(@response.redirect).to.have.been.calledWith '/'

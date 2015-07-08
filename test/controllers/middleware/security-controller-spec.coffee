@@ -94,8 +94,8 @@ describe 'SecurityController', ->
         beforeEach ->
           @sut.authenticateWithMeshblu.yield null, {uuid: 'chicken'}, {foo: 'bar'}
 
-        it 'should call request.login', ->
-          expect(@request.login).to.have.been.calledWith uuid: 'chicken', userDevice: {foo: 'bar'}
+        it 'should set request.user', ->
+          expect(@request.user).to.deep.equal uuid: 'chicken', userDevice: {foo: 'bar'}
 
         it 'should call next', ->
           expect(@next).to.have.been.called
@@ -131,8 +131,8 @@ describe 'SecurityController', ->
         beforeEach ->
           @sut.authenticateWithMeshblu.yield null, {uuid: 'test'}, {foo: 'fred'}
 
-        it 'should call request.login', ->
-          expect(@request.login).to.have.been.calledWith uuid: 'test', userDevice: {foo: 'fred'}
+        it 'should set request.user', ->
+          expect(@request.user).to.deep.equal uuid: 'test', userDevice: {foo: 'fred'}
 
         it 'should call next', ->
           expect(@next).to.have.been.called
@@ -165,8 +165,8 @@ describe 'SecurityController', ->
         beforeEach ->
           @sut.authenticateWithMeshblu.yield null, {uuid: 'this-uuid'}, {bar: 'foo'}
 
-        it 'should call request.login', ->
-          expect(@request.login).to.have.been.calledWith uuid: 'this-uuid', userDevice: {bar: 'foo'}
+        it 'should set request.user', ->
+          expect(@request.user).to.deep.equal uuid: 'this-uuid', userDevice: {bar: 'foo'}
 
         it 'should call next', ->
           expect(@next).to.have.been.called
