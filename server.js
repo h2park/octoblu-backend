@@ -111,8 +111,8 @@ app.use(session(
   }
 ));
 
-app.use(passport.initialize());
-app.use(passport.session()); // persistent login sessions
+// app.use(passport.initialize());
+// app.use(passport.session()); // persistent login sessions
 app.use(cors());
 if (process.env.NODE_ENV === 'development') {
   app.use(errorhandler());

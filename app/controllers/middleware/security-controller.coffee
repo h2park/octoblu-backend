@@ -94,7 +94,8 @@ class SecurityController
       user.userDevice = userDevice
       request.uuid = uuid
       request.token = token
-      request.login user, next
+      request.user = user
+      next()
 
     @authenticateWithMeshblu uuid, token, authenticateCallback
 

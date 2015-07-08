@@ -22,6 +22,7 @@ class UserSession
         return callback error, user, sessionToken
 
   createNewSessionToken: (uuid, token, callback) =>
+    debug('createNewSessionToken', uuid, token)
     @_meshbluCreateSessionToken uuid, token, (error, response, body) =>
       return callback error if error?
       return callback new Error(UserSession.ERROR_FAILED_TO_GET_SESSION_TOKEN) unless response.statusCode == 200
@@ -71,7 +72,8 @@ class UserSession
     @getDeviceFromMeshblu uuid, token, (error, device) =>
       return callback error if error?
 
-      async.reject device.tokens, rejectToken, (tokens) =>
+      deviceTokens = device.tokens ? []
+      async.reject deviceTokens, rejectToken, (tokens) =>
         @updateDevice uuid, token, {uuid: uuid, tokens: tokens}, callback
 
   updateDevice: (uuid, token, device, callback=->) =>
