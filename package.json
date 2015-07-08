@@ -1,6 +1,6 @@
 {
   "name": "octoblu",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "octoblu.com",
   "main": "server.js",
   "private": true,
@@ -50,6 +50,7 @@
     "nodemailer-smtp-transport": "^0.1.13",
     "nodetime": "^0.8.15",
     "oauth": "^0.9.11",
+    "parse-redis-url": "0.0.2",
     "passport": "^0.2.0",
     "passport-appdotnet": "^0.1.1",
     "passport-automatic": "^1.1.0",
