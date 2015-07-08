@@ -35,7 +35,7 @@ var FlowNodeTypeCollection = function(userUUID, userToken, options){
 
   self.fromFile = function(){
     var promise = when.promise(function(resolve){
-      resolve(operations);
+      return resolve(operations);
     });
 
     return promise;
