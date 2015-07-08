@@ -13,12 +13,7 @@ class UserSession
   constructor: (dependencies={}) ->
     @request = dependencies.request ? require 'request'
     @config  = dependencies.config ? require '../../config/auth'
-    @databaseConfig = dependencies.databaseConfig ? require '../../config/database'
     @users = dependencies.database?.users ? require('../lib/database').getCollection('users')
-    if @databaseConfig?.redisSessionUrl?
-      @redis = dependencies.redis ? require 'redis'
-      @parseRedis = require('parse-redis-url')()
-      @redisClient = @redis.createClient @parseRedis.parse(@databaseConfig.redisSessionUrl)
 
   create: (uuid, token, callback=->) =>
     @exchangeOneTimeTokenForSessionToken uuid, token, (error, sessionToken) =>
@@ -57,7 +52,7 @@ class UserSession
         callback null, sessionToken
 
   getDeviceFromMeshblu: (uuid, token, callback=->) =>
-    @_meshbluGetDevice uuid, token, (error, device) =>
+    @_meshbluGetDevice uuid, token, (error, response, device) =>
       return callback error if error?
       return callback new Error(UserSession.ERROR_DEVICE_NOT_FOUND) unless device?
 
@@ -90,12 +85,7 @@ class UserSession
 
   _meshbluGetDevice: (uuid, token, callback=->) =>
     debug '_meshbluGetDevice', uuid, token
-    @_findDeviceInCache uuid, token, (error, device) =>
-      debug 'foundDevice', device?.uuid
-      return callback null, device if device?
-      @_meshbluRequest uuid, token, 'GET', "/v2/whoami", (error, response, device) =>
-        @_addDeviceToCache uuid, token, device if device?
-        callback error, device
+    @_meshbluRequest uuid, token, 'GET', "/v2/whoami", callback
 
   _meshbluRequest: (uuid, token, method, path, json=true, callback=->) =>
     if _.isFunction json
@@ -119,19 +109,5 @@ class UserSession
     }
 
     @request options, callback
-
-  _addDeviceToCache: (uuid, token, device, callback=->) =>
-    return callback null unless @redisClient?
-    debug 'addDeviceToCache', uuid, token
-    @redisClient.setex "#{uuid}-#{token}", 30, JSON.stringify(device), callback
-
-  _findDeviceInCache: (uuid, token, callback=->) =>
-    return callback null unless @redisClient?
-    debug 'findDeviceInCache', uuid, token
-    @redisClient.get "#{uuid}-#{token}", (error, reply) =>
-      debug 'foundDeviceInCache', uuid, token
-      return callback error if error?
-      return callback null unless reply?
-      callback null, JSON.parse(reply)
 
 module.exports = UserSession
