@@ -15,19 +15,20 @@ class GeneralSearch
       uuids = _.pluck devices, 'uuid'
       uuids.push @ownerUuid
       When.promise (resolve, reject) =>
-        requestParams = @requestParams(@searchQuery, uuids)
-        @request requestParams, (error, response, body) =>
-          return reject error if error?
-
-          unless response.statusCode == 200
-            error = new Error('elasticsearch error')
-            error.statusCode    = response.statusCode
-            error.body          = response.body
-            error.requestParams = requestParams
-            return reject error
-
-          messages = @parseResponse body
-          resolve messages
+        return resolve []
+        # requestParams = @requestParams(@searchQuery, uuids)
+        # @request requestParams, (error, response, body) =>
+        #   return reject error if error?
+        #
+        #   unless response.statusCode == 200
+        #     error = new Error('elasticsearch error')
+        #     error.statusCode    = response.statusCode
+        #     error.body          = response.body
+        #     error.requestParams = requestParams
+        #     return reject error
+        #
+        #   messages = @parseResponse body
+        #   resolve messages
 
   parseResponse: (response) =>
     _.map response.hits.hits, (hit) =>
