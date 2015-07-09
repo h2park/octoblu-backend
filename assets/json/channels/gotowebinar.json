@@ -1,694 +1,795 @@
 {
-  "_id": "54adb7158ff7bef9e70ca7f6",
-  "auth_strategy": "oauth",
-  "documentation": "https://developer.citrixonline.com/api/gotowebinar-rest-api/",
-  "enabled": "true",
-  "name": "GoToWebinar",
-  "type": "channel:gotowebinar",
-  "oauth": {
-    "development": {
-      "clientID": "INSERT_SECERT_HERE",
-      "clientSecret": "INSERT_SECERT_HERE",
-      "callbackURL": "http://localhost:8080/api/oauth/gotowebinar/callback",
-      "tokenMethod": "access_token_query",
-      "tokenQueryParam": "oauth_token"
-    },
-    "production": {
-      "clientID": "INSERT_SECERT_HERE",
-      "clientSecret": "INSERT_SECERT_HERE",
-      "callbackURL": "https://app.octoblu.com/api/oauth/gotowebinar/callback",
-      "tokenMethod": "access_token_query",
-      "tokenQueryParam": "oauth_token"
-    },
-    "staging": {
-      "clientID": "INSERT_SECERT_HERE",
-      "clientSecret": "INSERT_SECERT_HERE",
-      "callbackURL": "https://staging.octoblu.com/api/oauth/gotowebinar/callback",
-      "tokenMethod": "access_token_query",
-      "tokenQueryParam": "oauth_token"
-    }
-  },
+  "_id": "346sdjfw945305slf0w25u6",
   "application": {
-    "base": "https://api.citrixonline.com/G2W/rest/organizers",
+    "base": "https://api.citrixonline.com",
     "resources": [
       {
-        "path": "/:organizerKey/webinars/:webinarKey/registrants",
-        "displayName": "Create Registrant",
-        "doc": {
-          "url": "https://api.citrixonline.com/G2W/rest/organizers/{organizerKey}/webinars/{webinarKey}/registrants"
-        },
-        "httpMethod": "Post",
-        "params": [
-          {
-            "displayName": "First Name",
-            "style": "body",
-            "type": "string",
-            "name": "firstName",
-            "required": true
-          },
-          {
-            "displayName": "Last Name",
-            "style": "body",
-            "type": "string",
-            "name": "lastName",
-            "required": true
-          },
-          {
-            "displayName": "Email",
-            "style": "body",
-            "type": "string",
-            "name": "email",
-            "required": true
-          },
-          {
-            "name": ":organizerKey",
-            "displayName": "Organizer Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": ":webinarKey",
-            "displayName": "Webinar Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          }
-        ],
-        "url": "https://api.citrixonline.com/G2W/rest/organizers/:organizerKey/webinars/:webinarKey/registrants"
-      },
-      {
-        "path": "/:organizerKey/webinars/:webinarKey/registrants/:registrantKey",
-        "displayName": "Get Registrant",
-        "doc": {
-          "url": "https://api.citrixonline.com/G2W/rest/organizers/{organizerKey}/webinars/{webinarKey}/registrants/{registrantKey}"
-        },
-        "httpMethod": "Get",
-        "params": [
-          {
-            "name": ":organizerKey",
-            "displayName": "Organizer Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": ":webinarKey",
-            "displayName": "Webinar Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": ":registrantKey",
-            "displayName": "Registrant Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          }
-        ],
-        "url": "https://api.citrixonline.com/G2W/rest/organizers/:organizerKey/webinars/:webinarKey/registrants/:registrantKey"
-      },
-      {
-        "path": "/:organizerKey/webinars/:webinarKey/registrants",
-        "displayName": "Get Registrants",
-        "doc": {
-          "url": "https://api.citrixonline.com/G2W/rest/organizers/{organizerKey}/webinars/{webinarKey}/registrants"
-        },
-        "httpMethod": "Get",
-        "params": [
-          {
-            "name": ":organizerKey",
-            "displayName": "Organizer Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": ":webinarKey",
-            "displayName": "Webinar Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          }
-        ],
-        "url": "https://api.citrixonline.com/G2W/rest/organizers/:organizerKey/webinars/:webinarKey/registrants"
-      },
-      {
-        "path": "/:organizerKey/webinars/:webinarKey/registrants/fields",
-        "displayName": "Registration Fields",
-        "doc": {
-          "url": "https://api.citrixonline.com/G2W/rest/organizers/{organizerKey}/webinars/{webinarKey}/registrants/fields"
-        },
-        "httpMethod": "Get",
-        "params": [
-          {
-            "name": ":organizerKey",
-            "displayName": "Organizer Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": ":webinarKey",
-            "displayName": "Webinar Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          }
-        ],
-        "url": "https://api.citrixonline.com/G2W/rest/organizers/:organizerKey/webinars/:webinarKey/registrants/fields"
-      },
-      {
-        "path": "/:organizerKey/webinars/:webinarKey/sessions/:sessionKey/attendees/:registrantKey",
-        "displayName": "Get Attendee",
-        "doc": {
-          "url": "https://api.citrixonline.com/G2W/rest/organizers/{organizerKey}/webinars/{webinarKey}/sessions/{sessionKey}/attendees/{registrantKey}"
-        },
-        "httpMethod": "Post",
-        "params": [
-          {
-            "name": ":organizerKey",
-            "displayName": "Organizer Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": ":webinarKey",
-            "displayName": "Webinar Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": ":sessionKey",
-            "displayName": "Session Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": ":registrantKey",
-            "displayName": "Registrant Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          }
-        ],
-        "url": "https://api.citrixonline.com/G2W/rest/organizers/:organizerKey/webinars/:webinarKey/sessions/:sessionKey/attendees/:registrantKey"
-      },
-      {
-        "path": "/:organizerKey/webinars/:webinarKey/sessions/:sessionKey/attendees/:registrantKey/polls",
-        "displayName": "Get Attendee Poll Answers",
-        "doc": {
-          "url": "https://api.citrixonline.com/G2W/rest/organizers/{organizerKey}/webinars/{webinarKey}/sessions/{sessionKey}/attendees/{registrantKey}/polls"
-        },
-        "httpMethod": "Get",
-        "params": [
-          {
-            "name": ":organizerKey",
-            "displayName": "Organizer Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": ":webinarKey",
-            "displayName": "Webinar Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": ":sessionKey",
-            "displayName": "Session Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": ":registrantKey",
-            "displayName": "Registrant Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          }
-        ],
-        "url": "https://api.citrixonline.com/G2W/rest/organizers/:organizerKey/webinars/:webinarKey/sessions/:sessionKey/attendees/:registrantKey/polls"
-      },
-      {
-        "path": "/:organizerKey/webinars/:webinarKey/sessions/:sessionKey/attendees/:registrantKey/questions",
-        "displayName": "Get Manage Training URL",
-        "doc": {
-          "url": "https://api.citrixonline.com/G2W/rest/organizers/{organizerKey}/webinars/{webinarKey}/sessions/{sessionKey}/attendees/{registrantKey}/questions"
-        },
-        "httpMethod": "Get",
-        "params": [
-          {
-            "name": ":organizerKey",
-            "displayName": "Organizer Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": ":webinarKey",
-            "displayName": "Webinar Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": ":sessionKey",
-            "displayName": "Session Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": ":registrantKey",
-            "displayName": "Registrant Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          }
-        ],
-        "url": "https://api.citrixonline.com/G2W/rest/organizers/:organizerKey/webinars/:webinarKey/sessions/:sessionKey/attendees/:registrantKey/questions"
-      },
-      {
-        "path": "/:organizerKey/webinars/:webinarKey/sessions/:sessionKey/attendees/:registrantKey/surveys",
-        "displayName": "Get Attendee Survey Answers",
-        "doc": {
-          "url": "https://api.citrixonline.com/G2W/rest/organizers/{organizerKey}/webinars/{webinarKey}/sessions/{sessionKey}/attendees/{registrantKey}/surveys"
-        },
-        "httpMethod": "Get",
-        "params": [
-          {
-            "name": ":organizerKey",
-            "displayName": "Organizer Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": ":webinarKey",
-            "displayName": "Webinar Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": ":sessionKey",
-            "displayName": "Session Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": ":registrantKey",
-            "displayName": "Registrant Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          }
-        ],
-        "url": "https://api.citrixonline.com/G2W/rest/organizers/:organizerKey/webinars/:webinarKey/sessions/:sessionKey/attendees/:registrantKey/surveys"
-      },
-      {
-        "path": "/:organizerKey/webinars/:webinarKey/attendees",
-        "displayName": "Get Attendees for All Webinar Sessions",
-        "doc": {
-          "url": "https://api.citrixonline.com/G2W/rest/organizers/{organizerKey}/webinars/{webinarKey}/attendees"
-        },
-        "httpMethod": "Get",
-        "params": [
-          {
-            "name": ":organizerKey",
-            "displayName": "Organizer Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": ":webinarKey",
-            "displayName": "Webinar Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          }
-        ],
-        "url": "https://api.citrixonline.com/G2W/rest/organizers/:organizerKey/webinars/:webinarKey/attendees"
-      },
-      {
-        "path": "/:organizerKey/historicalWebinars",
+        "path": "/organizers/:organizerKey/historicalWebinars",
         "displayName": "Get Historical Webinars",
-        "doc": {
-          "url": "https://api.citrixonline.com/G2W/rest/organizers/{organizerKey}/historicalWebinars"
-        },
-        "httpMethod": "Get",
-        "params": [
-          {
-            "displayName": "From Time",
-            "style": "query",
-            "type": "String",
-            "name": "fromTime",
-            "required": true
-          },
-          {
-            "displayName": "To Time",
-            "style": "query",
-            "type": "String",
-            "name": "toTime",
-            "required": true
-          },
-          {
-            "name": ":organizerKey",
-            "displayName": "Organizer Key",
-            "style": "url",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "URL",
             "type": "string",
-            "required": true
-          }
-        ],
-        "url": "https://api.citrixonline.com/G2W/rest/organizers/:organizerKey/historicalWebinars"
-      },
-      {
-        "path": "/:organizerKey/upcomingWebinars",
+            "name": ":organizerKey",
+            "displayName": "Key Of The Organizer",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "Authorization",
+            "displayName": "Access token",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "fromTime",
+            "displayName": "Start Of Datetime",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "toTime",
+            "displayName": "End Of Datetime",
+            "required": "true"
+          }],
+        "url": "https://api.citrixonline.com/organizers/:organizerKey/historicalWebinars"
+      },{
+        "path": "/organizers/:organizerKey/upcomingWebinars",
         "displayName": "Get Upcoming Webinars",
-        "doc": {
-          "url": "https://api.citrixonline.com/G2W/rest/organizers/{organizerKey}/upcomingWebinars"
-        },
-        "httpMethod": "Put",
-        "params": [
-          {
-            "name": ":organizerKey",
-            "displayName": "Organizer Key",
-            "style": "url",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "URL",
             "type": "string",
-            "required": true
-          }
-        ],
-        "url": "https://api.citrixonline.com/G2W/rest/organizers/:organizerKey/upcomingWebinars"
-      },
-      {
-        "path": "/:organizerKey/webinars/:webinarKey",
+            "name": ":organizerKey",
+            "displayName": "Key Of The Organizer",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "Authorization",
+            "displayName": "Access token",
+            "required": "true"
+          }],
+        "url": "https://api.citrixonline.com/organizers/:organizerKey/upcomingWebinars"
+      },{
+        "path": "/organizers/:organizerKey/webinars",
+        "displayName": "Create Webinar",
+        "httpMethod": "POST",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":organizerKey",
+            "displayName": "Key Of The Organizer",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Authorization",
+            "displayName": "Access token",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "The Webinar Details",
+            "required": "true"
+          }],
+        "url": "https://api.citrixonline.com/organizers/:organizerKey/webinars"
+      },{
+        "path": "/organizers/:organizerKey/webinars",
+        "displayName": "Get All Webinars",
+        "httpMethod": "Get",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":organizerKey",
+            "displayName": "Key Of The Organizer",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "Authorization",
+            "displayName": "Access token",
+            "required": "true"
+          }],
+        "url": "https://api.citrixonline.com/organizers/:organizerKey/webinars"
+      },{
+        "path": "/organizers/:organizerKey/webinars/:webinarKey",
         "displayName": "Get Webinar",
-        "doc": {
-          "url": "https://api.citrixonline.com/G2W/rest/organizers/{organizerKey}/webinars/{webinarKey}"
-        },
-        "httpMethod": "Get",
-        "params": [
-          {
+        "httpMethod": "GET",
+        "params": [{
+            "style": "URL",
+            "type": "string",
             "name": ":organizerKey",
-            "displayName": "Organizer Key",
-            "style": "url",
+            "displayName": "Key Of The Organizer",
+            "required": "true"
+          },{
+            "style": "URL",
             "type": "string",
-            "required": true
-          },
-          {
             "name": ":webinarKey",
-            "displayName": "Webinar Key",
-            "style": "url",
+            "displayName": "Key Of The Webinar",
+            "required": "true"
+          },{
+            "style": "query",
             "type": "string",
-            "required": true
-          }
-        ],
-        "url": "https://api.citrixonline.com/G2W/rest/organizers/:organizerKey/webinars/:webinarKey"
-      },
-      {
-        "path": "/:organizerKey/webinars/:webinarKey/meetingtimes",
+            "name": "Authorization",
+            "displayName": "Access token",
+            "required": "true"
+          }],
+        "url": "https://api.citrixonline.com/organizers/:organizerKey/webinars/:webinarKey"
+      },{
+        "path": "/organizers/:organizerKey/webinars/:webinarKey/attendees",
+        "displayName": "Get Attendees For All Webinar Sessions",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":organizerKey",
+            "displayName": "Key Of The Organizer",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":webinarKey",
+            "displayName": "Key Of The Webinar",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "Authorization",
+            "displayName": "Access token",
+            "required": "true"
+          }],
+        "url": "https://api.citrixonline.com/organizers/:organizerKey/webinars/:webinarKey/attendees"
+      },{
+        "path": "/organizers/:organizerKey/webinars/:webinarKey/coorganizers",
+        "displayName": "Get Webinar Coorganizers",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":organizerKey",
+            "displayName": "Key Of The Organizer",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":webinarKey",
+            "displayName": "Key Of The Webinar",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "Authorization",
+            "displayName": "Access token",
+            "required": "true"
+          }],
+        "url": "https://api.citrixonline.com/organizers/:organizerKey/webinars/:webinarKey/coorganizers"
+      },{
+        "path": "/organizers/:organizerKey/webinars/:webinarKey/meetingtimes",
         "displayName": "Get Webinar Meeting Times",
-        "doc": {
-          "url": "https://api.citrixonline.com/G2W/rest/organizers/{organizerKey}/webinars/{webinarKey}/meetingtimes"
-        },
-        "httpMethod": "Get",
-        "params": [
-          {
+        "httpMethod": "GET",
+        "params": [{
+            "style": "URL",
+            "type": "string",
             "name": ":organizerKey",
-            "displayName": "Organizer Key",
-            "style": "url",
+            "displayName": "Key Of The Organizer",
+            "required": "true"
+          },{
+            "style": "URL",
             "type": "string",
-            "required": true
-          },
-          {
             "name": ":webinarKey",
-            "displayName": "Webinar Key",
-            "style": "url",
+            "displayName": "Key Of The Webinar",
+            "required": "true"
+          },{
+            "style": "query",
             "type": "string",
-            "required": true
-          }
-        ],
-        "url": "https://api.citrixonline.com/G2W/rest/organizers/:organizerKey/webinars/:webinarKey/meetingtimes"
-      },
-      {
+            "name": "Authorization",
+            "displayName": "Access token",
+            "required": "true"
+          }],
+        "url": "https://api.citrixonline.com/organizers/:organizerKey/webinars/:webinarKey/meetingtimes"
+      },{
+        "path": "/organizers/:organizerKey/webinars/:webinarKey/panelists",
+        "displayName": "Get Webinar Panelists",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":organizerKey",
+            "displayName": "Key Of The Organizer",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":webinarKey",
+            "displayName": "Key Of The Webinar",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "Authorization",
+            "displayName": "Access token",
+            "required": "true"
+          }],
+        "url": "https://api.citrixonline.com/organizers/:organizerKey/webinars/:webinarKey/panelists"
+      },{
+        "path": "/organizers/:organizerKey/webinars/:webinarKey/performance",
+        "displayName": "Get Performance For All Webinar Sessions",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":organizerKey",
+            "displayName": "Key Of The Organizer",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":webinarKey",
+            "displayName": "Key Of The Webinar",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "Authorization",
+            "displayName": "Access token",
+            "required": "true"
+          }],
+        "url": "https://api.citrixonline.com/organizers/:organizerKey/webinars/:webinarKey/performance"
+      },{
         "path": "/organizers/:organizerKey/sessions",
-        "displayName": "Get Attendance Details",
-        "doc": {
-          "url": "https://api.citrixonline.com/G2W/rest/organizers/{organizerKey}/sessions"
-        },
-        "httpMethod": "Get",
-        "params": [
-          {
-            "displayName": "From Time",
+        "displayName": "Get Organizer Sessions",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":organizerKey",
+            "displayName": "Key Of The Organizer",
+            "required": "true"
+          },{
             "style": "query",
-            "type": "String",
+            "type": "string",
+            "name": "Authorization",
+            "displayName": "Access token",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
             "name": "fromTime",
-            "required": true
-          },
-          {
-            "displayName": "To Time",
+            "displayName": "Start Of Datetime Range",
+            "required": "true"
+          },{
             "style": "query",
-            "type": "String",
+            "type": "string",
             "name": "toTime",
-            "required": true
-          },
-          {
-            "name": ":organizerKey",
-            "displayName": "Organizer Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          }
-        ],
-        "url": "https://api.citrixonline.com/G2W/rest/organizers/:organizerKey/sessions"
-      },
-      {
-        "path": "/:organizerKey/webinars/:webinarKey/sessions/:sessionKey",
-        "displayName": "Get Session",
-        "doc": {
-          "url": "https://api.citrixonline.com/G2W/rest/organizers/{organizerKey}/webinars/{webinarKey}/sessions/{sessionKey}"
-        },
-        "httpMethod": "Get",
-        "params": [
-          {
-            "name": ":organizerKey",
-            "displayName": "Organizer Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": ":webinarKey",
-            "displayName": "Webinar Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": ":sessionKey",
-            "displayName": "Session Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          }
-        ],
-        "url": "https://api.citrixonline.com/G2W/rest/organizers/:organizerKey/webinars/:webinarKey/sessions/:sessionKey"
-      },
-      {
-        "path": "/:organizerKey/webinars/:webinarKey/sessions/:sessionKey/attendees",
-        "displayName": "Get Session Attendees",
-        "doc": {
-          "url": "https://api.citrixonline.com/G2W/rest/organizers/{organizerKey}/webinars/{webinarKey}/sessions/{sessionKey}/attendees"
-        },
-        "httpMethod": "Get",
-        "params": [
-          {
-            "name": ":organizerKey",
-            "displayName": "Organizer Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": ":webinarKey",
-            "displayName": "Webinar Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": ":sessionKey",
-            "displayName": "Session Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          }
-        ],
-        "url": "https://api.citrixonline.com/G2W/rest/organizers/:organizerKey/webinars/:webinarKey/sessions/:sessionKey/attendees"
-      },
-      {
-        "path": "/:organizerKey/webinars/:webinarKey/sessions/:sessionKey/performance",
-        "displayName": "Get Session Performance",
-        "doc": {
-          "url": "https://api.citrixonline.com/G2W/rest/organizers/{organizerKey}/webinars/{webinarKey}/sessions/{sessionKey}/performance"
-        },
-        "httpMethod": "Get",
-        "params": [
-          {
-            "name": ":organizerKey",
-            "displayName": "Organizer Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": ":webinarKey",
-            "displayName": "Webinar Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": ":sessionKey",
-            "displayName": "Session Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          }
-        ],
-        "url": "https://api.citrixonline.com/G2W/rest/organizers/:organizerKey/webinars/:webinarKey/sessions/:sessionKey/performance"
-      },
-      {
-        "path": "/:organizerKey/webinars/:webinarKey/sessions/:sessionKey/polls",
-        "displayName": "Get Session Polls",
-        "doc": {
-          "url": "https://api.citrixonline.com/G2W/rest/organizers/{organizerKey}/webinars/{webinarKey}/sessions/{sessionKey}/polls"
-        },
-        "httpMethod": "Get",
-        "params": [
-          {
-            "name": ":organizerKey",
-            "displayName": "Organizer Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": ":webinarKey",
-            "displayName": "Webinar Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": ":sessionKey",
-            "displayName": "Session Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          }
-        ],
-        "url": "https://api.citrixonline.com/G2W/rest/organizers/:organizerKey/webinars/:webinarKey/sessions/:sessionKey/polls"
-      },
-      {
-        "path": "/:organizerKey/webinars/:webinarKey/sessions/:sessionKey/questions",
-        "displayName": "Get Session Questions",
-        "doc": {
-          "url": "https://api.citrixonline.com/G2W/rest/organizers/{organizerKey}/webinars/{webinarKey}/sessions/{sessionKey}/questions"
-        },
-        "httpMethod": "Get",
-        "params": [
-          {
-            "name": ":organizerKey",
-            "displayName": "Organizer Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": ":webinarKey",
-            "displayName": "Webinar Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": ":sessionKey",
-            "displayName": "Session Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          }
-        ],
-        "url": "https://api.citrixonline.com/G2W/rest/organizers/:organizerKey/webinars/:webinarKey/sessions/:sessionKey/questions"
-      },
-      {
-        "path": "/:organizerKey/webinars/:webinarKey/sessions/:sessionKey/surveys",
-        "displayName": "Get Session Surveys",
-        "doc": {
-          "url": "https://api.citrixonline.com/G2W/rest/organizers/{organizerKey}/webinars/{webinarKey}/sessions/{sessionKey}/surveys"
-        },
-        "httpMethod": "Get",
-        "params": [
-          {
-            "name": ":organizerKey",
-            "displayName": "Organizer Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": ":webinarKey",
-            "displayName": "Webinar Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": ":sessionKey",
-            "displayName": "Session Key",
-            "style": "url",
-            "type": "string",
-            "required": true
-          }
-        ],
-        "url": "https://api.citrixonline.com/G2W/rest/organizers/:organizerKey/webinars/:webinarKey/sessions/:sessionKey/surveys"
-      },
-      {
-        "path": "/:organizerKey/webinars/:webinarKey/sessions",
+            "displayName": "End Of Datetime Range",
+            "required": "true"
+          }],
+        "url": "https://api.citrixonline.com/organizers/:organizerKey/sessions"
+      },{
+        "path": "/organizers/:organizerKey/webinars/:webinarKey/sessions",
         "displayName": "Get Webinar Sessions",
-        "doc": {
-          "url": "https://api.citrixonline.com/G2W/rest/organizers/{organizerKey}/webinars/{webinarKey}/sessions"
-        },
-        "httpMethod": "Get",
-        "params": [
-          {
+        "httpMethod": "GET",
+        "params": [{
+            "style": "URL",
+            "type": "string",
             "name": ":organizerKey",
-            "displayName": "Organizer Key",
-            "style": "url",
+            "displayName": "Key Of The Organizer",
+            "required": "true"
+          },{
+            "style": "URL",
             "type": "string",
-            "required": true
-          },
-          {
             "name": ":webinarKey",
-            "displayName": "Webinar Key",
-            "style": "url",
+            "displayName": "Key Of The Webinar",
+            "required": "true"
+          },{
+            "style": "query",
             "type": "string",
-            "required": true
-          }
-        ],
-        "url": "https://api.citrixonline.com/G2W/rest/organizers/:organizerKey/webinars/:webinarKey/sessions"
+            "name": "Authorization",
+            "displayName": "Access token",
+            "required": "true"
+          }],
+        "url": "https://api.citrixonline.com/organizers/:organizerKey/webinars/:webinarKey/sessions"
+      },{
+        "path": "/organizers/:organizerKey/webinars/:webinarKey/sessions/:sessionKey",
+        "displayName": "Get Webinar Session",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":organizerKey",
+            "displayName": "Key Of The Organizer",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":webinarKey",
+            "displayName": "Key Of The Webinar",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":sessionKey",
+            "displayName": "Key Of The Session",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "Authorization",
+            "displayName": "Access token",
+            "required": "true"
+          }],
+        "url": "https://api.citrixonline.com/organizers/:organizerKey/webinars/:webinarKey/sessions/:sessionKey"
+      },{
+        "path": "/organizers/:organizerKey/webinars/:webinarKey}/sessions/:sessionKey/performance",
+        "displayName": "Get Session Performance",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":organizerKey",
+            "displayName": "Key Of The Organizer",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":webinarKey",
+            "displayName": "Key Of The Webinar",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":sessionKey",
+            "displayName": "Key Of The Session",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "Authorization",
+            "displayName": "Access token",
+            "required": "true"
+          }],
+        "url": "https://api.citrixonline.com/organizers/:organizerKey/webinars/:webinarKey}/sessions/:sessionKey/performance"
+      },{
+        "path": "/organizers/:organizerKey/webinars/:webinarKey/sessions/:sessionKey/polls",
+        "displayName": "Get Session Polls",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":organizerKey",
+            "displayName": "Key Of The Organizer",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":webinarKey",
+            "displayName": "Key Of The Webinar",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":sessionKey",
+            "displayName": "Key Of The Session",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "Authorization",
+            "displayName": "Access token",
+            "required": "true"
+          }],
+        "url": "https://api.citrixonline.com/organizers/:organizerKey/webinars/:webinarKey/sessions/:sessionKey/polls"
+      },{
+        "path": "/organizers/:organizerKey/webinars/:webinarKey/sessions/:sessionKey/questions",
+        "displayName": "Get Session Questions",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":organizerKey",
+            "displayName": "Key Of The Organizer",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":webinarKey",
+            "displayName": "Key Of The Webinar",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":sessionKey",
+            "displayName": "Key Of The Session",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "Authorization",
+            "displayName": "Access token",
+            "required": "true"
+          }],
+        "url": "https://api.citrixonline.com/organizers/:organizerKey/webinars/:webinarKey/sessions/:sessionKey/questions"
+      },{
+        "path": "/organizers/:organizerKey/webinars/:webinarKey/sessions/:sessionKey/surveys",
+        "displayName": "Get Session Surveys",
+        "httpMethod": "Get",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":organizerKey",
+            "displayName": "Key Of The Organizer",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":webinarKey",
+            "displayName": "Key Of The Webinar",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":sessionKey",
+            "displayName": "Key Of The Session",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "Authorization",
+            "displayName": "Access token",
+            "required": "true"
+          }],
+        "url": "https://api.citrixonline.com/organizers/:organizerKey/webinars/:webinarKey/sessions/:sessionKey/surveys"
+      },{
+        "path": "/organizers/:organizerKey/webinars/:webinarKey/registrants",
+        "displayName": "Create Registrant",
+        "httpMethod": "POST",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":organizerKey",
+            "displayName": "Key Of The Organizer",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":webinarKey",
+            "displayName": "Key Of The Webinar",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Authorization",
+            "displayName": "Access token",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Accept",
+            "displayName": "To Make A Registration"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "resendConfirmation",
+            "displayName": "Indicates Whether The Confirmation Email Should Be Resent When A Registrant Is Re-registered"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "body",
+            "displayName": "Body",
+            "required": "true"
+          }],
+        "url": "https://api.citrixonline.com/organizers/:organizerKey/webinars/:webinarKey/registrants"
+      },{
+        "path": "/organizers/:organizerKey/webinars/:webinarKey/registrants",
+        "displayName": "Get Registrants",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":organizerKey",
+            "displayName": "Key Of The Organizer",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":webinarKey",
+            "displayName": "Key Of The Webinar",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "Authorization",
+            "displayName": "Access token",
+            "required": "true"
+          }],
+        "url": "https://api.citrixonline.com/organizers/:organizerKey/webinars/:webinarKey/registrants"
+      },{
+        "path": "/organizers/:organizerKey/webinars/:webinarKey/registrants/:registrantKey",
+        "displayName": "Delete Registrant",
+        "httpMethod": "DELETE",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":organizerKey",
+            "displayName": "Key Of The Organizer",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":webinarKey",
+            "displayName": "Key Of The Webinar",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":registrantKey",
+            "displayName": "Key Of The Registrant",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "Authorization",
+            "displayName": "Access token",
+            "required": "true"
+          }],
+        "url": "https://api.citrixonline.com/organizers/:organizerKey/webinars/:webinarKey/registrants/:registrantKey"
+      },{
+        "path": "/organizers/:organizerKey/webinars/:webinarKey/registrants/:registrantKey",
+        "displayName": "Get Registrant",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":organizerKey",
+            "displayName": "Key Of The Organizer",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":webinarKey",
+            "displayName": "Key Of The Webinar",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":registrantKey",
+            "displayName": "Key Of The Registrant",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "Authorization",
+            "displayName": "Access token",
+            "required": "true"
+          }],
+        "url": "https://api.citrixonline.com/organizers/:organizerKey/webinars/:webinarKey/registrants/:registrantKey"
+      },{
+        "path": "/organizers/:organizerKey/webinars/:webinarKey/registrants/fields",
+        "displayName": "Get Registration Fields",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":organizerKey",
+            "displayName": "Key Of The Organizer",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":webinarKey",
+            "displayName": "Key Of The Webinar",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "Authorization",
+            "displayName": "Access token",
+            "required": "true"
+          }],
+        "url": "https://api.citrixonline.com/organizers/:organizerKey/webinars/:webinarKey/registrants/fields"
+      },{
+        "path": "/organizers/:organizerKey/webinars/:webinarKey/sessions/:sessionKey/attendees",
+        "displayName": "Get Session Attendees",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":organizerKey",
+            "displayName": "Key Of The Organizer",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":webinarKey",
+            "displayName": "Key Of The Webinar",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":sessionKey",
+            "displayName": "Key Of The Session",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "Authorization",
+            "displayName": "Access token",
+            "required": "true"
+          }],
+        "url": "https://api.citrixonline.com/organizers/:organizerKey/webinars/:webinarKey/sessions/:sessionKey/attendees"
+      },{
+        "path": "/organizers/:organizerKey/webinars/:webinarKey/sessions/:sessionKey/attendees/:registrantKey",
+        "displayName": "Get Attendee",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":organizerKey",
+            "displayName": "Key Of The Organizer",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":webinarKey",
+            "displayName": "Key Of The Webinar",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":sessionKey",
+            "displayName": "Key Of The Session",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":registrantKey",
+            "displayName": "Key Of The Registrant",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "Authorization",
+            "displayName": "Access token",
+            "required": "true"
+          }],
+        "url": "https://api.citrixonline.com/organizers/:organizerKey/webinars/:webinarKey/sessions/:sessionKey/attendees/:registrantKey"
+      },{
+        "path": "/organizers/:organizerKey/webinars/:webinarKey/sessions/:sessionKey/attendees/:registrantKey/polls",
+        "displayName": "Get Attendee Poll Answers",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":organizerKey",
+            "displayName": "Key Of The Organizer",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":webinarKey",
+            "displayName": "Key Of The Webinar",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":sessionKey",
+            "displayName": "Key Of The Session",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":registrantKey",
+            "displayName": "Key Of The Registrant",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "Authorization",
+            "displayName": "Access token",
+            "required": "true"
+          }],
+        "url": "https://api.citrixonline.com/organizers/:organizerKey/webinars/:webinarKey/sessions/:sessionKey/attendees/:registrantKey/polls"
+      },{
+        "path": "/organizers/:organizerKey/webinars/:webinarKey/sessions/:sessionKey/attendees/:registrantKey/questions",
+        "displayName": "Get Attendee Questions",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":organizerKey",
+            "displayName": "Key Of The Organizer",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":webinarKey",
+            "displayName": "Key Of The Webinar",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":sessionKey",
+            "displayName": "Key Of The Session",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":registrantKey",
+            "displayName": "Key Of The Registrant",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "Authorization",
+            "displayName": "Access token",
+            "required": "true"
+          }],
+        "url": "https://api.citrixonline.com/organizers/:organizerKey/webinars/:webinarKey/sessions/:sessionKey/attendees/:registrantKey/questions"
+      },{
+        "path": "/organizers/:organizerKey/webinars/:webinarKey/sessions/:sessionKey/attendees/:registrantKey/surveys",
+        "displayName": "Get Attendee Survey Answers",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":organizerKey",
+            "displayName": "Key Of The Organizer",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":webinarKey",
+            "displayName": "Key Of The Webinar",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":sessionKey",
+            "displayName": "Key Of The Session",
+            "required": "true"
+          },{
+            "style": "URL",
+            "type": "string",
+            "name": ":registrantKey",
+            "displayName": "Key Of The Registrant",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "Authorization",
+            "displayName": "Access token",
+            "required": "true"
+          }],
+        "url": "https://api.citrixonline.com/organizers/:organizerKey/webinars/:webinarKey/sessions/:sessionKey/attendees/:registrantKey/surveys"
       }
     ]
-  }
+  },
+  "oauth":{
+    "development": {
+      "clientID":     "",
+      "clientSecret": "",
+      "callbackURL":  "",
+      "tokenMethod":  ""
+    },
+    "production": {
+      "clientID":     "",
+      "clientSecret": "",
+      "callbackURL":  "",
+      "tokenMethod":  ""
+    },
+    "staging": {
+      "clientID":     "",
+      "clientSecret": "",
+      "callbackURL":  "",
+      "tokenMethod":  ""
+    }
+  },
+  "auth_strategy": "",
+  "documentation": "https://developer.citrixonline.com/content/gotowebinar-api-reference-0#!/Webinars/getUpcomingWebinars",
+  "enabled": true,
+  "name": "GoToWebinar",
+  "isPassport": true,
+  "type": "channel:gotowebinar"
 }
