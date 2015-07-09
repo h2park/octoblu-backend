@@ -1,9 +1,10 @@
 url = require 'url'
 async = require 'async'
-bcrypt = require 'bcrypt'
 _ = require 'lodash'
 debug = require('debug')('octoblu:user-session-model')
 nodefn = require 'when/node'
+config = require '../../config/auth'
+MeshbluHTTP = require 'meshblu-http'
 
 class UserSession
   @ERROR_DEVICE_NOT_FOUND: 'Meshblu device not found'
@@ -67,18 +68,16 @@ class UserSession
   getUserByUuid: (uuid, callback=->) =>
     nodefn.bindCallback @users.findOne('skynet.uuid': uuid), callback
 
+
   invalidateOneTimeToken: (uuid, token, callback=->) =>
-    rejectToken = (tokenObj, cb=->) =>
-      bcrypt.compare token, tokenObj.hash, (error, result) =>
-        cb result
+    meshbluHTTP = new MeshbluHTTP
+      uuid: uuid
+      token: token
+      server: config.skynet.host
+      port: config.skynet.port
 
-    debug 'invalidateOneTimeToken', uuid, token
-    @getDeviceFromMeshblu uuid, token, (error, device) =>
-      return callback error if error?
-
-      deviceTokens = device.tokens ? []
-      async.reject deviceTokens, rejectToken, (tokens) =>
-        @updateDevice uuid, token, {uuid: uuid, tokens: tokens}, callback
+    meshbluHTTP.revokeToken uuid, token, (error) =>
+      callback error
 
   updateDevice: (uuid, token, device, callback=->) =>
     @_meshbluRequest uuid, token, 'PUT', "/devices/#{uuid}", device, (error, response) =>

@@ -5,7 +5,7 @@ labels:
   name: octoblu-green
   version: "$SHORT_COMMIT"
 desiredState:
-  replicas: 2
+  replicas: 4
   replicaSelector:
     name: octoblu-green
     version: "$SHORT_COMMIT"
@@ -20,7 +20,7 @@ desiredState:
         id: octoblu-green
         containers:
           - name: octoblu-green
-            image: quay.io/octoblu/octoblu:$TRAVIS_TAG
+            image: octoblu/octoblu:$SHORT_COMMIT
             ports:
               - containerPort: 80
             env:

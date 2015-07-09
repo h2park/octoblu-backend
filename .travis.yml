@@ -28,7 +28,6 @@ env:
   - secure: hXSwhCUp1ICE6bwFLRcAcX3ZyiA5kJdtuovCS25dTB8nqqalM71lbWp5ca/Bjeck8wzNEL0/sbFcxelfmD6+73G900W9CPGYZUM0TrawOEJtPOyPZntF3dOpg7EzLKi9jwlVKn5272gIVIq4AkIaLasT+GuEuynYnsaOzb0mf/0=
   - secure: G4fVIEEfGCoQEGUHPFBzC7AUgxbP8z9kMkQBgLm+86jRBwnlcERlls0WW7wm+g842y34oP8oaGSzJG7Lcv/AlcPkxzAG1YZsAnAmAP5OWO7OCxuRorX1tnHM26oNdlY3VK0jnBZw6GZEHoH7lxTX0S4Pb/GpJk0yKCFSsgikPtA=
   - secure: NmVHX2V/eklCspqDVZZnuFGcan8zKjLDsrtAdeDDwkNe2EfvdjFgm0ptpdv+pTakxC+c+Kzp8QR7c3IJD31Gfbz9hMQyviQHcZClJ1PA1/rwtbeWotXo2uhM78lfYTZbawN3F7dtgDSKLLVr8V88OjDQBF/kfZnXR6oVmyN4+6E=
-  - secure: elhRW+glOhRqm3hh4ZmqjGGFI8AmSabDLrqXReu6Xj6tAu2ZvG97PtqfEnxn3TvrH13LJ78L7NuhFkz0KGxeP3ff9b22UDwV/3te4a9cxL73PGuq4CMoNhqh055smUEwgwh0bzWKVy5YEZrp+vDUXp0AhCUsEBCNyHDkPalLeQI=
 after_success:
 - .kubernetes/travis_after_success
 notifications:
@@ -50,17 +49,15 @@ deploy:
   skip_cleanup: true
   bucket: octoblu-deploy
   on:
-    tags: true
-    all_branches: true
+    branch: master
 - provider: codedeploy
   access_key_id: AWS_ACCESS_KEY_ID
   secret_access_key: *1
   bucket: octoblu-deploy
-  key: octoblu/octoblu-$TRAVIS_COMMIT.zip
+  key: docker-builder/octoblu-$TRAVIS_COMMIT.zip
   bundle_type: zip
   region: us-west-2
-  application: octoblu
-  deployment_group: master
+  application: docker-builder
+  deployment_group: octoblu
   on:
-    tags: true
-    all_branches: true
+    branch: master
