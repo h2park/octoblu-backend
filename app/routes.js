@@ -238,24 +238,11 @@ module.exports = function(app, passport, config, meshbluJSON){
         console.error(error.stack);
     });
 
-
     // Attach additional routes
-    conn.on('ready', function(data){
+    conn.once('ready', function(data){
         console.log('SkyNet authentication: success');
         try {
-            app.post('/api/auth', security.bypassAuth);
-            app.all('/api/auth', security.bypassTerms);
-            app.all('/api/auth/*', security.bypassAuth, security.bypassTerms);
-            app.all('/api/flow-auth-credentials/*', security.bypassTerms);
-            app.all('/api/oauth/*', security.bypassAuth, security.bypassTerms);
-            app.post('/api/invitation/request', security.bypassAuth, security.bypassTerms);
-            app.post('/api/webhooks/:id', security.bypassAuth, webhookController.trigger);
-            app.get('/api/invitation/:id/accept', security.bypassAuth, security.bypassTerms);
-            app.all('/api/reset', security.bypassAuth, security.bypassTerms);
-            app.all('/api/reset/:token', security.bypassAuth, security.bypassTerms);
-            app.get('/api/session', security.bypassAuth, security.bypassTerms);
-
-            app.all('/api/*', security.isAuthenticated, security.enforceTerms);
+            app.post('/api/webhooks/:id', webhookController.trigger);
 
             require('./controllers/auth-controller')(app, passport, config);
             require('./controllers/channel')(app);

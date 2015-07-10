@@ -45,9 +45,10 @@ class UserSession
       .catch (error) => callback error
 
   ensureUserExists: (uuid, callback=->) =>
+    debug 'ensureUserExists', uuid
     @getUserByUuid uuid, (error, user) =>
       return callback error if error?
-      return @getUserByUuid uuid, callback if user?
+      return callback null, user if user?
       @createUser uuid, callback
 
   exchangeOneTimeTokenForSessionToken: (uuid, token, callback=->) =>
@@ -67,7 +68,6 @@ class UserSession
 
   getUserByUuid: (uuid, callback=->) =>
     nodefn.bindCallback @users.findOne('skynet.uuid': uuid), callback
-
 
   invalidateOneTimeToken: (uuid, token, callback=->) =>
     meshbluHTTP = new MeshbluHTTP

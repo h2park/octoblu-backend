@@ -18,6 +18,7 @@ if ((process.env.USE_APP_DYNAMICS || 'false').toLowerCase() === 'true') {
   require('./config/appdynamics.js');
 }
 
+var _              = require('lodash');
 var express        = require('express');
 var path           = require('path');
 var errorhandler   = require('errorhandler');
@@ -40,7 +41,9 @@ var port           = process.env.OCTOBLU_PORT || configAuth.port;
 var sslPort        = process.env.OCTOBLU_SSLPORT || configAuth.sslPort;
 var databaseConfig = require('./config/database');
 var meshbluHealthcheck = require('express-meshblu-healthcheck');
-
+var meshbluAuth = require('express-meshblu-auth');
+var debug = require('debug')('octoblu:server');
+var SecurityController = require('./app/controllers/middleware/security-controller');
 
 if (process.env.AIRBRAKE_KEY) {
   var airbrake = require('airbrake').createClient(process.env.AIRBRAKE_KEY);
@@ -101,22 +104,80 @@ if ( !meshbluJSON || typeof meshbluJSON.token === 'undefined' ) {
   process.exit(1);
 }
 
-var session = require('cookie-session');
-app.use(session(
-  {
-    name: 'octoblu:sess',
-    secret: meshbluJSON.uuid + meshbluJSON.token,
-    domain: configAuth.domain,
-    secureProxy: (process.env.NODE_ENV !== 'development')
-  }
-));
+// var session = require('cookie-session');
+// app.use(session(
+//   {
+//     name: 'octoblu:sess',
+//     secret: meshbluJSON.uuid + meshbluJSON.token,
+//     domain: configAuth.domain,
+//     secureProxy: (process.env.NODE_ENV !== 'development')
+//   }
+// ));
 
-// app.use(passport.initialize());
-// app.use(passport.session()); // persistent login sessions
+app.use(passport.initialize());
 app.use(cors());
 if (process.env.NODE_ENV === 'development') {
   app.use(errorhandler());
 }
+
+// begin bypass and heartache
+
+var bypassedAuthRoutes = [
+  {method: 'POST', path: '/api/webhooks/.*'},
+  {method: 'GET', path: '/api/session'},
+  {method: 'POST', path: '/api/auth'}
+];
+
+var bypassedTermsRoutes = [
+  {method: 'GET', path: '/api/session'},
+  {method: '*', path: '/api/auth'},
+  {method: '*', path: '/api/auth/.*'},
+  {method: '*', path: '/api/flow-auth-credentials/*'}
+];
+
+var canBypassAuth = function(req) {
+  var result = _.find(bypassedAuthRoutes, function(route) {
+    return (route.method === req.method || route.method === '*') &&
+      req.path.match(route.path)
+  });
+  debug('canBypassAuth', req.path, !!result);
+  return !!result;
+}
+
+var canBypassTerms = function(req) {
+  var result = _.find(bypassedTermsRoutes, function(route) {
+    return (route.method === req.method || route.method === '*') &&
+      req.path.match(route.path)
+  });
+  debug('canBypassTerms', req.path, !!result);
+  return !!result;
+}
+
+var meshbluAuthorizer = meshbluAuth(meshbluJSON);
+app.use(function(req, res, next) {
+  if (canBypassAuth(req)) {
+    return next();
+  }
+  meshbluAuthorizer(req, res, next);
+});
+
+var security = new SecurityController();
+
+app.use(function(req, res, next) {
+  if (canBypassAuth(req)) {
+    return next();
+  }
+  security.isAuthenticated(req, res, next);
+});
+
+app.use(function(req, res, next) {
+  if (canBypassAuth(req) && canBypassTerms(req)) {
+    return next();
+  }
+  security.enforceTerms(req, res, next);
+});
+
+// end bypass, but still heartache
 
 require('./app/routes.js')(app, passport, config, meshbluJSON);
 
