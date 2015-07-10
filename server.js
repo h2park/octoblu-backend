@@ -132,7 +132,6 @@ var bypassedTermsRoutes = [
   {method: 'GET', path: '/api/session'},
   {method: '*', path: '/api/auth'},
   {method: '*', path: '/api/auth/.*'},
-  {method: 'PUT', path: '/api/user/.*'},
   {method: '*', path: '/api/flow-auth-credentials/*'}
 ];
 
