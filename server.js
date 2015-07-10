@@ -132,6 +132,7 @@ var bypassedTermsRoutes = [
   {method: 'GET', path: '/api/session'},
   {method: '*', path: '/api/auth'},
   {method: '*', path: '/api/auth/.*'},
+  {method: 'PUT', path: '/api/user/.*'},
   {method: '*', path: '/api/flow-auth-credentials/*'}
 ];
 
@@ -171,7 +172,7 @@ app.use(function(req, res, next) {
 });
 
 app.use(function(req, res, next) {
-  if (canBypassAuth(req) && canBypassTerms(req)) {
+  if (canBypassAuth(req) || canBypassTerms(req)) {
     return next();
   }
   security.enforceTerms(req, res, next);

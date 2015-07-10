@@ -126,12 +126,12 @@ class UserSession
     @redisClient.setex "#{uuid}-#{token}", 30, JSON.stringify(device), callback
 
   _findDeviceInCache: (uuid, token, callback=->) =>
-    return callback null unless @redisClient?
-    debug 'findDeviceInCache', uuid, token
-    @redisClient.get "#{uuid}-#{token}", (error, reply) =>
-      debug 'foundDeviceInCache', uuid, token
-      return callback error if error?
-      return callback null unless reply?
-      callback null, JSON.parse(reply)
+    return callback null # unless @redisClient?
+    # debug 'findDeviceInCache', uuid, token
+    # @redisClient.get "#{uuid}-#{token}", (error, reply) =>
+    #   debug 'foundDeviceInCache', uuid, token
+    #   return callback error if error?
+    #   return callback null unless reply?
+    #   callback null, JSON.parse(reply)
 
 module.exports = UserSession
