@@ -768,25 +768,25 @@
   },
   "oauth":{
     "development": {
-      "clientID":     "",
-      "clientSecret": "",
-      "callbackURL":  "",
-      "tokenMethod":  ""
+      "clientID":     "INSERT_SECERT_HERE",
+      "clientSecret": "INSERT_SECERT_HERE",
+      "callbackURL":  "http://localhost:8080/api/oauth/gotowebinar/callback",
+      "tokenMethod":  "access_token_query"
     },
     "production": {
-      "clientID":     "",
-      "clientSecret": "",
-      "callbackURL":  "",
-      "tokenMethod":  ""
+      "clientID":     "INSERT_SECERT_HERE",
+      "clientSecret": "INSERT_SECERT_HERE",
+      "callbackURL":  "https://app.octoblu.com/api/oauth/gotowebinar/callback",
+      "tokenMethod":  "access_token_query"
     },
     "staging": {
-      "clientID":     "",
-      "clientSecret": "",
-      "callbackURL":  "",
-      "tokenMethod":  ""
+      "clientID":     "INSERT_SECERT_HERE",
+      "clientSecret": "INSERT_SECERT_HERE",
+      "callbackURL":  "https://staging.octoblu.com/api/oauth/gotowebinar/callback",
+      "tokenMethod":  "access_token_query"
     }
   },
-  "auth_strategy": "",
+  "auth_strategy": "oauth",
   "documentation": "https://developer.citrixonline.com/content/gotowebinar-api-reference-0#!/Webinars/getUpcomingWebinars",
   "enabled": false,
   "name": "GoToWebinar",
