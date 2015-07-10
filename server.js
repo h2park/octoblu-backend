@@ -171,7 +171,7 @@ app.use(function(req, res, next) {
 });
 
 app.use(function(req, res, next) {
-  if (canBypassAuth(req) && canBypassTerms(req)) {
+  if (canBypassAuth(req) || canBypassTerms(req)) {
     return next();
   }
   security.enforceTerms(req, res, next);

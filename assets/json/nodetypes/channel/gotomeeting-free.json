@@ -1,7 +1,7 @@
 {
   "_id": "bac4a355-a89f-4a10-b279-1da92b4fdffc",
   "category": "channel",
-  "categories": ["Citrix"],
+  "categories": ["Office"],
   "description": "GoToMeeting Free",
   "helpText": "Meetings without the hassle, free video conferencing chat that is easy to use directly from your browser, no installation or download and no login required.",
   "enabled": true,
