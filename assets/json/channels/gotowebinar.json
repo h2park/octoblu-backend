@@ -788,7 +788,7 @@
   },
   "auth_strategy": "",
   "documentation": "https://developer.citrixonline.com/content/gotowebinar-api-reference-0#!/Webinars/getUpcomingWebinars",
-  "enabled": true,
+  "enabled": false,
   "name": "GoToWebinar",
   "isPassport": true,
   "type": "channel:gotowebinar"
