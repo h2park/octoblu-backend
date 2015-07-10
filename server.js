@@ -104,15 +104,15 @@ if ( !meshbluJSON || typeof meshbluJSON.token === 'undefined' ) {
   process.exit(1);
 }
 
-// var session = require('cookie-session');
-// app.use(session(
-//   {
-//     name: 'octoblu:sess',
-//     secret: meshbluJSON.uuid + meshbluJSON.token,
-//     domain: configAuth.domain,
-//     secureProxy: (process.env.NODE_ENV !== 'development')
-//   }
-// ));
+var session = require('cookie-session');
+app.use(session(
+  {
+    name: 'octoblu:sess',
+    secret: meshbluJSON.uuid + meshbluJSON.token,
+    domain: configAuth.domain,
+    secureProxy: (process.env.NODE_ENV !== 'development')
+  }
+));
 
 app.use(passport.initialize());
 app.use(cors());
