@@ -1,0 +1,286 @@
+{
+  "_id": "6a7b4439818ebefcf8703ee5",
+  "type": "channel:harman-kardon-hkwhub",
+  "auth_strategy": "none",
+  "bodyFormat": "json",
+  "name": "harman/kardon HKWHub",
+  "defaultParams": [
+    {
+      "name": ":hkwhubUrl",
+      "displayName": "HKWHub URL",
+      "style": "url",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "application": {
+    "base": ":hkwhubUrl",
+    "resources": [
+      {
+        "path": "/v1/init_session",
+        "displayName": "Start Session",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "Priority",
+            "displayName": "Priority"
+          }],
+        "url": ":hkwhubUrl/v1/init_session"
+      },{
+        "path": "/v1/close_session",
+        "displayName": "Close Session",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "SessionID",
+            "displayName": "Session ID"
+          }],
+        "url": ":hkwhubUrl/v1/close_session"
+      },{
+        "path": "/v1/device_count",
+        "displayName": "Device Count",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "SessionID",
+            "displayName": "Session ID"
+          }],
+        "url": ":hkwhubUrl/v1/device_count"
+      },{
+        "path": "/v1/device_info",
+        "displayName": "Device Info",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "SessionID",
+            "displayName": "Session ID"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "DeviceID",
+            "displayName": "Device ID"
+          }],
+        "url": ":hkwhubUrl/v1/device_count"
+      },{
+        "path": "/v1/add_device_to_session",
+        "displayName": "Add Device to Session",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "SessionID",
+            "displayName": "Session ID"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "DeviceID",
+            "displayName": "Device ID"
+          }],
+        "url": ":hkwhubUrl/v1/add_device_to_session"
+      },{
+        "path": "/v1/remove_device_from_session",
+        "displayName": "Remove Device from Session",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "SessionID",
+            "displayName": "Session ID"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "DeviceID",
+            "displayName": "Device ID"
+          }],
+        "url": ":hkwhubUrl/v1/remove_device_from_session"
+      },{
+        "path": "/v1/media_list",
+        "displayName": "List Stored Media",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "SessionID",
+            "displayName": "Session ID"
+          }],
+        "url": ":hkwhubUrl/v1/media_list"
+      },{
+        "path": "/v1/device_list",
+        "displayName": "List Devices",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "SessionID",
+            "displayName": "Session ID"
+          }],
+        "url": ":hkwhubUrl/v1/device_list"
+      },{
+        "path": "/v1/play_hub_media",
+        "displayName": "Play a Song in Hub Device",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "SessionID",
+            "displayName": "Session ID"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "PersistentID",
+            "displayName": "Persistent ID"
+          }],
+        "url": ":hkwhubUrl/v1/play_hub_media"
+      },{
+        "path": "/v1/play_web_media",
+        "displayName": "Play a Song from a Web Server",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "SessionID",
+            "displayName": "Session ID"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "MediaURL",
+            "displayName": "Media URL"
+          }],
+        "url": ":hkwhubUrl/v1/play_web_media"
+      },{
+        "path": "/v1/pause_play",
+        "displayName": "Pause Playback",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "SessionID",
+            "displayName": "Session ID"
+          }],
+        "url": ":hkwhubUrl/v1/pause_play"
+      },{
+        "path": "/v1/resume_hub_media",
+        "displayName": "Resume Playing Hub Media",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "SessionID",
+            "displayName": "Session ID"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "PersistentID",
+            "displayName": "Persistent ID"
+          }],
+        "url": ":hkwhubUrl/v1/resume_hub_media"
+      },{
+        "path": "/v1/stop_play",
+        "displayName": "Stop Playback",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "SessionID",
+            "displayName": "Session ID"
+          }],
+        "url": ":hkwhubUrl/v1/stop_play"
+      },{
+        "path": "/v1/playback_status",
+        "displayName": "Playback Status",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "SessionID",
+            "displayName": "Session ID"
+          }],
+        "url": ":hkwhubUrl/v1/playback_status"
+      },{
+        "path": "/v1/is_playing",
+        "displayName": "Is Playing Audio",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "SessionID",
+            "displayName": "Session ID"
+          }],
+        "url": ":hkwhubUrl/v1/is_playing"
+      },{
+        "path": "/v1/get_volume",
+        "displayName": "Get Volume",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "SessionID",
+            "displayName": "Session ID"
+          }],
+        "url": ":hkwhubUrl/v1/get_volume"
+      },{
+        "path": "/v1/get_volume_device",
+        "displayName": "Get Device Volume",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "SessionID",
+            "displayName": "Session ID"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "DeviceID",
+            "displayName": "Device ID"
+          }],
+        "url": ":hkwhubUrl/v1/get_volume_device"
+      },{
+        "path": "/v1/set_volume_device",
+        "displayName": "Set Device Volume",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "SessionID",
+            "displayName": "Session ID"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "DeviceID",
+            "displayName": "Device ID"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "Volume",
+            "displayName": "Volume"
+          }],
+        "url": ":hkwhubUrl/v1/set_volume_device"
+      },{
+        "path": "/v1/set_volume",
+        "displayName": "Set Volume For All Devices",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "SessionID",
+            "displayName": "Session ID"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "DeviceID",
+            "displayName": "Device ID"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "Volume",
+            "displayName": "Volume"
+          }],
+        "url": ":hkwhubUrl/v1/set_volume"
+      }
+    ]
+  }
+}

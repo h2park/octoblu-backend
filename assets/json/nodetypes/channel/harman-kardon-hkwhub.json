@@ -1,0 +1,15 @@
+{
+  "_id": "6a82496f826384d002c3587e",
+  "category": "channel",
+  "categories": ["Music"],
+  "description": "",
+  "helpText": "Connect to harman/kardon speakers using the HKWHub App",
+  "enabled": true,
+  "name": "harman/kardon HKWHub",
+  "skynet": {
+    "type": "channel",
+    "subtype": "harman-kardon-hkwhub"
+  },
+  "channelid": "6a7b4439818ebefcf8703ee5",
+  "type": "channel:harman-kardon-hkwhub"
+}
