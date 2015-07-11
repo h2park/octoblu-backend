@@ -32,7 +32,7 @@
           "t": "Retrieves information about the user's account."
         },
         "displayName": "Get Account Information",
-        "path": "/account/info ",
+        "path": "/account/info",
         "fullURL": "https://api.dropbox.com/1/account/info",
         "httpMethod": "GET",
         "params": [
@@ -46,7 +46,7 @@
             }
           }
         ],
-        "url": "https://api.dropbox.com/1/account/info "
+        "url": "https://api.dropbox.com/1/account/info"
       },
       {
         "doc": {
@@ -74,11 +74,10 @@
         "doc": {
           "t": "Uploads a file using PUT semantics. Note that this call goes to api-content.dropbox.com instead of api.dropbox.com.This method is in most cases simpler to use than /files (POST).The preferred HTTP method for this call is PUT. For compatibility with browser environments, the POST HTTP method is also recognized.Note: Providing a Content-Length header set to the size of the uploaded file is required so that the server can verify that it has received the entire file contents."
         },
-        "displayName": "Upload Files",
-        "path": "/files_put ",
+        "displayName": "Upload File",
+        "path": "/files_put",
         "fullURL": "https://api-content.dropbox.com/1/files_put/<root>/<path>?param=val",
         "httpMethod": "PUT",
-        "enabled" : false,
         "params": [
           {
             "name": "locale",
@@ -108,14 +107,14 @@
             }
           }
         ],
-        "url": "https://api-content.dropbox.com/1/files_put "
+        "url": "https://api-content.dropbox.com/1/files_put"
       },
       {
         "doc": {
           "t": "Retrieves file and folder metadata."
         },
         "displayName": "Get File Metadata",
-        "path": "/metadata ",
+        "path": "/metadata",
         "fullURL": "https://api.dropbox.com/1/metadata/<root>/<path>",
         "httpMethod": "GET",
         "params": [
@@ -637,7 +636,7 @@
           "t": "Creates a folder."
         },
         "displayName": "Create A Folder",
-        "path": "/fileops/create_folder ",
+        "path": "/fileops/create_folder",
         "fullURL": "https://api.dropbox.com/1/fileops/create_folder",
         "httpMethod": "POST",
         "params": [
@@ -678,7 +677,7 @@
           "t": "Deletes a file or folder."
         },
         "displayName": "Delete File/Folder",
-        "path": "/fileops/delete ",
+        "path": "/fileops/delete",
         "fullURL": "https://api.dropbox.com/1/fileops/delete",
         "httpMethod": "POST",
         "params": [
@@ -719,7 +718,7 @@
           "t": "Moves a file or folder to a new location."
         },
         "displayName": "Move File/Folder",
-        "path": "/fileops/move ",
+        "path": "/fileops/move",
         "fullURL": "https://api.dropbox.com/1/fileops/move",
         "httpMethod": "POST",
         "params": [
