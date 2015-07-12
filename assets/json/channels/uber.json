@@ -269,10 +269,10 @@
       },
       {
         "path": "/v1/requests/:request_id",
-        "displayName": "Request Driver",
+        "displayName": "Cancel Driver",
         "httpMethod": "DELETE",
         "doc": {
-          "url": "https://api.uber.com/v1/requests"
+          "url": "https://api.uber.com/v1/requests/:request_id"
         },
         "authentication": {
           "required": "true"
@@ -280,7 +280,7 @@
         "params": [
           {
             "displayName": "Request ID",
-            "style": "body",
+            "style": "url",
             "type": "string",
             "name": ":request_id"
           }
