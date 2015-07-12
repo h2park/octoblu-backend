@@ -2,6 +2,7 @@
   "_id": "532a60c06d3281aa4aeacab3",
   "type": "channel:dropbox",
   "auth_strategy": "oauth",
+  "bodyFormat": "json",
   "documentation": "https://www.dropbox.com/developers/core/docs",
   "enabled": true,
   "name": "Dropbox",
@@ -83,31 +84,43 @@
             "name": "locale",
             "displayName": "Locale",
             "type": "string",
-            "style": "body",
+            "style": "query",
             "doc": {
               "t": "The metadata returned on successful upload will have its size field translated based on the given locale."
-            }
-          },
-          {
-            "name": "overwrite",
-            "displayName": "Overwrite",
-            "type": "string",
-            "style": "body",
-            "doc": {
-              "t": "This value, either true (default) or false, determines what happens when there's already a file at the specified path. If true, the existing file will be overwritten by the new one. If false, the new file will be automatically renamed (for example, test.txt might be automatically renamed to test (1).txt). The new name can be obtained from the returned metadata."
             }
           },
           {
             "name": "parent_rev",
             "displayName": "Parent Revision",
             "type": "string",
-            "style": "body",
+            "style": "query",
             "doc": {
               "t": "The revision of the file you're editing. If parent_rev matches the latest version of the file on the user's Dropbox, that file will be replaced. Otherwise, the new file will be automatically renamed (for example, test.txt might be automatically renamed to test (conflicted copy).txt). If you specify a revision that doesn't exist, the file won't save (error 400). Get the most recent rev by performing a call to /metadata."
             }
+          },
+          {
+            "name": "overwrite",
+            "displayName": "Overwrite",
+            "type": "boolean",
+            "style": "query",
+            "doc": {
+              "t": "This value, either true (default) or false, determines what happens when there's already a file at the specified path. If true, the existing file will be overwritten by the new one. If false, the new file will be automatically renamed (for example, test.txt might be automatically renamed to test (1).txt). The new name can be obtained from the returned metadata."
+            }
+          },
+          {
+            "name": "autorename",
+            "displayName": "Autorename",
+            "type": "boolean",
+            "style": "query"
+          },
+          {
+            "name": ":path",
+            "displayName": "File Path",
+            "type": "string",
+            "style": "url"
           }
         ],
-        "url": "https://api-content.dropbox.com/1/files_put"
+        "url": "https://api-content.dropbox.com/1/files_put/auto/:path"
       },
       {
         "doc": {

@@ -216,6 +216,76 @@
         },
         "params": [],
         "url": "https://api.uber.com/v1/me"
+      },
+      {
+        "path": "/v1/requests",
+        "displayName": "Request Driver",
+        "httpMethod": "POST",
+        "doc": {
+          "url": "https://api.uber.com/v1/requests"
+        },
+        "authentication": {
+          "required": "true"
+        },
+        "params": [
+          {
+            "displayName": "Product ID",
+            "style": "body",
+            "type": "string",
+            "name": "product_id"
+          },
+          {
+            "displayName": "Pickup Latitude",
+            "style": "body",
+            "type": "string",
+            "name": "start_latitude"
+          },
+          {
+            "displayName": "Pickup Longitude",
+            "style": "body",
+            "type": "string",
+            "name": "start_longitude"
+          },
+          {
+            "displayName": "Destination Latitude",
+            "style": "body",
+            "type": "string",
+            "name": "end_latitude"
+          },
+          {
+            "displayName": "Destination Longitude",
+            "style": "body",
+            "type": "string",
+            "name": "end_longitude"
+          },
+          {
+            "displayName": "Surge Confirmation ID",
+            "style": "body",
+            "type": "string",
+            "name": "surge_confirmation_id"
+          },
+        ],
+        "url": "https://api.uber.com/v1/requests"
+      },
+      {
+        "path": "/v1/requests/:request_id",
+        "displayName": "Request Driver",
+        "httpMethod": "DELETE",
+        "doc": {
+          "url": "https://api.uber.com/v1/requests"
+        },
+        "authentication": {
+          "required": "true"
+        },
+        "params": [
+          {
+            "displayName": "Request ID",
+            "style": "body",
+            "type": "string",
+            "name": ":request_id"
+          },
+        ],
+        "url": "https://api.uber.com/v1/requests/:request_id"
       }
     ]
   }
