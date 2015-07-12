@@ -263,7 +263,7 @@
             "style": "body",
             "type": "string",
             "name": "surge_confirmation_id"
-          },
+          }
         ],
         "url": "https://api.uber.com/v1/requests"
       },
@@ -283,7 +283,7 @@
             "style": "body",
             "type": "string",
             "name": ":request_id"
-          },
+          }
         ],
         "url": "https://api.uber.com/v1/requests/:request_id"
       }
