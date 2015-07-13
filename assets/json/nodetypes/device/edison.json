@@ -3,12 +3,11 @@
   "category": "device",
   "categories":["Maker"],
   "description": "Intel Edison",
-  "helpText": "Configure and control and Intel Edison IoT device from Octoblu. hackster.io/octoblu",
+  "helpText": "Configure and control and Intel Edison IoT device from Octoblu. ",
   "enabled": true,
   "name": "Intel Edison",
   "skynet": {
-    "type": "device",
-    "subtype": "edison"
+    "type": "device:edison"
   },
   "type": "device:edison"
 }
