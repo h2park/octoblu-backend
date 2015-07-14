@@ -1,0 +1,15 @@
+{
+  "_id": "a0548715d9134e21969bc2f5",
+  "category": "device",
+  "categories":["Home Automation"],
+  "description": "Philips Hue Button",
+  "helpText": "Use your Philips Hue Button to trigger flows",
+  "enabled": true,
+  "name": "Philips Hue Button",
+  "skynet": {
+    "type": "device",
+    "subtype": "hue-button"
+  },
+  "connector": "meshblu-hue-button",
+  "type": "device:hue-button"
+}
