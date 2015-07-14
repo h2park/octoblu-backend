@@ -1,0 +1,2390 @@
+{
+  "_id": "23582sdlgkh00232340sd34",
+  "__v": 0,
+  "auth_strategy": "",
+  "custom_tokens": [],
+  "description": "",
+  "defaultParams": [
+    {
+      "name": ":subdomain",
+      "displayName": "Subdomain",
+      "style": "url",
+      "type": "string",
+      "required": true
+    }],
+  "documentation": "https://www.entrata.com/api-documentation",
+  "enabled": false,
+  "bodyFormat": "application/x-www-form-urlencoded",
+  "name": "Entrata",
+  "oauth": {
+    "development": {
+      "clientID":     "",
+      "clientSecret": "",
+      "callbackURL":  "",
+      "tokenMethod":  ""
+    },
+    "staging": {
+      "clientID":     "",
+      "clientSecret": "",
+      "callbackURL":  "",
+      "tokenMethod":  ""
+    },
+    "production": {
+      "clientID":     "",
+      "clientSecret": "",
+      "callbackURL":  "",
+      "tokenMethod":  ""
+    }
+  },
+  "isPassport": true,
+  "type": "channel:entrata",
+  "application": {
+    "base": "https://:subdomain.entrata.com/api",
+    "resources": [
+      {
+        "path": "/arcodes",
+        "params": [
+          {
+            "name": "method",
+            "default": "getArCodes",
+            "displayName": "Get AR Codes",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          }
+        ],
+        "doc": {
+          "t": "Provides method to retrieve AR codes for a specified management company.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/getArCodes"
+        },
+        "curl": "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/arcodes",
+        "authentication": {
+          "required": "false"
+        },
+        "category": "AR Codes",
+        "displayName": "Get AR Codes",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/arcodes"
+      }, 
+      {
+        "path": "/arpayments",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "arPaymentIds",
+            "displayName": "AR Payment IDs"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "paymentStatusTypeIds",
+            "displayName": "Payment Status Type IDs"
+          },{
+            "style": "query",
+            "type": "date",
+            "name": "fromDate",
+            "displayName": "From Date"
+          },{
+            "style": "query",
+            "type": "date",
+            "name": "toDate",
+            "displayName": "To Date"
+          },
+          {
+            "name": "method",
+            "default": "getArPayments",
+            "displayName": "Get AR Payments",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          }
+        ],
+        "doc": {
+          "t": "Provides A Library Of Functions To Process Electronic Transactions. The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/getArPayments"
+        },
+        "curl": "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/arpayments",
+        "authentication": {
+          "required": "false"
+        },
+        "category": "AR Payments",
+        "displayName": "Get AR Payments",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/arpayments"
+      },
+      {
+        "path": "/artransactions",
+        "params": [
+          {
+            "style": "query",
+            "type": "integer",
+            "name": "propertyId",
+            "displayName": "Property Id",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "leaseId",
+            "displayName": "Lease Id"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "showFullLedger",
+            "displayName": "Show Full Ledger"
+          },
+          {
+            "name": "method",
+            "default": "getMitsLeaseArTransactions",
+            "displayName": "Get Mits Lease AR Transactions",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          }
+        ],
+        "doc": {
+          "t": "Provides A Library Of Functions To Retrieve Or Send Resident Transactions.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/getMitsLeaseArTransactions"
+        },
+        "curl": "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/artransactions",
+        "authentication": {
+          "required": true
+        },
+        "category": "AR Transactions",
+        "displayName": "Get Mits Lease AR Transactions",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/artransactions"
+      },
+      {
+        "path": "/artransactions",
+        "params": [
+          {
+            "name": "method",
+            "default": "sendLeaseArTransactionReversals",
+            "displayName": "Send Lease AR Transaction Reversals",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "style": "body",
+            "type": "integer",
+            "name": "TransactionId",
+            "displayName": "Transaction ID",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "TransactionAmount",
+            "displayName": "Transaction Amount",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "PropertyId",
+            "displayName": "Property ID"
+          },{
+            "style": "body",
+            "type": "date",
+            "name": "ReverseDate",
+            "displayName": "Reverse Date"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Description",
+            "displayName": "Description"
+          }
+        ],
+        "doc": {
+          "t": "Provides A Library Of Functions To Retrieve Or Send Resident Transactions.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/sendLeaseArTransactionReversals"
+        },
+        "curl": "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/artransactions",
+        "authentication": {
+          "required": "false"
+        },
+        "category": "AR Transactions",
+        "displayName": "Send Lease AR Transaction Reversals",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/artransactions"
+      },
+      {
+        "path": "/artransactions",
+        "params": [
+          {
+            "name": "method",
+            "default": "sendLeaseArTransactions",
+            "displayName": "Send Lease AR Transactions",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "transactionId",
+            "displayName": " Transaction ID",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "leaseId",
+            "displayName": "Lease ID",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "arCodeId",
+            "displayName": "AR Code Id",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "transactionAmount",
+            "displayName": "Transaction Amount",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "date",
+            "name": "transactionDate",
+            "displayName": "transactionDate",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "arPostMonth",
+            "displayName": "AR Post Month"
+          }
+        ],
+        "doc": {
+          "t": "Provides A Library Of Functions To Retrieve Or Send Resident Transactions.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/sendLeaseArTransactions"
+        },
+        "curl": "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/artransactions",
+        "authentication": {
+          "required": "false"
+        },
+        "category": "AR Transactions",
+        "displayName": "Send Lease AR Transactions",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/artransactions"
+      },
+      {
+        "path": "/customers",
+        "params": [
+          {
+            "name": "method",
+            "default": "getCustomers",
+            "displayName": "Get Customers",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "style": "query",
+            "type": "string",
+            "name": "propertyId",
+            "displayName": "Property ID",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "customerIds",
+            "displayName": "Customer IDs"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "leaseStatusTypeId",
+            "displayName": "Lease Status Type ID"
+          }
+        ],
+        "doc": {
+          "t": "Provides A Library Of Functions To Retrieve Or Send Customers Information. The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/getCustomers"
+        },
+        "curl": "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/customers",
+        "authentication": {
+          "required": "false"
+        },
+        "category": "Customers",
+        "displayName": "Get Customers",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/customers"
+      },
+      {
+        "path": "/customers",
+        "params": [
+          {
+            "name": "method",
+            "default": "getCustomerTestimonials",
+            "displayName": "Get Customer Testimonials",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "propertyId",
+            "displayName": "Property ID"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "isApproved",
+            "displayName": "Is Approved"
+          },{
+            "style": "query",
+            "type": "date",
+            "name": "fromDate",
+            "displayName": "From Date"
+          },{
+            "style": "query",
+            "type": "date",
+            "name": "toDate",
+            "displayName": "To Date"
+          }
+        ],
+        "doc": {
+          "t": "Provides A Library Of Functions To Retrieve Or Send Customers Information. The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/getCustomerTestimonials"
+        },
+        "curl": "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/customers",
+        "authentication": {
+          "required": "false"
+        },
+        "category": "Customers",
+        "displayName": "Get Customer Testimonials",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/customers"
+      },
+      {
+        "path": "/customers",
+        "params": [
+          {
+            "name": "method",
+            "default": "getTestimonialPickLists",
+            "displayName": "Get Testimonial Pick Lists",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve or send customers information. The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/getTestimonialPickLists"
+        },
+        "curl": "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/customers",
+        "authentication": {
+          "required": "false"
+        },
+        "category": "Customers",
+        "displayName": "Get Testimonial Pick Lists",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/customers"
+      },
+      {
+        "path": "/customers",
+        "params": [
+          {
+            "name": "method",
+            "default": "searchCustomers",
+            "displayName": "Search Customers",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "style": "query",
+            "type": "integer",
+            "name": "propertyId",
+            "displayName": "Property ID",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "search",
+            "displayName": "Search",
+            "required": "true"
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve or send customers information. The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/searchCustomers"
+        },
+        "curl": "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/customers",
+        "authentication": {
+          "required": "false"
+        },
+        "category": "Customers",
+        "displayName": "Search Customers",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/customers"
+      },
+      {
+        "path": "/customers",
+        "params": [
+          {
+            "name": "method",
+            "default": "sendCustomerTestimonials",
+            "displayName": "Send Customer Testimonials",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "style": "body",
+            "type": "integer",
+            "name": "TestimonialTypeId",
+            "displayName": "TestimonialTypeId",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Title",
+            "displayName": "Title",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Review",
+            "displayName": "Review",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "AuthorizeToShowOnCorporateSites",
+            "displayName": "Authorize To Show On Corporate Sites",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "RatingTypeId",
+            "displayName": "Rating Type ID",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "Rating",
+            "displayName": "Rating",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "PropertyId",
+            "displayName": "Property ID",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "CustomerId",
+            "displayName": "Customer Id"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Name",
+            "displayName": "Name"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "RecommendToFriend",
+            "displayName": "Recommend To Friend"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "AutoApproveForProspectPortal",
+            "displayName": "Auto Approve For Prospect Portal"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "AutoApproveForVacancy",
+            "displayName": "Auto Approve For Vacancy"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Email",
+            "displayName": "Email"
+          },{
+            "style": "body",
+            "type": "date",
+            "name": "TestimonialDatetime",
+            "displayName": "Testimonial Datetime"
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve or send customers information. If you are using this for web playback you must supply a domain.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/sendCustomerTestimonials"
+        },
+        "curl": "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/customers",
+        "authentication": {
+          "required": "false"
+        },
+        "category": "Customers",
+        "displayName": "Send Customer Testimonials",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/customers"
+      },
+      {
+        "path": "/financial",
+        "params": [
+          {
+            "name": "method",
+            "default": "getBankAccounts",
+            "displayName": "Get Bank Accounts",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "style": "query",
+            "type": "integer",
+            "name": "bankAccountTypeId",
+            "displayName": "Bank Account Type ID"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "isCreditCardAccount",
+            "displayName": "Is Credit Card Account"
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve or send financial information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/getBankAccounts"
+        },
+        "curl": "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/financial",
+        "authentication": {
+          "required": true
+        },
+        "category": "Financial",
+        "displayName": "Get Bank Accounts",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/financial"
+      },
+      {
+        "path": "/financial",
+        "params": [
+          {
+            "name": "method",
+            "default": "getFinancialPickList",
+            "displayName": "Get Financial PickList",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve or send financial information. The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/getFinancialPickList"
+        },
+        "curl": "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/financial",
+        "authentication": {
+          "required": true
+        },
+        "category": "Financial",
+        "displayName": "Get Financial PickList",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/financial"
+      },
+      {
+        "path": "/financial",
+        "params": [
+          {
+            "name": "method",
+            "default": "getGlTransactions",
+            "displayName": "Get Gl Transactions",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "style": "query",
+            "type": "string",
+            "name": "propertyIds",
+            "displayName": "Property IDs",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "glAccountFrom",
+            "displayName": "GL Account From",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "glAccountTo",
+            "displayName": "GL Account To"
+          },{
+            "style": "query",
+            "type": "date",
+            "name": "postMonthFrom",
+            "displayName": "Post Month From"
+          },{
+            "style": "query",
+            "type": "date",
+            "name": "postMonthTo",
+            "displayName": "Post Month To"
+          },{
+            "style": "query",
+            "type": "date",
+            "name": "postDateFrom",
+            "displayName": "Post Date From"
+          },{
+            "style": "query",
+            "type": "date",
+            "name": "postDateTo",
+            "displayName": "Post Date To"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "isCashBook",
+            "displayName": "Is Cash Book"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "isDetailed",
+            "displayName": "Is Detailed"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "includeApTransactions",
+            "displayName": "Include AP Transactions"
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve or send financial information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/getGlTransactions"
+        },
+        "curl": "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/financial",
+        "authentication": {
+          "required": true
+        },
+        "category": "Financial",
+        "displayName": "Get Gl Transactions",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/financial"
+      },
+      {
+        "path": "/financial",
+        "params": [
+          {
+            "name": "method",
+            "default": "getGlTrees",
+            "displayName": "Get Gl Trees",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "style": "query",
+            "type": "integer",
+            "name": "propertyId",
+            "displayName": "Property ID"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "glTreeId",
+            "displayName": "GL Tree ID"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "glBranchId",
+            "displayName": "GL Branch ID"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "glGroupTypeId",
+            "displayName": "GL Group Type ID"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "glTreeTypeId",
+            "displayName": "GL Tree Type ID"
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve or send financial information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/getGlTrees"
+        },
+        "curl": "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/financial",
+        "authentication": {
+          "required": true
+        },
+        "category": "Financial",
+        "displayName": "Get Gl Trees",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/financial"
+      },
+      {
+        "path": "/leads",
+        "params": [
+          {
+            "name": "method",
+            "default": "getLeadPickLists",
+            "displayName": "Get Lead Pick Lists",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "style": "query",
+            "type": "string",
+            "name": "propertyIds",
+            "displayName": "Property IDs"
+        }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve or send leads information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/getLeadPickLists"
+        },
+        "curl": "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/leads",
+        "authentication": {
+          "required": true
+        },
+        "category": "Leads",
+        "displayName": "Get Lead Pick Lists",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/leads"
+      },
+      {
+        "path": "/leads",
+        "params": [
+          {
+            "name": "method",
+            "default": "getMitsLeads",
+            "displayName": "Get Mits Leads",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "style": "query",
+            "type": "integer",
+            "name": "propertyId",
+            "displayName": "Property ID"
+          },{
+            "style": "query",
+            "type": "date",
+            "name": "fromDateTime",
+            "displayName": "From Date Time"
+          },{
+            "style": "query",
+            "type": "date",
+            "name": "toDateTime",
+            "displayName": "To Date Time"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "psProductIds",
+            "displayName": "PS Product IDs"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "leadId",
+            "displayName": "Lead ID"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "includeDemographics",
+            "displayName": "Include Demographics"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "sendUnitSpaces",
+            "displayName": "Send Unit Spaces"
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve or send leads information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/getMitsLeads"
+        },
+        "curl": "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/leads",
+        "authentication": {
+          "required": true
+        },
+        "category": "Leads",
+        "displayName": "Get Mits Leads",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/leads"
+      },
+      {
+        "path": "/leads",
+        "params": [
+          {
+            "name": "method",
+            "default": "sendMitsLeads",
+            "displayName": "Send Mits Leads",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "style": "body",
+            "type": "integer",
+            "name": "propertyId",
+            "displayName": "Property ID",
+            "required": "true"
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve or send leads information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/sendMitsLeads"
+        },
+        "curl": "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/leads",
+        "authentication": {
+          "required": true
+        },
+        "category": "Leads",
+        "displayName": "Send Mits Leads",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/leads"
+      },
+      {
+        "path": "/leases",
+        "params": [
+          {
+            "name": "method",
+            "default": "getExpiringLeases",
+            "displayName": "Get Expiring Leases",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "style": "query",
+            "type": "integer",
+            "name": "propertyId",
+            "displayName": "Property ID",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "date",
+            "name": "toDate",
+            "displayName": "To Date",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "date",
+            "name": "fromDate",
+            "displayName": "From Date"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "isMonthToMonth",
+            "displayName": "Is Month To Month"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "showNoticeLeasesOnly",
+            "displayName": "Show Notice Leases Only"
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve or send leases information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/getExpiringLeases"
+        },
+        "curl": "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/leases",
+        "authentication": {
+          "required": true
+        },
+        "category": "Leases",
+        "displayName": "Get Expiring Leases",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/leases"
+      },
+      {
+        "path": "/leases",
+        "params": [
+          {
+            "name": "method",
+            "default": "getLeaseDocuments",
+            "displayName": "Get Lease Documents",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "name": "name",
+            "displayName": "Name",
+            "style": "body",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "description",
+            "displayName": "Description",
+            "style": "body",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "tracks",
+            "displayName": "Tracks",
+            "style": "body",
+            "type": "string",
+            "required": true
+          },
+          {
+            "style": "query",
+            "type": "integer",
+            "name": "propertyId",
+            "displayName": "Property ID",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "leaseId",
+            "displayName": "Lease ID",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "fileTypesCode",
+            "displayName": "File Types Code"
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve or send leases information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/getLeaseDocuments"
+        },
+        "curl": "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/leases",
+        "authentication": {
+          "required": true
+        },
+        "category": "Leases",
+        "displayName": "Get Lease Documents",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/leases"
+      },
+      {
+        "path": "/leases",
+        "params": [
+          {
+            "name": "method",
+            "default": "getLeasePickList",
+            "displayName": "Get Lease Pick List",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve or send leases information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/getLeasePickList"
+        },
+        "curl": "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/leases",
+        "authentication": {
+          "required": true
+        },
+        "category": "Leases",
+        "displayName": "Get Lease Pick List",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/leases"
+      },
+      {
+        "path": "/leases",
+        "params": [
+          {
+            "name": "method",
+            "default": "getMitsCollections",
+            "displayName": "Get Mits Collections",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "style": "query",
+            "type": "integer",
+            "name": "propertyId",
+            "displayName": "Property ID",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "date",
+            "name": "fromDate",
+            "displayName": "From Date"
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve or send leases information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/getMitsCollections"
+        },
+        "curl": "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/leases",
+        "authentication": {
+          "required": "false"
+        },
+        "category": "Leases",
+        "displayName": "Get Mits Collections",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/leases"
+      },
+      {
+        "path": "/leases",
+        "params": [
+          {
+            "name": "method",
+            "default": "getMitsLeases",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "style": "query",
+            "type": "string",
+            "name": "propertyId",
+            "displayName": "Property ID",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "customerId",
+            "displayName": "Customer ID"
+          },{
+            "style": "query",
+            "type": "date",
+            "name": "moveInDateFrom",
+            "displayName": "Move In Date From"
+          },{
+            "style": "query",
+            "type": "date",
+            "name": "moveInDateTo",
+            "displayName": "Move In Date To"
+          },{
+            "style": "query",
+            "type": "date",
+            "name": "leaseExpiringDateFrom",
+            "displayName": "Lease Expiring Date From"
+          },{
+            "style": "query",
+            "type": "date",
+            "name": "leaseExpiringDateTo",
+            "displayName": "Lease Expiring Date To"
+          },{
+            "style": "query",
+            "type": "date",
+            "name": "moveOutDateFrom",
+            "displayName": "Move Out Date From"
+          },{
+            "style": "query",
+            "type": "date",
+            "name": "moveOutDateTo",
+            "displayName": "Move Out Date To"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "includeLeaseHistory",
+            "displayName": "Include Lease History"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "leaseStatusTypeIds",
+            "displayName": "Lease Status Type IDs"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "sendUnitSpaces",
+            "displayName": "Send Unit Spaces"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "includeDemographics",
+            "displayName": "Include Demographics"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "includeOtherIncomeLeases",
+            "displayName": "Include Other Income Leases"
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve or send leases information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/getMitsLeases"
+        },
+        "curl": "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/leases",
+        "authentication": {
+          "required": "false"
+        },
+        "category": "Leases",
+        "displayName": "Get Mits Leases",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/leases"
+      },
+      {
+        "path": "/leases",
+        "params": [
+          {
+            "name": "method",
+            "default": "getRenewalOffers",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "style": "query",
+            "type": "integer",
+            "name": "propertyId",
+            "displayName": "Property ID",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "leaseIds",
+            "displayName": "Lease IDs"
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve or send leases information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/getMitsLeases"
+        },
+        "curl": "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/leases",
+        "authentication": {
+          "required": "false"
+        },
+        "category": "Leases",
+        "displayName": "Get Renewal Offers",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/leases"
+      },
+      {
+        "path": "/maintenance",
+        "params": [
+          {
+            "name": "method",
+            "default": "getWorkOrderPickLists",
+            "displayName": "Get Work Order Pick Lists",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "style": "query",
+            "type": "string",
+            "name": "propertyIds",
+            "displayName": "Property IDs"
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve or send work orders (maintenance requests) related information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/getWorkOrderPickLists"
+        },
+        "curl": "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/maintenance",
+        "authentication": {
+          "required": true
+        },
+        "category": "Maintenance",
+        "displayName": "Get Work Order Pick Lists",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/maintenance"
+      },
+      {
+        "path": "/maintenance",
+        "params": [
+          {
+            "name": "method",
+            "default": "getWorkOrders",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "style": "query",
+            "type": "integer",
+            "name": "propertyId",
+            "displayName": "Property ID",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "unitNumber",
+            "displayName": "Unit Number"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "workOrderId",
+            "displayName": "Work Order ID"
+          },{
+            "style": "query",
+            "type": "date",
+            "name": "createdOnFromDate",
+            "displayName": "Created On From Date"
+          },{
+            "style": "query",
+            "type": "date",
+            "name": "createdOnToDate",
+            "displayName": "Created On To Date"
+          },{
+            "style": "query",
+            "type": "date",
+            "name": "completedOnFromDate",
+            "displayName": "Completed On From Date"
+          },{
+            "style": "query",
+            "type": "date",
+            "name": "completedOnToDate",
+            "displayName": "Completed On To Date"
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve or send work orders (maintenance requests) related information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/getWorkOrders"
+        },
+        "curl": "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/maintenance",
+        "authentication": {
+          "required": true
+        },
+        "category": "Maintenance",
+        "displayName": "Get Work Orders",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/maintenance"
+      },
+      {
+        "path": "/maintenance",
+        "params": [
+          {
+            "name": "method",
+            "default": "sendWorkOrders",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "style": "body",
+            "type": "integer",
+            "name": "propertyId",
+            "displayName": "Property ID",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "customerFirstName",
+            "displayName": "Customer First Name",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "customerLastName",
+            "displayName": "Customer Last Name",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "mainPhoneNumber",
+            "displayName": "Main Phone Number",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "emailAddress",
+            "displayName": "Email Address",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "permissionToEnter",
+            "displayName": "Permission To Enter",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "maintenanceLocationId",
+            "displayName": "Maintenance Location ID",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "maintenanceCategoryId",
+            "displayName": "Maintenance Category ID",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "maintenanceProblemId",
+            "displayName": "Maintenanc Problem ID",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "maintenancePriorityId",
+            "displayName": "Maintenance Priority ID",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "problemDescription",
+            "displayName": "Problem Description",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "customerId",
+            "displayName": "Customer ID"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "leaseId",
+            "displayName": "Lease ID"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "unitNumber",
+            "displayName": "Unit Number"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "altPhoneNumber",
+            "displayName": "Alt Phone Number"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "subMaintenanceProblemId",
+            "displayName": "Sub Maintenance Problem ID"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "petsDescription",
+            "displayName": "Pets Description"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "additionalInfo",
+            "displayName": "Additional Info"
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve or send work orders (maintenance requests) related information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/sendWorkOrders"
+        },
+        "curl": "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/maintenance",
+        "authentication": {
+          "required": true
+        },
+        "category": "Maintenance",
+        "displayName": "Send Work Orders",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/maintenance"
+      },
+      {
+        "path": "/maintenance",
+        "params": [
+          {
+            "name": "method",
+            "default": "updateWorkOrders",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "style": "body",
+            "type": "integer",
+            "name": "propertyId",
+            "displayName": "Property ID",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "workOrderId",
+            "displayName": "Work Order ID",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "maintenanceProblemId",
+            "displayName": "Maintenance Problem ID",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "maintenanceStatusTypeId",
+            "displayName": "Maintenance Status Type ID"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "maintenancePriorityId",
+            "displayName": "Maintenance Priority ID"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "maintenanceLocationId",
+            "displayName": "Maintenance Location ID"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "maintenanceCategoryId",
+            "displayName": "Maintenance Category ID"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "subMaintenanceProblemId",
+            "displayName": "Sub Maintenance Problem ID"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "mainPhoneNumber",
+            "displayName": "Main Phone Number"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "altPhoneNumber",
+            "displayName": "Alt Phone Number"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "emailAddress",
+            "displayName": "Email Address"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "problemDescription",
+            "displayName": "Problem Description"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "additionalInfo",
+            "displayName": "Additional Info"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "petsDescription",
+            "displayName": "Pets Description"
+          },{
+            "style": "body",
+            "type": "date",
+            "name": "completedDateTime",
+            "displayName": "Completed DateTime"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "closingComments",
+            "displayName": "Closing Comments"
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve or send work orders (maintenance requests) related information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/updateWorkOrders"
+        },
+        "curl": "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/maintenance",
+        "authentication": {
+          "required": true
+        },
+        "category": "Maintenance",
+        "displayName": "Update Work Orders",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/maintenance"
+      },
+      {
+        "path": "/properties",
+        "params": [
+          {
+            "name": "method",
+            "default": "getFloorPlans",
+            "displayName": "Get Floor Plans",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "style": "query",
+            "type": "integer",
+            "name": "propertyId",
+            "displayName": "Property ID",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "propertyFloorPlanIds",
+            "displayName": "Property Floor Plan IDs"
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve property related information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/getFloorPlans"
+        },
+        "curl": "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/properties",
+        "authentication": {
+          "required": true
+        },
+        "category": "Properties",
+        "displayName": "Get Floor Plans",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/properties"
+      },
+      {
+        "path": "/properties",
+        "params": [
+          {
+            "name": "method",
+            "default": "getPetTypes",
+            "displayName": "Get Pet Types",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "style": "query",
+            "type": "string",
+            "name": "propertyIds",
+            "displayName": "Property IDs",
+            "required": "true"
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve property related information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/getPetTypes"
+        },
+        "curl": "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/properties",
+        "authentication": {
+          "required": "false"
+        },
+        "category": "Properties",
+        "displayName": "Get Pet Types",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/properties"
+      },
+      {
+        "path": "/properties",
+        "params": [
+          {
+            "name": "method",
+            "default": "getProperties",
+            "displayName": "Get Properties",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "style": "query",
+            "type": "string",
+            "name": "propertyIds",
+            "displayName": "Property IDs"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "showAllStatus",
+            "displayName": "Show All Status"
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve property related information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/getProperties"
+        },
+        "curl": "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/properties",
+        "authentication": {
+          "required": true
+        },
+        "category": "Properties",
+        "displayName": "Get Properties",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/properties"
+      },
+      {
+        "path": "/properties",
+        "params": [
+          {
+            "name": "method",
+            "default": "getPropertyAnnouncements",
+            "displayName": "Get Property Announcements",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "style": "query",
+            "type": "integer",
+            "name": "propertyId",
+            "displayName": "Property ID",
+            "required": "true"
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve property related information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/getPropertyAnnouncements"
+        },
+        "curl": "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/properties",
+        "authentication": {
+          "required": "false"
+        },
+        "category": "Properties",
+        "displayName": "Get Property Announcements",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/properties"
+      },
+      {
+        "path": "/properties",
+        "params": [
+          {
+            "name": "method",
+            "default": "getPropertyPickLists",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "style": "query",
+            "type": "string",
+            "name": "propertyIds",
+            "displayName": "Property IDs"
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve property related information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/getPropertyAnnouncements"
+        },
+        "curl": "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/properties",
+        "authentication": {
+          "required": "false"
+        },
+        "category": "Properties",
+        "displayName": "Get Property PickLists",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/properties"
+      },
+      {
+        "path": "/properties",
+        "params": [
+          {
+            "name": "method",
+            "default": "getRentableItems",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "style": "query",
+            "type": "integer",
+            "name": "propertyIds",
+            "displayName": "Property IDs",
+            "required": "true"
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve property related information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/getRentableItems"
+        },
+        "curl": "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/properties",
+        "authentication": {
+          "required": "false"
+        },
+        "category": "Properties",
+        "displayName": "Get Rentable Items",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/properties"
+      },
+      {
+        "path": "/properties",
+        "params": [
+          {
+            "name": "method",
+            "default": "sendLroPricing",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "propertyKey",
+            "displayName": "Property Key",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "community",
+            "displayName": "Community",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "propertyId",
+            "displayName": "Property ID"
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve property related information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/sendLroPricing"
+        },
+        "curl": "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/properties",
+        "authentication": {
+          "required": "false"
+        },
+        "category": "Properties",
+        "displayName": "Send Lro Pricing",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/properties"
+      },
+      {
+        "path": "/properties",
+        "params": [
+          {
+            "name": "method",
+            "default": "sendOptimizedPricing",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve property related information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/sendOptimizedPricing"
+        },
+        "curl": "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/properties",
+        "authentication": {
+          "required": "false"
+        },
+        "category": "Properties",
+        "displayName": "Send Optimized Pricing",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/properties"
+      },
+      {
+        "path": "/properties",
+        "params": [
+          {
+            "name": "method",
+            "default": "sendPropertyMedias",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve property related information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/sendPropertyMedias"
+        },
+        "curl": "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/properties",
+        "authentication": {
+          "required": "false"
+        },
+        "category": "Properties",
+        "displayName": "Send Property Medias",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/properties"
+      },
+      {
+        "path": "/propertyunits",
+        "params": [
+          {
+            "name": "method",
+            "default": "getAmenities",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "style": "query",
+            "type": "integer",
+            "name": "propertyId",
+            "displayName": "Property ID",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "unitNumber",
+            "displayName": "Unit Number"
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve or send all property units related information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/getAmenities"
+        },
+        "curl": "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/propertyunits",
+        "authentication": {
+          "required": "false"
+        },
+        "category": "Property Units",
+        "displayName": "Get Amenities",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/propertyunits"
+      },
+      {
+        "path": "/propertyunits",
+        "params": [
+          {
+            "name": "method",
+            "default": "getMitsPropertyUnits",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "style": "query",
+            "type": "string",
+            "name": "propertyIds",
+            "displayName": "Property IDs",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "availableUnitsOnly",
+            "displayName": "Available Units Only"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "usePropertyPreferences",
+            "displayName": "Use Property Preferences"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "includeDisabledFloorplans",
+            "displayName": "Include Disabled Floorplans"
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve or send all property units related information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/getMitsPropertyUnits"
+        },
+        "curl": "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/propertyunits",
+        "authentication": {
+          "required": "false"
+        },
+        "category": "Property Units",
+        "displayName": "Get Mits Property Units",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/propertyunits"
+      },
+      {
+        "path": "/propertyunits",
+        "params": [
+          {
+            "name": "method",
+            "default": "getSpecials",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "style": "query",
+            "type": "integer",
+            "name": "propertyId",
+            "displayName": "Property ID",
+            "required": "true"
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve or send all property units related information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/getSpecials"
+        },
+        "curl": "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/propertyunits",
+        "authentication": {
+          "required": "false"
+        },
+        "category": "Property Units",
+        "displayName": "Get Specials",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/propertyunits"
+      },
+      {
+        "path": "/propertyunits",
+        "params": [
+          {
+            "name": "method",
+            "default": "getUnitsAvailabilityAndPricing",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "style": "query",
+            "type": "integer",
+            "name": "propertyId",
+            "displayName": "Property ID",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "floorplanId",
+            "displayName": "Floor Plan ID"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "unitTypeId",
+            "displayName": "Unit Type ID"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "propertyUnitId",
+            "displayName": "Property Unit ID"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "availableUnitsOnly",
+            "displayName": "Available Units Only"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "showChildProperties",
+            "displayName": "Show Child Properties"
+          },{
+            "style": "query",
+            "type": "date",
+            "name": "moveInStartDate",
+            "displayName": "Move In Start Date"
+          },{
+            "style": "query",
+            "type": "date",
+            "name": "moveInEndDate",
+            "displayName": "Move In End Date"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "daysFromAvailableOnDate",
+            "displayName": "Days From Available On Date"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "includeDisabledFloorplans",
+            "displayName": "Include Disabled Floorplans"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "showUnitSpaces",
+            "displayName": "Show Unit Spaces"
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve or send all property units related information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/getUnitsAvailabilityAndPricing"
+        },
+        "curl": "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/propertyunits",
+        "authentication": {
+          "required": "false"
+        },
+        "category": "Property Units",
+        "displayName": "Get Units Availability And Pricing",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/propertyunits"
+      },
+      {
+        "path": "/propertyunits",
+        "params": [
+          {
+            "name": "method",
+            "default": "getUnitTypes",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "style": "query",
+            "type": "integer",
+            "name": "propertyId",
+            "displayName": "Property ID",
+            "required": "true"
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve or send all property units related information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/getUnitsAvailabilityAndPricing"
+        },
+        "curl": "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/propertyunits",
+        "authentication": {
+          "required": "false"
+        },
+        "category": "Property Units",
+        "displayName": "Get Unit Types",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/propertyunits"
+      },
+      {
+        "path": "/propertyunits",
+        "params": [
+          {
+            "name": "method",
+            "default": "sendAmenities",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve or send all property units related information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/sendAmenities"
+        },
+        "curl": "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/propertyunits",
+        "authentication": {
+          "required": "false"
+        },
+        "category": "Property Units",
+        "displayName": "Send Amenities",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/propertyunits"
+      },
+      {
+        "path": "/propertyunits",
+        "params": [
+          {
+            "name": "method",
+            "default": "sendMitsPropertyUnits",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "style": "boolean",
+            "type": "string",
+            "name": "PhysicalProperty",
+            "displayName": "Physical Property",
+            "required": "true"
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve or send all property units related information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/sendMitsPropertyUnits"
+        },
+        "curl": "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/propertyunits",
+        "authentication": {
+          "required": "false"
+        },
+        "category": "Property Units",
+        "displayName": "Send Mits Property Units",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/propertyunits"
+      },
+      {
+        "path": "/vendors",
+        "params": [
+          {
+            "name": "method",
+            "default": "getInvoices",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "style": "query",
+            "type": "integer",
+            "name": "ids",
+            "displayName": "ids"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "invoiceNumber",
+            "displayName": "Invoice Number"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "vendorId",
+            "displayName": "Vendor ID"
+          },{
+            "style": "query",
+            "type": "integer",
+            "name": "propertyIds",
+            "displayName": "Property IDs"
+          },{
+            "style": "query",
+            "type": "date",
+            "name": "fromDate",
+            "displayName": "From Date"
+          },{
+            "style": "query",
+            "type": "date",
+            "name": "toDate",
+            "displayName": "To Date"
+          },{
+            "style": "query",
+            "type": "date",
+            "name": "postMonth",
+            "displayName": "Post Month"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "includeExported",
+            "displayName": "Include Exported"
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve or send all property units related information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/getInvoices"
+        },
+        "curl": "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/vendors",
+        "authentication": {
+          "required": "false"
+        },
+        "category": "Vendors",
+        "displayName": "Get Invoices",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/vendors"
+      },
+      {
+        "path": "/vendors",
+        "params": [
+          {
+            "name": "method",
+            "default": "getTaxFormData",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "style": "query",
+            "type": "string",
+            "name": "propertyIds",
+            "displayName": "Property IDs",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "date",
+            "name": "startDate",
+            "displayName": "Start Date",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "date",
+            "name": "endDate",
+            "displayName": "End Date",
+            "required": "true"
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve or send all property units related information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/getTaxFormData"
+        },
+        "curl": "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/vendors",
+        "authentication": {
+          "required": "false"
+        },
+        "category": "Vendors",
+        "displayName": "Get Tax Form Data",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/vendors"
+      },
+      {
+        "path": "/vendors",
+        "params": [
+          {
+            "name": "method",
+            "default": "getVendorLocations",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "style": "query",
+            "type": "string",
+            "name": "propertyIds",
+            "displayName": "Property IDs"
+          },{
+            "style": "query",
+            "type": "boolean",
+            "name": "showAllStatus",
+            "displayName": "Show All Status"
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve or send all property units related information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/getVendorLocations"
+        },
+        "curl": "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/vendors",
+        "authentication": {
+          "required": "false"
+        },
+        "category": "Vendors",
+        "displayName": "Get Vendor Locations",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/vendors"
+      },{
+        "path": "/vendors",
+        "params": [
+          {
+            "name": "method",
+            "default": "markInvoicesExported",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "style": "body",
+            "type": "integer",
+            "name": "lineItemId",
+            "displayName": "Line Item ID",
+            "required": "true"
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve or send all property units related information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/markInvoicesExported"
+        },
+        "curl": "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/vendors",
+        "authentication": {
+          "required": "false"
+        },
+        "category": "Vendors",
+        "displayName": "Mark Invoices Exported",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/vendors"
+      },
+      {
+        "path": "/vendors",
+        "params": [
+          {
+            "name": "method",
+            "default": "sendInvoices",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          },
+          {
+            "style": "body",
+            "type": "integer",
+            "name": "ApPayeeId",
+            "displayName": "AP Payee ID",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "ApPayeeLocationId",
+            "displayName": "AP Payee Location ID",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "InvoiceTotal",
+            "displayName": "Invoice Total",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "InvoiceNumber",
+            "displayName": "Invoice Number",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "date",
+            "name": "InvoiceDate",
+            "displayName": "Invoice Date",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "PropertyId",
+            "displayName": "Property ID",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "GlAccountId",
+            "displayName": "Gl Account ID",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Description",
+            "displayName": "Description",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "Rate",
+            "displayName": "Rate",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "IsConsolidated",
+            "displayName": "Is Consolidated"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "IsOnHold",
+            "displayName": "Is On Hold"
+          },{
+            "style": "body",
+            "type": "integer",
+            "name": "Quantity",
+            "displayName": "Quantity"
+          },{
+            "style": "body",
+            "type": "boolean",
+            "name": "IsWaive1099",
+            "displayName": "Is Waive 1099"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "FileData",
+            "displayName": "File Data"
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve or send all property units related information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/sendInvoices"
+        },
+        "curl": "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/vendors",
+        "authentication": {
+          "required": "false"
+        },
+        "category": "Vendors",
+        "displayName": "Send Invoices",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/vendors"
+      },
+      {
+        "path": "/vendors",
+        "params": [
+          {
+            "name": "method",
+            "default": "sendVendors",
+            "style": "body",
+            "type": "string",
+            "hidden": true,
+            "required": true
+          }
+        ],
+        "doc": {
+          "t": "Provides a library of functions to retrieve or send all property units related information.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
+          "url": "https://www.entrata.com/api-documentation/sendVendors"
+        },
+        "curl": "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://:subdomain.entrata.com/api/vendors",
+        "authentication": {
+          "required": "false"
+        },
+        "category": "Vendors",
+        "displayName": "Send Vendors",
+        "httpMethod": "POST",
+        "url": "https://:subdomain.entrata.com/api/vendors"
+      }
+    ]
+  }
+}
