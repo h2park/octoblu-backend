@@ -1,0 +1,15 @@
+{
+  "_id": "device-tentacle",
+  "category": "device",
+  "categories":["Maker"],
+  "description": "Tentacle",
+  "helpText": "Firmware to control and configurevarious web connected microcontrollers.",
+  "enabled": true,
+  "name": "tentacle",
+  "skynet": {
+    "type": "device:tentacle"
+  },
+  "type": "device:tentacle"
+}
+
+
