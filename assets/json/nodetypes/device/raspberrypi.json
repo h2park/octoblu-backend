@@ -7,9 +7,9 @@
   "enabled": true,
   "name": "RaspberryPi",
   "skynet": {
-    "type": "device:rpi-servo"
+    "type": "device:raspberrypi"
   },
-  "type": "device:rpi-servo"
+  "type": "device:raspberrypi"
 }
 
 
