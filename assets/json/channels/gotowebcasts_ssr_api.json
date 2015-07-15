@@ -1,0 +1,149 @@
+{
+  "_id": "395023581cxv305sfq3r",
+  "application": {
+    "base": "https://goto.webcasts.com",
+    "resources": [
+      {
+        "path": "/viewer/regserver.jsp",
+        "displayName": "Register Audience Members For The Webcast Using A Server To Server Call",
+        "httpMethod": "POST",
+        "params": [{
+            "style": "body",
+            "type": "integer",
+            "name": "ei",
+            "displayName": "Event ID",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "fname",
+            "displayName": "First Name",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "lname",
+            "displayName": "Last Name",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "company",
+            "displayName": "Company Name",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "title",
+            "displayName": "Business Title",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "address1",
+            "displayName": "Street Address",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "address2",
+            "displayName": "Street Address Extra Info",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "city",
+            "displayName": "City",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "state",
+            "displayName": "State",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "country",
+            "displayName": "Country",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "postalcode",
+            "displayName": "Postal/Zip-Code",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "phone",
+            "displayName": "Primary Phone Number",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "cell",
+            "displayName": "Cell/ Mobile Number",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "fax",
+            "displayName": "Fax Number",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "email",
+            "displayName": "Email address",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "custom_question1",
+            "displayName": "Custom Registration Question Answer",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "pass",
+            "displayName": "ID",
+            "required": "true"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "tp_regconfemail",
+            "displayName": "Enable A Registration Confirmation Email",
+            "required": "true"
+          }],
+        "url": "https://goto.webcasts.com/viewer/regserver.jsp"
+      }
+    ]
+  },
+  "oauth":{
+    "development": {
+      "clientID":     "",
+      "clientSecret": "",
+      "callbackURL":  "",
+      "tokenMethod":  ""
+    },
+    "production": {
+      "clientID":     "",
+      "clientSecret": "",
+      "callbackURL":  "",
+      "tokenMethod":  ""
+    },
+    "staging": {
+      "clientID":     "",
+      "clientSecret": "",
+      "callbackURL":  "",
+      "tokenMethod":  ""
+    }
+  },
+  "auth_strategy": "",
+  "documentation": "https://citrix.sharefile.com/share#download/a8b57b6bedb447fd",
+  "enabled": true,
+  "name": "GoToWebcasts_SSR_Registration_API",
+  "isPassport": true,
+  "type": "channel:gotowebcasts_ssr_api"
+}
