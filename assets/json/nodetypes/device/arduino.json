@@ -5,7 +5,7 @@
   "description": "Arduino microcontroller",
   "helpText": "A tool for making computers that can sense and control more of the physical world than your desktop computer.",
   "enabled": true,
-  "name": "Arduino",
+  "name": "Firmata",
   "payloadOnly": true,
   "skynet": {
     "type": "device",
