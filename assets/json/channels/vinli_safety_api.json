@@ -1,0 +1,100 @@
+{
+  "_id": "3679123250sgf305l309",
+  "application": {
+    "base": "https://safety.vin.li/api/v1",
+    "resources": [
+      {
+        "path": "/devices/8b8a1810-d6d8-11e3-9c1a-0800200c9a66/collisions",
+        "displayName": "Get A List Of Collisions For A Device",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://safety.vin.li/api/v1/devices/8b8a1810-d6d8-11e3-9c1a-0800200c9a66/collisions"
+      },{
+        "path": "/devices/8b8a1810-d6d8-11e3-9c1a-0800200c9a66/emergency_contacts",
+        "displayName": "Get A List Of Emergency Contacts For A Device",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://safety.vin.li/api/v1/devices/8b8a1810-d6d8-11e3-9c1a-0800200c9a66/emergency_contacts"
+      },{
+        "path": "/devices/8b8a1810-d6d8-11e3-9c1a-0800200c9a66/emergency_contacts",
+        "displayName": "Create An Emergency Contact For A Device",
+        "httpMethod": "POST",
+        "params": [{
+            "style": "body",
+            "type": "object",
+            "name": "emergency_contct",
+            "displayName": "Emergency Contact"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "name",
+            "displayName": "Name"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "priority",
+            "displayName": "Priority"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "phoneNumber",
+            "displayName": "Phone Number"
+          }],
+        "url": "https://safety.vin.li/api/v1/devices/8b8a1810-d6d8-11e3-9c1a-0800200c9a66/emergency_contacts"
+      },{
+        "path": "/devices/8b8a1810-d6d8-11e3-9c1a-0800200c9a66/emergency_contacts/a9beede5-a282-4a94-9a50-9ad8a280570f",
+        "displayName": "Update An Emergency Contact For A Device",
+        "httpMethod": "PUT",
+        "params": [{
+            "style": "body",
+            "type": "object",
+            "name": "emergency_contct",
+            "displayName": "Emergency Contact"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "name",
+            "displayName": "Name"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "voiceContact",
+            "displayName": "Voice Contact"
+          }],
+        "url": "https://safety.vin.li/api/v1/devices/8b8a1810-d6d8-11e3-9c1a-0800200c9a66/emergency_contacts/a9beede5-a282-4a94-9a50-9ad8a280570f"
+      },{
+        "path": "/devices/8b8a1810-d6d8-11e3-9c1a-0800200c9a66/emergency_contacts/a9beede5-a282-4a94-9a50-9ad8a280570f",
+        "displayName": "Delete An Emergency Contact",
+        "httpMethod": "DELETE",
+        "params": [],
+        "url": "https://safety.vin.li/api/v1/devices/8b8a1810-d6d8-11e3-9c1a-0800200c9a66/emergency_contacts/a9beede5-a282-4a94-9a50-9ad8a280570f"
+      }
+    ]
+  },
+  "oauth":{
+    "development": {
+      "clientID":     "",
+      "clientSecret": "",
+      "callbackURL":  "",
+      "tokenMethod":  ""
+    },
+    "production": {
+      "clientID":     "",
+      "clientSecret": "",
+      "callbackURL":  "",
+      "tokenMethod":  ""
+    },
+    "staging": {
+      "clientID":     "",
+      "clientSecret": "",
+      "callbackURL":  "",
+      "tokenMethod":  ""
+    }
+  },
+  "auth_strategy": "",
+  "documentation": "https://developer.vin.li/documentation/web",
+  "enabled": true,
+  "name": "Vinli_Safety_API",
+  "isPassport": true,
+  "type": "channel:vinli_safety_api"
+}

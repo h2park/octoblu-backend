@@ -1,0 +1,201 @@
+{
+  "_id": "20582230357sdg325",
+  "application": {
+    "base": "https://platform.vin.li/api/v1",
+    "resources": [
+      {
+        "path": "/devices",
+        "displayName": "Gets All Devices",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://platform.vin.li/api/v1/devices"
+      },{
+        "path": "/devices",
+        "displayName": "Register A Device",
+        "httpMethod": "POST",
+        "params": [{
+            "style": "body",
+            "type": "object",
+            "name": "device",
+            "displayName": "Device"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "id",
+            "displayName": "Device ID"
+          }],
+        "url": "https://platform.vin.li/api/v1/devices"
+      },{
+        "path": "/devices/821374c0-d6d8-11e3-9c1a-0800200c9a66",
+        "displayName": "Get A Device",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://platform.vin.li/api/v1/devices/821374c0-d6d8-11e3-9c1a-0800200c9a66"
+      },{
+        "path": "/devices/821374c0-d6d8-11e3-9c1a-0800200c9a66",
+        "displayName": "Deregister A Device",
+        "httpMethod": "DELETE",
+        "params": [],
+        "url": "https://platform.vin.li/api/v1/devices/821374c0-d6d8-11e3-9c1a-0800200c9a66"
+      },{
+        "path": "/devices/821374c0-d6d8-11e3-9c1a-0800200c9a66/startups",
+        "displayName": "List All Of A Device's Startups",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://platform.vin.li/api/v1/devices/821374c0-d6d8-11e3-9c1a-0800200c9a66/startups"
+      },{
+        "path": "/devices/821374c0-d6d8-11e3-9c1a-0800200c9a66/shutdowns",
+        "displayName": "List All of a Device's Shutdowns",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://platform.vin.li/api/v1/devices/821374c0-d6d8-11e3-9c1a-0800200c9a66/shutdowns"
+      },{
+        "path": "/devices/821374c0-d6d8-11e3-9c1a-0800200c9a66/vehicles",
+        "displayName": "List All Of A Device's Vehicles",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://platform.vin.li/api/v1/devices/821374c0-d6d8-11e3-9c1a-0800200c9a66/vehicles"
+      },{
+        "path": "/devices/821374c0-d6d8-11e3-9c1a-0800200c9a66/vehicles/_latest",
+        "displayName": "List A Device's Latest Vehicle",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://platform.vin.li/api/v1/devices/821374c0-d6d8-11e3-9c1a-0800200c9a66/vehicles/_latest"
+      },{
+        "path": "/vehicles/67e1e940-d6da-11e3-9c1a-0800200c9a66",
+        "displayName": "Get Info About A Vehicle (Year, Make, Model, Ect.)",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://platform.vin.li/api/v1/vehicles/67e1e940-d6da-11e3-9c1a-0800200c9a66"
+      },{
+        "path": "/groups",
+        "displayName": "List All Groups",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://platform.vin.li/api/v1/groups"
+      },{
+        "path": "/groups",
+        "displayName": "Create A Group",
+        "httpMethod": "POST",
+        "params": [{
+            "style": "body",
+            "type": "object",
+            "name": "group",
+            "displayName": "Group"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "name",
+            "displayName": "Name"
+          }],
+        "url": "https://platform.vin.li/api/v1/groups"
+      },{
+        "path": "/groups/:groupId",
+        "displayName": "Get A Group",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":groupId",
+            "displayName": "Group ID",
+            "required": "true"
+          }],
+        "url": "https://platform.vin.li/api/v1/groups/:groupId"
+      },{
+        "path": "/groups/8b5f3460-d610-11e3-9c1a-0800200c9a66",
+        "displayName": "Edit A Group",
+        "httpMethod": "PUT",
+        "params": [{
+            "style": "body",
+            "type": "object",
+            "name": "group",
+            "displayName": "Group"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "name",
+            "displayName": "Group's Name"
+          }],
+        "url": "https://platform.vin.li/api/v1/groups/8b5f3460-d610-11e3-9c1a-0800200c9a66"
+      },{
+        "path": "/groups/8b5f3460-d610-11e3-9c1a-0800200c9a66",
+        "displayName": "Delete A Group",
+        "httpMethod": "DELETE",
+        "params": [],
+        "url": "https://platform.vin.li/api/v1/groups/8b5f3460-d610-11e3-9c1a-0800200c9a66"
+      },{
+        "path": "/groups/8b5f3460-d610-11e3-9c1a-0800200c9a66/devices",
+        "displayName": "Add A Device To A Group",
+        "httpMethod": "POST",
+        "params": [{
+            "style": "body",
+            "type": "object",
+            "name": "device",
+            "displayName": "Device"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "id",
+            "displayName": "Device ID"
+          }],
+        "url": "https://platform.vin.li/api/v1/groups/8b5f3460-d610-11e3-9c1a-0800200c9a66/devices"
+      },{
+        "path": "/groups/8b5f3460-d610-11e3-9c1a-0800200c9a66/devices",
+        "displayName": "List All Of A Group's Devices",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://platform.vin.li/api/v1/groups/8b5f3460-d610-11e3-9c1a-0800200c9a66/devices"
+      },{
+        "path": "/devices/821374c0-d6d8-11e3-9c1a-0800200c9a66/groups",
+        "displayName": "List All Of A Device's Groups",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://platform.vin.li/api/v1/groups/8b5f3460-d610-11e3-9c1a-0800200c9a66/devices/:deviceId"
+      },{
+        "path": "/groups/8b5f3460-d610-11e3-9c1a-0800200c9a66/devices/:deviceId",
+        "displayName": "Remove A Device From A Group",
+        "httpMethod": "DELETE",
+        "params": [{
+            "style": "URL",
+            "type": "string",
+            "name": ":deviceId",
+            "displayName": "Device ID",
+            "required": "true"
+          }],
+        "url": "https://platform.vin.li/api/v1/groups/8b5f3460-d610-11e3-9c1a-0800200c9a66/devices/:deviceId"
+      },{
+        "path": "/transactions",
+        "displayName": "Get All Transactions For This Application",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://platform.vin.li/api/v1/transactions"
+      }
+    ]
+  },
+  "oauth":{
+    "development": {
+      "clientID":     "",
+      "clientSecret": "",
+      "callbackURL":  "",
+      "tokenMethod":  ""
+    },
+    "production": {
+      "clientID":     "",
+      "clientSecret": "",
+      "callbackURL":  "",
+      "tokenMethod":  ""
+    },
+    "staging": {
+      "clientID":     "",
+      "clientSecret": "",
+      "callbackURL":  "",
+      "tokenMethod":  ""
+    }
+  },
+  "auth_strategy": "",
+  "documentation": "https://developer.vin.li/documentation/web",
+  "enabled": true,
+  "name": "Vinli_Platform_API",
+  "isPassport": true,
+  "type": "channel:vinli_platform_api"
+}

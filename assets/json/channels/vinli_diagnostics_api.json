@@ -1,0 +1,74 @@
+{
+  "_id": "434086dikdlfgj348",
+  "application": {
+    "base": "https://diagnostics.vin.li/api/v1",
+    "resources": [
+      {
+        "path": "/devices/47fa348e-c3fa-4cad-8272-61940eae7748/dtc_codes",
+        "displayName": "Get the list of current DTC Codes for a Device",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://diagnostics.vin.li/api/v1/devices/47fa348e-c3fa-4cad-8272-61940eae7748/dtc_codes"
+      },{
+        "path": "/devices/47fa348e-c3fa-4cad-8272-61940eae7748/dtc_code_events",
+        "displayName": "Get A History Of DTC Code Events For A Device",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://diagnostics.vin.li/api/v1/devices/47fa348e-c3fa-4cad-8272-61940eae7748/dtc_code_events"
+      },{
+        "path": "/devices/602c6490-d7a3-11e3-9c1a-0800200c9a66/dtc_notifications",
+        "displayName": "Create A New DTC Notification",
+        "httpMethod": "POST",
+        "params": [{
+            "style": "body",
+            "type": "object",
+            "name": "dtcNotification",
+            "displayName": "DTC Notification"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "notificationUrl",
+            "displayName": "Notification Url"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "notificationMetadata",
+            "displayName": "Notification Metadata"
+          }],
+        "url": "https://diagnostics.vin.li/api/v1/devices/602c6490-d7a3-11e3-9c1a-0800200c9a66/dtc_notifications"
+      },{
+        "path": "/dtc_codes/P0171",
+        "displayName": "Get Info About A DTC Code",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://diagnostics.vin.li/api/v1/dtc_codes/P0171"
+      }
+    ]
+  },
+  "oauth":{
+    "development": {
+      "clientID":     "",
+      "clientSecret": "",
+      "callbackURL":  "",
+      "tokenMethod":  ""
+    },
+    "production": {
+      "clientID":     "",
+      "clientSecret": "",
+      "callbackURL":  "",
+      "tokenMethod":  ""
+    },
+    "staging": {
+      "clientID":     "",
+      "clientSecret": "",
+      "callbackURL":  "",
+      "tokenMethod":  ""
+    }
+  },
+  "auth_strategy": "",
+  "documentation": "https://developer.vin.li/documentation/web",
+  "enabled": true,
+  "name": "Vinli_Diagnostics_API",
+  "isPassport": true,
+  "type": "channel:vinli_diagnostics_api"
+}

@@ -1,0 +1,114 @@
+{
+  "_id": "3459346sg5790314956dfg459",
+  "application": {
+    "base": "https://telemetry.vin.li/api/v1",
+    "resources": [
+      {
+        "path": "/devices/27a2ac50-d7bd-11e3-9c1a-0800200c9a66/snapshots",
+        "displayName": "Gets Latest Limit Number Of Telemetry Snapshots (Time-series History Of One Or More Vehicle Parameters)",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "List Of Param Keys To Filter By"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "until",
+            "displayName": "Snapshots Whose Timestamps Are Less Than Or Equal To The Until Value"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "since",
+            "displayName": "Snapshots Whose Timestamps Are Greater Than The Since Value"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "limit",
+            "displayName": "Will Contain No More Than Limit Number Of Snapshots"
+          }],
+        "url": "https://telemetry.vin.li/api/v1/devices/27a2ac50-d7bd-11e3-9c1a-0800200c9a66/snapshots"
+      },{
+        "path": "/devices/27a2ac50-d7bd-11e3-9c1a-0800200c9a66/locations",
+        "displayName": "Latest Limit Number Of Points Of The Device's Location Before Or At The Until Time & After The Since Time",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "List Of Param Keys To Be Included In The Properties Field"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "until",
+            "displayName": "Snapshots Whose Timestamps Are Less Than Or Equal To The Until Value"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "since",
+            "displayName": "Snapshots Whose Timestamps Are Greater Than The Since Value"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "limit",
+            "displayName": "Will Contain No More Than Limit Number Of Snapshots"
+          }],
+        "url": "https://telemetry.vin.li/api/v1/devices/27a2ac50-d7bd-11e3-9c1a-0800200c9a66/locations"
+      },{
+        "path": "/devices/27a2ac50-d7bd-11e3-9c1a-0800200c9a66/messages",
+        "displayName": "Get A List Of Telemetry Messages",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "until",
+            "displayName": "Snapshots Whose Timestamps Are Less Than Or Equal To The Until Value"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "since",
+            "displayName": "Snapshots Whose Timestamps Are Greater Than The Since Value"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "limit",
+            "displayName": "Limit Number Of Snapshots"
+          }],
+        "url": "https://telemetry.vin.li/api/v1/devices/27a2ac50-d7bd-11e3-9c1a-0800200c9a66/messages"
+      },{
+        "path": "/devices/27a2ac50-d7bd-11e3-9c1a-0800200c9a66/messages/2f11d630-141e-11e4-b717-5977b6c38d23",
+        "displayName": "Get A Specific Telemetry Message",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://telemetry.vin.li/api/v1/devices/27a2ac50-d7bd-11e3-9c1a-0800200c9a66/messages/2f11d630-141e-11e4-b717-5977b6c38d23"
+      }
+    ]
+  },
+  "oauth":{
+    "development": {
+      "clientID":     "",
+      "clientSecret": "",
+      "callbackURL":  "",
+      "tokenMethod":  ""
+    },
+    "production": {
+      "clientID":     "",
+      "clientSecret": "",
+      "callbackURL":  "",
+      "tokenMethod":  ""
+    },
+    "staging": {
+      "clientID":     "",
+      "clientSecret": "",
+      "callbackURL":  "",
+      "tokenMethod":  ""
+    }
+  },
+  "auth_strategy": "",
+  "documentation": "https://developer.vin.li/documentation/web",
+  "enabled": true,
+  "name": "Vinli_Telemetry_API",
+  "isPassport": true,
+  "type": "channel:vinli_telemetry_api"
+}
