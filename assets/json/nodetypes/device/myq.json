@@ -3,7 +3,8 @@
   "category": "device",
   "categories":["Home Automation"],
   "description": "MyQ",
-  "helpText": "Allows you to easily connect to your home from anywhere with your smartphone.",
+  "documentation": "http://docs.unofficialliftmastermyq.apiary.io/",
+  "helpText": "MyQ® Accessories let you take full advantage of your MyQ-Enabled Garage Door or Gate Operator. By tapping into the power of your Internet Gateway, you can monitor and control your home’s or business’s garage door, gate or lighting from your smartphone, tablet or computer.",
   "enabled": true,
   "name": "MyQ",
   "skynet": {

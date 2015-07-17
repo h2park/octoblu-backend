@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Octoblu"],
   "description": "BeaconBlu",
-  "helpText": "An iOS and Android app for iBeacons.",
+  "helpText": "An iOS and Android app for iBeacons. Manage your beacons through Octoblu.",
   "enabled": true,
   "name": "BeaconBlu",
   "skynet": {

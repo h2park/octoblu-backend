@@ -3,7 +3,8 @@
   "category": "device",
   "categories":["Social"],
   "description": "Twitter Streaming",
-  "helpText": "Twitter streaming device, for retrieving real-time tweets",
+  "documentation": "https://dev.twitter.com/streaming/overview",
+  "helpText": "The Streaming APIs give developers low latency access to Twitter’s global stream of Tweet data. A proper implementation of a streaming client will be pushed messages indicating Tweets and other events have occurred, without any of the overhead associated with polling a REST endpoint.",
   "enabled": true,
   "name": "Twitter Streaming",
   "skynet": {

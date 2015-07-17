@@ -3,7 +3,8 @@
   "category": "device",
   "categories":["Home Automation"],
   "description": "Philips Hue light bulbs",
-  "helpText": "Create your personal wireless lighting environment with the Philips Hue connected bulbs and wireless bridge.",
+  "documentation": "http://www.developers.meethue.com/",
+  "helpText": "Philips hue combines brilliant LED light with intuitive technology. Then puts it in the palm of your hand. Together, the bulbs, the bridge and the app will change the way you use light. Forever. Experiment with shades of white, from invigorating blue/white to cozy yellow/white.",
   "enabled": true,
   "name": "Philips Hue",
   "skynet": {

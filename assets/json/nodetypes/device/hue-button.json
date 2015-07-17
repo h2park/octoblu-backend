@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Home Automation"],
   "description": "Philips Hue Button",
-  "helpText": "Use your Philips Hue Button to trigger flows",
+  "helpText": "Use your Philips Hue Button to trigger your Hues or even Flows and other Things in Octoblu.",
   "enabled": true,
   "name": "Philips Hue Button",
   "skynet": {

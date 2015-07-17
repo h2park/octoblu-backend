@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Octoblu"],
   "description": "Oauth Application",
-  "helpText": "Oauth application to authorize requests on another user's behalf",
+  "helpText": "Oauth Application to authorize requests on another user's behalf.",
   "enabled": true,
   "name": "Oauth Application",
   "skynet": {
