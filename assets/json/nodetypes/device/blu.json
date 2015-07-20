@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Octoblu"],
   "description": "Blu Flow Trigger Application",
-  "helpText": "Trigger your Octoblu triggers remotely.",
+  "helpText": "View and trigger any of your Octoblu triggers remotely on your phone.",
   "enabled": true,
   "name": "Blu Web",
   "skynet": {

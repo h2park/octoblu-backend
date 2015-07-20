@@ -3,6 +3,7 @@
   "category": "device",
   "categories":["Maker"],
   "description": "Neurosky Mindwave",
+  "documentation": "http://developer.neurosky.com/docs/doku.php?id=mindwave",
   "helpText": "It safely measures brainwave signals and monitors the attention levels of students as they interact with math, memory and pattern recognition applications.",
   "enabled": true,
   "name": "Mindwave",

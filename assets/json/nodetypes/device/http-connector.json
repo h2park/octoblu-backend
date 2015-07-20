@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Octoblu"],
   "description": "HTTP Connector for Gateblu",
-  "helpText": "Gateblu plugin for making http requests.",
+  "helpText": "Gateblu plugin for making http requests. Similar to the HTTP tools that runs on a local Gateblu.",
   "enabled": true,
   "name": "HTTP Connector",
   "skynet": {
