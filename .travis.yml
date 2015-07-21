@@ -50,14 +50,3 @@ deploy:
   bucket: octoblu-deploy
   on:
     branch: master
-- provider: codedeploy
-  access_key_id: AWS_ACCESS_KEY_ID
-  secret_access_key: *1
-  bucket: octoblu-deploy
-  key: docker-builder/octoblu-$TRAVIS_COMMIT.zip
-  bundle_type: zip
-  region: us-west-2
-  application: docker-builder
-  deployment_group: octoblu
-  on:
-    branch: master
