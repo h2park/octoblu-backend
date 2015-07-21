@@ -3,7 +3,7 @@
   "category": "channel",
   "categories": ["Productivity"],
   "description": "Send Email messages through Octoblu.",
-  "helpText": "Send Email messages through Octoblu.",
+  "helpText": "Send Email messages through Octoblu. (1 email/min)",
   "enabled": true,
   "name": "Send Email",
   "skynet": {

@@ -3,7 +3,7 @@
   "category": "channel",
   "categories": ["Productivity"],
   "description": "Send SMS text messages through Octoblu.",
-  "helpText": "Send SMS text messages through Octoblu.",
+  "helpText": "Send SMS text messages through Octoblu. (1 sms/min)",
   "enabled": true,
   "name": "Send SMS",
   "skynet": {
