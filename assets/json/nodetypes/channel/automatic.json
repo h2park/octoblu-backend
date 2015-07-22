@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Car Automation"],
   "description": "",
-  "helpText": "Automatic connects your car to the rest of your digital life",
+  "documentation": "https://developer.automatic.com/api-reference/",
+  "helpText": "Automatic channel connects your car to the rest of your digital life. The API provides detailed information about each trip in a driver's timeline, including distance, track real time events, start/end times, route, MPG, and more.",
   "enabled": true,
   "name": "Automatic",
   "skynet": {

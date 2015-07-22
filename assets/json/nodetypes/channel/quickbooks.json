@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Office"],
   "description": "QuickBooks",
-  "helpText": "Run your whole business better with QuickBooks. It is the #1 rated small business accounting software.",
+  "documentation": "https://developer.intuit.com/docs/0025_quickbooksapi",
+  "helpText": "Run your whole business better with QuickBooks. It is the #1 rated small business accounting software. With this channel you can search for companies.",
   "enabled": false,
   "name": "QuickBooks",
   "skynet": {

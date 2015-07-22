@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Music"],
   "description": "",
-  "helpText": "A music discovery service that gives you personalized recommendations based on the music you listen to.",
+  "documentation": "http://www.last.fm/api/intro",
+  "helpText": "A music discovery service that gives you personalized recommendations based on the music you listen to. This API channel can get album/artist info, album/artist search, album/artist share, get top artists/tags/tracks, attend events, and so on.",
   "enabled": false,
   "name": "LastFM",
   "skynet": {

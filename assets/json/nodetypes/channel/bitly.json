@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Productivity"],
   "description": null,
-  "helpText": "A URL shortening service.",
+  "documentation": "https://aws.amazon.com/documentation/",
+  "helpText": "A URL shortening service, reducing the URL length makes sharing easier. Unique user-level and aggregate links can be created and let users view complete, real-time traffic and referrer data, as well as location and metadata.",
   "enabled": true,
   "name": "Bitly",
   "skynet": {

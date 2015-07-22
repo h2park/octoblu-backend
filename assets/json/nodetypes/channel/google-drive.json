@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Productivity"],
   "description": "",
-  "helpText": "Get access to files anywhere through secure cloud storage and file backup for your photos, videos, files and more.",
+  "documentation": "https://developers.google.com/drive/v2/reference/",
+  "helpText": "This channel can get access to files anywhere through secure cloud storage and file backup for your photos, videos, files and more.",
   "enabled": true,
   "name": "Google Drive",
   "skynet": {

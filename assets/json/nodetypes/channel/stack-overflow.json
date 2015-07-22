@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Productivity"],
   "description": "",
-  "helpText": "A question and answer site for professional and enthusiast programmers.",
+  "documentation": "https://api.stackexchange.com/docs",
+  "helpText": "A question and answer site for professional and enthusiast programmers. The Stack Overflow API allows users to interface with the site through commands such as Getting comments by ids, Getting question summary information and more.",
   "enabled": false,
   "name": "StackOverflow",
   "skynet": {

@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Car Automation"],
   "description": "Tesla Model S",
-  "helpText": "Control features of your Tesla Model S remotely.",
+  "documentation": "http://docs.timdorr.apiary.io/#",
+  "helpText": "Control features of your Tesla Model S remotely. To show some examples, the site displays the features of vehicle list, vehicle status and vehicle commands. The vehicle list section includes all vehicles added in the system. The status shows charged battery and open doors. The vehicle commands can charge the car, flash the lights, and honk the horn.",
   "enabled": true,
   "name": "Tesla",
   "skynet": {

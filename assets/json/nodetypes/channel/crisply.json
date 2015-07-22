@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Office"],
   "description": "Crisply",
-  "helpText": "Using machine learning and predictive algorithms Crisply computes where human effort has gone, which creates superpowers for sales, support, product and finance teams.",
+  "documentation": "http://support.crisply.com/customer/portal/articles/250733-overview",
+  "helpText": "Using machine learning and predictive algorithms Crisply computes where human effort has gone, which creates superpowers for sales, support, product and finance teams. Some example API methods include accessing timesheets, retrieving times logged by activity and client, and managing user information and account information.",
   "enabled": true,
   "name": "Crisply",
   "skynet": {

@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Office"],
   "description": "RedBooth",
-  "helpText": "The online collaboration platform for team and task management. Be more productive with project management tools like video chat and file sharing.",
+  "documentation": "https://developer.redbooth.com/api-docs/",
+  "helpText": "The online collaboration platform for team and task management. Be more productive with project management tools like video chat and file sharing. Functionality of this channel includes but is not limited to get/create comments, get/create conversations, get/create/update files, update user info, and get/create notifications.",
   "enabled": true,
   "name": "RedBooth",
   "skynet": {

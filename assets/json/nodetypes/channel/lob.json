@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Productivity"],
   "description": "",
-  "helpText": "Enables you to seamlessly print and mail documents, postcards, photos, and more.",
+  "documentation": "https://lob.com/docs",
+  "helpText": "Lob is a cloud printing API capable of automating the on-demand printing and mailing documents such as posters, photos, invoices, checks, and much more.",
   "enabled": true,
   "name": "Lob",
   "skynet": {

@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Office"],
   "description": "Salesforce / Force.com",
-  "helpText": "Lets you integrate with Force.com applications using simple HTTP methods, in either XML or JSON formats, making this an ideal API for developing mobile applications or external clients.",
+  "documentation": "https://developer.salesforce.com",
+  "helpText": "Lets you integrate with Force.com applications using simple HTTP methods, in either XML or JSON formats, making this an ideal API for developing mobile applications or external clients.  The Force.com web services API allows users to create, retrieve, update or delete records, such as accounts, leads, and custom objects. The REST-based Bulk API is optimized for loading or deleting large sets of data. It allows users to query, insert, update, upsert, or delete a large number of records asynchronously by submitting a number of batches which are processed in the background by Salesforce.com.",
   "enabled": true,
   "name": "SalesForce",
   "skynet": {

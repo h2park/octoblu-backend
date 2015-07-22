@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Office"],
   "description": "",
-  "helpText": "Transforms the way you share, manage and collaborate on your most valuable corporate information.",
+  "documentation": "https://developers.box.com/docs/",
+  "helpText": "Transforms the way you share, manage and collaborate on your most valuable corporate information. The Box Content API gives you access to the content management features to the web app and use them in your own app",
   "enabled": true,
   "name": "Box",
   "skynet": {

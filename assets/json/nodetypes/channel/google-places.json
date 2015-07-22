@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Productivity"],
   "description": "",
-  "helpText": "Make your app stand out with detailed information about 100 million places across a wide range of categories, from the same database as Google Maps and Google+.",
+  "documentation": "https://developers.google.com/places/",
+  "helpText": "Make your app stand out with detailed information about 100 million places across a wide range of categories, from the same database as Google Maps and Google+. This channel has a Place Search request used to return candidate matches as well as a Place Details request returns more specific info about a Place.",
   "enabled": true,
   "name": "Google Places",
   "skynet": {

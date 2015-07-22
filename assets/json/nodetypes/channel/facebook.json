@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Social"],
   "description": "",
-  "helpText": "A social utility that connects people with friends and others who work, study and live around them.",
+  "documentation": "https://developers.facebook.com/docs",
+  "helpText": "A social utility that connects people with friends and others who work, study and live around them. With the API, users can add social context to their applications by utilizing profile, friend, Page, group, photo, and event data.",
   "enabled": false,
   "name": "Facebook",
   "skynet": {

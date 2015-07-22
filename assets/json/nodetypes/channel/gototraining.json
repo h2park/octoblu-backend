@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Office"],
   "description": "GoToTraining",
-  "helpText": "Online training software lets you hold interactive training sessions with up to 200 people right from your desk.",
+  "documentation": "https://developer.citrixonline.com/content/gototraining-api-reference",
+  "helpText": "Online training software lets you hold interactive training sessions with up to 200 people right from your desk. Some example API methods include creating training sessions, managing training sessions, accessing registration details, and retrieving attendee information.",
   "enabled": true,
   "name": "GoToTraining",
   "skynet": {

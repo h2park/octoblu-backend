@@ -4,7 +4,8 @@
   "categories": ["Octoblu"],
   "description": "",
   "enabled": true,
-  "helpText": "For more help, visit the <a href='https://developer.octoblu.com'>Meshblu documentation</a>.",
+  "documentation": "http://meshblu-http.readme.io",
+  "helpText": "For more help, visit the <a href='https://developer.octoblu.com'>Meshblu documentation</a>. This channel supports the following device permissions: View/Discover, Send Messages, and Configure.",
   "name": "Meshblu HTTP",
   "skynet": {
     "type": "channel",

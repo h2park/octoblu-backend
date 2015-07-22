@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Social"],
   "description": "One account. Many applications.",
-  "helpText": "One account. Many applications. Get instant access to hundreds of great social apps on iPhone, iPad, Android and more.",
+  "documentation": "https://developers.app.net/reference/",
+  "helpText": "One account. Many applications. Get instant access to hundreds of great social apps on iPhone, iPad, Android and more. This channel features includes identitify user's profiles, social graph, messaging, locations, track news/announcements, and store/share files.",
   "enabled": true,
   "name": "App.net",
   "skynet": {

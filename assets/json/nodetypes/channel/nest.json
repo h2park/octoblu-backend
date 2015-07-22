@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Home Automation"],
   "description": "",
-  "helpText": "Reinvents unloved but important home products, like the thermostat and the smoke alarm.",
+  "documentation": "https://developer.nest.com/documentation",
+  "helpText": "Reinvents unloved but important home products, like the thermostat and the smoke alarm. By using this API, developers can integrate Nest Thermostat and Nest Protect with their own products, applications, or services.",
   "enabled": true,
   "name": "Nest",
   "skynet": {

@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Office"],
   "description": "",
-  "helpText": "The industry’s leading service delivery platform with the most comprehensive set of application security, acceleration and load balancing (including GSLB) capabilities across the broadest range of platforms.",
+  "documentation": "http://support.citrix.com/proddocs/topic/netscaler-main-api-10-5-map/ns-nitro-rest-landing-page-con.html",
+  "helpText": "The industry’s leading service delivery platform with the most comprehensive set of application security, acceleration and load balancing (including GSLB) capabilities across the broadest range of platforms. This channel allows you to do operations such as Bind A Resource To Another, Update Details Of An Resource, & Create & Manage A NetScaler Cluster.",
   "enabled": true,
   "name": "Netscaler",
   "skynet": {

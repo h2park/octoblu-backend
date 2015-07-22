@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Office"],
   "description": "Parse Meshblu data logged to ElasticSearch",
-  "helpText": "Parse Meshblu data logged to ElasticSearch.",
+  "documentation": "https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html",
+  "helpText": "Parse Meshblu data logged to ElasticSearch. You can utilize this channel as a tool to quickly get some basic search functionality or you can create elaborate object indexing that will allow you to access your data in an extremely fine-grained way.",
   "enabled": false,
   "name": "ElasticLogs",
   "skynet": {

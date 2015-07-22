@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Productivity"],
   "description": "",
-  "helpText": "A web and mobile app that zaps online clutter and saves web articles in a comfortable reading view.",
+  "documentation": "https://www.readability.com/developers/api",
+  "helpText": "A web and mobile app that zaps online clutter and saves web articles in a comfortable reading view. Functionality includes but is not limited to retrieve a single Article, including its content, Get an Article, Create a Bookmark, & Get Current User.",
   "enabled": true,
   "name": "Readability",
   "skynet": {

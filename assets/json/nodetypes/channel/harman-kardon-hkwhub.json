@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Music"],
   "description": "",
-  "helpText": "Connect to harman/kardon speakers using the HKWHub App",
+  "documentation": "https://media.readthedocs.org/pdf/harmandeveloperdocs/latest/harmandeveloperdocs.pdf",
+  "helpText": "Connect to harman/kardon speakers using the HKWHub App. This channel can do multiple things such as Session Management, Device Management, and Media Playback Management.",
   "enabled": true,
   "name": "harman/kardon HKWHub",
   "skynet": {

@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Music"],
   "description": "",
-  "helpText": "A digital music service that gives you access to millions of songs.",
+  "documentation": "https://developer.spotify.com/web-api/endpoint-reference/",
+  "helpText": "A digital music service that gives you access to millions of songs. The Spotify Web API allows developers to use their application to get data from the Spotify music catalog. Depending on user's authorization, the API can also provide developers access to user-related data i.e. playlists and musics saved in user's library.",
   "enabled": true,
   "name": "Spotify",
   "skynet": {

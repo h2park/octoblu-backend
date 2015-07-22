@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Social"],
   "description": "YouTube",
-  "helpText": "A video sharing website. Share your videos with friends, family, and the world.",
+  "documentation": "https://developers.google.com/youtube/",
+  "helpText": "A video sharing website. Share your videos with friends, family, and the world. Functionality includes but is not limited to Get Channels List, Delete Channel Sections, & Get Playlist Items List.",
   "enabled": true,
   "name": "YouTube",
   "skynet": {

@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Office"],
   "description": "",
-  "helpText": "Lets marketers build high-converting landing pages without I.T. 1-click publishing, A/B testing and a suite of best-practice landing page templates.",
+  "documentation": "https://api.unbounce.com",
+  "helpText": "Lets marketers build high-converting landing pages without I.T. 1-click publishing, A/B testing and a suite of best-practice landing page templates. The Unbounce API allows users to query for accounts, sub-accounts, domains, pages, page groups, and leads.",
   "enabled": false,
   "name": "Unbounce",
   "skynet": {

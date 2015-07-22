@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Social"],
   "description": "",
-  "helpText": "The home for high-quality videos and the people who love them.",
+  "documentation": "https://developer.vimeo.com/api/endpoints",
+  "helpText": "The home for high-quality videos and the people who love them. Functionality includes but is not limited to Get a list of all Channels, Remove a video from a Channel, & Get a list of videos uploaded by a user.",
   "enabled": false,
   "name": "Vimeo",
   "skynet": {

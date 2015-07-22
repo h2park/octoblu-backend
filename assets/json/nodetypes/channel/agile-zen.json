@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Office"],
   "description": "Agile Zen",
-  "helpText": "A simple, flexible, and cost-effective web-based software for project management built on ideas from agile, lean, and kanban methodologies.",
+  "documentation": "http://dev.agilezen.com",
+  "helpText": "AgileZen is a web-based project management application built on ideas from lean manufacturing. The channel provides functionality such as getting projects, project details, phases, members, roles and more.",
   "enabled": true,
   "name": "Agile Zen",
   "skynet": {

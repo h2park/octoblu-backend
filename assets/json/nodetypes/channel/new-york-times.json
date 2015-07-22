@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Social"],
   "description": "",
-  "helpText": "Find breaking news, multimedia, reviews & opinion on Washington, business, sports, movies, travel, books, jobs, education, real estate, and more.",
+  "documentation": "http://developer.nytimes.com/docs/best_sellers_api",
+  "helpText": "Find breaking news, multimedia, reviews & opinion on Washington, business, sports, movies, travel, books, jobs, education, real estate, and more. With the Best Sellers API, you can get data from all New York Times best-seller lists, including rank history for specific best sellers.",
   "enabled": false,
   "name": "NewYorkTimes",
   "skynet": {

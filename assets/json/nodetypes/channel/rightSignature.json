@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Office"],
   "description": "Right Signature",
-  "helpText": "The easiest, fastest way to get documents filled out and signed online.",
+  "documentation": "http://rightsignature.pbworks.com/w/page/8882240/FrontPage",
+  "helpText": "The easiest, fastest way to get documents filled out and signed online. The RightSignature API gives users the same service to use in their projects and websites.",
   "enabled": true,
   "name": "Right Signature",
   "skynet": {

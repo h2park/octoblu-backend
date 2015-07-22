@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Social"],
   "description": "",
-  "helpText": "Capture and Share the World's Moments. Instagram is a fast, beautiful and fun way to share your life with friends and family.",
+  "documentation": "https://instagram.com/developer/",
+  "helpText": "Capture and Share the World's Moments. Instagram is a fast, beautiful and fun way to share your life with friends and family. The Instagram API provides access to user authentication, friend connections, photos and all the other elements of the iPhone app--including uploading new media.",
   "enabled": true,
   "name": "Instagram",
   "skynet": {

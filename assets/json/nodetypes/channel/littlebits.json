@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Maker"],
   "description": "littleBits",
-  "helpText": "Program your littleBits cloudBit with Octoblu",
+  "documentation": "http://developer.littlebitscloud.cc",
+  "helpText": "Program your littleBits cloudBit with Octoblu. This channel allows to get user devices, update user device model, activate/ deactivate devices, and ect.",
   "enabled": false,
   "name": "littleBits",
   "skynet": {

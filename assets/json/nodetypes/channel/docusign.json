@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Office"],
   "description": "Docusign",
-  "helpText": "Provides electronic signature technology and Digital Transaction Management services for facilitating electronic exchanges of contracts and signed documents.",
+  "documentation": "https://www.docusign.com/developer-center/documentation",
+  "helpText": "Provides electronic signature technology and Digital Transaction Management services for facilitating electronic exchanges of contracts and signed documents. By connecting to DocuSign channel you can create electronic signature transactions, retrieve electronically signed documents, get up to date status on outstanding envelopes, ect.",
   "enabled": false,
   "name": "Docusign",
   "skynet": {

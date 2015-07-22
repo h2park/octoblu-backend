@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Office"],
   "description": "Teamwork PM",
-  "helpText": "Online project management software. Easily manage your projects and team online.",
+  "documentation": "http://developer.teamworkpm.net/index.cfm/page/api",
+  "helpText": "Online project management software. Easily manage your projects and team online. This channel provides tools for project and task management, time tracking, file management and communication between users. The TeamworkPM API allows developers to create their own applications that can interact with TeamworkPM data.",
   "enabled": true,
   "name": "Teamwork PM",
   "skynet": {

@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Office"],
   "description": "Adsense Host",
-  "helpText": "Ideal for developers whose users create their own content through blogging, web publishing, forum/wiki/community creation, or any other application where substantial web content is generated.",
+  "documentation": "https://developers.google.com/adsense/host/",
+  "helpText": "This channel is ideal for developers whose users create their own content through blogging, web publishing, forum/wiki/community creation, or any other app where substantial web content is generated.",
   "enabled": false,
   "name": "Adsense Host",
   "skynet": {
