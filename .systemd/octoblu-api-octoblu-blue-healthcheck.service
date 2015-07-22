@@ -18,7 +18,7 @@ ExecStart=/bin/sh -c "/usr/bin/echo 'Checking backends before switching vulcand'
     --trustForwardHeader \
     --vulcan http://$(/usr/bin/etcdctl get /vulcand/host):8182 && \
   etcdctl set /vulcand/frontends/octoblu-app-octoblu-api/frontend \
-      \"{\\\"Id\\\":\\\"octoblu-app-octoblu-api\\\",\\\"Route\\\":\\\"Host(\\\\\\\"$(/usr/bin/etcdctl get /octoblu/app-octoblu/host)\\\\\\\") && PathRegexp(\\\\\"/api/.*\\\\\")\\\",\\\"Type\\\":\\\"http\\\",\\\"BackendId\\\":\\\"octoblu-api-octoblu-blue\\\",\\\"Settings\\\":{\\\"Limits\\\":{\\\"MaxMemBodyBytes\\\":0,\\\"MaxBodyBytes\\\":0},\\\"FailoverPredicate\\\":\\\",\\\"Hostname\\\":\\\",\\\"TrustForwardHeader\\\":true}}\" && \
+      \"{\\\"Id\\\":\\\"octoblu-app-octoblu-api\\\",\\\"Route\\\":\\\"Host(\\\\\\\"$(/usr/bin/etcdctl get /octoblu/app-octoblu/host)\\\\\\\") && PathRegexp(\\\\\\\"/api/.*\\\\\\\")\\\",\\\"Type\\\":\\\"http\\\",\\\"BackendId\\\":\\\"octoblu-api-octoblu-blue\\\",\\\"Settings\\\":{\\\"Limits\\\":{\\\"MaxMemBodyBytes\\\":0,\\\"MaxBodyBytes\\\":0},\\\"FailoverPredicate\\\":\\\"\\\",\\\"Hostname\\\":\\\"\\\",\\\"TrustForwardHeader\\\":true}}\" && \
   /usr/bin/etcdctl set /octoblu/api-octoblu/active blue \
 "
 
