@@ -10,5 +10,5 @@
     "type": "device:tentacle-serial"
   },
   "connector": "meshblu-tentacle",
-  "type": "device:tentacle"
+  "type": "device:tentacle-serial"
 }
