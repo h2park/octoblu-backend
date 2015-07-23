@@ -110,9 +110,6 @@
     "underscore": "^1.6.0",
     "when": "^3.0.1"
   },
-  "optionalDependencies": {
-    "appdynamics": "^4.0.4-local"
-  },
   "devDependencies": {
     "chai": "^1.10.0",
     "chai-as-promised": "^4.1.1",
