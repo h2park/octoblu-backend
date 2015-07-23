@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Maker"],
   "description": "Gateblu Beacon",
-  "helpText": "Gateblu plugin for scanning beacons.",
+  "helpText": "Gateblu plugin for scanning beacons. Connect your beacons to Octoblu and read their data.",
   "enabled": true,
   "name": "Beacon",
   "skynet": {

@@ -5,6 +5,11 @@ module.exports = function(app, passport, config, meshbluJSON){
     var SecurityController = require('./controllers/middleware/security-controller');
     var security = new SecurityController();
 
+    app.use(function noCache(req, res, next) {
+      res.header("Cache-Control", "private, max-age=0, must-revalidate");
+      next();
+    });
+
     app.locals.skynetUrl = config.skynet.host + ':' + config.skynet.port;
 
     console.log('Connecting to SkyNet...');

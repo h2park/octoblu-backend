@@ -1,13 +1,14 @@
 {
-  "_id": "device-tentacle",
+  "_id": "device-tentacle-serial",
   "category": "device",
   "categories":["Maker"],
   "description": "The Tentacle. Control Microcontrollers with Octoblu!",
   "helpText": "The Tentacle may require programming your microcontroller with some special libraries. For more information, see <DOCS>",
   "enabled": true,
-  "name": "Tentacle",
+  "name": "Tentacle Serial",
   "skynet": {
-    "type": "device:tentacle"
+    "type": "device:tentacle-serial"
   },
+  "connector": "meshblu-tentacle",
   "type": "device:tentacle"
 }

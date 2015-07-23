@@ -1,0 +1,117 @@
+{
+  "_id": "395023581cxv305sfq3r",
+  "application": {
+    "base": "https://api.webcasts.com/api",
+    "resources": [
+      {
+        "path": "/login",
+        "displayName": "Access Reporting Data",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "username",
+            "displayName": "Authorized Username",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "password",
+            "displayName": "Authorized Password",
+            "required": "true"
+          }],
+        "url": "https://api.webcasts.com/api/login"
+      },{
+        "path": "/reporting/audience_reports",
+        "displayName": "Get Standard Reporting",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "si",
+            "displayName": "Session ID",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "ui",
+            "displayName": "User ID",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "ei",
+            "displayName": "Presentation Event ID"
+          }],
+        "url": "https://api.webcasts.com/api/reporting/audience_reports"
+      },{
+        "path": "/reporting/audience_reports/expired",
+        "displayName": "Access Reporting Data For Expired Presentations",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "si",
+            "displayName": "Session ID",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "ui",
+            "displayName": "User ID",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "ei",
+            "displayName": "Presentation Event ID"
+          }],
+        "url": "https://api.webcasts.com/api/reporting/audience_reports/expired"
+      },{
+        "path": "/event/allevents/core",
+        "displayName": "Get A List Of Presentation IDs",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "si",
+            "displayName": "Session ID",
+            "required": "true"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "ui",
+            "displayName": "User ID",
+            "required": "true"
+          }],
+        "url": "https://api.webcasts.com/api/event/allevents/core"
+      }
+    ]
+  },
+  "oauth":{
+    "development": {
+      "clientID":     "",
+      "clientSecret": "",
+      "callbackURL":  "",
+      "tokenMethod":  ""
+    },
+    "production": {
+      "clientID":     "",
+      "clientSecret": "",
+      "callbackURL":  "",
+      "tokenMethod":  ""
+    },
+    "staging": {
+      "clientID":     "",
+      "clientSecret": "",
+      "callbackURL":  "",
+      "tokenMethod":  ""
+    }
+  },
+  "auth_strategy": "",
+  "documentation": "https://citrix.sharefile.com/share#download/a8b57b6bedb447fd",
+  "enabled": true,
+  "name": "GoToWebcasts_Reporting_API",
+  "isPassport": true,
+  "type": "channel:gotowebcasts_reporting_api"
+}

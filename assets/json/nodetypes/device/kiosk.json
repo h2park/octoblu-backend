@@ -2,8 +2,8 @@
   "_id": "557efb9a2c221fe2d1f01d17",
   "category": "device",
   "categories":["Octoblu"],
-  "description": "A meshblu service for displaying webpages",
-  "helpText": "A meshblu service for displaying webpages",
+  "description": "Kiosk",
+  "helpText": "A meshblu service for dynamically displaying webpages.",
   "enabled": true,
   "name": "Kiosk",
   "skynet": {

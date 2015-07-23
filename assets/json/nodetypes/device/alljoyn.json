@@ -3,7 +3,8 @@
   "category": "device",
   "categories":["Home Automation"],
   "description": "AllJoyn",
-  "helpText": "A system that allows devices to advertise and share their abilities with other devices around them.",
+  "documentation": "https://allseenalliance.org/docs/api/cpp/annotated.html",
+  "helpText": "AllJoyn is a collaborative open-source software framework that makes it easy for devices and apps to discover and communicate with each other.",
   "enabled": true,
   "name": "AllJoyn",
   "skynet": {

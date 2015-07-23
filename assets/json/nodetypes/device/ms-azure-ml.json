@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Maker"],
   "description": "Microsoft Azure Machine Learning",
-  "helpText": "Feed data into your experiment's web service in Microsoft Azure Machine Learning Studio.",
+  "helpText": "Microsoft Azure is an open, flexible, enterprise-grade cloud computing platform. Move faster, do more, and save money with IaaS + PaaS. Feed data into your experiment's web service in Microsoft Azure Machine Learning Studio.",
   "enabled": true,
   "name": "Microsoft Azure ML",
   "skynet": {

@@ -3,7 +3,7 @@
   "category": "device",
   "categories": ["Maker"],
   "description": "BlinkyTape USB LED Light",
-  "helpText": "A stripe of colorful LEDs, easily programable.",
+  "helpText": "BlinkyTape is a super-cool LED strip with full-color RGB LEDs and an integrated controller. It’s powered and controlled via a single USB connection!",
   "enabled": true,
   "name": "Blinky Tape",
   "skynet": {

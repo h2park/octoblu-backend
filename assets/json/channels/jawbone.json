@@ -5,6 +5,15 @@
     "base": "https://jawbone.com/nudge/api/v.1.1/",
     "resources": [
       {
+        "path": "/users/@me/goals",
+        "displayName": "Get Goals",
+        "doc": {
+          "url": "https://jawbone.com/up/developer/endpoints/goals"
+        },
+        "httpMethod": "GET",
+        "url": "https://jawbone.com/nudge/api/v.1.1//users/@me/goals"
+      },
+      {
         "params": [
           {
             "name": "date",
