@@ -1,6 +1,6 @@
 {
   "_id": "54dd3279aceb919c37b07d37",
-  "category": "microblu",
+  "category": "device",
   "categories":["Maker"],
   "description": "Johnny Five",
   "helpText": "JavaScript Robotics and IoT programming framework, developed at Bocoup. Based on Arduino Firmata Protocol.",
@@ -8,7 +8,7 @@
   "name": "Johnny-Five",
   "skynet": {
     "type": "device",
-    "subtype": "arduino"
+    "subtype": "johnnyfive"
   },
   "type": "device:johnnyfive",
   "connector": "meshblu-arduino"
