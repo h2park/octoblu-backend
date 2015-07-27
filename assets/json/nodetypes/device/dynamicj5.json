@@ -1,5 +1,5 @@
 {
-  "_id": "device-johnnyfive",
+  "_id": "device-dynamicj5",
   "category": "device",
   "categories":["Maker"],
   "description": "Johnny Five",
@@ -8,10 +8,9 @@
   "name": "Johnny-Five",
   "skynet": {
     "type": "device",
-    "subtype": "johnnyfive"
+    "subtype": "dynamicj5"
   },
-  "type": "device:johnnyfive",
+  "type": "device:dynamicj5",
   "connector": "meshblu-arduino"
 }
-
 
