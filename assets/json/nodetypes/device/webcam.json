@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Maker"],
   "description": "Webcam access",
-  "helpText": "Uses your webcam on OSX or Linux and takes an image to broadcast as base64 at an interval.",
+  "helpText": "Uses your webcam on OSX/Linux and takes an image to broadcast as base64 at an interval.",
   "enabled": true,
   "name": "webcam",
   "skynet": {

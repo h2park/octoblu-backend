@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Maker"],
   "description": "Johnny Five",
-  "helpText": "JavaScript Robotics and IoT programming framework, developed at Bocoup. Based on Arduino Firmata Protocol.",
+  "helpText": "JavaScript Robotics and IoT programming framework, developed at Bocoup.  Based on Arduino Firmata Protocol.",
   "enabled": true,
   "name": "Johnny-Five",
   "skynet": {

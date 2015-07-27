@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Home Automation"],
   "description": "Control your Lumencache lighting system",
-  "helpText": "A Gateblu plugin for providing an interface to Lumencache lighting system.",
+  "helpText": "A Gateblu plugin that provides an interface to Lumencache lighting system.",
   "enabled": true,
   "name": "lumencache",
   "skynet": {
