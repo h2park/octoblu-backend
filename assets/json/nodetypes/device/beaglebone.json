@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Maker"],
   "description": "Beagle Bone",
-  "helpText": "A credit-card-sized Linux computer that connects to the Internet and runs software such as Android 4.0 and Ubuntu.",
+  "helpText": "A credit-card-sized Linux computer that connects to the Internet and runs software such as Android 4.0 and Ubuntu. With plenty of I/O and processing power for real-time analysis, BeagleBone can be complemented with cape plug-in boards to augment functionality.",
   "enabled": true,
   "payloadOnly": true,
   "name": "BeagleBone",

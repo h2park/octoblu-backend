@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Maker"],
   "description": "Node Copter",
-  "helpText": "Plugin for remote controlling drones.",
+  "helpText": "Plugin for remote controlling AR drones.",
   "enabled": true,
   "name": "Node Copter",
   "skynet": {

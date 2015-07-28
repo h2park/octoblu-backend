@@ -3,7 +3,8 @@
   "category": "device",
   "categories":["Maker"],
   "description": "Oculus Rift Tracking Data",
-  "helpText": "A new virtual reality (VR) headset designed specifically for video games that will change the way you think about gaming forever.",
+  "documentation": "https://developer.oculus.com/documentation/",
+  "helpText": "The Oculus Rift is a Virtual Reality (VR) headset that allows you to be completely immersed in your games, movies, or any other VR experience.",
   "enabled": true,
   "name": "Oculus Rift",
   "skynet": {

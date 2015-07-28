@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Home Automation"],
   "description": "Belkin Wemo home automation",
-  "helpText": "A series of products from Belkin International, Inc. that allows users to control home electronics from anywhere.",
+  "helpText": "A series of products from Belkin International, Inc. that allows users to control your home electronics from anywhere.",
   "enabled": true,
   "name": "Belkin Wemo",
   "skynet": {

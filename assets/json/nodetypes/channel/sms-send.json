@@ -4,7 +4,7 @@
   "categories": ["Productivity"],
   "description": "Send SMS text messages through Octoblu.",
   "documentation": "http://sms.octoblu.com/api-documentation.html",
-  "helpText": "Send SMS text messages through Octoblu. This channel allows for posting/ getting a message.",
+  "helpText": "Send SMS text messages through Octoblu. (1 sms/min)",
   "enabled": true,
   "name": "Send SMS",
   "skynet": {

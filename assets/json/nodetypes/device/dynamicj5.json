@@ -1,0 +1,16 @@
+{
+  "_id": "device-dynamicj5",
+  "category": "device",
+  "categories":["Maker"],
+  "description": "Johnny Five",
+  "helpText": "JavaScript Robotics and IoT programming framework, developed at Bocoup.  Based on Arduino Firmata Protocol.",
+  "enabled": true,
+  "name": "Johnny-Five",
+  "skynet": {
+    "type": "device",
+    "subtype": "dynamicj5"
+  },
+  "type": "device:dynamicj5",
+  "connector": "meshblu-arduino"
+}
+

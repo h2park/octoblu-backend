@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Maker"],
   "description": "Serial access",
-  "helpText": "Lets you read and write to a serial port on a Gateblu.",
+  "helpText": "Lets you read and write to a serial port through a Gateblu.",
   "enabled": true,
   "name": "serial",
   "skynet": {

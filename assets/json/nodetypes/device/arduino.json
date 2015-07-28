@@ -3,9 +3,9 @@
   "category": "microblu",
   "categories":["Maker"],
   "description": "Arduino microcontroller",
-  "helpText": "A tool for making computers that can sense and control more of the physical world than your desktop computer.",
+  "helpText": "Arduino is an open-source electronic prototyping platform allowing to create interactive electronic objects. It is a tool for making computers that can sense and control more of the physical world than your desktop computer.",
   "enabled": true,
-  "name": "Arduino",
+  "name": "Firmata",
   "payloadOnly": true,
   "skynet": {
     "type": "device",

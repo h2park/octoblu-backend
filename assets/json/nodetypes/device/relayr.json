@@ -3,7 +3,8 @@
   "category": "device",
   "categories":["Maker"],
   "description": "Relayr",
-  "helpText": "Connect your Relayr devices!",
+  "documentation": "https://developer.relayr.io/documents/relayrAPI/Introduction",
+  "helpText": "Relayr set out to build a Cloud Platform as a Service to help enable the Internet of Things to take off. Connect all your Relayr devices!",
   "enabled": true,
   "name": "Relayr",
   "skynet": {

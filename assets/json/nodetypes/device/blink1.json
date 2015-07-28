@@ -3,7 +3,8 @@
   "category": "device",
   "categories":["Maker"],
   "description": "Blink1 USB LED",
-  "helpText": "The world's best indicator light, designed to give you glanceable notice of anything on your computer or the internet.",
+  "documentation": "http://blink1.thingm.com/libraries/",
+  "helpText": "The world's best indicator light, designed to give you glanceable notice of anything on your computer or the internet. Blink1 makes it easy to connect data sources in the cloud or on your computer to a full-color RGB LED so you can know what’s happening without checking any windows, going to any websites or typing any command.",
   "enabled": true,
   "name": "Blink(1)",
   "skynet": {
