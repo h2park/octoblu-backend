@@ -1345,7 +1345,7 @@
   },
   "auth_strategy": "",
   "documentation": "http://api.3drobotics.com/swagger-ui/#!/vehicle",
-  "enabled": true,
+  "enabled": false,
   "name": "Drone_API_Hub",
   "isPassport": true,
   "type": "channel:drone_api_hub"
