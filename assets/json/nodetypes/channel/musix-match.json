@@ -4,7 +4,7 @@
   "categories": ["Music"],
   "description": "",
   "documentation": "https://developer.musixmatch.com/documentation",
-  "helpText": "The world's largest lyrics catalog. This channel can search for songs by artist, title or lyrics & get the lyrics in return. MusiXmatch LyriX API also lets you surround lyrics text with detailed metadata about the artists who performed it, the genre, influences, related artists and more.",
+  "helpText": "The world's largest lyrics catalog. This channel can search for songs by artist, title or lyrics & get the lyrics in return. Surround lyric text with detailed metadata about the artists who performed it, the genre, influences, related artists and more.",
   "enabled": false,
   "name": "MusixMatch",
   "skynet": {

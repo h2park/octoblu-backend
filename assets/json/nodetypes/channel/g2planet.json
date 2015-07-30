@@ -3,7 +3,7 @@
   "category": "channel",
   "categories": ["Office"],
   "description": "Badge Reader",
-  "helpText": "Reads badge ID's for example find attendee by updated time and badge ID.",
+  "helpText": "Reads badge ID's for events. For example, get attendee information by badge ID.",
   "enabled": true,
   "name": "G2 Planet",
   "skynet": {

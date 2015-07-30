@@ -4,7 +4,7 @@
   "categories": ["Home Automation"],
   "description": "",
   "documentation": "https://m2x.att.com/developer/documentation/v2/overview",
-  "helpText": "A cloud-based fully managed time-series data storage service for network connected machine-to-machine (M2M) devices and the industrial Internet of Things (IoT). The M2X channel can be divided into a number of different groups: Device API, Distribution API, Keys API, Charts API, Collections API, & Time API.",
+  "helpText": "A cloud-based fully managed time-series data storage service for network connected machine-to-machine (M2M) devices and the industrial Internet of Things (IoT). M2X provides a multitude of different interactions including the Device API, Distribution API, Keys API, Charts API, Collections API, & Time API.",
   "enabled": true,
   "name": "M2X",
   "skynet": {

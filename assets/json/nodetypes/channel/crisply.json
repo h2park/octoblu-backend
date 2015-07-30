@@ -4,11 +4,7 @@
   "categories": ["Office"],
   "description": "Crisply",
   "documentation": "http://support.crisply.com/customer/portal/articles/250733-overview",
-<<<<<<< HEAD
   "helpText": "Using machine learning and predictive algorithms Crisply computes where human effort has gone, which creates superpowers for sales, support, product and finance teams. Crisply shows teams where time has gone and recommends where it should go to maximize return on effort.",
-=======
-  "helpText": "Using machine learning and predictive algorithms Crisply computes where human effort has gone, which creates superpowers for sales, support, product and finance teams. Access timesheets, retrieve time logs by activity and client, and managing user and account information with Crisply.",
->>>>>>> origin/staging
   "enabled": true,
   "name": "Crisply",
   "skynet": {

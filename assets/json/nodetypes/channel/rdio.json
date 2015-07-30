@@ -4,7 +4,7 @@
   "categories": ["Music"],
   "description": "",
   "documentation": "http://www.rdio.com/developers/docs/",
-  "helpText": "Plays your music, any way you want. Tune in to your personal radio station, You FM, or choose from countless others to suit the mood. The Web Services API is based on calls made to the Rdio server through HTTP POST requests and allows developers to access Rdio's data. Developers can also incorporate the playback of licensed Rdio music into their web applications.",
+  "helpText": "Plays your music, any way you want. Tune in to your personal radio station, You FM, or choose from countless others to suit the mood. Access Rdio's data and incorporate the playback of licensed Rdio music into web applications.",
   "enabled": true,
   "name": "Rdio",
   "skynet": {

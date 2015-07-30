@@ -4,7 +4,7 @@
   "categories": ["Social"],
   "description": "",
   "documentation": "https://instagram.com/developer/",
-  "helpText": "Instagram is a fast, beautiful and fun way to share your life's moments with friends and family. Users have the ability to authenticate, connect with friends photos, and interact with all the other elements of the iPhone app - including uploading new media.",
+  "helpText": "Instagram is a fast, beautiful and fun way to share your life's moments with friends and family. Users have the ability to authenticate, connect with friends photos, and interact with all the other elements of the app.",
   "enabled": true,
   "name": "Instagram",
   "skynet": {
