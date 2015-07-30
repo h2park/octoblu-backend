@@ -4,7 +4,7 @@
   "categories":["Home Automation"],
   "description": "Lifx",
   "documentation": "https://community.lifx.com/",
-  "helpText": "LIFX lets you get more out of light. An energy-efficient, multi-color, Wi-Fi enabled LED bulb that can be controlled with a smartphone.",
+  "helpText": "LIFX lets you get more out of light with their multi-color LED smart lightbulb. Interact directly with the hardware by connecting LIFX to gateblu and changing the name property to match the one in the LIFX app.",
   "enabled": true,
   "name": "Lifx",
   "skynet": {
