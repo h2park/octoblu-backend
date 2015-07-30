@@ -4,7 +4,7 @@
   "categories": ["Social"],
   "description": "",
   "documentation": "https://developer.github.com/v3/",
-  "helpText": "A web-based Git repository hosting service, which offers all of the distributed revision control and source code management functionality of Git as well as adding its own features. Use this channel to fork projects, send pull requests, monitor development.",
+  "helpText": "A web-based Git repository hosting service, which offers all of the distributed revision control and source code management functionality of Git as well as adding its own features. Use this thing to fork projects, send pull requests, monitor development.",
   "enabled": true,
   "name": "Github",
   "skynet": {

@@ -4,7 +4,7 @@
   "categories":["Home Automation"],
   "description": "Chromecast",
   "documentation": "https://developers.google.com/cast/",
-  "helpText": "Chromecast is a thumb-sized media streaming device that plugs into the HDMI port on your TV. Simply use an Android phone, tablet, iPhone®, iPad®, Mac® or Windows® laptop, or Chromebook to cast your favorite entertainment and apps right to the big screen.",
+  "helpText": "Chromecast is a thumb-sized media streaming device that plugs into the HDMI port on your TV. Cast your favorite entertainment and apps right to the big screen.",
   "enabled": true,
   "name": "Chromecast",
   "skynet": {

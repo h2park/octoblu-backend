@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Maker"],
   "description": "Intel Edison",
-  "helpText": "Configure  and control and Intel Edison IoT device from Octoblu. The Intel Edison provides a fully open source hardware and software development environment for your Maker projects.",
+  "helpText": "Configure and control the Intel Edison IoT device from Octoblu. The Intel Edison provides a fully open source hardware and software development environment for your Maker projects.",
   "enabled": true,
   "name": "Intel Edison",
   "skynet": {

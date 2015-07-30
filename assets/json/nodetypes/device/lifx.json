@@ -4,7 +4,7 @@
   "categories":["Home Automation"],
   "description": "Lifx",
   "documentation": "https://community.lifx.com/",
-  "helpText": "An energy-efficient, multi-color, Wi-Fi enabled LED bulb that can be controlled via any Wi-Fi equipped device such as a smartphone.",
+  "helpText": "LIFX lets you get more out of light. An energy-efficient, multi-color, Wi-Fi enabled LED bulb that can be controlled with a smartphone.",
   "enabled": true,
   "name": "Lifx",
   "skynet": {

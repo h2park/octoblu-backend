@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Home Automation"],
   "description": "Philips Hue Button",
-  "helpText": "Use your Philips Hue Button to trigger your Hues or even Flows and other Things in Octoblu.",
+  "helpText": "The world's first wireless smart switch. Use the Hue Button to change your Hue Lights, trigger your flows, or control other Things in Octoblu.",
   "enabled": true,
   "name": "Philips Hue Button",
   "skynet": {

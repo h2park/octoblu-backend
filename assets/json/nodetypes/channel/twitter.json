@@ -4,7 +4,7 @@
   "categories": ["Social"],
   "description": "",
   "documentation": "https://dev.twitter.com/rest/publichyp",
-  "helpText": "An online social networking service that enables users to send and read short 140-character messages called \"tweets\". The Twitter REST API methods allow developers to access core Twitter data. This includes update timelines, status data, and user information. The Search API methods give developers methods to interact with Twitter Search and trends data.",
+  "helpText": "An online social networking service that enables users to send and read short 140-character messages called \"tweets\". The Twitter thing allows you to search and post tweets, update status data, user information, and much more.",
   "enabled": true,
   "name": "Twitter",
   "skynet": {
