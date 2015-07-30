@@ -4,7 +4,11 @@
   "categories": ["Home Automation"],
   "description": "Connect Sense",
   "documentation": "https://www.connectsense.com/developer/user_devices_list",
+<<<<<<< HEAD
   "helpText": "These are WiFi-based, battery-powered sensors that stores data and will help you watch over your business, home, or any other location of importance.",
+=======
+  "helpText": "These WiFi-based, battery-powered sensors will help you watch over your business, home, and other important locations. Get sensor data and create automations using the power of the Connect Sense sensors.",
+>>>>>>> origin/staging
   "enabled": true,
   "name": "Connect Sense",
   "skynet": {

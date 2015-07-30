@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Maker"],
   "description": "Intel Analytics",
-  "helpText": "Intel analytics platform.",
+  "helpText": "Intel's analytics platform for use with the Intel IoT Gateway hardware. Collect, analyze and learn from sensor data.",
   "enabled": true,
   "name": "Intel Analytics",
   "skynet": {

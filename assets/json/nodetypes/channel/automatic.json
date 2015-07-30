@@ -4,7 +4,11 @@
   "categories": ["Car Automation"],
   "description": "",
   "documentation": "https://developer.automatic.com/api-reference/",
+<<<<<<< HEAD
   "helpText": "Automatic upgrades your car with the power of your smartphone and helps you save money on gas, get detailed info about each trip, remember where you parked, and even call for help in a crash.",
+=======
+  "helpText": "Automatic connects your car to the rest of your digital life. Get detailed information about each trip in a driver's timeline, including distance, real time events, start/end times, route, MPG, and more.",
+>>>>>>> origin/staging
   "enabled": true,
   "name": "Automatic",
   "skynet": {

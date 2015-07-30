@@ -3,8 +3,13 @@
   "category": "channel",
   "categories": ["Productivity"],
   "description": null,
+<<<<<<< HEAD
   "documentation": "http://dev.bitly.com/api.html/",
   "helpText": "Bitly is a URL shortening service, that is the easiest way to save, share and discover links from around the web. Additionally users can view real-time domain traffic metrics, share aggregated metrics to other users, and integrate with their enormous bank of metadata.",
+=======
+  "documentation": "https://aws.amazon.com/documentation/",
+  "helpText": "A URL shortening service, reducing the URL length makes sharing easier.",
+>>>>>>> origin/staging
   "enabled": true,
   "name": "Bitly",
   "skynet": {

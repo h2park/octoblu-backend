@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Octoblu"],
   "description": "Meshblu device connection manager",
-  "helpText": "Gateblu is Octoblu's gateway. All of your physical Things will be connected to a Gateblu on your computer.",
+  "helpText": "Gateblu is Octoblu's gateway to the physical world of IoT. Gateblu allows you to connect smart devices, motors, servos, sensors, and additional protocols to Meshblu and Octoblu!",
   "enabled": true,
   "name": "Gateblu",
   "skynet": {

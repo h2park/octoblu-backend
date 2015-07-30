@@ -4,7 +4,11 @@
   "categories": ["Office"],
   "description": "",
   "documentation": "https://developers.box.com/docs/",
+<<<<<<< HEAD
   "helpText": "Box allows personal and commercial content to be accessed, shared, and stored in any format — from anywhere.",
+=======
+  "helpText": "Transforms the way you share, manage and collaborate on your most valuable corporate information. Box gives you access to content management features of the web app and the ability to use them in your own app.",
+>>>>>>> origin/staging
   "enabled": true,
   "name": "Box",
   "skynet": {

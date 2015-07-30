@@ -4,7 +4,7 @@
   "categories":["Maker"],
   "description": "Thalmic Labs MYO",
   "documentation": "https://developer.thalmic.com/docs/api_reference/platform/index.html",
-  "helpText": "A gesture control armband. The Myo gesture control armband reads your muscle activity so you can control your favorite presentation software, desktop, and anything else with gestures and motion. It's the secret up your sleeve.",
+  "helpText": "Myo is a gesture control armband that reads your muscle activity so you can control your favorite presentation software, desktop, music app, and anything else with gestures and motion. It's the secret up your sleeve.",
   "enabled": true,
   "name": "MYO",
   "skynet": {
