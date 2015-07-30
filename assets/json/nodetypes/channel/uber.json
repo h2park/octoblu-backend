@@ -4,7 +4,7 @@
   "categories": ["Car Automation"],
   "description": "Uber",
   "documentation": "https://developer.uber.com/v1/endpoints/",
-  "helpText": "Get a taxi, private car or rideshare from your mobile phone. Uber connects you with a driver in minutes. Request information on available car types, driver location expressed in geo-coordinates, time estimates, estimated prices (including currency conversion when applicable), as well as user account history and activity.",
+  "helpText": "Uber connects you with a driver from your mobile phone in minutes. Request information on available car types, driver location expressed in geo-coordinates, time estimates, estimated prices (including currency conversion when applicable), as well as user account history and activity.",
   "enabled": true,
   "name": "Uber",
   "skynet": {
