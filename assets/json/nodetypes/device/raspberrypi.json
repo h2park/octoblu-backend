@@ -4,7 +4,7 @@
   "categories":["Maker"],
   "description": "Raspberry Pi",
   "documentation": "https://www.raspberrypi.org/documentation/",
-  "helpText": "The Raspberry Pi  is a low cost, credit-card sized computer that plugs into a computer monitor or TV, and uses a standard keyboard and mouse. You can even use your Pi as a Gateblu to connect your other Things.",
+  "helpText": "The Raspberry Pi  is a low cost, credit-card sized computer that plugs into a computer monitor or TV, and uses a standard keyboard and mouse. Connect the Raspberry Pi as a gateblu to connect and control devices.",
   "enabled": true,
   "name": "RaspberryPi",
   "skynet": {

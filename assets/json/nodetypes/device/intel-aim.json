@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Maker"],
   "description": "Intel AIM Suite",
-  "helpText": "Intel AIM Suite gives retailers and brands the power to know how shoppers are responding to visual messaging, and how they move through retail environments.",
+  "helpText": "Intel AIM Suite gives retailers and brands the power to know how shoppers are responding to visual messaging, and how they move through retail environments. Using their facial recognition software, Intel AIM Suite provides demographic and age information about users.",
   "enabled": true,
   "name": "Intel AIM Suite",
   "skynet": {

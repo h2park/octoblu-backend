@@ -4,7 +4,7 @@
   "categories":["Maker"],
   "description": "Relayr",
   "documentation": "https://developer.relayr.io/documents/relayrAPI/Introduction",
-  "helpText": "Relayr set out to build a Cloud Platform as a Service to help enable the Internet of Things to take off. Connect all your Relayr devices!",
+  "helpText": "Relayr works to accelerate businesses, small and large, into the Internet of Things! The WunderBAR sensors connect to Arduino and RaspberryPi to quickly get data like temperature, sound levels, and light.",
   "enabled": true,
   "name": "Relayr",
   "skynet": {
