@@ -4,7 +4,7 @@
   "categories": ["Productivity"],
   "description": "",
   "documentation": "http://docs.travis-ci.com/api/#entities",
-  "helpText": "A build environment that provides different runtimes for different languages, for instance multiple versions of Ruby, PHP, and Node.js. Functionality includes but is not limited to Getting Accounts, List/ Create Annotations, Enable/Disable Hook, & Update Settings.",
+  "helpText": "A build environment that provides different runtimes for different languages, for instance multiple versions of Ruby, PHP, and Node.js. Get accounts, list/create annotations, enable/disable hooks, update settings, and more. (For private github repositories!)",
   "enabled": true,
   "name": "Travis CI Pro",
   "skynet": {

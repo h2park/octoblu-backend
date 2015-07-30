@@ -4,7 +4,7 @@
   "categories": ["Social"],
   "description": "Wordpress",
   "documentation": "https://developer.wordpress.com/docs/api/",
-  "helpText": "Web software you can use to create a beautiful website or blog. The WordPress.com channel exposes site, post, comment, like data, and much more.",
+  "helpText": "Web software you can use to create a beautiful website or blog. View and update post, comment, and like data, and much more.",
   "enabled": true,
   "name": "Wordpress",
   "skynet": {

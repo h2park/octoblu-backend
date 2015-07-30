@@ -4,7 +4,7 @@
   "categories": ["Productivity"],
   "description": "WP Remote",
   "documentation": "https://wpremote.com/api-docs/",
-  "helpText": "Allows you to monitor and manage your WordPress sites from a single, easy to use dashboard. The WP Remote channel allows developers to add, retrieve, or delete their sites from the system programmatically.",
+  "helpText": "Allows you to monitor and manage your WordPress sites from a single, easy to use dashboard. Add, retrieve, or delete sites programmatically.",
   "enabled": true,
   "name": "WP Remote",
   "skynet": {

@@ -4,7 +4,7 @@
   "categories": ["Home Automation"],
   "description": "Wink",
   "documentation": "http://docs.wink.apiary.io",
-  "helpText": "Building a smart home is easier than ever before. Start with connected products from your favorite brands and control them all from a single app. The Wink API connects Wink devices to users, apps, each other, and the wider web.",
+  "helpText": "Building a smart home is easier than ever before. Start with connected products from your favorite brands and control them all from a single app. Control and monitor your Wink devices remotely.",
   "enabled": true,
   "name": "Wink",
   "skynet": {

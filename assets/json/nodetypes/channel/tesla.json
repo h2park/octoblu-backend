@@ -4,7 +4,7 @@
   "categories": ["Car Automation"],
   "description": "Tesla Model S",
   "documentation": "http://docs.timdorr.apiary.io/#",
-  "helpText": "Control features of your Tesla Model S remotely. To show some examples, the site displays the features of vehicle list, vehicle status and vehicle commands. The vehicle list section includes all vehicles added in the system. The status shows charged battery and open doors. The vehicle commands can charge the car, flash the lights, and honk the horn.",
+  "helpText": "The Tesla Model S is a full-sized plug-in electric five-door, luxury liftback. View your vehicle list, mileage, and battery level, charge the car, flash the lights, honk the horn, and more.",
   "enabled": true,
   "name": "Tesla",
   "skynet": {

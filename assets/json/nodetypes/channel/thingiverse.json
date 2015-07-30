@@ -4,7 +4,7 @@
   "categories": ["Maker"],
   "description": "",
   "documentation": "http://www.thingiverse.com/developers/rest-api-reference",
-  "helpText": "A universe of things. Download our files and build them with your lasercutter, 3D printer, or CNC. Users can share their designs, get feedback, and connect to resources to create their designs. The Thingiverse API allows developers to access and integrate the functionality of Thingiverse with other applications and to create new applications.",
+  "helpText": "A universe of things. Download our files and build them with your lasercutter, 3D printer, or CNC. Users can share their designs, get feedback, and connect to resources to create their designs. Search for designs, view/modify comments, uploaded designs, and more.",
   "enabled": true,
   "name": "Thingiverse",
   "skynet": {

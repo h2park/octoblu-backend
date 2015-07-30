@@ -4,7 +4,7 @@
   "categories": ["Productivity"],
   "description": "Slack",
   "documentation": "https://api.slack.com",
-  "helpText": "Brings all your communication together in one place. It's real-time messaging, archiving and search for modern teams. With the Slack API, users can upload an image or file, get a channel's history, set a channel's 'unread' marker, retrieve lists of files, and search a Slack instance.",
+  "helpText": "Brings all your communication together in one place. It's real-time messaging, archiving and search for modern teams. Upload an image or file, get a channel's history, set a channel's 'unread' marker, retrieve lists of files, and search a Slack instance.",
   "enabled": true,
   "name": "Slack",
   "skynet": {

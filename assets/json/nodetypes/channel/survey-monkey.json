@@ -4,7 +4,7 @@
   "categories": ["Office"],
   "description": "Give your entire team access to our powerful online survey platform.",
   "documentation": "https://developer.surveymonkey.com",
-  "helpText": "Give your entire team access to our powerful online survey platform. he SurveyMonkey API allows developers to access a user's surveys stored in SurveyMonkey. The API provides access to all the results.",
+  "helpText": "Give your entire team access to our powerful online survey platform. Access user surveys and results.",
   "enabled": true,
   "name": "Survey Monkey",
   "skynet": {

@@ -4,7 +4,7 @@
   "categories": ["Office"],
   "description": "",
   "documentation": "https://www.citrix.com/downloads/storefront-web-interface.html",
-  "helpText": "A sharing-economy company that provides short-term retail spaces for rent to companies through an online platform, used specifically as pop-up retail locations. Functionality includes but is not limited to Creates A Channel, Gets Data On Sessions, & Get List Of All Endpoints Available.",
+  "helpText": "A sharing-economy company that provides short-term retail spaces for rent to companies through an online platform, used specifically as pop-up retail locations. Create a channel, get data from sessions, and more.",
   "enabled": true,
   "name": "StoreFront",
   "skynet": {

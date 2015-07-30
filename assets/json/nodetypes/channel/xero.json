@@ -4,7 +4,7 @@
   "categories": ["Office"],
   "description": "Xero",
   "documentation": "http://developer.xero.com/documentation/getting-started/getting-started-guide/",
-  "helpText": "Online accounting software for small businesses. Use Xero to manage invoicing, bank reconciliation, bookkeeping & more. Functionality includes but is not limited to GET Attachments, create new accounts, and create/update one or more employee records.",
+  "helpText": "Online accounting software for small businesses. Use Xero to manage invoicing, bank reconciliation, bookkeeping & more. View attachments, create new accounts, create or update one or more employee records, and more.",
   "enabled": true,
   "name": "Xero",
   "skynet": {

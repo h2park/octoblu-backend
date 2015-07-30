@@ -4,7 +4,7 @@
   "categories": ["Productivity"],
   "description": "ShareFile",
   "documentation": "http://api.sharefile.com/rest/",
-  "helpText": "A secure enterprise file sync and sharing service that meets the mobility and collaboration needs of users and the data security requirements of the enterprise. Some example API methods include creating and managing files and folders, managing account information, and adding, deleting, and managing users.",
+  "helpText": "A secure enterprise file sync and sharing service that meets the mobility and collaboration needs of users and the data security requirements of the enterprise. Create and manage files and folders, account information, users, and more.",
   "enabled": true,
   "name": "ShareFile",
   "skynet": {

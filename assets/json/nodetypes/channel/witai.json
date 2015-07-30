@@ -4,7 +4,7 @@
   "categories": ["Home Automation"],
   "description": "Wit.ai",
   "documentation": "https://wit.ai/docs/http/20141022",
-  "helpText": "Makes it easy for developers to build a Siri-like speech interface for their app or device. It's an API that turns natural language (speech or messages) into actionable data. Functionality includes but is not limited to Return the meaning of a sentence, Create a new intent, Update intent attributes, & Create a new entity.",
+  "helpText": "Makes it easy for developers to build a Siri-like speech interface for their app or device. It's an API that turns natural language (speech or messages) into actionable data. Figure out the meaning of a sentence, create a new intent, update intent attributes, create a new entity, and more.",
   "enabled": true,
   "name": "Wit.ai",
   "skynet": {

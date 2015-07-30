@@ -4,7 +4,7 @@
   "categories": ["Maker"],
   "description": "Withings",
   "documentation": "http://oauth.withings.com/api?_ga=1.74473493.620419012.1437606481",
-  "helpText": "Access data from a variety of health monitoring hardware. Functionality includes but is not limited to Get Activity Measures, Get Body Measures, Get Sleep Measures, & Create Notification.",
+  "helpText": "Access data from a variety of health monitoring hardware. View activity, body, and sleep measures, create notifications, and more.",
   "enabled": true,
   "name": "Withings",
   "skynet": {

@@ -4,7 +4,7 @@
   "categories": ["Office"],
   "description": "UserVoice",
   "documentation": "https://developer.uservoice.com/docs/api/reference/",
-  "helpText": "Integrates easy-to-use feedback, helpdesk, and knowledge base management tools in one platform to empower customer support. The UserVoice API provides access to the end-user and admin functions of UserVoice so providers can build applications or integrations with other systems.",
+  "helpText": "Integrates easy-to-use feedback, helpdesk, and knowledge base management tools in one platform to empower customer support. Provides access to the end-user and admin functions of UserVoice so providers can build applications or integrations with other systems.",
   "enabled": true,
   "name": "UserVoice",
   "skynet": {

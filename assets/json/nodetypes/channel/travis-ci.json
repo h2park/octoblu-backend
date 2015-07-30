@@ -4,7 +4,7 @@
   "categories": ["Productivity"],
   "description": "",
   "documentation": "http://docs.travis-ci.com/api/#entities",
-  "helpText": "A build environment that provides different runtimes for different languages, for instance multiple versions of Ruby, PHP, and Node.js. Functionality includes but is not limited to Get Accounts, Create Annotation, & Get Broadcasts.",
+  "helpText": "A build environment that provides different runtimes for different languages, for instance multiple versions of Ruby, PHP, and Node.js. Get accounts, create annotation, get broadcasts, and more.",
   "enabled": true,
   "name": "Travis CI (Open Source)",
   "skynet": {

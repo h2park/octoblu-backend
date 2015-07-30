@@ -4,7 +4,7 @@
   "categories": ["Productivity"],
   "description": "",
   "documentation": "http://weather.octoblu.com/api-documentation.html",
-  "helpText": "A super simple weather API, built as a simplified interface to the OpenWeatherMap API for maximizing development speed. With this channel you can Get the temperature in celsius or fahrenheit for your location.",
+  "helpText": "A super simple weather API, built as a simplified interface to the OpenWeatherMap API for maximizing development speed. Get the temperature in celsius or fahrenheit for your location.",
   "enabled": true,
   "name": "Weather",
   "skynet": {

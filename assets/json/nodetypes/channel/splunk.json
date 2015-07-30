@@ -4,7 +4,7 @@
   "categories": ["Productivity"],
   "description": "Splunk",
   "documentation": "http://docs.splunk.com/Documentation/Splunk/latest/RESTAPI/RESTlist",
-  "helpText": "Provides the leading platform for Operational Intelligence. Use Splunk to search, monitor, analyze and visualize machine data. Some example API methods include searching for and creating jobs within Splunk, searching and creating events, searching results, and accessing Splunk account info.",
+  "helpText": "Provides the leading platform for Operational Intelligence. Use Splunk to search, monitor, analyze and visualize machine data. Search for and create jobs within Splunk, search and create events, search results, and access Splunk account info.",
   "enabled": true,
   "name": "Splunk",
   "skynet": {

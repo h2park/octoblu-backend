@@ -4,7 +4,7 @@
   "categories": ["Social"],
   "description": "Swarm",
   "documentation": "https://developer.foursquare.com/overview/versioning",
-  "helpText": "Lets you easily see who's out nearby and who wants to hang out later. Functionality includes but is not limited to Get User Info, Get Pending Friend Requests, Get User Check-Ins, & User Mayorships.",
+  "helpText": "Lets you easily see who's out nearby and who wants to hang out later. Get user information, pending friend requests, user check-ins, mayorships, and more.",
   "enabled": true,
   "name": "Swarm",
   "skynet": {
