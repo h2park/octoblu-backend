@@ -4,7 +4,7 @@
   "categories": ["Social"],
   "description": "Foursquare",
   "documentation": "https://developer.foursquare.com/overview/",
-  "helpText": "Helps you find the perfect places to go with friends. Discover the best food, nightlife, and entertainment in your area. This API integrates venue push API notifies venue managers when users perform various actions at their venues, help venue owners manage their Foursquare presence and specials as well as search for places, access a wealth of info about them: including addresses, popularity, tips, and photos.",
+  "helpText": "Helps you find the perfect places to go with friends. Discover the best food, nightlife, and entertainment in your area. Owners can also manage their Foursquare presence and notifies venue managers when users perform various actions at their venues. Search for places and access a wealth of info about them: including addresses, popularity, tips, and photos.",
   "enabled": true,
   "name": "Foursquare",
   "skynet": {

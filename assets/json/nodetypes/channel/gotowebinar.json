@@ -4,7 +4,7 @@
   "categories": ["Office"],
   "description": "GoToWebinar",
   "documentation": "https://developer.citrixonline.com/content/gotowebinar-api-reference-0",
-  "helpText": "Makes it easy to set up and deliver an online conference. Conduct do-it-yourself webinars with up to 1000 people all for one flat rate. This channel allows for the ability to register participants, as well as pull lists of registrants and attendees for a webinar, allows organizers to manage the flow of info between their primary apps without manual intervention.",
+  "helpText": "Makes it easy to set up and deliver an online conference. Conduct do-it-yourself webinars with up to 1000 people all for one flat rate. Register participants as well as pull lists of registrants and attendees of any webinar.",
   "enabled": true,
   "name": "GoToWebinar",
   "skynet": {

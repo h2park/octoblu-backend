@@ -4,7 +4,7 @@
   "categories": ["Social"],
   "description": "",
   "documentation": "https://www.etsy.com/developers/documentation",
-  "helpText": "Buy and sell handmade or vintage items, art and supplies on Etsy, the world's most vibrant handmade marketplace. The Etsy API lets you develop applications built on this fast growing e-commerce platform.",
+  "helpText": "Buy and sell handmade or vintage items, art and supplies on Etsy, the world's most vibrant handmade marketplace. Develop applications on this fast growing e-commerce platform.",
   "enabled": false,
   "name": "Etsy",
   "skynet": {

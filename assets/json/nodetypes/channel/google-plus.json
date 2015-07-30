@@ -4,7 +4,7 @@
   "categories": ["Social"],
   "description": "",
   "documentation": "https://developers.google.com/+/web/api/rest/latest/",
-  "helpText": "Integrate your app or website with Google+. This enables users to connect with each other for maximum engagement using Google+ features from within your application. The Google Plus API allows developers to access publicly-available Google Plus content, including user information and publicly shared items.",
+  "helpText": "Google+ makes it easy to meet/interact/connect with new people, that have similar interests as you. Access publicly-available Google Plus content, including user information and publicly shared items.",
   "enabled": false,
   "name": "Google+",
   "skynet": {

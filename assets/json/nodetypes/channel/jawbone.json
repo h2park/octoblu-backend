@@ -4,7 +4,7 @@
   "categories": ["Fitness & Wearables"],
   "description": "",
   "documentation": "https://jawbone.com/up/developer/endpoints",
-  "helpText": "A world-leader in consumer technology and wearable devices, building hardware products and software platforms powered by data science. This channel allows to record body metrics, Get user records of body metrics, retrieve resting heart rate, create/update a user goal, & Ect.",
+  "helpText": "A world-leader in consumer technology and wearable devices, by building hardward and software platforms powered by data science. Easily record your body metrics by collecting different information such as meals, mood, movement, sleeping habits, and physical activity.",
   "enabled": true,
   "name": "Jawbone",
   "skynet": {

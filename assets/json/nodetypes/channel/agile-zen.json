@@ -4,7 +4,7 @@
   "categories": ["Office"],
   "description": "Agile Zen",
   "documentation": "http://dev.agilezen.com",
-  "helpText": "AgileZen is a web-based project management application built on ideas from lean manufacturing. The channel provides functionality such as getting projects, project details, phases, members, roles and more.",
+  "helpText": "AgileZen is project management application built to help you and your team get things done more quickly, effciently, and effectively. Functionalities would include updating many projects at once, getting project details, List members within a particular project and more.",
   "enabled": true,
   "name": "Agile Zen",
   "skynet": {
