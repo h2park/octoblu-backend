@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Productivity"],
   "description": "",
-  "helpText": "A platform that you can build on to create voice and SMS applications - whether on a mobile device, computer or integrated into traditional phone.",
+  "documentation": "http://docs.telapi.com",
+  "helpText": "A platform that you can build on to create voice and SMS applications - whether on a mobile device, computer or integrated into traditional phone. Send and receive SMS messages, phone calls, add voice features to applications, buy phone numbers, and more.",
   "enabled": true,
   "name": "TelAPI",
   "skynet": {

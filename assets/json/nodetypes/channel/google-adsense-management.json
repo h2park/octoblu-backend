@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Office"],
   "description": "Adsense Management",
-  "helpText": "Intended for individual developers who want to get reports on AdSense earnings and manage AdSense inventory.",
+  "documentation": "https://developers.google.com/adsense/management/v1.4/reference/index",
+  "helpText": "This thing is intended for individual developers who want to get reports on AdSense earnings and manage AdSense inventory.",
   "enabled": false,
   "name": "Adsense Management",
   "skynet": {

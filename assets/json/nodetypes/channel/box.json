@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Office"],
   "description": "",
-  "helpText": "Transforms the way you share, manage and collaborate on your most valuable corporate information.",
+  "documentation": "https://developers.box.com/docs/",
+  "helpText": "Box allows personal and commercial content to be accessed, shared, and stored in any format — from anywhere.",
   "enabled": true,
   "name": "Box",
   "skynet": {

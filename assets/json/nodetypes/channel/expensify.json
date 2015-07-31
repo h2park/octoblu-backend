@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Office"],
   "description": "Expensify",
-  "helpText": "Import expenses directly from a credit card to create free expense reports quickly.",
+  "documentation": "https://www.expensify.com/api-services.html",
+  "helpText": "Expensify takes the time, paper, and headaches out of your expense reports! Import expenses directly from a credit card or bank account to create a free organized expense reports quickly on the go.",
   "enabled": false,
   "name": "Expensify",
   "skynet": {

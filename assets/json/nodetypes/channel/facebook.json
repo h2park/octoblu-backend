@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Social"],
   "description": "",
-  "helpText": "A social utility that connects people with friends and others who work, study and live around them.",
+  "documentation": "https://developers.facebook.com/docs",
+  "helpText": "A social networking website that connects people with friends and others who work, study and live around them. Users may create a personal profile, add other users as friends, and exchange messages, including automatic notifications when they update their profile.",
   "enabled": false,
   "name": "Facebook",
   "skynet": {

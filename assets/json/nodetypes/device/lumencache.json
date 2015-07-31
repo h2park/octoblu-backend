@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Home Automation"],
   "description": "Control your Lumencache lighting system",
-  "helpText": "A Gateblu plugin for providing an interface to Lumencache lighting system.",
+  "helpText": "The LumenCache platform replaces traditional 110V AC power distribution in buildings with a new standard more appropriate to the low power needs and digital capabilities of electronic devices including LED lights.",
   "enabled": true,
   "name": "lumencache",
   "skynet": {

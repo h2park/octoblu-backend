@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Office"],
   "description": "TempoIQ",
-  "helpText": "APIs to collect, monitor, analyze, & store sensor data in realtime",
+  "documentation": "https://app.tempoiq.com/docs/html/reference/index.html",
+  "helpText": "A real-time, scalable sensor analytics backend that helps companies gain actionable insights from their sensor data. TempoIQ stores and monitors incoming data for anomalies and pushes alerts to the user when something noteworthy happens. Perform a variety of analyses, including summaries, rollups, aggregations, and interpolations.",
   "enabled": true,
   "name": "TempoIQ",
   "skynet": {

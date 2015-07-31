@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Office"],
   "description": "Salesforce / Force.com",
-  "helpText": "Lets you integrate with Force.com applications using simple HTTP methods, in either XML or JSON formats, making this an ideal API for developing mobile applications or external clients.",
+  "documentation": "https://developer.salesforce.com",
+  "helpText": "A cloud computing company and customer relationship management system.  Create, retrieve, update or delete records, such as accounts, leads, and custom objects, load or delete large sets of data, and perform CRUD operations on a large number of records.",
   "enabled": true,
   "name": "SalesForce",
   "skynet": {

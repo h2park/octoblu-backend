@@ -1,0 +1,127 @@
+{
+  "_id": "5332fdh34667hjr457860",
+  "application": {
+    "base": "https://events.vin.li/api/v1",
+    "resources": [
+      {
+        "path": "/rules",
+        "displayName": "List All Rules",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://events.vin.li/api/v1/rules"
+      },{
+        "path": "/devices/602c6490-d7a3-11e3-9c1a-0800200c9a66/rules",
+        "displayName": "List All Rules For A Device",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://events.vin.li/api/v1/devices/602c6490-d7a3-11e3-9c1a-0800200c9a66/rules"
+      },{
+        "path": "/rules/68d489c0-d7a2-11e3-9c1a-0800200c9a66",
+        "displayName": "Get A Specific Rule",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://events.vin.li/api/v1/rules/68d489c0-d7a2-11e3-9c1a-0800200c9a66"
+      },{
+        "path": "/devices/602c6490-d7a3-11e3-9c1a-0800200c9a66/rules",
+        "displayName": "Create A Rule For A Device",
+        "httpMethod": "POST",
+        "params": [{
+            "style": "body",
+            "type": "object",
+            "name": "rule",
+            "displayName": "Rule"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "boundaries",
+            "displayName": "Boundaries"
+          },{
+            "style": "body",
+            "type": "object",
+            "name": "notificationUrl",
+            "displayName": "Notification Url"
+          },{
+            "style": "body",
+            "type": "object",
+            "name": "notificationMetadata",
+            "displayName": "Notification Metadata"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "userFirstName",
+            "displayName": "User First Name"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "userLastName",
+            "displayName": "User Last Name"
+          },{
+            "style": "body",
+            "type": "string",
+            "name": "smsPhoneNumber",
+            "displayName": "SMS Phone Number"
+          }],
+        "url": "https://events.vin.li/api/v1/devices/602c6490-d7a3-11e3-9c1a-0800200c9a66/rules"
+      },{
+        "path": "/rules/68d489c0-d7a2-11e3-9c1a-0800200c9a66",
+        "displayName": "Delete A Rule",
+        "httpMethod": "DELETE",
+        "params": [],
+        "url": "https://events.vin.li/api/v1/rules/68d489c0-d7a2-11e3-9c1a-0800200c9a66"
+      },{
+        "path": "rules/68d489c0-d7a2-11e3-9c1a-0800200c9a66/events",
+        "displayName": "Get Events For A Rule",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "deviceId",
+            "displayName": "Filter Events For Those For A Given Device"
+          }],
+        "url": "https://events.vin.li/api/v1/rules/68d489c0-d7a2-11e3-9c1a-0800200c9a66/events"
+      },{
+        "path": "/devices/602c6490-d7a3-11e3-9c1a-0800200c9a66/rules/68d489c0-d7a2-11e3-9c1a-0800200c9a66/state",
+        "displayName": "Get Current State Of A Device",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "boolean",
+            "name": "evalutate",
+            "displayName": "True If The Rule Has Been Evaluated For The Given Device, False If The Rule Has Not Been Evaluated"
+          },{
+            "style": "query",
+            "type": "string",
+            "name": "deviceId",
+            "displayName": "Required If Rule Is A Group Rule, But Is Unnecessary If The Rule Only Points To A Device"
+          }],
+        "url": "https://events.vin.li/api/v1/devices/602c6490-d7a3-11e3-9c1a-0800200c9a66/rules/68d489c0-d7a2-11e3-9c1a-0800200c9a66/state"
+      }
+    ]
+  },
+  "oauth":{
+    "development": {
+      "clientID":     "",
+      "clientSecret": "",
+      "callbackURL":  "",
+      "tokenMethod":  ""
+    },
+    "production": {
+      "clientID":     "",
+      "clientSecret": "",
+      "callbackURL":  "",
+      "tokenMethod":  ""
+    },
+    "staging": {
+      "clientID":     "",
+      "clientSecret": "",
+      "callbackURL":  "",
+      "tokenMethod":  ""
+    }
+  },
+  "auth_strategy": "",
+  "documentation": "https://developer.vin.li/documentation/web",
+  "enabled": true,
+  "name": "Vinli_Events_API",
+  "isPassport": true,
+  "type": "channel:vinli_events_api"
+}

@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Office"],
   "description": "EchoSign",
-  "helpText": "Offers trusted electronic signature software online. Send, e-sign, track, and file documents and contracts securely.",
+  "documentation": "https://secure.echosign.com/public/docs/restapi/v3;jsessionid=902015E48BA0A3A760B21384F44F3685.ord-prod-app4",
+  "helpText": "Adobe's EchoSign offers a secure and trusted electronic signature software online. Send, e-sign, track, and file documents/contracts securely.",
   "enabled": true,
   "name": "EchoSign",
   "skynet": {

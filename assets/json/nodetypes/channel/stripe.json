@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Office"],
   "description": "Stripe",
-  "helpText": "A company that provides a way for individuals and businesses to accept payments over the Internet.",
+  "documentation": "https://stripe.com/docs/api#intro",
+  "helpText": "Stripe provides a way for individuals and businesses to accept payments over the Internet. Send invoices, accept payments, manage subscription billing, manage account information, and more.",
   "enabled": true,
   "name": "Stripe",
   "skynet": {

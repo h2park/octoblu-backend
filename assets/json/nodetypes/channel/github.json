@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Social"],
   "description": "",
-  "helpText": "A web-based Git repository hosting service, which offers all of the distributed revision control and source code management functionality of Git as well as adding its own features.",
+  "documentation": "https://developer.github.com/v3/",
+  "helpText": "GitHub is a web-based Git repository hosting service, that is the best place to share code with friends, co-workers, classmates, and complete strangers. Also offers distributed revision control and source code management functionalities to fork projects, send pull requests, and monitor development.",
   "enabled": true,
   "name": "Github",
   "skynet": {

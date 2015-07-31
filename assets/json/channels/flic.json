@@ -1,0 +1,107 @@
+{
+  "_id": "55baa896827ac6af29dbf5eb",
+  "auth_strategy": "oauth",
+  "documentation": "https://developers.flic.io/documentation/oauth/index.html",
+  "oauth": {
+    "development": {
+      "clientID": "INSERT_SECERT_HERE",
+      "clientSecret": "INSERT_SECERT_HERE",
+      "callbackURL": "http://localhost:8080/api/oauth/flic/callback"
+    },
+    "staging": {
+      "clientID": "INSERT_SECERT_HERE",
+      "clientSecret": "INSERT_SECERT_HERE",
+      "callbackURL": "https://staging.octoblu.com/api/oauth/flic/callback"
+    },
+    "production": {
+      "clientID": "INSERT_SECERT_HERE",
+      "clientSecret": "INSERT_SECERT_HERE",
+      "callbackURL": "https://app.octoblu.com/api/oauth/flic/callback"
+    }
+  },
+  "enabled": false,
+  "name": "Flic",
+  "type": "channel:flic",
+  "application": {
+    "base": "https://api.flic.io/api/v1",
+    "resources": [
+      {
+        "path": "/clients/user?access_token=<YOUR_ACCESS_TOKEN>",
+        "displayName": "Get User Information",
+        "doc": {
+          "url": "https://developers.flic.io/documentation/oauth/index.html"
+        },
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://api.flic.io/api/v1/clients/user?access_token=<YOUR_ACCESS_TOKEN>"
+      },
+      {
+        "path": "/clients/buttons?access_token=<YOUR_ACCESS_TOKEN>",
+        "displayName": "Get User Buttons",
+        "doc": {
+          "url": "https://developers.flic.io/documentation/oauth/index.html"
+        },
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://api.flic.io/api/v1/clients/buttons?access_token=<YOUR_ACCESS_TOKEN>"
+      },
+      {
+        "path": "/clients/hooks",
+        "displayName": "Register a Trigger",
+        "doc": {
+          "url": "https://developers.flic.io/documentation/oauth/index.html"
+        },
+        "httpMethod": "POST",
+        "params": [
+          {
+            "style": "body",
+            "type": "string",
+            "name": "target_url",
+            "displayName": "Target URL",
+            "required": true
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "button_uuid",
+            "displayName": "Button UUID",
+            "required": true
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "event",
+            "displayName": "Event",
+            "required": true
+          }
+        ],
+        "url": "https://api.flic.io/api/v1/clients/hooks"
+      },
+      {
+        "path": "/clients/hooks/:button_identifier/:event",
+        "displayName": "De-register a Trigger",
+        "doc": {
+          "url": "https://developers.flic.io/documentation/oauth/index.html"
+        },
+        "httpMethod": "DELETE",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":event",
+            "displayName": "Event",
+            "required": true
+          },
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":button_identifier",
+            "displayName": "Button Identifier",
+            "required": true
+          }
+        ],
+        "url": "https://api.flic.io/api/v1/clients/hooks/:button_identifier/:event"
+      }
+    ]
+  }
+}

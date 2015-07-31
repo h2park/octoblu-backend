@@ -4,7 +4,8 @@
   "categories": ["Octoblu"],
   "description": "",
   "enabled": true,
-  "helpText": "For more help, visit the <a href='https://developer.octoblu.com'>Meshblu documentation</a>.",
+  "documentation": "http://meshblu-http.readme.io",
+  "helpText": "For more help, visit the <a href='https://developer.octoblu.com'>Meshblu documentation</a>. Utilize the power of the Meshblu open source platform through Octoblu by being able to update permissions on Meshblu devices View/Discover, Send Messages, and Configure.",
   "name": "Meshblu HTTP",
   "skynet": {
     "type": "channel",

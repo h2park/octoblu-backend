@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Social"],
   "description": "",
-  "helpText": "Manage your professional identity. Build and engage with your professional network. Access knowledge, insights and opportunities.",
+  "documentation": "https://developer.linkedin.com/docs/rest-api",
+  "helpText": "Manage your professional identity. Build and engage your professional network. Access knowledge, insights and opportunities by working with the consistent representation of people, companies, jobs, and the interactions and relationships between them.",
   "enabled": false,
   "name": "LinkedIn",
   "skynet": {

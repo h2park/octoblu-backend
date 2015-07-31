@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Social"],
   "description": "One account. Many applications.",
-  "helpText": "One account. Many applications. Get instant access to hundreds of great social apps on iPhone, iPad, Android and more.",
+  "documentation": "https://developers.app.net/reference/",
+  "helpText": "App.net is a real-time social feed without the ads. This single platform allows you to populate multiple users profiles, share/store files, enable locations, send messages, and track news/announcements of all your social media accounts.",
   "enabled": true,
   "name": "App.net",
   "skynet": {

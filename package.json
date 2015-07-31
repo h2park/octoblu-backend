@@ -1,6 +1,6 @@
 {
   "name": "octoblu",
-  "version": "1.7.3",
+  "version": "1.7.12",
   "description": "octoblu.com",
   "main": "server.js",
   "private": true,
@@ -61,6 +61,7 @@
     "passport-dropbox-oauth2": "^0.1.6",
     "passport-facebook": "^1.0.3",
     "passport-fitbit": "^0.1.2",
+    "passport-flic": "^1.0.0",
     "passport-forcedotcom": "^0.1.1",
     "passport-foursquare": "^1.0.0",
     "passport-github": "git://github.com/jaredhanson/passport-github.git",

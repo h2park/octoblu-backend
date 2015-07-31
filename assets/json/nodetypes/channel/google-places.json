@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Productivity"],
   "description": "",
-  "helpText": "Make your app stand out with detailed information about 100 million places across a wide range of categories, from the same database as Google Maps and Google+.",
+  "documentation": "https://developers.google.com/places/",
+  "helpText": "Get detailed information about 100 million places across a wide range of categories, from the same database as Google Maps and Google+. Search for information about a place, including photos of the business, opening hours, contact details, and more.",
   "enabled": true,
   "name": "Google Places",
   "skynet": {

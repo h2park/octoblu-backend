@@ -1,9 +1,10 @@
 {
-  "_id": "37804587-81df-49e6-ab23-38e7d5fba76c",
+  "_id": "55b7ff4d7b73b4c3b1ec42bd",
   "category": "channel",
   "categories": ["Office"],
   "description": "Amazon Web Services",
-  "helpText": "A collection of remote computing services, also called web services, that make up a cloud computing platform offered by Amazon.com.",
+  "documentation": "https://aws.amazon.com/documentation/",
+  "helpText": "A collection of remote computing services, also called web services, that make up a cloud computing platform offered by Amazon.com. With it users can access features such as listing all users, retrieving documents for specified users and creating access keys. AWS Identity and Access Management (IAM) enables developers to create and manage Users under the umbrella of their AWS Account.",
   "enabled": false,
   "name": "AWS",
   "skynet": {

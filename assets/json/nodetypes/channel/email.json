@@ -3,6 +3,7 @@
   "category": "channel",
   "categories": ["Productivity"],
   "description": "Send Email messages through Octoblu.",
+  "documentation": "https://email.octoblu.com",
   "helpText": "Send Email messages through Octoblu. (1 email/min)",
   "enabled": true,
   "name": "Send Email",

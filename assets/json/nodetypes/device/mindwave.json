@@ -4,7 +4,7 @@
   "categories":["Maker"],
   "description": "Neurosky Mindwave",
   "documentation": "http://developer.neurosky.com/docs/doku.php?id=mindwave",
-  "helpText": "It safely measures brainwave signals and monitors the attention levels of students as they interact with math, memory and pattern recognition applications.",
+  "helpText": "Mindwave safely measures brainwave signals and monitors the attention levels of students as they interact with math, memory and pattern recognition applications. The Neurosky Mindwave provides streaming brain wave data on concentration, attention and meditation.",
   "enabled": true,
   "name": "Mindwave",
   "skynet": {

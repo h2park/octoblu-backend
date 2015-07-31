@@ -1,0 +1,15 @@
+{
+  "_id": "55ba98c4fa3829d26c3db5cb",
+  "category": "device",
+  "categories":["Home Automation"],
+  "description": "Device Discoverer",
+  "helpText": "Use this device to discover hues light bulbs and bridges, lifx, and chromecast.",
+  "enabled": true,
+  "name": "Device Discoverer",
+  "skynet": {
+    "type": "device",
+    "subtype": "device-discoverer"
+  },
+  "connector": "meshblu-device-discoverer",
+  "type": "device:device-discoverer"
+}

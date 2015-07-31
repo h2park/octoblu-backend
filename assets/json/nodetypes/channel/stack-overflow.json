@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Productivity"],
   "description": "",
-  "helpText": "A question and answer site for professional and enthusiast programmers.",
+  "documentation": "https://api.stackexchange.com/docs",
+  "helpText": "A question and answer site for professional and enthusiast programmers. View comments, question summaries, information and more.",
   "enabled": false,
   "name": "StackOverflow",
   "skynet": {

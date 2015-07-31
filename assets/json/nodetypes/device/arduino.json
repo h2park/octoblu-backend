@@ -3,9 +3,9 @@
   "category": "microblu",
   "categories":["Maker"],
   "description": "Arduino microcontroller",
-  "helpText": "Arduino is an open-source electronic prototyping platform allowing to create interactive electronic objects. It is a tool for making computers that can sense and control more of the physical world than your desktop computer.",
-  "enabled": true,
-  "name": "Firmata",
+  "helpText": "Arduino is an open-source electronic prototyping platform allowing to create interactive electronic objects. Arduino boards are able to read inputs - light on a sensor, a finger on a button, or a Twitter message - and turn it into an output - activating a motor, turning on an LED, publishing something online.",
+  "enabled": false,
+  "name": "Arduino",
   "payloadOnly": true,
   "skynet": {
     "type": "device",

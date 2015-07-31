@@ -21,9 +21,6 @@ module.exports = function(app, passport, config, meshbluJSON){
     var ChannelAWSAuthController = require('./controllers/channel-aws-auth-controller');
     var channelAWSAuthController = new ChannelAWSAuthController();
 
-    var ChannelCloudDotComController = require('./controllers/channel-clouddotcom-controller');
-    var channelCloudDotComController = new ChannelCloudDotComController();
-
     var ChannelGooglePlacesController = require('./controllers/channel-google-places-controller');
     var channelGooglePlacesController = new ChannelGooglePlacesController();
 
@@ -97,6 +94,9 @@ module.exports = function(app, passport, config, meshbluJSON){
 
     var FitbitController = require('./controllers/fitbit-controller');
     var fitbitController = new FitbitController();
+
+    var FlicController = require('./controllers/flic-controller');
+    var flicController = new FlicController();
 
     var FourSquareController = require('./controllers/foursquare-controller');
     var fourSquareController = new FourSquareController();
@@ -263,7 +263,6 @@ module.exports = function(app, passport, config, meshbluJSON){
             require('./controllers/invitation')(app, passport, config);
 
             app.post('/api/channel/aws/channel/:id', channelAWSAuthController.create);
-            app.post('/api/channel/clouddotcom/channel/:id', channelCloudDotComController.create);
             app.post('/api/channel/google-places/channel/:id', channelGooglePlacesController.create);
             app.post('/api/channel/basic/channel/:id', channelBasicAuthController.create);
             app.post('/api/channel/apikey/channel/:id', channelApiKeyController.create);
@@ -330,6 +329,9 @@ module.exports = function(app, passport, config, meshbluJSON){
 
             app.get('/api/oauth/fitbit',          fitbitController.authorize);
             app.get('/api/oauth/fitbit/callback', fitbitController.callback, fitbitController.redirectToDesigner);
+
+            app.get('/api/oauth/flic',          flicController.authorize);
+            app.get('/api/oauth/flic/callback', flicController.callback, flicController.redirectToDesigner);
 
             app.get('/api/oauth/foursquare',          fourSquareController.authorize);
             app.get('/api/oauth/foursquare/callback', fourSquareController.callback, fourSquareController.redirectToDesigner);

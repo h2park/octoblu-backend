@@ -1,0 +1,58 @@
+{
+  "_id": "496823049si23059fhg435",
+  "application": {
+    "base": "https://behavior.vin.li/api/v1",
+    "resources": [
+      {
+        "path": "/devices/602c6490-d7a3-11e3-9c1a-0800200c9a66/report_card",
+        "displayName": "Get Weekly Report Card For A Device",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "week",
+            "displayName": "Represents The X Week Of X Year"
+          }],
+        "url": "https://behavior.vin.li/api/v1/devices/602c6490-d7a3-11e3-9c1a-0800200c9a66/report_card"
+      },{
+        "path": "/devices/602c6490-d7a3-11e3-9c1a-0800200c9a66/report_card",
+        "displayName": "Get Lifetime Report Card For A Device",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://behavior.vin.li/api/v1/devices/602c6490-d7a3-11e3-9c1a-0800200c9a66/report_card"
+      },{
+        "path": "/trips/1f6ed1a0-6044-4505-a828-715c0f3eccf7/report_card",
+        "displayName": "Get Report Card For A Specific Trip",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://behavior.vin.li/api/v1/trips/1f6ed1a0-6044-4505-a828-715c0f3eccf7/report_card"
+      }
+    ]
+  },
+  "oauth":{
+    "development": {
+      "clientID":     "",
+      "clientSecret": "",
+      "callbackURL":  "",
+      "tokenMethod":  ""
+    },
+    "production": {
+      "clientID":     "",
+      "clientSecret": "",
+      "callbackURL":  "",
+      "tokenMethod":  ""
+    },
+    "staging": {
+      "clientID":     "",
+      "clientSecret": "",
+      "callbackURL":  "",
+      "tokenMethod":  ""
+    }
+  },
+  "auth_strategy": "",
+  "documentation": "https://developer.vin.li/documentation/web",
+  "enabled": true,
+  "name": "Vinli_Behavioral_API",
+  "isPassport": true,
+  "type": "channel:vinli_behavioral_api"
+}

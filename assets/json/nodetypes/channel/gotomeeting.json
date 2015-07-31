@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Office"],
   "description": "",
-  "helpText": "Work can happen any time, anywhere. GoToMeeting with HD video conferencing is a simple yet powerful way to collaborate in real time.",
+  "documentation": "https://developer.citrixonline.com/content/gotomeeting-api-reference",
+  "helpText": "Work can happen any time, anywhere. GoToMeeting with HD video conferencing is a simple yet powerful way to collaborate in real time. Schedule, cancel, and start meetings remotely as well as view organizer information and more with GoToMeeting.",
   "enabled": true,
   "name": "GoToMeeting",
   "skynet": {

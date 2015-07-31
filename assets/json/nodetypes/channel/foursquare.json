@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Social"],
   "description": "Foursquare",
-  "helpText": "Helps you find the perfect places to go with friends. Discover the best food, nightlife, and entertainment in your area.",
+  "documentation": "https://developer.foursquare.com/overview/",
+  "helpText": "Helps you find the perfect places to go with friends. Discover the best food, nightlife, and entertainment in your area. Owners can manage their Foursquare presence and be notified when users perform various actions at their venues. Search for places and access a wealth of info about them: including addresses, popularity, tips, and photos.",
   "enabled": true,
   "name": "Foursquare",
   "skynet": {

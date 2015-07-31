@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Music"],
   "description": "",
-  "helpText": "Connect to harman/kardon speakers using the HKWHub App",
+  "documentation": "https://media.readthedocs.org/pdf/harmandeveloperdocs/latest/harmandeveloperdocs.pdf",
+  "helpText": "Connect to harman/kardon speakers using the HKWHub App. Control speakers, stream music, add songs/ sound file from iOS Music app to the media list, so that client devices can remotely access the list and play media in the list. For example, a door open/close sensor can send a request to play ‘dog-barking’ sound in the media list of the HKWHub app.",
   "enabled": true,
   "name": "harman/kardon HKWHub",
   "skynet": {

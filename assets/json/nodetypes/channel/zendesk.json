@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Office"],
   "description": "Zendesk",
-  "helpText": "Software for better customer service.",
+  "documentation": "https://developer.zendesk.com/rest_api/docs/core/introduction",
+  "helpText": "Zendesk is a customer support software platform that supports more than 50,000 businesses and over 300 million end users in 140 countries around the globe. Automate and enhance customer support and more.",
   "enabled": true,
   "name": "Zendesk",
   "skynet": {

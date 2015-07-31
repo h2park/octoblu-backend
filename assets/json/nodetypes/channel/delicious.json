@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Social"],
   "description": "",
-  "helpText": "Keep, share, and discover the best of the Web using Delicious, the world's leading social bookmarking service.",
+  "documentation": "https://delicious.com/developers",
+  "helpText": "Keep, share, and discover the best of the Web using Delicious, the world's leading social bookmarking service. This channel provides read/write access to Delicious bookmarks and tags via an HTTP-based interface.",
   "enabled": false,
   "name": "Delicious",
   "skynet": {

@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Office"],
   "description": "",
-  "helpText": "Create \"rooms\" which are a fast, secure way for groups to work together.",
+  "documentation": "https://developers.unison.com",
+  "helpText": "Create \"rooms\" which are a fast, secure way for groups to work together. View a list of rooms for the current user, information about a specific room, comment info, create a new room, and more.",
   "enabled": true,
   "name": "Unison",
   "skynet": {

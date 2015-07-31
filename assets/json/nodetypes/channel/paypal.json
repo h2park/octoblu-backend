@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Productivity"],
   "description": "",
-  "helpText": "The faster, safer way to send money, make an online payment, receive money or set up a merchant account.",
+  "documentation": "https://developer.paypal.com/docs/",
+  "helpText": "The faster, safer way to send money, make an online payment, receive money or set up a merchant account. Manage your invoices, view and make transactions, and update your account.",
   "enabled": true,
   "name": "Paypal",
   "skynet": {

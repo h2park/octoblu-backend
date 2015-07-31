@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Social"],
   "description": "",
-  "helpText": "Buy and sell handmade or vintage items, art and supplies on Etsy, the world's most vibrant handmade marketplace.",
+  "documentation": "https://www.etsy.com/developers/documentation",
+  "helpText": "Buy and sell handmade or vintage items, art and supplies on Etsy, the world's most vibrant handmade marketplace. Develop applications on this fast growing e-commerce platform.",
   "enabled": false,
   "name": "Etsy",
   "skynet": {

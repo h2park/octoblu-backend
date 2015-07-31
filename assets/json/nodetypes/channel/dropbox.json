@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Productivity"],
   "description": "",
-  "helpText": "A free service that lets you bring your photos, docs, and videos anywhere and share them easily. Never email yourself a file again!",
+  "documentation": "https://www.dropbox.com/developers/core/docs",
+  "helpText": "A free service that lets you bring your photos, docs, and videos anywhere and share them easily. Functionalities include a read/write type of access to the same shared files, file synchronization and storage.",
   "enabled": true,
   "name": "Dropbox",
   "skynet": {

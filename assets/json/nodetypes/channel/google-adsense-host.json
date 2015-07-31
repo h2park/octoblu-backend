@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Office"],
   "description": "Adsense Host",
-  "helpText": "Ideal for developers whose users create their own content through blogging, web publishing, forum/wiki/community creation, or any other application where substantial web content is generated.",
+  "documentation": "https://developers.google.com/adsense/host/",
+  "helpText": "AdSense is a free, simple way to earn money by displaying targeted ads next to your online content. With AdSense, you can show relevant and engaging ads to your site visitors and even customize the look to match your website. Great for users who create their own content through blogging, web publishing, forum/wiki/community creation, or any other app where substantial web content is generated.",
   "enabled": false,
   "name": "Adsense Host",
   "skynet": {

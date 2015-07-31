@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Car Automation"],
   "description": "",
-  "helpText": "Automatic connects your car to the rest of your digital life",
+  "documentation": "https://developer.automatic.com/api-reference/",
+  "helpText": "Automatic connects your car to the rest of your digital life. Get detailed information about trips in a drivers' timeline, save money on gas with valuable feedback, and even call for help in the case of a crash.",
   "enabled": true,
   "name": "Automatic",
   "skynet": {

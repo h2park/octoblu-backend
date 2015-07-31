@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Maker"],
   "description": "",
-  "helpText": "A universe of things. Download our files and build them with your lasercutter, 3D printer, or CNC.",
+  "documentation": "http://www.thingiverse.com/developers/rest-api-reference",
+  "helpText": "A universe of things. Download our files and build them with your lasercutter, 3D printer, or CNC. Users can share their designs, get feedback, and connect to resources to create their designs. Search for designs, view/modify comments, uploaded designs, and more.",
   "enabled": true,
   "name": "Thingiverse",
   "skynet": {

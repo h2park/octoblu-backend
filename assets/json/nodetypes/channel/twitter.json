@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Social"],
   "description": "",
-  "helpText": "An online social networking service that enables users to send and read short 140-character messages called \"tweets\".",
+  "documentation": "https://dev.twitter.com/rest/publichyp",
+  "helpText": "An online social networking service that enables users to send and read short 140-character messages called \"tweets\". Search and post tweets, update status data, user information, and much more.",
   "enabled": true,
   "name": "Twitter",
   "skynet": {

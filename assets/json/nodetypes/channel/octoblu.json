@@ -4,6 +4,7 @@
   "categories": ["Office"],
   "description": "",
   "enabled": false,
+  "documentation": "https://developer.octoblu.com/v1.0",
   "helpText": "For more help, visit the <a href='https://developer.octoblu.com'>Octoblu documentation</a>.",
   "name": "Octoblu",
   "skynet": {

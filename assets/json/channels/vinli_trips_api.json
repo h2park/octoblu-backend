@@ -1,0 +1,76 @@
+{
+  "_id": "204358dfh4085sf3058",
+  "application": {
+    "base": "https://trips.vin.li/api/v1",
+    "resources": [
+      {
+        "path": "/devices/821374c0-d6d8-11e3-9c1a-0800200c9a66/trips",
+        "displayName": "List All Of A Device's Trips",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://trips.vin.li/api/v1/devices/821374c0-d6d8-11e3-9c1a-0800200c9a66/trips"
+      },{
+        "path": "/vehicle/27b8db50-1274-11e4-9191-0800200c9a66/trips",
+        "displayName": "List All Of A Vehicle's Trips",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://trips.vin.li/api/v1/vehicle/27b8db50-1274-11e4-9191-0800200c9a66/trips"
+      },{
+        "path": "/trips/e960a385-0ced-4654-8404-3238e147ad45",
+        "displayName": "Get Details Of A Trip (Distance, Duration, MaxSpeed, Ect.)",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://trips.vin.li/api/v1/trips/e960a385-0ced-4654-8404-3238e147ad45"
+      },{
+        "path": "/trips/e960a385-0ced-4654-8404-3238e147ad45/snapshots",
+        "displayName": "Get Telemetry Snapshots Of Trip",
+        "httpMethod": "GET",
+        "params": [{
+            "style": "query",
+            "type": "string",
+            "name": "fields",
+            "displayName": "Fields"
+          }],
+        "url": "https://trips.vin.li/api/v1/trips/e960a385-0ced-4654-8404-3238e147ad45/snapshots"
+      },{
+        "path": "/trips/e960a385-0ced-4654-8404-3238e147ad45/locations",
+        "displayName": "Get Locations Of Trip",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://trips.vin.li/api/v1/trips/e960a385-0ced-4654-8404-3238e147ad45/locations"
+      },{
+        "path": "/trips/e960a385-0ced-4654-8404-3238e147ad45/messages",
+        "displayName": "Get Telemetry Messages Of Trip",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://trips.vin.li/api/v1/trips/e960a385-0ced-4654-8404-3238e147ad45/messages"
+      }
+    ]
+  },
+  "oauth":{
+    "development": {
+      "clientID":     "",
+      "clientSecret": "",
+      "callbackURL":  "",
+      "tokenMethod":  ""
+    },
+    "production": {
+      "clientID":     "",
+      "clientSecret": "",
+      "callbackURL":  "",
+      "tokenMethod":  ""
+    },
+    "staging": {
+      "clientID":     "",
+      "clientSecret": "",
+      "callbackURL":  "",
+      "tokenMethod":  ""
+    }
+  },
+  "auth_strategy": "",
+  "documentation": "https://developer.vin.li/documentation/web",
+  "enabled": true,
+  "name": "Vinli_Trips_API",
+  "isPassport": true,
+  "type": "channel:vinli_trips_api"
+}

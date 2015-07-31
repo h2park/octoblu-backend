@@ -3,6 +3,7 @@
   "category": "channel",
   "categories": ["Fitness & Wearables"],
   "description": "",
+  "documentation": "https://wiki.fitbit.com/display/API/Fitbit+API;jsessionid=9AF5BCD381CA05C14AAB872ABBF97F99",
   "helpText": "Find your fit with Fitbit's family of fitness products that help you stay motivated and improve your health by tracking your activity, exercise, food, weight and sleep.",
   "enabled": false,
   "name": "FitBit",

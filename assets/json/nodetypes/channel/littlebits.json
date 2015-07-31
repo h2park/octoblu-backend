@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Maker"],
   "description": "littleBits",
-  "helpText": "Program your littleBits cloudBit with Octoblu",
+  "documentation": "http://developer.littlebitscloud.cc",
+  "helpText": "Program your littleBits cloudBit with Octoblu and everything on the internet! LittleBits is an open source library of electronic modules that snap together with magnets for prototyping, learning and plenty fun.",
   "enabled": false,
   "name": "littleBits",
   "skynet": {

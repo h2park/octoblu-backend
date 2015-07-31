@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Office"],
   "description": "",
-  "helpText": "100% free for development usage. Once you're ready to move your application to production, you pay a low per-minute rate for voice and a per message rate for SMS. There are no contracts, no set-up fees and you only pay for what you use.",
+  "documentation": "https://www.tropo.com/docs/how-it-works",
+  "helpText": "100% free for development usage. Once you're ready to move your application to production, you pay a low per-minute rate for voice and a per message rate for SMS. There are no contracts, no set-up fees and you only pay for what you use. Functionality of this channel includes but is not limited to add an IM account to your application & add a brand new application.",
   "enabled": false,
   "name": "Tropo",
   "skynet": {

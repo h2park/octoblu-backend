@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Social"],
   "description": "Wordpress",
-  "helpText": "Web software you can use to create a beautiful website or blog.",
+  "documentation": "https://developer.wordpress.com/docs/api/",
+  "helpText": "Web software you can use to create a beautiful website or blog. View and update post, comment, and like data, and much more.",
   "enabled": true,
   "name": "Wordpress",
   "skynet": {

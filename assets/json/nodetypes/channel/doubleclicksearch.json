@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Office"],
   "description": "Double Click Search",
-  "helpText": "A centralized Web-based tool for creating, managing, and tracking campaigns across multiple search engines.",
+  "documentation": "https://developers.google.com/doubleclick-search/v2/reference/",
+  "helpText": "A management platform that helps agencies/ marketers efficiently create, manage, and track marketing campaigns across multiple search engines and media channels.",
   "enabled": true,
   "name": "Double Click Search",
   "skynet": {

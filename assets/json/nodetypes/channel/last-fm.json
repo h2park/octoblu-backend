@@ -3,6 +3,7 @@
   "category": "channel",
   "categories": ["Music"],
   "description": "",
+  "documentation": "http://www.last.fm/api/intro",
   "helpText": "A music discovery service that gives you personalized recommendations based on the music you listen to.",
   "enabled": false,
   "name": "LastFM",

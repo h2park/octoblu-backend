@@ -3,6 +3,7 @@
   "category": "channel",
   "categories": ["Productivity"],
   "description": "",
+  "documentation": "https://www.tumblr.com/docs/en/api/v2",
   "helpText": "A cloud communications company. Twilio allows software developers to programmatically make and receive phone calls and send and receive text messages using its web service.",
   "enabled": true,
   "name": "Twilio",

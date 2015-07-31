@@ -3,7 +3,8 @@
   "category": "channel",
   "categories": ["Music"],
   "description": "",
-  "helpText": "A digital music service that gives you access to millions of songs.",
+  "documentation": "https://developer.spotify.com/web-api/endpoint-reference/",
+  "helpText": "A digital music service that gives you access to millions of songs. Retrieve metadata about artists, albums, and tracks directly from the Spotify catalogue as well as user-related data (playlists, liked tracks, etc) and more.",
   "enabled": true,
   "name": "Spotify",
   "skynet": {
