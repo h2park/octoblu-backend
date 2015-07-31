@@ -95,6 +95,9 @@ module.exports = function(app, passport, config, meshbluJSON){
     var FitbitController = require('./controllers/fitbit-controller');
     var fitbitController = new FitbitController();
 
+    var FlicController = require('./controllers/flic-controller');
+    var flicController = new FlicController();
+
     var FourSquareController = require('./controllers/foursquare-controller');
     var fourSquareController = new FourSquareController();
 
@@ -326,6 +329,9 @@ module.exports = function(app, passport, config, meshbluJSON){
 
             app.get('/api/oauth/fitbit',          fitbitController.authorize);
             app.get('/api/oauth/fitbit/callback', fitbitController.callback, fitbitController.redirectToDesigner);
+
+            app.get('/api/oauth/flic',          flicController.authorize);
+            app.get('/api/oauth/flic/callback', flicController.callback, flicController.redirectToDesigner);
 
             app.get('/api/oauth/foursquare',          fourSquareController.authorize);
             app.get('/api/oauth/foursquare/callback', fourSquareController.callback, fourSquareController.redirectToDesigner);

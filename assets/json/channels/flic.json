@@ -2,6 +2,23 @@
   "_id": "55baa896827ac6af29dbf5eb",
   "auth_strategy": "oauth",
   "documentation": "https://developers.flic.io/documentation/oauth/index.html",
+  "oauth": {
+    "development": {
+      "clientID": "INSERT_SECERT_HERE",
+      "clientSecret": "INSERT_SECERT_HERE",
+      "callbackURL": "http://localhost:8080/api/oauth/flic/callback"
+    },
+    "staging": {
+      "clientID": "INSERT_SECERT_HERE",
+      "clientSecret": "INSERT_SECERT_HERE",
+      "callbackURL": "https://staging.octoblu.com/api/oauth/flic/callback"
+    },
+    "production": {
+      "clientID": "INSERT_SECERT_HERE",
+      "clientSecret": "INSERT_SECERT_HERE",
+      "callbackURL": "https://app.octoblu.com/api/oauth/flic/callback"
+    }
+  },
   "enabled": false,
   "name": "Flic",
   "type": "channel:flic",
