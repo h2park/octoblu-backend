@@ -45,6 +45,7 @@
             "required": true
           }
         ],
+        "subschema":"getDevices",
         "url": "https://api-http.littlebitscloud.cc/devices/:device_id"
       },
       {
@@ -73,6 +74,7 @@
             "name": "duration_ms"
           }
         ],
+        "subschema":"sendEventToSubscribers",
         "url": "https://api-http.littlebitscloud.cc/devices/:device_id/output"
       },
       {
@@ -93,6 +95,7 @@
             "type": "string",
             "name": "publisher_id"
           }],
+        "subschema":"getSubscriptions",
         "url": "https://api-http.littlebitscloud.cc/subscriptions"
       },
       {
@@ -113,6 +116,7 @@
             "type": "string",
             "name": "publisher_id"
           }],
+        "subschema":"deleteSubscription",
         "url": "https://api-http.littlebitscloud.cc/subscriptions"
       },
       {
@@ -138,6 +142,7 @@
             "type": "string",
             "name": "publisher_events"
           }],
+        "subschema":"createSubscription",
         "url": "https://api-http.littlebitscloud.cc/subscriptions"
       }
     ]

@@ -13,6 +13,7 @@
     "base": "https://api-http.littlebitscloud.cc",
     "resources": [
       {
+        "action" : "getDevice",
         "path": "/devices/:device_id",
         "displayName": "Returns An Array Of Device Objects",
         "doc": {
@@ -31,6 +32,7 @@
         "url": "https://api-http.littlebitscloud.cc/devices/:device_id"
       },
       {
+        "action": "sendEventToSubscribers",
         "path": "/devices/:device_id/output",
         "displayName": "Post Devices Output",
         "doc": {
@@ -59,6 +61,7 @@
         "url": "https://api-http.littlebitscloud.cc/devices/:device_id/output"
       },
       {
+        "action": "getSubscriptions",
         "path": "/subscriptions",
         "displayName": "Gets An Array Of Subscription Objects",
         "doc": {
@@ -79,6 +82,7 @@
         "url": "https://api-http.littlebitscloud.cc/subscriptions"
       },
       {
+        "action": "deleteSubscription",
         "path": "/subscriptions",
         "displayName": "Delete Subscriptions",
         "doc": {
@@ -99,6 +103,7 @@
         "url": "https://api-http.littlebitscloud.cc/subscriptions"
       },
       {
+        "action": "createSubscription",
         "path": "/subscriptions",
         "displayName": "Post Subscriptions",
         "doc": {
