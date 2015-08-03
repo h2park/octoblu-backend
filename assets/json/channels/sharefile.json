@@ -10,7 +10,7 @@
       "style": "url",
       "type": "string",
       "value": "octoblu",
-      "displayName": "Account Name",
+      "displayName": "Subdomain",
       "required": true
     }
   ],
