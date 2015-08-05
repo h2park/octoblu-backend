@@ -47,7 +47,8 @@ var SecurityController = require('./app/controllers/middleware/security-controll
 
 if (process.env.AIRBRAKE_KEY) {
   var airbrake = require('airbrake').createClient(process.env.AIRBRAKE_KEY);
-  app.use(airbrake.expressHandler());
+  var disableUncaughtException = true;
+  app.use(airbrake.expressHandler(disableUncaughtException));
 } else {
   process.on('uncaughtException', function(error) {
     console.error(error.message, error.stack);
