@@ -28,7 +28,16 @@ var NodeCollection = function(userUUID, userToken) {
 
     return deviceCollection.fetch()
       .then(function(devices) {
-        return _.map(devices, self.convertDeviceToNode);
+        var groups = _.groupBy(devices, function(device){
+          if (_.startsWith(device.type, 'auth:user')) {
+            return 'deviceMessage';
+          }
+          return 'device';
+        })
+
+        var convertedDevices = _.map(groups.device, self.convertDeviceToNode);
+        var convertedDeviceMessages = _.map(groups.deviceMessage, self.convertDeviceMessageToNode);
+        return convertedDevices.concat(convertedDeviceMessages);
       });
   };
 
@@ -83,6 +92,13 @@ var NodeCollection = function(userUUID, userToken) {
       category: 'device',
       staticMessage: {},
       useStaticMessage: true
+    });
+  };
+
+  self.convertDeviceMessageToNode = function(device) {
+    return _.extend({}, device, {
+      category: 'device-message',
+      message: {}
     });
   };
 
