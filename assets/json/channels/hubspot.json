@@ -2,7 +2,7 @@
   "_id": "3258odfj2529346802gg4w5",
   "type": "channel:hubspot",
   "auth_strategy": "oauth",
-  "name": "zendesk",
+  "name": "hubspot",
   "oauth":{
     "development": {
       "clientID":     "",
@@ -555,7 +555,7 @@
           },{
             "style": "body",
             "type": "string",
-            "name": "fieldType", 
+            "name": "fieldType",
             "displayName": "Field Type"
           },{
             "style": "body",

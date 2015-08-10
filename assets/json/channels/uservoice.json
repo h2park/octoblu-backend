@@ -3882,7 +3882,6 @@
       "name": ":subdomain",
       "style": "url",
       "type": "string",
-      "value": "",
       "required": true,
       "displayName": "Subdomain"
     }

@@ -9,7 +9,7 @@
       "name": ":account",
       "style": "url",
       "type": "string",
-      "value": "octoblu",
+      "value": "citrix",
       "displayName": "Subdomain",
       "required": true
     }
@@ -18,7 +18,7 @@
     "development": {
       "clientID": "INSERT_SECERT_HERE",
       "clientSecret": "INSERT_SECERT_HERE",
-      "callbackURL": "http://localhost:8080/api/oauth/sharefile/callback",
+      "callbackURL": "http://app.octoblu.com:8080/api/oauth/sharefile/callback",
       "tokenMethod": "access_token_bearer",
       "tokenQueryParam": "oauth_token"
     },
@@ -2940,16 +2940,19 @@
         "doc": {
           "url": "http://api.sharefile.com/rest/docs/resource.aspx?name=Users"
         },
-        "displayName": "Get User",
+        "displayName": "Get Current User",
+        "path": "/Users",
+        "params": [],
+        "url": "https://:account.sf-api.com/sf/v3/Users"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://api.sharefile.com/rest/docs/resource.aspx?name=Users"
+        },
+        "displayName": "Get User by ID",
         "path": "/Users(:id)",
         "params": [
-          {
-            "name": "emailAddress",
-            "displayName": "Email Address",
-            "style": "query",
-            "type": "string",
-            "required": true
-          },
           {
             "name": ":id",
             "displayName": "ID",
@@ -2959,6 +2962,24 @@
           }
         ],
         "url": "https://:account.sf-api.com/sf/v3/Users(:id)"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://api.sharefile.com/rest/docs/resource.aspx?name=Users"
+        },
+        "displayName": "Get User by Email",
+        "path": "/Users",
+        "params": [
+          {
+            "name": "emailAddress",
+            "displayName": "Email Address",
+            "style": "query",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "url": "https://:account.sf-api.com/sf/v3/Users"
       },
       {
         "httpMethod": "POST",
