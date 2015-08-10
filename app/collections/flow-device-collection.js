@@ -24,7 +24,6 @@ var FlowDeviceCollection = function (userUUID, userToken) {
       if (error) {
         deferred.reject(error);
       }
-      console.log('flows', result.devices);
       deferred.resolve(result.devices);
     });
     return deferred.promise;
