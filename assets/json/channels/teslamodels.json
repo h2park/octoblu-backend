@@ -364,14 +364,14 @@
             "required": true
           },
           {
-            "displayName": "Desired Temp On Driver's Side",
+            "displayName": "Desired Temperature On Driver's Side",
             "style": "query",
             "type": "number",
             "name": "driver_degC",
             "required": true
           },
           {
-            "displayName": "Desired Temp On Passenger's",
+            "displayName": "Desired Temperature On Passenger's",
             "style": "query",
             "type": "number",
             "name": "pass_degC",
