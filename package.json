@@ -1,6 +1,6 @@
 {
   "name": "octoblu",
-  "version": "1.7.16",
+  "version": "1.7.17",
   "description": "octoblu.com",
   "main": "server.js",
   "private": true,
@@ -124,7 +124,7 @@
   },
   "scripts": {
     "test": "mocha",
-    "start": "node_modules/.bin/gulp production && node server.js"
+    "start": "node server.js"
   },
   "engines": {
     "node": ">=0.6"
