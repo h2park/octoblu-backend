@@ -1,0 +1,16 @@
+{
+  "_id": "53c9b82ff400e177dca325a3",
+  "category": "device",
+  "categories":["Home Automation"],
+  "description": "Philips Hue Single Light",
+  "documentation": "http://www.developers.meethue.com/",
+  "helpText": "Philips hue combines brilliant LED light with intuitive technology, then puts it in the palm of your hand. Experiment with shades of white, from invigorating blue/white to cozy yellow/white.",
+  "enabled": true,
+  "name": "Philips Hue Single Light",
+  "skynet": {
+    "type": "device",
+    "subtype": "hue-light"
+  },
+  "connector": "meshblu-hue-light",
+  "type": "device:hue-light"
+}

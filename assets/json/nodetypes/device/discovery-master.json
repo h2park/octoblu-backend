@@ -1,0 +1,15 @@
+{
+  "_id": "55ba98c4fa3829d26c3db5cb",
+  "category": "device",
+  "categories":["Home Automation"],
+  "description": "Discovery Master",
+  "helpText": "Use this device to discover hue lightbulbs, lifx and chromecast then automatically add them to your account and gateblu.",
+  "enabled": true,
+  "name": "Discovery Master",
+  "skynet": {
+    "type": "device",
+    "subtype": "discovery-master"
+  },
+  "connector": "meshblu-discovery-master",
+  "type": "device:discovery-master"
+}
