@@ -22,8 +22,8 @@
       "tokenMethod": "oauth_signed"
     },
     "production": {
-      "clientID": "jrpmrtppjtps6k3277dzb7yq",
-      "clientSecret": "WKRnJg7cWa",
+      "clientID": "INSERT_SECERT_HERE"
+      "clientSecret": "INSERT_SECERT_HERE",
       "callbackURL": "https://app.octoblu.com/api/oauth/rdio/callback",
       "tokenMethod": "oauth_signed"
     }
