@@ -1,6 +1,6 @@
 var record = {
   "application" : {
-    "base" : null,
+    "base" : "https://services.rdio.com/api/1/",
     "resources" : [
       {
         "path" : "/?method=getActivityStream",
@@ -17,7 +17,7 @@ var record = {
           "t" : "Gets the activity events for a user, a user's friends, or everyone on Rdio.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#activity"
         },
-        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=getActivityStream",
+        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=getActivityStream",
         "authentication" : {
           "required" : "false"
         },
@@ -40,7 +40,7 @@ var record = {
           "t" : "Returns the site-wide most popular items for a given type.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#activity"
         },
-        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=getTopCharts",
+        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=getTopCharts",
         "authentication" : {
           "required" : "false"
         },
@@ -63,7 +63,7 @@ var record = {
           "t" : "Returns new albums released across a timeframe.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#activity"
         },
-        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=getNewReleases",
+        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=getNewReleases",
         "authentication" : {
           "required" : "false"
         },
@@ -86,7 +86,7 @@ var record = {
           "t" : "Finds the most popular artists or albums for a user, their friends or the whole site.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#activity"
         },
-        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=getHeavyRotation",
+        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=getHeavyRotation",
         "authentication" : {
           "required" : "false"
         },
@@ -109,7 +109,7 @@ var record = {
           "t" : "Returns the albums by (or featuring) an artist.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#catalog"
         },
-        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=getAlbumsForArtist",
+        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=getAlbumsForArtist",
         "authentication" : {
           "required" : "false"
         },
@@ -132,7 +132,7 @@ var record = {
           "t" : "Finds and returns tracks based on their International Standard Recording Code (ISRC).The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#catalog"
         },
-        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=getTracksByISRC",
+        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=getTracksByISRC",
         "authentication" : {
           "required" : "false"
         },
@@ -155,7 +155,7 @@ var record = {
           "t" : "Gets all of the tracks by this artist.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#catalog"
         },
-        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=getTracksForArtist",
+        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=getTracksForArtist",
         "authentication" : {
           "required" : "false"
         },
@@ -178,7 +178,7 @@ var record = {
           "t" : "Searches for artists, albums, tracks, users or all kinds of objects.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#catalog"
         },
-        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=search",
+        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=search",
         "authentication" : {
           "required" : "false"
         },
@@ -201,7 +201,7 @@ var record = {
           "t" : "Matches the supplied prefix against artists, albums, tracks and people in the Rdio system. Return the first ten matches.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#catalog"
         },
-        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=searchSuggestions",
+        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=searchSuggestions",
         "authentication" : {
           "required" : "false"
         },
@@ -224,7 +224,7 @@ var record = {
           "t" : "Finds and returns albums based on their Universal Product Code (UPC).The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#catalog"
         },
-        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=getAlbumsByUPC",
+        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=getAlbumsByUPC",
         "authentication" : {
           "required" : "false"
         },
@@ -247,7 +247,7 @@ var record = {
           "t" : "Adds tracks or playlists to the current user's collection.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#collection"
         },
-        "curl" : "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=addToCollection",
+        "curl" : "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=addToCollection",
         "authentication" : {
           "required" : "true"
         },
@@ -270,7 +270,7 @@ var record = {
           "t" : "Gets all of the albums in the user's collection.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#collection"
         },
-        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=getAlbumsInCollection",
+        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=getAlbumsInCollection",
         "authentication" : {
           "required" : "false"
         },
@@ -293,7 +293,7 @@ var record = {
           "t" : "Gets all of the artist in a user's collection.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#collection"
         },
-        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=getArtistsInCollection",
+        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=getArtistsInCollection",
         "authentication" : {
           "required" : "false"
         },
@@ -316,7 +316,7 @@ var record = {
           "t" : "Which tracks on the given album are in the user's collection.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#collection"
         },
-        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=getTracksForAlbumInCollection",
+        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=getTracksForAlbumInCollection",
         "authentication" : {
           "required" : "false"
         },
@@ -339,7 +339,7 @@ var record = {
           "t" : "Which tracks from the given artist are in the user's collection.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#collection"
         },
-        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=getTracksForArtistInCollection",
+        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=getTracksForArtistInCollection",
         "authentication" : {
           "required" : "false"
         },
@@ -362,7 +362,7 @@ var record = {
           "t" : "Gets all of the tracks in the user's collection.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#collection"
         },
-        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=getTracksInCollection",
+        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=getTracksInCollection",
         "authentication" : {
           "required" : "false"
         },
@@ -385,7 +385,7 @@ var record = {
           "t" : "Removes tracks or playlists from the current user's collection.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#collection"
         },
-        "curl" : "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=removeFromCollection",
+        "curl" : "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=removeFromCollection",
         "authentication" : {
           "required" : "true"
         },
@@ -408,7 +408,7 @@ var record = {
           "t" : "Marks tracks or playlists for offline syncing.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#collection"
         },
-        "curl" : "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=setAvailableOffline",
+        "curl" : "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=setAvailableOffline",
         "authentication" : {
           "required" : "true"
         },
@@ -431,7 +431,7 @@ var record = {
           "t" : "Gets the albums in the user's collection by a particular artist.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#collection"
         },
-        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=getAlbumsForArtistInCollection",
+        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=getAlbumsForArtistInCollection",
         "authentication" : {
           "required" : "false"
         },
@@ -454,7 +454,7 @@ var record = {
           "t" : "Return the object that the supplied Rdio short-code is a representation of, or null if the short-code is invalid.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#core"
         },
-        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=getObjectFromShortCode",
+        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=getObjectFromShortCode",
         "authentication" : {
           "required" : "false"
         },
@@ -477,7 +477,7 @@ var record = {
           "t" : "Return the object that the supplied Rdio url is a representation of, or null if the url doesn't represent an object.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#core"
         },
-        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=getObjectFromUrl",
+        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=getObjectFromUrl",
         "authentication" : {
           "required" : "false"
         },
@@ -500,7 +500,7 @@ var record = {
           "t" : "Fetch one or more objects from Rdio.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#core"
         },
-        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=get",
+        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=get",
         "authentication" : {
           "required" : "false"
         },
@@ -523,7 +523,7 @@ var record = {
           "t" : "Gets an playback token. If you are using this for web playback you must supply a domain.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#playback"
         },
-        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=getPlaybackToken",
+        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=getPlaybackToken",
         "authentication" : {
           "required" : "false"
         },
@@ -546,7 +546,7 @@ var record = {
           "t" : "Starts or stops collaborating on this playlist.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#playlists"
         },
-        "curl" : "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=setPlaylistCollaborating",
+        "curl" : "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=setPlaylistCollaborating",
         "authentication" : {
           "required" : "true"
         },
@@ -569,7 +569,7 @@ var record = {
           "t" : "Sets the playlist collaboration mode to allow no collaboration (0), collaboration with all Rdio users (1), or collaboration with Rdio users followed by the playlist owner (2).The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#playlists"
         },
-        "curl" : "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=setPlaylistCollaborationMode",
+        "curl" : "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=setPlaylistCollaborationMode",
         "authentication" : {
           "required" : "true"
         },
@@ -592,7 +592,7 @@ var record = {
           "t" : "Sets the name and description for a playlist.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#playlists"
         },
-        "curl" : "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=setPlaylistFields",
+        "curl" : "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=setPlaylistFields",
         "authentication" : {
           "required" : "true"
         },
@@ -615,7 +615,7 @@ var record = {
           "t" : "Saves the given order of tracks in a given playlist. The new order must have the same tracks as the previous order (this method may not be used to add/remove tracks).The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#playlists"
         },
-        "curl" : "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=setPlaylistOrder",
+        "curl" : "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=setPlaylistOrder",
         "authentication" : {
           "required" : "true"
         },
@@ -638,7 +638,7 @@ var record = {
           "t" : "Removes items from a playlist by range (index and count). All track keys to remove must be in the tracks list too. This is to prevent accidental overwriting of playlist changes.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#playlists"
         },
-        "curl" : "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=removeFromPlaylist",
+        "curl" : "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=removeFromPlaylist",
         "authentication" : {
           "required" : "true"
         },
@@ -661,7 +661,7 @@ var record = {
           "t" : "Gets the current user's playlists.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#playlists"
         },
-        "curl" : "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=getPlaylists",
+        "curl" : "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=getPlaylists",
         "authentication" : {
           "required" : "true"
         },
@@ -684,7 +684,7 @@ var record = {
           "t" : "Deletes a playlist.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#playlists"
         },
-        "curl" : "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=deletePlaylist",
+        "curl" : "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=deletePlaylist",
         "authentication" : {
           "required" : "true"
         },
@@ -707,7 +707,7 @@ var record = {
           "t" : "Creates a new playlist in the current user's collection. The new playlist will be returned if the creation is successful, otherwise null will be returned.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#playlists"
         },
-        "curl" : "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=createPlaylist",
+        "curl" : "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=createPlaylist",
         "authentication" : {
           "required" : "true"
         },
@@ -730,7 +730,7 @@ var record = {
           "t" : "Adds a track to a playlist.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#playlists"
         },
-        "curl" : "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=addToPlaylist",
+        "curl" : "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=addToPlaylist",
         "authentication" : {
           "required" : "true"
         },
@@ -753,7 +753,7 @@ var record = {
           "t" : "Gets a list of users that a user follows.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#social"
         },
-        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=userFollowing",
+        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=userFollowing",
         "authentication" : {
           "required" : "false"
         },
@@ -776,7 +776,7 @@ var record = {
           "t" : "Adds a friend to the current user.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#social"
         },
-        "curl" : "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=addFriend",
+        "curl" : "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=addFriend",
         "authentication" : {
           "required" : "true"
         },
@@ -799,7 +799,7 @@ var record = {
           "t" : "Gets information about the currently logged in user.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#social"
         },
-        "curl" : "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=currentUser",
+        "curl" : "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=currentUser",
         "authentication" : {
           "required" : "true"
         },
@@ -822,7 +822,7 @@ var record = {
           "t" : "Finds a user either by email address or by their username. Exactly one of email or vanityName must be supplied.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#social"
         },
-        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=findUser",
+        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=findUser",
         "authentication" : {
           "required" : "false"
         },
@@ -845,7 +845,7 @@ var record = {
           "t" : "Removes a friend from the current user.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#social"
         },
-        "curl" : "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=removeFriend",
+        "curl" : "curl -X POST -u 'username:password' -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=removeFriend",
         "authentication" : {
           "required" : "true"
         },
@@ -868,7 +868,7 @@ var record = {
           "t" : "Gets a list of users following a user.The content type corresponding to a HTML form submit, application/x-www-form-urlencoded.",
           "url" : "http://developer.rdio.com/docs/read/rest/Methods#social"
         },
-        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' http://api.rdio.com/1/?method=userFollowers",
+        "curl" : "curl -X POST  -h 'Content-Type: application/x-www-form-urlencoded' https://services.rdio.com/api/1/?method=userFollowers",
         "authentication" : {
           "required" : "false"
         },
@@ -928,4 +928,3 @@ db.nodetypes.findAndModify({
   new: true,
   upsert: true
 });
-
