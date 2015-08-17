@@ -22,7 +22,7 @@
       "tokenMethod": "oauth_signed"
     },
     "production": {
-      "clientID": "INSERT_SECERT_HERE"
+      "clientID": "INSERT_SECERT_HERE",
       "clientSecret": "INSERT_SECERT_HERE",
       "callbackURL": "https://app.octoblu.com/api/oauth/rdio/callback",
       "tokenMethod": "oauth_signed"
