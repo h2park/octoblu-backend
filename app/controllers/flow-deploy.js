@@ -28,11 +28,12 @@ var FlowDeploy = function (options) {
 
     userUUID = req.uuid;
     userToken = req.token;
+    deploymentUuid = req.get('deploymentUuid');
 
     Flow.getFlow(req.params.id)
       .then(function (flow) {
         Flow.updateByFlowIdAndUser(flow.flowId, userUUID, {activated: activated});
-        cmd(userUUID, userToken, flow, meshblu);
+        cmd(userUUID, userToken, flow, meshblu, deploymentUuid);
       });
   };
 

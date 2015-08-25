@@ -49,7 +49,8 @@ describe('flowDeployController', function () {
           var req = {
             params: {id: 'fake'},
             uuid: 'some.uuid',
-            token: 'some.token'
+            token: 'some.token',
+            get: function(){}
           };
           sut.startInstance(req, res);
         });

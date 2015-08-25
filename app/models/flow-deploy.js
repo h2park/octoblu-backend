@@ -240,13 +240,14 @@ var FlowDeploy = function(options){
 
 FlowDeploy.createFlowStatusMessenger = function(options) {
   return function(state, message){
-    var meshbluHttp, config, userUuid, userToken, flowUuid, workflow, message;
+    var meshbluHttp, config, userUuid, userToken, flowUuid, workflow, message, deploymentUuid;
 
     config = require('../../config/auth');
     userUuid  = options.userUuid;
     userToken = options.userToken;
     flowUuid  = options.flowUuid;
     workflow  = options.workflow;
+    deploymentUuid = options.deploymentUuid;
 
     meshbluHttp = new MeshbluHttp({
       server: config.skynet.host,
@@ -259,6 +260,7 @@ FlowDeploy.createFlowStatusMessenger = function(options) {
       devices: [config.flow_logger_uuid],
       payload: {
         application: 'api-octoblu',
+        deploymentUuid: deploymentUuid,
         flowUuid:    flowUuid,
         state:       state,
         userUuid:    userUuid,
@@ -269,14 +271,15 @@ FlowDeploy.createFlowStatusMessenger = function(options) {
   };
 };
 
-FlowDeploy.start = function(userUUID, userToken, flow, meshblu){
+FlowDeploy.start = function(userUUID, userToken, flow, meshblu, deploymentUuid){
   var flowDeploy, mergedFlow, flowDevice, user, deviceCollection, flowStatusMessenger;
 
   flowStatusMessenger = FlowDeploy.createFlowStatusMessenger({
-    userUuid:  userUUID,
-    userToken: userToken,
-    flowUuid:  flow.flowId,
-    workflow:  'flow-start'
+    userUuid:        userUUID,
+    userToken:       userToken,
+    flowUuid:        flow.flowId,
+    deploymentUuid:  deploymentUuid,
+    workflow:        'flow-start'
   });
 
   flowStatusMessenger('begin');
