@@ -111,7 +111,7 @@ var FlowDeploy = function(options){
   };
 
   self.startFlow = function(flow){
-    self.updateMeshbluFlow(flow).then(function(){
+    return self.updateMeshbluFlow(flow).then(function(){
       self.startFlowDeploy(flow);
     });
   };
@@ -238,8 +238,48 @@ var FlowDeploy = function(options){
   };
 };
 
+FlowDeploy.createFlowStatusMessenger = function(options) {
+  return function(state, message){
+    var meshbluHttp, config, userUuid, userToken, flowUuid, workflow, message;
+
+    config = require('../../config/auth');
+    userUuid  = options.userUuid;
+    userToken = options.userToken;
+    flowUuid  = options.flowUuid;
+    workflow  = options.workflow;
+
+    meshbluHttp = new MeshbluHttp({
+      server: config.skynet.host,
+      port: config.skynet.port,
+      uuid: userUuid,
+      token: userToken
+    });
+
+    meshbluHttp.message({
+      devices: [config.flow_logger_uuid],
+      payload: {
+        application: 'api-octoblu',
+        flowUuid:    flowUuid,
+        state:       state,
+        userUuid:    userUuid,
+        workflow:    workflow,
+        message:     message
+      }
+    });
+  };
+};
+
 FlowDeploy.start = function(userUUID, userToken, flow, meshblu){
-  var flowDeploy, mergedFlow, flowDevice, user, deviceCollection;
+  var flowDeploy, mergedFlow, flowDevice, user, deviceCollection, flowStatusMessenger;
+
+  flowStatusMessenger = FlowDeploy.createFlowStatusMessenger({
+    userUuid:  userUUID,
+    userToken: userToken,
+    flowUuid:  flow.flowId,
+    workflow:  'flow-start'
+  });
+
+  flowStatusMessenger('begin');
 
   flowDeploy = new FlowDeploy({userUUID: userUUID, userToken: userToken, meshblu: meshblu});
   return flowDeploy.setDeploying(flow).then(function(){
@@ -248,9 +288,12 @@ FlowDeploy.start = function(userUUID, userToken, flow, meshblu){
       return Channel.findAll();
     }).then(function(channels){
       mergedFlow = flowDeploy.mergeFlowTokens(flow, user.api, channels);
-      flowDeploy.startFlow(mergedFlow);
+      return flowDeploy.startFlow(mergedFlow);
+    }).then(function(){
+      flowStatusMessenger('end');
     }, function(error){
       console.error(error);
+      flowStatusMessenger('error', error.message);
       throw new Error(error);
     });
   });
