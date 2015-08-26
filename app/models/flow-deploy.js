@@ -1,12 +1,14 @@
 var _ = require('lodash'),
     when = require('when'),
+    whenNode = require('when/node'),
     debug = require('debug')('octoblu:flow-deploy'),
     textCrypt = require('../lib/textCrypt'),
     Channel = require('../models/channel'),
     mongojs = require('mongojs'),
     request = require('request'),
     url = require('url'),
-    MeshbluHttp = require('meshblu-http');
+    MeshbluHttp = require('meshblu-http'),
+    FlowStatusMessenger = require('./flow-status-messenger');
 
 var FlowDeploy = function(options){
   var User = require('../models/user');
@@ -135,7 +137,7 @@ var FlowDeploy = function(options){
         pass: userToken
       }
     };
-    request.del(url, options);
+    return whenNode.call(request.del, url, options);
   };
 
   self.largestPortNumber = function(groupedLinks){
@@ -238,43 +240,10 @@ var FlowDeploy = function(options){
   };
 };
 
-FlowDeploy.createFlowStatusMessenger = function(options) {
-  return function(state, message){
-    var meshbluHttp, config, userUuid, userToken, flowUuid, workflow, message, deploymentUuid;
-
-    config = require('../../config/auth');
-    userUuid  = options.userUuid;
-    userToken = options.userToken;
-    flowUuid  = options.flowUuid;
-    workflow  = options.workflow;
-    deploymentUuid = options.deploymentUuid;
-
-    meshbluHttp = new MeshbluHttp({
-      server: config.skynet.host,
-      port: config.skynet.port,
-      uuid: userUuid,
-      token: userToken
-    });
-
-    meshbluHttp.message({
-      devices: [config.flow_logger_uuid],
-      payload: {
-        application: 'api-octoblu',
-        deploymentUuid: deploymentUuid,
-        flowUuid:    flowUuid,
-        state:       state,
-        userUuid:    userUuid,
-        workflow:    workflow,
-        message:     message
-      }
-    });
-  };
-};
-
 FlowDeploy.start = function(userUUID, userToken, flow, meshblu, deploymentUuid){
   var flowDeploy, mergedFlow, flowDevice, user, deviceCollection, flowStatusMessenger;
 
-  flowStatusMessenger = FlowDeploy.createFlowStatusMessenger({
+  flowStatusMessenger = new FlowStatusMessenger({
     userUuid:        userUUID,
     userToken:       userToken,
     flowUuid:        flow.flowId,
@@ -282,7 +251,7 @@ FlowDeploy.start = function(userUUID, userToken, flow, meshblu, deploymentUuid){
     workflow:        'flow-start'
   });
 
-  flowStatusMessenger('begin');
+  flowStatusMessenger.message('begin');
 
   flowDeploy = new FlowDeploy({userUUID: userUUID, userToken: userToken, meshblu: meshblu});
   return flowDeploy.setDeploying(flow).then(function(){
@@ -293,21 +262,37 @@ FlowDeploy.start = function(userUUID, userToken, flow, meshblu, deploymentUuid){
       mergedFlow = flowDeploy.mergeFlowTokens(flow, user.api, channels);
       return flowDeploy.startFlow(mergedFlow);
     }).then(function(){
-      flowStatusMessenger('end');
-    }, function(error){
+      flowStatusMessenger.message('end');
+    }).catch(function(error){
       console.error(error);
-      flowStatusMessenger('error', error.message);
+      flowStatusMessenger.message('error', error.message);
       throw new Error(error);
     });
   });
 };
 
 FlowDeploy.stop = function(userUUID, userToken, flow, meshblu){
-  var flowDeploy, flowDevice;
+  var flowDeploy, flowDevice, flowStatusMessenger;
+
+  flowStatusMessenger = new FlowStatusMessenger({
+    userUuid:        userUUID,
+    userToken:       userToken,
+    flowUuid:        flow.flowId,
+    deploymentUuid:  deploymentUuid,
+    workflow:        'flow-stop'
+  });
+
+  flowStatusMessenger.message('begin');
 
   flowDeploy = new FlowDeploy({userUUID: userUUID, userToken: userToken, meshblu: meshblu});
   return flowDeploy.setStopping(flow).then(function(){
-    flowDeploy.stopFlow(flow);
+    return flowDeploy.stopFlow(flow);
+  }).then(function(){
+    flowStatusMessenger.message('end');
+  }).catch(function(error){
+    console.error(error);
+    flowStatusMessenger.message('error', error.message);
+    throw new Error(error);
   });
 };
 
