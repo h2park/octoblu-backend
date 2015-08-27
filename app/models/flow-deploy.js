@@ -13,13 +13,14 @@ var _ = require('lodash'),
 var FlowDeploy = function(options){
   var User = require('../models/user');
 
-  var self, config, request, userUUID, userToken, meshblu;
+  var self, config, request, userUUID, userToken, meshblu, deploymentUuid;
   self = this;
 
   options         = options || {};
 
   userUUID        = options.userUUID;
   userToken       = options.userToken;
+  deploymentUuid  = options.deploymentUuid || 'unset';
   config          = options.config  || require('../../config/auth');
   request         = options.request || require('request');
   meshblu         = options.meshblu;
@@ -114,7 +115,7 @@ var FlowDeploy = function(options){
 
   self.startFlow = function(flow){
     return self.updateMeshbluFlow(flow).then(function(){
-      self.startFlowDeploy(flow);
+      return self.startFlowDeploy(flow);
     });
   };
 
@@ -124,9 +125,12 @@ var FlowDeploy = function(options){
       auth: {
         user: userUUID,
         pass: userToken
+      },
+      headers: {
+        deploymentUuid: deploymentUuid
       }
     };
-    request.post(url, options);
+    return whenNode.call(request.post, url, options);
   }
 
   self.stopFlow = function(flow){
@@ -135,6 +139,9 @@ var FlowDeploy = function(options){
       auth: {
         user: userUUID,
         pass: userToken
+      },
+      headers: {
+        deploymentUuid: deploymentUuid
       }
     };
     return whenNode.call(request.del, url, options);
@@ -253,7 +260,7 @@ FlowDeploy.start = function(userUUID, userToken, flow, meshblu, deploymentUuid){
 
   flowStatusMessenger.message('begin');
 
-  flowDeploy = new FlowDeploy({userUUID: userUUID, userToken: userToken, meshblu: meshblu});
+  flowDeploy = new FlowDeploy({userUUID: userUUID, userToken: userToken, meshblu: meshblu, deploymentUuid: deploymentUuid});
   return flowDeploy.setDeploying(flow).then(function(){
     return flowDeploy.getUser().then(function(theUser){
       user = theUser;
@@ -284,7 +291,7 @@ FlowDeploy.stop = function(userUUID, userToken, flow, meshblu){
 
   flowStatusMessenger.message('begin');
 
-  flowDeploy = new FlowDeploy({userUUID: userUUID, userToken: userToken, meshblu: meshblu});
+  flowDeploy = new FlowDeploy({userUUID: userUUID, userToken: userToken, meshblu: meshblu, deploymentUuid: deploymentUuid});
   return flowDeploy.setStopping(flow).then(function(){
     return flowDeploy.stopFlow(flow);
   }).then(function(){
