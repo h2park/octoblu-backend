@@ -261,20 +261,21 @@ FlowDeploy.start = function(userUUID, userToken, flow, meshblu, deploymentUuid){
   flowStatusMessenger.message('begin');
 
   flowDeploy = new FlowDeploy({userUUID: userUUID, userToken: userToken, meshblu: meshblu, deploymentUuid: deploymentUuid});
+
   return flowDeploy.setDeploying(flow).then(function(){
-    return flowDeploy.getUser().then(function(theUser){
-      user = theUser;
-      return Channel.findAll();
-    }).then(function(channels){
-      mergedFlow = flowDeploy.mergeFlowTokens(flow, user.api, channels);
-      return flowDeploy.startFlow(mergedFlow);
-    }).then(function(){
-      flowStatusMessenger.message('end');
-    }).catch(function(error){
-      console.error(error);
-      flowStatusMessenger.message('error', error.message);
-      throw new Error(error);
-    });
+    return flowDeploy.getUser();
+  }).then(function(theUser){
+    user = theUser;
+    return Channel.findAll();
+  }).then(function(channels){
+    mergedFlow = flowDeploy.mergeFlowTokens(flow, user.api, channels);
+    return flowDeploy.startFlow(mergedFlow);
+  }).then(function(){
+    flowStatusMessenger.message('end');
+  }).catch(function(error){
+    console.error(error);
+    flowStatusMessenger.message('error', error.message);
+    throw new Error(error);
   });
 };
 
