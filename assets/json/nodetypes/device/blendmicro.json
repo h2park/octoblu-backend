@@ -1,15 +1,13 @@
 {
-  "_id": "54d29faa06ad003ecedd484f",
-  "category": "microblu",
+  "_id": "device-blendmicro",
+  "category": "device",
   "categories":["Maker"],
   "description": "Blend Micro BLE microcontroller",
   "helpText": "The first integrated developement board, a blend between Arduino and Bluetooth 4.0 Low Energy (aka BLE or Bluetooth Smart) into a single board. It is targeted for makers to develop low power Internet-Of-Things projects.",
   "enabled": true,
   "name": "Blend Micro",
-  "payloadOnly": false,
   "skynet": {
-    "type": "device",
-    "subtype": "arduino"
+    "type": "device"
   },
   "type": "device:blendmicro",
   "connector": "meshblu-blendmicro"
