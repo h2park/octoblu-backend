@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Maker"],
   "description": "Blend Micro BLE microcontroller",
-  "helpText": "The first integrated developement board, a blend between Arduino and Bluetooth 4.0 Low Energy (aka BLE or Bluetooth Smart) into a single board. It is targeted for makers to develop low power Internet-Of-Things projects.",
+  "helpText": "The first integrated developement board, a blend between Arduino and Bluetooth Low Energy into a single board. It is targeted for makers to develop low power Internet-Of-Things projects.",
   "enabled": true,
   "name": "Blend Micro",
   "skynet": {
