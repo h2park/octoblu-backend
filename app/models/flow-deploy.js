@@ -160,10 +160,7 @@ var FlowDeploy = function(options){
   };
 
   self.updateMeshbluFlow = function(flow){
-    return self.resetMeshbluFlowToken(flow).then(function(token){
-      flow.token = token;
-      return self.saveMeshbluFlow(flow);
-    });
+    return self.saveMeshbluFlow(flow);
   };
 
   self.setStopping = function(flow){
@@ -204,25 +201,6 @@ var FlowDeploy = function(options){
           return reject(error);
         }
         resolve(response);
-      });
-    });
-  };
-
-  self.resetMeshbluFlowToken = function(flow) {
-    return when.promise(function(resolve, reject){
-      var protocol = (config.skynet.port == 443) ? 'https' : 'http';
-      var meshbluHttp = new MeshbluHttp({
-        protocol: protocol,
-        server: config.skynet.host,
-        port: config.skynet.port,
-        uuid: userUUID,
-        token: userToken
-      });
-
-      meshbluHttp.resetToken(flow.flowId, function(error, response){
-        debug('resetToken resolved', error, response);
-        if(error) { return reject(error); }
-        resolve(response.token);
       });
     });
   };
