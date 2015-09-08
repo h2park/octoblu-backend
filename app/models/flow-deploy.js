@@ -114,6 +114,7 @@ var FlowDeploy = function(options){
   };
 
   self.startFlow = function(flow){
+    flow.deploymentUuid = deploymentUuid;
     return self.updateMeshbluFlow(flow).then(function(){
       return self.startFlowDeploy(flow);
     });
@@ -212,11 +213,11 @@ var FlowDeploy = function(options){
         protocol: protocol,
         server: config.skynet.host,
         port: config.skynet.port,
-        uuid: flow.flowId,
-        token: flow.token
+        uuid: userUUID,
+        token: userToken
       });
 
-      meshbluHttp.update(flow.flowId, {name: flow.name, flow: self.convertFlow(flow), deploying: true}, function(error, response) {
+      meshbluHttp.update(flow.flowId, {name: flow.name, flow: self.convertFlow(flow), deploying: true, deploymentUuid: flow.deploymentUuid}, function(error, response) {
         debug('update resolved', error, response);
         if(error) { return reject(error); }
         resolve(response);
