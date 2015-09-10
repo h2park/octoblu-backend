@@ -19,5 +19,8 @@
   "input": 1,
   "output": 1,
   "align": "right",
-  "formTemplatePath": "/pages/node_forms/http_request_body_form.html"
+  "formTemplatePath": "/pages/node_forms/http_request_body_form.html",
+  "nanocyte": {
+    "name": "nanocyte-node-http-put-request"
+  }
 }

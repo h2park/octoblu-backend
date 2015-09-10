@@ -9,6 +9,9 @@
     "uuid": "*",
     "topic": "message"
   },
+  "nanocyte": {
+    "name": "nanocyte-node-change"
+  },
   "input": 1,
   "output": 1,
   "formTemplatePath": "/pages/node_forms/change_form.html"

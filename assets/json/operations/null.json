@@ -7,5 +7,8 @@
   "type": "operation:null",
   "input": 1,
   "output": 1,
-  "formTemplatePath": "/pages/node_forms/null_form.html"
+  "formTemplatePath": "/pages/node_forms/null_form.html",
+  "nanocyte": {
+    "name": "nanocyte-node-null"
+  }
 }

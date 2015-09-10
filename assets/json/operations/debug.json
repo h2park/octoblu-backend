@@ -14,5 +14,8 @@
   "input": 1,
   "output": 0,
   "align": "right",
-  "formTemplatePath": "/pages/node_forms/debug_form.html"
+  "formTemplatePath": "/pages/node_forms/debug_form.html",
+  "nanocyte": {
+    "name": "nanocyte-node-debug"
+  }
 }

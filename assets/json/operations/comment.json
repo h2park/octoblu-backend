@@ -8,5 +8,8 @@
   "defaults": {},
   "input": 0,
   "output": 0,
-  "formTemplatePath": "/pages/node_forms/comment_form.html"
+  "formTemplatePath": "/pages/node_forms/comment_form.html",
+  "nanocyte": {
+    "name": "nanocyte-node-comment"
+  }
 }

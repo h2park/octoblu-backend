@@ -9,5 +9,8 @@
   "input": 1,
   "output": 1,
   "align": "right",
-  "formTemplatePath": "/pages/node_forms/generic_device_form.html"
+  "formTemplatePath": "/pages/node_forms/generic_device_form.html",
+  "nanocyte": {
+    "name": "nanocyte-node-device"
+  }
 }
