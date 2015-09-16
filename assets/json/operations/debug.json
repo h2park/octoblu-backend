@@ -16,6 +16,7 @@
   "align": "right",
   "formTemplatePath": "/pages/node_forms/debug_form.html",
   "nanocyte": {
-    "name": "nanocyte-node-debug"
+    "name": "nanocyte-node-debug",
+    "linkedToPrev": true
   }
 }
