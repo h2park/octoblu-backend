@@ -17,6 +17,11 @@
   "formTemplatePath": "/pages/node_forms/debug_form.html",
   "nanocyte": {
     "name": "nanocyte-node-debug",
-    "linkedToPrev": true
+    "composedOf": {
+      "debug-node": {
+        "type": "nanocyte-node-debug",
+        "linkedToPrev": true
+      }
+    }
   }
 }

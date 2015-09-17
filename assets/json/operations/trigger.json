@@ -14,7 +14,12 @@
   "formTemplatePath": "/pages/node_forms/button_form.html",
   "nanocyte": {
     "name": "nanocyte-node-trigger",
-    "linkedToNext": true,
-    "linkedToInput": true
+    "composedOf": {
+      "trigger-node": {
+        "type": "nanocyte-node-trigger",
+        "linkedToNext": true,
+        "linkedToInput": true
+      }
+    }
   }
 }
