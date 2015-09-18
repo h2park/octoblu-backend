@@ -20,7 +20,8 @@
     "composedOf": {
       "debug-node": {
         "type": "nanocyte-node-debug",
-        "linkedToPrev": true
+        "linkedToPrev": true,
+        "linkedToPulse": true
       }
     }
   }
