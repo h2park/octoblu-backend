@@ -17,18 +17,18 @@
     "name": "nanocyte-node-compose",
     "composedOf": {
       "collect": {
-        "type": "nanocyte-node-selective-collect",
+        "type": "nanocyte-component-selective-collect",
         "linkedToPrev": true,
         "linkedTo": ["check"],
         "linkedToData": true
       },
       "check": {
-        "type": "nanocyte-node-contains-all-keys",
+        "type": "nanocyte-component-contains-all-keys",
         "linkedTo": ["clear"],
         "linkedToNext": true
       },
       "clear": {
-        "type": "nanocyte-node-clear-data",
+        "type": "nanocyte-component-clear-data",
         "linkedToData": true
       }
     }
