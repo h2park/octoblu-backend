@@ -1,5 +1,5 @@
 {
-  "_id": "22ede53a-7e5d-42d5-84ac-fd5debe042f9",
+  "_id": "56059bb2f88cbb95a9f3bb29",
   "category": "channel",
   "categories": ["Office"],
   "description": "Double Click Search",
@@ -11,6 +11,6 @@
     "type": "channel",
     "subtype": "doubleclicksearch"
   },
-  "channelid": "40f9dd2f955243aa8dc20bd21d865fb3",
+  "channelid": "56059ba0f88cbb95a9f3bb28",
   "type": "channel:doubleclicksearch"
 }
