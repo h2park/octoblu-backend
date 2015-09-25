@@ -39,8 +39,8 @@ var TravisCIProController = function(){
           });
       }, next);
   };
-  this.redirectToDesigner = function(req, res){
-    res.redirect('/design');
+  this.redirectToConfigure = function(req, res){
+    res.redirect('/configure?added=Travis-CI-Pro');
   };
 };
 

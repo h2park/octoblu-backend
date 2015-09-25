@@ -37,8 +37,8 @@ var GotoMeetingFreeController = function(){
       }
     });
   };
-  this.redirectToDesigner = function(req, res){
-    res.redirect('/design');
+  this.redirectToConfigure = function(req, res){
+    res.redirect('/configure?added=GoToMeetingFree');
   };
 };
 

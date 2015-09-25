@@ -13,8 +13,8 @@ var GoogleController = function(){
 	];
   this.authorize = passport.authenticate('google', { scope: scope });
   this.callback  = passport.authenticate('google', { failureRedirect: '/design' });
-  this.redirectToDesigner = function(req, res){
-    res.redirect('/design');
+  this.redirectToConfigure = function(req, res){
+    res.redirect('/configure?added=Google');
   };
 };
 

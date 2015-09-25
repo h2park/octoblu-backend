@@ -23,7 +23,7 @@ var winkController = function() {
       function(err, httpResponse, body) {
         if (err || httpResponse.statusCode >= 400) {
           return res.redirect('/home');
-        }        
+        }
 
         User.addApiAuthorization(req.user, 'channel:wink', {
             authtype: 'access_token_bearer',
@@ -38,8 +38,8 @@ var winkController = function() {
       });
   };
 
-  this.redirectToDesigner = function(req, res) {
-    res.redirect('/design');
+  this.redirectToConfigure = function(req, res) {
+    res.redirect('/configure?added=Wink');
   };
 
 };

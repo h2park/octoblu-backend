@@ -170,11 +170,6 @@ var types = [
     "logo" : "https://s3-us-west-2.amazonaws.com/octoblu-icons/vimeo.png"
   },
   {
-    "_id" : ObjectId("53c9b837f400e177dca325c3"),
-    "name" : "Delicious",
-    "logo" : "https://s3-us-west-2.amazonaws.com/octoblu-icons/delicious.png"
-  },
-  {
     "_id" : ObjectId("53c9b838f400e177dca325c4"),
     "name" : "Paypal",
     "logo" : "https://s3-us-west-2.amazonaws.com/octoblu-icons/paypal.png"

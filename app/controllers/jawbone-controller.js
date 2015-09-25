@@ -9,8 +9,8 @@ var JawboneController = function() {
     this.callback = passport.authenticate('jawbone', {
         failureRedirect: '/design'
     });
-    this.redirectToDesigner = function(req, res) {
-        res.redirect('/design');
+    this.redirectToConfigure = function(req, res) {
+        res.redirect('/configure?added=Jawbone');
     };
 };
 

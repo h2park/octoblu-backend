@@ -1,6 +1,6 @@
 {
   "elb-name": "api-octoblu-com",
-  "application-name": "octoblu",
+  "application-name": "api-octoblu",
   "deployment-group": "master",
   "s3-bucket": "octoblu-deploy"
 }
