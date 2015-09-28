@@ -1,6 +1,6 @@
 {
   "name": "octoblu",
-  "version": "1.10.6",
+  "version": "1.10.7",
   "description": "octoblu.com",
   "main": "server.js",
   "private": true,
@@ -84,7 +84,6 @@
     "passport-rdio-oauth2": "^1.0.0",
     "passport-readability": "^0.1.2",
     "passport-redbooth": "^1.0.0",
-    "passport-rightsignature": "^0.1.0",
     "passport-sharefile": "^1.0.0",
     "passport-slack": "0.0.1",
     "passport-smartsheet": "^1.0.1",
