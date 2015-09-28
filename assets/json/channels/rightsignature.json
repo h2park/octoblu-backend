@@ -2,7 +2,7 @@
   "_id": "54a44e1f620f5ebb13dbc4f1",
   "auth_strategy": "oauth",
   "documentation": "https://rightsignature.com/apidocs/api_calls?api_method=intro",
-  "enabled": true,
+  "enabled": false,
   "name": "rightSignature",
   "type": "channel:rightSignature",
   "oauth": {

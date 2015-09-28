@@ -5,7 +5,7 @@
   "description": "Right Signature",
   "documentation": "http://rightsignature.pbworks.com/w/page/8882240/FrontPage",
   "helpText": "The easiest, fastest way to get documents filled out and signed online. Get Document information, send out email reminders, update templates, and more.",
-  "enabled": true,
+  "enabled": false,
   "name": "Right Signature",
   "skynet": {
     "type": "channel",
