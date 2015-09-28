@@ -252,13 +252,12 @@ FlowDeploy.start = function(userUUID, userToken, flow, meshblu, deploymentUuid){
   }).then(function(){
     flowStatusMessenger.message('end');
   }).catch(function(error){
-    console.error(error);
     flowStatusMessenger.message('error', error.message);
     throw new Error(error);
   });
 };
 
-FlowDeploy.stop = function(userUUID, userToken, flow, meshblu){
+FlowDeploy.stop = function(userUUID, userToken, flow, meshblu, deploymentUuid){
   var flowDeploy, flowDevice, flowStatusMessenger;
 
   flowStatusMessenger = new FlowStatusMessenger({
@@ -277,7 +276,6 @@ FlowDeploy.stop = function(userUUID, userToken, flow, meshblu){
   }).then(function(){
     flowStatusMessenger.message('end');
   }).catch(function(error){
-    console.error(error);
     flowStatusMessenger.message('error', error.message);
     throw new Error(error);
   });
