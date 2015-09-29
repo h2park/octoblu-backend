@@ -37,6 +37,7 @@ var config = {
     sslPort: process.env.SSL_PORT || 8081,
     elasticSearchUri: process.env.ELASTIC_SEARCH_URI,
     flowDeployUri: 'http://localhost:8899',
+    nanocyteDeployUri: 'http://localhost:5050',
     domain: null,
     flow_logger_uuid: process.env.FLOW_LOGGER_UUID
   },
@@ -69,8 +70,9 @@ var config = {
     port:             process.env.PORT || 80,
     sslPort:          process.env.SSL_PORT || 443,
     elasticSearchUri: process.env.ELASTIC_SEARCH_URI,
-    flowDeployUri: 'https://flow-deploy.octoblu.com',
-    domain: '.octoblu.com',
+    flowDeployUri:    'https://flow-deploy.octoblu.com',
+    nanocyteDeployUri:'https://nanocyte-engine.octoblu.com',
+    domain:           '.octoblu.com',
     flow_logger_uuid: process.env.FLOW_LOGGER_UUID
   },
   staging: {
@@ -90,11 +92,12 @@ var config = {
       port: process.env.DESIGNER_PORT || 1025,
       docker_port: process.DESIGNER_DOCKER_PORT
     },
-    port :             process.env.PORT || 80,
+    port :            process.env.PORT || 80,
     sslPort:          process.env.SSL_PORT || 443,
     elasticSearchUri: process.env.ELASTIC_SEARCH_URI,
     flowDeployUri:    'https://flow-deploy.octoblu-staging.com',
-    domain:           '.octoblu.com',
+    nanocyteDeployUri:'https://nanocyte-engine.octoblu-staging.com',
+    domain:           '.octoblu-staging.com',
     flow_logger_uuid: process.env.FLOW_LOGGER_UUID
   }
 };
