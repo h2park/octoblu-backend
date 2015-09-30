@@ -1,16 +1,16 @@
 {
-  "_id": "553e9ef1c940d785ad48497a",
+  "_id": "560c5db253e067d81acf1eb4",
   "category": "device",
-  "categories":["Social"],
-  "description": "Twitter Streaming",
-  "documentation": "https://dev.twitter.com/streaming/overview",
-  "helpText": "The Streaming APIs give developers low latency access to Twitter’s global stream of Tweet data. A proper implementation of a streaming client will be pushed messages indicating Tweets and other events have occurred, without any of the overhead associated with polling a REST endpoint.",
+  "categories":["Office"],
+  "description": "UPC Lookup, submit a UPC code and get product information. Uses upcdatabase.org",
+  "documentation": "",
+  "helpText": "Uses upcdatabase.org API to find UPC info and relay product info to Octoblu. Requires an API key from upcdatabase.org",
   "enabled": true,
-  "name": "Twitter Streaming",
+  "name": "UPC Lookup",
   "skynet": {
     "type": "device",
-    "subtype": "twitter-stream"
+    "subtype": "upc-lookup"
   },
-  "type": "device:twitter-stream",
-  "connector": "meshblu-twitter-stream"
+  "type": "device:upc-lookup",
+  "connector": "meshblu-upc-lookup"
 }
