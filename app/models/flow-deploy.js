@@ -152,7 +152,7 @@ var FlowDeploy = function(options){
     return config.nanocyteDeployUri + '/flows/' + flowId + '/instances';
   };
 
-  self.getNanocyteOptions = function(flowId, topic) {
+  self.getNanocyteOptions = function() {
     return {
       auth: {
         user: userUUID,
@@ -164,18 +164,18 @@ var FlowDeploy = function(options){
     }
   };
 
-  self.getNanocyteFlowPromise = function(flowId, topic) {
-    return whenNode.call(request.post,
+  self.getNanocyteFlowPromise = function(flowId, method) {
+    return whenNode.call(method,
       self.getNanocyteMessageUrl(flowId),
-      self.getNanocyteOptions(flowId, topic));
+      self.getNanocyteOptions());
   }
 
   self.startNanocyteFlow = function(flow) {
-    return self.getNanocyteFlowPromise(flow.flowId, 'start');
+    return self.getNanocyteFlowPromise(flow.flowId, request.post);
   };
 
   self.stopNanocyteFlow = function(flow){
-    return self.getNanocyteFlowPromise(flow.flowId, 'stop');
+    return self.getNanocyteFlowPromise(flow.flowId, request.del);
   };
 
   self.largestPortNumber = function(groupedLinks){
