@@ -71,7 +71,7 @@ var config = {
     sslPort:          process.env.SSL_PORT || 443,
     elasticSearchUri: process.env.ELASTIC_SEARCH_URI,
     flowDeployUri:    'https://flow-deploy.octoblu.com',
-    nanocyteDeployUri:'https://nanocyte-engine.octoblu.com',
+    nanocyteDeployUri:'https://nanocyte-flow-deploy.octoblu.com',
     domain:           '.octoblu.com',
     flow_logger_uuid: process.env.FLOW_LOGGER_UUID
   },

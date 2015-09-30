@@ -23,6 +23,7 @@ module.exports = function (app) {
     app.get('/api/user/:id/api/:id', function (req, res) {
         res.json(_.findWhere(req.user.api, {channelid: req.params.id}));
     });
+
     app.get('/api/user/api/:id', function (req, res) {
         res.json(_.findWhere(req.user.api, {channelid: req.params.id}));
     });
