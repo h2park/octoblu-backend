@@ -157,6 +157,9 @@ var FlowDeploy = function(options){
       auth: {
         user: userUUID,
         pass: userToken
+      },
+      headers: {
+        deploymentUuid: deploymentUuid
       }
     }
   };
