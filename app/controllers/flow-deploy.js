@@ -18,11 +18,6 @@ var FlowDeploy = function (options) {
     res.send(200);
   };
 
-  self.restartInstance = function (req, res) {
-    self.runOnInstance(req, FlowDeploy.restart, true);
-    res.send(200);
-  };
-
   self.runOnInstance = function (req, cmd, activated) {
     var userUUID, userToken;
 
