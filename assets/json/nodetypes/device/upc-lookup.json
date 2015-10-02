@@ -1,0 +1,16 @@
+{
+  "_id": "560c5db253e067d81acf1eb4",
+  "category": "device",
+  "categories":["Office"],
+  "description": "UPC Lookup, submit a UPC code and get product information. Uses upcdatabase.org",
+  "documentation": "",
+  "helpText": "Uses upcdatabase.org API to find UPC info and relay product info to Octoblu. Requires an API key from upcdatabase.org",
+  "enabled": true,
+  "name": "UPC Lookup",
+  "skynet": {
+    "type": "device",
+    "subtype": "upc-lookup"
+  },
+  "type": "device:upc-lookup",
+  "connector": "meshblu-upc-lookup"
+}
