@@ -5,6 +5,7 @@
   "type": "operation:throttle",
   "category": "operation",
   "uuid": "794922ff-3792-4e4e-a0e2-a0823ed6b82e",
+  "deviceId": "765bd3a4-546d-45e6-a62f-1157281083f0",
   "defaults": {
     "interval": 1000
   },

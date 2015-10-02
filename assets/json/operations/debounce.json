@@ -5,6 +5,7 @@
   "type": "operation:debounce",
   "category": "operation",
   "uuid": "52a55b44-923d-4f56-9ad4-e7aa1262c6cb",
+  "deviceId": "765bd3a4-546d-45e6-a62f-1157281083f0",
   "defaults": {
     "interval": 1000
   },
