@@ -1,0 +1,15 @@
+{
+  "_id": "splunk-event-collector",
+  "category": "device",
+  "categories":["Productivity"],
+  "description": "Splunk Event Collector",
+  "documentation": "https://octoblu-splunk.readme.io",
+  "helpText": "A Gateblu plugin to forward messages to a Splunk HTTP Event Collector",
+  "enabled": true,
+  "name": "Splunk Event Collector",
+  "skynet": {
+    "type": "device:forwarder"
+  },
+  "type": "device:forwarder",
+  "connector": "meshblu-splunk-event-collector"
+}

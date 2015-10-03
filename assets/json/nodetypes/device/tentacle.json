@@ -3,6 +3,7 @@
   "category": "device",
   "categories":["Maker"],
   "description": "The Tentacle. Control Microcontrollers with Octoblu!",
+  "documentation": "https://tentacle.readme.io/",
   "helpText": "The Tentacle is a collection of open-source libraries and services that allow microcontrollers to communicate with Meshblu. It uses Google's Protocol Buffers as the messaging format.",
   "enabled": true,
   "name": "Tentacle",
