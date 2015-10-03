@@ -11,6 +11,6 @@
     "type": "device",
     "subtype": "cloudsight"
   },
-  "connector": "meshblu-img2text",
+  "connector": "meshblu-img-2-text",
   "type": "device:cloudsight"
 }
