@@ -6,13 +6,25 @@ class FlowIntervalNodesTransform
 
   constructor: (dependencies={}) ->
     @Flow = dependencies.Flow || require '../../models/flow'
-    @intervalServiceUUID = INTERVAL_SERVICE_UUID
 
   updateIntervalNodes:(request, response, next=->)->
     # return next()
     return next() unless request.user?
-    @Flow.getFlowWithOwner(request.params?.id, request.user.uuid).then (flow)=>
-      return next() if _.isEmpty @getIntervalNodesWithoutDeviceId(flow)
+    @Flow.getFlowWithOwner(request.params?.id, request.user.uuid).then((flow)=>
+      intervalNodes = @getIntervalNodesWithoutDeviceId(flow)
+      return next() if _.isEmpty intervalNodes
+      console.log "Interval Nodes", intervalNodes
+
+      nonIntervalNodes = _.difference(flow.nodes, intervalNodes) || []
+      console.log "Non Interval Nodes", nonIntervalNodes
+      updatedIntervalNodes = _.map(intervalNodes, (intervalNode ) =>
+         return _.assign({}, intervalNode, { deviceId : INTERVAL_SERVICE_UUID})
+      )
+      updatedNodes = _.union(nonIntervalNodes, updatedIntervalNodes)
+      return @Flow.updateByFlowIdAndUser(request.params?.id, request.user.uuid, { nodes: updatedNodes })
+      )
+      .then (flowResults) =>
+        return next()
 
 
 

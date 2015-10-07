@@ -46,9 +46,9 @@ describe 'FlowIntervalNodesTransform', ->
 
         @request = {
           params :
-            id : "12345"
+            id : "1738"
           user :
-            uuid :  "1234"
+            uuid :  "ABRACADABRA"
             token : "4567"
         }
 
@@ -62,14 +62,19 @@ describe 'FlowIntervalNodesTransform', ->
     describe 'when the flow has interval nodes without a deviceId', ->
       beforeEach ->
         @Flow.getFlowWithOwner.returns When.resolve({
-          flowId : "1738"
+          flowId : "RIDING-CANDY"
+          resource : {
+            owner : {
+              uuid : "RIDING-SLABS"
+            }
+          }
           nodes:[{
-             uuid: "1234"
+             uuid: "mystery"
              class : "Foo"
           },
           {
-            uuid : "456"
-            class : "interval"
+            uuid : "chessboxing"
+            class : "delay"
           }]
         })
 
@@ -83,7 +88,7 @@ describe 'FlowIntervalNodesTransform', ->
           params :
             id : "12345"
           user :
-            uuid :  "meatball"
+            uuid :  "ABRACADABRA"
             token : "4567"
         }
 
@@ -92,7 +97,28 @@ describe 'FlowIntervalNodesTransform', ->
         @sut.updateIntervalNodes(@request, @response, @next)
 
       it 'should update the flow and add the deviceId to the interval nodes', ->
-        expect(@Flow.updateByFlowIdAndUser).to.have.been.calledWith("1738", {
+        expect(@Flow.updateByFlowIdAndUser).to.have.been.calledWith( @request.params.id, @request.user.uuid,
+        {
+          nodes:[{
+             uuid: "mystery"
+             class : "Foo"
+          },
+          {
+            uuid : "chessboxing"
+            class : "delay"
+            deviceId : "765bd3a4-546d-45e6-a62f-1157281083f0"
+          }]
+          })
+
+    describe 'when the flow has interval nodes with a deviceId', ->
+      beforeEach ->
+        @Flow.getFlowWithOwner.returns When.resolve({
+          flowId : "1738"
+          resource : {
+            owner : {
+              uuid : "ABRACADABRA"
+            }
+          }
           nodes:[{
              uuid: "1234"
              class : "Foo"
@@ -102,4 +128,25 @@ describe 'FlowIntervalNodesTransform', ->
             class : "interval"
             deviceId : "765bd3a4-546d-45e6-a62f-1157281083f0"
           }]
+        })
+
+        @Flow.update.returns When.resolve({
+          "nMatched" : 1
+          "nUpserted" : 0
+          "nModified" : 1
           })
+
+        @request = {
+          params :
+            id : "1738"
+          user :
+            uuid :  "ABRACADABRA"
+            token : "4567"
+        }
+
+        @response = {}
+        @next = sinon.spy()
+        @sut.updateIntervalNodes(@request, @response, @next)
+
+      it 'should not update the flow and just call next', ->
+        expect(@Flow.updateByFlowIdAndUser).to.not.have.been.called
