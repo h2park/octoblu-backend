@@ -13,10 +13,7 @@ class FlowIntervalNodesTransform
     @Flow.getFlowWithOwner(request.params?.id, request.user.uuid).then((flow)=>
       intervalNodes = @getIntervalNodesWithoutDeviceId(flow)
       return next() if _.isEmpty intervalNodes
-      console.log "Interval Nodes", intervalNodes
-
       nonIntervalNodes = _.difference(flow.nodes, intervalNodes) || []
-      console.log "Non Interval Nodes", nonIntervalNodes
       updatedIntervalNodes = _.map(intervalNodes, (intervalNode ) =>
          return _.assign({}, intervalNode, { deviceId : INTERVAL_SERVICE_UUID})
       )
@@ -24,6 +21,9 @@ class FlowIntervalNodesTransform
       return @Flow.updateByFlowIdAndUser(request.params?.id, request.user.uuid, { nodes: updatedNodes })
       )
       .then (flowResults) =>
+        #Update the Flow Device and add the Interval Service UUID to
+        # the flows receive Whitelist
+
         return next()
 
 
