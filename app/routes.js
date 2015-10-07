@@ -227,10 +227,6 @@ module.exports = function(app, passport, config, meshbluJSON){
     var XeroController = require('./controllers/xero-controller');
     var xeroController = new XeroController();
 
-    var ZendeskController = require('./controllers/zendesk-controller');
-    var zendeskController = new ZendeskController();
-
-
     conn.on('notReady', function(data){
         console.log('SkyNet authentication: failed', data);
     });
@@ -437,9 +433,6 @@ module.exports = function(app, passport, config, meshbluJSON){
 
             app.get('/api/oauth/youtube',          referrer.storeReferrer, googleController.authorize);
             app.get('/api/oauth/youtube/callback', googleController.callback, signupController.checkInTester, referrer.restoreReferrer, referrer.redirectToReferrer, googleController.redirectToConfigure);
-
-            app.get('/api/oauth/zendesk',          zendeskController.authorize);
-            app.get('/api/oauth/zendesk/callback', zendeskController.callback, zendeskController.redirectToConfigure);
 
             app.get('/api/echosign/auth', echoSignController.authorize, echoSignController.redirectToConfigure);
 
