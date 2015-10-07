@@ -1,6 +1,6 @@
 {
   "name": "octoblu",
-  "version": "1.10.24",
+  "version": "1.10.25",
   "description": "octoblu.com",
   "main": "server.js",
   "private": true,
@@ -79,7 +79,6 @@
     "passport-oauth2": "^1.1.2",
     "passport-oauth2-refresh": "^0.4.0",
     "passport-octoblu": "^1.0.0",
-    "passport-paypal": "^0.3.0",
     "passport-podio": "0.0.3",
     "passport-rdio-oauth2": "^1.0.0",
     "passport-readability": "^0.1.2",
@@ -97,7 +96,6 @@
     "passport-withings": "^0.1.0",
     "passport-wordpress": "0.0.3",
     "passport-xero": "^1.0.0",
-    "passport-zendesk": "0.0.2",
     "pretty-camel": "0.0.8",
     "q": "^1.0.1",
     "redis": "^0.12.1",
