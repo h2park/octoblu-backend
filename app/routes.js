@@ -5,6 +5,8 @@ module.exports = function(app, passport, config, meshbluJSON){
     var SecurityController = require('./controllers/middleware/security-controller');
     var security = new SecurityController();
 
+    var FlowIntervalNodesTransform = require('./controllers/middleware/flow-interval-nodes-transform');
+    var flowIntervalNodesTransform = new FlowIntervalNodesTransform();
     app.use(function noCache(req, res, next) {
       res.header("Cache-Control", "private, max-age=0, must-revalidate");
       next();
@@ -273,7 +275,7 @@ module.exports = function(app, passport, config, meshbluJSON){
             app.get('/api/flows/:id', flowController.getFlow);
             app.delete('/api/flows/:id', flowController.delete);
             app.get('/api/flows', flowController.getAllFlows);
-            app.post('/api/flows/:id/instance', flowDeployController.startInstance);
+            app.post('/api/flows/:id/instance', flowIntervalNodesTransform.updateIntervalNodes, flowDeployController.startInstance);
             app.delete('/api/flows/:id/instance', flowDeployController.stopInstance);
 
             app.get('/api/flow-auth-credentials/:id', flowAuthCredentialsController.show);
