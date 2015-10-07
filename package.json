@@ -1,6 +1,6 @@
 {
   "name": "octoblu",
-  "version": "1.10.23",
+  "version": "1.10.24",
   "description": "octoblu.com",
   "main": "server.js",
   "private": true,

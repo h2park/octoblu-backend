@@ -143,9 +143,6 @@ module.exports = function(app, passport, config, meshbluJSON){
     var OctobluController = require('./controllers/octoblu-controller');
     var octobluController = new OctobluController();
 
-    var PaypalController = require('./controllers/paypal-controller');
-    var paypalController = new PaypalController();
-
     var PodioController = require('./controllers/podio-controller');
     var podioController = new PodioController();
 
@@ -367,9 +364,6 @@ module.exports = function(app, passport, config, meshbluJSON){
 
             app.get('/api/oauth/octoblu',          octobluController.authorize);
             app.get('/api/oauth/octoblu/callback', octobluController.callback, octobluController.redirectToConfigure);
-
-            app.get('/api/oauth/paypal',          referrer.storeReferrer, paypalController.authorize);
-            app.get('/api/oauth/paypal/callback', paypalController.callback, paypalController.redirectToConfigure);
 
             app.get('/api/oauth/podio',          podioController.authorize);
             app.get('/api/oauth/podio/callback', podioController.callback, podioController.redirectToConfigure);
