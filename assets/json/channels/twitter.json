@@ -435,6 +435,13 @@
             "style": "body",
             "displayName": "Trim User",
             "name": "trim_user"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "media_ids",
+            "name": "media_ids"
           }
         ]
       },
@@ -464,71 +471,36 @@
         ]
       },
       {
-        "displayName": "Update Tweet With Media",
-        "path": "/statuses/update_with_media.json",
+        "httpMethod": "POST",
         "authentication": {
           "required": true
         },
-        "httpMethod": "POST",
-        "url": "https://api.twitter.com/1.1/statuses/update_with_media.json",
+        "displayName": "Upload Media",
+        "path": "media/upload.json",
         "params": [
           {
-            "required": true,
-            "type": "string",
+            "name": "media",
+            "displayName": "media",
             "style": "body",
-            "displayName": "Status",
-            "name": "status"
+            "type": "string",
+            "required": false
           },
           {
-            "required": true,
-            "type": "string",
+            "name": "media_data",
+            "displayName": "media_data",
             "style": "body",
-            "displayName": "Media",
-            "name": "media[]"
+            "type": "string",
+            "required": false
           },
           {
-            "required": false,
-            "type": "string",
+            "name": "additional_owners",
+            "displayName": "additional_owners",
             "style": "body",
-            "displayName": "Possibly Sensitive",
-            "name": "possibly_sensitive"
-          },
-          {
-            "required": false,
             "type": "string",
-            "style": "body",
-            "displayName": "In Reply To Status",
-            "name": "in_reply_to_status_id"
-          },
-          {
-            "required": false,
-            "type": "string",
-            "style": "body",
-            "displayName": "Latitude",
-            "name": "lat"
-          },
-          {
-            "required": false,
-            "type": "string",
-            "style": "body",
-            "displayName": "Longitude",
-            "name": "long"
-          },
-          {
-            "required": false,
-            "type": "string",
-            "style": "body",
-            "displayName": "Place ID",
-            "name": "place_id"
-          },
-          {
-            "required": false,
-            "type": "string",
-            "style": "body",
-            "displayName": "Display Coordinates",
-            "name": "display_coordinates"
+            "required": false
           }
-        ]
+        ],
+        "url": "https://upload.twitter.com/1.1/media/upload.json"
       },
       {
         "path": "/statuses/oembed.json",
