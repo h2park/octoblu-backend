@@ -1665,27 +1665,20 @@
             "required": "false"
           },
           {
-            "name": "tagger",
-            "displayName": "Tagger",
-            "style": "body",
-            "type": "string",
-            "required": "false"
-          },
-          {
-            "name": "name",
+            "name": "tagger.name",
             "displayName": "Name",
             "type": "string",
             "required": "false"
           },
           {
-            "name": "email",
+            "name": "tagger.email",
             "displayName": "Email",
             "style": "body",
             "type": "string",
             "required": "false"
           },
           {
-            "name": "date",
+            "name": "tagger.date",
             "displayName": "Date",
             "style": "body",
             "type": "string",
