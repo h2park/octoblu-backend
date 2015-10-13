@@ -1,0 +1,15 @@
+{
+  "_id": "initial-state",
+  "category": "device",
+  "categories":["Productivity"],
+  "description": "Initial-State Gateblu Plugin",
+  "documentation": "https://meshblu-connectors.readme.io/docs/initial-state",
+  "helpText": "A Gateblu plugin to forward messages to Initial-State",
+  "enabled": true,
+  "name": "Initial-State",
+  "skynet": {
+    "type": "device:initial-state"
+  },
+  "type": "device:initial-state",
+  "connector": "meshblu-initial-state"
+}
