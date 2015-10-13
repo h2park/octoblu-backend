@@ -4,7 +4,7 @@
   "categories":["Maker"],
   "description": "Spark device",
   "helpText": "Microblu for spark core device.",
-  "enabled": true,
+  "enabled": false,
   "name": "Spark",
   "payloadOnly": true,
   "skynet": {
