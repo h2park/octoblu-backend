@@ -7,6 +7,7 @@ var sourcemaps        = require('gulp-sourcemaps');
 var nodemon           = require('gulp-nodemon');
 var coffee            = require('gulp-coffee');
 var clean             = require('gulp-clean');
+var source            = require('vinyl-source-stream')
 var OperationsMangler = require('./setup/gulp-operations-mangler');
 
 var NODE_REGISTRY_URL = process.env.NODE_REGISTRY_URL;
@@ -40,7 +41,9 @@ gulp.task('operations:concat', function(){
 gulp.task('mangle-operations', ['default'], function(){
   return gulp
   .src('./assets/json/operations.json')
-  .pipe(new OperationsMangler({ nodeRegistryUrl: NODE_REGISTRY_URL}));
+  .pipe(new OperationsMangler({ nodeRegistryUrl: NODE_REGISTRY_URL}))
+  .pipe(source('operations.json'))
+  .pipe(gulp.dest('./assets/json/'));
 });
 
 gulp.task('default', ['channels:concat', 'nodetypes:concat', 'operations:concat'], function() {});

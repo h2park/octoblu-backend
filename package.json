@@ -104,6 +104,7 @@
     "safe_datejs": "^0.0.1",
     "simple-oauth2": "^0.2.0",
     "underscore": "^1.6.0",
+    "vinyl-source-stream": "^1.1.0",
     "when": "^3.0.1"
   },
   "devDependencies": {
