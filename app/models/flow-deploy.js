@@ -271,7 +271,7 @@ FlowDeploy.start = function(userUUID, userToken, flow, meshblu, deploymentUuid){
 
   flowDeploy = new FlowDeploy({userUUID: userUUID, userToken: userToken, meshblu: meshblu, deploymentUuid: deploymentUuid});
 
-  if (flow && flow.nanocyteBeta) {
+  if (flow) {
     return flowDeploy.setDeploying(flow).then(function(){
       return flowDeploy.startNanocyteFlow(flow);
     }).then(function(){
@@ -282,20 +282,20 @@ FlowDeploy.start = function(userUUID, userToken, flow, meshblu, deploymentUuid){
     });
   }
 
-  return flowDeploy.setDeploying(flow).then(function(){
-    return flowDeploy.getUser();
-  }).then(function(theUser){
-    user = theUser;
-    return Channel.findAll();
-  }).then(function(channels){
-    mergedFlow = flowDeploy.mergeFlowTokens(flow, user.api, channels);
-    return flowDeploy.startFlow(mergedFlow);
-  }).then(function(){
-    flowStatusMessenger.message('end');
-  }).catch(function(error){
-    flowStatusMessenger.message('error', error.message);
-    throw new Error(error);
-  });
+  // return flowDeploy.setDeploying(flow).then(function(){
+  //   return flowDeploy.getUser();
+  // }).then(function(theUser){
+  //   user = theUser;
+  //   return Channel.findAll();
+  // }).then(function(channels){
+  //   mergedFlow = flowDeploy.mergeFlowTokens(flow, user.api, channels);
+  //   return flowDeploy.startFlow(mergedFlow);
+  // }).then(function(){
+  //   flowStatusMessenger.message('end');
+  // }).catch(function(error){
+  //   flowStatusMessenger.message('error', error.message);
+  //   throw new Error(error);
+  // });
 };
 
 FlowDeploy.stop = function(userUUID, userToken, flow, meshblu, deploymentUuid){
@@ -314,10 +314,8 @@ FlowDeploy.stop = function(userUUID, userToken, flow, meshblu, deploymentUuid){
   flowDeploy = new FlowDeploy({userUUID: userUUID, userToken: userToken, meshblu: meshblu, deploymentUuid: deploymentUuid});
 
   return flowDeploy.setStopping(flow).then(function(){
-    if (flow && flow.nanocyteBeta) {
-      return flowDeploy.stopNanocyteFlow(flow);
-    }
-    return flowDeploy.stopFlow(flow);
+    return flowDeploy.stopNanocyteFlow(flow);
+    // return flowDeploy.stopFlow(flow);
   }).then(function(){
     flowStatusMessenger.message('end');
   }).catch(function(error){
