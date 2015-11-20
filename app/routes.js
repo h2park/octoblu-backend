@@ -228,11 +228,17 @@ module.exports = function(app, passport, config, meshbluJSON){
 
     conn.on('notReady', function(data){
         console.log('SkyNet authentication: failed', data);
+        process.exit(1);
     });
 
     conn.on('error', function(error){
         console.error(error.msg);
         console.error(error.stack);
+        process.exit(1);
+    });
+
+    conn.on('disconnect', function(){
+        process.exit(1);
     });
 
     // Attach additional routes
