@@ -1,10 +1,10 @@
 var FlowDeploy = function (options) {
-  var FlowDeploy, self, Flow, _, meshblu;
+  var FlowDeploy, self, Flow, _, meshbluJSON;
 
   self = this;
   options = options || {};
   FlowDeploy = options.FlowDeploy || require('../models/flow-deploy');
-  meshblu = options.meshblu;
+  meshbluJSON = options.meshbluJSON;
   _ = require('lodash');
   Flow = options.Flow || require('../models/flow');
 
@@ -28,7 +28,7 @@ var FlowDeploy = function (options) {
     Flow.getFlow(req.params.id)
       .then(function (flow) {
         Flow.updateByFlowIdAndUser(flow.flowId, userUUID, {activated: activated});
-        cmd(userUUID, userToken, flow, meshblu, deploymentUuid);
+        cmd(userUUID, userToken, flow, meshbluJSON, deploymentUuid);
       });
   };
 

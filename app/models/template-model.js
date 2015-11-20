@@ -42,7 +42,7 @@ function TemplateModel(dependencies) {
         });
     },
 
-    importTemplate : function(userUUID, templateId, meshblu, flowNodeTypes) {
+    importTemplate : function(userUUID, templateId, meshbluJSON, flowNodeTypes) {
       var self = this;
       var templateCollection = new TemplateCollection({owner: userUUID});
       return templateCollection.get({uuid: templateId})
@@ -55,11 +55,11 @@ function TemplateModel(dependencies) {
             self.populateNode(node, flowNodeTypes);
           });
 
-          return Flow.createByUserUUID(userUUID, newFlow, meshblu);
+          return Flow.createByUserUUID(userUUID, newFlow, meshbluJSON);
         });
     },
 
-    importFlow : function(userUUID, flow, meshblu, flowNodeTypes) {
+    importFlow : function(userUUID, flow, meshbluJSON, flowNodeTypes) {
       var self = this;
       var newFlow = self.cleanFlow(flow);
       _.each(newFlow.nodes, function(node){
@@ -67,7 +67,7 @@ function TemplateModel(dependencies) {
         self.populateNode(node, flowNodeTypes);
       });
 
-      return Flow.createByUserUUID(userUUID, newFlow, meshblu);
+      return Flow.createByUserUUID(userUUID, newFlow, meshbluJSON);
     },
 
     cleanFlow : function(flow) {

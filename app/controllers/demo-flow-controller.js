@@ -11,7 +11,7 @@ var DemoFlowController = function (options) {
   var flowNodeTypeCollection = options.flowNodeTypes || require('../collections/flow-node-type-collection');
   var Template = options.Template || require('../models/template-model');
   var template = new Template();
-  var meshblu  = options.meshblu;
+  var meshbluJSON  = options.meshbluJSON;
 
   self.create = function (req, res) {
     var user = req.user;
@@ -23,7 +23,7 @@ var DemoFlowController = function (options) {
       User.addApiAuthorization(user, 'channel:sms-send', {authtype: 'basic', token : req.uuid, secret : req.token }),
       User.addApiAuthorization(user, 'channel:email', {authtype: 'basic', token : req.uuid, secret : req.token })
     ]).then(function(){
-      template.importFlow(user.resource.uuid, demoFlow, meshblu, flowNodeTypes).then(function(flow){
+      template.importFlow(user.resource.uuid, demoFlow, meshbluJSON, flowNodeTypes).then(function(flow){
         res.send(201, flow);
       }).catch(function(error) {
         res.send(422, error);

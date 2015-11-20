@@ -3,7 +3,7 @@ var when = require('when');
 var octobluDB = require('../../app/lib/database');
 var FlowDeployController = require('../../app/controllers/flow-deploy');
 
-describe('flowDeployController', function () {
+xdescribe('flowDeployController', function () {
   beforeEach(function(){
     octobluDB.createConnection();
   });

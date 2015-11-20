@@ -1,7 +1,6 @@
 module.exports = function(app, passport, config, meshbluJSON){
     // setting env to app.settings.env
     var env = app.settings.env;
-    var meshblu = require('meshblu');
     var SecurityController = require('./controllers/middleware/security-controller');
     var security = new SecurityController();
 
@@ -13,10 +12,6 @@ module.exports = function(app, passport, config, meshbluJSON){
     });
 
     app.locals.skynetUrl = config.skynet.host + ':' + config.skynet.port;
-
-    console.log('Connecting to SkyNet...');
-
-    var conn = meshblu.createConnection(meshbluJSON);
 
     var referrer = require('./controllers/middleware/referrer.js');
 
@@ -32,17 +27,14 @@ module.exports = function(app, passport, config, meshbluJSON){
     var ChannelApiKeyController = require('./controllers/channel-api-key-controller');
     var channelApiKeyController = new ChannelApiKeyController();
 
-    var OctoController = require('./controllers/octo-controller')
-    var octoController = new OctoController(conn)
-
     var FlowAuthCredentialsController = require('./controllers/flow-auth-credentials-controller');
     var flowAuthCredentialsController = new FlowAuthCredentialsController(meshbluJSON);
 
     var FlowController = require('./controllers/flow-controller');
-    var flowController = new FlowController({meshblu: conn});
+    var flowController = new FlowController({meshbluJSON: meshbluJSON});
 
     var FlowDeployController = require('./controllers/flow-deploy');
-    var flowDeployController = new FlowDeployController({meshblu: conn});
+    var flowDeployController = new FlowDeployController({meshbluJSON: meshbluJSON});
 
     var FlowNodeTypeController = require('./controllers/flow-node-type-controller');
     var flowNodeTypeController = new FlowNodeTypeController();
@@ -83,7 +75,7 @@ module.exports = function(app, passport, config, meshbluJSON){
     var boxController = new BoxController();
 
     var DemoFlowController = require('./controllers/demo-flow-controller');
-    var demoFlowController = new DemoFlowController({meshblu: conn});
+    var demoFlowController = new DemoFlowController({meshbluJSON: meshbluJSON});
 
     var DropboxController = require('./controllers/dropbox-controller');
     var dropboxController = new DropboxController();
@@ -182,7 +174,7 @@ module.exports = function(app, passport, config, meshbluJSON){
     var surveyMonkeyController = new SurveyMonkeyController();
 
     var TemplateController = require('./controllers/template-controller');
-    var templateController = new TemplateController({meshblu: conn});
+    var templateController = new TemplateController({meshbluJSON: meshbluJSON});
 
     var TeslaController = require('./controllers/tesla-controller');
     var teslaController = new TeslaController();
@@ -209,7 +201,7 @@ module.exports = function(app, passport, config, meshbluJSON){
     var vimeoController = new VimeoController();
 
     var WebhookController = require('./controllers/webhook-controller');
-    var webhookController = new WebhookController({meshblu: conn});
+    var webhookController = new WebhookController({meshbluJSON: meshbluJSON});
 
     var WinkController = require('./controllers/wink-controller');
     var winkController = new WinkController();
@@ -226,265 +218,237 @@ module.exports = function(app, passport, config, meshbluJSON){
     var XeroController = require('./controllers/xero-controller');
     var xeroController = new XeroController();
 
-    conn.on('notReady', function(data){
-        console.log('SkyNet authentication: failed', data);
-        process.exit(1);
+    app.post('/api/webhooks/:id', webhookController.trigger);
+
+    require('./controllers/auth-controller')(app, passport, config);
+    require('./controllers/channel')(app);
+    require('./controllers/connect')(app, passport, config);
+    require('./controllers/cors')(app);
+    require('./controllers/elastic')(app);
+    require('./controllers/session')(app, passport, config);
+    require('./controllers/unlink')(app);
+    require('./controllers/user')(app);
+    require('./controllers/permissions')(app);
+    require('./controllers/designer')(app);
+    require('./controllers/invitation')(app, passport, config);
+
+    app.post('/api/channel/aws/channel/:id', channelAWSAuthController.create);
+    app.post('/api/channel/google-places/channel/:id', channelGooglePlacesController.create);
+    app.post('/api/channel/basic/channel/:id', channelBasicAuthController.create);
+    app.post('/api/channel/apikey/channel/:id', channelApiKeyController.create);
+
+    app.post('/api/auth/signup', signupController.checkForExistingUser, signupController.createUser);
+    app.get('/api/oauth/facebook/signup', signupController.verifyInvitationCode, signupController.storeTesterId, facebookController.authorize);
+    app.get('/api/oauth/github/signup', signupController.verifyInvitationCode, signupController.storeTesterId, githubController.authorize);
+    app.get('/api/oauth/google/signup', signupController.verifyInvitationCode, signupController.storeTesterId, googleController.authorize);
+    app.get('/api/oauth/twitter/signup', signupController.verifyInvitationCode, signupController.storeTesterId, twitterController.authorize);
+
+    app.post('/api/demo_flows', demoFlowController.create);
+
+    app.post('/api/flows', flowController.create);
+    app.put('/api/flows/:id', flowController.update);
+    app.get('/api/flows/:id', flowController.getFlow);
+    app.delete('/api/flows/:id', flowController.delete);
+    app.get('/api/flows', flowController.getAllFlows);
+    app.post('/api/flows/:id/instance', flowDeployController.startInstance);
+    app.delete('/api/flows/:id/instance', flowDeployController.stopInstance);
+
+    app.get('/api/flow-auth-credentials/:id', flowAuthCredentialsController.show);
+
+    app.get('/api/flow_node_types', flowNodeTypeController.getFlowNodeTypes);
+
+    app.get('/api/groups', groupController.getGroups);
+    app.post('/api/groups', groupController.addGroup);
+    app.get('/api/groups/operators', groupController.getOperatorsGroup);
+    app.get('/api/groups/contain/:uuid', groupController.getGroupsContainingResource);
+    app.delete('/api/groups/:uuid', groupController.deleteGroup);
+    app.put('/api/groups/:uuid', groupController.updateGroup);
+    app.get('/api/groups/:uuid', groupController.getGroupById);
+
+    app.post('/api/invitation/request', invitationController.requestInvite);
+
+    app.get('/api/node_types', nodeTypeController.index);
+    app.get('/api/nodes', nodeController.index);
+
+    app.get('/api/session', sessionController.show);
+
+    app.get('/api/oauth/app.net',          appNetController.authorize);
+    app.get('/api/oauth/app.net/callback', appNetController.callback, appNetController.redirectToConfigure);
+
+    app.get('/api/oauth/automatic',          automaticController.authorize);
+    app.get('/api/oauth/automatic/callback', automaticController.callback, automaticController.redirectToConfigure);
+
+    app.get('/api/oauth/bitly',          bitlyController.authorize);
+    app.get('/api/oauth/bitly/callback', bitlyController.callback, bitlyController.redirectToConfigure);
+
+    app.get('/api/oauth/box',          boxController.authorize);
+    app.get('/api/oauth/box/callback', boxController.callback, boxController.redirectToConfigure);
+
+    app.get('/api/oauth/doubleclicksearch',          referrer.storeReferrer, googleController.authorize);
+    app.get('/api/oauth/doubleclicksearch/callback', googleController.callback, signupController.checkInTester, referrer.restoreReferrer, referrer.redirectToReferrer, googleController.redirectToConfigure);
+
+    app.get('/api/oauth/dropbox',          dropboxController.authorize);
+    app.get('/api/oauth/dropbox/callback', dropboxController.callback, dropboxController.redirectToConfigure);
+
+    app.get('/api/oauth/facebook',          referrer.storeReferrer, facebookController.authorize);
+    app.get('/api/oauth/facebook/callback', facebookController.callback, signupController.checkInTester, referrer.restoreReferrer, referrer.redirectToReferrer, facebookController.redirectToConfigure);
+
+    app.get('/api/oauth/fitbit',          fitbitController.authorize);
+    app.get('/api/oauth/fitbit/callback', fitbitController.callback, fitbitController.redirectToConfigure);
+
+    app.get('/api/oauth/flic',          flicController.authorize);
+    app.get('/api/oauth/flic/callback', flicController.callback, flicController.redirectToConfigure);
+
+    app.get('/api/oauth/foursquare',          fourSquareController.authorize);
+    app.get('/api/oauth/foursquare/callback', fourSquareController.callback, fourSquareController.redirectToConfigure);
+
+    app.get('/api/oauth/github',          referrer.storeReferrer, githubController.authorize);
+    app.get('/api/oauth/github/callback', githubController.callback, signupController.checkInTester, referrer.restoreReferrer, referrer.redirectToReferrer, githubController.redirectToConfigure);
+
+    app.get('/api/oauth/google',          referrer.storeReferrer, googleController.authorize);
+    app.get('/api/oauth/google/callback', googleController.callback, signupController.checkInTester, referrer.restoreReferrer, referrer.redirectToReferrer, googleController.redirectToConfigure);
+
+    app.get('/api/oauth/google-*',          referrer.storeReferrer, googleController.authorize);
+    app.get('/api/oauth/google-*/callback', googleController.callback, signupController.checkInTester, referrer.restoreReferrer, referrer.redirectToReferrer, googleController.redirectToConfigure);
+
+    app.get('/api/oauth/goToAssist',          goToAssistController.authorize);
+    app.get('/api/oauth/goToAssist/callback', goToAssistController.callback, goToAssistController.redirectToConfigure);
+
+    app.get('/api/oauth/goToMeeting',          goToMeetingController.authorize);
+    app.get('/api/oauth/goToMeeting/callback', goToMeetingController.callback, goToMeetingController.redirectToConfigure);
+
+    app.get('/api/oauth/gotomeeting-free', goToMeetingFreeController.authorize, goToMeetingFreeController.redirectToConfigure);
+
+    app.get('/api/oauth/goToTraining',          goToTrainingController.authorize);
+    app.get('/api/oauth/goToTraining/callback', goToTrainingController.callback, goToTrainingController.redirectToConfigure);
+
+    app.get('/api/oauth/goToWebinar',          goToWebinarController.authorize);
+    app.get('/api/oauth/goToWebinar/callback', goToWebinarController.callback, goToWebinarController.redirectToConfigure);
+
+    app.get('/api/oauth/instagram',          instagramController.authorize);
+    app.get('/api/oauth/instagram/callback', instagramController.callback, instagramController.redirectToConfigure);
+
+    app.get('/api/oauth/jawbone',          jawboneController.authorize);
+    app.get('/api/oauth/jawbone/callback', jawboneController.callback, jawboneController.redirectToConfigure);
+
+    app.get('/api/oauth/linked-in',          linkedinController.authorize);
+    app.get('/api/oauth/linked-in/callback', linkedinController.callback, linkedinController.redirectToConfigure);
+
+    app.post('/api/littlebits/auth', littlebitsController.authorize, littlebitsController.redirectToConfigure);
+
+    app.get('/api/oauth/nest',          nestController.authorize);
+    app.get('/api/oauth/nest/callback', nestController.callback, nestController.redirectToConfigure);
+
+    app.get('/api/oauth/octoblu',          octobluController.authorize);
+    app.get('/api/oauth/octoblu/callback', octobluController.callback, octobluController.redirectToConfigure);
+
+    app.get('/api/oauth/podio',          podioController.authorize);
+    app.get('/api/oauth/podio/callback', podioController.callback, podioController.redirectToConfigure);
+
+    app.get('/api/oauth/quickbooks',          quickBooksController.authorize);
+    app.get('/api/oauth/quickbooks/callback', quickBooksController.callback, quickBooksController.redirectToConfigure);
+
+    app.get('/api/oauth/rdio',          rdioController.authorize);
+    app.get('/api/oauth/rdio/callback', rdioController.callback, rdioController.redirectToConfigure);
+
+    app.get('/api/oauth/readability',          readabilityController.authorize);
+    app.get('/api/oauth/readability/callback', readabilityController.callback, readabilityController.redirectToConfigure);
+
+    app.get('/api/oauth/redbooth',          redBoothController.authorize);
+    app.get('/api/oauth/redbooth/callback', redBoothController.callback, redBoothController.redirectToConfigure);
+
+    app.get('/api/oauth/salesforce',          salesForceController.authorize);
+    app.get('/api/oauth/salesforce/callback', salesForceController.callback, salesForceController.redirectToConfigure);
+
+    app.get('/api/oauth/sharefile',          shareFileController.authorize);
+    app.get('/api/oauth/sharefile/callback', shareFileController.callback, shareFileController.redirectToConfigure);
+
+    app.get('/api/oauth/slack',          slackController.authorize);
+    app.get('/api/oauth/slack/callback', slackController.callback, slackController.redirectToConfigure);
+
+    app.get('/api/oauth/smartsheet',          smartsheetController.authorize);
+    app.get('/api/oauth/smartsheet/callback', smartsheetController.callback, smartsheetController.redirectToConfigure);
+
+    app.get('/api/oauth/spotify',          spotifyController.authorize);
+    app.get('/api/oauth/spotify/callback', spotifyController.callback, spotifyController.redirectToConfigure);
+
+    app.get('/api/oauth/survey-monkey',          surveyMonkeyController.authorize);
+    app.get('/api/oauth/survey-monkey/callback', surveyMonkeyController.callback, surveyMonkeyController.redirectToConfigure);
+
+    app.get('/api/oauth/swarm',          fourSquareController.authorize);
+    app.get('/api/oauth/swarm/callback', fourSquareController.callback, fourSquareController.redirectToConfigure);
+
+    app.get('/api/oauth/thingiverse',          thingiverseController.authorize);
+    app.get('/api/oauth/thingiverse/callback', thingiverseController.callback, thingiverseController.redirectToConfigure);
+
+    app.get('/api/oauth/twitter',          referrer.storeReferrer, twitterController.authorize);
+    app.get('/api/oauth/twitter/callback', twitterController.callback, signupController.checkInTester, referrer.restoreReferrer, referrer.redirectToReferrer, twitterController.redirectToConfigure);
+
+    app.get('/api/oauth/uber',          uberController.authorize);
+    app.get('/api/oauth/uber/callback', uberController.callback, uberController.redirectToConfigure);
+
+    app.get('/api/oauth/uservoice',          userVoiceController.authorize);
+    app.get('/api/oauth/uservoice/callback', userVoiceController.callback, userVoiceController.redirectToConfigure);
+
+    app.get('/api/oauth/vimeo',          vimeoController.authorize);
+    app.get('/api/oauth/vimeo/callback', vimeoController.callback, vimeoController.redirectToConfigure);
+
+    app.get('/api/oauth/withings',          withingsController.authorize);
+    app.get('/api/oauth/withings/callback', withingsController.callback, withingsController.redirectToConfigure);
+
+    app.get('/api/oauth/wordpress',          wordPressController.authorize);
+    app.get('/api/oauth/wordpress/callback', wordPressController.callback, wordPressController.redirectToConfigure);
+
+    app.get('/api/oauth/xero',          xeroController.authorize);
+    app.get('/api/oauth/xero/callback', xeroController.callback, xeroController.redirectToConfigure);
+
+    app.get('/api/oauth/youtube',          referrer.storeReferrer, googleController.authorize);
+    app.get('/api/oauth/youtube/callback', googleController.callback, signupController.checkInTester, referrer.restoreReferrer, referrer.redirectToReferrer, googleController.redirectToConfigure);
+
+    app.get('/api/echosign/auth', echoSignController.authorize, echoSignController.redirectToConfigure);
+
+    app.post('/api/tesla/auth', teslaController.authorize, teslaController.redirectToConfigure);
+
+    app.get('/api/travis-ci/auth', travisCIController.authorize, travisCIController.redirectToConfigure);
+    app.get('/api/travis-ci-pro/auth', travisCIProController.authorize, travisCIProController.redirectToConfigure);
+
+    app.post('/api/wink/auth', winkController.authorize, winkController.redirectToConfigure);
+
+    app.post('/api/witai/auth', witaiController.authorize, witaiController.redirectToConfigure);
+
+    app.post('/api/templates',  templateController.create);
+
+    app.get('/api/templates',   templateController.getAllTemplates,
+                                templateController.addOwnerNames);
+
+    app.get('/api/templates/public',  templateController.findByPublic,
+                                      templateController.addOwnerNames);
+
+    app.put('/api/templates/:id/like', templateController.like);
+
+    app.delete('/api/templates/:id/unlike', templateController.unlike);
+
+    app.delete('/api/templates/:id', templateController.delete);
+
+    app.put('/api/templates/:id', templateController.update);
+
+    app.get('/api/templates/:id', templateController.findOne);
+
+    app.post('/api/templates/:id/flows', templateController.importTemplate);
+
+    app.post('/api/templates/raw',  templateController.createRaw);
+
+    app.all('/api/templates*', templateController.send);
+
+    app.get('/api/flows/:flowId/templates', templateController.withFlowId);
+
+    app.get('/api/users/:uuid/templates', templateController.withUserUUID);
+
+    app.get('/api/topics/summary', topicSummaryController.show);
+    app.get('/api/messages/summary', messageSummaryController.show);
+    app.get('/api/general/search', generalSearchController.show);
+
+    app.all(['/api/*', '/angular/*', '/assets/*', '/lib/*', '/pages/*'], function(req, res) {
+      res.send(404, req.url);
     });
-
-    conn.on('error', function(error){
-        console.error(error.msg);
-        console.error(error.stack);
-        process.exit(1);
-    });
-
-    conn.on('disconnect', function(){
-        process.exit(1);
-    });
-
-    // Attach additional routes
-    conn.once('ready', function(data){
-        console.log('SkyNet authentication: success');
-        try {
-            app.post('/api/webhooks/:id', webhookController.trigger);
-
-            require('./controllers/auth-controller')(app, passport, config);
-            require('./controllers/channel')(app);
-            require('./controllers/connect')(app, passport, config);
-            require('./controllers/cors')(app);
-            require('./controllers/elastic')(app);
-            require('./controllers/message')(app, conn);
-            require('./controllers/session')(app, passport, config);
-            require('./controllers/unlink')(app);
-            require('./controllers/user')(app);
-            require('./controllers/permissions')(app);
-            require('./controllers/designer')(app);
-            require('./controllers/invitation')(app, passport, config);
-
-            app.post('/api/channel/aws/channel/:id', channelAWSAuthController.create);
-            app.post('/api/channel/google-places/channel/:id', channelGooglePlacesController.create);
-            app.post('/api/channel/basic/channel/:id', channelBasicAuthController.create);
-            app.post('/api/channel/apikey/channel/:id', channelApiKeyController.create);
-
-            app.post('/api/auth/signup', signupController.checkForExistingUser, signupController.createUser);
-            app.get('/api/oauth/facebook/signup', signupController.verifyInvitationCode, signupController.storeTesterId, facebookController.authorize);
-            app.get('/api/oauth/github/signup', signupController.verifyInvitationCode, signupController.storeTesterId, githubController.authorize);
-            app.get('/api/oauth/google/signup', signupController.verifyInvitationCode, signupController.storeTesterId, googleController.authorize);
-            app.get('/api/oauth/twitter/signup', signupController.verifyInvitationCode, signupController.storeTesterId, twitterController.authorize);
-
-            app.post('/api/octos', octoController.create)
-            app.delete('/api/octos/:octoUuid', octoController.delete)
-
-            app.post('/api/demo_flows', demoFlowController.create);
-
-            app.post('/api/flows', flowController.create);
-            app.put('/api/flows/:id', flowController.update);
-            app.get('/api/flows/:id', flowController.getFlow);
-            app.delete('/api/flows/:id', flowController.delete);
-            app.get('/api/flows', flowController.getAllFlows);
-            app.post('/api/flows/:id/instance', flowDeployController.startInstance);
-            app.delete('/api/flows/:id/instance', flowDeployController.stopInstance);
-
-            app.get('/api/flow-auth-credentials/:id', flowAuthCredentialsController.show);
-
-            app.get('/api/flow_node_types', flowNodeTypeController.getFlowNodeTypes);
-
-            app.get('/api/groups', groupController.getGroups);
-            app.post('/api/groups', groupController.addGroup);
-            app.get('/api/groups/operators', groupController.getOperatorsGroup);
-            app.get('/api/groups/contain/:uuid', groupController.getGroupsContainingResource);
-            app.delete('/api/groups/:uuid', groupController.deleteGroup);
-            app.put('/api/groups/:uuid', groupController.updateGroup);
-            app.get('/api/groups/:uuid', groupController.getGroupById);
-
-            app.post('/api/invitation/request', invitationController.requestInvite);
-
-            app.get('/api/node_types', nodeTypeController.index);
-            app.get('/api/nodes', nodeController.index);
-
-            app.get('/api/session', sessionController.show);
-
-            app.get('/api/oauth/app.net',          appNetController.authorize);
-            app.get('/api/oauth/app.net/callback', appNetController.callback, appNetController.redirectToConfigure);
-
-            app.get('/api/oauth/automatic',          automaticController.authorize);
-            app.get('/api/oauth/automatic/callback', automaticController.callback, automaticController.redirectToConfigure);
-
-            app.get('/api/oauth/bitly',          bitlyController.authorize);
-            app.get('/api/oauth/bitly/callback', bitlyController.callback, bitlyController.redirectToConfigure);
-
-            app.get('/api/oauth/box',          boxController.authorize);
-            app.get('/api/oauth/box/callback', boxController.callback, boxController.redirectToConfigure);
-
-            app.get('/api/oauth/doubleclicksearch',          referrer.storeReferrer, googleController.authorize);
-            app.get('/api/oauth/doubleclicksearch/callback', googleController.callback, signupController.checkInTester, referrer.restoreReferrer, referrer.redirectToReferrer, googleController.redirectToConfigure);
-
-            app.get('/api/oauth/dropbox',          dropboxController.authorize);
-            app.get('/api/oauth/dropbox/callback', dropboxController.callback, dropboxController.redirectToConfigure);
-
-            app.get('/api/oauth/facebook',          referrer.storeReferrer, facebookController.authorize);
-            app.get('/api/oauth/facebook/callback', facebookController.callback, signupController.checkInTester, referrer.restoreReferrer, referrer.redirectToReferrer, facebookController.redirectToConfigure);
-
-            app.get('/api/oauth/fitbit',          fitbitController.authorize);
-            app.get('/api/oauth/fitbit/callback', fitbitController.callback, fitbitController.redirectToConfigure);
-
-            app.get('/api/oauth/flic',          flicController.authorize);
-            app.get('/api/oauth/flic/callback', flicController.callback, flicController.redirectToConfigure);
-
-            app.get('/api/oauth/foursquare',          fourSquareController.authorize);
-            app.get('/api/oauth/foursquare/callback', fourSquareController.callback, fourSquareController.redirectToConfigure);
-
-            app.get('/api/oauth/github',          referrer.storeReferrer, githubController.authorize);
-            app.get('/api/oauth/github/callback', githubController.callback, signupController.checkInTester, referrer.restoreReferrer, referrer.redirectToReferrer, githubController.redirectToConfigure);
-
-            app.get('/api/oauth/google',          referrer.storeReferrer, googleController.authorize);
-            app.get('/api/oauth/google/callback', googleController.callback, signupController.checkInTester, referrer.restoreReferrer, referrer.redirectToReferrer, googleController.redirectToConfigure);
-
-            app.get('/api/oauth/google-*',          referrer.storeReferrer, googleController.authorize);
-            app.get('/api/oauth/google-*/callback', googleController.callback, signupController.checkInTester, referrer.restoreReferrer, referrer.redirectToReferrer, googleController.redirectToConfigure);
-
-            app.get('/api/oauth/goToAssist',          goToAssistController.authorize);
-            app.get('/api/oauth/goToAssist/callback', goToAssistController.callback, goToAssistController.redirectToConfigure);
-
-            app.get('/api/oauth/goToMeeting',          goToMeetingController.authorize);
-            app.get('/api/oauth/goToMeeting/callback', goToMeetingController.callback, goToMeetingController.redirectToConfigure);
-
-            app.get('/api/oauth/gotomeeting-free', goToMeetingFreeController.authorize, goToMeetingFreeController.redirectToConfigure);
-
-            app.get('/api/oauth/goToTraining',          goToTrainingController.authorize);
-            app.get('/api/oauth/goToTraining/callback', goToTrainingController.callback, goToTrainingController.redirectToConfigure);
-
-            app.get('/api/oauth/goToWebinar',          goToWebinarController.authorize);
-            app.get('/api/oauth/goToWebinar/callback', goToWebinarController.callback, goToWebinarController.redirectToConfigure);
-
-            app.get('/api/oauth/instagram',          instagramController.authorize);
-            app.get('/api/oauth/instagram/callback', instagramController.callback, instagramController.redirectToConfigure);
-
-            app.get('/api/oauth/jawbone',          jawboneController.authorize);
-            app.get('/api/oauth/jawbone/callback', jawboneController.callback, jawboneController.redirectToConfigure);
-
-            app.get('/api/oauth/linked-in',          linkedinController.authorize);
-            app.get('/api/oauth/linked-in/callback', linkedinController.callback, linkedinController.redirectToConfigure);
-
-            app.post('/api/littlebits/auth', littlebitsController.authorize, littlebitsController.redirectToConfigure);
-
-            app.get('/api/oauth/nest',          nestController.authorize);
-            app.get('/api/oauth/nest/callback', nestController.callback, nestController.redirectToConfigure);
-
-            app.get('/api/oauth/octoblu',          octobluController.authorize);
-            app.get('/api/oauth/octoblu/callback', octobluController.callback, octobluController.redirectToConfigure);
-
-            app.get('/api/oauth/podio',          podioController.authorize);
-            app.get('/api/oauth/podio/callback', podioController.callback, podioController.redirectToConfigure);
-
-            app.get('/api/oauth/quickbooks',          quickBooksController.authorize);
-            app.get('/api/oauth/quickbooks/callback', quickBooksController.callback, quickBooksController.redirectToConfigure);
-
-            app.get('/api/oauth/rdio',          rdioController.authorize);
-            app.get('/api/oauth/rdio/callback', rdioController.callback, rdioController.redirectToConfigure);
-
-            app.get('/api/oauth/readability',          readabilityController.authorize);
-            app.get('/api/oauth/readability/callback', readabilityController.callback, readabilityController.redirectToConfigure);
-
-            app.get('/api/oauth/redbooth',          redBoothController.authorize);
-            app.get('/api/oauth/redbooth/callback', redBoothController.callback, redBoothController.redirectToConfigure);
-
-            app.get('/api/oauth/salesforce',          salesForceController.authorize);
-            app.get('/api/oauth/salesforce/callback', salesForceController.callback, salesForceController.redirectToConfigure);
-
-            app.get('/api/oauth/sharefile',          shareFileController.authorize);
-            app.get('/api/oauth/sharefile/callback', shareFileController.callback, shareFileController.redirectToConfigure);
-
-            app.get('/api/oauth/slack',          slackController.authorize);
-            app.get('/api/oauth/slack/callback', slackController.callback, slackController.redirectToConfigure);
-
-            app.get('/api/oauth/smartsheet',          smartsheetController.authorize);
-            app.get('/api/oauth/smartsheet/callback', smartsheetController.callback, smartsheetController.redirectToConfigure);
-
-            app.get('/api/oauth/spotify',          spotifyController.authorize);
-            app.get('/api/oauth/spotify/callback', spotifyController.callback, spotifyController.redirectToConfigure);
-
-            app.get('/api/oauth/survey-monkey',          surveyMonkeyController.authorize);
-            app.get('/api/oauth/survey-monkey/callback', surveyMonkeyController.callback, surveyMonkeyController.redirectToConfigure);
-
-            app.get('/api/oauth/swarm',          fourSquareController.authorize);
-            app.get('/api/oauth/swarm/callback', fourSquareController.callback, fourSquareController.redirectToConfigure);
-
-            app.get('/api/oauth/thingiverse',          thingiverseController.authorize);
-            app.get('/api/oauth/thingiverse/callback', thingiverseController.callback, thingiverseController.redirectToConfigure);
-
-            app.get('/api/oauth/twitter',          referrer.storeReferrer, twitterController.authorize);
-            app.get('/api/oauth/twitter/callback', twitterController.callback, signupController.checkInTester, referrer.restoreReferrer, referrer.redirectToReferrer, twitterController.redirectToConfigure);
-
-            app.get('/api/oauth/uber',          uberController.authorize);
-            app.get('/api/oauth/uber/callback', uberController.callback, uberController.redirectToConfigure);
-
-            app.get('/api/oauth/uservoice',          userVoiceController.authorize);
-            app.get('/api/oauth/uservoice/callback', userVoiceController.callback, userVoiceController.redirectToConfigure);
-
-            app.get('/api/oauth/vimeo',          vimeoController.authorize);
-            app.get('/api/oauth/vimeo/callback', vimeoController.callback, vimeoController.redirectToConfigure);
-
-            app.get('/api/oauth/withings',          withingsController.authorize);
-            app.get('/api/oauth/withings/callback', withingsController.callback, withingsController.redirectToConfigure);
-
-            app.get('/api/oauth/wordpress',          wordPressController.authorize);
-            app.get('/api/oauth/wordpress/callback', wordPressController.callback, wordPressController.redirectToConfigure);
-
-            app.get('/api/oauth/xero',          xeroController.authorize);
-            app.get('/api/oauth/xero/callback', xeroController.callback, xeroController.redirectToConfigure);
-
-            app.get('/api/oauth/youtube',          referrer.storeReferrer, googleController.authorize);
-            app.get('/api/oauth/youtube/callback', googleController.callback, signupController.checkInTester, referrer.restoreReferrer, referrer.redirectToReferrer, googleController.redirectToConfigure);
-
-            app.get('/api/echosign/auth', echoSignController.authorize, echoSignController.redirectToConfigure);
-
-            app.post('/api/tesla/auth', teslaController.authorize, teslaController.redirectToConfigure);
-
-            app.get('/api/travis-ci/auth', travisCIController.authorize, travisCIController.redirectToConfigure);
-            app.get('/api/travis-ci-pro/auth', travisCIProController.authorize, travisCIProController.redirectToConfigure);
-
-            app.post('/api/wink/auth', winkController.authorize, winkController.redirectToConfigure);
-
-            app.post('/api/witai/auth', witaiController.authorize, witaiController.redirectToConfigure);
-
-            app.post('/api/templates',  templateController.create);
-
-            app.get('/api/templates',   templateController.getAllTemplates,
-                                        templateController.addOwnerNames);
-
-            app.get('/api/templates/public',  templateController.findByPublic,
-                                              templateController.addOwnerNames);
-
-            app.put('/api/templates/:id/like', templateController.like);
-
-            app.delete('/api/templates/:id/unlike', templateController.unlike);
-
-            app.delete('/api/templates/:id', templateController.delete);
-
-            app.put('/api/templates/:id', templateController.update);
-
-            app.get('/api/templates/:id', templateController.findOne);
-
-            app.post('/api/templates/:id/flows', templateController.importTemplate);
-
-            app.post('/api/templates/raw',  templateController.createRaw);
-
-            app.all('/api/templates*', templateController.send);
-
-            app.get('/api/flows/:flowId/templates', templateController.withFlowId);
-
-            app.get('/api/users/:uuid/templates', templateController.withUserUUID);
-
-            app.get('/api/topics/summary', topicSummaryController.show);
-            app.get('/api/messages/summary', messageSummaryController.show);
-            app.get('/api/general/search', generalSearchController.show);
-
-            app.all(['/api/*', '/angular/*', '/assets/*', '/lib/*', '/pages/*'], function(req, res) {
-                res.send(404, req.url);
-            });
-        } catch(err) {
-            console.log(err.stack);
-            throw err;
-        }
-    }); // end skynet (and everything else)
 };

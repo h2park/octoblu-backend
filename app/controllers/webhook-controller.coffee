@@ -1,7 +1,9 @@
+MeshbluHttp = require 'meshblu-http'
+
 class WebhookController
   constructor: (options={}) ->
-    @meshblu = options.meshblu
     @Flow = options.Flow ? require '../models/flow'
+    @meshbluHttp = new MeshbluHttp options.meshbluJSON
 
   trigger: (request, response) =>
     triggerId = request.params.id
@@ -14,7 +16,7 @@ class WebhookController
             from: triggerId
             params: request.body
 
-        @meshblu.message message
+        @meshbluHttp.message message
         response.status(201).end()
       .then null, (err) =>
         response.status(404).end()

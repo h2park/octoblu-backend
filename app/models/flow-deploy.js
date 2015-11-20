@@ -13,7 +13,7 @@ var _ = require('lodash'),
 var FlowDeploy = function(options){
   var User = require('../models/user');
 
-  var self, config, request, userUUID, userToken, meshblu, deploymentUuid;
+  var self, config, request, userUUID, userToken, meshbluJSON, deploymentUuid;
   self = this;
 
   options         = options || {};
@@ -23,7 +23,7 @@ var FlowDeploy = function(options){
   deploymentUuid  = options.deploymentUuid || 'unset';
   config          = options.config  || require('../../config/auth');
   request         = options.request || require('request');
-  meshblu         = options.meshblu;
+  meshbluJSON     = options.meshbluJSON;
 
   self.convertFlow = function(flow){
     var convertedNodes = [];
@@ -256,7 +256,7 @@ var FlowDeploy = function(options){
   };
 };
 
-FlowDeploy.start = function(userUUID, userToken, flow, meshblu, deploymentUuid){
+FlowDeploy.start = function(userUUID, userToken, flow, meshbluJSON, deploymentUuid){
   var flowDeploy, mergedFlow, flowDevice, user, deviceCollection, flowStatusMessenger;
 
   flowStatusMessenger = new FlowStatusMessenger({
@@ -269,7 +269,7 @@ FlowDeploy.start = function(userUUID, userToken, flow, meshblu, deploymentUuid){
 
   flowStatusMessenger.message('begin');
 
-  flowDeploy = new FlowDeploy({userUUID: userUUID, userToken: userToken, meshblu: meshblu, deploymentUuid: deploymentUuid});
+  flowDeploy = new FlowDeploy({userUUID: userUUID, userToken: userToken, meshbluJSON: meshbluJSON, deploymentUuid: deploymentUuid});
 
   if (flow) {
     return flowDeploy.setDeploying(flow).then(function(){
@@ -298,7 +298,7 @@ FlowDeploy.start = function(userUUID, userToken, flow, meshblu, deploymentUuid){
   // });
 };
 
-FlowDeploy.stop = function(userUUID, userToken, flow, meshblu, deploymentUuid){
+FlowDeploy.stop = function(userUUID, userToken, flow, meshbluJSON, deploymentUuid){
   var flowDeploy, flowDevice, flowStatusMessenger;
 
   flowStatusMessenger = new FlowStatusMessenger({
@@ -311,7 +311,7 @@ FlowDeploy.stop = function(userUUID, userToken, flow, meshblu, deploymentUuid){
 
   flowStatusMessenger.message('begin');
 
-  flowDeploy = new FlowDeploy({userUUID: userUUID, userToken: userToken, meshblu: meshblu, deploymentUuid: deploymentUuid});
+  flowDeploy = new FlowDeploy({userUUID: userUUID, userToken: userToken, meshbluJSON: meshbluJSON, deploymentUuid: deploymentUuid});
 
   return flowDeploy.setStopping(flow).then(function(){
     return flowDeploy.stopNanocyteFlow(flow);

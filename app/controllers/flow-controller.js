@@ -2,15 +2,15 @@ var _ = require('lodash');
 
 module.exports = function (options) {
   var self = this;
-  var meshblu, Flow;
+  var meshbluJSON, Flow;
 
   options = options || {};
 
   Flow    = options.Flow || require('../models/flow');
-  meshblu = options.meshblu;
+  meshbluJSON = options.meshbluJSON;
 
   self.create = function (req, res) {
-    Flow.createByUserUUID(req.user.resource.uuid, req.body, meshblu).then(function(flow){
+    Flow.createByUserUUID(req.user.resource.uuid, req.body, meshbluJSON).then(function(flow){
       res.send(201, flow);
     }, function(error) {
       res.send(422, error);
@@ -38,7 +38,7 @@ module.exports = function (options) {
       if (!flow) {
         return res.status(404).json({error: 'Flow not found'});
       }
-      
+
       res.send(flow);
     }, function(error){
       res.send(500, error);
@@ -46,7 +46,7 @@ module.exports = function (options) {
   };
 
   self.delete = function (req, res) {
-    Flow.deleteByFlowIdAndUser(req.params.id, req.uuid, req.token, meshblu)
+    Flow.deleteByFlowIdAndUser(req.params.id, req.uuid, req.token, meshbluJSON)
       .then(function(){
         res.send(204);
       }, function (err) {
