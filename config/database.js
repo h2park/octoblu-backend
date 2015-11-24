@@ -30,8 +30,8 @@ var config = {
         sessionSecret: 'e2em2miotskynetZOMGBBQ',
         sessionDatabase : 'redis',
         databaseType : 'mongodb',
-        url : 'mongodb://172.31.33.28:27017/octoblu,mongodb://172.31.38.108:27017/octoblu,mongodb://172.31.32.97:27017/octoblu',
-        mongojsUrl : '172.31.33.28,172.31.38.108,172.31.32.97/octoblu?slaveOk=true',
+        url : 'mongodb://[user]:[password]@lighthouse.4.mongolayer.com:10212,lighthouse.5.mongolayer.com:10212/octoblu?replicaSet=set-5654a6a9e73ab307ec000ca8',
+        mongojsUrl : 'octoblu:VPXrCesMmXayJzSET3qW@lighthouse.4.mongolayer.com:10212,lighthouse.5.mongolayer.com:10212/octoblu?replicaSet=set-5654a6a9e73ab307ec000ca8',
         redisSessionUrl: process.env.REDIS_URL || 'redis://meshblu-redis.csy8op.0001.usw2.cache.amazonaws.com'
     },
     nedb: {
