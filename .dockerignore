@@ -2,3 +2,6 @@
 .kubernetes
 node_modules
 test
+assets/json/channels.json
+assets/json/nodetypes.json
+assets/json/operations.json

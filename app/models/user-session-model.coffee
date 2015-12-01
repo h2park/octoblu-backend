@@ -3,7 +3,6 @@ async = require 'async'
 _ = require 'lodash'
 debug = require('debug')('octoblu:user-session-model')
 nodefn = require 'when/node'
-config = require '../../config/auth'
 MeshbluHTTP = require 'meshblu-http'
 
 class UserSession
@@ -31,10 +30,10 @@ class UserSession
 
   createNewSessionToken: (uuid, token, callback) =>
     debug('createNewSessionToken', uuid, token)
-    @_meshbluCreateSessionToken uuid, token, (error, response, body) =>
+    meshbluHTTP = @_getMeshbluHTTP {uuid, token}
+    meshbluHTTP.generateAndStoreToken uuid, (error, response) =>
       return callback error if error?
-      return callback new Error(UserSession.ERROR_FAILED_TO_GET_SESSION_TOKEN) unless response.statusCode == 200
-      callback null, body.token
+      callback null, response.token
 
   createUser: (uuid, callback=->) =>
     @users
@@ -70,12 +69,7 @@ class UserSession
     nodefn.bindCallback @users.findOne('skynet.uuid': uuid), callback
 
   invalidateOneTimeToken: (uuid, token, callback=->) =>
-    meshbluHTTP = new MeshbluHTTP
-      uuid: uuid
-      token: token
-      server: config.skynet.host
-      port: config.skynet.port
-
+    meshbluHTTP = @_getMeshbluHTTP {uuid, token}
     meshbluHTTP.revokeToken uuid, token, (error) =>
       callback error
 
@@ -133,5 +127,12 @@ class UserSession
     #   return callback error if error?
     #   return callback null unless reply?
     #   callback null, JSON.parse(reply)
+
+  _getMeshbluHTTP: ({uuid, token}) =>
+    new MeshbluHTTP
+      uuid: uuid
+      token: token
+      server: @config.skynet.host
+      port: @config.skynet.port
 
 module.exports = UserSession
