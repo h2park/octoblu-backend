@@ -278,7 +278,8 @@ FlowDeploy.start = function(userUUID, userToken, flow, meshbluJSON, deploymentUu
       flowStatusMessenger.message('end');
     }).catch(function(error){
       flowStatusMessenger.message('error', error.message);
-      throw new Error(error);
+      debug(error.stack);
+      // throw new Error(error);
     });
   }
 
@@ -320,7 +321,8 @@ FlowDeploy.stop = function(userUUID, userToken, flow, meshbluJSON, deploymentUui
     flowStatusMessenger.message('end');
   }).catch(function(error){
     flowStatusMessenger.message('error', error.message);
-    throw new Error(error);
+    debug(error.stack);
+    // throw new Error(error);
   });
 };
 
