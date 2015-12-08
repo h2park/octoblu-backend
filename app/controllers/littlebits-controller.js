@@ -9,7 +9,7 @@ function LittlebitsController(){
     User.addApiAuthorization(req.user, 'channel:littlebits', channelData).then(function(){
         res.send(201);
       }).catch(function(error){
-        console.error(error);
+        console.error(error.stack);
         res.send(422);
       });
   };

@@ -27,7 +27,7 @@ var SignupController = function () {
       //   console.log('User.update returned');
       //   next();
       // }).catch(function(error){
-      //   console.error(error);
+      //   console.error(error.stack);
       //   next();
       // });
     });

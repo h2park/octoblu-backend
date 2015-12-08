@@ -43,7 +43,7 @@ var permissionsController = {
             res.send(200, resourcePermission);
         }).catch(function(error) {
             if (error) {
-                console.error(error);
+                console.error(error.stack);
                 res.send(500, error);
                 return;
             }

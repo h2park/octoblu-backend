@@ -39,7 +39,7 @@ module.exports = function (app) {
         User.update({_id: user._id}, user).then(function(){
             res.json(user);
         }).catch(function(error){
-            console.error(error);
+            console.error(error.stack);
             res.send(422, error);
         });
     };
@@ -55,7 +55,7 @@ module.exports = function (app) {
         User.update({_id: user._id}, user).then(function(){
             res.json(user);
         }).catch(function(error){
-            console.error(error);
+            console.error(error.stack);
             res.send(422, error);
         });
     };
@@ -68,7 +68,7 @@ module.exports = function (app) {
         User.update({_id: user._id}, user).then(function(){
             response.json(user);
         }).catch(function(error){
-            console.error(error);
+            console.error(error.stack);
             response.send(422, error);
         });
     };

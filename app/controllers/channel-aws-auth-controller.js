@@ -10,7 +10,7 @@ function ChannelAWSAuthController(){
     User.update({_id: req.user._id}, req.user).then(function(){
       res.send(201);
     }).catch(function(error){
-      console.error(error);
+      console.error(error.stack);
       res.send(422);
     });
   }

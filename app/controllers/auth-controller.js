@@ -55,7 +55,7 @@ module.exports = function (app, passport, config) {
 
         userSession.invalidateOneTimeToken(uuid, token, function(error){
             if(error) {
-                console.error(error)
+                console.error(error.stack)
                 return res.status(500).end();
             }
 
@@ -180,7 +180,7 @@ module.exports = function (app, passport, config) {
         if (!err) {
             return res.redirect('/connect/nodes/channel/' + channelid);
         } else {
-            console.log('Error: ' + err);
+            console.error(err.stack);
             return res.redirect('/node-wizard/node-wizard/add-channel/'+channelid+'/oauth');
         }
     };
@@ -274,7 +274,7 @@ module.exports = function (app, passport, config) {
                 var oa = getOauth1Instance(req, api);
                 oa.getOAuthRequestToken(function (error, oauth_token, oauth_token_secret, results) {
                     if (error) {
-                        console.log(error);
+                        console.error(error.stack);
                         res.send('yeah no. didn\'t work.')
                     }
                     else {
@@ -395,7 +395,7 @@ module.exports = function (app, passport, config) {
                         client_secret : creds.secret
                     }, function (error, result) {
                         if (error) {
-                            console.log('Access Token Error', error);
+                            console.error('Access Token Error', error.stack);
                             return res.send(500, error);
                         }
 
@@ -421,7 +421,7 @@ module.exports = function (app, passport, config) {
                 oa.getOAuthAccessToken(oauth.token, oauth.token_secret, oauth.verifier,
                     function (error, oauth_access_token, oauth_access_token_secret, results) {
                         if (error) {
-                            console.log(error);
+                            console.error(error.stack);
                             res.redirect(500, '/node-wizard/node-wizard/add-channel/'+channelid+'/oauth');
                         } else {
                             User.addOrUpdateApiByChannelId(user, channelid, 'oauth', null,

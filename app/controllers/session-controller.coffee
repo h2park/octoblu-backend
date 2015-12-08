@@ -8,7 +8,7 @@ class SessionController
     {uuid,token,callbackUrl} = request.query
     userSession = new @dependencies.UserSession
     userSession.create uuid, token, (error, user, sessionToken) =>
-      console.error error if error?
+      console.error error.stack if error?
       return response.status(500).send(SessionController.ERROR_RETRIEVING_SESSION) if error?
       request.user = user
       response.cookie 'meshblu_auth_uuid', uuid

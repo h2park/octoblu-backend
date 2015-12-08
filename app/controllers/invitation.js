@@ -116,7 +116,7 @@ var invitationController = {
         return Invitation.insert(inviteData);
 
       }, function(err) {
-        console.error(err);
+        console.error(err.stack);
       })
       .then(function(invites) {
         var invite = _.first(invites);
@@ -141,7 +141,7 @@ var invitationController = {
 
         mailTransport.sendMail(mailOptions, function(error) {
           if (error) {
-            console.error(error);
+            console.error(error.stack);
             res.json(500, {
               'error': 'Invitation email could not be sent'
             });
@@ -160,7 +160,7 @@ var invitationController = {
     var invitation, sender, recipient;
     Invitation.findByUuid(req.params.id, function(error, invitation) {
       if (error) {
-        console.error(error);
+        console.error(error.stack);
         return res.send(500, error);
       }
 

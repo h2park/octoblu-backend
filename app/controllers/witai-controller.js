@@ -9,7 +9,7 @@ function WitaiController(){
     User.addApiAuthorization(req.user, 'channel:witai', channelData).then(function(){
         res.send(201);
       }).catch(function(error){
-        console.error(error);
+        console.error(error.stack);
         res.send(422);
       });
   };
