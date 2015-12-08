@@ -10,6 +10,7 @@ class SecurityController
   enforceTerms: (request, response, next=->) =>
     return next() unless request.user?
     return response.status(401).end() unless request.user.userDevice?
+    return response.status(401).end() unless request.user.userDevice.uuid == request.meshbluAuth.uuid
     return response.status(401).end() if request.user.userDevice.error?
 
     userAcceptedDate = new Date(request.user.userDevice?.octoblu?.termsAcceptedAt ? null)
