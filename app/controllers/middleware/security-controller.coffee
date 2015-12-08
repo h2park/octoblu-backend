@@ -17,6 +17,7 @@ class SecurityController
     termsDate = new Date '2015-02-13T22:00:00.000Z'
     return next() if userAcceptedDate.getTime() >= termsDate.getTime()
 
+    debug('TERMS:', JSON.stringify(request.user.userDevice), userAcceptedDate, termsDate)
     response.status(403).send 'Terms of service must be accepted'
 
   isAuthenticated: (request, response, next=->) =>
