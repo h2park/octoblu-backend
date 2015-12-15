@@ -70,8 +70,8 @@ var registerFlow = function (meshbluJSON, userUUID) {
   var device = {
     owner: userUUID,
     type: 'octoblu:flow',
-    sendWhitelist: [userUUID, '9b47c2f1-9d9b-11e3-a443-ab1cdce04787', 'b560b6ee-c264-4ed9-b98e-e3376ce6ce64'],
-    receiveWhitelist: [userUUID, '9b47c2f1-9d9b-11e3-a443-ab1cdce04787'],
+    sendWhitelist: [userUUID],
+    receiveWhitelist: [userUUID],
     configureWhitelist: [userUUID]
   }
   var meshbluHttp = new MeshbluHttp(meshbluJSON);
