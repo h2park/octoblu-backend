@@ -79,7 +79,7 @@ describe 'SessionController', ->
         expect(@response.redirect).to.have.been.calledWith '/'
 
       it 'should set the auth_uuid cookie', ->
-        expect(@response.cookie).to.have.been.calledWith 'meshblu_auth_uuid', 'b'
+        expect(@response.cookie).to.have.been.calledWith 'meshblu_auth_uuid', 'b', {maxAge: 1000*60*60*24*30*3}
 
       it 'should set the auth_token cookie', ->
-        expect(@response.cookie).to.have.been.calledWith 'meshblu_auth_token', 'reallypermatoken'
+        expect(@response.cookie).to.have.been.calledWith 'meshblu_auth_token', 'reallypermatoken', {maxAge: 1000*60*60*24*30*3}
