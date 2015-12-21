@@ -3,6 +3,7 @@ var TwitterStrategy = require('passport-twitter').Strategy;
 var User            = require('../../app/models/user');
 var Channel         = require('../../app/models/channel');
 var _               = require('lodash');
+var textCrypt       = require('../../app/lib/textCrypt');
 
 var CONFIG = Channel.syncFindOauthConfigByType('channel:twitter');
 
@@ -50,7 +51,7 @@ var twitterStrategy = new TwitterStrategy(CONFIG,
   ensureUser(req, req.user, profile, function(err, user){
     if(err){ return done(err, user); }
 
-    User.addApiAuthorization(user, 'channel:twitter', {authtype: 'oauth', token: token, secret: secret}).then(function(){
+    User.addApiAuthorization(user, 'channel:twitter', {authtype: 'oauth', token_crypt: textCrypt.encrypt(token), secret_crypt: textCrypt.encrypt(secret)}).then(function(){
       done(null, user);
     }).catch(function(error){
       done(error);
