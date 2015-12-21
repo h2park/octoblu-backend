@@ -3,6 +3,7 @@ var GithubStrategy = require('passport-github').Strategy;
 var User           = require('../../app/models/user');
 var Channel        = require('../../app/models/channel');
 var _              = require('lodash');
+var textCrypt      = require('../../app/lib/textCrypt');
 
 var CONFIG = Channel.syncFindOauthConfigByType('channel:github');
 
@@ -49,7 +50,7 @@ var githubStrategy = new GithubStrategy(CONFIG, function(req, accessToken, refre
   ensureUser(req, req.user, profile, function(err, user){
     if(err){ return done(err, user); }
 
-    User.addApiAuthorization(user, 'channel:github', {authtype: 'oauth', token: accessToken}).then(function(){
+    User.addApiAuthorization(user, 'channel:github', {authtype: 'oauth', token_crypt: textCrypt.encrypt(accessToken)}).then(function(){
       done(null, user);
     }).catch(function(error){
       done(error);

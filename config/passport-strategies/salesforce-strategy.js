@@ -2,6 +2,7 @@
 var SalesForceStrategy = require('passport-forcedotcom').Strategy;
 var User               = require('../../app/models/user');
 var Channel            = require('../../app/models/channel');
+var textCrypt          = require('../../app/lib/textCrypt');
 
 var CONFIG = Channel.syncFindOauthConfigByType('channel:salesforce');
 
@@ -10,7 +11,7 @@ CONFIG.scope = ['id','chatter_api', 'api', 'full', 'refresh_token', 'visualforce
 
 var salesForceStrategy = new SalesForceStrategy(CONFIG, function(req, accessToken, refreshToken, profile, done){
 
-  User.addApiAuthorization(req.user, 'channel:salesforce', {authtype: 'oauth', token: accessToken}).then(function () {
+  User.addApiAuthorization(req.user, 'channel:salesforce', {authtype: 'oauth', token_crypt: textCrypt.encrypt(accessToken)}).then(function () {
     done(null, req.user);
   }).catch(function(error){
     done(error);

@@ -4,6 +4,7 @@ var User           = require('../../app/models/user');
 var Channel        = require('../../app/models/channel');
 var _              = require('lodash');
 var when           = require('when');
+var textCrypt      = require('../../app/lib/textCrypt');
 
 var CONFIG = Channel.syncFindOauthConfigByType('channel:google-plus');
 
@@ -51,11 +52,11 @@ var googleStrategy = new GoogleStrategy(CONFIG,
     if(err){ return done(err, user); }
 
     when.all([
-      User.addApiAuthorization(user, 'channel:google-drive', {authtype: 'oauth', token: token }),
-      User.addApiAuthorization(user, 'channel:google-plus', {authtype: 'oauth', token: token }),
-      User.addApiAuthorization(user, 'channel:youtube', {authtype: 'oauth', token: token }),
-      User.addApiAuthorization(user, 'channel:doubleclicksearch', {authtype: 'oauth', token: token }),
-      User.addApiAuthorization(user, 'channel:google-places', {authtype: 'oauth', token: token }),
+      User.addApiAuthorization(user, 'channel:google-drive', {authtype: 'oauth', token_crypt: textCrypt.encrypt(token) }),
+      User.addApiAuthorization(user, 'channel:google-plus', {authtype: 'oauth', token_crypt: textCrypt.encrypt(token) }),
+      User.addApiAuthorization(user, 'channel:youtube', {authtype: 'oauth', token_crypt: textCrypt.encrypt(token) }),
+      User.addApiAuthorization(user, 'channel:doubleclicksearch', {authtype: 'oauth', token_crypt: textCrypt.encrypt(token) }),
+      User.addApiAuthorization(user, 'channel:google-places', {authtype: 'oauth', token_crypt: textCrypt.encrypt(token) }),
     ]).then(function(){
       return User.findOne({_id: user._id});
     }).then(function(user){

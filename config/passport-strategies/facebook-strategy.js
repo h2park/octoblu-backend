@@ -1,8 +1,9 @@
 'use strict';
 var FacebookStrategy = require('passport-facebook').Strategy;
-var User           = require('../../app/models/user');
-var Channel        = require('../../app/models/channel');
-var _              = require('lodash');
+var User             = require('../../app/models/user');
+var Channel          = require('../../app/models/channel');
+var _                = require('lodash');
+var textCrypt        = require('../../app/lib/textCrypt');
 
 var CONFIG = Channel.syncFindOauthConfigByType('channel:facebook');
 
@@ -49,7 +50,7 @@ var facebookStrategy = new FacebookStrategy(CONFIG, function(req, accessToken, r
   ensureUser(req, req.user, profile, function(err, user){
     if(err){ return done(err, user); }
 
-    User.addApiAuthorization(user, 'channel:facebook', {authtype: 'oauth', token: accessToken}).then(function(){
+    User.addApiAuthorization(user, 'channel:facebook', {authtype: 'oauth', token_crypt: textCrypt.encrypt(accessToken)}).then(function(){
       done(null, user);
     }).catch(function(error){
       done(error);
