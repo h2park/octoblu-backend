@@ -1,6 +1,7 @@
 var request = require('request');
 var Channel = require('../models/channel');
 var User = require('../models/user');
+var textCrypt = require('../lib/textCrypt');
 
 var channelId = '54468c4914d3e4c4645c6e27';
 var CONFIG = Channel.syncFindOauthConfigByType('channel:gotomeeting-free');
@@ -28,7 +29,7 @@ var GotoMeetingFreeController = function(){
         try{
           json = JSON.parse(body);
         }catch(e){ console.log('Error parsing', e); }
-        User.overwriteOrAddApiByChannelId(req.user, channelId, {authtype: 'oauth', token: json.access_token});
+        User.overwriteOrAddApiByChannelId(req.user, channelId, {authtype: 'oauth', token_crypt: textCrypt.encrypt(json.access_token)});
         User.update({_id: req.user._id}, req.user).then(function(){
           next();
         }).catch(function(error){

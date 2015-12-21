@@ -3,6 +3,7 @@ var Channel = require('../models/channel');
 var User = require('../models/user');
 var channelId = '53dfcb87626a43a44f966d0a';
 var applicationCredentials = Channel.syncFindById(channelId).applicationCredentials;
+var textCrypt = require('../lib/textCrypt');
 
 var EchoSignController = function(){
   this.authorize = function(req, res, next){
@@ -20,7 +21,7 @@ var EchoSignController = function(){
           res.redirect('/home');
           return;
         }
-        User.overwriteOrAddApiByChannelId(req.user, channelId, {authtype: 'echosign', token: body.accessToken});
+        User.overwriteOrAddApiByChannelId(req.user, channelId, {authtype: 'echosign', token_crypt: textCrypt.encrypt(body.accessToken)});
         User.update({_id: req.user._id}, req.user).then(function(){
           next();
         }).catch(function(error){

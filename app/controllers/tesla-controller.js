@@ -3,6 +3,7 @@ var when = require('when');
 var Channel = require('../models/channel');
 var User = require('../models/user');
 var channelId = '54aef7242fb43e73e214bb39';
+var textCrypt = require('../lib/textCrypt');
 
 var CONFIG = Channel.syncFindOauthConfigByType('channel:tesla');
 
@@ -38,7 +39,7 @@ var TeslaController = function(){
   this.authorize = function(req, res, next){
     authenticate(req.body.username, req.body.password)
       .then(function(accessToken){
-       User.addApiAuthorization(req.user, 'channel:tesla', {authtype: 'oauth', token: accessToken})
+       User.addApiAuthorization(req.user, 'channel:tesla', {authtype: 'oauth', token_crypt: textCrypt.encrypt(accessToken)})
         .then(function () {
           next(null, req.user);
         }).catch(function(error){

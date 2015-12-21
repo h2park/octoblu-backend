@@ -2,6 +2,7 @@ var request = require('request');
 var when = require('when');
 var Channel = require('../models/channel');
 var User = require('../models/user');
+var textCrypt = require('../lib/textCrypt');
 
 var CONFIG = Channel.syncFindOauthConfigByType('channel:travis-ci-pro');
 
@@ -31,7 +32,7 @@ var TravisCIController = function(){
     var channel = User.findApiByChannelType(req.user.api, 'channel:github');
     authenticate(channel.token)
       .then(function(accessToken){
-        User.addApiAuthorization(req.user, 'channel:travis-ci', {authtype: 'oauth', token: accessToken})
+        User.addApiAuthorization(req.user, 'channel:travis-ci', {authtype: 'oauth', token_crypt: textCrypt.encrypt(accessToken)})
           .then(function () {
             next(null, req.user);
           }).catch(function(error){
