@@ -152,6 +152,9 @@ module.exports = function(app, passport, config, meshbluJSON){
     var RedBoothController = require('./controllers/redbooth-controller');
     var redBoothController = new RedBoothController();
 
+    var RightSignatureController = require('./controllers/rightsignature-controller');
+    var rightsignatureController = new RightSignatureController();
+
     var SalesForceController = require('./controllers/salesforce-controller');
     var salesForceController = new SalesForceController();
 
@@ -356,6 +359,10 @@ module.exports = function(app, passport, config, meshbluJSON){
 
     app.get('/api/oauth/redbooth',          redBoothController.authorize);
     app.get('/api/oauth/redbooth/callback', redBoothController.callback, redBoothController.redirectToConfigure);
+
+    app.get('/api/oauth/rightsignature',          rightsignatureController.authorize);
+    app.get('/api/oauth/rightsignature/callback', rightsignatureController.callback, rightsignatureController.redirectToConfigure);
+
 
     app.get('/api/oauth/salesforce',          salesForceController.authorize);
     app.get('/api/oauth/salesforce/callback', salesForceController.callback, salesForceController.redirectToConfigure);

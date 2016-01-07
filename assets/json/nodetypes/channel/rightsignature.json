@@ -1,0 +1,16 @@
+{
+  "_id": "54a449d8620f5ebb13dbc4f0",
+  "category": "channel",
+  "categories": ["Office"],
+  "description": "Right Signature",
+  "documentation": "http://rightsignature.pbworks.com/w/page/8882240/FrontPage",
+  "helpText": "The easiest, fastest way to get documents filled out and signed online. Get Document information, send out email reminders, update templates, and more.",
+  "enabled": true,
+  "name": "Right Signature",
+  "skynet": {
+    "type": "channel",
+    "subtype": "rightSignature"
+  },
+  "channelid": "54a44e1f620f5ebb13dbc4f1",
+  "type": "channel:rightSignature"
+}
