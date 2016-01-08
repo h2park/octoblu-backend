@@ -1,5 +1,5 @@
 MeshbluHttp = require 'meshblu-http'
-config = require('../../config/auth');
+config      = require '../../config/auth'
 
 class FlowStatusMessenger
   constructor: (options={}) ->
@@ -16,6 +16,7 @@ class FlowStatusMessenger
       devices: [config.flow_logger_uuid]
       payload:
         application: 'api-octoblu'
+        date: Date.now()
         deploymentUuid: @deploymentUuid
         flowUuid: @flowUuid
         userUuid: @userUuid
