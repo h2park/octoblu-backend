@@ -1,7 +1,7 @@
 {
   "_id": "54b403d0fe92b02556f6f81a",
   "category": "channel",
-  "categories": ["Office"],
+  "categories": ["Citrix"],
   "description": "GoToTraining",
   "documentation": "https://developer.citrixonline.com/content/gototraining-api-reference",
   "helpText": "Online training software that lets you hold interactive training sessions with up to 200 people right from your desk. Easily set up course catalogs for promoting your classes and measure learning through built-in testing/ polling. Record your sessions for those who miss the live training session, share up to 6 attendee webcams, and easily charge for your classes/ track your payments online.",

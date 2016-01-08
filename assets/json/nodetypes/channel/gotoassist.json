@@ -1,7 +1,7 @@
 {
   "_id": "54b403a0fe92b02556f6f819",
   "category": "channel",
-  "categories": ["Office"],
+  "categories": ["Citrix"],
   "description": "GoToAssist",
   "documentation": "https://developer.citrixonline.com/api/gotoassist-rs-rest-api",
   "helpText": "Integrate your remote support service with your contact management, customer service, social or other software apps/ business ecosystems. GoToAssist Remote Support provides the ability to initiate attended remote support sessions from external apps and retrieve related session info. This session info can be utilized for incident tracking, reporting, billing, auditing and other purposes.",
