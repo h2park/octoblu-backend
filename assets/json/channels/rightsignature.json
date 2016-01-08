@@ -10,19 +10,19 @@
       "consumerKey": "cWFEaAWOYpJXOK30WGDHw1vL3FWrZUpI4zOhilSN",
       "consumerSecret": "zLKTiSP8vLZVsPV8cu8ZOCOm426kvrekqxcIkLOl",
       "callbackURL": "http://localhost:8080/api/oauth/rightsignature/callback",
-      "tokenMethod": "access_token_query"
+      "tokenMethod": "oauth_token"
     },
     "production": {
       "consumerKey": "cWFEaAWOYpJXOK30WGDHw1vL3FWrZUpI4zOhilSN",
       "consumerSecret": "zLKTiSP8vLZVsPV8cu8ZOCOm426kvrekqxcIkLOl",
       "callbackURL": "https://app.octoblu.com/api/oauth/rightsignature/callback",
-      "tokenMethod": "access_token_query"
+      "tokenMethod": "oauth_token"
     },
     "staging": {
       "consumerKey": "cWFEaAWOYpJXOK30WGDHw1vL3FWrZUpI4zOhilSN",
       "consumerSecret": "zLKTiSP8vLZVsPV8cu8ZOCOm426kvrekqxcIkLOl",
       "callbackURL": "https://staging.octoblu.com/api/oauth/rightsignature/callback",
-      "tokenMethod": "access_token_query"
+      "tokenMethod": "oauth_token"
     }
   },
   "application": {
