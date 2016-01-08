@@ -12,7 +12,8 @@ var rightsignatureStrategy = new RightSignatureStrategy(CONFIG, function(req, to
 
   User.addApiAuthorization(req.user, 'channel:rightSignature', {
     authtype: 'oauth',
-    token_crypt: textCrypt.encrypt(token)
+    token_crypt: textCrypt.encrypt(token),
+    secret_crypt: textCrypt.encrypt(tokenSecret)
   }).then(function() {
     done(null, req.user);
   }).catch(function(error) {
