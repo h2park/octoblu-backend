@@ -1,7 +1,7 @@
 {
   "_id": "55cca8a64ecd5f14931c479f",
   "category": "device",
-  "categories":["Home Automation"],
+  "categories":["Facilities Automation"],
   "description": "Discovery Master",
   "helpText": "Use this device to discover hue lightbulbs, lifx and chromecast then automatically add them to your account and gateblu.",
   "enabled": true,

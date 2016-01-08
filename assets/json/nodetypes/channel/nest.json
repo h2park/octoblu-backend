@@ -1,7 +1,7 @@
 {
   "_id": "53c9b838f400e177dca325c5",
   "category": "channel",
-  "categories": ["Home Automation"],
+  "categories": ["Facilities Automation"],
   "description": "",
   "documentation": "https://developer.nest.com/documentation",
   "helpText": "Reinvents unloved but important home products, like the thermostat and the smoke alarm. Control the temerature remotely, monitor your home, automate setting the home/away status, and more.",

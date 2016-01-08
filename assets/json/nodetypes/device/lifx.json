@@ -1,7 +1,7 @@
 {
   "_id": "5445510577c022a84ec48c5b",
   "category": "device",
-  "categories":["Home Automation"],
+  "categories":["Facilities Automation"],
   "description": "Lifx",
   "documentation": "https://meshblu-connectors.readme.io/docs/lifx-bulbs",
   "helpText": "LIFX lets you get more out of light with their multi-color LED smart lightbulb. Interact directly with the hardware by connecting LIFX to gateblu and changing the name property to match the one in the LIFX app.",

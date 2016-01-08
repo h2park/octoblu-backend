@@ -1,7 +1,7 @@
 {
   "_id": "a0548715d9134e21969bc2f5",
   "category": "device",
-  "categories":["Home Automation"],
+  "categories":["Facilities Automation"],
   "description": "Philips Hue Button",
   "helpText": "The world's first wireless smart switch. Use the Hue Button to change your Hue Lights, trigger your flows, or control other Things in Octoblu.",
   "enabled": true,

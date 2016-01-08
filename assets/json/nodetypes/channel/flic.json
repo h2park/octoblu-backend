@@ -1,7 +1,7 @@
 {
   "_id": "55baa8279c1bac5dc22b1420",
   "category": "channel",
-  "categories":["Home Automation"],
+  "categories":["Facilities Automation"],
   "description": "Flic Button",
   "documentation": "https://developers.flic.io/documentation/oauth/index.html",
   "helpText": "Flic is a button that shortcuts to your favorite smart functions that you can stick anywhere. With Flic, you can trigger your Octoblu flows, register events, and de-register events.",

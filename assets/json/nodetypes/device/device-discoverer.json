@@ -1,7 +1,7 @@
 {
   "_id": "55ba98c4fa3829d26c3db5cb",
   "category": "device",
-  "categories":["Home Automation"],
+  "categories":["Facilities Automation"],
   "description": "Device Discoverer",
   "helpText": "Use this device to discover hues light bulbs and bridges, lifx, and chromecast.",
   "enabled": true,
