@@ -1,7 +1,7 @@
 {
   "_id": "0cf52d18-98b0-460e-8def-6d26864ce5b0",
   "category": "channel",
-  "categories": ["Office"],
+  "categories": ["Citrix"],
   "description": "Podio",
   "documentation": "https://developers.podio.com/doc",
   "helpText": "The online work platform. Manage, share, and get your work done smarter together with tools that work like you. Manage application definitions, create and update tasks, check emails sent to and from coworkers, and more.",

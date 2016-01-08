@@ -1,7 +1,7 @@
 {
   "_id": "54a6e044721c0cf9b00f98fe",
   "category": "channel",
-  "categories": ["Car Automation"],
+  "categories": ["Connected Car"],
   "description": "Tesla Model S",
   "documentation": "http://docs.timdorr.apiary.io/#",
   "helpText": "The Tesla Model S is a full-sized plug-in electric five-door, luxury liftback. View your vehicle list, mileage, and battery level, charge the car, flash the lights, honk the horn, and more.",
