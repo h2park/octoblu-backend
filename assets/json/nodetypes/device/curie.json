@@ -1,0 +1,16 @@
+{
+  "_id": "device-curie",
+  "category": "device",
+  "categories":["Maker"],
+  "description": "Arduino101/Genuino101 Curie Plugin",
+  "documentation": "https://meshblu-connectors.readme.io/docs/meshblu-curie",
+  "helpText": "Arduino101/Genuino101 Curie connector that uses Johnny-Five and BLE-Serial",
+  "enabled": true,
+  "name": "Intel Curie",
+  "skynet": {
+    "type": "device",
+    "subtype": "curie"
+  },
+  "type": "device:curie",
+  "connector": "meshblu-curie"
+}
