@@ -4,7 +4,7 @@
   "categories": ["Citrix"],
   "description": "",
   "documentation": "https://www.citrix.com/downloads/storefront-web-interface.html",
-  "helpText": "A sharing-economy company that provides short-term retail spaces for rent to companies through an online platform, used specifically as pop-up retail locations. Create a channel, get data from sessions, and more.",
+  "helpText": "Citrix StoreFront is an enterprise app store that helps IT enable mobility while allowing users to work from any device. It improves enterprise security and simplifies deployments to make it easier to manage multi-site XenApp and XenDesktop environments.",
   "enabled": true,
   "name": "StoreFront",
   "skynet": {
