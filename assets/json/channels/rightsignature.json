@@ -31,6 +31,9 @@
       {
         "path": "/documents.json",
         "displayName": "List Documents",
+        "authentication": {
+          "required": "true"
+        },
         "doc": {
           "url": "https://rightsignature.com/api/documents.json"
         },
@@ -96,6 +99,9 @@
       {
         "path": "/documents/:DocumentGUID.json",
         "displayName": "Get Document Details",
+        "authentication": {
+          "required": "true"
+        },
         "doc": {
           "url": "https://rightsignature.com/api/documents/:DocumentGUID.json"
         },
@@ -114,6 +120,9 @@
       {
         "path": "/documents/:DocumentGUIDs/batch_details.json",
         "displayName": "Batch Document Details",
+        "authentication": {
+          "required": "true"
+        },
         "doc": {
           "url": "https://rightsignature.com/api/documents/:DocumentGUIDs/batch_details.json"
         },
@@ -132,6 +141,9 @@
       {
         "path": "/documents/:DocumentGUID/send_reminders.json",
         "displayName": "Sends Reminder Email To Pending Signers",
+        "authentication": {
+          "required": "true"
+        },
         "doc": {
           "url": "https://rightsignature.com/api/documents/:DocumentGUID/send_reminders.json"
         },
@@ -150,6 +162,9 @@
       {
         "path": "/documents/:DocumentGUID/trash.json",
         "displayName": "Trash Document",
+        "authentication": {
+          "required": "true"
+        },
         "doc": {
           "url": "https://rightsignature.com/api/documents/:DocumentGUID/trash.json"
         },
@@ -168,6 +183,9 @@
       {
         "path": "/documents/:DocumentGUID/extend_expiration.json",
         "displayName": "Extends Expiration Date Of Doc By 7 Days",
+        "authentication": {
+          "required": "true"
+        },
         "doc": {
           "url": "https://rightsignature.com/api/documents/:DocumentGUID/extend_expiration.json"
         },
@@ -186,6 +204,9 @@
       {
         "path": "/documents/:DocumentGUID/update_tags.json",
         "displayName": "Update Tags (Old Tags Are Removed)",
+        "authentication": {
+          "required": "true"
+        },
         "doc": {
           "url": "https://rightsignature.com/api/documents/:DocumentGUID/update_tags.json"
         },
@@ -204,6 +225,9 @@
       {
         "path": "/documents.json",
         "displayName": "Send Document",
+        "authentication": {
+          "required": "true"
+        },
         "doc": {
           "url": "https://rightsignature.com/api/documents.json"
         },
@@ -273,6 +297,9 @@
       {
         "path": "/templates.json",
         "displayName": "List Templates",
+        "authentication": {
+          "required": "true"
+        },
         "doc": {
           "url": "https://rightsignature.com/api/templates.json"
         },
@@ -308,6 +335,9 @@
       {
         "path": "/templates/:TemplateGUID.json",
         "displayName": "Template Details",
+        "authentication": {
+          "required": "true"
+        },
         "doc": {
           "url": "https://rightsignature.com/api/templates/:TemplateGUID.json"
         },
@@ -326,6 +356,9 @@
       {
         "path": "/templates/:TemplateGUID/prepackage.json",
         "displayName": "Prepackage Template",
+        "authentication": {
+          "required": "true"
+        },
         "doc": {
           "url": "https://rightsignature.com/api/templates/:TemplateGUID/prepackage.json"
         },
@@ -350,6 +383,9 @@
       {
         "path": "/templates.json",
         "displayName": "Prefill Template",
+        "authentication": {
+          "required": "true"
+        },
         "doc": {
           "url": "https://rightsignature.com/api/templates.json"
         },
@@ -419,6 +455,9 @@
       {
         "path": "/templates/generate_build_token.json",
         "displayName": "Build New Template",
+        "authentication": {
+          "required": "true"
+        },
         "doc": {
           "url": "https://rightsignature.com/api/templates/generate_build_token.json"
         },
@@ -460,6 +499,9 @@
       {
         "path": "/forms.json",
         "displayName": "List Forms",
+        "authentication": {
+          "required": "true"
+        },
         "doc": {
           "url": "https://rightsignature.com/api/forms.json"
         },
@@ -483,6 +525,9 @@
       {
         "path": "/forms/Application-e579dc/generate_link.json",
         "displayName": "Gets A Custom Link For To Sign The Form Specified",
+        "authentication": {
+          "required": "true"
+        },
         "doc": {
           "url": "https://rightsignature.com/api/forms/Application-e579dc/generate_link.json"
         },
@@ -506,6 +551,9 @@
       {
         "path": "/users/user_details.json",
         "displayName": "Get User Details",
+        "authentication": {
+          "required": "true"
+        },
         "doc": {
           "url": "https://rightsignature.com/api/users/user_details.json"
         },
@@ -516,6 +564,9 @@
       {
         "path": "/users.json",
         "displayName": "Add User",
+        "authentication": {
+          "required": "true"
+        },
         "doc": {
           "url": "https://rightsignature.com/api/users.json"
         },
@@ -534,6 +585,9 @@
       {
         "path": "/account/usage_report.json",
         "displayName": "Gets A Usage Report",
+        "authentication": {
+          "required": "true"
+        },
         "doc": {
           "url": "https://rightsignature.com/api/account/usage_report.json"
         },
