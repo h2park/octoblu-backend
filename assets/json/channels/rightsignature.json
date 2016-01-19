@@ -238,6 +238,14 @@
             "style": "body",
             "type": "object",
             "name": "document_data",
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            },
             "required": true
           },
           {
@@ -245,6 +253,22 @@
             "style": "body",
             "type": "object",
             "name": "recipients",
+            "properties": {
+              "recipient": {
+                "type": "array",
+                "items": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "role": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
             "required": true
           },
           {
@@ -277,7 +301,20 @@
             "displayName": "Specifies Tags",
             "style": "body",
             "type": "object",
-            "name": "tags"
+            "name": "tags",
+            "properties": {
+              "tag": {
+                "type": "array",
+                "items": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
           },
           {
             "displayName": "Callback Location",
@@ -435,7 +472,20 @@
             "displayName": "Merge Fields",
             "style": "body",
             "type": "object",
-            "name": "merge_fields"
+            "name": "merge_fields",
+            "properties": {
+              "merge_field": {
+                "type": "array",
+                "items": {
+                  "-merge_field_name": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
           },
           {
             "displayName": "Description",
