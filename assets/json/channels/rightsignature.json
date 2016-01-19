@@ -236,7 +236,7 @@
           {
             "displayName": "Document Data",
             "style": "body",
-            "type": "string",
+            "type": "object",
             "name": "document_data",
             "required": true
           },
@@ -276,7 +276,7 @@
           {
             "displayName": "Specifies Tags",
             "style": "body",
-            "type": "string",
+            "type": "object",
             "name": "tags"
           },
           {
