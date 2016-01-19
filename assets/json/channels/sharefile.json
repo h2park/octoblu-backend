@@ -9,7 +9,6 @@
       "name": ":account",
       "style": "url",
       "type": "string",
-      "value": "citrix",
       "displayName": "Subdomain",
       "required": true
     }
