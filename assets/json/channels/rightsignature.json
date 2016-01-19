@@ -229,21 +229,21 @@
           "required": "true"
         },
         "doc": {
-          "url": "https://rightsignature.com/api/documents.json"
+          "url": "https://rightsignature.com/apidocs/api_documentation_default#/send_document"
         },
         "httpMethod": "POST",
         "params": [
           {
-            "displayName": "Node Containing Type/Value Nodes Along With Filename Node",
+            "displayName": "Document Data",
             "style": "body",
             "type": "string",
             "name": "document_data",
             "required": true
           },
           {
-            "displayName": "For Each Recipient Involved",
+            "displayName": "Recipients",
             "style": "body",
-            "type": "string",
+            "type": "object",
             "name": "recipients",
             "required": true
           },
@@ -290,6 +290,18 @@
             "style": "body",
             "type": "string",
             "name": "use_text_tags"
+          },
+          {
+            "displayName": "passcode_question",
+            "style": "body",
+            "type": "string",
+            "name": "passcode_question"
+          },
+          {
+            "displayName": "passcode_answer",
+            "style": "body",
+            "type": "string",
+            "name": "passcode_answer"
           }
         ],
         "url": "https://rightsignature.com/api/documents.json"
@@ -422,7 +434,7 @@
           {
             "displayName": "Merge Fields",
             "style": "body",
-            "type": "string",
+            "type": "object",
             "name": "merge_fields"
           },
           {
