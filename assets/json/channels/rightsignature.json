@@ -523,7 +523,7 @@
         "url": "https://rightsignature.com/api/forms.json"
       },
       {
-        "path": "/forms/Application-e579dc/generate_link.json",
+        "path": "/forms/:FormId/generate_link.json",
         "displayName": "Gets A Custom Link For To Sign The Form Specified",
         "authentication": {
           "required": "true"
@@ -533,6 +533,13 @@
         },
         "httpMethod": "GET",
         "params": [
+          {
+            "displayName": "Form ID",
+            "style": "url",
+            "type": "String",
+            "name": ":FormId",
+            "required": true
+          },
           {
             "displayName": "Expires In",
             "style": "query",
@@ -547,6 +554,33 @@
           }
         ],
         "url": "https://rightsignature.com/api/forms/Application-e579dc/generate_link.json"
+      },
+      {
+        "path": "/documents/:DocumentGUID/signer_links.json",
+        "displayName": "Get Signer Links",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "https://rightsignature.com/apidocs/api_documentation_default#/signer_links"
+        },
+        "httpMethod": "GET",
+        "params": [
+          {
+            "displayName": "Document GUID",
+            "style": "url",
+            "type": "String",
+            "name": ":DocumentGUID",
+            "required": true
+          },
+          {
+            "displayName": "redirect_location",
+            "style": "query",
+            "type": "string",
+            "name": "redirect_location"
+          }
+        ],
+        "url": "https://rightsignature.com/api/documents/:DocumentGUID/signer_links.json"
       },
       {
         "path": "/users/user_details.json",
