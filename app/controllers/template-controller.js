@@ -9,7 +9,7 @@ var TemplateController = function (options, dependencies) {
   templateTransformer = new TemplateTransformer();
 
   templateModel = new Template();
-  var meshblu = options.meshblu;
+  var meshblu = options.meshbluJSON;
 
   self.addOwnerName = function(req, res, next) {
       templateTransformer.addOwnerName(req.template)
