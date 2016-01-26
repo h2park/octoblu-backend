@@ -1,6 +1,7 @@
 {
   "_id": "54a44e1f620f5ebb13dbc4f1",
   "auth_strategy": "oauth",
+  "bodyFormat": "json",
   "documentation": "https://rightsignature.com/apidocs/api_calls?api_method=intro",
   "enabled": true,
   "name": "rightSignature",
@@ -25,6 +26,7 @@
       "tokenMethod": "oauth_signed"
     }
   },
+
   "application": {
     "base": "https://rightsignature.com/api",
     "resources": [
@@ -234,30 +236,40 @@
         "httpMethod": "POST",
         "params": [
           {
-            "displayName": "Document Data",
+            "displayName": "Subject",
             "style": "body",
             "type": "object",
-            "name": "document_data",
-            "properties": {
-              "type": {
-                "type": "string"
+            "name": "subject",
+            "required": true,
+            "schema": {
+              "title": "Document Data",
+              "type": "object",
+              "name": "document_data",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
               },
-              "value": {
-                "type": "string"
-              }
-            },
-            "required": true
+              "required": true
+            }
           },
           {
             "displayName": "Recipients",
+            "name": "recipients",
             "style": "body",
             "type": "object",
-            "name": "recipients",
-            "properties": {
-              "recipient": {
-                "type": "array",
-                "items": [
-                  {
+            "schema": {
+              "title": "Recipients",
+              "type": "object",
+              "properties": {
+                "recipient": {
+                  "required": true,
+                  "type": "array",
+                  "format": "table",
+                  "items": {
                     "type": "object",
                     "properties": {
                       "name": {
@@ -271,8 +283,9 @@
                       }
                     }
                   }
-                ]
-              }
+                }
+              },
+              "required": true
             },
             "required": true
           },
@@ -307,22 +320,26 @@
             "style": "body",
             "type": "object",
             "name": "tags",
-            "properties": {
-              "tag": {
-                "type": "array",
-                "items": [
-                  {
-                  "type": "object",
-                  "prtoperties": {
-                    "name": {
-                      "type": "string"
-                    },
-                    "value": {
-                      "type": "string"
+            "schema": {
+              "title": "Specifies Tags",
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "required": true,
+                  "type": "array",
+                  "format": "table",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "string"
+                      }
                     }
                   }
-                 }
-                ]
+                }
               }
             }
           },
@@ -483,11 +500,15 @@
             "style": "body",
             "type": "object",
             "name": "merge_fields",
-            "properties": {
-              "merge_field": {
-                "type": "array",
-                "items": [
-                  {
+            "schema": {
+              "title": "Merge Fields",
+              "type": "object",
+              "properties": {
+                "merge_field": {
+                  "required": true,
+                  "type": "array",
+                  "format": "table",
+                  "items": {
                     "type": "object",
                     "properties": {
                       "-merge_field_name": {
@@ -498,7 +519,7 @@
                       }
                     }
                   }
-                ]
+                }
               }
             }
           },
@@ -601,7 +622,7 @@
       },
       {
         "path": "/forms/:FormId/generate_link.json",
-        "displayName": "Gets A Custom Link For To Sign The Form Specified",
+        "displayName": "Generate Link",
         "authentication": {
           "required": "true"
         },
