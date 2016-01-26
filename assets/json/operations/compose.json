@@ -14,23 +14,6 @@
   "output": 1,
   "formTemplatePath": "/pages/node_forms/compose_form.html",
   "nanocyte": {
-    "name": "nanocyte-node-compose",
-    "composedOf": {
-      "collect": {
-        "type": "nanocyte-component-selective-collect",
-        "linkedToPrev": true,
-        "linkedTo": ["check"],
-        "linkedToData": true
-      },
-      "check": {
-        "type": "nanocyte-component-contains-all-keys",
-        "linkedTo": ["clear"],
-        "linkedToNext": true
-      },
-      "clear": {
-        "type": "nanocyte-component-clear-data",
-        "linkedToData": true
-      }
-    }
+    "name": "nanocyte-node-compose"
   }
 }
