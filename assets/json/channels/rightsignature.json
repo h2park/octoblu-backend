@@ -256,17 +256,22 @@
             "properties": {
               "recipient": {
                 "type": "array",
-                "items": {
-                  "name": {
-                    "type": "string"
-                  },
-                  "email": {
-                    "type": "string"
-                  },
-                  "role": {
-                    "type": "string"
+                "items": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "email": {
+                        "type": "string"
+                      },
+                      "role": {
+                        "type": "string"
+                      }
+                    }
                   }
-                }
+                ]
               }
             },
             "required": true
@@ -305,14 +310,19 @@
             "properties": {
               "tag": {
                 "type": "array",
-                "items": {
-                  "name": {
-                    "type": "string"
-                  },
-                  "value": {
-                    "type": "string"
+                "items": [
+                  {
+                  "type": "object",
+                  "prtoperties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
                   }
-                }
+                 }
+                ]
               }
             }
           },
@@ -476,14 +486,19 @@
             "properties": {
               "merge_field": {
                 "type": "array",
-                "items": {
-                  "-merge_field_name": {
-                    "type": "string"
-                  },
-                  "value": {
-                    "type": "string"
+                "items": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "-merge_field_name": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "string"
+                      }
+                    }
                   }
-                }
+                ]
               }
             }
           },
