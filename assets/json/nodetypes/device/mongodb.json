@@ -1,0 +1,15 @@
+{
+  "_id": "mongodb-forwarder",
+  "category": "device",
+  "categories":["Productivity"],
+  "description": "MongoDB Forwarder",
+  "documentation": "https://meshblu-connectors.readme.io/docs/mongodb",
+  "helpText": "A Gateblu plugin for innteracting with a mongo database",
+  "enabled": true,
+  "name": "MongoDB Forwarder",
+  "skynet": {
+    "type": "device:mongodb"
+  },
+  "type": "device:mongodb",
+  "connector": "meshblu-mongodb-forwarder"
+}
