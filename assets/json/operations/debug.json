@@ -16,13 +16,6 @@
   "align": "right",
   "formTemplatePath": "/pages/node_forms/debug_form.html",
   "nanocyte": {
-    "name": "nanocyte-node-debug",
-    "composedOf": {
-      "debug-node": {
-        "type": "nanocyte-node-debug",
-        "linkedToPrev": true,
-        "linkedToPulse": true
-      }
-    }
+    "name": "nanocyte-node-debug"
   }
 }

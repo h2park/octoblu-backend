@@ -1,5 +1,6 @@
 {
   "_id": "60fda3c0-4d82-11e4-b7c9-f1aa66db0b20",
+  "deviceId": "c339f6ce-fe26-4788-beee-c97605f50403",
   "category": "channel",
   "categories": ["Office"],
   "description": "Stripe",

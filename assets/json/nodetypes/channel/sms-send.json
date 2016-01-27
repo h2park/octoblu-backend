@@ -1,5 +1,6 @@
 {
   "_id": "7fadeaa0-4990-11e4-9bbb-e70e4226a18f",
+  "deviceId": "c339f6ce-fe26-4788-beee-c97605f50403",
   "category": "channel",
   "categories": ["Productivity"],
   "description": "Send SMS text messages through Octoblu.",
