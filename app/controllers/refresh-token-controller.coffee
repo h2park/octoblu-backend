@@ -5,7 +5,7 @@ textCrypt = require '../lib/textCrypt'
 moment = require 'moment'
 passportRefresh = require 'passport-oauth2-refresh'
 
-class FlowAuthCredentialsController
+class RefreshTokenController
   constructor: (@meshbluJSON, @dependencies={}) ->
     @MeshbluHttp = @dependencies.MeshbluHttp ? require 'meshblu-http'
     @meshbluDb = @dependencies.meshbluDb ? require '../lib/database'
@@ -24,7 +24,7 @@ class FlowAuthCredentialsController
     return uuid == process.env.REFRESH_TOKEN_WORKER_UUID
 
   getAccessToken: (uuid, type, callback=(->)) =>
-    debug 'getAccessToken', uuid, type, access_token
+    debug 'getAccessToken', uuid, type
     User.findUserAndApiByChannelType(uuid, type)
     .catch callback
     .then (channelAuth) =>
@@ -43,4 +43,4 @@ class FlowAuthCredentialsController
       .then ->
         callback null, token: accessToken, expiresOn: expiresOn, refreshToken: refreshToken
 
-module.exports = FlowAuthCredentialsController
+module.exports = RefreshTokenController
