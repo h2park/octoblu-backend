@@ -15,8 +15,8 @@ class RefreshTokenController
     {userUuid, type} = request.body
     return response.sendStatus(422) unless userUuid?
     return response.sendStatus(422) unless type?
-    @getAccessToken userUuid, type, (error, auth) =>
-      debug 'got token', auth, error
+    @getAndRefreshToken userUuid, type, (error) =>
+      debug 'got token', error
       console.error 'Error refreshing token', error, error.stack if error?
       return response.status(401).send("Error refreshing token #{JSON.stringify error}") if error?
       response.sendStatus(204)
@@ -24,8 +24,8 @@ class RefreshTokenController
   verifyDevice: (uuid) =>
     return uuid == process.env.REFRESH_TOKEN_WORKER_UUID
 
-  getAccessToken: (uuid, type, callback=(->)) =>
-    debug 'getAccessToken', uuid, type
+  getAndRefreshToken: (uuid, type, callback) =>
+    debug 'getAndRefreshToken', uuid, type
     User.findUserAndApiByChannelType(uuid, type)
       .catch callback
       .then (channelAuth) =>
@@ -33,18 +33,25 @@ class RefreshTokenController
         debug 'foundAuth', channelAuth
         @refreshToken uuid, channelAuth, type, callback
 
-  refreshToken: (uuid, channelAuth, type, callback=(->)) =>
+  removeExpiredOn: (uuid, type, channelAuth, callback) =>
+    delete channelAuth.expiresOn
+    @updateChannelAuth uuid, type, channelAuth, callback
+
+  updateChannelAuth: (uuid, type, channelAuth, callback) =>
+    User.addApiToUserByChannelType uuid, type, channelAuth
+      .catch callback
+      .then -> callback null
+
+  refreshToken: (uuid, channelAuth, type, callback) =>
     debug 'refreshToken', channelAuth.refreshToken, channelAuth.expiresOn
     passportRefresh.requestNewAccessToken _.last(type.split(':')), channelAuth.refreshToken, (error, accessToken, refreshToken, results) =>
-      return callback error if error?
+      return @removeExpiredOn uuid, type, channelAuth, => callback 'Invalid refresh token' if error?
 
       expiresOn = Date.now() + (results.expires_in * 1000)
       channelAuth.token_crypt = textCrypt.encrypt accessToken
       channelAuth.refreshToken_crypt = textCrypt.encrypt refreshToken
       channelAuth.expiresOn = expiresOn
-      User.addApiToUserByChannelType uuid, type, channelAuth
-        .catch callback
-        .then ->
-          callback null, token: accessToken, expiresOn: expiresOn, refreshToken: refreshToken
+
+      @updateChannelAuth uuid, type, channelAuth, callback
 
 module.exports = RefreshTokenController
