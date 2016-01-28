@@ -29,6 +29,7 @@ class RefreshTokenController
     User.findUserAndApiByChannelType(uuid, type)
       .catch callback
       .then (channelAuth) =>
+        channelAuth.refreshToken = textCrypt.decrypt channelAuth.refreshToken_crypt if channelAuth.refreshToken_crypt?
         debug 'foundAuth', channelAuth
         @refreshToken uuid, channelAuth, type, callback
 
@@ -43,8 +44,8 @@ class RefreshTokenController
       channelAuth.refreshToken = refreshToken
       channelAuth.expiresOn = expiresOn
       User.addApiToUserByChannelType uuid, type, channelAuth
-      .catch callback
-      .then ->
-        callback null, token: accessToken, expiresOn: expiresOn, refreshToken: refreshToken
+        .catch callback
+        .then ->
+          callback null, token: accessToken, expiresOn: expiresOn, refreshToken: refreshToken
 
 module.exports = RefreshTokenController
