@@ -37,11 +37,10 @@ class RefreshTokenController
     debug 'refreshToken', channelAuth.refreshToken, channelAuth.expiresOn
     passportRefresh.requestNewAccessToken _.last(type.split(':')), channelAuth.refreshToken, (error, accessToken, refreshToken, results) =>
       return callback error if error?
-      return callback new Error 'Invalid results' if _.isEmpty results
 
       expiresOn = Date.now() + (results.expires_in * 1000)
-      channelAuth.token = accessToken
-      channelAuth.refreshToken = refreshToken
+      channelAuth.token_crypt = textCrypt.encrypt accessToken
+      channelAuth.refreshToken_crypt = textCrypt.encrypt refreshToken
       channelAuth.expiresOn = expiresOn
       User.addApiToUserByChannelType uuid, type, channelAuth
         .catch callback
