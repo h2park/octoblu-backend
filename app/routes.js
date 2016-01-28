@@ -30,6 +30,9 @@ module.exports = function(app, passport, config, meshbluJSON){
     var FlowAuthCredentialsController = require('./controllers/flow-auth-credentials-controller');
     var flowAuthCredentialsController = new FlowAuthCredentialsController(meshbluJSON);
 
+    var RefreshTokenController = require('./controllers/refresh-token-controller');
+    var refreshTokenController = new RefreshTokenController(meshbluJSON);
+
     var FlowController = require('./controllers/flow-controller');
     var flowController = new FlowController({meshbluJSON: meshbluJSON});
 
@@ -257,6 +260,7 @@ module.exports = function(app, passport, config, meshbluJSON){
     app.delete('/api/flows/:id/instance', flowDeployController.stopInstance);
 
     app.get('/api/flow-auth-credentials/:id', flowAuthCredentialsController.show);
+    app.get('/api/workers/refresh-token', refreshTokenController.refresh);
 
     app.get('/api/flow_node_types', flowNodeTypeController.getFlowNodeTypes);
 
