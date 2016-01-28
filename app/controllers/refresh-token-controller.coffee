@@ -17,7 +17,8 @@ class RefreshTokenController
     return response.sendStatus(422) unless type?
     @getAccessToken userUuid, type, (error, auth) =>
       debug 'got token', auth, error
-      return response.status(401).send("Error getting access token: #{error?.message}") if error?
+      console.error 'Error refreshing token', error.stack if error?
+      return response.status(401).send("Error refreshing token: #{error.toString()}") if error?
       response.sendStatus(204)
 
   verifyDevice: (uuid) =>
@@ -34,6 +35,9 @@ class RefreshTokenController
   refreshToken: (uuid, channelAuth, type, callback=(->)) =>
     debug 'refreshToken', channelAuth.refreshToken, channelAuth.expiresOn
     passportRefresh.requestNewAccessToken _.last(type.split(':')), channelAuth.refreshToken, (error, accessToken, refreshToken, results) =>
+      return callback error if error?
+      return callback new Error 'Invalid results' if _.isEmpty results
+      
       expiresOn = Date.now() + (results.expires_in * 1000)
       channelAuth.token = accessToken
       channelAuth.refreshToken = refreshToken
