@@ -35,6 +35,7 @@ class RefreshTokenController
 
   removeExpiredOn: (uuid, type, channelAuth, callback) =>
     delete channelAuth.expiresOn
+    channelAuth.validToken = false
     @updateChannelAuth uuid, type, channelAuth, (updateError) =>
       return callback updateError unless updateError?
       callback 'Removed From Expired On'
@@ -54,6 +55,7 @@ class RefreshTokenController
       channelAuth.token_crypt = textCrypt.encrypt accessToken
       channelAuth.refreshToken_crypt = textCrypt.encrypt refreshToken
       channelAuth.expiresOn = expiresOn
+      channelAuth.validToken = true
 
       @updateChannelAuth uuid, type, channelAuth, callback
 
