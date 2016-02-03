@@ -1,0 +1,15 @@
+{
+  "_id": "powershell-connector",
+  "category": "device",
+  "categories":["Productivity"],
+  "description": "Powershell",
+  "documentation": "https://meshblu-connectors.readme.io/docs/powershell",
+  "helpText": "Run Powershell scripts through Gateblu",
+  "enabled": true,
+  "name": "PowerShell",
+  "skynet": {
+    "type": "device:powershell"
+  },
+  "type": "device:powershell",
+  "connector": "meshblu-powershell"
+}
