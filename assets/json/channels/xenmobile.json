@@ -1,0 +1,517 @@
+{
+  "_id": "xenmobile_api",
+  "auth_strategy": "basic",
+  "description": "",
+  "documentation": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html",
+  "enabled": false,
+  "name": "XenMobile",
+  "type": "channel:xenmobile",
+  "skipVerifySSL": true,
+  "__v": 0,
+  "defaultParams": [
+    {
+      "name": ":hostname",
+      "displayName": "XenMobile Hostname",
+      "style": "url",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": ":port",
+      "displayName": "XenMobile Port",
+      "style": "url",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": ":login",
+      "displayName": "Login",
+      "style": "url",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": ":password",
+      "displayName": "Password",
+      "style": "url",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "application": {
+    "base": "http://:hostname::port/xenmobile/api/v1",
+    "resources": [
+      {
+        "params": [
+          ],
+        "path": "/localusersgroups",
+        "displayName": "Get All Local Users",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html#par_anchortitle_b016"
+        },
+        "httpMethod": "GET",
+        "url": "http://:hostname::port/xenmobile/api/v1/localusersgroups"
+      },
+      {
+        "params": [
+          {
+            "required": "false",
+            "value": "",
+            "type": "string",
+            "style": "url",
+            "name": ":user",
+            "displayName": "User"
+          }
+        ],
+        "path": "/localusersgroups/:user",
+        "displayName": "Get One User",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
+        },
+        "httpMethod": "GET",
+        "url": "http://:hostname::port/xenmobile/api/v1/localusersgroups/:user"
+      },
+      {
+        "params": [
+          {
+            "required": "false",
+            "type": "string",
+            "style": "body",
+            "name": "role",
+            "displayName": "Role"
+          },
+          {
+            "required": "false",
+            "type": "string",
+            "style": "body",
+            "name": "username",
+            "displayName": "Username"
+          },
+          {
+            "required": "false",
+            "type": "string",
+            "style": "body",
+            "name": "password",
+            "displayName": "Password"
+          },
+          {
+            "required": "false",
+            "type": "array",
+            "style": "body",
+            "name": "groups",
+            "displayName": "Groups"
+          },
+          {
+            "displayName": "Attributes",
+            "name": "attributes",
+            "style": "body",
+            "type": "object",
+            "schema": {
+              "title": "Attributes",
+              "type": "object",
+              "properties": {
+                "badpwdcount": {
+                  "required": true,
+                  "type": "string"
+                },
+                "asuseremail": {
+                  "required": true,
+                  "type": "string"
+                },
+                "company": {
+                  "required": true,
+                  "type": "string"
+                },
+                "mobile": {
+                  "required": true,
+                  "type": "string"
+                }
+              },
+              "required": true
+            },
+            "required": true
+          }
+        ],
+        "path": "/localusersgroups",
+        "displayName": "Add User",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
+        },
+        "httpMethod": "POST",
+        "url": "http://:hostname::port/xenmobile/api/v1/localusersgroups"
+      },
+      {
+        "params": [
+          {
+            "required": "false",
+            "type": "string",
+            "style": "body",
+            "name": "role",
+            "displayName": "Role"
+          },
+          {
+            "required": "false",
+            "type": "string",
+            "style": "body",
+            "name": "username",
+            "displayName": "Username"
+          },
+          {
+            "required": "false",
+            "type": "string",
+            "style": "body",
+            "name": "password",
+            "displayName": "Password"
+          },
+          {
+            "required": "false",
+            "type": "array",
+            "style": "body",
+            "name": "groups",
+            "displayName": "Groups"
+          },
+          {
+            "displayName": "Attributes",
+            "name": "attributes",
+            "style": "body",
+            "type": "object",
+            "schema": {
+              "title": "Attributes",
+              "type": "object",
+              "properties": {
+                "badpwdcount": {
+                  "required": true,
+                  "type": "string"
+                },
+                "asuseremail": {
+                  "required": true,
+                  "type": "string"
+                },
+                "company": {
+                  "required": true,
+                  "type": "string"
+                },
+                "mobile": {
+                  "required": true,
+                  "type": "string"
+                }
+              },
+              "required": true
+            },
+            "required": true
+          }
+        ],
+        "path": "/localusersgroups",
+        "displayName": "Update User",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
+        },
+        "httpMethod": "PUT",
+        "url": "http://:hostname::port/xenmobile/api/v1/localusersgroups"
+      }
+      {
+        "params": [
+          {
+            "required": "true",
+            "type": "string",
+            "style": "body",
+            "name": "username",
+            "displayName": "Username"
+          },
+          {
+            "required": "true",
+            "type": "string",
+            "style": "body",
+            "name": "password",
+            "displayName": "Password"
+          }
+        ],
+        "path": "/localusersgroups/resetpassword",
+        "displayName": "Change User Password",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
+        },
+        "httpMethod": "PUT",
+        "url": "http://:hostname::port/xenmobile/api/v1/localusersgroups/resetpassword"
+      },
+      {
+        "params": [
+          {
+            "required": "true",
+            "type": "string",
+            "style": "body",
+            "name": "username",
+            "displayName": "Username"
+          }
+        ],
+        "path": "/localusersgroups/resetpassword",
+        "displayName": "Delete Users",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
+        },
+        "httpMethod": "DELETE",
+        "url": "http://:hostname::port/xenmobile/api/v1/localusersgroups/resetpassword"
+      },
+      {
+        "params": [
+          {
+            "type": "number",
+            "style": "body",
+            "name": "start",
+            "displayName": "Start"
+          },
+          {
+            "type": "number",
+            "style": "body",
+            "name": "limit",
+            "displayName": "Limit"
+          },
+          {
+            "type": "string",
+            "style": "body",
+            "name": "orderBy",
+            "displayName": "Order By"
+          },
+          {
+            "type": "string",
+            "style": "body",
+            "name": "sortOrder",
+            "displayName": "Sort Order"
+          },
+          {
+            "type": "string",
+            "style": "body",
+            "name": "searchStr",
+            "displayName": "Search String"
+          }
+        ],
+        "path": "/application/filter",
+        "displayName": "Get All Apps by Filter",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
+        },
+        "httpMethod": "GET",
+        "url": "http://:hostname::port/xenmobile/api/v1/application/filter"
+      },
+      {
+        "params": [
+          {
+            "required": "true",
+            "value": "",
+            "type": "string",
+            "style": "url",
+            "name": ":containerId",
+            "displayName": "Contain ID"
+          }
+        ],
+        "path": "/application/mobile/:containerId",
+        "displayName": "Get Mobile Apps by Container",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
+        },
+        "httpMethod": "GET",
+        "url": "http://:hostname::port/xenmobile/api/v1/application/mobile/:containerId"
+      },
+      {
+        "params": [
+          {
+            "required": "true",
+            "value": "",
+            "type": "string",
+            "style": "url",
+            "name": ":containerId",
+            "displayName": "Contain ID"
+          }
+        ],
+        "path": "/application/mobile/saas/:containerId",
+        "displayName": "Get SaaS Apps by Container",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
+        },
+        "httpMethod": "GET",
+        "url": "http://:hostname::port/xenmobile/api/v1/application/mobile/saas/:containerId"
+      },
+      {
+        "params": [
+          {
+            "required": "true",
+            "value": "",
+            "type": "string",
+            "style": "url",
+            "name": ":containerId",
+            "displayName": "Contain ID"
+          }
+        ],
+        "path": "/application/mobile/appstore/:containerId",
+        "displayName": "Get Public Store Apps by Container",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
+        },
+        "httpMethod": "GET",
+        "url": "http://:hostname::port/xenmobile/api/v1/application/mobile/appstore/:containerId"
+      },
+      {
+        "params": [
+          {
+            "required": "true",
+            "value": "",
+            "type": "string",
+            "style": "url",
+            "name": ":containerId",
+            "displayName": "Contain ID"
+          }
+        ],
+        "path": "/application/mobile/weblink/:containerId",
+        "displayName": "Get Web Link Apps by Container",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
+        },
+        "httpMethod": "GET",
+        "url": "http://:hostname::port/xenmobile/api/v1/application/mobile/weblink/:containerId"
+      },
+      {
+        "params": [
+          {
+            "required": "true",
+            "value": "",
+            "type": "string",
+            "style": "url",
+            "name": ":containerId",
+            "displayName": "Contain ID"
+          }
+        ],
+        "path": "/application/:containerId",
+        "displayName": "Delete App Container",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
+        },
+        "httpMethod": "DELETE",
+        "url": "http://:hostname::port/xenmobile/api/v1/application/:containerId"
+      }
+      {
+        "params": [
+          {
+            "required": "false",
+            "value": "",
+            "type": "string",
+            "style": "",
+            "name": "",
+            "displayName": ""
+          }
+        ],
+        "path": "/",
+        "displayName": "",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
+        },
+        "httpMethod": "GET",
+        "url": "http://:hostname::port/xenmobile/api/v1/"
+      },
+      {
+        "params": [
+          {
+            "required": "false",
+            "value": "",
+            "type": "string",
+            "style": "",
+            "name": "",
+            "displayName": ""
+          }
+        ],
+        "path": "/",
+        "displayName": "",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
+        },
+        "httpMethod": "GET",
+        "url": "http://:hostname::port/xenmobile/api/v1/"
+      },
+      {
+        "params": [
+          {
+            "required": "false",
+            "value": "",
+            "type": "string",
+            "style": "",
+            "name": "",
+            "displayName": ""
+          }
+        ],
+        "path": "/",
+        "displayName": "",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
+        },
+        "httpMethod": "GET",
+        "url": "http://:hostname::port/xenmobile/api/v1/"
+      },
+      {
+        "params": [
+          {
+            "required": "false",
+            "value": "",
+            "type": "string",
+            "style": "",
+            "name": "",
+            "displayName": ""
+          }
+        ],
+        "path": "/",
+        "displayName": "",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
+        },
+        "httpMethod": "GET",
+        "url": "http://:hostname::port/xenmobile/api/v1/"
+      }
+    ]
+  }
+}
