@@ -220,7 +220,7 @@
         },
         "httpMethod": "PUT",
         "url": "http://:hostname::port/xenmobile/api/v1/localusersgroups"
-      }
+      },
       {
         "params": [
           {
@@ -423,7 +423,7 @@
         },
         "httpMethod": "DELETE",
         "url": "http://:hostname::port/xenmobile/api/v1/application/:containerId"
-      }
+      },
       {
         "params": [
           {
