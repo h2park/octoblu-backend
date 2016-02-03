@@ -106,7 +106,22 @@
             "type": "string",
             "name": "description",
             "required": true
-          },{
+          },
+          {
+              "displayName": "Name",
+              "style": "body",
+              "type": "string",
+              "name": "name",
+              "required": false
+            },
+            {
+                "displayName": "Company",
+                "style": "body",
+                "type": "string",
+                "name": "company",
+                "required": false
+              },
+            {
             "displayName": "Email",
             "style": "body",
             "type": "string",
