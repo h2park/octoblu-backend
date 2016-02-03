@@ -149,7 +149,7 @@
         "doc": {
           "url": "https://friendly-sharefile.octoblu.com/:account/items-by-path/share"
         },
-        "displayName": "Create Link By Path",
+        "displayName": "Share File By Path",
         "path": "/:account/items-by-path/share",
         "params": [
           {
@@ -235,7 +235,7 @@
         "path": "/:account/items/:itemId",
         "params": [
           {
-            "name": "itemId",
+            "name": ":itemId",
             "displayName": "Item ID",
             "type": "string",
             "style": "url"
@@ -252,7 +252,7 @@
         "path": "/:account/items/:itemId/metadata",
         "params": [
           {
-            "name": "itemId",
+            "name": ":itemId",
             "displayName": "Item ID",
             "type": "string",
             "style": "url"
@@ -269,7 +269,7 @@
         "path": "/:account/items/:itemId/children",
         "params": [
           {
-            "name": "itemId",
+            "name": ":itemId",
             "displayName": "Item ID",
             "type": "string",
             "style": "url"
@@ -286,7 +286,7 @@
         "path": "/:account/items/:itemId/treeview",
         "params": [
           {
-            "name": "itemId",
+            "name": ":itemId",
             "displayName": "Item ID",
             "type": "string",
             "style": "url"
@@ -303,7 +303,7 @@
         "path": "/:account/items/:itemId/download",
         "params": [
           {
-            "name": "itemId",
+            "name": ":itemId",
             "displayName": "Item ID",
             "type": "string",
             "style": "url"
@@ -316,11 +316,11 @@
         "doc": {
           "url": "https://friendly-sharefile.octoblu.com/:account/items/:itemId/share"
         },
-        "displayName": "Create Link by Item ID",
+        "displayName": "Share File by Item ID",
         "path": "/:account/items/:itemId/share",
         "params": [
           {
-            "name": "itemId",
+            "name": ":itemId",
             "displayName": "Item ID",
             "type": "string",
             "style": "url"
@@ -349,7 +349,7 @@
         "path": "/:account/items/:itemId/upload",
         "params": [
           {
-            "name": "itemId",
+            "name": ":itemId",
             "displayName": "Target Item ID",
             "type": "string",
             "style": "url"
