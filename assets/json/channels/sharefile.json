@@ -81,7 +81,7 @@
         "doc": {
           "url": "https://friendly-sharefile.octoblu.com/:account/items-by-path/metadata"
         },
-        "displayName": "Get Item Metadata",
+        "displayName": "Get Item Metadata by Path",
         "path": "/:account/items-by-path/metadata",
         "params": [
           {
@@ -98,7 +98,7 @@
         "doc": {
           "url": "https://friendly-sharefile.octoblu.com/:account/items-by-path/children"
         },
-        "displayName": "Get Folder Children",
+        "displayName": "Get Folder Children by Path",
         "path": "/:account/items-by-path/children",
         "params": [
           {
@@ -115,7 +115,7 @@
         "doc": {
           "url": "https://friendly-sharefile.octoblu.com/:account/items-by-path/treeview"
         },
-        "displayName": "Get Treeview of Folder",
+        "displayName": "Get Treeview of Folder by Path",
         "path": "/:account/items-by-path/treeview",
         "params": [
           {
@@ -132,7 +132,7 @@
         "doc": {
           "url": "https://friendly-sharefile.octoblu.com/:account/items-by-path/download"
         },
-        "displayName": "Download a Folder or File",
+        "displayName": "Download a Folder or File by Path",
         "path": "/:account/items-by-path/download",
         "params": [
           {
@@ -149,7 +149,7 @@
         "doc": {
           "url": "https://friendly-sharefile.octoblu.com/:account/items-by-path/share"
         },
-        "displayName": "Create Link",
+        "displayName": "Create Link By Path",
         "path": "/:account/items-by-path/share",
         "params": [
           {
@@ -178,12 +178,12 @@
         "doc": {
           "url": "https://friendly-sharefile.octoblu.com/:account/items-by-path/upload"
         },
-        "displayName": "Create Link",
+        "displayName": "Upload File By Target Path",
         "path": "/:account/items-by-path/upload",
         "params": [
           {
             "name": "path",
-            "displayName": "Path",
+            "displayName": "Target Path",
             "type": "string",
             "style": "query"
           },
@@ -231,7 +231,7 @@
         "doc": {
           "url": "https://friendly-sharefile.octoblu.com/:account/items/:itemId"
         },
-        "displayName": "Get Item By Path",
+        "displayName": "Get Item by Item ID",
         "path": "/:account/items/:itemId",
         "params": [
           {
@@ -248,7 +248,7 @@
         "doc": {
           "url": "https://friendly-sharefile.octoblu.com/:account/items/:itemId/metadata"
         },
-        "displayName": "Get Item Metadata",
+        "displayName": "Get Item Metadata by Item ID",
         "path": "/:account/items/:itemId/metadata",
         "params": [
           {
@@ -265,7 +265,7 @@
         "doc": {
           "url": "https://friendly-sharefile.octoblu.com/:account/items/:itemId/children"
         },
-        "displayName": "Get Folder Children",
+        "displayName": "Get Folder Children by Item ID",
         "path": "/:account/items/:itemId/children",
         "params": [
           {
@@ -282,7 +282,7 @@
         "doc": {
           "url": "https://friendly-sharefile.octoblu.com/:account/items/:itemId/treeview"
         },
-        "displayName": "Get Treeview of Folder",
+        "displayName": "Get Treeview of Folder by Item ID",
         "path": "/:account/items/:itemId/treeview",
         "params": [
           {
@@ -299,7 +299,7 @@
         "doc": {
           "url": "https://friendly-sharefile.octoblu.com/:account/items/:itemId/download"
         },
-        "displayName": "Download a Folder or File",
+        "displayName": "Download a Folder or File by Item ID",
         "path": "/:account/items/:itemId/download",
         "params": [
           {
@@ -316,7 +316,7 @@
         "doc": {
           "url": "https://friendly-sharefile.octoblu.com/:account/items/:itemId/share"
         },
-        "displayName": "Create Link",
+        "displayName": "Create Link by Item ID",
         "path": "/:account/items/:itemId/share",
         "params": [
           {
@@ -345,12 +345,12 @@
         "doc": {
           "url": "https://friendly-sharefile.octoblu.com/:account/items/:itemId/upload"
         },
-        "displayName": "Create Link",
+        "displayName": "Upload File by Target Item ID",
         "path": "/:account/items/:itemId/upload",
         "params": [
           {
             "name": "itemId",
-            "displayName": "Item ID",
+            "displayName": "Target Item ID",
             "type": "string",
             "style": "url"
           },
