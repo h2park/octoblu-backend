@@ -483,7 +483,7 @@
             "displayName": "Logon Type"
           },
           {
-            "required": "true",
+            "required": true,
             "type": "array",
             "style": "body",
             "name": "callback",
@@ -502,7 +502,8 @@
                     "type": "string"
                   }
                 }
-              }
+              },
+              "required": true
             }
           }
         ],
@@ -1113,6 +1114,182 @@
         },
         "httpMethod": "PUT",
         "url": "http://:hostname::port/xenmobile/api/v1/notificationserver/activate/sms/:id"
+      },
+      {
+        "params": [
+          {
+            "required": "false",
+            "value": "",
+            "type": "string",
+            "style": "",
+            "name": "",
+            "displayName": ""
+          }
+        ],
+        "path": "/deliverygroups",
+        "displayName": "Add delivery group",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
+        },
+        "httpMethod": "POST",
+        "url": "http://:hostname::port/xenmobile/api/v1/deliverygroups"
+      },
+      {
+        "params": [
+          {
+            "required": "false",
+            "value": "",
+            "type": "string",
+            "style": "",
+            "name": "",
+            "displayName": ""
+          }
+        ],
+        "path": "/deliverygroups",
+        "displayName": "Delete delivery group",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
+        },
+        "httpMethod": "DELETE",
+        "url": "http://:hostname::port/xenmobile/api/v1/deliverygroups"
+      },
+      {
+        "params": [
+          {
+            "required": "false",
+            "value": "",
+            "type": "string",
+            "style": "",
+            "name": "",
+            "displayName": ""
+          }
+        ],
+        "path": "/serverproperties",
+        "displayName": "Get all server properties",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
+        },
+        "httpMethod": "GET",
+        "url": "http://:hostname::port/xenmobile/api/v1/serverproperties"
+      },
+      {
+        "params": [
+          {
+            "required": "false",
+            "value": "",
+            "type": "string",
+            "style": "",
+            "name": "",
+            "displayName": ""
+          }
+        ],
+        "path": "/serverproperties/filter",
+        "displayName": "Get server properties by filter",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
+        },
+        "httpMethod": "POST",
+        "url": "http://:hostname::port/xenmobile/api/v1/serverproperties/filter"
+      },
+      {
+        "params": [
+          {
+            "required": "false",
+            "value": "",
+            "type": "string",
+            "style": "",
+            "name": "",
+            "displayName": ""
+          }
+        ],
+        "path": "/serverproperties",
+        "displayName": "Add server property",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
+        },
+        "httpMethod": "POST",
+        "url": "http://:hostname::port/xenmobile/api/v1/serverproperties"
+      },
+      {
+        "params": [
+          {
+            "required": "false",
+            "value": "",
+            "type": "string",
+            "style": "",
+            "name": "",
+            "displayName": ""
+          }
+        ],
+        "path": "/serverproperties",
+        "displayName": "Edit server properties",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
+        },
+        "httpMethod": "PUT",
+        "url": "http://:hostname::port/xenmobile/api/v1/serverproperties"
+      },
+      {
+        "params": [
+          {
+            "required": "false",
+            "value": "",
+            "type": "string",
+            "style": "",
+            "name": "",
+            "displayName": ""
+          }
+        ],
+        "path": "/serverproperties/reset",
+        "displayName": "Reset server properties",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
+        },
+        "httpMethod": "POST",
+        "url": "http://:hostname::port/xenmobile/api/v1/serverproperties/reset"
+      },
+      {
+        "params": [
+          {
+            "required": "false",
+            "value": "",
+            "type": "string",
+            "style": "",
+            "name": "",
+            "displayName": ""
+          }
+        ],
+        "path": "/serverproperties",
+        "displayName": "Delete server properties",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
+        },
+        "httpMethod": "DELETE",
+        "url": "http://:hostname::port/xenmobile/api/v1/serverproperties"
       },
       {
         "params": [
