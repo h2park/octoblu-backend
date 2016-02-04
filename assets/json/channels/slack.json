@@ -76,12 +76,6 @@
         },
         "httpMethod": "Get",
         "params": [{
-            "displayName": "Auth Token",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Channel",
             "style": "query",
             "type": "string",
@@ -113,12 +107,6 @@
         },
         "httpMethod": "Get",
         "params": [{
-            "displayName": "Auth Token",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Channel",
             "style": "query",
             "type": "string",
@@ -213,12 +201,6 @@
         "curl": "curl -X ",
         "params": [
           {
-            "displayName": "Auth Token",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Exclude Archived",
             "style": "query",
             "type": "string",
@@ -464,13 +446,7 @@
           "url": "https://slack.com/api/emoji.list"
         },
         "httpMethod": "Get",
-        "params": [{
-            "displayName": "Auth Token",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          }],
+        "params": [],
         "url": "https://slack.com/api/emoji.list"
       },
       {
@@ -498,12 +474,6 @@
         },
         "httpMethod": "Get",
         "params": [{
-            "displayName": "Auth Token",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "File To Fetch",
             "style": "query",
             "type": "string",
@@ -531,12 +501,6 @@
         "httpMethod": "Get",
         "params": [
           {
-            "displayName": "Auth Token",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "User",
             "style": "query",
             "type": "string",
@@ -700,12 +664,6 @@
         "httpMethod": "Get",
         "curl": "curl -X ",
         "params": [{
-            "displayName": "Auth Token",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Channel",
             "style": "query",
             "type": "string",
@@ -801,12 +759,6 @@
         },
         "httpMethod": "Get",
         "params": [{
-            "displayName": "Auth Token",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Don't Return Archived Groups",
             "style": "query",
             "type": "string",
@@ -961,12 +913,6 @@
         "httpMethod": "Get",
         "params": [
           {
-            "displayName": "Auth Token",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Channel",
             "style": "query",
             "type": "string",
@@ -998,13 +944,7 @@
           "url": "https://slack.com/api/im.list"
         },
         "httpMethod": "Get",
-        "params": [{
-            "displayName": "Auth Token",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          }],
+        "params": [],
         "url": "https://slack.com/api/im.list"
       },
       {
@@ -1015,12 +955,6 @@
         },
         "httpMethod": "Get",
         "params": [{
-            "displayName": "Auth Token",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Channel",
             "style": "query",
             "type": "string",
@@ -1075,13 +1009,7 @@
           "url": "https://slack.com/api/rtm.start"
         },
         "httpMethod": "Post",
-        "params": [{
-            "displayName": "Auth Token",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          }],
+        "params": [],
         "url": "https://slack.com/api/rtm.start"
       },
       {
@@ -1092,12 +1020,6 @@
         },
         "httpMethod": "Get",
         "params": [{
-            "displayName": "Auth Token",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "User",
             "style": "query",
             "type": "string",
@@ -1123,12 +1045,6 @@
         },
         "httpMethod": "Get",
         "params": [{
-            "displayName": "Auth Token",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "User",
             "style": "query",
             "type": "string",
@@ -1147,12 +1063,6 @@
         "curl": "curl -X ",
         "params": [
           {
-            "displayName": "Auth Token",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "User To Get Info On",
             "style": "query",
             "type": "string",
@@ -1171,13 +1081,7 @@
         "httpMethod": "Get",
         "curl": "curl -X ",
         "params": [
-          {
-            "displayName": "Auth Token",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          }
+
         ],
         "url": "https://slack.com/api/users.list"
       },
@@ -1190,13 +1094,7 @@
         "httpMethod": "Post",
         "curl": "curl -X ",
         "params": [
-          {
-            "displayName": "Auth Token",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          }
+
         ],
         "url": "https://slack.com/api/users.setActive"
       },
