@@ -1,6 +1,6 @@
 {
   "_id": "particle_io",
-  "auth_strategy": "basic",
+  "auth_strategy": "none",
   "description": "",
   "documentation": "https://docs.particle.io/reference/api/",
   "enabled": true,
