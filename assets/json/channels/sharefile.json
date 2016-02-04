@@ -42,16 +42,6 @@
       {
         "httpMethod": "GET",
         "doc": {
-          "url": "https://friendly-sharefile.octoblu.com/:account/items"
-        },
-        "displayName": "List all files and folders",
-        "path": "/:account/items",
-        "params": [],
-        "url": "https://friendly-sharefile.octoblu.com/:account/items"
-      },
-      {
-        "httpMethod": "GET",
-        "doc": {
           "url": "https://friendly-sharefile.octoblu.com/:account/home/folder"
         },
         "displayName": "List Home Folder items",
@@ -227,6 +217,29 @@
         "url": "https://friendly-sharefile.octoblu.com/:account/items-by-path/upload"
       },
       {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "https://friendly-sharefile.octoblu.com/:account/items-by-path/transfer/dropbox"
+        },
+        "displayName": "Transfer Dropbox Shared Link to Sharefile",
+        "path": "/:account/items-by-path/transfer/dropbox",
+        "params": [
+          {
+            "name": ":itemId",
+            "displayName": "Target Item ID",
+            "type": "string",
+            "style": "url"
+          },
+          {
+            "name": "link",
+            "displayName": "Dropbox Shared Link",
+            "type": "string",
+            "style": "body"
+          }
+        ],
+        "url": "https://friendly-sharefile.octoblu.com/:account/items-by-path/transfer/dropbox"
+      },
+      {
         "httpMethod": "GET",
         "doc": {
           "url": "https://friendly-sharefile.octoblu.com/:account/items/:itemId"
@@ -392,6 +405,29 @@
           }
         ],
         "url": "https://friendly-sharefile.octoblu.com/:account/items/:itemId/upload"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "https://friendly-sharefile.octoblu.com/:account/items/:itemId/transfer/dropbox"
+        },
+        "displayName": "Transfer Dropbox Shared Link to Sharefile",
+        "path": "/:account/items/:itemId/transfer/dropbox",
+        "params": [
+          {
+            "name": ":itemId",
+            "displayName": "Target Item ID",
+            "type": "string",
+            "style": "url"
+          },
+          {
+            "name": "link",
+            "displayName": "Dropbox Shared Link",
+            "type": "string",
+            "style": "body"
+          }
+        ],
+        "url": "https://friendly-sharefile.octoblu.com/:account/items/:itemId/transfer/dropbox"
       }
     ]
   }
