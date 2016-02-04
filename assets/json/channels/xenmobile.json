@@ -736,7 +736,7 @@
         "doc": {
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
-        "httpMethod": "GET",
+        "httpMethod": "POST",
         "url": "http://:hostname::port/xenmobile/api/v1/notificationserver/sms"
       },
       {
@@ -810,30 +810,239 @@
         "doc": {
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
-        "httpMethod": "GET",
+        "httpMethod": "PUT",
         "url": "http://:hostname::port/xenmobile/api/v1/notificationserver/sms/:id"
       },
       {
         "params": [
           {
             "required": "false",
-            "value": "",
             "type": "string",
-            "style": "",
-            "name": "",
-            "displayName": ""
+            "style": "body",
+            "name": "name",
+            "displayName": "Name"
+          },
+          {
+            "required": "false",
+            "type": "string",
+            "style": "body",
+            "name": "description",
+            "displayName": "Description"
+          },
+          {
+            "required": "false",
+            "type": "string",
+            "style": "body",
+            "name": "server",
+            "displayName": "Server"
+          },
+          {
+            "required": "false",
+            "type": "string",
+            "style": "body",
+            "name": "secureChannelProtocol",
+            "displayName": "Secure Channel Protocol"
+          },
+          {
+            "required": "false",
+            "type": "string",
+            "style": "body",
+            "name": "port",
+            "displayName": "Port"
+          },
+          {
+            "required": "false",
+            "type": "string",
+            "style": "body",
+            "name": "authentication",
+            "displayName": "Authentication"
+          },
+          {
+            "required": "false",
+            "type": "string",
+            "style": "body",
+            "name": "username",
+            "displayName": "Username"
+          },
+          {
+            "required": "false",
+            "type": "string",
+            "style": "body",
+            "name": "password",
+            "displayName": "Password"
+          },
+          {
+            "required": "false",
+            "type": "string",
+            "style": "body",
+            "name": "msSecurePasswordAuth",
+            "displayName": "msSecurePasswordAuth"
+          },
+          {
+            "required": "false",
+            "type": "string",
+            "style": "body",
+            "name": "fromName",
+            "displayName": "From Name"
+          },
+          {
+            "required": "false",
+            "type": "string",
+            "style": "body",
+            "name": "fromEmail",
+            "displayName": "From Email"
+          },
+          {
+            "required": "false",
+            "type": "number",
+            "style": "body",
+            "name": "numOfRetries",
+            "displayName": "Number of Retries"
+          },
+          {
+            "required": "false",
+            "type": "number",
+            "style": "body",
+            "name": "timeout",
+            "displayName": "Timeout"
+          },
+          {
+            "required": "false",
+            "type": "number",
+            "style": "body",
+            "name": "maxRecipients",
+            "displayName": "Max Recipients"
           }
         ],
-        "path": "/",
-        "displayName": "",
+        "path": "/notificationserver/smtp",
+        "displayName": "Add SMTP server configuration",
         "authentication": {
           "required": "true"
         },
         "doc": {
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
-        "httpMethod": "GET",
-        "url": "http://:hostname::port/xenmobile/api/v1/"
+        "httpMethod": "POST",
+        "url": "http://:hostname::port/xenmobile/api/v1/notificationserver/smtp"
+      },
+      {
+        "params": [
+          {
+            "required": "false",
+            "type": "string",
+            "style": "url",
+            "name": ":id",
+            "displayName": "ID"
+          },
+          {
+            "required": "false",
+            "type": "string",
+            "style": "body",
+            "name": "name",
+            "displayName": "Name"
+          },
+          {
+            "required": "false",
+            "type": "string",
+            "style": "body",
+            "name": "description",
+            "displayName": "Description"
+          },
+          {
+            "required": "false",
+            "type": "string",
+            "style": "body",
+            "name": "server",
+            "displayName": "Server"
+          },
+          {
+            "required": "false",
+            "type": "string",
+            "style": "body",
+            "name": "secureChannelProtocol",
+            "displayName": "Secure Channel Protocol"
+          },
+          {
+            "required": "false",
+            "type": "string",
+            "style": "body",
+            "name": "port",
+            "displayName": "Port"
+          },
+          {
+            "required": "false",
+            "type": "string",
+            "style": "body",
+            "name": "authentication",
+            "displayName": "Authentication"
+          },
+          {
+            "required": "false",
+            "type": "string",
+            "style": "body",
+            "name": "username",
+            "displayName": "Username"
+          },
+          {
+            "required": "false",
+            "type": "string",
+            "style": "body",
+            "name": "password",
+            "displayName": "Password"
+          },
+          {
+            "required": "false",
+            "type": "string",
+            "style": "body",
+            "name": "msSecurePasswordAuth",
+            "displayName": "msSecurePasswordAuth"
+          },
+          {
+            "required": "false",
+            "type": "string",
+            "style": "body",
+            "name": "fromName",
+            "displayName": "From Name"
+          },
+          {
+            "required": "false",
+            "type": "string",
+            "style": "body",
+            "name": "fromEmail",
+            "displayName": "From Email"
+          },
+          {
+            "required": "false",
+            "type": "number",
+            "style": "body",
+            "name": "numOfRetries",
+            "displayName": "Number of Retries"
+          },
+          {
+            "required": "false",
+            "type": "number",
+            "style": "body",
+            "name": "timeout",
+            "displayName": "Timeout"
+          },
+          {
+            "required": "false",
+            "type": "number",
+            "style": "body",
+            "name": "maxRecipients",
+            "displayName": "Max Recipients"
+          }
+        ],
+        "path": "/notificationserver/smtp/:id",
+        "displayName": "Edit SMTP server configuration",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
+        },
+        "httpMethod": "POST",
+        "url": "http://:hostname::port/xenmobile/api/v1/notificationserver/smtp/:id"
       },
       {
         "params": [
@@ -841,21 +1050,65 @@
             "required": "false",
             "value": "",
             "type": "string",
-            "style": "",
-            "name": "",
-            "displayName": ""
+            "style": "url",
+            "name": ":id",
+            "displayName": "ID"
           }
         ],
-        "path": "/",
-        "displayName": "",
+        "path": "/notificationserver/:id",
+        "displayName": "Delete server configuration",
         "authentication": {
           "required": "true"
         },
         "doc": {
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
-        "httpMethod": "GET",
-        "url": "http://:hostname::port/xenmobile/api/v1/"
+        "httpMethod": "DELETE",
+        "url": "http://:hostname::port/xenmobile/api/v1/notificationserver/:id"
+      },
+      {
+        "params": [
+          {
+            "required": "false",
+            "value": "",
+            "type": "string",
+            "style": "url",
+            "name": ":id",
+            "displayName": "ID"
+          }
+        ],
+        "path": "/notificationserver/activate/smtp/:id",
+        "displayName": "Set default SMTP configuration",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
+        },
+        "httpMethod": "PUT",
+        "url": "http://:hostname::port/xenmobile/api/v1/notificationserver/activate/smtp/:id"
+      },
+      {
+        "params": [
+          {
+            "required": "false",
+            "value": "",
+            "type": "string",
+            "style": "url",
+            "name": ":id",
+            "displayName": "ID"
+          }
+        ],
+        "path": "/notificationserver/activate/sms/:id",
+        "displayName": "Set default SMS configuration",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
+        },
+        "httpMethod": "PUT",
+        "url": "http://:hostname::port/xenmobile/api/v1/notificationserver/activate/sms/:id"
       },
       {
         "params": [
