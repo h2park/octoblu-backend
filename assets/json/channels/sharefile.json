@@ -173,7 +173,7 @@
         "params": [
           {
             "name": "path",
-            "displayName": "Target Path",
+            "displayName": "Target Folder Path",
             "type": "string",
             "style": "query"
           },
@@ -221,14 +221,14 @@
         "doc": {
           "url": "https://friendly-sharefile.octoblu.com/:account/items-by-path/transfer/dropbox"
         },
-        "displayName": "Transfer Dropbox Shared Link to Sharefile",
+        "displayName": "Transfer Dropbox Link to Sharefile By Target Path",
         "path": "/:account/items-by-path/transfer/dropbox",
         "params": [
           {
-            "name": ":itemId",
-            "displayName": "Target Item ID",
+            "name": "path",
+            "displayName": "Target Folder Path",
             "type": "string",
-            "style": "url"
+            "style": "query"
           },
           {
             "name": "link",
@@ -363,7 +363,7 @@
         "params": [
           {
             "name": ":itemId",
-            "displayName": "Target Item ID",
+            "displayName": "Target Folder ID",
             "type": "string",
             "style": "url"
           },
@@ -411,12 +411,12 @@
         "doc": {
           "url": "https://friendly-sharefile.octoblu.com/:account/items/:itemId/transfer/dropbox"
         },
-        "displayName": "Transfer Dropbox Shared Link to Sharefile",
+        "displayName": "Transfer Dropbox Link to Sharefile By Target ID",
         "path": "/:account/items/:itemId/transfer/dropbox",
         "params": [
           {
             "name": ":itemId",
-            "displayName": "Target Item ID",
+            "displayName": "Target Folder Item ID",
             "type": "string",
             "style": "url"
           },
