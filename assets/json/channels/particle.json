@@ -9,13 +9,18 @@
   "skipVerifySSL": true,
   "defaultParams": [
     {
-      "name": "access_token",
+      "name": ":access_token",
       "displayName": "Access Token",
-      "style": "body",
+      "style": "url",
       "type": "string",
       "required": true
     }
   ],
+  "overrides": {
+    "headerParams": {
+      "Authorization": "Bearer :access_token"
+    }
+  },
   "application": {
     "base": "https://api.particle.io/v1",
     "resources": [

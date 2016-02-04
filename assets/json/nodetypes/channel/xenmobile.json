@@ -1,0 +1,17 @@
+{
+  "_id": "56b39129b604c4b06ed6de6c",
+  "deviceId": "c339f6ce-fe26-4788-beee-c97605f50403",
+  "category": "channel",
+  "categories": ["Citrix"],
+  "description": "XenMobile",
+  "documentation": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html",
+  "helpText": "XenMobile delivers mobile device management (MDM), mobile application management (MAM) and enterprise-grade productivity apps in one comprehensive solution. ",
+  "enabled": false,
+  "name": "XenMobile",
+  "skynet": {
+    "type": "channel",
+    "subtype": "xenmobile"
+  },
+  "channelid": "56b390f3b604c4b06ed6de6a",
+  "type": "channel:xenmobile"
+}
