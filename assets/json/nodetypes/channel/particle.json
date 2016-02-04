@@ -1,16 +1,16 @@
 {
   "_id": "particle_api",
-  "deviceId": "1234particle",
+  "deviceId": "c339f6ce-fe26-4788-beee-c97605f50403",
   "category": "channel",
   "categories": ["Maker"],
   "description": "Particle.io API",
   "documentation": "https://docs.particle.io/reference/api/",
   "helpText": "Control your particle.io wifi Arduino through the Particle API",
   "enabled": true,
-  "name": "Particle.io",
+  "name": "Particle",
   "skynet": {
     "type": "channel",
-    "subtype": "particle"
+    "subtype": "Particle"
   },
   "channelid": "particle_io",
   "type": "channel:particle"
