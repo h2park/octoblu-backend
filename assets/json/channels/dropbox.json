@@ -442,20 +442,17 @@
         },
         "displayName": "Get Share Link To File",
         "path": "/media",
-        "fullURL": "https://api.dropbox.com/1/media/<root>/<path>",
+        "fullURL": "https://api.dropbox.com/1/media/auto/:path",
         "httpMethod": "POST",
         "params": [
           {
-            "name": "locale",
-            "displayName": "Locale",
+            "name": ":path",
+            "displayName": "Path",
             "type": "string",
-            "style": "body",
-            "doc": {
-              "t": "Use to specify language settings for user error messages and other language specific text. See the notes above for more information about supported locales."
-            }
+            "style": "url"
           }
         ],
-        "url": "https://api.dropbox.com/1/media"
+        "url": "https://api.dropbox.com/1/media/auto/:path"
       },
       {
         "doc": {
