@@ -488,15 +488,19 @@
             "style": "body",
             "name": "callback",
             "displayName": "Callback",
-            "format": "table",
-            "items": {
-              "type": "object",
-              "properties": {
-                "callbackUrl": {
-                  "type": "string"
-                },
-                "ip": {
-                  "type": "string"
+            "schema": {
+              "title": "callback",
+              "type": "array",
+              "format": "table",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "callbackUrl": {
+                    "type": "string"
+                  },
+                  "ip": {
+                    "type": "string"
+                  }
                 }
               }
             }
