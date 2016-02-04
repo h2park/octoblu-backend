@@ -1,9 +1,9 @@
 {
   "_id": "56b390f3b604c4b06ed6de6a",
-  "auth_strategy": "basic",
+  "auth_strategy": "none",
   "description": "",
   "documentation": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html",
-  "enabled": false,
+  "enabled": true,
   "name": "XenMobile",
   "type": "channel:xenmobile",
   "skipVerifySSL": true,
@@ -24,16 +24,9 @@
       "required": true
     },
     {
-      "name": ":login",
-      "displayName": "Login",
-      "style": "url",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": ":password",
-      "displayName": "Password",
-      "style": "url",
+      "name": "auth_token",
+      "displayName": "Auth Token",
+      "style": "header",
       "type": "string",
       "required": true
     }
