@@ -1,6 +1,6 @@
 {
   "_id": "56b383bd0ff23fc2acbf477b",
-  "auth_strategy": "apikey",
+  "auth_strategy": "header",
   "description": "",
   "documentation": "https://docs.particle.io/reference/api/",
   "enabled": true,
