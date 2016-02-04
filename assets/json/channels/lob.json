@@ -18,10 +18,10 @@
         "httpMethod": "Post",
         "params": [
           {
-            "displayName": "Name",
+            "displayName": "Description",
             "style": "body",
             "type": "string",
-            "name": "name"
+            "name": "description"
           },{
             "displayName": "To",
             "style": "body",
@@ -101,12 +101,27 @@
         },
         "httpMethod": "Post",
         "params": [{
-            "displayName": "Name",
+            "displayName": "Description",
             "style": "body",
             "type": "string",
-            "name": "name",
+            "name": "description",
             "required": true
-          },{
+          },
+          {
+              "displayName": "Name",
+              "style": "body",
+              "type": "string",
+              "name": "name",
+              "required": false
+            },
+            {
+                "displayName": "Company",
+                "style": "body",
+                "type": "string",
+                "name": "company",
+                "required": false
+              },
+            {
             "displayName": "Email",
             "style": "body",
             "type": "string",
@@ -219,10 +234,10 @@
         },
         "httpMethod": "Post",
         "params": [{
-            "displayName": "Name",
+            "displayName": "Description",
             "style": "body",
             "type": "string",
-            "name": "name"
+            "name": "description"
           },{
             "displayName": "File",
             "style": "body",
@@ -369,6 +384,120 @@
         "url": "https://api.lob.com/v1/services"
       },
       {
+        "path": "/letters/",
+        "displayName": "Create a Letter",
+        "doc": {
+          "url": "https://api.lob.com/v1/letters/"
+        },
+        "httpMethod": "Post",
+        "params": [
+          {
+            "displayName": "Description",
+            "style": "body",
+            "type": "string",
+            "name": "description"
+          },{
+            "displayName": "To",
+            "style": "body",
+            "type": "string",
+            "name": "to",
+            "required": true
+          },{
+            "displayName": "From",
+            "style": "body",
+            "type": "string",
+            "name": "from",
+            "required": true
+          },{
+            "displayName": "Color",
+            "style": "body",
+            "type": "string",
+            "name": "color",
+            "default": "false",
+            "required": true
+          },{
+            "displayName": "file",
+            "style": "body",
+            "type": "string",
+            "name": "file",
+            "required": true
+          },{
+            "displayName": "data",
+            "style": "body",
+            "type": "string",
+            "name": "data",
+            "required": true
+          },{
+            "displayName": "Double Sided",
+            "style": "body",
+            "type": "string",
+            "name": "double_sided",
+            "default": "false"
+          },{
+            "displayName": "Template",
+            "style": "body",
+            "type": "string",
+            "name": "template",
+            "default": "false"
+          },{
+            "displayName": "Extra Service",
+            "style": "body",
+            "type": "string",
+            "name": "extra_service"
+          },
+          {
+            "displayName": "Return Envelope",
+            "style": "body",
+            "type": "string",
+            "name": "return_envelope",
+            "default": "false"
+          },
+          {
+            "displayName": "Perforated Page",
+            "style": "body",
+            "type": "string",
+            "name": "perforated_page"
+          }
+        ],
+        "url": "https://api.lob.com/v1/letters/"
+      },
+      {
+        "path": "/letters/:LETTER_ID",
+        "displayName": "Retrieve a Letter",
+        "doc": {
+          "url": "https://api.lob.com/v1/letters/:LETTER_ID"
+        },
+        "httpMethod": "Get",
+        "params": [{
+            "displayName": "Letter ID",
+            "style": "URL",
+            "type": "string",
+            "name": "LETTER_ID",
+            "required": true
+          }],
+        "url": "https://api.lob.com/v1/letters/:LETTER_ID"
+      },
+      {
+        "path": "/letters",
+        "displayName": "List all Letters",
+        "doc": {
+          "url": "https://api.lob.com/v1/letters"
+        },
+        "httpMethod": "Get",
+        "params": [{
+            "displayName": "limit",
+            "style": "query",
+            "type": "integer",
+            "name": "limit"
+          },{
+            "displayName": "offset",
+            "style": "query",
+            "type": "integer",
+            "name": "offset"
+          }],
+        "url": "https://api.lob.com/v1/letters"
+      },
+      {
         "path": "/postcards/",
         "displayName": "Create a Postcard",
         "doc": {
@@ -377,10 +506,10 @@
         "httpMethod": "Post",
         "params": [
           {
-            "displayName": "Name",
+            "displayName": "Description",
             "style": "body",
             "type": "string",
-            "name": "name"
+            "name": "description"
           },{
             "displayName": "To",
             "style": "body",
