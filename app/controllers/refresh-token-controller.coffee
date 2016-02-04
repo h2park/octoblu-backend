@@ -33,12 +33,12 @@ class RefreshTokenController
         debug 'foundAuth', channelAuth
         @refreshToken uuid, channelAuth, type, callback
 
-  removeExpiredOn: (uuid, type, channelAuth, callback) =>
-    delete channelAuth.expiresOn
+  refreshTokenError: (uuid, type, channelAuth, error, callback) =>
     channelAuth.validToken = false
+    channelAuth.refreshTokenError = error
     @updateChannelAuth uuid, type, channelAuth, (updateError) =>
       return callback updateError unless updateError?
-      callback 'Removed From Expired On'
+      callback 'Invalid Refresh Token'
 
   updateChannelAuth: (uuid, type, channelAuth, callback) =>
     User.addApiToUserByChannelType uuid, type, channelAuth
@@ -49,13 +49,14 @@ class RefreshTokenController
     debug 'refreshToken', channelAuth.refreshToken, channelAuth.expiresOn
     return callback null unless channelAuth.refreshToken?
     passportRefresh.requestNewAccessToken _.last(type.split(':')), channelAuth.refreshToken, (error, accessToken, refreshToken, results) =>
-      return @removeExpiredOn uuid, type, channelAuth, callback if error?
+      return @refreshTokenError uuid, type, channelAuth, error, callback if error?
 
       expiresOn = Date.now() + (results.expires_in * 1000)
       channelAuth.token_crypt = textCrypt.encrypt accessToken
       channelAuth.refreshToken_crypt = textCrypt.encrypt refreshToken
       channelAuth.expiresOn = expiresOn
       channelAuth.validToken = true
+      channelAuth.refreshTokenError = null
 
       @updateChannelAuth uuid, type, channelAuth, callback
 
