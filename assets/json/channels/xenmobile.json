@@ -426,6 +426,395 @@
       },
       {
         "params": [
+          ],
+        "path": "/netscaler",
+        "displayName": "List all NetScaler Gateway configurations",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
+        },
+        "httpMethod": "GET",
+        "url": "http://:hostname::port/xenmobile/api/v1/netscaler"
+      },
+      {
+        "params": [
+          {
+            "required": "true",
+            "type": "string",
+            "style": "body",
+            "name": "name",
+            "displayName": "Name"
+          },
+          {
+            "required": "true",
+            "type": "string",
+            "style": "body",
+            "name": "alias",
+            "displayName": "Alias"
+          },
+          {
+            "required": "true",
+            "type": "boolean",
+            "style": "body",
+            "name": "default",
+            "displayName": "Default"
+          },
+          {
+            "required": "true",
+            "type": "string",
+            "style": "body",
+            "name": "url",
+            "displayName": "URL"
+          },
+          {
+            "required": "true",
+            "type": "boolean",
+            "style": "body",
+            "name": "passwordRequired",
+            "displayName": "Password Required"
+          },
+          {
+            "required": "true",
+            "type": "string",
+            "style": "body",
+            "name": "logonType",
+            "displayName": "Logon Type"
+          },
+          {
+            "required": "true",
+            "type": "array",
+            "style": "body",
+            "name": "callback",
+            "displayName": "Callback",
+            "format": "table",
+            "items": {
+              "type": "object",
+              "properties": {
+                "callbackUrl": {
+                  "type": "string"
+                },
+                "ip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "path": "/netscaler",
+        "displayName": "Add new NetScaler Gateway configuration",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
+        },
+        "httpMethod": "POST",
+        "url": "http://:hostname::port/xenmobile/api/v1/netscaler"
+      },
+      {
+        "params": [
+          {
+            "required": "true",
+            "type": "string",
+            "style": "url",
+            "name": ":id",
+            "displayName": "ID"
+          },
+          {
+            "required": "true",
+            "type": "string",
+            "style": "body",
+            "name": "name",
+            "displayName": "Name"
+          },
+          {
+            "required": "true",
+            "type": "string",
+            "style": "body",
+            "name": "alias",
+            "displayName": "Alias"
+          },
+          {
+            "required": "true",
+            "type": "boolean",
+            "style": "body",
+            "name": "default",
+            "displayName": "Default"
+          },
+          {
+            "required": "true",
+            "type": "string",
+            "style": "body",
+            "name": "url",
+            "displayName": "URL"
+          },
+          {
+            "required": "true",
+            "type": "boolean",
+            "style": "body",
+            "name": "passwordRequired",
+            "displayName": "Password Required"
+          },
+          {
+            "required": "true",
+            "type": "string",
+            "style": "body",
+            "name": "logonType",
+            "displayName": "Logon Type"
+          },
+          {
+            "required": "true",
+            "type": "array",
+            "style": "body",
+            "name": "callback",
+            "displayName": "Callback",
+            "format": "table",
+            "items": {
+              "type": "object",
+              "properties": {
+                "callbackUrl": {
+                  "type": "string"
+                },
+                "ip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "path": "/netscaler/:id",
+        "displayName": "Edit NetScaler Gateway configuration",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
+        },
+        "httpMethod": "PUT",
+        "url": "http://:hostname::port/xenmobile/api/v1/netscaler/:id"
+      },
+      {
+        "params": [
+          {
+            "required": "true",
+            "type": "string",
+            "style": "url",
+            "name": ":id",
+            "displayName": "ID"
+          }
+        ],
+        "path": "/netscaler/:id",
+        "displayName": "Delete Netscaler Gateway Configuration",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
+        },
+        "httpMethod": "DELETE",
+        "url": "http://:hostname::port/xenmobile/api/v1/netscaler/:id"
+      },
+      {
+        "params": [
+          {
+            "required": "true",
+            "type": "string",
+            "style": "url",
+            "name": ":id",
+            "displayName": "ID"
+          }
+        ],
+        "path": "/netscaler/default/:id",
+        "displayName": "Set Default Netscaler Gateway Configuration",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
+        },
+        "httpMethod": "PUT",
+        "url": "http://:hostname::port/xenmobile/api/v1/netscaler/default/:id"
+      },
+      {
+        "params": [],
+        "path": "/notificationserver",
+        "displayName": "List all SMS and SMTP servers",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
+        },
+        "httpMethod": "GET",
+        "url": "http://:hostname::port/xenmobile/api/v1/notificationserver"
+      },
+      {
+        "params": [
+          {
+            "required": "false",
+            "type": "string",
+            "style": "url",
+            "name": ":id",
+            "displayName": "ID"
+          }
+        ],
+        "path": "/notificationserver/:id",
+        "displayName": "Get server details",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
+        },
+        "httpMethod": "GET",
+        "url": "http://:hostname::port/xenmobile/api/v1/notificationserver/:id"
+      },
+      {
+        "params": [
+          {
+            "type": "string",
+            "style": "body",
+            "name": "name",
+            "displayName": "Name"
+          },
+          {
+            "type": "string",
+            "style": "body",
+            "name": "description",
+            "displayName": "Description"
+          },
+          {
+            "type": "string",
+            "style": "body",
+            "name": "server",
+            "displayName": "Server"
+          },
+          {
+            "type": "string",
+            "style": "body",
+            "name": "carrierGateway",
+            "displayName": "Carrier Gateway"
+          },
+          {
+            "type": "string",
+            "style": "body",
+            "name": "country",
+            "displayName": "Country"
+          },
+          {
+            "type": "string",
+            "style": "body",
+            "name": "https",
+            "displayName": "Https"
+          },
+          {
+            "type": "string",
+            "style": "body",
+            "name": "key",
+            "displayName": "Key"
+          },
+          {
+            "type": "string",
+            "style": "body",
+            "name": "secret",
+            "displayName": "Secret"
+          },
+          {
+            "type": "string",
+            "style": "body",
+            "name": "virtualPhoneNumber",
+            "displayName": "Virtual Phone Number"
+          }
+        ],
+        "path": "/notificationserver/sms",
+        "displayName": "Add SMS server configuration",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
+        },
+        "httpMethod": "GET",
+        "url": "http://:hostname::port/xenmobile/api/v1/notificationserver/sms"
+      },
+      {
+        "params": [
+          {
+            "type": "string",
+            "style": "url",
+            "name": ":id",
+            "displayName": "ID"
+          },
+          {
+            "type": "string",
+            "style": "body",
+            "name": "name",
+            "displayName": "Name"
+          },
+          {
+            "type": "string",
+            "style": "body",
+            "name": "description",
+            "displayName": "Description"
+          },
+          {
+            "type": "string",
+            "style": "body",
+            "name": "server",
+            "displayName": "Server"
+          },
+          {
+            "type": "string",
+            "style": "body",
+            "name": "carrierGateway",
+            "displayName": "Carrier Gateway"
+          },
+          {
+            "type": "string",
+            "style": "body",
+            "name": "country",
+            "displayName": "Country"
+          },
+          {
+            "type": "string",
+            "style": "body",
+            "name": "https",
+            "displayName": "Https"
+          },
+          {
+            "type": "string",
+            "style": "body",
+            "name": "key",
+            "displayName": "Key"
+          },
+          {
+            "type": "string",
+            "style": "body",
+            "name": "secret",
+            "displayName": "Secret"
+          },
+          {
+            "type": "string",
+            "style": "body",
+            "name": "virtualPhoneNumber",
+            "displayName": "Virtual Phone Number"
+          }
+        ],
+        "path": "/notificationserver/sms/:id",
+        "displayName": "Edit SMS server configuration",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
+        },
+        "httpMethod": "GET",
+        "url": "http://:hostname::port/xenmobile/api/v1/notificationserver/sms/:id"
+      },
+      {
+        "params": [
           {
             "required": "false",
             "value": "",

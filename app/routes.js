@@ -433,7 +433,6 @@ module.exports = function(app, passport, config, meshbluJSON){
 
     app.get('/api/xenmobile/auth', xenMobileController.authorize, xenMobileController.redirectToConfigure);
 
-
     app.post('/api/templates',  templateController.create);
 
     app.get('/api/templates',   templateController.getAllTemplates,
