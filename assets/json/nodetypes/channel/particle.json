@@ -1,5 +1,5 @@
 {
-  "_id": "particle_api",
+  "_id": "56b383e10ff23fc2acbf477c",
   "deviceId": "c339f6ce-fe26-4788-beee-c97605f50403",
   "category": "channel",
   "categories": ["Maker"],
@@ -12,6 +12,6 @@
     "type": "channel",
     "subtype": "Particle"
   },
-  "channelid": "particle_io",
+  "channelid": "56b383bd0ff23fc2acbf477b",
   "type": "channel:particle"
 }
