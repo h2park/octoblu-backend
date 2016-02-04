@@ -1,0 +1,578 @@
+{
+  "_id": "56b246552b73ae8a5027ce8d",
+  "auth_strategy": "oauth",
+  "bodyFormat": "json",
+  "documentation": "http://manage-docs.citrix.com/entries/68495369-API-Reference",
+  "name": "Citrix Lifecycle Management",
+  "type": "channel:citrixlifecyclemanagement",
+  "defaultParams": [
+    {
+      "displayName": "Citrix Lifecycle Management server name",
+      "name": ":domain",
+      "style": "url",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "oauth": {
+    "development": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "http://:domain/api/oauth/sharefile/callback",
+      "tokenMethod": "access_token_query",
+      "tokenQueryParam": "oauth_token"
+    },
+    "production": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "http://:domain/api/oauth/sharefile/callback",
+      "tokenMethod": "access_token_query",
+      "tokenQueryParam": "oauth_token"
+    },
+    "staging": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "https://:domain/api/oauth/sharefile/callback",
+      "tokenMethod": "access_token_query",
+      "tokenQueryParam": "oauth_token"
+    }
+  },
+  "application": {
+    "base": "https://:domain/v0",
+    "resources": [
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#scripts-get"
+        },
+        "displayName": "Gets all scripts",
+        "path": "/scripts",
+        "params": [
+          {
+            "required": false,
+            "name": "version",
+            "displayName": "Version",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/v0/scripts"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#scripts-id-get"
+        },
+        "displayName": "Gets a script by ID",
+        "path": "/scripts/:id",
+        "params": [
+          {
+            "required": false,
+            "name": "version",
+            "displayName": "Version",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/v0/scripts/:id"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#scripts-id-versions-get"
+        },
+        "displayName": "Gets a list of script versions",
+        "path": "/scripts/:id/versions",
+        "params": [],
+        "url": "https://:domain/scripts/:id/versions"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#scripts-post"
+        },
+        "displayName": "Creates a script",
+        "path": "/scripts",
+        "params": [
+          {
+            "required": true,
+            "type": "string",
+            "style": "body",
+            "displayName": "",
+            "name": ""
+          }
+        ],
+        "url": "https://:domain/scripts"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#scripts-id-post"
+        },
+        "displayName": "Updates a script by ID",
+        "path": "/scripts/:id",
+        "params": [
+          {
+            "required": true,
+            "type": "string",
+            "style": "body",
+            "displayName": "",
+            "name": ""
+          }
+        ],
+        "url": "https://:domain/scripts"
+      },
+      {
+        "httpMethod": "DELETE",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#scripts-id-delete"
+        },
+        "displayName": "Deletes a script by ID",
+        "path": "/scripts/:id",
+        "params": [],
+        "url": "https://:domain/scripts"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#nodes-1"
+        },
+        "displayName": "Gets a list of nodes ",
+        "path": "/nodes",
+        "params": [
+          {
+            "required": false,
+            "type": "string",
+            "style": "query",
+            "displayName": "Platform",
+            "name": "platform"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "query",
+            "displayName": "Status",
+            "name": "status"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "query",
+            "displayName": "Limit",
+            "name": "limit"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "query",
+            "displayName": "Offset",
+            "name": "offset"
+          }
+        ],
+        "url": "https://:domain/nodes"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#nodes-1"
+        },
+        "displayName": "Get a node",
+        "path": "/nodes/:id",
+        "params": [
+          {
+            "required": false,
+            "type": "string",
+            "style": "query",
+            "displayName": "Platform",
+            "name": "platform"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "query",
+            "displayName": "Status",
+            "name": "status"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "query",
+            "displayName": "Limit",
+            "name": "limit"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "query",
+            "displayName": "Offset",
+            "name": "offset"
+          }
+        ],
+        "url": "https://:domain/nodes/:id"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#nodes-4"
+        },
+        "displayName": "Delete a node",
+        "path": "/nodes/:id",
+        "params": [],
+        "url": "https://:domain/nodes/:id"
+      },
+      {
+        "httpMethod": "PUT",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#nodes-5"
+        },
+        "displayName": "Set a node as a connector",
+        "path": "/nodes/:id/setasgateway",
+        "params": [],
+        "url": "https://:domain/nodes/:id/setasgateway"
+      },
+      {
+        "httpMethod": "PUT",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#nodes-6"
+        },
+        "displayName": "Refresh Node Properties from the Node",
+        "path": "/nodes/:id/refresh",
+        "params": [],
+        "url": "https://:domain/nodes/:id/refresh"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#nodes-install"
+        },
+        "displayName": "Installs Citrix Lifecycle Management agent to a machine",
+        "path": "/nodes/install",
+        "params": [
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "IP address of the machine",
+            "name": "ip"
+          },
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Port number to be accessed (depends on the Operating system)",
+            "name": "port"
+          },
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Username of the machine",
+            "name": "username"
+          },
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Password of the machine",
+            "name": "password"
+          },
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Operating system running on the machine. For example: linux or windows",
+            "name": "osn"
+          },
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Provider ID associated with a resource location",
+            "name": "providerId"
+          }
+        ],
+        "url": "https://:domain/nodes/install"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#nodes-install-status"
+        },
+        "displayName": "Gets agent installation status on a machine",
+        "path": "/nodes/:id/install/status/:taskId",
+        "params": [],
+        "url": "https://:domain/nodes/:id/install/status/:taskId"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#jobs-1"
+        },
+        "displayName": "Creates a job",
+        "path": "/jobs",
+        "params": [],
+        "url": "https://:domain/nodes/install"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#jobs-1"
+        },
+        "displayName": "Creates a job",
+        "path": "/jobs",
+        "params": [],
+        "url": "https://:domain/jobs"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#jobs-1"
+        },
+        "displayName": "Updates a job",
+        "path": "/jobs/:id",
+        "params": [],
+        "url": "https://:domain/jobs/:id"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#jobs-1-a"
+        },
+        "displayName": "Get a job by ID",
+        "path": "/jobs/:id",
+        "params": [],
+        "url": "https://:domain/jobs/:id"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#jobs-2"
+        },
+        "displayName": "Get a list of jobs for a given script",
+        "path": "/jobs",
+        "params": [
+          {
+            "required": false,
+            "type": "string",
+            "style": "query",
+            "displayName": "Provider ID associated with a resource location",
+            "name": "providerId"
+          }
+        ],
+        "url": "https://:domain/jobs"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#jobs-2"
+        },
+        "displayName": "Get a list of jobs for a given script",
+        "path": "/jobs",
+        "params": [
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Valid values are 'script', 'patch', 'update'",
+            "name": "type"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "query",
+            "displayName": "When 'type' is 'script'",
+            "name": "scriptID"
+          }
+        ],
+        "url": "https://:domain/jobs"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#jobs-3"
+        },
+        "displayName": "Get run information for a job",
+        "path": "/jobs/:jobid/runinfo",
+        "params": [
+          {
+            "required": false,
+            "type": "string",
+            "style": "query",
+            "displayName": "Can specifiy run ID",
+            "name": "runid"
+          }
+        ],
+        "url": "https://:domain/jobs/:jobid/runinfo"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#jobs-4"
+        },
+        "displayName": "Gets job output from target nodes",
+        "path": "/jobs/:jobid/runoutput",
+        "params": [
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Can specifiy run ID",
+            "name": "runid"
+          }
+        ],
+        "url": "https://:domain/jobs/:jobid/runoutput"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#jobs-5"
+        },
+        "displayName": "Creates a Patch/Update job",
+        "path": "/jobs",
+        "params": [],
+        "url": "https://:domain/jobs"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#jobs-5"
+        },
+        "displayName": "Updates a Patch/Update job",
+        "path": "/jobs/:id",
+        "params": [],
+        "url": "https://:domain/jobs/:id"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#profile-1"
+        },
+        "displayName": "Get a deployment profile",
+        "path": "/deploymentprofile/:id",
+        "params": [],
+
+        "url": "https://:domain/deploymentprofile/:id"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#profile-2"
+        },
+        "displayName": "Create a deployment profile",
+        "path": "/deploymentprofile",
+        "params": [
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Process ID",
+            "name": "processIDStr"
+          },
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Process version",
+            "name": "processVersionStr"
+          },
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Deployment profile name",
+            "name": "deploymentProfileName"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "query",
+            "displayName": "Description",
+            "name": "description"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "query",
+            "displayName": "Provider ID list",
+            "name": "providerIdListStr"
+          },
+          {
+            "required": true,
+            "type": "string",
+            "style": "body",
+            "displayName": "Profile detail",
+            "name": "profileDetailsStr"
+          }
+        ],
+        "url": "https://:domain/deploymentprofile"
+      },
+      {
+        "httpMethod": "DELETE",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#profile-4"
+        },
+        "displayName": "Deletes an existing deployment profile",
+        "path": "/deploymentprofile/:id",
+        "params": [],
+        "url": "https://:domain/deploymentprofile/:id"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#profile-5"
+        },
+        "displayName": "Get a list of deployment profiles for a blueprint",
+        "path": "/deploymentprofile/list",
+        "params": [
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Process ID",
+            "name": "processId"
+          },
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Process version",
+            "name": "processVersion"
+          },
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "providerIdList",
+            "name": "Provider ID list"
+          }
+        ],
+        "url": "https://:domain/deploymentprofile"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#profile-6"
+        },
+        "displayName": "Create a deployment profile",
+        "path": "/deploymentprofile/:id/deploy",
+        "params": [
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Process ID",
+            "name": "processId"
+          },
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Name",
+            "name": "name"
+          }
+        ],
+        "url": "https://:domain/deploymentprofile/:id/deploy"
+      }
+    ]
+  }
+}
