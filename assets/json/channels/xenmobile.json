@@ -1,6 +1,6 @@
 {
   "_id": "56b390f3b604c4b06ed6de6a",
-  "auth_strategy": "none",
+  "auth_strategy": "header",
   "description": "",
   "documentation": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html",
   "enabled": true,
@@ -22,15 +22,22 @@
       "style": "url",
       "type": "string",
       "required": true
-    },
-    {
-      "name": "auth_token",
-      "displayName": "Auth Token",
-      "style": "header",
-      "type": "string",
-      "required": true
     }
   ],
+  "oauth": {
+    "development": {
+      "tokenMethod": "header",
+      "headerParam": "auth_token"
+    },
+    "staging": {
+      "tokenMethod": "header",
+      "headerParam": "auth_token"
+    },
+    "production": {
+      "tokenMethod": "header",
+      "headerParam": "auth_token"
+    }
+  },
   "application": {
     "base": "http://:hostname::port/xenmobile/api/v1",
     "resources": [
