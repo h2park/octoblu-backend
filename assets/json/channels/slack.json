@@ -11,19 +11,22 @@
       "clientID": "INSERT_SECERT_HERE",
       "clientSecret": "INSERT_SECERT_HERE",
       "callbackURL": "http://localhost:8080/api/oauth/slack/callback",
-      "tokenMethod": "access_token_query"
+      "tokenMethod": "access_token_query",
+      "tokenQueryParam": "token"
     },
     "staging": {
       "clientID": "INSERT_SECERT_HERE",
       "clientSecret": "INSERT_SECERT_HERE",
       "callbackURL": "https://staging.octoblu.com/api/oauth/slack/callback",
-      "tokenMethod": "access_token_query"
+      "tokenMethod": "access_token_query",
+      "tokenQueryParam": "token"
     },
     "production": {
       "clientID": "INSERT_SECERT_HERE",
       "clientSecret": "INSERT_SECERT_HERE",
       "callbackURL": "https://app.octoblu.com/api/oauth/slack/callback",
-      "tokenMethod": "access_token_query"
+      "tokenMethod": "access_token_query",
+      "tokenQueryParam": "token"
     }
   },
   "application": {
@@ -38,12 +41,6 @@
         "httpMethod": "Post",
         "params": [
           {
-            "displayName": "Auth Token",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Channel To Archive",
             "style": "body",
             "type": "string",
@@ -62,12 +59,6 @@
         "httpMethod": "Post",
         "params": [
           {
-            "displayName": "Auth Token",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Name Of Channel",
             "style": "body",
             "type": "string",
@@ -85,12 +76,6 @@
         },
         "httpMethod": "Get",
         "params": [{
-            "displayName": "Auth Token",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Channel",
             "style": "query",
             "type": "string",
@@ -122,12 +107,6 @@
         },
         "httpMethod": "Get",
         "params": [{
-            "displayName": "Auth Token",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Channel",
             "style": "query",
             "type": "string",
@@ -144,12 +123,6 @@
         },
         "httpMethod": "Post",
         "params": [{
-            "displayName": "Auth Token",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Channel",
             "style": "body",
             "type": "string",
@@ -172,12 +145,6 @@
         },
         "httpMethod": "Post",
         "params": [{
-            "displayName": "Auth Token",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Name Of Channel",
             "style": "body",
             "type": "string",
@@ -194,12 +161,6 @@
         },
         "httpMethod": "Post",
         "params": [{
-            "displayName": "Auth Token",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Channel To Remove",
             "style": "body",
             "type": "string",
@@ -222,12 +183,6 @@
         },
         "httpMethod": "Post",
         "params": [{
-            "displayName": "Auth Token",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Channel To Leave",
             "style": "body",
             "type": "string",
@@ -246,12 +201,6 @@
         "curl": "curl -X ",
         "params": [
           {
-            "displayName": "Auth Token",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Exclude Archived",
             "style": "query",
             "type": "string",
@@ -270,12 +219,6 @@
         "curl": "curl -X ",
         "params": [
           {
-            "displayName": "Auth Token",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Channel",
             "style": "body",
             "type": "string",
@@ -301,12 +244,6 @@
         "curl": "curl -X ",
         "params": [
           {
-            "displayName": "Auth Token",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Channel",
             "style": "body",
             "type": "string",
@@ -332,12 +269,6 @@
         "curl": "curl -X ",
         "params": [
           {
-            "displayName": "Auth Token",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Channel",
             "style": "body",
             "type": "string",
@@ -362,12 +293,6 @@
         "httpMethod": "Post",
         "curl": "curl -X ",
         "params": [{
-            "displayName": "Auth Token",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Channel",
             "style": "body",
             "type": "string",
@@ -391,12 +316,6 @@
         "httpMethod": "Post",
         "curl": "curl -X ",
         "params": [{
-            "displayName": "Auth Token",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Channel",
             "style": "body",
             "type": "string",
@@ -413,12 +332,6 @@
         "httpMethod": "Post",
         "params": [
           {
-            "displayName": "Auth Token",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Timestamp",
             "style": "body",
             "type": "string",
@@ -443,12 +356,6 @@
         "httpMethod": "Post",
         "params": [
           {
-            "displayName": "Auth Token",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Channel",
             "style": "body",
             "type": "string",
@@ -512,12 +419,6 @@
         },
         "httpMethod": "Post",
         "params": [{
-            "displayName": "Auth Token",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Timestamp",
             "style": "body",
             "type": "string",
@@ -545,13 +446,7 @@
           "url": "https://slack.com/api/emoji.list"
         },
         "httpMethod": "Get",
-        "params": [{
-            "displayName": "Auth Token",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          }],
+        "params": [],
         "url": "https://slack.com/api/emoji.list"
       },
       {
@@ -562,12 +457,6 @@
         },
         "httpMethod": "Post",
         "params": [{
-            "displayName": "Auth Token",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "ID Of File",
             "style": "body",
             "type": "string",
@@ -585,12 +474,6 @@
         },
         "httpMethod": "Get",
         "params": [{
-            "displayName": "Auth Token",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "File To Fetch",
             "style": "query",
             "type": "string",
@@ -618,12 +501,6 @@
         "httpMethod": "Get",
         "params": [
           {
-            "displayName": "Auth Token",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "User",
             "style": "query",
             "type": "string",
@@ -665,12 +542,6 @@
         },
         "httpMethod": "Post",
         "params": [{
-            "displayName": "Auth Token",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "File",
             "style": "body",
             "type": "string",
@@ -718,12 +589,6 @@
         "curl": "curl -X ",
         "params": [
           {
-            "displayName": "Auth Token",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Channel",
             "style": "body",
             "type": "string",
@@ -743,12 +608,6 @@
         "curl": "curl -X ",
         "params": [
           {
-            "displayName": "Auth Token",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Group To Open",
             "style": "body",
             "type": "string",
@@ -768,12 +627,6 @@
         "curl": "curl -X ",
         "params": [
           {
-            "displayName": "Auth Token",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Name",
             "style": "body",
             "type": "string",
@@ -793,12 +646,6 @@
         "curl": "curl -X ",
         "params": [
           {
-            "displayName": "Auth Token",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Channel",
             "style": "body",
             "type": "string",
@@ -817,12 +664,6 @@
         "httpMethod": "Get",
         "curl": "curl -X ",
         "params": [{
-            "displayName": "Auth Token",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Channel",
             "style": "query",
             "type": "string",
@@ -855,12 +696,6 @@
         "httpMethod": "Post",
         "curl": "curl -X ",
         "params": [{
-            "displayName": "Auth Token",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Private Group",
             "style": "body",
             "type": "string",
@@ -883,12 +718,6 @@
         "httpMethod": "Post",
         "params": [
           {
-            "displayName": "Auth Token",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Private Group",
             "style": "body",
             "type": "string",
@@ -913,12 +742,6 @@
         "httpMethod": "Post",
         "params": [
           {
-            "displayName": "Auth Token",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Group To Leave",
             "style": "body",
             "type": "string",
@@ -936,12 +759,6 @@
         },
         "httpMethod": "Get",
         "params": [{
-            "displayName": "Auth Token",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Don't Return Archived Groups",
             "style": "query",
             "type": "string",
@@ -957,12 +774,6 @@
         },
         "httpMethod": "Post",
         "params": [{
-            "displayName": "Auth Token",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Group To Set",
             "style": "body",
             "type": "string",
@@ -985,12 +796,6 @@
         },
         "httpMethod": "Post",
         "params": [{
-            "displayName": "Auth Token",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Group To Open",
             "style": "body",
             "type": "string",
@@ -1008,12 +813,6 @@
         },
         "httpMethod": "Post",
         "params": [{
-            "displayName": "Auth Token",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Group To Open",
             "style": "body",
             "type": "string",
@@ -1036,12 +835,6 @@
         },
         "httpMethod": "Post",
         "params": [{
-            "displayName": "Auth Token",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Channel",
             "style": "body",
             "type": "string",
@@ -1064,12 +857,6 @@
         },
         "httpMethod": "Post",
         "params": [{
-            "displayName": "Auth Token",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Channel",
             "style": "body",
             "type": "string",
@@ -1092,12 +879,6 @@
         },
         "httpMethod": "Post",
         "params": [{
-            "displayName": "Auth Token",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Channel",
             "style": "body",
             "type": "string",
@@ -1114,12 +895,6 @@
         "httpMethod": "Post",
         "params": [
           {
-            "displayName": "Auth Token",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Channel To Archive",
             "style": "body",
             "type": "string",
@@ -1138,12 +913,6 @@
         "httpMethod": "Get",
         "params": [
           {
-            "displayName": "Auth Token",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Channel",
             "style": "query",
             "type": "string",
@@ -1175,13 +944,7 @@
           "url": "https://slack.com/api/im.list"
         },
         "httpMethod": "Get",
-        "params": [{
-            "displayName": "Auth Token",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          }],
+        "params": [],
         "url": "https://slack.com/api/im.list"
       },
       {
@@ -1192,12 +955,6 @@
         },
         "httpMethod": "Get",
         "params": [{
-            "displayName": "Auth Token",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Channel",
             "style": "query",
             "type": "string",
@@ -1252,13 +1009,7 @@
           "url": "https://slack.com/api/rtm.start"
         },
         "httpMethod": "Post",
-        "params": [{
-            "displayName": "Auth Token",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          }],
+        "params": [],
         "url": "https://slack.com/api/rtm.start"
       },
       {
@@ -1269,12 +1020,6 @@
         },
         "httpMethod": "Get",
         "params": [{
-            "displayName": "Auth Token",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "User",
             "style": "query",
             "type": "string",
@@ -1300,12 +1045,6 @@
         },
         "httpMethod": "Get",
         "params": [{
-            "displayName": "Auth Token",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "User",
             "style": "query",
             "type": "string",
@@ -1324,12 +1063,6 @@
         "curl": "curl -X ",
         "params": [
           {
-            "displayName": "Auth Token",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "User To Get Info On",
             "style": "query",
             "type": "string",
@@ -1348,13 +1081,7 @@
         "httpMethod": "Get",
         "curl": "curl -X ",
         "params": [
-          {
-            "displayName": "Auth Token",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          }
+
         ],
         "url": "https://slack.com/api/users.list"
       },
@@ -1367,13 +1094,7 @@
         "httpMethod": "Post",
         "curl": "curl -X ",
         "params": [
-          {
-            "displayName": "Auth Token",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          }
+
         ],
         "url": "https://slack.com/api/users.setActive"
       },
@@ -1387,12 +1108,6 @@
         "curl": "curl -X ",
         "params": [
           {
-            "displayName": "Auth Token",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Presence",
             "style": "body",
             "type": "string",
