@@ -41,6 +41,7 @@ class RefreshTokenController
       callback 'Invalid Refresh Token'
 
   updateChannelAuth: (uuid, type, channelAuth, callback) =>
+    delete channelAuth.refreshToken
     User.addApiToUserByChannelType uuid, type, channelAuth
       .catch callback
       .then -> callback null
