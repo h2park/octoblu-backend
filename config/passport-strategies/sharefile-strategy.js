@@ -20,7 +20,7 @@ var sharefileStrategy = new ShareFileStrategy(CONFIG, function(req, accessToken,
 
 sharefileStrategy.customRefreshStrategy = function(name, channelAuth, callback){
   var OAuth2 = sharefileStrategy._oauth2.constructor;
-  if(!channelAuth.defaultParams || !channelAuth.defaultParams[':account'];) return callback(new Error('Missing Domain'));
+  if(!channelAuth.defaultParams || !channelAuth.defaultParams[':account']) return callback(new Error('Missing Domain'));
   var domain = channelAuth.defaultParams[':account'];
   var refreshTokenUrl = 'https://'+domain+'.sf-api.com/oauth/token'
   var refreshOAuth2 = new OAuth2(
