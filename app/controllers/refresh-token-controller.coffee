@@ -56,13 +56,13 @@ class RefreshTokenController
 
   customRefreshStrategy: (passportName, channelAuth, callback) =>
     passportRefresh[passportName] passportName, channelAuth, (error, accessToken, refreshToken, results) =>
-      @refreshTokenResult error, accessToken, refreshToken, results, callback
+      @refreshTokenResult error, accessToken, refreshToken, results, channelAuth, callback
 
   passportRefreshStrategy: (passportName, channelAuth, callback) =>
     passportRefresh.requestNewAccessToken passportName, channelAuth.refreshToken, (error, accessToken, refreshToken, results) =>
-      @refreshTokenResult error, accessToken, refreshToken, results, callback
+      @refreshTokenResult error, accessToken, refreshToken, results, channelAuth, callback
 
-  refreshTokenResult: (error, accessToken, refreshToken, results, callback) =>
+  refreshTokenResult: (error, accessToken, refreshToken, results, channelAuth, callback) =>
     return @refreshTokenError uuid, type, channelAuth, error, callback if error?
 
     expiresOn = Date.now() + (results.expires_in * 1000)
