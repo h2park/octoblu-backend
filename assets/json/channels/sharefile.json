@@ -235,6 +235,12 @@
             "displayName": "Shared Link",
             "type": "string",
             "style": "body"
+          },
+          {
+            "name": "fileName",
+            "displayName": "File Name (optional)",
+            "type": "string",
+            "style": "body"
           }
         ],
         "url": "https://friendly-sharefile.octoblu.com/:account/items-by-path/transfer/link"
@@ -423,6 +429,12 @@
           {
             "name": "link",
             "displayName": "Shared Link",
+            "type": "string",
+            "style": "body"
+          },
+          {
+            "name": "fileName",
+            "displayName": "File Name (optional)",
             "type": "string",
             "style": "body"
           }
