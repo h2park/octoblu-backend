@@ -160,8 +160,7 @@
         "url": ":baseUrl/nitro/v1/config/lbvserver/MyFirstLbVServer/"
       },{
         "path": "/lbvserver/MyFirstLbVServer/",
-        "displayName": "Update the details of an existing resource on the NetScaler appliance, specify the
-resource name & the arguments to be updated in the specific resource object",
+        "displayName": "Update the details of an existing resource on the NetScaler appliance, specify the resource name & the arguments to be updated in the specific resource object",
         "doc": {
           "url": ":baseUrl/nitro/v1/config/lbvserver/MyFirstLbVServer/"
         },
@@ -219,7 +218,7 @@ resource name & the arguments to be updated in the specific resource object",
         "url": ":baseUrl/nitro/v1/config/lbvserver/MyFirstLbVServer/"
       },{
         "path": "/lbvserver/MyFirstLbVServer/",
-        "displayName": "Unset the value that is set to a param, specify the action as "unset" and in the payload, specify the parameters to be unset.",
+        "displayName": "Unset the value that is set to a param, specify the action as 'unset' and in the payload, specify the parameters to be unset.",
         "doc": {
           "url": ":baseUrl/nitro/v1/config/lbvserver/MyFirstLbVServer/"
         },
@@ -350,7 +349,7 @@ resource name & the arguments to be updated in the specific resource object",
         "url": ":baseUrl/nitro/v1/config/lbvserver/"
       },{
         "path": "/lbvserver_service_binding/MyFirstLbVServer",
-        "displayName": "Bind a service to a load balancing virtual server named "MyFirstLbVServer" and specify a weight for the binding",
+        "displayName": "Bind a service to a load balancing virtual server named 'MyFirstLbVServer' and specify a weight for the binding",
         "doc": {
           "url": ":baseUrl/nitro/v1/config/lbvserver_service_binding/MyFirstLbVServer"
         },
@@ -619,7 +618,7 @@ resource name & the arguments to be updated in the specific resource object",
       },
       {
         "path": "/stat/lbvserver/MyFirstLbVServer",
-        "displayName": "Get the statistics of a lbvserver named "MyFirstLbVServer"",
+        "displayName": "Get the statistics of a lbvserver named 'MyFirstLbVServer'",
         "doc": {
           "url": ":baseUrl/nitro/v1/config/stat/lbvserver/MyFirstLbVServer"
         },
