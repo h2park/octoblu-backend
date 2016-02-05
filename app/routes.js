@@ -221,6 +221,9 @@ module.exports = function(app, passport, config, meshbluJSON){
     var WordPressController = require('./controllers/wordpress-controller');
     var wordPressController = new WordPressController();
 
+    var XenMobileController = require('./controllers/xenmobile-controller');
+    var xenMobileController = new XenMobileController();
+
     var XeroController = require('./controllers/xero-controller');
     var xeroController = new XeroController();
 
@@ -260,7 +263,7 @@ module.exports = function(app, passport, config, meshbluJSON){
     app.delete('/api/flows/:id/instance', flowDeployController.stopInstance);
 
     app.get('/api/flow-auth-credentials/:id', flowAuthCredentialsController.show);
-    
+
     app.post('/api/workers/refresh-token', refreshTokenController.refresh);
 
     app.get('/api/flow_node_types', flowNodeTypeController.getFlowNodeTypes);
@@ -427,6 +430,8 @@ module.exports = function(app, passport, config, meshbluJSON){
     app.post('/api/wink/auth', winkController.authorize, winkController.redirectToConfigure);
 
     app.post('/api/witai/auth', witaiController.authorize, witaiController.redirectToConfigure);
+
+    app.get('/api/xenmobile/auth', xenMobileController.authorize, xenMobileController.redirectToConfigure);
 
     app.post('/api/templates',  templateController.create);
 

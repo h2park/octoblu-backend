@@ -33,24 +33,43 @@ class RefreshTokenController
         debug 'foundAuth', channelAuth
         @refreshToken uuid, channelAuth, type, callback
 
-  removeExpiredOn: (uuid, type, channelAuth, callback) =>
-    delete channelAuth.expiresOn
-    @updateChannelAuth uuid, type, channelAuth, callback
+  refreshTokenError: (uuid, type, channelAuth, error, callback) =>
+    channelAuth.validToken = false
+    channelAuth.refreshTokenError = error
+    @updateChannelAuth uuid, type, channelAuth, (updateError) =>
+      return callback updateError unless updateError?
+      callback 'Invalid Refresh Token'
 
   updateChannelAuth: (uuid, type, channelAuth, callback) =>
+    delete channelAuth.refreshToken
     User.addApiToUserByChannelType uuid, type, channelAuth
       .catch callback
       .then -> callback null
 
   refreshToken: (uuid, channelAuth, type, callback) =>
     debug 'refreshToken', channelAuth.refreshToken, channelAuth.expiresOn
-    passportRefresh.requestNewAccessToken _.last(type.split(':')), channelAuth.refreshToken, (error, accessToken, refreshToken, results) =>
-      return @removeExpiredOn uuid, type, channelAuth, => callback 'Invalid refresh token' if error?
+    return callback null unless channelAuth.refreshToken?
+    passportName = _.last(type.split(':'))
+    return @customRefreshStrategy passportName, uuid, channelAuth, type, callback if passportRefresh[passportName]?
+    return @passportRefreshStrategy passportName, uuid, channelAuth, type, callback if passportRefresh.has passportName
+    callback new Error('Missing Refresh Token Strategy')
+
+  customRefreshStrategy: (passportName, uuid, channelAuth, type, callback) =>
+    passportRefresh[passportName] passportName, channelAuth, @refreshTokenResult(uuid, channelAuth, type, callback)
+
+  passportRefreshStrategy: (passportName, uuid, channelAuth, type, callback) =>
+    passportRefresh.requestNewAccessToken passportName, channelAuth.refreshToken, @refreshTokenResult(uuid, channelAuth, type, callback)
+
+  refreshTokenResult: (uuid, channelAuth, type, callback) =>
+    return (error, accessToken, refreshToken, results) =>
+      return @refreshTokenError uuid, type, channelAuth, error, callback if error?
 
       expiresOn = Date.now() + (results.expires_in * 1000)
       channelAuth.token_crypt = textCrypt.encrypt accessToken
       channelAuth.refreshToken_crypt = textCrypt.encrypt refreshToken
       channelAuth.expiresOn = expiresOn
+      channelAuth.validToken = true
+      channelAuth.refreshTokenError = null
 
       @updateChannelAuth uuid, type, channelAuth, callback
 

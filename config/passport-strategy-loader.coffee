@@ -13,7 +13,9 @@ class PassportStrategyLoader
     _.each files, (file) =>
       strategy = require "../#{file}"
       passport.use strategy
+
       passportRefresh.use strategy if strategy._oauth2
+      passportRefresh[strategy.name] = strategy.customRefreshStrategy if strategy.customRefreshStrategy?
 
   addSerializer: =>
     passport.serializeUser (user, done) ->
@@ -26,4 +28,3 @@ class PassportStrategyLoader
         done null, user
 
 module.exports = PassportStrategyLoader
-
