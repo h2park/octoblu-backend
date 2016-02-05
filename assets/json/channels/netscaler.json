@@ -7,347 +7,981 @@
   "enabled": true,
   "defaultParams": [
     {
-      "displayName": "Netscaler Host (including http:// or https://)",
+      "displayName": "NetScaler Host (including http:// or https://)",
       "style": "url",
       "type": "string",
-      "name": ":url",
+      "name": ":baseUrl",
       "required": true
     }
   ],
   "application" : {
-    "base" : ":url/nitro/v1",
+    "base" : ":baseUrl/nitro/v1/config/",
     "resources" : [
-      {
-        "path": "/config/login/",
-        "displayName": "Create The Session ID",
-        "doc": {
-          "url": ":url/nitro/v1/config/login/"
-        },
-        "httpMethod": "Post",
-        "curl": "curl -X",
-        "params": [],
-        "url": ":url/nitro/v1/config/login/"
+    {
+      "path": "/login/",
+      "displayName": "Authenticate The Session By Using The NetScaler",
+      "doc": {
+        "url": ":baseUrl/nitro/v1/config/login/"
       },
-      {
-        "path": "/config/lbvserver/",
-        "displayName": "Create New Resource On The Appliance",
+      "httpMethod": "Post",
+      "curl": "curl -X",
+      "params": [{
+        "displayName": "Username",
+        "style": "body",
+        "type": "string",
+        "name": "login.username",
+        "required": false
+        },{
+        "displayName": "Password",
+        "style": "body",
+        "type": "string",
+        "name": "login.password",
+        "required": false
+        },{
+        "displayName": "Timeout",
+        "style": "body",
+        "type": "integer",
+        "name": "login.timeout",
+        "required": false
+    }],
+      "url": ":baseUrl/nitro/v1/config/login/"
+    },{
+      "path": "/nsfeature",
+      "displayName": "Enable the load balancing feature",
+      "doc": {
+        "url": ":baseUrl/nitro/v1/config/nsfeature"
+      },
+      "httpMethod": "Post",
+      "curl": "curl -X",
+      "params": [{
+        "displayName": "Set to true, to enable feature",
+        "style": "body",
+        "type": "boolean",
+        "name": "nsfeature.action",
+        "required": false
+        }],
+      "url": ":baseUrl/nitro/v1/config/nsfeature"
+    },{
+      "path": "/nsconfig",
+      "displayName": "Save NetScaler Configurations",
+      "doc": {
+        "url": ":baseUrl/nitro/v1/config/nsconfig"
+      },
+      "httpMethod": "Post",
+      "curl": "curl -X",
+      "params": [{
+        "displayName": "Save Configurations",
+        "style": "body",
+        "type": "string",
+        "name": "nsconfig.action",
+        "required": false
+        }],
+      "url": ":baseUrl/nitro/v1/config/nsconfig"
+    },{
+      "path": "/logout/",
+      "displayName": "Disconnecting From The Appliance",
+      "doc": {
+        "url": ":baseUrl/nitro/v1/config/logout/"
+      },
+      "httpMethod": "Post",
+      "curl": "curl -X",
+      "params": [{
+        "displayName": "Resource Type",
+        "style": "object",
+        "type": "string",
+        "name": "logout",
+        "required": true
+        }],
+      "url": ":baseUrl/nitro/v1/config/logout/"
+    },{
+        "path": "/lbvserver/",
+        "displayName": "Create an lbvserver named MyFirstLbVServer",
         "doc": {
-          "url": ":url/nitro/v1/config/lbvserver/"
+          "url": ":baseUrl/nitro/v1/config/lbvserver/"
         },
         "httpMethod": "Post",
         "curl": "curl -X",
         "params": [{
-          "displayName": "Category Id",
-          "style": "URL",
+          "displayName": "Resource Name",
+          "style": "body",
           "type": "string",
-          "name": ":categoryId",
+          "name": "lbvserver.MyFirstLbVServer",
+          "required": true
+        },{
+          "displayName": "Service Type",
+          "style": "body",
+          "type": "string",
+          "name": "lbvserver.http",
           "required": true
         }],
-        "url": ":url/nitro/v1/config/lbvserver/"
+        "url": ":baseUrl/nitro/v1/config/lbvserver/"
       },
       {
-        "path": "/config/nsfeature",
-        "displayName": "Enable The Load Balancing Feature",
+        "path": "/lbvserver/MyFirstLbVServer/",
+        "displayName": "Retrieve the details of an lbvserver named MyFirstLbVServer",
         "doc": {
-          "url": "http://:url/nitro/v1/config/nsfeature"
+          "url": ":baseUrl/nitro/v1/config/lbvserver/MyFirstLbVServer/"
         },
-        "httpMethod": "Post",
+        "httpMethod": "GET",
         "curl": "curl -X",
         "params": [{
-          "displayName": "Enable",
-          "style": "body",
+          "displayName": "Resource Type",
+          "style": "object",
           "type": "string",
-          "name": "enable"
+          "name": "lbvserver",
+          "required": true
+        },{
+          "displayName": "Resource Name",
+          "style": "object",
+          "type": "string",
+          "name": "MyFirstLbVServer",
+          "required": true
+        },{
+          "displayName": "Service Type",
+          "style": "query",
+          "type": "string",
+          "name": "http"
+        },{
+          "displayName": "insertvserveripport",
+          "style": "query",
+          "type": "boolean",
+          "name": "insertvserveripport"
+        },{
+          "displayName": "IP Address",
+          "style": "query",
+          "type": "integer",
+          "name": "ip"
+        },{
+          "displayName": "Port",
+          "style": "integer",
+          "type": "string",
+          "name": "port"
         }],
-        "url": "http://:url/nitro/v1/config/nsfeature"
-      },
-      {
-        "path": "/config/nsconfig",
-        "displayName": "Save NetScaler Configurations",
+        "url": ":baseUrl/nitro/v1/config/lbvserver/MyFirstLbVServer/"
+      },{
+        "path": "/lbvserver/MyFirstLbVServer/",
+        "displayName": "Update the details of an existing resource on the NetScaler appliance, specify the
+resource name & the arguments to be updated in the specific resource object",
         "doc": {
-          "url": "http://:url/nitro/v1/config/nsconfig"
+          "url": ":baseUrl/nitro/v1/config/lbvserver/MyFirstLbVServer/"
         },
-        "httpMethod": "Post",
+        "httpMethod": "PUT",
         "curl": "curl -X",
         "params": [{
-          "displayName": "Save",
+          "displayName": "Resource Type",
+          "style": "object",
+          "type": "string",
+          "name": "lbvserver",
+          "required": true
+        },{
+          "displayName": "Resource Name",
+          "style": "object",
+          "type": "string",
+          "name": "MyFirstLbVServer",
+          "required": true
+        },{
+          "displayName": "Load balancing method",
           "style": "body",
           "type": "string",
-          "name": "save"
+          "name": "lbmethod"
+        },{
+          "displayName": "Update Comments",
+          "style": "body",
+          "type": "string",
+          "name": "comment"
         }],
-        "url": "http://:url/nitro/v1/config/nsconfig"
-      },
-      {
-        "path": "/config/logout/",
-        "displayName": "Disconnecting From The Appliance",
+        "url": ":baseUrl/nitro/v1/config/lbvserver/MyFirstLbVServer/"
+      },{
+        "path": "/lbvserver/MyFirstLbVServer/",
+        "displayName": "Delete a NetScaler resource, specify the resource name in the URL",
         "doc": {
-          "url": ":url/nitro/v1/config/logout/"
-        },
-        "httpMethod": "Post",
-        "curl": "curl -X",
-        "params": [],
-        "url": ":url/nitro/v1/config/logout/"
-      },
-      {
-        "path": "/config/lbvserver/MyFirstLbVServer/",
-        "displayName": "Retrieve Details Of An lbvserver",
-        "doc": {
-          "url": "http://:url/nitro/v1/config/lbvserver/MyFirstLbVServer/"
-        },
-        "httpMethod": "Get",
-        "curl": "curl -X",
-        "params": [],
-        "url": "http://:url/nitro/v1/config/lbvserver/MyFirstLbVServer/"
-      },
-      {
-        "path": "/config/lbvserver/MyFirstLbVServer/",
-        "displayName": "Update Details Of An Resource",
-        "doc": {
-          "url": "http://:url/nitro/v1/config/lbvserver/MyFirstLbVServer/"
-        },
-        "httpMethod": "Put",
-        "curl": "curl -X",
-        "params": [],
-        "url": "http://:url/nitro/v1/config/lbvserver/MyFirstLbVServer/"
-      },
-      {
-        "path": "/config/lbvserver/MyFirstLbVServer",
-        "displayName": "Delete A NetScaler Resource",
-        "doc": {
-          "url": "http://:url/nitro/v1/config/lbvserver/MyFirstLbVServer"
+          "url": ":baseUrl/nitro/v1/config/lbvserver/MyFirstLbVServer/"
         },
         "httpMethod": "Delete",
         "curl": "curl -X",
-        "params": [],
-        "url": "http://:url/nitro/v1/config/lbvserver/MyFirstLbVServer"
-      },
-      {
-        "path": "/config/lbvserver",
-        "displayName": "Enable Resource On NetScaler Appliance",
+        "params": [{
+          "displayName": "Resource Type",
+          "style": "object",
+          "type": "string",
+          "name": "lbvserver",
+          "required": true
+        },{
+          "displayName": "Action: To enable a load balancing virtual server named MyFirstLbVServer",
+          "style": "body",
+          "type": "boolean",
+          "name": "MyFirstLbVServer"
+        },{
+          "displayName": "Action: To disable a resource, in the URL specify the action as 'disable'",
+          "style": "body",
+          "type": "boolean",
+          "name": "MyFirstLbVServer"
+        }],
+        "url": ":baseUrl/nitro/v1/config/lbvserver/MyFirstLbVServer/"
+      },{
+        "path": "/lbvserver/MyFirstLbVServer/",
+        "displayName": "Unset the value that is set to a param, specify the action as "unset" and in the payload, specify the parameters to be unset.",
         "doc": {
-          "url": "http://:url/nitro/v1/config/lbvserver"
+          "url": ":baseUrl/nitro/v1/config/lbvserver/MyFirstLbVServer/"
         },
         "httpMethod": "Post",
         "curl": "curl -X",
         "params": [{
-          "displayName": "Enable",
+          "displayName": "Resource Type",
+          "style": "object",
+          "type": "string",
+          "name": "lbvserver",
+          "required": true
+        },{
+          "displayName": "Resource Name",
+          "style": "object",
+          "type": "string",
+          "name": "MyFirstLbVServer",
+          "required": true
+        },{
+          "displayName": "Load Balancing Method",
           "style": "body",
+          "type": "boolean",
+          "name": "lbmethod"
+        },{
+          "displayName": "Comment Specified",
+          "style": "body",
+          "type": "boolean",
+          "name": "comment"
+        },{
+          "displayName": "Unset Action",
+          "style": "body",
+          "type": "boolean",
+          "name": "unset"
+        }],
+        "url": ":baseUrl/nitro/v1/config/lbvserver/MyFirstLbVServer/"
+      },{
+        "path": "/lbvserver_service_binding/",
+        "displayName": "Bind A Resource To Another",
+        "doc": {
+          "url": ":baseUrl/nitro/v1/config/lbvserver_service_binding/"
+        },
+        "httpMethod": "Put",
+        "curl": "curl -X",
+        "params": [{
+          "displayName": "Resource Type",
+          "style": "object",
+          "type": "string",
+          "name": "lbvserver_service_binding",
+          "required": true
+        },{
+          "displayName": "Name",
+          "style": "body",
+          "type": "string",
+          "name": "MyFirstLbVServer"
+        },{
+          "displayName": "Service Name",
+          "style": "body",
+          "type": "string",
+          "name": "svc_prod"
+        },{
+          "displayName": "Specify The Weight For The Binding",
+          "style": "body",
+          "type": "integer",
+          "name": "weight"
+        }],
+        "url": ":baseUrl/nitro/v1/config/lbvserver_service_binding/"
+      },{
+        "path": "/lbvserver_service_binding/MyFirstLbVServer",
+        "displayName": "Unbind A Resource From Another",
+        "doc": {
+          "url": ":baseUrl/nitro/v1/config/lbvserver_service_binding/MyFirstLbVServer"
+        },
+        "httpMethod": "Delete",
+        "curl": "curl -X",
+        "params": [{
+          "displayName": "Resource Type",
+          "style": "object",
+          "type": "string",
+          "name": "lbvserver_service_binding",
+          "required": true
+        },{
+          "displayName": "Resource Name",
+          "style": "object",
+          "type": "string",
+          "name": "MyFirstLbVServer",
+          "required": true
+        },{
+          "displayName": "Service Name",
+          "style": "",
+          "type": "string",
+          "name": "svc_prod"
+        }],
+        "url": ":baseUrl/nitro/v1/config/lbvserver_service_binding/MyFirstLbVServer"
+      },{
+        "path": "/lbvserver/",
+        "displayName": "Add two load balancing virtual servers in one operation and continue if one command fails",
+        "doc": {
+          "url": ":baseUrl/nitro/v1/config/lbvserver/"
+        },
+        "httpMethod": "Post",
+        "curl": "curl -X",
+        "params": [{
+          "displayName": "Resource Type",
+          "style": "object",
+          "type": "string",
+          "name": "lbvserver",
+          "required": true
+        },{
+          "displayName": "New Load Balancing Server 1",
+          "style": "body",
+          "type": "string",
+          "name": "new_lbvserver1"
+        },{
+          "displayName": "Service Type Http",
+          "style": "body",
+          "type": "boolean",
+          "name": "servicetype"
+        },{
+          "displayName": "New Load Balancing Server 2",
+          "style": "body",
+          "type": "string",
+          "name": "new_lbvserver2"
+        },{
+          "displayName": "Service Type HTTP",
+          "style": "body",
+          "type": "boolean",
+          "name": "servicetype"
+        }],
+        "url": ":baseUrl/nitro/v1/config/lbvserver/"
+      },{
+        "path": "/lbvserver_service_binding/MyFirstLbVServer",
+        "displayName": "Bind a service to a load balancing virtual server named "MyFirstLbVServer" and specify a weight for the binding",
+        "doc": {
+          "url": ":baseUrl/nitro/v1/config/lbvserver_service_binding/MyFirstLbVServer"
+        },
+        "httpMethod": "PUT",
+        "curl": "curl -X",
+        "params": [{
+          "displayName": "Resource Type",
+          "style": "body",
+          "type": "string",
+          "name": "lbvserver_service_binding",
+          "required": true
+        },{
+          "displayName": "Service Name",
+          "style": "body",
+          "type": "string",
+          "name": "svc_prod"
+        },{
+          "displayName": "servicename",
+          "style": "body",
+          "type": "string",
+          "name": "svc_prod"
+        },{
+          "displayName": "Weight Of The Binding",
+          "style": "body",
+          "type": "integer",
+          "name": "weight"
+        },{
+          "displayName": "MyFirstLbVServer",
+          "style": "body",
+          "type": "string",
+          "name": "name"
+        }],
+        "url": ":baseUrl/nitro/v1/config/lbvserver_service_binding/MyFirstLbVServer"
+      },{
+        "path": "/lbvserver_service_binding/lbv1? attrs=servicename",
+        "displayName": "Retrieve list of all the services bound to a virtual server lbv1",
+        "doc": {
+          "url": ":baseUrl/nitro/v1/config/lbvserver_service_binding/lbv1"
+        },
+        "httpMethod": "GET",
+        "curl": "curl -X",
+        "params": [{
+          "displayName": "Resource Type",
+          "style": "object",
+          "type": "string",
+          "name": "lbvserver_service_binding",
+          "required": true
+        },{
+          "displayName": "Resource Name",
+          "style": "body",
+          "type": "string",
+          "name": "lbv1"
+        },{
+          "displayName": "Service Name",
+          "style": "body",
+          "type": "string",
+          "name": "attrs"
+        }],
+        "url": ":baseUrl/nitro/v1/config/lbvserver_service_binding/lbv1"
+      },{
+        "path": "/aaaglobal_aaapreauthenticationpolicy_binding",
+        "displayName": "Bind the policy named preautpol1 globally at priority 200",
+        "doc": {
+          "url": ":baseUrl/nitro/v1/config/aaaglobal_aaapreauthenticationpolicy_binding"
+        },
+        "httpMethod": "PUT",
+        "curl": "curl -X",
+        "params": [{
+          "displayName": "Feature Name",
+          "style": "object",
+          "type": "string",
+          "name": "aaa",
+          "required": true
+        },{
+          "displayName": "Resource Type",
+          "style": "object",
+          "type": "string",
+          "name": "preauthenticationpolicy",
+          "required": true
+        },{
+          "displayName": "Policy Named Preautpol1",
+          "style": "body",
+          "type": "string",
+          "name": "policy"
+        },{
+          "displayName": "Priority Number",
+          "style": "body",
+          "type": "integer",
+          "name": "priority"
+        }],
+        "url": ":baseUrl/nitro/v1/config/aaaglobal_aaapreauthenticationpolicy_binding"
+      },{
+        "path": "/clusterinstance/",
+        "displayName": "Create a cluster instance with ID 1:",
+        "doc": {
+          "url": ":baseUrl/nitro/v1/config/clusterinstance/"
+        },
+        "httpMethod": "Post",
+        "curl": "curl -X",
+        "params": [{
+          "displayName": "Resource Type",
+          "style": "object",
+          "type": "string",
+          "name": "clusterinstance",
+          "required": true
+        },{
+          "displayName": "Cluster Instance ID",
+          "style": "body",
+          "type": "integer",
+          "name": "clid"
+        },{
+          "displayName": "Action: To enable a resource, in the URL specify the action as 'enable'",
+          "style": "body",
+          "type": "boolean",
+          "name": "preemption"
+        }],
+        "url": ":baseUrl/nitro/v1/config/clusterinstance/"
+      },{
+        "path": "/clusternode/",
+        "displayName": "add a cluster node with NSIP address 10.102.29.60",
+        "doc": {
+          "url": ":baseUrl/nitro/v1/config/clusternode/"
+        },
+        "httpMethod": "POST",
+        "curl": "curl -X",
+        "params": [{
+          "displayName": "Resource Type",
+          "style": "object",
+          "type": "string",
+          "name": "clusternode",
+          "required": true
+        },{
+          "displayName": "Cluster Node ID",
+          "style": "body",
+          "type": "integer",
+          "name": "nodeid"
+        },{
+          "displayName": "IP Address",
+          "style": "body",
+          "type": "string",
+          "name": "ipaddress"
+        },{
+          "displayName": "State Action: To activate a resource, in the URL specify the action as 'active'",
+          "style": "body",
+          "type": "boolean",
+          "name": "state"
+        },{
+          "displayName": "Backplane",
+          "style": "body",
+          "type": "integer",
+          "name": "backplane"
+        }],
+        "url": ":baseUrl/nitro/v1/config/clusternode/"
+      },{
+        "path": "/nsip/",
+        "displayName": "Add a Cluster IP Address",
+        "doc": {
+          "url": ":baseUrl/nitro/v1/config/nsip/"
+        },
+        "httpMethod": "POST",
+        "curl": "curl -X",
+        "params": [{
+          "displayName": "Resource Type",
+          "style": "object",
+          "type": "string",
+          "name": "nsip",
+          "required": true
+        },{
+          "displayName": "Netmask",
+          "style": "body",
+          "type": "integer",
+          "name": "netmask"
+        },{
+          "displayName": "Type",
+          "style": "body",
+          "type": "string",
+          "name": "type"
+        }],
+        "url": ":baseUrl/nitro/v1/config/nsip/"
+      },
+      {
+        "path": "/nsip/",
+        "displayName": "Add a Spotted IP Address",
+        "doc": {
+          "url": ":baseUrl/nitro/v1/config/nsip/"
+        },
+        "httpMethod": "POST",
+        "curl": "curl -X",
+        "params": [{
+          "displayName": "Resource Type",
+          "style": "object",
+          "type": "string",
+          "name": "nsip",
+          "required": true
+        },{
+          "displayName": "IP Address",
+          "style": "body",
+          "type": "integer",
+          "name": "ipaddress"
+        },{
+          "displayName": "netmask",
+          "style": "body",
+          "type": "integer",
+          "name": "netmask"
+        },{
+          "displayName": "Type",
+          "style": "body",
+          "type": "string",
+          "name": "type"
+        },{
+          "displayName": "Owner Node",
+          "style": "body",
+          "type": "integer",
+          "name": "ownernode"
+        }],
+        "url": ":baseUrl/nitro/v1/config/nsip/"
+      },
+      {
+        "path": "/cluster/",
+        "displayName": "Join NetScaler Appliance to Cluster",
+        "doc": {
+          "url": ":baseUrl/nitro/v1/config/cluster/"
+        },
+        "httpMethod": "Post",
+        "curl": "curl -X",
+        "params": [{
+          "displayName": "Resource Type",
+          "style": "object",
+          "type": "string",
+          "name": "cluster",
+          "required": true
+        },{
+          "displayName": "IP Address",
+          "style": "body",
+          "type": "integer",
+          "name": "clip"
+        },{
+          "displayName": "Password",
+          "style": "body",
+          "type": "string",
+          "name": "password"
+        }],
+        "url": ":baseUrl/nitro/v1/config/cluster/"
+      },
+      {
+        "path": "/nsconfig",
+        "displayName": "Create a linkset by specifying the required parameters",
+        "doc": {
+          "url": ":baseUrl/nitro/v1/config/nsconfig"
+        },
+        "httpMethod": "Post",
+        "curl": "curl -X",
+        "params": [{
+          "displayName": "Resource Type",
+          "style": "object",
+          "type": "string",
+          "name": "linkset",
+          "required": true
+        },{
+          "displayName": "Linkset ID",
+          "style": "body",
+          "type": "string",
+          "name": "id"
+        }],
+        "url": ":baseUrl/nitro/v1/config/nsconfig"
+      },
+      {
+        "path": "/stat/lbvserver/MyFirstLbVServer",
+        "displayName": "Get the statistics of a lbvserver named "MyFirstLbVServer"",
+        "doc": {
+          "url": ":baseUrl/nitro/v1/config/stat/lbvserver/MyFirstLbVServer"
+        },
+        "httpMethod": "GET",
+        "curl": "curl -X",
+        "params": [{
+          "displayName": "Resource Type",
+          "style": "object",
+          "type": "string",
+          "name": "stat",
+          "required": true
+        },{
+          "displayName": "Resource Type",
+          "style": "object",
+          "type": "string",
+          "name": "lbvserver",
+          "required": true
+        },{
+          "displayName": "Resource Type",
+          "style": "object",
+          "type": "string",
+          "name": "MyFirstLbVServer",
+          "required": true
+        }],
+        "url": ":baseUrl/nitro/v1/config/stat/lbvserver/MyFirstLbVServer"
+      },
+      {
+        "path": "/apptemplateinfo",
+        "displayName": "Export an AppExpert application named MyApp1",
+        "doc": {
+          "url": ":baseUrl/nitro/v1/config/apptemplateinfo"
+        },
+        "httpMethod": "POST",
+        "curl": "curl -X",
+        "params": [{
+          "displayName": "Resource Type",
+          "style": "object",
+          "type": "string",
+          "name": "apptemplateinfo",
+          "required": true
+        },{
+          "displayName": "Action to Export",
+          "style": "body",
+          "type": "string",
+          "name": "export"
+        },{
+          "displayName": "MyApp1",
+          "style": "body",
+          "type": "string",
+          "name": "appname"
+        },{
+          "displayName": "App Template Filename",
+          "style": "body",
+          "type": "string",
+          "name": "apptemplatefilename"
+        },{
+          "displayName": "Template Info",
+          "style": "object",
+          "type": "string",
+          "name": "template_info",
+          "required": true
+        },{
+          "displayName": "Template Version Major 2",
+          "style": "body",
+          "type": "integer",
+          "name": "templateversion_major"
+        },{
+          "displayName": "Template Version Minor 2",
+          "style": "body",
+          "type": "integer",
+          "name": "templateversion_minor"
+        },{
+          "displayName": "Author",
+          "style": "body",
+          "type": "string",
+          "name": "author"
+        },{
+          "displayName": "Introduction",
+          "style": "body",
+          "type": "string",
+          "name": "introduction"
+        },{
+          "displayName": "Summary",
+          "style": "body",
+          "type": "string",
+          "name": "summary"
+        }],
+        "url": ":baseUrl/nitro/v1/config/apptemplateinfo"
+      },
+      {
+        "path": "/apptemplateinfo",
+        "displayName": "Import an AppExpert application named MyApp1",
+        "doc": {
+          "url": ":baseUrl/nitro/v1/config/apptemplateinfo"
+        },
+        "httpMethod": "Post",
+        "curl": "curl -X",
+        "params": [{
+          "displayName": "Resource Type",
+          "style": "object",
+          "type": "string",
+          "name": "apptemplateinfo",
+          "required": true
+        },{
+          "displayName": "Action to Import",
+          "style": "body",
+          "type": "string",
+          "name": "import"
+        },{
+          "displayName": "App Template Filename",
+          "style": "body",
+          "type": "string",
+          "name": "apptemplatefilename"
+        },{
+          "displayName": "Deployment Filename",
+          "style": "body",
+          "type": "string",
+          "name": "deploymentfilename"
+        },{
+          "displayName": "First Appname",
+          "style": "body",
+          "type": "string",
+          "name": "appname"
+        }],
+        "url": ":baseUrl/nitro/v1/config/apptemplateinfo"
+      },
+      {
+        "path": "/apptemplateinfo",
+        "displayName": "Import an AppExpert application by specifying different deployment settings",
+        "doc": {
+          "url": ":baseUrl/nitro/v1/config/apptemplateinfo"
+        },
+        "httpMethod": "Post",
+        "curl": "curl -X",
+        "params": [{
+          "displayName": "Resource Type",
+          "style": "object",
+          "type": "string",
+          "name": "apptemplateinfo",
+          "required": true
+        },{
+          "displayName": "Action to Import",
+          "style": "body",
+          "type": "string",
+          "name": "import"
+        },{
+          "displayName": "App Template Filename",
+          "style": "body",
+          "type": "string",
+          "name": "apptemplatefilename"
+        },{
+          "displayName": "Second App Name",
+          "style": "body",
+          "type": "string",
+          "name": "appname"
+        },{
+          "displayName": "Deployment Info",
+          "style": "object",
+          "type": "string",
+          "name": "deploymentinfo",
+          "required": true
+        },{
+          "displayName": "Deployment Info",
+          "style": "body",
+          "type": "integer",
+          "name": "ipv46"
+        },{
+          "displayName": "Port",
+          "style": "body",
+          "type": "integer",
+          "name": "port"
+        },{
+          "displayName": "Service Type HTTP",
+          "style": "body",
+          "type": "string",
+          "name": "servicetype",
+          "required": true
+        },{
+          "displayName": "Service",
+          "style": "object",
+          "type": "string",
+          "name": "service",
+          "required": true
+        },{
+          "displayName": "ip",
+          "style": "body",
+          "type": "integer",
+          "name": "ip"
+        },{
+          "displayName": "Port",
+          "style": "body",
+          "type": "integer",
+          "name": "port"
+        },{
+          "displayName": "Service Type (SSL)",
+          "style": "body",
+          "type": "string",
+          "name": "servicetype"
+        },{
+          "displayName": "Second IP",
+          "style": "body",
+          "type": "integer",
+          "name": "ip"
+        },{
+          "displayName": "Second Port",
+          "style": "body",
+          "type": "integer",
+          "name": "port"
+        },{
+          "displayName": "Service Type (SSL)",
+          "style": "body",
+          "type": "string",
+          "name": "servicetype"
+        }],
+        "url": ":baseUrl/nitro/v1/config/apptemplateinfo"
+      },{
+        "path": "/systemfile",
+        "displayName": "Uploading a File to the NetScaler",
+        "doc": {
+          "url": ":baseUrl/nitro/v1/config/systemfile"
+        },
+        "httpMethod": "Post",
+        "curl": "curl -X",
+        "params": [{
+          "displayName": "Resource Type",
+          "style": "object",
           "type": "String",
-          "name": "enable",
+          "name": "systemfile",
           "required": true
           },{
           "displayName": "Unset",
           "style": "body",
           "type": "String",
-          "name": "unset",
-          "required": true
+          "name": "unset"
+          },{
+          "displayName": "File Name",
+          "style": "body",
+          "type": "String",
+          "name": "filename"
+          },{
+          "displayName": "File Location",
+          "style": "body",
+          "type": "String",
+          "name": "filelocation"
+          },{
+          "displayName": "File Content",
+          "style": "body",
+          "type": "String",
+          "name": "filecontent"
+          },{
+          "displayName": "File Encoding",
+          "style": "body",
+          "type": "String",
+          "name": "fileencoding"
           }],
-        "url": "http://:url/nitro/v1/config/lbvserver"
+        "url": ":baseUrl/nitro/v1/config/systemfile"
       },
       {
-        "path": "/config/lbvserver_service_binding/",
-        "displayName": "Bind A Resource To Another",
+        "path": "/systemfile",
+        "displayName": "Retrieving the Files from a NetScaler Directory",
         "doc": {
-          "url": "http://:url/nitro/v1/config/lbvserver_service_binding/"
+          "url": ":baseUrl/nitro/v1/config/systemfile"
         },
-        "httpMethod": "Put",
+        "httpMethod": "GET",
         "curl": "curl -X ",
-        "params": [],
-        "url": "http://:url/nitro/v1/config/lbvserver_service_binding/"
+        "params": [{
+          "displayName": "Resource Type",
+          "style": "object",
+          "type": "String",
+          "name": "systemfile",
+          "required": true
+          },{
+          "displayName": "Error Code",
+          "style": "query",
+          "type": "integer",
+          "name": "errorcode"
+          },{
+          "displayName": "Message",
+          "style": "query",
+          "type": "String",
+          "name": "message"
+          },{
+          "displayName": "Severity",
+          "style": "query",
+          "type": "String",
+          "name": "severity"
+          },{
+          "displayName": "File Name",
+          "style": "query",
+          "type": "String",
+          "name": "filename"
+          },{
+          "displayName": "File Location",
+          "style": "query",
+          "type": "String",
+          "name": "filelocation"
+          },{
+          "displayName": "File Access Time",
+          "style": "query",
+          "type": "String",
+          "name": "fileaccesstime"
+          },{
+          "displayName": "File Modified Time",
+          "style": "query",
+          "type": "String",
+          "name": "filemodifiedtime"
+          },{
+          "displayName": "File Name",
+          "style": "query",
+          "type": "String",
+          "name": "filename"
+          },{
+          "displayName": "File Location",
+          "style": "query",
+          "type": "String",
+          "name": "filelocation"
+          },{
+          "displayName": "File Access Time",
+          "style": "query",
+          "type": "String",
+          "name": "fileaccesstime"
+          },{
+          "displayName": "File Modified Time",
+          "style": "query",
+          "type": "String",
+          "name": "filemodifiedtime"
+          }],
+        "url": ":baseUrl/nitro/v1/config/systemfile"
       },
       {
-        "path": "/config/lbvserver_service_binding/MyFirstLbVServer",
-        "displayName": "Unbind A Resource To Another",
+        "path": "/systemfile/<filename>",
+        "displayName": "Delete a file from the NetScaler, specify the filename along with the full file path",
         "doc": {
-          "url": "http://:url/nitro/v1/config/lbvserver_service_binding/MyFirstLbVServer"
+          "url": ":baseUrl/nitro/v1/config/systemfile/:filename/:path"
         },
         "httpMethod": "Delete",
         "curl": "curl -X ",
         "params": [{
-          "displayName": "Service Name",
+          "displayName": "Resource Type",
+          "style": "object",
+          "type": "String",
+          "name": "systemfile",
+          "required": true
+          },{
+          "displayName": "File Name",
+          "style": "URL",
+          "type": "string",
+          "name": "filename",
+          "required": true
+          },{
+          "displayName": "File Location",
           "style": "query",
           "type": "string",
-          "name": "servicename"
-          }],
-        "url": "http://:url/nitro/v1/config/lbvserver_service_binding/MyFirstLbVServer"
-      },
-      {
-        "path": "/config/lbvserver/",
-        "displayName": "Create Bulk Operations",
-        "doc": {
-          "url": "http://:url/nitro/v1/config/lbvserver/"
-        },
-        "httpMethod": "Post",
-        "curl": "curl -X ",
-        "params": [],
-        "url": "http://:url/nitro/v1/config/lbvserver/"
-      },
-      {
-        "path": "/config/lbvserver_service_binding/MyFirstLbVServer",
-        "displayName": "Adding New Binding Resources",
-        "doc": {
-          "url": "http://:url/nitro/v1/config/lbvserver_service_binding/MyFirstLbVServer"
-        },
-        "httpMethod": "Put",
-        "curl": "curl -X ",
-        "params": [{
-          "displayName": "Bind",
-          "style": "url",
-          "type": "String",
-          "name": ":bind",
-          "required": true
-          }],
-        "url": "http://:url/nitro/v1/config/lbvserver_service_binding/MyFirstLbVServer"
-      },
-      {
-        "path": "/config/lbvserver_service_binding/lbv1",
-        "displayName": "Retrieve List Of Services Bound To A Virtual Server",
-        "doc": {
-          "url": "http://:url/nitro/v1/config/lbvserver_service_binding/lbv1"
-        },
-        "httpMethod": "Get",
-        "curl": "curl -X ",
-        "params": [{
-          "displayName": "Service Name",
-          "style": "url",
-          "type": "String",
-          "name": ":servicename",
-          "required": true
-          }],
-        "url": "http://:url/nitro/v1/config/lbvserver_service_binding/lbv1"
-      },
-      {
-        "path": "/config/aaaglobal_aaapreauthenticationpolicy_binding",
-        "displayName": "Globally Bind Resources",
-        "doc": {
-          "url": "http://:url/nitro/v1/config/aaaglobal_aaapreauthenticationpolicy_binding"
-        },
-        "httpMethod": "Put",
-        "curl": "curl -X ",
-        "params": [{
-          "displayName": "Bind",
-          "style": "url",
-          "type": "String",
-          "name": ":bind",
-          "required": true
-          }],
-        "url": "http://:url/nitro/v1/config/aaaglobal_aaapreauthenticationpolicy_binding"
-      },
-      {
-        "path": "/config/clusterinstance/",
-        "displayName": "Create & Manage A NetScaler Cluster",
-        "doc": {
-          "url": "http://:url/nitro/v1/config/clusterinstance/"
-        },
-        "httpMethod": "Post",
-        "curl": "curl -X ",
-        "params": [],
-        "url": "http://:url/nitro/v1/config/clusterinstance/"
-      },
-      {
-        "path": "/config/clusternode/",
-        "displayName": "Cluster Node Operations",
-        "doc": {
-          "url": "http://:url/nitro/v1/config/clusternode/"
-        },
-        "httpMethod": "Post",
-        "curl": "curl -X ",
-        "params": [],
-        "url": "http://:url/nitro/v1/config/clusternode/"
-      },
-      {
-        "path": "/config/nsip/",
-        "displayName": "Add A Cluster IP Address",
-        "doc": {
-          "url": "http://:url/nitro/v1/config/nsip/"
-        },
-        "httpMethod": "Post",
-        "curl": "curl -X ",
-        "params": [],
-        "url": "http://:url/nitro/v1/config/nsip/"
-      },{
-        "path": "/config/cluster/",
-        "displayName": "Join NetScaler Appliance To Cluster",
-        "doc": {
-          "url": "http://:url/nitro/v1/config/cluster/"
-        },
-        "httpMethod": "Post",
-        "curl": "curl -X",
-        "params": [],
-        "url": "http://:url/nitro/v1/config/cluster/"
-      },
-      {
-        "path": "/config/linkset/",
-        "displayName": "Linkset Operations",
-        "doc": {
-          "url": "http://:url/nitro/v1/config/linkset/"
-        },
-        "httpMethod": "Post",
-        "curl": "curl -X",
-        "params": [],
-        "url": "http://:url/nitro/v1/config/linkset/"
-      },
-      {
-        "path": "/config/linkset_interface_binding/ LS%2F1",
-        "displayName": "Update Linkset Operations",
-        "doc": {
-          "url": "http://:url/nitro/v1/config/linkset_interface_binding/ LS%2F1"
-        },
-        "httpMethod": "Put",
-        "curl": "curl -X",
-        "params": [{
-          "displayName": "Bind",
+          "name": "filelocation"
+          },{
+          "displayName": "Full File Path",
           "style": "URL",
           "type": "string",
-          "name": ":bind",
+          "name": "path",
           "required": true
-        }],
-        "url": "http://:url/nitro/v1/config/linkset_interface_binding/ LS%2F1"
-      },
-      {
-        "path": "/stat/lbvserver/MyFirstLbVServer",
-        "displayName": "Retrieving Feature Statistics",
-        "doc": {
-          "url": "http://:url/nitro/v1/stat/lbvserver/MyFirstLbVServer"
-        },
-        "httpMethod": "Get",
-        "curl": "curl -X",
-        "params": [],
-        "url": "http://:url/nitro/v1/stat/lbvserver/MyFirstLbVServer"
-      },
-      {
-        "path": "/config/apptemplateinfo",
-        "displayName": "Managing AppExpert Applications",
-        "doc": {
-          "url": "http://:url/nitro/v1/config/apptemplateinfo"
-        },
-        "httpMethod": "Post",
-        "curl": "curl -X",
-        "params": [{
-          "displayName": "Export",
-          "style": "URL",
-          "type": "string",
-          "name": ":export",
-          "required": true
-        }],
-        "url": "http://:url/nitro/v1/config/apptemplateinfo"
-      },
-      {
-        "path": "/config/apptemplateinfo",
-        "displayName": "Update AppExpert Applications",
-        "doc": {
-          "url": "http://:url/nitro/v1/config/apptemplateinfo"
-        },
-        "httpMethod": "Get",
-        "curl": "curl -X",
-        "params": [{
-          "displayName": "Import",
-          "style": "URL",
-          "type": "string",
-          "name": ":import",
-          "required": true
-        }],
-        "url": "http://:url/nitro/v1/config/apptemplateinfo"
+          }],
+        "url": ":baseUrl/nitro/v1/config/systemfile/:filename/:path"
       }
     ]
   }
