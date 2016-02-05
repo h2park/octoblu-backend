@@ -44,7 +44,7 @@
         "doc": {
           "url": "https://friendly-sharefile.octoblu.com/:account/home/folder"
         },
-        "displayName": "List Home Folder items",
+        "displayName": "Get Home Folder",
         "path": "/:account/home/folder",
         "params": [],
         "url": "https://friendly-sharefile.octoblu.com/:account/home/folder"
@@ -54,7 +54,7 @@
         "doc": {
           "url": "https://friendly-sharefile.octoblu.com/:account/items-by-path"
         },
-        "displayName": "Get Item By Path",
+        "displayName": "Get Folder or File By Path",
         "path": "/:account/items-by-path",
         "params": [
           {
@@ -71,7 +71,7 @@
         "doc": {
           "url": "https://friendly-sharefile.octoblu.com/:account/items-by-path/metadata"
         },
-        "displayName": "Get Item Metadata by Path",
+        "displayName": "Get Folder or File Custom Metadata by Path",
         "path": "/:account/items-by-path/metadata",
         "params": [
           {
@@ -184,6 +184,12 @@
             "style": "body"
           },
           {
+            "name": "contents",
+            "displayName": "Contents of File (required)",
+            "type": "string",
+            "style": "body"
+          },
+          {
             "name": "title",
             "displayName": "Title",
             "type": "string",
@@ -192,24 +198,6 @@
           {
             "name": "description",
             "displayName": "Description",
-            "type": "string",
-            "style": "body"
-          },
-          {
-            "name": "batchId",
-            "displayName": "Batch ID",
-            "type": "string",
-            "style": "body"
-          },
-          {
-            "name": "batchLast",
-            "displayName": "Batch Last",
-            "type": "boolean",
-            "style": "body"
-          },
-          {
-            "name": "contents",
-            "displayName": "Contents of File",
             "type": "string",
             "style": "body"
           }
@@ -250,7 +238,7 @@
         "doc": {
           "url": "https://friendly-sharefile.octoblu.com/:account/items/:itemId"
         },
-        "displayName": "Get Item by Item ID",
+        "displayName": "Get Folder or File by Item ID",
         "path": "/:account/items/:itemId",
         "params": [
           {
@@ -267,7 +255,7 @@
         "doc": {
           "url": "https://friendly-sharefile.octoblu.com/:account/items/:itemId/metadata"
         },
-        "displayName": "Get Item Metadata by Item ID",
+        "displayName": "Get Folder or File Custom Metadata by Item ID",
         "path": "/:account/items/:itemId/metadata",
         "params": [
           {
@@ -380,6 +368,12 @@
             "style": "body"
           },
           {
+            "name": "contents",
+            "displayName": "Contents of File (required)",
+            "type": "string",
+            "style": "body"
+          },
+          {
             "name": "title",
             "displayName": "Title",
             "type": "string",
@@ -388,24 +382,6 @@
           {
             "name": "description",
             "displayName": "Description",
-            "type": "string",
-            "style": "body"
-          },
-          {
-            "name": "batchId",
-            "displayName": "Batch ID",
-            "type": "string",
-            "style": "body"
-          },
-          {
-            "name": "batchLast",
-            "displayName": "Batch Last",
-            "type": "boolean",
-            "style": "body"
-          },
-          {
-            "name": "contents",
-            "displayName": "Contents of File",
             "type": "string",
             "style": "body"
           }
