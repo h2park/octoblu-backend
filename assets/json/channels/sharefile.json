@@ -168,7 +168,7 @@
         "doc": {
           "url": "https://friendly-sharefile.octoblu.com/:account/items-by-path/upload"
         },
-        "displayName": "Upload File By Target Path",
+        "displayName": "Upload Small File (<1mb) By Target Path",
         "path": "/:account/items-by-path/upload",
         "params": [
           {
@@ -209,7 +209,7 @@
         "doc": {
           "url": "https://friendly-sharefile.octoblu.com/:account/items-by-path/transfer/link"
         },
-        "displayName": "Transfer Link to Sharefile By Target Path",
+        "displayName": "Transfer Link to Sharefile By Target Path (Any Size)",
         "path": "/:account/items-by-path/transfer/link",
         "params": [
           {
@@ -352,7 +352,7 @@
         "doc": {
           "url": "https://friendly-sharefile.octoblu.com/:account/items/:itemId/upload"
         },
-        "displayName": "Upload File by Target Item ID",
+        "displayName": "Upload Small File (<1mb) by Target Item ID",
         "path": "/:account/items/:itemId/upload",
         "params": [
           {
@@ -393,7 +393,7 @@
         "doc": {
           "url": "https://friendly-sharefile.octoblu.com/:account/items/:itemId/transfer/link"
         },
-        "displayName": "Transfer Link to Sharefile By Target ID",
+        "displayName": "Transfer Link to Sharefile By Target ID (Any Size)",
         "path": "/:account/items/:itemId/transfer/link",
         "params": [
           {
