@@ -554,7 +554,7 @@
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#profile-6"
         },
         "displayName": "Create a deployment profile",
-        "path": "/deploymentprofile/:id/deploy",
+        "path": "/deploymentprofile",
         "params": [
           {
             "required": true,
@@ -571,7 +571,277 @@
             "name": "name"
           }
         ],
-        "url": "https://:domain/deploymentprofile/:id/deploy"
+        "url": "https://:domain/deploymentprofile"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#providers-1"
+        },
+        "displayName": "Get a list of all providers",
+        "path": "/providers",
+        "params": [
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Name",
+            "name": "name"
+          }
+        ],
+        "url": "https://:domain/providers"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#providers-1"
+        },
+        "displayName": "Get a provider by ID",
+        "path": "/providers/:id",
+        "params": [],
+        "url": "https://:domain/providers/:id"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#providers-2"
+        },
+        "displayName": "Creates a provider",
+        "path": "/providers",
+        "params": [
+          {
+            "required": true,
+            "type": "string",
+            "style": "body",
+            "displayName": "Name of the provider account",
+            "name": "name"
+          },
+          {
+            "required": true,
+            "type": "string",
+            "style": "body",
+            "displayName": "Provider code for the cloud provider you want to create",
+            "name": "providerCode"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Key ID",
+            "name": "keyID"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Access Key",
+            "name": "accessKey"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Region",
+            "name": "region"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "URL",
+            "name": "url"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "API Key",
+            "name": "apiKey"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Username",
+            "name": "username"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Password",
+            "name": "password"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Server",
+            "name": "server"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Agent ID (Xen Server)",
+            "name": "agentId"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Project ID (HP Cloud)",
+            "name": "projectid"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Username",
+            "name": "userName (Openstack)"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Project ID (Openstack)",
+            "name": "projectID"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "URL (Openstack)",
+            "name": "url"
+          }
+        ],
+        "url": "https://:domain/provider"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#providers-2"
+        },
+        "displayName": "Update a provider",
+        "path": "/providers/:id",
+        "params": [
+          {
+            "required": true,
+            "type": "string",
+            "style": "body",
+            "displayName": "Name of the provider account",
+            "name": "name"
+          },
+          {
+            "required": true,
+            "type": "string",
+            "style": "body",
+            "displayName": "Provider code for the cloud provider you want to create",
+            "name": "providerCode"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Key ID",
+            "name": "keyID"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Access Key",
+            "name": "accessKey"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Region",
+            "name": "region"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "URL",
+            "name": "url"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "API Key",
+            "name": "apiKey"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Username",
+            "name": "username"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Password",
+            "name": "password"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Server",
+            "name": "server"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Agent ID (Xen Server)",
+            "name": "agentId"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Project ID (HP Cloud)",
+            "name": "projectid"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Username",
+            "name": "userName (Openstack)"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Project ID (Openstack)",
+            "name": "projectID"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "URL (Openstack)",
+            "name": "url"
+          }
+        ],
+        "url": "https://:domain/providers/:id"
+      },
+      {
+        "httpMethod": "DELETE",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#providers-3"
+        },
+        "displayName": "Delete a provider by ID",
+        "path": "/",
+        "params": [],
+        "url": "https://:domain/providers/:id"
       }
     ]
   }
