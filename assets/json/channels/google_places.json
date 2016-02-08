@@ -6,6 +6,7 @@
   "name": "GooglePlaces",
   "enabled": true,
   "oauth": {
+    "tokenQueryParam" : "key",
     "tokenMethod" : "access_token_query"
   },
   "application": {

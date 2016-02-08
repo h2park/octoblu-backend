@@ -570,22 +570,27 @@
             "displayName": "Logon Type"
           },
           {
-            "required": "true",
+            "required": true,
             "type": "array",
             "style": "body",
             "name": "callback",
             "displayName": "Callback",
-            "format": "table",
-            "items": {
-              "type": "object",
-              "properties": {
-                "callbackUrl": {
-                  "type": "string"
-                },
-                "ip": {
-                  "type": "string"
+            "schema": {
+              "title": "callback",
+              "type": "array",
+              "format": "table",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "callbackUrl": {
+                    "type": "string"
+                  },
+                  "ip": {
+                    "type": "string"
+                  }
                 }
-              }
+              },
+              "required": true
             }
           }
         ],
@@ -1118,12 +1123,130 @@
       {
         "params": [
           {
-            "required": "false",
-            "value": "",
             "type": "string",
-            "style": "",
-            "name": "",
-            "displayName": ""
+            "style": "body",
+            "name": "name",
+            "displayName": "Name"
+          },
+          {
+            "type": "string",
+            "style": "body",
+            "name": "description",
+            "displayName": "Description"
+          },
+          {
+            "type": "boolean",
+            "style": "body",
+            "name": "anonymousUser",
+            "displayName": "Anonymous User?"
+          },
+          {
+            "required": true,
+            "type": "array",
+            "style": "body",
+            "name": "devicePolicies",
+            "displayName": "Device Policies",
+            "schema": {
+              "title": "devicePolicies",
+              "type": "array",
+              "format": "table",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "priority": {
+                    "type": "number"
+                  }
+                }
+              },
+              "required": true
+            }
+          },
+          {
+            "required": true,
+            "type": "array",
+            "style": "body",
+            "name": "applications",
+            "displayName": "Applications",
+            "schema": {
+              "title": "applications",
+              "type": "array",
+              "format": "table",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "required": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "required": true
+            }
+          },
+          {
+            "required": true,
+            "type": "array",
+            "style": "body",
+            "name": "smartActions",
+            "displayName": "Smart Actions",
+            "schema": {
+              "title": "smartActions",
+              "type": "array",
+              "format": "table",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "priority": {
+                    "type": "number"
+                  }
+                }
+              },
+              "required": true
+            }
+          },
+          {
+            "required": true,
+            "type": "array",
+            "style": "body",
+            "name": "groups",
+            "displayName": "Groups",
+            "schema": {
+              "title": "groups",
+              "type": "array",
+              "format": "table",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "domainName": {
+                    "type": "string"
+                  },
+                  "uniqueName": {
+                    "type": "string"
+                  },
+                  "uniqueId": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": true
+            }
+          },
+          {
+            "type": "string",
+            "style": "body",
+            "name": "rules",
+            "displayName": "Rules"
           }
         ],
         "path": "/deliverygroups",
@@ -1140,12 +1263,9 @@
       {
         "params": [
           {
-            "required": "false",
-            "value": "",
-            "type": "string",
-            "style": "",
-            "name": "",
-            "displayName": ""
+            "type": "array",
+            "style": "body",
+            "displayName": "Groups"
           }
         ],
         "path": "/deliverygroups",
@@ -1160,16 +1280,7 @@
         "url": "http://:hostname::port/xenmobile/api/v1/deliverygroups"
       },
       {
-        "params": [
-          {
-            "required": "false",
-            "value": "",
-            "type": "string",
-            "style": "",
-            "name": "",
-            "displayName": ""
-          }
-        ],
+        "params": [],
         "path": "/serverproperties",
         "displayName": "Get all server properties",
         "authentication": {
@@ -1184,12 +1295,34 @@
       {
         "params": [
           {
-            "required": "false",
-            "value": "",
+            "type": "number",
+            "style": "body",
+            "name": "start",
+            "displayName": "Start"
+          },
+          {
+            "type": "number",
+            "style": "body",
+            "name": "limit",
+            "displayName": "Limit"
+          },
+          {
             "type": "string",
-            "style": "",
-            "name": "",
-            "displayName": ""
+            "style": "body",
+            "name": "orderBy",
+            "displayName": "Order By"
+          },
+          {
+            "type": "string",
+            "style": "body",
+            "name": "sortOrder",
+            "displayName": "Sort Order"
+          },
+          {
+            "type": "string",
+            "style": "body",
+            "name": "searchStr",
+            "displayName": "Search String"
           }
         ],
         "path": "/serverproperties/filter",
@@ -1206,12 +1339,28 @@
       {
         "params": [
           {
-            "required": "false",
-            "value": "",
             "type": "string",
-            "style": "",
-            "name": "",
-            "displayName": ""
+            "style": "body",
+            "name": "name",
+            "displayName": "Name"
+          },
+          {
+            "type": "string",
+            "style": "body",
+            "name": "value",
+            "displayName": "Value"
+          },
+          {
+            "type": "string",
+            "style": "body",
+            "name": "displayName",
+            "displayName": "Display Name"
+          },
+          {
+            "type": "string",
+            "style": "body",
+            "name": "description",
+            "displayName": "Description"
           }
         ],
         "path": "/serverproperties",
@@ -1228,12 +1377,28 @@
       {
         "params": [
           {
-            "required": "false",
-            "value": "",
             "type": "string",
-            "style": "",
-            "name": "",
-            "displayName": ""
+            "style": "body",
+            "name": "name",
+            "displayName": "Name"
+          },
+          {
+            "type": "string",
+            "style": "body",
+            "name": "value",
+            "displayName": "Value"
+          },
+          {
+            "type": "string",
+            "style": "body",
+            "name": "displayName",
+            "displayName": "Display Name"
+          },
+          {
+            "type": "string",
+            "style": "body",
+            "name": "description",
+            "displayName": "Description"
           }
         ],
         "path": "/serverproperties",
@@ -1250,12 +1415,10 @@
       {
         "params": [
           {
-            "required": "false",
-            "value": "",
-            "type": "string",
-            "style": "",
-            "name": "",
-            "displayName": ""
+            "type": "array",
+            "style": "body",
+            "name": "names",
+            "displayName": "Names"
           }
         ],
         "path": "/serverproperties/reset",
@@ -1272,12 +1435,9 @@
       {
         "params": [
           {
-            "required": "false",
-            "value": "",
-            "type": "string",
-            "style": "",
-            "name": "",
-            "displayName": ""
+            "type": "object",
+            "style": "body",
+            "displayName": "Servers to Delete"
           }
         ],
         "path": "/serverproperties",
