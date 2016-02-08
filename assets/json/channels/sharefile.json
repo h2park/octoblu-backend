@@ -229,6 +229,12 @@
             "displayName": "File Name (optional)",
             "type": "string",
             "style": "body"
+          },
+          {
+            "name": "uuid",
+            "displayName": "User UUID (from profile page)",
+            "type": "string",
+            "style": "query"
           }
         ],
         "url": "https://friendly-sharefile.octoblu.com/:account/items-by-path/transfer/link"
@@ -413,6 +419,12 @@
             "displayName": "File Name (optional)",
             "type": "string",
             "style": "body"
+          },
+          {
+            "name": "uuid",
+            "displayName": "User UUID (from profile page)",
+            "type": "string",
+            "style": "query"
           }
         ],
         "url": "https://friendly-sharefile.octoblu.com/:account/items/:itemId/transfer/link"
