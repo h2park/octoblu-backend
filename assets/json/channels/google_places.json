@@ -6,8 +6,12 @@
   "name": "GooglePlaces",
   "enabled": true,
   "oauth": {
-    "tokenQueryParam" : "key",
     "tokenMethod" : "access_token_query"
+  },
+  "overrides": {
+    "defaultParams": {
+      "key": "AIzaSyCrel070d3luCSwisj-29afGY4zVT6zepE"
+    }
   },
   "application": {
     "base": "https://maps.googleapis.com/maps/api/place",
