@@ -842,6 +842,250 @@
         "path": "/",
         "params": [],
         "url": "https://:domain/providers/:id"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#providers-6"
+        },
+        "displayName": "Gets a list of all servers for a single provider.",
+        "path": "/providers/:id/servers",
+        "params": [],
+        "url": "https://:domain/providers/:id/servers"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#providers-7"
+        },
+        "displayName": "Gets a list of all servers for a single provider.",
+        "path": "/providers/:id/servers/:serverid",
+        "params": [
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Action",
+            "name": "action"
+          },
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Region Code",
+            "name": ""
+          }
+        ],
+        "url": "https://:domain/providers/:id/servers/:serverid"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#providers-6"
+        },
+        "displayName": "Gets a list of all servers for a single provider.",
+        "path": "/providers/:id/servers",
+        "params": [],
+        "url": "https://:domain/providers/:id/servers"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-1"
+        },
+        "displayName": "Gets a list of all alerts in the organization (in rollup view)",
+        "path": "/monitor/rollup",
+        "params": [
+          {
+            "required": false,
+            "type": "string",
+            "style": "query",
+            "displayName": "Page",
+            "name": "page"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "query",
+            "displayName": "Limit",
+            "name": "limit"
+          }
+        ],
+        "url": "https://:domain/monitor/rollup"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-2"
+        },
+        "displayName": "Gets monitoring status for a node/agent.",
+        "path": "/monitor/:id",
+        "params": [],
+        "url": "https://:domain/monitor/:id"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-3"
+        },
+        "displayName": "Enables/disables monitoring on a node/agent.",
+        "path": "/monitor/:id",
+        "params": [
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Enable (\"N\" to disable, \"Y\" to enable)",
+            "name": "enable"
+          }
+        ],
+        "url": "https://:domain/monitor/:id"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-4"
+        },
+        "displayName": "Gets alerts for a node/agent.",
+        "path": "/monitor/:id/alerts",
+        "params": [],
+        "url": "https://:domain/monitor/:id/alerts"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-5"
+        },
+        "displayName": "Enables alerts for a node/agent",
+        "path": "/monitor/:id/alerts/enable",
+        "params": [],
+        "url": "https://:domain/monitor/:id/alerts"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-6"
+        },
+        "displayName": "Disables alerts for a node/agent.",
+        "path": "/monitor/:id/alerts/disable",
+        "params": [],
+        "url": "https://:domain/monitor/:id/alerts/disable"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-7"
+        },
+        "displayName": "Gets events for a node/agent.",
+        "path": "/monitor/:id/events",
+        "params": [
+          {
+            "required": false,
+            "type": "string",
+            "style": "query",
+            "displayName": "Timestamp",
+            "name": "timestamp"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "query",
+            "displayName": "limit",
+            "name": "limit"
+          }
+        ],
+        "url": "https://:domain/monitor/:id/events"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-8"
+        },
+        "displayName": "Gets metrics for a node/agent",
+        "path": "/monitor/:id/metrics",
+        "params": [],
+        "url": "https://:domain/monitor/:id/metrics"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-9"
+        },
+        "displayName": "Gets time series metric data for a node/agent",
+        "path": "/monitor/:id/history",
+        "params": [
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "From (start time in the form of epoch time in seconds)",
+            "name": "from"
+          },
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Till (end time in the form of epoch time in seconds)",
+            "name": "till"
+          },
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Type (\"application\" OR \"item\")",
+            "name": "type"
+          },
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Application (must be an application that is valid for this node)",
+            "name": "application"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "query",
+            "displayName": "Item ID (must be an itemid that is valid for this node)",
+            "name": "itemid"
+          }
+        ],
+        "url": "https://:domain/monitor/:id/history"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-10"
+        },
+        "displayName": "Gets monitoring dashboards for a role",
+        "path": "/monitor/dashboards",
+        "params": [],
+        "url": "https://:domain/monitor/dashboards"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-11"
+        },
+        "displayName": "Gets time series data for a graph",
+        "path": "/monitor/graphs/:id",
+        "params": [
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "From (start time in the form of epoch time in seconds)",
+            "name": "from"
+          },
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Till (end time in the form of epoch time in seconds)",
+            "name": "till"
+          }
+        ],
+        "url": "https://:domain/monitor/graphs/:id"
       }
     ]
   }
