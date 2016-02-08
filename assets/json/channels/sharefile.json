@@ -42,19 +42,9 @@
       {
         "httpMethod": "GET",
         "doc": {
-          "url": "https://friendly-sharefile.octoblu.com/:account/items"
-        },
-        "displayName": "List all files and folders",
-        "path": "/:account/items",
-        "params": [],
-        "url": "https://friendly-sharefile.octoblu.com/:account/items"
-      },
-      {
-        "httpMethod": "GET",
-        "doc": {
           "url": "https://friendly-sharefile.octoblu.com/:account/home/folder"
         },
-        "displayName": "List Home Folder items",
+        "displayName": "Get Home Folder",
         "path": "/:account/home/folder",
         "params": [],
         "url": "https://friendly-sharefile.octoblu.com/:account/home/folder"
@@ -64,7 +54,7 @@
         "doc": {
           "url": "https://friendly-sharefile.octoblu.com/:account/items-by-path"
         },
-        "displayName": "Get Item By Path",
+        "displayName": "Get Folder or File By Path",
         "path": "/:account/items-by-path",
         "params": [
           {
@@ -81,7 +71,7 @@
         "doc": {
           "url": "https://friendly-sharefile.octoblu.com/:account/items-by-path/metadata"
         },
-        "displayName": "Get Item Metadata by Path",
+        "displayName": "Get Folder or File Custom Metadata by Path",
         "path": "/:account/items-by-path/metadata",
         "params": [
           {
@@ -178,18 +168,24 @@
         "doc": {
           "url": "https://friendly-sharefile.octoblu.com/:account/items-by-path/upload"
         },
-        "displayName": "Upload File By Target Path",
+        "displayName": "Upload Small File (<1mb) By Target Path",
         "path": "/:account/items-by-path/upload",
         "params": [
           {
             "name": "path",
-            "displayName": "Target Path",
+            "displayName": "Target Folder Path",
             "type": "string",
             "style": "query"
           },
           {
             "name": "fileName",
             "displayName": "File Name",
+            "type": "string",
+            "style": "body"
+          },
+          {
+            "name": "contents",
+            "displayName": "Contents of File (required)",
             "type": "string",
             "style": "body"
           },
@@ -204,34 +200,45 @@
             "displayName": "Description",
             "type": "string",
             "style": "body"
+          }
+        ],
+        "url": "https://friendly-sharefile.octoblu.com/:account/items-by-path/upload"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "https://friendly-sharefile.octoblu.com/:account/items-by-path/transfer/link"
+        },
+        "displayName": "Transfer Link to Sharefile By Target Path (Any Size)",
+        "path": "/:account/items-by-path/transfer/link",
+        "params": [
+          {
+            "name": "path",
+            "displayName": "Target Folder Path",
+            "type": "string",
+            "style": "query"
           },
           {
-            "name": "batchId",
-            "displayName": "Batch ID",
+            "name": "link",
+            "displayName": "Shared Link",
             "type": "string",
             "style": "body"
           },
           {
-            "name": "batchLast",
-            "displayName": "Batch Last",
-            "type": "boolean",
-            "style": "body"
-          },
-          {
-            "name": "contents",
-            "displayName": "Contents of File",
+            "name": "fileName",
+            "displayName": "File Name (optional)",
             "type": "string",
             "style": "body"
           }
         ],
-        "url": "https://friendly-sharefile.octoblu.com/:account/items-by-path/upload"
+        "url": "https://friendly-sharefile.octoblu.com/:account/items-by-path/transfer/link"
       },
       {
         "httpMethod": "GET",
         "doc": {
           "url": "https://friendly-sharefile.octoblu.com/:account/items/:itemId"
         },
-        "displayName": "Get Item by Item ID",
+        "displayName": "Get Folder or File by Item ID",
         "path": "/:account/items/:itemId",
         "params": [
           {
@@ -248,7 +255,7 @@
         "doc": {
           "url": "https://friendly-sharefile.octoblu.com/:account/items/:itemId/metadata"
         },
-        "displayName": "Get Item Metadata by Item ID",
+        "displayName": "Get Folder or File Custom Metadata by Item ID",
         "path": "/:account/items/:itemId/metadata",
         "params": [
           {
@@ -345,18 +352,24 @@
         "doc": {
           "url": "https://friendly-sharefile.octoblu.com/:account/items/:itemId/upload"
         },
-        "displayName": "Upload File by Target Item ID",
+        "displayName": "Upload Small File (<1mb) by Target Item ID",
         "path": "/:account/items/:itemId/upload",
         "params": [
           {
             "name": ":itemId",
-            "displayName": "Target Item ID",
+            "displayName": "Target Folder ID",
             "type": "string",
             "style": "url"
           },
           {
             "name": "fileName",
             "displayName": "File Name",
+            "type": "string",
+            "style": "body"
+          },
+          {
+            "name": "contents",
+            "displayName": "Contents of File (required)",
             "type": "string",
             "style": "body"
           },
@@ -371,27 +384,38 @@
             "displayName": "Description",
             "type": "string",
             "style": "body"
+          }
+        ],
+        "url": "https://friendly-sharefile.octoblu.com/:account/items/:itemId/upload"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "https://friendly-sharefile.octoblu.com/:account/items/:itemId/transfer/link"
+        },
+        "displayName": "Transfer Link to Sharefile By Target ID (Any Size)",
+        "path": "/:account/items/:itemId/transfer/link",
+        "params": [
+          {
+            "name": ":itemId",
+            "displayName": "Target Folder Item ID",
+            "type": "string",
+            "style": "url"
           },
           {
-            "name": "batchId",
-            "displayName": "Batch ID",
+            "name": "link",
+            "displayName": "Shared Link",
             "type": "string",
             "style": "body"
           },
           {
-            "name": "batchLast",
-            "displayName": "Batch Last",
-            "type": "boolean",
-            "style": "body"
-          },
-          {
-            "name": "contents",
-            "displayName": "Contents of File",
+            "name": "fileName",
+            "displayName": "File Name (optional)",
             "type": "string",
             "style": "body"
           }
         ],
-        "url": "https://friendly-sharefile.octoblu.com/:account/items/:itemId/upload"
+        "url": "https://friendly-sharefile.octoblu.com/:account/items/:itemId/transfer/link"
       }
     ]
   }

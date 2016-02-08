@@ -159,7 +159,7 @@
             "required": true
           }
         ],
-        "url": "https://rightsignature.com/api/documents/<Document GUID>/send_reminders.json"
+        "url": "https://rightsignature.com/api/documents/:DocumentGUID/send_reminders.json"
       },
       {
         "path": "/documents/:DocumentGUID/trash.json",
@@ -236,24 +236,24 @@
         "httpMethod": "POST",
         "params": [
           {
-            "displayName": "Subject",
+            "displayName": "Document Data",
             "style": "body",
             "type": "object",
-            "name": "subject",
+            "name": "document_data",
             "required": true,
             "schema": {
               "title": "Document Data",
               "type": "object",
-              "name": "document_data",
               "properties": {
                 "type": {
+                  "required": true,
                   "type": "string"
                 },
                 "value": {
+                  "required": true,
                   "type": "string"
                 }
-              },
-              "required": true
+              }
             }
           },
           {

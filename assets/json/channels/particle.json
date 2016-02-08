@@ -1,24 +1,21 @@
 {
   "_id": "56b383bd0ff23fc2acbf477b",
-  "auth_strategy": "none",
+  "auth_strategy": "header",
   "description": "",
   "documentation": "https://docs.particle.io/reference/api/",
   "enabled": true,
   "name": "Particle.io",
   "type": "channel:particle",
   "skipVerifySSL": true,
-  "defaultParams": [
-    {
-      "name": ":access_token",
-      "displayName": "Access Token",
-      "style": "url",
-      "type": "string",
-      "required": true
-    }
-  ],
-  "overrides": {
-    "headerParams": {
-      "Authorization": "Bearer :access_token"
+  "oauth": {
+    "development": {
+      "tokenMethod": "access_token_bearer"
+    },
+    "staging": {
+      "tokenMethod": "access_token_bearer"
+    },
+    "production": {
+      "tokenMethod": "access_token_bearer"
     }
   },
   "application": {
