@@ -933,6 +933,18 @@
             "displayName": "Send Notification Emails",
             "style" : "body",
             "type" : "boolean"
+          },
+          {
+            "name" : "role",
+            "displayName": "Role (owner,reader,writer)",
+            "style" : "body",
+            "type" : "string"
+          },
+          {
+            "name" : "type",
+            "displayName": "Type (anyone,domain,group,user)",
+            "style" : "body",
+            "type" : "string"
           }
         ],
         "url" : "https://www.googleapis.com/drive/v2/files/:file-id/permissions"
