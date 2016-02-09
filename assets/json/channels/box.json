@@ -801,28 +801,31 @@
             "displayName": "File ID"
           },
           {
-            "name": "shared_link.access",
-            "type": "object",
+            "displayName": "Process",
             "style": "body",
-            "displayName": "Access (open,company,collaborators,null)"
-          },
-          {
-            "name": "shared_link.unshared_at",
             "type": "object",
-            "style": "body",
-            "displayName": "Unshared At (timestamp) (optional)"
-          },
-          {
-            "name": "shared_link.password",
-            "type": "object",
-            "style": "body",
-            "displayName": "Password (optional)"
-          },
-          {
-            "name": "shared_link.permissions",
-            "type": "object",
-            "style": "body",
-            "displayName": "Permissions (optional)"
+            "name": "shared_link",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "access": {
+                  "type": "string"
+                },
+                "unshared_at": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                },
+                "can_download": {
+                  "type": "boolean"
+                },
+                "can_preview": {
+                  "type": "boolean"
+                }
+              }
+            }
           }
         ],
         "url": "https://api.box.com/2.0/files/:file-id"
