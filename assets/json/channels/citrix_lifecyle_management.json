@@ -16,22 +16,22 @@
   ],
   "oauth": {
     "development": {
-      "clientID": "",
-      "clientSecret": "",
+      "clientID": "dev-id",
+      "clientSecret": "dev-secret",
       "callbackURL": "http://:domain/api/oauth/sharefile/callback",
       "tokenMethod": "access_token_query",
       "tokenQueryParam": "oauth_token"
     },
     "production": {
-      "clientID": "",
-      "clientSecret": "",
+      "clientID": "prod-id",
+      "clientSecret": "prod-secret",
       "callbackURL": "http://:domain/api/oauth/sharefile/callback",
       "tokenMethod": "access_token_query",
       "tokenQueryParam": "oauth_token"
     },
     "staging": {
-      "clientID": "",
-      "clientSecret": "",
+      "clientID": "staging-id",
+      "clientSecret": "staging-secret",
       "callbackURL": "https://:domain/api/oauth/sharefile/callback",
       "tokenMethod": "access_token_query",
       "tokenQueryParam": "oauth_token"
@@ -235,7 +235,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#nodes-6"
         },
-        "displayName": "Refresh Node Properties from the Node",
+        "displayName": "Refresh node properties from the node",
         "path": "/nodes/:id/refresh",
         "params": [],
         "url": "https://:domain/nodes/:id/refresh"
@@ -312,16 +312,6 @@
         "path": "/jobs",
         "params": [],
         "url": "https://:domain/nodes/install"
-      },
-      {
-        "httpMethod": "POST",
-        "doc": {
-          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#jobs-1"
-        },
-        "displayName": "Creates a job",
-        "path": "/jobs",
-        "params": [],
-        "url": "https://:domain/jobs"
       },
       {
         "httpMethod": "POST",
@@ -427,7 +417,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#jobs-5"
         },
-        "displayName": "Creates a Patch/Update job",
+        "displayName": "Creates a patch/update job",
         "path": "/jobs",
         "params": [],
         "url": "https://:domain/jobs"
@@ -437,7 +427,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#jobs-5"
         },
-        "displayName": "Updates a Patch/Update job",
+        "displayName": "Updates a patch/update job",
         "path": "/jobs/:id",
         "params": [],
         "url": "https://:domain/jobs/:id"
@@ -848,7 +838,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#providers-6"
         },
-        "displayName": "Gets a list of all servers for a single provider.",
+        "displayName": "Gets a list of all servers for a single provider",
         "path": "/providers/:id/servers",
         "params": [],
         "url": "https://:domain/providers/:id/servers"
@@ -858,7 +848,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#providers-7"
         },
-        "displayName": "Gets a list of all servers for a single provider.",
+        "displayName": "Gets a list of all servers for a single provider",
         "path": "/providers/:id/servers/:serverid",
         "params": [
           {
@@ -883,7 +873,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#providers-6"
         },
-        "displayName": "Gets a list of all servers for a single provider.",
+        "displayName": "Gets a list of all servers for a single provider",
         "path": "/providers/:id/servers",
         "params": [],
         "url": "https://:domain/providers/:id/servers"
@@ -918,7 +908,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-2"
         },
-        "displayName": "Gets monitoring status for a node/agent.",
+        "displayName": "Gets monitoring status for a node/agent",
         "path": "/monitor/:id",
         "params": [],
         "url": "https://:domain/monitor/:id"
@@ -928,7 +918,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-3"
         },
-        "displayName": "Enables/disables monitoring on a node/agent.",
+        "displayName": "Enables/disables monitoring on a node/agent",
         "path": "/monitor/:id",
         "params": [
           {
@@ -946,7 +936,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-4"
         },
-        "displayName": "Gets alerts for a node/agent.",
+        "displayName": "Gets alerts for a node/agent",
         "path": "/monitor/:id/alerts",
         "params": [],
         "url": "https://:domain/monitor/:id/alerts"
@@ -966,7 +956,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-6"
         },
-        "displayName": "Disables alerts for a node/agent.",
+        "displayName": "Disables alerts for a node/agent",
         "path": "/monitor/:id/alerts/disable",
         "params": [],
         "url": "https://:domain/monitor/:id/alerts/disable"
@@ -976,7 +966,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-7"
         },
-        "displayName": "Gets events for a node/agent.",
+        "displayName": "Gets events for a node/agent",
         "path": "/monitor/:id/events",
         "params": [
           {
@@ -1086,6 +1076,1199 @@
           }
         ],
         "url": "https://:domain/monitor/graphs/:id"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#process-1"
+        },
+        "displayName": "Creates a process",
+        "path": "/process",
+        "params": [
+          {
+            "displayName": "Process",
+            "style": "body",
+            "type": "object",
+            "name": "process",
+            "required": true,
+            "schema": {
+                "type": "object",
+                "properties": {
+                  "startCode": {
+                    "type": "string"
+                  },
+                  "excludeTarget": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "processId": {
+                    "type": "integer"
+                  },
+                  "processName": {
+                    "type": "string"
+                  },
+                  "subProcesses": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "startTaskId": {
+                    "type": "integer"
+                  },
+                  "outputs": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "targets": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "processParameters": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "excludeTargets": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "parentProcessId": {
+                    "type": "integer"
+                  },
+                  "tasks": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "continueOnFailure": {
+                          "type": "integer"
+                        },
+                        "excludeTarget": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "processId": {
+                          "type": "integer"
+                        },
+                        "taskName": {
+                          "type": "string"
+                        },
+                        "sequenceNumber": {
+                          "type": "integer"
+                        },
+                        "nextTaskId": {
+                          "type": "integer"
+                        },
+                        "outputs": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "parentTaskId": {
+                          "type": "integer"
+                        },
+                        "stepCode": {
+                          "type": "string"
+                        },
+                        "taskId": {
+                          "type": "integer"
+                        },
+                        "runType": {
+                          "type": "string"
+                        },
+                        "sequenceNext": {
+                          "type": "string"
+                        },
+                        "code": {
+                          "type": "string"
+                        },
+                        "runAsyncFlag": {
+                          "type": "integer"
+                        },
+                        "runAsync": {
+                          "type": "boolean"
+                        },
+                        "inputs": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "taskParameters": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "target": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "taskProperties": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "serverGroup": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "tagList": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "companyId": {
+                          "type": "integer"
+                        },
+                        "timeout": {
+                          "type": "integer"
+                        },
+                        "rootProcessId": {
+                          "type": "integer"
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  "code": {
+                    "type": "string"
+                  },
+                  "properties": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "serverGroups": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "migratedFlag": {
+                    "type": "boolean"
+                  },
+                  "runAsync": {
+                    "type": "boolean"
+                  },
+                  "parentCompanyId": {
+                    "type": "integer"
+                  },
+                  "schedule": {
+                    "type": "object",
+                    "properties": {
+                      "startTime": {
+                        "type": "integer"
+                      },
+                      "scheduleType": {
+                        "type": "integer"
+                      },
+                      "scheduleId": {
+                        "type": "integer"
+                      },
+                      "prevFireTime": {
+                        "type": "integer"
+                      },
+                      "jobId": {
+                        "type": "integer"
+                      },
+                      "repeatInterval": {
+                        "type": "integer"
+                      },
+                      "timesTriggered": {
+                        "type": "integer"
+                      },
+                      "nextFireTime": {
+                        "type": "integer"
+                      },
+                      "dirty": {
+                        "type": "boolean"
+                      },
+                      "repeatCount": {
+                        "type": "integer"
+                      },
+                      "companyId": {
+                        "type": "integer"
+                      },
+                      "endTime": {
+                        "type": "integer"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "parentGroupId": {
+                    "type": "integer"
+                  },
+                  "inputs": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "processId": {
+                          "type": "integer"
+                        },
+                        "propertyValue": {
+                          "type": "string"
+                        },
+                        "propertyKey": {
+                          "type": "string"
+                        },
+                        "companyId": {
+                          "type": "integer"
+                        },
+                        "required": {
+                          "type": "boolean"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "propValueArr": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  "target": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "processId": {
+                          "type": "integer"
+                        },
+                        "propertyValue": {
+                          "type": "string"
+                        },
+                        "propertyKey": {
+                          "type": "string"
+                        },
+                        "companyId": {
+                          "type": "integer"
+                        },
+                        "required": {
+                          "type": "boolean"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "propValueArr": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  "companyId": {
+                    "type": "integer"
+                  },
+                  "tagList": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "serverGroup": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "rootProcessId": {
+                    "type": "integer"
+                  },
+                  "timeout": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+        ],
+        "url": "https://:domain/process"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#process-2"
+        },
+        "displayName": "Edits a process",
+        "path": "/process/:id",
+        "params": [
+          {
+            "displayName": "Process",
+            "style": "body",
+            "type": "object",
+            "name": "process",
+            "required": true,
+            "schema": {
+                "type": "object",
+                "properties": {
+                  "startCode": {
+                    "type": "string"
+                  },
+                  "processId": {
+                    "type": "integer"
+                  },
+                  "excludeTarget": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "processName": {
+                    "type": "string"
+                  },
+                  "subProcesses": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "startCode": {
+                          "type": "string"
+                        },
+                        "processId": {
+                          "type": "integer"
+                        },
+                        "excludeTarget": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "processName": {
+                          "type": "string"
+                        },
+                        "subProcesses": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "startTaskId": {
+                          "type": "integer"
+                        },
+                        "targets": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "processParameters": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "excludeTargets": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "parentProcessId": {
+                          "type": "integer"
+                        },
+                        "tasks": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "continueOnFailure": {
+                                "type": "integer"
+                              },
+                              "excludeTarget": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              "processId": {
+                                "type": "integer"
+                              },
+                              "taskName": {
+                                "type": "string"
+                              },
+                              "sequenceNumber": {
+                                "type": "integer"
+                              },
+                              "nextTaskId": {
+                                "type": "integer"
+                              },
+                              "outputs": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              "parentTaskId": {
+                                "type": "integer"
+                              },
+                              "stepCode": {
+                                "type": "string"
+                              },
+                              "taskId": {
+                                "type": "integer"
+                              },
+                              "runType": {
+                                "type": "string"
+                              },
+                              "sequenceNext": {
+                                "type": "string"
+                              },
+                              "code": {
+                                "type": "string"
+                              },
+                              "properties": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "processId": {
+                                      "type": "integer"
+                                    },
+                                    "propertyValue": {
+                                      "type": "string"
+                                    },
+                                    "propertyKey": {
+                                      "type": "string"
+                                    },
+                                    "companyId": {
+                                      "type": "integer"
+                                    },
+                                    "required": {
+                                      "type": "boolean"
+                                    },
+                                    "type": {
+                                      "type": "string"
+                                    },
+                                    "propValueArr": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  },
+                                  "additionalProperties": false
+                                }
+                              },
+                              "runAsyncFlag": {
+                                "type": "integer"
+                              },
+                              "runAsync": {
+                                "type": "boolean"
+                              },
+                              "inputs": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              "taskParameters": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              "target": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              "taskProperties": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              "serverGroup": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              "tagList": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              "companyId": {
+                                "type": "integer"
+                              },
+                              "timeout": {
+                                "type": "integer"
+                              },
+                              "rootProcessId": {
+                                "type": "integer"
+                              }
+                            },
+                            "additionalProperties": false
+                          }
+                        },
+                        "code": {
+                          "type": "string"
+                        },
+                        "serverGroups": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "migratedFlag": {
+                          "type": "boolean"
+                        },
+                        "runAsync": {
+                          "type": "boolean"
+                        },
+                        "parentCompanyId": {
+                          "type": "integer"
+                        },
+                        "parentGroupId": {
+                          "type": "integer"
+                        },
+                        "inputs": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "processId": {
+                                "type": "integer"
+                              },
+                              "propertyValue": {
+                                "type": "string"
+                              },
+                              "propertyKey": {
+                                "type": "string"
+                              },
+                              "companyId": {
+                                "type": "integer"
+                              },
+                              "required": {
+                                "type": "boolean"
+                              },
+                              "type": {
+                                "type": "string"
+                              },
+                              "propValueArr": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "additionalProperties": false
+                          }
+                        },
+                        "target": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "processId": {
+                              "type": "integer"
+                            },
+                            "propertyValue": {
+                              "type": "string"
+                            },
+                            "propertyKey": {
+                              "type": "string"
+                            },
+                            "companyId": {
+                              "type": "integer"
+                            },
+                            "required": {
+                              "type": "boolean"
+                            },
+                            "type": {
+                              "type": "string"
+                            },
+                            "propValueArr": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "additionalProperties": false
+                        }
+                      },
+                      "companyId": {
+                        "type": "integer"
+                      },
+                      "tagList": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "serverGroup": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "rootProcessId": {
+                        "type": "integer"
+                      },
+                      "timeout": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "url": "https://:domain/process/:id"
+      },
+      {
+        "httpMethod": "DELETE",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#process-3"
+        },
+        "displayName": "Deletes a process",
+        "path": "/process/:id",
+        "params": [],
+        "url": "https://:domain/process/:id"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#process-4"
+        },
+        "displayName": "Gets process details",
+        "path": "/process/:id",
+        "params": [
+          {
+            "required": true,
+            "name": "processid",
+            "displayName": "Process ID",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/process/:id"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#process-5"
+        },
+        "displayName": "Gets a list of versions for a process",
+        "path": "/process/:id/versions",
+        "params": [],
+        "url": "https://:domain/process/:id/versions"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#process-6"
+        },
+        "displayName": "Launches a process",
+        "path": "/process/:id/launch",
+        "params": [],
+        "url": "https://:domain/process/:id/launch"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#process-6"
+        },
+        "displayName": "Launches a process",
+        "path": "/process/:id/launch",
+        "params": [
+          {
+            "displayName": "Process",
+            "style": "body",
+            "type": "object",
+            "name": "process",
+            "required": true,
+            "schema": {
+                "type": "object",
+                "properties": {
+                  "startCode": {
+                    "type": "string"
+                  },
+                  "excludeTarget": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "processId": {
+                    "type": "integer"
+                  },
+                  "processName": {
+                    "type": "string"
+                  },
+                  "subProcesses": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "startTaskId": {
+                    "type": "integer"
+                  },
+                  "outputs": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "targets": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "processParameters": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "excludeTargets": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "parentProcessId": {
+                    "type": "integer"
+                  },
+                  "tasks": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "continueOnFailure": {
+                          "type": "integer"
+                        },
+                        "excludeTarget": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "processId": {
+                          "type": "integer"
+                        },
+                        "taskName": {
+                          "type": "string"
+                        },
+                        "sequenceNumber": {
+                          "type": "integer"
+                        },
+                        "nextTaskId": {
+                          "type": "integer"
+                        },
+                        "outputs": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "parentTaskId": {
+                          "type": "integer"
+                        },
+                        "stepCode": {
+                          "type": "string"
+                        },
+                        "taskId": {
+                          "type": "integer"
+                        },
+                        "runType": {
+                          "type": "string"
+                        },
+                        "sequenceNext": {
+                          "type": "string"
+                        },
+                        "code": {
+                          "type": "string"
+                        },
+                        "runAsyncFlag": {
+                          "type": "integer"
+                        },
+                        "runAsync": {
+                          "type": "boolean"
+                        },
+                        "inputs": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "taskParameters": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "target": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "taskProperties": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "serverGroup": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "tagList": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "companyId": {
+                          "type": "integer"
+                        },
+                        "timeout": {
+                          "type": "integer"
+                        },
+                        "rootProcessId": {
+                          "type": "integer"
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  "code": {
+                    "type": "string"
+                  },
+                  "properties": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "serverGroups": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "migratedFlag": {
+                    "type": "boolean"
+                  },
+                  "runAsync": {
+                    "type": "boolean"
+                  },
+                  "parentCompanyId": {
+                    "type": "integer"
+                  },
+                  "schedule": {
+                    "type": "object",
+                    "properties": {
+                      "startTime": {
+                        "type": "integer"
+                      },
+                      "scheduleType": {
+                        "type": "integer"
+                      },
+                      "scheduleId": {
+                        "type": "integer"
+                      },
+                      "prevFireTime": {
+                        "type": "integer"
+                      },
+                      "jobId": {
+                        "type": "integer"
+                      },
+                      "repeatInterval": {
+                        "type": "integer"
+                      },
+                      "timesTriggered": {
+                        "type": "integer"
+                      },
+                      "nextFireTime": {
+                        "type": "integer"
+                      },
+                      "dirty": {
+                        "type": "boolean"
+                      },
+                      "repeatCount": {
+                        "type": "integer"
+                      },
+                      "companyId": {
+                        "type": "integer"
+                      },
+                      "endTime": {
+                        "type": "integer"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "parentGroupId": {
+                    "type": "integer"
+                  },
+                  "inputs": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "processId": {
+                          "type": "integer"
+                        },
+                        "propertyValue": {
+                          "type": "string"
+                        },
+                        "propertyKey": {
+                          "type": "string"
+                        },
+                        "companyId": {
+                          "type": "integer"
+                        },
+                        "required": {
+                          "type": "boolean"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "propValueArr": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  "target": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "processId": {
+                          "type": "integer"
+                        },
+                        "propertyValue": {
+                          "type": "string"
+                        },
+                        "propertyKey": {
+                          "type": "string"
+                        },
+                        "companyId": {
+                          "type": "integer"
+                        },
+                        "required": {
+                          "type": "boolean"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "propValueArr": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  "companyId": {
+                    "type": "integer"
+                  },
+                  "tagList": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "serverGroup": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "rootProcessId": {
+                    "type": "integer"
+                  },
+                  "timeout": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          ],
+        "url": "https://:domain/process/:id/launch"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#process-7"
+        },
+        "displayName": "Launches a process with runonce Schedule",
+        "path": "/process/:id/launch",
+        "params": [],
+        "url": "https://:domain/process/:id/launch"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#process-8"
+        },
+        "displayName": "Launches a process with runonce Schedule and jobName",
+        "path": "/process/:id/launch",
+        "params": [
+          {
+            "required": false,
+            "name": "version",
+            "displayName": "Version",
+            "type": "string",
+            "style": "query"
+          },
+          {
+            "required": false,
+            "name": "jobname",
+            "displayName": "Job name",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/process/:id/launch"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#process-9"
+        },
+        "displayName": "Launches a particular code within a process",
+        "path": "/process/:id/launch",
+        "params": [
+          {
+            "required": false,
+            "name": "instanceid",
+            "displayName": "Instance ID",
+            "type": "string",
+            "style": "query"
+          },
+          {
+            "required": false,
+            "name": "jobname",
+            "displayName": "Job name",
+            "type": "string",
+            "style": "query"
+          },
+          {
+            "required": false,
+            "name": "override",
+            "displayName": "Override",
+            "type": "string",
+            "style": "query"
+          },
+          {
+            "required": false,
+            "name": "processcodes",
+            "displayName": "Process codes",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/process/:id/launch"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#process-11"
+        },
+        "displayName": "Add a server to an existing process",
+        "path": "/process/:id/addserver",
+        "params": [
+          {
+            "required": true,
+            "name": "instanceid",
+            "displayName": "Instance ID",
+            "type": "string",
+            "style": "query"
+          },
+          {
+            "required": false,
+            "name": "jobname",
+            "displayName": "Job name",
+            "type": "string",
+            "style": "query"
+          },
+          {
+            "required": false,
+            "name": "processcodes",
+            "displayName": "Process codes",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/process/:id/addserver"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#process-13"
+        },
+        "displayName": "Deletes a server from an existing process",
+        "path": "/process/:id/deleteserver",
+        "params": [
+          {
+            "required": true,
+            "name": "instanceid",
+            "displayName": "Instance ID",
+            "type": "string",
+            "style": "query"
+          },
+          {
+            "required": false,
+            "name": "jobname",
+            "displayName": "Job name",
+            "type": "string",
+            "style": "query"
+          },
+          {
+            "required": false,
+            "name": "processcodes",
+            "displayName": "Process codes",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/process/:id/deleteserver"
       }
     ]
   }
