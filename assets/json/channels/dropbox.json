@@ -775,7 +775,22 @@
             }
           }
         ],
-        "url": "https://api.dropbox.com/1/fileops/move "
+        "url": "https://api.dropbox.com/1/fileops/move"
+      },
+      {
+        "displayName": "Get One Time Transfer Link",
+        "path": "/dropbox/links",
+        "fullURL": "https://dropbox-link.octoblu.com/dropbox/links",
+        "httpMethod": "POST",
+        "params": [
+          {
+            "name": "path",
+            "displayName": "path",
+            "type": "string",
+            "style": "body"
+          }
+        ],
+        "url": "https://dropbox-link.octoblu.com/dropbox/links"
       }
     ]
   }

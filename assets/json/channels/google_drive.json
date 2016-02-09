@@ -925,13 +925,13 @@
           {
             "name" : "emailMessage",
             "displayName": "Email Message",
-            "style" : "body",
+            "style" : "query",
             "type" : "string"
           },
           {
             "name" : "sendNotificationEmails",
             "displayName": "Send Notification Emails",
-            "style" : "body",
+            "style" : "query",
             "type" : "boolean"
           },
           {
