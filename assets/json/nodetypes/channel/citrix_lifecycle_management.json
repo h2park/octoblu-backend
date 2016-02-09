@@ -1,0 +1,17 @@
+{
+  "_id": "56b8db0e1918877f591288a7",
+  "deviceId": "41d2b9d3-1857-4f66-bda4-70dc1c995ee7",
+  "category": "channel",
+  "categories": ["Citrix"],
+  "description": "Citrix Lifecycle management",
+  "documentation": "http://manage-docs.citrix.com/entries/68495369-API-Reference",
+  "helpText": "Change/Update later",
+  "enabled": true,
+  "name": "Citrix Lifecycle Management",
+  "skynet": {
+    "type": "channel",
+    "subtype": "Cit"
+  },
+  "channelid": "56b246552b73ae8a5027ce8d",
+  "type": "channel:citrixlifecyclemanagement"
+}
