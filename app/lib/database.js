@@ -15,7 +15,7 @@ function createNeDBCollection(collection){
       autoload: true
     });
   }
-  
+
   return nedbCollections[collection];
 }
 

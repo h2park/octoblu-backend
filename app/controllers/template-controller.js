@@ -44,6 +44,24 @@ var TemplateController = function (options, dependencies) {
       });
   };
 
+  self.findByPublicPaginate = function(req, res, next) {
+    return templateModel.findByPublic(req.query.tags)
+      .then(function(templates) {
+        var page = req.query.page - 1;
+        page = Math.max(0, page);
+        var offset = page * req.query.limit;
+        var limit = offset + req.query.limit;
+  
+    	  req.templates = _.slice(templates, offset, limit);;
+        console.log(req.templates);
+        next();
+      })
+      .catch(function(error){
+        res.send(422, error.message);
+      });
+  };
+
+
   self.like = function(req, res) {
     return templateModel.like(req.uuid, req.params.id)
       .then(function(){
