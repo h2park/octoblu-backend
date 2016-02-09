@@ -2,6 +2,7 @@
   "_id": "5333294ab64eb201df08a5b3",
   "name": "Box",
   "auth_strategy": "oauth",
+  "bodyFormat": "json",
   "oauth": {
     "development": {
       "clientID":     "INSERT_SECERT_HERE",
