@@ -51,9 +51,8 @@ var TemplateController = function (options, dependencies) {
         page = Math.max(0, page);
         var offset = page * req.query.limit;
         var limit = offset + req.query.limit;
-  
+
     	  req.templates = _.slice(templates, offset, limit);;
-        console.log(req.templates);
         next();
       })
       .catch(function(error){
