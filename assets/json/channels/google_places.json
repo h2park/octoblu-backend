@@ -8,6 +8,15 @@
   "oauth": {
     "tokenMethod" : "access_token_query"
   },
+  "hiddenParams": [
+    {
+      "name": "key",
+      "style": "query",
+      "type": "string",
+      "value": "AIzaSyCrel070d3luCSwisj-29afGY4zVT6zepE",
+      "required": true
+    }
+  ],
   "application": {
     "base": "https://maps.googleapis.com/maps/api/place",
     "resources": [

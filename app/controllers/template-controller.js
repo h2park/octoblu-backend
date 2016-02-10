@@ -34,7 +34,7 @@ var TemplateController = function (options, dependencies) {
   };
 
   self.findByPublic = function(req, res, next) {
-    return templateModel.findByPublic(req.query.tags)
+    return templateModel.findByPublic(req.query.tags, req.query.pageLimit, req.query.pageNumber)
       .then(function(templates) {
         req.templates = templates;
         next();
@@ -43,6 +43,7 @@ var TemplateController = function (options, dependencies) {
         res.send(422, error.message);
       });
   };
+
 
   self.like = function(req, res) {
     return templateModel.like(req.uuid, req.params.id)

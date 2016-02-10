@@ -2,6 +2,7 @@
   "_id": "5333294ab64eb201df08a5b3",
   "name": "Box",
   "auth_strategy": "oauth",
+  "bodyFormat": "json",
   "oauth": {
     "development": {
       "clientID":     "INSERT_SECERT_HERE",
@@ -799,7 +800,41 @@
             "required": true,
             "style": "url",
             "displayName": "File ID"
-          }],
+          },
+          {
+            "displayName": "Shared Link Options",
+            "style": "body",
+            "type": "object",
+            "name": "shared_link",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "access": {
+                  "type": "string",
+                  "label": "Access (open, company, collaborators, or null)"
+                },
+                "unshared_at": {
+                  "type": "string",
+                  "label": "Unshare at (Timestamp)"
+                },
+                "password": {
+                  "type": "string",
+                  "label": "Password"
+                },
+                "can_download": {
+                  "type": "boolean"
+                },
+                "can_preview": {
+                  "type": "boolean"
+                }
+              },
+              "required":[
+                "access"
+              ]
+            }
+          }
+        ],
         "url": "https://api.box.com/2.0/files/:file-id"
       },
       {

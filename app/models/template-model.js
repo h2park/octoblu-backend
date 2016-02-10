@@ -170,7 +170,7 @@ function TemplateModel(dependencies) {
       return _.uniq(tags);
     },
 
-    findByPublic: function(tags) {
+    findByPublic: function(tags, pageLimit, pageNumber) {
       debug("Finding template with tags ", tags);
       var templateCollection = new TemplateCollection();
       var query = {};
@@ -180,9 +180,12 @@ function TemplateModel(dependencies) {
         }
         query = {tags: {$all: tags}};
       }
-      return templateCollection.list(query);
+      if(pageLimit) {
+        query
+      }
+      return templateCollection.list(query, pageLimit, pageNumber);
     },
-
+    
     like: function(userUuid, bluprintId) {
       var templateCollection = new TemplateCollection();
       return templateCollection.like(userUuid, bluprintId);

@@ -2,7 +2,7 @@ var request = require('request');
 var Channel = require('../models/channel');
 var User = require('../models/user');
 var channelId = '56b390f3b604c4b06ed6de6a';
-var applicationCredentials = Channel.syncFindById(channelId).applicationCredentials;
+// var applicationCredentials = Channel.syncFindById(channelId).applicationCredentials;
 var textCrypt = require('../lib/textCrypt');
 
 var XenMobileController = function(){
