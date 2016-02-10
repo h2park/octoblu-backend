@@ -2210,7 +2210,7 @@
             "style": "body"
           }
         ],
-        "url": "https://box-link.octoblu.com/dropbox/links/:fileId"
+        "url": "https://box-link.octoblu.com/box/links/:fileId"
       }
     ]
   }
