@@ -1,6 +1,6 @@
 {
   "_id": "56b8db0e1918877f591288a7",
-  "deviceId": "41d2b9d3-1857-4f66-bda4-70dc1c995ee7",
+  "deviceId": "c339f6ce-fe26-4788-beee-c97605f50403",
   "category": "channel",
   "categories": ["Citrix"],
   "description": "Citrix Lifecycle management",
@@ -13,5 +13,5 @@
     "subtype": "Cit"
   },
   "channelid": "56b246552b73ae8a5027ce8d",
-  "type": "channel:citrixlifecyclemanagement"
+  "type": "channel:citrix-lifecycle-management"
 }

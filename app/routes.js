@@ -77,7 +77,7 @@ module.exports = function(app, passport, config, meshbluJSON){
     var BoxController = require('./controllers/box-controller');
     var boxController = new BoxController();
 
-    var ClmController = require('./controllers/clm-controller');
+    var ClmController = require('./controllers/citrix-lifecycle-management-controller');
     var clmController = new ClmController();
 
     var DemoFlowController = require('./controllers/demo-flow-controller');
@@ -298,10 +298,6 @@ module.exports = function(app, passport, config, meshbluJSON){
     app.get('/api/oauth/box',          boxController.authorize);
     app.get('/api/oauth/box/callback', boxController.callback, boxController.redirectToConfigure);
 
-    app.get('/api/oauth/clm',          referrer.storeReferrer, clmController.authorize);
-    app.get('/api/oauth/clm/callback', clmController.callback, signupController.checkInTester, referrer.restoreReferrer, referrer.redirectToReferrer, clmController.redirectToConfigure);
-
-
     app.get('/api/oauth/doubleclicksearch',          referrer.storeReferrer, googleController.authorize);
     app.get('/api/oauth/doubleclicksearch/callback', googleController.callback, signupController.checkInTester, referrer.restoreReferrer, referrer.redirectToReferrer, googleController.redirectToConfigure);
 
@@ -439,6 +435,8 @@ module.exports = function(app, passport, config, meshbluJSON){
     app.post('/api/witai/auth', witaiController.authorize, witaiController.redirectToConfigure);
 
     app.get('/api/xenmobile/auth', xenMobileController.authorize, xenMobileController.redirectToConfigure);
+
+    app.get('/api/clm/auth', clmController.authorize, clmController.redirectToConfigure);
 
     app.post('/api/templates',  templateController.create);
 

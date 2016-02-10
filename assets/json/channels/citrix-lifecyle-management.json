@@ -1,10 +1,10 @@
 {
   "_id": "56b246552b73ae8a5027ce8d",
-  "auth_strategy": "oauth",
+  "auth_strategy": "clm",
   "bodyFormat": "json",
   "documentation": "http://manage-docs.citrix.com/entries/68495369-API-Reference",
   "name": "Citrix Lifecycle Management",
-  "type": "channel:citrixlifecyclemanagement",
+  "type": "channel:citrix-lifecycle-management",
   "defaultParams": [
     {
       "displayName": "Citrix Lifecycle Management server name",
@@ -16,25 +16,13 @@
   ],
   "oauth": {
     "development": {
-      "clientID": "dev-id",
-      "clientSecret": "dev-secret",
-      "callbackURL": "http://:domain/api/oauth/sharefile/callback",
-      "tokenMethod": "access_token_query",
-      "tokenQueryParam": "oauth_token"
+      "tokenMethod": "access_token_query"
     },
     "production": {
-      "clientID": "prod-id",
-      "clientSecret": "prod-secret",
-      "callbackURL": "http://:domain/api/oauth/sharefile/callback",
-      "tokenMethod": "access_token_query",
-      "tokenQueryParam": "oauth_token"
+      "tokenMethod": "access_token_query"
     },
     "staging": {
-      "clientID": "staging-id",
-      "clientSecret": "staging-secret",
-      "callbackURL": "https://:domain/api/oauth/sharefile/callback",
-      "tokenMethod": "access_token_query",
-      "tokenQueryParam": "oauth_token"
+      "tokenMethod": "access_token_query"
     }
   },
   "application": {
@@ -45,7 +33,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#scripts-get"
         },
-        "displayName": "Gets all scripts",
+        "displayName": "Get all scripts",
         "path": "/scripts",
         "params": [
           {
@@ -63,7 +51,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#scripts-id-get"
         },
-        "displayName": "Gets a script by ID",
+        "displayName": "Get a script by ID",
         "path": "/scripts/:id",
         "params": [
           {
@@ -81,7 +69,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#scripts-id-versions-get"
         },
-        "displayName": "Gets a list of script versions",
+        "displayName": "Get a list of script versions",
         "path": "/scripts/:id/versions",
         "params": [],
         "url": "https://:domain/scripts/:id/versions"
@@ -91,7 +79,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#scripts-post"
         },
-        "displayName": "Creates a script",
+        "displayName": "Create a script",
         "path": "/scripts",
         "params": [
           {
@@ -109,7 +97,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#scripts-id-post"
         },
-        "displayName": "Updates a script by ID",
+        "displayName": "Update a script by ID",
         "path": "/scripts/:id",
         "params": [
           {
@@ -127,7 +115,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#scripts-id-delete"
         },
-        "displayName": "Deletes a script by ID",
+        "displayName": "Delete a script by ID",
         "path": "/scripts/:id",
         "params": [],
         "url": "https://:domain/scripts"
@@ -137,7 +125,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#nodes-1"
         },
-        "displayName": "Gets a list of nodes ",
+        "displayName": "Get a list of nodes ",
         "path": "/nodes",
         "params": [
           {
@@ -245,7 +233,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#nodes-install"
         },
-        "displayName": "Installs Citrix Lifecycle Management agent to a machine",
+        "displayName": "Install Citrix Lifecycle Management agent to a machine",
         "path": "/nodes/install",
         "params": [
           {
@@ -298,7 +286,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#nodes-install-status"
         },
-        "displayName": "Gets agent installation status on a machine",
+        "displayName": "Get an agent installation status on a machine",
         "path": "/nodes/:id/install/status/:taskId",
         "params": [],
         "url": "https://:domain/nodes/:id/install/status/:taskId"
@@ -308,7 +296,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#jobs-1"
         },
-        "displayName": "Creates a job",
+        "displayName": "Create a job",
         "path": "/jobs",
         "params": [],
         "url": "https://:domain/nodes/install"
@@ -318,7 +306,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#jobs-1"
         },
-        "displayName": "Updates a job",
+        "displayName": "Update a job",
         "path": "/jobs/:id",
         "params": [],
         "url": "https://:domain/jobs/:id"
@@ -399,7 +387,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#jobs-4"
         },
-        "displayName": "Gets job output from target nodes",
+        "displayName": "Get a job's output from target nodes",
         "path": "/jobs/:jobid/runoutput",
         "params": [
           {
@@ -417,7 +405,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#jobs-5"
         },
-        "displayName": "Creates a patch/update job",
+        "displayName": "Create a patch/update job",
         "path": "/jobs",
         "params": [],
         "url": "https://:domain/jobs"
@@ -427,7 +415,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#jobs-5"
         },
-        "displayName": "Updates a patch/update job",
+        "displayName": "Update a patch/update job",
         "path": "/jobs/:id",
         "params": [],
         "url": "https://:domain/jobs/:id"
@@ -501,7 +489,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#profile-4"
         },
-        "displayName": "Deletes an existing deployment profile",
+        "displayName": "Delete an existing deployment profile",
         "path": "/deploymentprofile/:id",
         "params": [],
         "url": "https://:domain/deploymentprofile/:id"
@@ -596,7 +584,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#providers-2"
         },
-        "displayName": "Creates a provider",
+        "displayName": "Create a provider",
         "path": "/providers",
         "params": [
           {
@@ -838,7 +826,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#providers-6"
         },
-        "displayName": "Gets a list of all servers for a single provider",
+        "displayName": "Get a list of all servers for a single provider",
         "path": "/providers/:id/servers",
         "params": [],
         "url": "https://:domain/providers/:id/servers"
@@ -848,7 +836,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#providers-7"
         },
-        "displayName": "Gets a list of all servers for a single provider",
+        "displayName": "Perform an action on a server",
         "path": "/providers/:id/servers/:serverid",
         "params": [
           {
@@ -871,19 +859,9 @@
       {
         "httpMethod": "GET",
         "doc": {
-          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#providers-6"
-        },
-        "displayName": "Gets a list of all servers for a single provider",
-        "path": "/providers/:id/servers",
-        "params": [],
-        "url": "https://:domain/providers/:id/servers"
-      },
-      {
-        "httpMethod": "GET",
-        "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-1"
         },
-        "displayName": "Gets a list of all alerts in the organization (in rollup view)",
+        "displayName": "Get a list of all alerts in the organization (in rollup view)",
         "path": "/monitor/rollup",
         "params": [
           {
@@ -908,7 +886,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-2"
         },
-        "displayName": "Gets monitoring status for a node/agent",
+        "displayName": "Get a monitoring status for a node/agent",
         "path": "/monitor/:id",
         "params": [],
         "url": "https://:domain/monitor/:id"
@@ -918,7 +896,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-3"
         },
-        "displayName": "Enables/disables monitoring on a node/agent",
+        "displayName": "Enable/disable monitoring on a node/agent",
         "path": "/monitor/:id",
         "params": [
           {
@@ -936,7 +914,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-4"
         },
-        "displayName": "Gets alerts for a node/agent",
+        "displayName": "Get alerts for a node/agent",
         "path": "/monitor/:id/alerts",
         "params": [],
         "url": "https://:domain/monitor/:id/alerts"
@@ -946,7 +924,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-5"
         },
-        "displayName": "Enables alerts for a node/agent",
+        "displayName": "Enable alerts for a node/agent",
         "path": "/monitor/:id/alerts/enable",
         "params": [],
         "url": "https://:domain/monitor/:id/alerts"
@@ -956,7 +934,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-6"
         },
-        "displayName": "Disables alerts for a node/agent",
+        "displayName": "Disable alerts for a node/agent",
         "path": "/monitor/:id/alerts/disable",
         "params": [],
         "url": "https://:domain/monitor/:id/alerts/disable"
@@ -966,7 +944,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-7"
         },
-        "displayName": "Gets events for a node/agent",
+        "displayName": "Get events for a node/agent",
         "path": "/monitor/:id/events",
         "params": [
           {
@@ -991,7 +969,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-8"
         },
-        "displayName": "Gets metrics for a node/agent",
+        "displayName": "Get metrics for a node/agent",
         "path": "/monitor/:id/metrics",
         "params": [],
         "url": "https://:domain/monitor/:id/metrics"
@@ -1001,7 +979,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-9"
         },
-        "displayName": "Gets time series metric data for a node/agent",
+        "displayName": "Get time series metric data for a node/agent",
         "path": "/monitor/:id/history",
         "params": [
           {
@@ -1047,7 +1025,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-10"
         },
-        "displayName": "Gets monitoring dashboards for a role",
+        "displayName": "Get monitoring dashboards for a role",
         "path": "/monitor/dashboards",
         "params": [],
         "url": "https://:domain/monitor/dashboards"
@@ -1057,7 +1035,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-11"
         },
-        "displayName": "Gets time series data for a graph",
+        "displayName": "Get time series data for a graph",
         "path": "/monitor/graphs/:id",
         "params": [
           {
@@ -1082,7 +1060,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#process-1"
         },
-        "displayName": "Creates a process",
+        "displayName": "Create a process",
         "path": "/process",
         "params": [
           {
@@ -1417,7 +1395,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#process-2"
         },
-        "displayName": "Edits a process",
+        "displayName": "Edit a process",
         "path": "/process/:id",
         "params": [
           {
@@ -1754,7 +1732,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#process-3"
         },
-        "displayName": "Deletes a process",
+        "displayName": "Delete a process",
         "path": "/process/:id",
         "params": [],
         "url": "https://:domain/process/:id"
@@ -1764,7 +1742,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#process-4"
         },
-        "displayName": "Gets process details",
+        "displayName": "Get process details",
         "path": "/process/:id",
         "params": [
           {
@@ -1782,7 +1760,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#process-5"
         },
-        "displayName": "Gets a list of versions for a process",
+        "displayName": "Get a list of versions for a process",
         "path": "/process/:id/versions",
         "params": [],
         "url": "https://:domain/process/:id/versions"
@@ -1792,7 +1770,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#process-6"
         },
-        "displayName": "Launches a process",
+        "displayName": "Launch a process",
         "path": "/process/:id/launch",
         "params": [],
         "url": "https://:domain/process/:id/launch"
@@ -1802,7 +1780,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#process-6"
         },
-        "displayName": "Launches a process",
+        "displayName": "Launch a process",
         "path": "/process/:id/launch",
         "params": [
           {
@@ -2137,7 +2115,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#process-7"
         },
-        "displayName": "Launches a process with runonce Schedule",
+        "displayName": "Launch a process with runonce Schedule",
         "path": "/process/:id/launch",
         "params": [],
         "url": "https://:domain/process/:id/launch"
@@ -2147,7 +2125,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#process-8"
         },
-        "displayName": "Launches a process with runonce Schedule and jobName",
+        "displayName": "Launch a process with runonce Schedule and jobName",
         "path": "/process/:id/launch",
         "params": [
           {
@@ -2172,7 +2150,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#process-9"
         },
-        "displayName": "Launches a particular code within a process",
+        "displayName": "Launch a particular code within a process",
         "path": "/process/:id/launch",
         "params": [
           {
@@ -2243,7 +2221,7 @@
         "doc": {
           "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#process-13"
         },
-        "displayName": "Deletes a server from an existing process",
+        "displayName": "Delete a server from an existing process",
         "path": "/process/:id/deleteserver",
         "params": [
           {
@@ -2269,6 +2247,317 @@
           }
         ],
         "url": "https://:domain/process/:id/deleteserver"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#processinstance-1"
+        },
+        "displayName": "Get a job list for a process",
+        "path": "/processinstance",
+        "params": [
+          {
+            "required": true,
+            "name": "processid",
+            "displayName": "Process ID",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/processinstance"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#processinstance-2"
+        },
+        "displayName": "Get process instance details",
+        "path": "/processinstance/:id",
+        "params": [],
+        "url": "https://:domain/processinstance/:id"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#processinstance-3"
+        },
+        "displayName": "Get a job list for a child process",
+        "path": "/processinstance/:id/childjobs",
+        "params": [
+          {
+            "required": false,
+            "name": "type",
+            "displayName": "Type (\"operational\" or \"shutdown\")",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/processinstance/:id/childjobs"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#processinstance-4"
+        },
+        "displayName": "Get process run details",
+        "path": "/processinstance/:id/processrundetails",
+        "params": [
+          {
+            "required": true,
+            "name": "type",
+            "displayName": "Type (\"operational\" or \"shutdown\")",
+            "type": "string",
+            "style": "query"
+          },
+          {
+            "required": false,
+            "name": "code",
+            "displayName": "Code",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/processinstance/:id/processrundetails"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#processinstance-5"
+        },
+        "displayName": "Get process runs",
+        "path": "/processinstance/:id/processruns",
+        "params": [
+          {
+            "required": true,
+            "name": "runid",
+            "displayName": "Run ID",
+            "type": "string",
+            "style": "query"
+          },
+          {
+            "required": false,
+            "name": "code",
+            "displayName": "Code",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/processinstance/:id/processruns"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#processinstance-6"
+        },
+        "displayName": "Get step runs",
+        "path": "/processinstance/:id/stepruns",
+        "params": [
+          {
+            "required": true,
+            "name": "instanceid",
+            "displayName": "Instance ID",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/processinstance/:id/stepruns"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#processinstance-7"
+        },
+        "displayName": "Get step details",
+        "path": "/processinstance/:id/stepdetails",
+        "params": [
+          {
+            "required": true,
+            "name": "instanceid",
+            "displayName": "Instance ID",
+            "type": "string",
+            "style": "query"
+          },
+          {
+            "required": true,
+            "name": "stepid",
+            "displayName": "Step ID",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/processinstance/:id/stepdetails"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#processinstance-8"
+        },
+        "displayName": "Get step output",
+        "path": "/processinstance/:id/stepoutput",
+        "params": [
+          {
+            "required": true,
+            "name": "stepid",
+            "displayName": "Instance ID",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/processinstance/:id/stepoutput"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#processinstance-9"
+        },
+        "displayName": "Get the servers on which a particular process was run",
+        "path": "/processinstance/:id/processtargets",
+        "params": [
+          {
+            "required": true,
+            "name": "runid",
+            "displayName": "Run ID",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/processinstance/:id/processtargets"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#processinstance-10"
+        },
+        "displayName": "Get a list of servers on which the whole process was run",
+        "path": "/processinstance/:id/targets",
+        "params": [],
+        "url": "https://:domain/processinstance/:id/targets"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#processinstance-11"
+        },
+        "displayName": "Pause a job",
+        "path": "/processinstance/:id/pause",
+        "params": [
+          {
+            "required": true,
+            "name": "jobid",
+            "displayName": "Job ID",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/processinstance/:id/pause"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#processinstance-12"
+        },
+        "displayName": "Resume a job",
+        "path": "/processinstance/:id/resume",
+        "params": [
+          {
+            "required": true,
+            "name": "jobid",
+            "displayName": "Job ID",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/processinstance/:id/resume"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#processinstance-13"
+        },
+        "displayName": "Cancel a job",
+        "path": "/processinstance/:id/cancel",
+        "params": [
+          {
+            "required": true,
+            "name": "jobid",
+            "displayName": "Job ID",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/processinstance/:id/cancel"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#processinstance-14"
+        },
+        "displayName": "Pause a run",
+        "path": "/processinstance/:id/pauserun",
+        "params": [
+          {
+            "required": true,
+            "name": "runid",
+            "displayName": "Run ID",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/processinstance/:id/pauserun"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#processinstance-15"
+        },
+        "displayName": "Resume a run",
+        "path": "/processinstance/:id/resumerun",
+        "params": [
+          {
+            "required": true,
+            "name": "runid",
+            "displayName": "Run ID",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/processinstance/:id/resumerun"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#processinstance-16"
+        },
+        "displayName": "Cancel a run",
+        "path": "/processinstance/:id/cancelrun",
+        "params": [
+          {
+            "required": true,
+            "name": "runid",
+            "displayName": "Run ID",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/processinstance/:id/cancelrun"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#misc-1"
+        },
+        "displayName": "Get a package's download info",
+        "path": "/download/info",
+        "params": [
+          {
+            "required": true,
+            "name": "runid",
+            "displayName": "Run ID",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/download/info"
       }
     ]
   }
