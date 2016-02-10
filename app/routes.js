@@ -441,9 +441,6 @@ module.exports = function(app, passport, config, meshbluJSON){
     app.get('/api/templates/public',  templateController.findByPublic,
                                       templateController.addOwnerNames);
 
-    app.get('/api/templates/public/page',  templateController.findByPublicPaginate,
-                                           templateController.addOwnerNames);
-
     app.put('/api/templates/:id/like', templateController.like);
 
     app.delete('/api/templates/:id/unlike', templateController.unlike);

@@ -27,6 +27,7 @@ function createObjectId(id) {
 function wrapCollection(collection){
   return {
     find: nodefn.lift(_.bind(collection.find, collection)),
+    originalFind: _.bind(collection.find, collection),
     findOne: nodefn.lift(_.bind(collection.findOne, collection)),
     remove: nodefn.lift(_.bind(collection.remove, collection)),
     insert: nodefn.lift(_.bind(collection.insert, collection)),

@@ -1,6 +1,7 @@
 _ = require 'lodash'
 When = require 'when'
 octobluDb = require '../lib/database'
+
 class TemplateCollection
   @updateProperties : ['name', 'tags', 'description', 'public', 'flow']
   constructor: (options={}, dependencies={}) ->
@@ -38,9 +39,16 @@ class TemplateCollection
     query = @allowPublic query
     @collection.findOne query
 
-  list: (query={}) =>
+  list:  (query={}, limit, offset) =>
     query = @allowPublic query
-    @collection.find query
+    offset = Math.max(0, offset - 1) * limit
+
+    return @collection.find query unless limit?
+
+    When.promise (resolve, reject) =>
+      @collection.originalFind(query).skip(offset).limit limit, (error, docs) =>
+        return reject error if error?
+        resolve docs
 
   like: (userUuid, bluprintId) =>
     query = {uuid: bluprintId}

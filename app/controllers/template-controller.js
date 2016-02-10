@@ -34,25 +34,9 @@ var TemplateController = function (options, dependencies) {
   };
 
   self.findByPublic = function(req, res, next) {
-    return templateModel.findByPublic(req.query.tags)
+    return templateModel.findByPublic(req.query.tags, req.query.pageLimit, req.query.pageNumber)
       .then(function(templates) {
         req.templates = templates;
-        next();
-      })
-      .catch(function(error){
-        res.send(422, error.message);
-      });
-  };
-
-  self.findByPublicPaginate = function(req, res, next) {
-    return templateModel.findByPublic(req.query.tags)
-      .then(function(templates) {
-        var page = req.query.page - 1;
-        page = Math.max(0, page);
-        var offset = page * req.query.limit;
-        var limit = offset + req.query.limit;
-
-    	  req.templates = _.slice(templates, offset, limit);;
         next();
       })
       .catch(function(error){
