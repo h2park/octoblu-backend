@@ -788,6 +788,12 @@
             "displayName": "path",
             "type": "string",
             "style": "body"
+          },
+          {
+            "name": "fileName",
+            "displayName": "File Name",
+            "type": "string",
+            "style": "body"
           }
         ],
         "url": "https://dropbox-link.octoblu.com/dropbox/links"
