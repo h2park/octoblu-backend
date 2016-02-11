@@ -1766,6 +1766,27 @@
           }
         ],
         "url" : "https://www.googleapis.com/drive/v2/files/:file-id/realtime"
+      },
+      {
+        "displayName": "Get One Time Transfer Link",
+        "path": "/google-drive/links/:fileId",
+        "fullURL": "https://google-drive-link.octoblu.com/google-drive/links/:fileId",
+        "httpMethod": "POST",
+        "params": [
+          {
+            "name": ":fileId",
+            "displayName": "File ID",
+            "type": "string",
+            "style": "url"
+          },
+          {
+            "name": "fileName",
+            "displayName": "File Name",
+            "type": "string",
+            "style": "body"
+          }
+        ],
+        "url": "https://google-drive-link.octoblu.com/google-drive/links/:fileId"
       }
     ]
   }
