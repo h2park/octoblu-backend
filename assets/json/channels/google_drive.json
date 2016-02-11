@@ -1769,15 +1769,15 @@
       },
       {
         "displayName": "Get One Time Transfer Link",
-        "path": "/google-drive/links/:fileId",
-        "fullURL": "https://google-drive-link.octoblu.com/google-drive/links/:fileId",
+        "path": "/google-drive/links",
+        "fullURL": "https://google-drive-link.octoblu.com/google-drive/links",
         "httpMethod": "POST",
         "params": [
           {
-            "name": ":fileId",
-            "displayName": "File ID",
+            "name": "downloadUrl",
+            "displayName": "Download Url",
             "type": "string",
-            "style": "url"
+            "style": "body"
           },
           {
             "name": "fileName",
@@ -1786,7 +1786,7 @@
             "style": "body"
           }
         ],
-        "url": "https://google-drive-link.octoblu.com/google-drive/links/:fileId"
+        "url": "https://google-drive-link.octoblu.com/google-drive/links"
       }
     ]
   }
