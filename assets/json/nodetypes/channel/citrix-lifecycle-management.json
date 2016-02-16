@@ -5,7 +5,7 @@
   "categories": ["Citrix"],
   "description": "Citrix Lifecycle management",
   "documentation": "http://manage-docs.citrix.com/entries/68495369-API-Reference",
-  "helpText": "Change/Update later",
+  "helpText": "Citrix Lifecycle Management enables enterprises and cloud service providers to deploy and manage the lifecycle of Citrix applications on hypervisors, public and private cloud platforms. Learn the basics so you can get started using Citrix Lifecycle Management.",
   "enabled": true,
   "name": "Citrix Lifecycle Management",
   "skynet": {
