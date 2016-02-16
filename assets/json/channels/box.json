@@ -2190,6 +2190,27 @@
             "displayName": "Resolution State"
           }],
         "url": "https://api.box.com/2.0/task_assignments/:task-id"
+      },
+      {
+        "displayName": "Get One Time Transfer Link",
+        "path": "/box/links/:fileId",
+        "fullURL": "https://box-link.octoblu.com/box/links/:fileId",
+        "httpMethod": "POST",
+        "params": [
+          {
+            "name": ":fileId",
+            "displayName": "File ID",
+            "type": "string",
+            "style": "url"
+          },
+          {
+            "name": "fileName",
+            "displayName": "File Name",
+            "type": "string",
+            "style": "body"
+          }
+        ],
+        "url": "https://box-link.octoblu.com/box/links/:fileId"
       }
     ]
   }

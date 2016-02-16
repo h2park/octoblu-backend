@@ -10,8 +10,8 @@
   "name": "Right Signature",
   "skynet": {
     "type": "channel",
-    "subtype": "rightSignature"
+    "subtype": "rightsignature"
   },
   "channelid": "54a44e1f620f5ebb13dbc4f1",
-  "type": "channel:rightSignature"
+  "type": "channel:rightsignature"
 }

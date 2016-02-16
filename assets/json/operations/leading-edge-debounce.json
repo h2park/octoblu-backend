@@ -1,0 +1,18 @@
+{
+  "name": "Leading-Edge Debounce",
+  "class": "leading-edge-debounce",
+  "helpText": "Debounce will immediately send the message, and not send any more messages until after the specified interval has elapsed since the last time it received a message",
+  "type": "operation:leading-edge-debounce",
+  "category": "operation",
+  "uuid": "52dd3362-beb5-4db3-8e5f-9da3f576042d",
+  "deviceId": "765bd3a4-546d-45e6-a62f-1157281083f0",
+  "defaults": {
+    "timeout": 10000
+  },
+  "input": 1,
+  "output": 1,
+  "formTemplatePath": "/pages/node_forms/leading_edge_debounce_form.html",
+  "nanocyte": {
+    "name": "nanocyte-node-leading-edge-debounce"
+  }
+}
