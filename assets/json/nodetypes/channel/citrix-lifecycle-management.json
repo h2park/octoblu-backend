@@ -1,0 +1,17 @@
+{
+  "_id": "56b8db0e1918877f591288a7",
+  "deviceId": "c339f6ce-fe26-4788-beee-c97605f50403",
+  "category": "channel",
+  "categories": ["Citrix"],
+  "description": "Citrix Lifecycle management",
+  "documentation": "http://manage-docs.citrix.com/entries/68495369-API-Reference",
+  "helpText": "Citrix Lifecycle Management enables enterprises and cloud service providers to deploy and manage the lifecycle of Citrix applications on hypervisors, public and private cloud platforms. Learn the basics so you can get started using Citrix Lifecycle Management.",
+  "enabled": true,
+  "name": "Citrix Lifecycle Management",
+  "skynet": {
+    "type": "channel",
+    "subtype": "Cit"
+  },
+  "channelid": "56b246552b73ae8a5027ce8d",
+  "type": "channel:citrix-lifecycle-management"
+}

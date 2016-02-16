@@ -1,0 +1,2564 @@
+{
+  "_id": "56b246552b73ae8a5027ce8d",
+  "auth_strategy": "clm",
+  "bodyFormat": "json",
+  "documentation": "http://manage-docs.citrix.com/entries/68495369-API-Reference",
+  "name": "Citrix Lifecycle Management",
+  "type": "channel:citrix-lifecycle-management",
+  "defaultParams": [
+    {
+      "displayName": "Citrix Lifecycle Management server name",
+      "name": ":domain",
+      "style": "url",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "oauth": {
+    "development": {
+      "tokenMethod": "access_token_query"
+    },
+    "production": {
+      "tokenMethod": "access_token_query"
+    },
+    "staging": {
+      "tokenMethod": "access_token_query"
+    }
+  },
+  "application": {
+    "base": "https://:domain/v0",
+    "resources": [
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#scripts-get"
+        },
+        "displayName": "Get all scripts",
+        "path": "/scripts",
+        "params": [
+          {
+            "required": false,
+            "name": "version",
+            "displayName": "Version",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/v0/scripts"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#scripts-id-get"
+        },
+        "displayName": "Get a script by ID",
+        "path": "/scripts/:id",
+        "params": [
+          {
+            "required": false,
+            "name": "version",
+            "displayName": "Version",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/v0/scripts/:id"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#scripts-id-versions-get"
+        },
+        "displayName": "Get a list of script versions",
+        "path": "/scripts/:id/versions",
+        "params": [],
+        "url": "https://:domain/scripts/:id/versions"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#scripts-post"
+        },
+        "displayName": "Create a script",
+        "path": "/scripts",
+        "params": [
+          {
+            "required": true,
+            "type": "string",
+            "style": "body",
+            "displayName": "",
+            "name": ""
+          }
+        ],
+        "url": "https://:domain/scripts"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#scripts-id-post"
+        },
+        "displayName": "Update a script by ID",
+        "path": "/scripts/:id",
+        "params": [
+          {
+            "required": true,
+            "type": "string",
+            "style": "body",
+            "displayName": "",
+            "name": ""
+          }
+        ],
+        "url": "https://:domain/scripts"
+      },
+      {
+        "httpMethod": "DELETE",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#scripts-id-delete"
+        },
+        "displayName": "Delete a script by ID",
+        "path": "/scripts/:id",
+        "params": [],
+        "url": "https://:domain/scripts"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#nodes-1"
+        },
+        "displayName": "Get a list of nodes ",
+        "path": "/nodes",
+        "params": [
+          {
+            "required": false,
+            "type": "string",
+            "style": "query",
+            "displayName": "Platform",
+            "name": "platform"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "query",
+            "displayName": "Status",
+            "name": "status"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "query",
+            "displayName": "Limit",
+            "name": "limit"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "query",
+            "displayName": "Offset",
+            "name": "offset"
+          }
+        ],
+        "url": "https://:domain/nodes"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#nodes-1"
+        },
+        "displayName": "Get a node",
+        "path": "/nodes/:id",
+        "params": [
+          {
+            "required": false,
+            "type": "string",
+            "style": "query",
+            "displayName": "Platform",
+            "name": "platform"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "query",
+            "displayName": "Status",
+            "name": "status"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "query",
+            "displayName": "Limit",
+            "name": "limit"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "query",
+            "displayName": "Offset",
+            "name": "offset"
+          }
+        ],
+        "url": "https://:domain/nodes/:id"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#nodes-4"
+        },
+        "displayName": "Delete a node",
+        "path": "/nodes/:id",
+        "params": [],
+        "url": "https://:domain/nodes/:id"
+      },
+      {
+        "httpMethod": "PUT",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#nodes-5"
+        },
+        "displayName": "Set a node as a connector",
+        "path": "/nodes/:id/setasgateway",
+        "params": [],
+        "url": "https://:domain/nodes/:id/setasgateway"
+      },
+      {
+        "httpMethod": "PUT",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#nodes-6"
+        },
+        "displayName": "Refresh node properties from the node",
+        "path": "/nodes/:id/refresh",
+        "params": [],
+        "url": "https://:domain/nodes/:id/refresh"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#nodes-install"
+        },
+        "displayName": "Install Citrix Lifecycle Management agent to a machine",
+        "path": "/nodes/install",
+        "params": [
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "IP address of the machine",
+            "name": "ip"
+          },
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Port number to be accessed (depends on the Operating system)",
+            "name": "port"
+          },
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Username of the machine",
+            "name": "username"
+          },
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Password of the machine",
+            "name": "password"
+          },
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Operating system running on the machine. For example: linux or windows",
+            "name": "osn"
+          },
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Provider ID associated with a resource location",
+            "name": "providerId"
+          }
+        ],
+        "url": "https://:domain/nodes/install"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#nodes-install-status"
+        },
+        "displayName": "Get an agent installation status on a machine",
+        "path": "/nodes/:id/install/status/:taskId",
+        "params": [],
+        "url": "https://:domain/nodes/:id/install/status/:taskId"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#jobs-1"
+        },
+        "displayName": "Create a job",
+        "path": "/jobs",
+        "params": [],
+        "url": "https://:domain/nodes/install"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#jobs-1"
+        },
+        "displayName": "Update a job",
+        "path": "/jobs/:id",
+        "params": [],
+        "url": "https://:domain/jobs/:id"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#jobs-1-a"
+        },
+        "displayName": "Get a job by ID",
+        "path": "/jobs/:id",
+        "params": [],
+        "url": "https://:domain/jobs/:id"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#jobs-2"
+        },
+        "displayName": "Get a list of jobs for a given script",
+        "path": "/jobs",
+        "params": [
+          {
+            "required": false,
+            "type": "string",
+            "style": "query",
+            "displayName": "Provider ID associated with a resource location",
+            "name": "providerId"
+          }
+        ],
+        "url": "https://:domain/jobs"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#jobs-2"
+        },
+        "displayName": "Get a list of jobs for a given script",
+        "path": "/jobs",
+        "params": [
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Valid values are 'script', 'patch', 'update'",
+            "name": "type"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "query",
+            "displayName": "When 'type' is 'script'",
+            "name": "scriptID"
+          }
+        ],
+        "url": "https://:domain/jobs"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#jobs-3"
+        },
+        "displayName": "Get run information for a job",
+        "path": "/jobs/:jobid/runinfo",
+        "params": [
+          {
+            "required": false,
+            "type": "string",
+            "style": "query",
+            "displayName": "Can specifiy run ID",
+            "name": "runid"
+          }
+        ],
+        "url": "https://:domain/jobs/:jobid/runinfo"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#jobs-4"
+        },
+        "displayName": "Get a job's output from target nodes",
+        "path": "/jobs/:jobid/runoutput",
+        "params": [
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Can specifiy run ID",
+            "name": "runid"
+          }
+        ],
+        "url": "https://:domain/jobs/:jobid/runoutput"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#jobs-5"
+        },
+        "displayName": "Create a patch/update job",
+        "path": "/jobs",
+        "params": [],
+        "url": "https://:domain/jobs"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#jobs-5"
+        },
+        "displayName": "Update a patch/update job",
+        "path": "/jobs/:id",
+        "params": [],
+        "url": "https://:domain/jobs/:id"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#profile-1"
+        },
+        "displayName": "Get a deployment profile",
+        "path": "/deploymentprofile/:id",
+        "params": [],
+
+        "url": "https://:domain/deploymentprofile/:id"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#profile-2"
+        },
+        "displayName": "Create a deployment profile",
+        "path": "/deploymentprofile",
+        "params": [
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Process ID",
+            "name": "processIDStr"
+          },
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Process version",
+            "name": "processVersionStr"
+          },
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Deployment profile name",
+            "name": "deploymentProfileName"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "query",
+            "displayName": "Description",
+            "name": "description"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "query",
+            "displayName": "Provider ID list",
+            "name": "providerIdListStr"
+          },
+          {
+            "required": true,
+            "type": "string",
+            "style": "body",
+            "displayName": "Profile detail",
+            "name": "profileDetailsStr"
+          }
+        ],
+        "url": "https://:domain/deploymentprofile"
+      },
+      {
+        "httpMethod": "DELETE",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#profile-4"
+        },
+        "displayName": "Delete an existing deployment profile",
+        "path": "/deploymentprofile/:id",
+        "params": [],
+        "url": "https://:domain/deploymentprofile/:id"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#profile-5"
+        },
+        "displayName": "Get a list of deployment profiles for a blueprint",
+        "path": "/deploymentprofile/list",
+        "params": [
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Process ID",
+            "name": "processId"
+          },
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Process version",
+            "name": "processVersion"
+          },
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "providerIdList",
+            "name": "Provider ID list"
+          }
+        ],
+        "url": "https://:domain/deploymentprofile"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#profile-6"
+        },
+        "displayName": "Create a deployment profile",
+        "path": "/deploymentprofile",
+        "params": [
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Process ID",
+            "name": "processId"
+          },
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Name",
+            "name": "name"
+          }
+        ],
+        "url": "https://:domain/deploymentprofile"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#providers-1"
+        },
+        "displayName": "Get a list of all providers",
+        "path": "/providers",
+        "params": [
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Name",
+            "name": "name"
+          }
+        ],
+        "url": "https://:domain/providers"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#providers-1"
+        },
+        "displayName": "Get a provider by ID",
+        "path": "/providers/:id",
+        "params": [],
+        "url": "https://:domain/providers/:id"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#providers-2"
+        },
+        "displayName": "Create a provider",
+        "path": "/providers",
+        "params": [
+          {
+            "required": true,
+            "type": "string",
+            "style": "body",
+            "displayName": "Name of the provider account",
+            "name": "name"
+          },
+          {
+            "required": true,
+            "type": "string",
+            "style": "body",
+            "displayName": "Provider code for the cloud provider you want to create",
+            "name": "providerCode"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Key ID",
+            "name": "keyID"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Access Key",
+            "name": "accessKey"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Region",
+            "name": "region"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "URL",
+            "name": "url"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "API Key",
+            "name": "apiKey"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Username",
+            "name": "username"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Password",
+            "name": "password"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Server",
+            "name": "server"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Agent ID (Xen Server)",
+            "name": "agentId"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Project ID (HP Cloud)",
+            "name": "projectid"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Username",
+            "name": "userName (Openstack)"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Project ID (Openstack)",
+            "name": "projectID"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "URL (Openstack)",
+            "name": "url"
+          }
+        ],
+        "url": "https://:domain/provider"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#providers-2"
+        },
+        "displayName": "Update a provider",
+        "path": "/providers/:id",
+        "params": [
+          {
+            "required": true,
+            "type": "string",
+            "style": "body",
+            "displayName": "Name of the provider account",
+            "name": "name"
+          },
+          {
+            "required": true,
+            "type": "string",
+            "style": "body",
+            "displayName": "Provider code for the cloud provider you want to create",
+            "name": "providerCode"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Key ID",
+            "name": "keyID"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Access Key",
+            "name": "accessKey"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Region",
+            "name": "region"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "URL",
+            "name": "url"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "API Key",
+            "name": "apiKey"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Username",
+            "name": "username"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Password",
+            "name": "password"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Server",
+            "name": "server"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Agent ID (Xen Server)",
+            "name": "agentId"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Project ID (HP Cloud)",
+            "name": "projectid"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Username",
+            "name": "userName (Openstack)"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "Project ID (Openstack)",
+            "name": "projectID"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "body",
+            "displayName": "URL (Openstack)",
+            "name": "url"
+          }
+        ],
+        "url": "https://:domain/providers/:id"
+      },
+      {
+        "httpMethod": "DELETE",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#providers-3"
+        },
+        "displayName": "Delete a provider by ID",
+        "path": "/",
+        "params": [],
+        "url": "https://:domain/providers/:id"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#providers-6"
+        },
+        "displayName": "Get a list of all servers for a single provider",
+        "path": "/providers/:id/servers",
+        "params": [],
+        "url": "https://:domain/providers/:id/servers"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#providers-7"
+        },
+        "displayName": "Perform an action on a server",
+        "path": "/providers/:id/servers/:serverid",
+        "params": [
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Action",
+            "name": "action"
+          },
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Region Code",
+            "name": ""
+          }
+        ],
+        "url": "https://:domain/providers/:id/servers/:serverid"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-1"
+        },
+        "displayName": "Get a list of all alerts in the organization (in rollup view)",
+        "path": "/monitor/rollup",
+        "params": [
+          {
+            "required": false,
+            "type": "string",
+            "style": "query",
+            "displayName": "Page",
+            "name": "page"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "query",
+            "displayName": "Limit",
+            "name": "limit"
+          }
+        ],
+        "url": "https://:domain/monitor/rollup"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-2"
+        },
+        "displayName": "Get a monitoring status for a node/agent",
+        "path": "/monitor/:id",
+        "params": [],
+        "url": "https://:domain/monitor/:id"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-3"
+        },
+        "displayName": "Enable/disable monitoring on a node/agent",
+        "path": "/monitor/:id",
+        "params": [
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Enable (\"N\" to disable, \"Y\" to enable)",
+            "name": "enable"
+          }
+        ],
+        "url": "https://:domain/monitor/:id"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-4"
+        },
+        "displayName": "Get alerts for a node/agent",
+        "path": "/monitor/:id/alerts",
+        "params": [],
+        "url": "https://:domain/monitor/:id/alerts"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-5"
+        },
+        "displayName": "Enable alerts for a node/agent",
+        "path": "/monitor/:id/alerts/enable",
+        "params": [],
+        "url": "https://:domain/monitor/:id/alerts"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-6"
+        },
+        "displayName": "Disable alerts for a node/agent",
+        "path": "/monitor/:id/alerts/disable",
+        "params": [],
+        "url": "https://:domain/monitor/:id/alerts/disable"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-7"
+        },
+        "displayName": "Get events for a node/agent",
+        "path": "/monitor/:id/events",
+        "params": [
+          {
+            "required": false,
+            "type": "string",
+            "style": "query",
+            "displayName": "Timestamp",
+            "name": "timestamp"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "query",
+            "displayName": "limit",
+            "name": "limit"
+          }
+        ],
+        "url": "https://:domain/monitor/:id/events"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-8"
+        },
+        "displayName": "Get metrics for a node/agent",
+        "path": "/monitor/:id/metrics",
+        "params": [],
+        "url": "https://:domain/monitor/:id/metrics"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-9"
+        },
+        "displayName": "Get time series metric data for a node/agent",
+        "path": "/monitor/:id/history",
+        "params": [
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "From (start time in the form of epoch time in seconds)",
+            "name": "from"
+          },
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Till (end time in the form of epoch time in seconds)",
+            "name": "till"
+          },
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Type (\"application\" OR \"item\")",
+            "name": "type"
+          },
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Application (must be an application that is valid for this node)",
+            "name": "application"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "style": "query",
+            "displayName": "Item ID (must be an itemid that is valid for this node)",
+            "name": "itemid"
+          }
+        ],
+        "url": "https://:domain/monitor/:id/history"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-10"
+        },
+        "displayName": "Get monitoring dashboards for a role",
+        "path": "/monitor/dashboards",
+        "params": [],
+        "url": "https://:domain/monitor/dashboards"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#monitor-11"
+        },
+        "displayName": "Get time series data for a graph",
+        "path": "/monitor/graphs/:id",
+        "params": [
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "From (start time in the form of epoch time in seconds)",
+            "name": "from"
+          },
+          {
+            "required": true,
+            "type": "string",
+            "style": "query",
+            "displayName": "Till (end time in the form of epoch time in seconds)",
+            "name": "till"
+          }
+        ],
+        "url": "https://:domain/monitor/graphs/:id"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#process-1"
+        },
+        "displayName": "Create a process",
+        "path": "/process",
+        "params": [
+          {
+            "displayName": "Process",
+            "style": "body",
+            "type": "object",
+            "name": "process",
+            "required": true,
+            "schema": {
+                "type": "object",
+                "properties": {
+                  "startCode": {
+                    "type": "string"
+                  },
+                  "excludeTarget": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "processId": {
+                    "type": "integer"
+                  },
+                  "processName": {
+                    "type": "string"
+                  },
+                  "subProcesses": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "startTaskId": {
+                    "type": "integer"
+                  },
+                  "outputs": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "targets": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "processParameters": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "excludeTargets": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "parentProcessId": {
+                    "type": "integer"
+                  },
+                  "tasks": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "continueOnFailure": {
+                          "type": "integer"
+                        },
+                        "excludeTarget": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "processId": {
+                          "type": "integer"
+                        },
+                        "taskName": {
+                          "type": "string"
+                        },
+                        "sequenceNumber": {
+                          "type": "integer"
+                        },
+                        "nextTaskId": {
+                          "type": "integer"
+                        },
+                        "outputs": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "parentTaskId": {
+                          "type": "integer"
+                        },
+                        "stepCode": {
+                          "type": "string"
+                        },
+                        "taskId": {
+                          "type": "integer"
+                        },
+                        "runType": {
+                          "type": "string"
+                        },
+                        "sequenceNext": {
+                          "type": "string"
+                        },
+                        "code": {
+                          "type": "string"
+                        },
+                        "runAsyncFlag": {
+                          "type": "integer"
+                        },
+                        "runAsync": {
+                          "type": "boolean"
+                        },
+                        "inputs": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "taskParameters": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "target": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "taskProperties": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "serverGroup": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "tagList": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "companyId": {
+                          "type": "integer"
+                        },
+                        "timeout": {
+                          "type": "integer"
+                        },
+                        "rootProcessId": {
+                          "type": "integer"
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  "code": {
+                    "type": "string"
+                  },
+                  "properties": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "serverGroups": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "migratedFlag": {
+                    "type": "boolean"
+                  },
+                  "runAsync": {
+                    "type": "boolean"
+                  },
+                  "parentCompanyId": {
+                    "type": "integer"
+                  },
+                  "schedule": {
+                    "type": "object",
+                    "properties": {
+                      "startTime": {
+                        "type": "integer"
+                      },
+                      "scheduleType": {
+                        "type": "integer"
+                      },
+                      "scheduleId": {
+                        "type": "integer"
+                      },
+                      "prevFireTime": {
+                        "type": "integer"
+                      },
+                      "jobId": {
+                        "type": "integer"
+                      },
+                      "repeatInterval": {
+                        "type": "integer"
+                      },
+                      "timesTriggered": {
+                        "type": "integer"
+                      },
+                      "nextFireTime": {
+                        "type": "integer"
+                      },
+                      "dirty": {
+                        "type": "boolean"
+                      },
+                      "repeatCount": {
+                        "type": "integer"
+                      },
+                      "companyId": {
+                        "type": "integer"
+                      },
+                      "endTime": {
+                        "type": "integer"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "parentGroupId": {
+                    "type": "integer"
+                  },
+                  "inputs": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "processId": {
+                          "type": "integer"
+                        },
+                        "propertyValue": {
+                          "type": "string"
+                        },
+                        "propertyKey": {
+                          "type": "string"
+                        },
+                        "companyId": {
+                          "type": "integer"
+                        },
+                        "required": {
+                          "type": "boolean"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "propValueArr": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  "target": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "processId": {
+                          "type": "integer"
+                        },
+                        "propertyValue": {
+                          "type": "string"
+                        },
+                        "propertyKey": {
+                          "type": "string"
+                        },
+                        "companyId": {
+                          "type": "integer"
+                        },
+                        "required": {
+                          "type": "boolean"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "propValueArr": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  "companyId": {
+                    "type": "integer"
+                  },
+                  "tagList": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "serverGroup": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "rootProcessId": {
+                    "type": "integer"
+                  },
+                  "timeout": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+        ],
+        "url": "https://:domain/process"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#process-2"
+        },
+        "displayName": "Edit a process",
+        "path": "/process/:id",
+        "params": [
+          {
+            "displayName": "Process",
+            "style": "body",
+            "type": "object",
+            "name": "process",
+            "required": true,
+            "schema": {
+                "type": "object",
+                "properties": {
+                  "startCode": {
+                    "type": "string"
+                  },
+                  "processId": {
+                    "type": "integer"
+                  },
+                  "excludeTarget": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "processName": {
+                    "type": "string"
+                  },
+                  "subProcesses": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "startCode": {
+                          "type": "string"
+                        },
+                        "processId": {
+                          "type": "integer"
+                        },
+                        "excludeTarget": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "processName": {
+                          "type": "string"
+                        },
+                        "subProcesses": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "startTaskId": {
+                          "type": "integer"
+                        },
+                        "targets": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "processParameters": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "excludeTargets": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "parentProcessId": {
+                          "type": "integer"
+                        },
+                        "tasks": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "continueOnFailure": {
+                                "type": "integer"
+                              },
+                              "excludeTarget": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              "processId": {
+                                "type": "integer"
+                              },
+                              "taskName": {
+                                "type": "string"
+                              },
+                              "sequenceNumber": {
+                                "type": "integer"
+                              },
+                              "nextTaskId": {
+                                "type": "integer"
+                              },
+                              "outputs": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              "parentTaskId": {
+                                "type": "integer"
+                              },
+                              "stepCode": {
+                                "type": "string"
+                              },
+                              "taskId": {
+                                "type": "integer"
+                              },
+                              "runType": {
+                                "type": "string"
+                              },
+                              "sequenceNext": {
+                                "type": "string"
+                              },
+                              "code": {
+                                "type": "string"
+                              },
+                              "properties": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "processId": {
+                                      "type": "integer"
+                                    },
+                                    "propertyValue": {
+                                      "type": "string"
+                                    },
+                                    "propertyKey": {
+                                      "type": "string"
+                                    },
+                                    "companyId": {
+                                      "type": "integer"
+                                    },
+                                    "required": {
+                                      "type": "boolean"
+                                    },
+                                    "type": {
+                                      "type": "string"
+                                    },
+                                    "propValueArr": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  },
+                                  "additionalProperties": false
+                                }
+                              },
+                              "runAsyncFlag": {
+                                "type": "integer"
+                              },
+                              "runAsync": {
+                                "type": "boolean"
+                              },
+                              "inputs": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              "taskParameters": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              "target": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              "taskProperties": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              "serverGroup": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              "tagList": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              "companyId": {
+                                "type": "integer"
+                              },
+                              "timeout": {
+                                "type": "integer"
+                              },
+                              "rootProcessId": {
+                                "type": "integer"
+                              }
+                            },
+                            "additionalProperties": false
+                          }
+                        },
+                        "code": {
+                          "type": "string"
+                        },
+                        "serverGroups": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "migratedFlag": {
+                          "type": "boolean"
+                        },
+                        "runAsync": {
+                          "type": "boolean"
+                        },
+                        "parentCompanyId": {
+                          "type": "integer"
+                        },
+                        "parentGroupId": {
+                          "type": "integer"
+                        },
+                        "inputs": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "processId": {
+                                "type": "integer"
+                              },
+                              "propertyValue": {
+                                "type": "string"
+                              },
+                              "propertyKey": {
+                                "type": "string"
+                              },
+                              "companyId": {
+                                "type": "integer"
+                              },
+                              "required": {
+                                "type": "boolean"
+                              },
+                              "type": {
+                                "type": "string"
+                              },
+                              "propValueArr": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "additionalProperties": false
+                          }
+                        },
+                        "target": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "processId": {
+                              "type": "integer"
+                            },
+                            "propertyValue": {
+                              "type": "string"
+                            },
+                            "propertyKey": {
+                              "type": "string"
+                            },
+                            "companyId": {
+                              "type": "integer"
+                            },
+                            "required": {
+                              "type": "boolean"
+                            },
+                            "type": {
+                              "type": "string"
+                            },
+                            "propValueArr": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "additionalProperties": false
+                        }
+                      },
+                      "companyId": {
+                        "type": "integer"
+                      },
+                      "tagList": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "serverGroup": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "rootProcessId": {
+                        "type": "integer"
+                      },
+                      "timeout": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "url": "https://:domain/process/:id"
+      },
+      {
+        "httpMethod": "DELETE",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#process-3"
+        },
+        "displayName": "Delete a process",
+        "path": "/process/:id",
+        "params": [],
+        "url": "https://:domain/process/:id"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#process-4"
+        },
+        "displayName": "Get process details",
+        "path": "/process/:id",
+        "params": [
+          {
+            "required": true,
+            "name": "processid",
+            "displayName": "Process ID",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/process/:id"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#process-5"
+        },
+        "displayName": "Get a list of versions for a process",
+        "path": "/process/:id/versions",
+        "params": [],
+        "url": "https://:domain/process/:id/versions"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#process-6"
+        },
+        "displayName": "Launch a process",
+        "path": "/process/:id/launch",
+        "params": [],
+        "url": "https://:domain/process/:id/launch"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#process-6"
+        },
+        "displayName": "Launch a process",
+        "path": "/process/:id/launch",
+        "params": [
+          {
+            "displayName": "Process",
+            "style": "body",
+            "type": "object",
+            "name": "process",
+            "required": true,
+            "schema": {
+                "type": "object",
+                "properties": {
+                  "startCode": {
+                    "type": "string"
+                  },
+                  "excludeTarget": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "processId": {
+                    "type": "integer"
+                  },
+                  "processName": {
+                    "type": "string"
+                  },
+                  "subProcesses": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "startTaskId": {
+                    "type": "integer"
+                  },
+                  "outputs": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "targets": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "processParameters": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "excludeTargets": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "parentProcessId": {
+                    "type": "integer"
+                  },
+                  "tasks": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "continueOnFailure": {
+                          "type": "integer"
+                        },
+                        "excludeTarget": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "processId": {
+                          "type": "integer"
+                        },
+                        "taskName": {
+                          "type": "string"
+                        },
+                        "sequenceNumber": {
+                          "type": "integer"
+                        },
+                        "nextTaskId": {
+                          "type": "integer"
+                        },
+                        "outputs": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "parentTaskId": {
+                          "type": "integer"
+                        },
+                        "stepCode": {
+                          "type": "string"
+                        },
+                        "taskId": {
+                          "type": "integer"
+                        },
+                        "runType": {
+                          "type": "string"
+                        },
+                        "sequenceNext": {
+                          "type": "string"
+                        },
+                        "code": {
+                          "type": "string"
+                        },
+                        "runAsyncFlag": {
+                          "type": "integer"
+                        },
+                        "runAsync": {
+                          "type": "boolean"
+                        },
+                        "inputs": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "taskParameters": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "target": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "taskProperties": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "serverGroup": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "tagList": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "companyId": {
+                          "type": "integer"
+                        },
+                        "timeout": {
+                          "type": "integer"
+                        },
+                        "rootProcessId": {
+                          "type": "integer"
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  "code": {
+                    "type": "string"
+                  },
+                  "properties": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "serverGroups": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "migratedFlag": {
+                    "type": "boolean"
+                  },
+                  "runAsync": {
+                    "type": "boolean"
+                  },
+                  "parentCompanyId": {
+                    "type": "integer"
+                  },
+                  "schedule": {
+                    "type": "object",
+                    "properties": {
+                      "startTime": {
+                        "type": "integer"
+                      },
+                      "scheduleType": {
+                        "type": "integer"
+                      },
+                      "scheduleId": {
+                        "type": "integer"
+                      },
+                      "prevFireTime": {
+                        "type": "integer"
+                      },
+                      "jobId": {
+                        "type": "integer"
+                      },
+                      "repeatInterval": {
+                        "type": "integer"
+                      },
+                      "timesTriggered": {
+                        "type": "integer"
+                      },
+                      "nextFireTime": {
+                        "type": "integer"
+                      },
+                      "dirty": {
+                        "type": "boolean"
+                      },
+                      "repeatCount": {
+                        "type": "integer"
+                      },
+                      "companyId": {
+                        "type": "integer"
+                      },
+                      "endTime": {
+                        "type": "integer"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "parentGroupId": {
+                    "type": "integer"
+                  },
+                  "inputs": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "processId": {
+                          "type": "integer"
+                        },
+                        "propertyValue": {
+                          "type": "string"
+                        },
+                        "propertyKey": {
+                          "type": "string"
+                        },
+                        "companyId": {
+                          "type": "integer"
+                        },
+                        "required": {
+                          "type": "boolean"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "propValueArr": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  "target": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "processId": {
+                          "type": "integer"
+                        },
+                        "propertyValue": {
+                          "type": "string"
+                        },
+                        "propertyKey": {
+                          "type": "string"
+                        },
+                        "companyId": {
+                          "type": "integer"
+                        },
+                        "required": {
+                          "type": "boolean"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "propValueArr": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  "companyId": {
+                    "type": "integer"
+                  },
+                  "tagList": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "serverGroup": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "rootProcessId": {
+                    "type": "integer"
+                  },
+                  "timeout": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          ],
+        "url": "https://:domain/process/:id/launch"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#process-7"
+        },
+        "displayName": "Launch a process with runonce Schedule",
+        "path": "/process/:id/launch",
+        "params": [],
+        "url": "https://:domain/process/:id/launch"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#process-8"
+        },
+        "displayName": "Launch a process with runonce Schedule and jobName",
+        "path": "/process/:id/launch",
+        "params": [
+          {
+            "required": false,
+            "name": "version",
+            "displayName": "Version",
+            "type": "string",
+            "style": "query"
+          },
+          {
+            "required": false,
+            "name": "jobname",
+            "displayName": "Job name",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/process/:id/launch"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#process-9"
+        },
+        "displayName": "Launch a particular code within a process",
+        "path": "/process/:id/launch",
+        "params": [
+          {
+            "required": false,
+            "name": "instanceid",
+            "displayName": "Instance ID",
+            "type": "string",
+            "style": "query"
+          },
+          {
+            "required": false,
+            "name": "jobname",
+            "displayName": "Job name",
+            "type": "string",
+            "style": "query"
+          },
+          {
+            "required": false,
+            "name": "override",
+            "displayName": "Override",
+            "type": "string",
+            "style": "query"
+          },
+          {
+            "required": false,
+            "name": "processcodes",
+            "displayName": "Process codes",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/process/:id/launch"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#process-11"
+        },
+        "displayName": "Add a server to an existing process",
+        "path": "/process/:id/addserver",
+        "params": [
+          {
+            "required": true,
+            "name": "instanceid",
+            "displayName": "Instance ID",
+            "type": "string",
+            "style": "query"
+          },
+          {
+            "required": false,
+            "name": "jobname",
+            "displayName": "Job name",
+            "type": "string",
+            "style": "query"
+          },
+          {
+            "required": false,
+            "name": "processcodes",
+            "displayName": "Process codes",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/process/:id/addserver"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#process-13"
+        },
+        "displayName": "Delete a server from an existing process",
+        "path": "/process/:id/deleteserver",
+        "params": [
+          {
+            "required": true,
+            "name": "instanceid",
+            "displayName": "Instance ID",
+            "type": "string",
+            "style": "query"
+          },
+          {
+            "required": false,
+            "name": "jobname",
+            "displayName": "Job name",
+            "type": "string",
+            "style": "query"
+          },
+          {
+            "required": false,
+            "name": "processcodes",
+            "displayName": "Process codes",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/process/:id/deleteserver"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#processinstance-1"
+        },
+        "displayName": "Get a job list for a process",
+        "path": "/processinstance",
+        "params": [
+          {
+            "required": true,
+            "name": "processid",
+            "displayName": "Process ID",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/processinstance"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#processinstance-2"
+        },
+        "displayName": "Get process instance details",
+        "path": "/processinstance/:id",
+        "params": [],
+        "url": "https://:domain/processinstance/:id"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#processinstance-3"
+        },
+        "displayName": "Get a job list for a child process",
+        "path": "/processinstance/:id/childjobs",
+        "params": [
+          {
+            "required": false,
+            "name": "type",
+            "displayName": "Type (\"operational\" or \"shutdown\")",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/processinstance/:id/childjobs"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#processinstance-4"
+        },
+        "displayName": "Get process run details",
+        "path": "/processinstance/:id/processrundetails",
+        "params": [
+          {
+            "required": true,
+            "name": "type",
+            "displayName": "Type (\"operational\" or \"shutdown\")",
+            "type": "string",
+            "style": "query"
+          },
+          {
+            "required": false,
+            "name": "code",
+            "displayName": "Code",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/processinstance/:id/processrundetails"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#processinstance-5"
+        },
+        "displayName": "Get process runs",
+        "path": "/processinstance/:id/processruns",
+        "params": [
+          {
+            "required": true,
+            "name": "runid",
+            "displayName": "Run ID",
+            "type": "string",
+            "style": "query"
+          },
+          {
+            "required": false,
+            "name": "code",
+            "displayName": "Code",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/processinstance/:id/processruns"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#processinstance-6"
+        },
+        "displayName": "Get step runs",
+        "path": "/processinstance/:id/stepruns",
+        "params": [
+          {
+            "required": true,
+            "name": "instanceid",
+            "displayName": "Instance ID",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/processinstance/:id/stepruns"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#processinstance-7"
+        },
+        "displayName": "Get step details",
+        "path": "/processinstance/:id/stepdetails",
+        "params": [
+          {
+            "required": true,
+            "name": "instanceid",
+            "displayName": "Instance ID",
+            "type": "string",
+            "style": "query"
+          },
+          {
+            "required": true,
+            "name": "stepid",
+            "displayName": "Step ID",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/processinstance/:id/stepdetails"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#processinstance-8"
+        },
+        "displayName": "Get step output",
+        "path": "/processinstance/:id/stepoutput",
+        "params": [
+          {
+            "required": true,
+            "name": "stepid",
+            "displayName": "Instance ID",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/processinstance/:id/stepoutput"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#processinstance-9"
+        },
+        "displayName": "Get the servers on which a particular process was run",
+        "path": "/processinstance/:id/processtargets",
+        "params": [
+          {
+            "required": true,
+            "name": "runid",
+            "displayName": "Run ID",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/processinstance/:id/processtargets"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#processinstance-10"
+        },
+        "displayName": "Get a list of servers on which the whole process was run",
+        "path": "/processinstance/:id/targets",
+        "params": [],
+        "url": "https://:domain/processinstance/:id/targets"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#processinstance-11"
+        },
+        "displayName": "Pause a job",
+        "path": "/processinstance/:id/pause",
+        "params": [
+          {
+            "required": true,
+            "name": "jobid",
+            "displayName": "Job ID",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/processinstance/:id/pause"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#processinstance-12"
+        },
+        "displayName": "Resume a job",
+        "path": "/processinstance/:id/resume",
+        "params": [
+          {
+            "required": true,
+            "name": "jobid",
+            "displayName": "Job ID",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/processinstance/:id/resume"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#processinstance-13"
+        },
+        "displayName": "Cancel a job",
+        "path": "/processinstance/:id/cancel",
+        "params": [
+          {
+            "required": true,
+            "name": "jobid",
+            "displayName": "Job ID",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/processinstance/:id/cancel"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#processinstance-14"
+        },
+        "displayName": "Pause a run",
+        "path": "/processinstance/:id/pauserun",
+        "params": [
+          {
+            "required": true,
+            "name": "runid",
+            "displayName": "Run ID",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/processinstance/:id/pauserun"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#processinstance-15"
+        },
+        "displayName": "Resume a run",
+        "path": "/processinstance/:id/resumerun",
+        "params": [
+          {
+            "required": true,
+            "name": "runid",
+            "displayName": "Run ID",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/processinstance/:id/resumerun"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#processinstance-16"
+        },
+        "displayName": "Cancel a run",
+        "path": "/processinstance/:id/cancelrun",
+        "params": [
+          {
+            "required": true,
+            "name": "runid",
+            "displayName": "Run ID",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/processinstance/:id/cancelrun"
+      },
+      {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "http://manage-docs.citrix.com/entries/68495369-API-Reference#misc-1"
+        },
+        "displayName": "Get a package's download info",
+        "path": "/download/info",
+        "params": [
+          {
+            "required": true,
+            "name": "runid",
+            "displayName": "Run ID",
+            "type": "string",
+            "style": "query"
+          }
+        ],
+        "url": "https://:domain/download/info"
+      }
+    ]
+  }
+}

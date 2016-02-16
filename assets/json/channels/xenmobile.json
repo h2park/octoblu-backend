@@ -11,7 +11,7 @@
   "defaultParams": [
     {
       "name": ":hostname",
-      "displayName": "XenMobile Hostname",
+      "displayName": "XenMobile Hostname (include http/https)",
       "style": "url",
       "type": "string",
       "required": true
@@ -53,7 +53,7 @@
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html#par_anchortitle_b016"
         },
         "httpMethod": "GET",
-        "url": "http://:hostname::port/xenmobile/api/v1/localusersgroups"
+        "url": ":hostname::port/xenmobile/api/v1/localusersgroups"
       },
       {
         "params": [
@@ -75,7 +75,7 @@
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
         "httpMethod": "GET",
-        "url": "http://:hostname::port/xenmobile/api/v1/localusersgroups/:user"
+        "url": ":hostname::port/xenmobile/api/v1/localusersgroups/:user"
       },
       {
         "params": [
@@ -147,7 +147,7 @@
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
         "httpMethod": "POST",
-        "url": "http://:hostname::port/xenmobile/api/v1/localusersgroups"
+        "url": ":hostname::port/xenmobile/api/v1/localusersgroups"
       },
       {
         "params": [
@@ -219,7 +219,7 @@
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
         "httpMethod": "PUT",
-        "url": "http://:hostname::port/xenmobile/api/v1/localusersgroups"
+        "url": ":hostname::port/xenmobile/api/v1/localusersgroups"
       },
       {
         "params": [
@@ -247,7 +247,7 @@
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
         "httpMethod": "PUT",
-        "url": "http://:hostname::port/xenmobile/api/v1/localusersgroups/resetpassword"
+        "url": ":hostname::port/xenmobile/api/v1/localusersgroups/resetpassword"
       },
       {
         "params": [
@@ -268,7 +268,7 @@
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
         "httpMethod": "DELETE",
-        "url": "http://:hostname::port/xenmobile/api/v1/localusersgroups/resetpassword"
+        "url": ":hostname::port/xenmobile/api/v1/localusersgroups/resetpassword"
       },
       {
         "params": [
@@ -312,7 +312,7 @@
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
         "httpMethod": "GET",
-        "url": "http://:hostname::port/xenmobile/api/v1/application/filter"
+        "url": ":hostname::port/xenmobile/api/v1/application/filter"
       },
       {
         "params": [
@@ -334,7 +334,7 @@
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
         "httpMethod": "GET",
-        "url": "http://:hostname::port/xenmobile/api/v1/application/mobile/:containerId"
+        "url": ":hostname::port/xenmobile/api/v1/application/mobile/:containerId"
       },
       {
         "params": [
@@ -356,7 +356,7 @@
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
         "httpMethod": "GET",
-        "url": "http://:hostname::port/xenmobile/api/v1/application/mobile/saas/:containerId"
+        "url": ":hostname::port/xenmobile/api/v1/application/mobile/saas/:containerId"
       },
       {
         "params": [
@@ -378,7 +378,7 @@
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
         "httpMethod": "GET",
-        "url": "http://:hostname::port/xenmobile/api/v1/application/mobile/appstore/:containerId"
+        "url": ":hostname::port/xenmobile/api/v1/application/mobile/appstore/:containerId"
       },
       {
         "params": [
@@ -400,7 +400,7 @@
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
         "httpMethod": "GET",
-        "url": "http://:hostname::port/xenmobile/api/v1/application/mobile/weblink/:containerId"
+        "url": ":hostname::port/xenmobile/api/v1/application/mobile/weblink/:containerId"
       },
       {
         "params": [
@@ -422,7 +422,7 @@
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
         "httpMethod": "DELETE",
-        "url": "http://:hostname::port/xenmobile/api/v1/application/:containerId"
+        "url": ":hostname::port/xenmobile/api/v1/application/:containerId"
       },
       {
         "params": [
@@ -436,7 +436,7 @@
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
         "httpMethod": "GET",
-        "url": "http://:hostname::port/xenmobile/api/v1/netscaler"
+        "url": ":hostname::port/xenmobile/api/v1/netscaler"
       },
       {
         "params": [
@@ -516,7 +516,7 @@
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
         "httpMethod": "POST",
-        "url": "http://:hostname::port/xenmobile/api/v1/netscaler"
+        "url": ":hostname::port/xenmobile/api/v1/netscaler"
       },
       {
         "params": [
@@ -603,7 +603,7 @@
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
         "httpMethod": "PUT",
-        "url": "http://:hostname::port/xenmobile/api/v1/netscaler/:id"
+        "url": ":hostname::port/xenmobile/api/v1/netscaler/:id"
       },
       {
         "params": [
@@ -624,7 +624,7 @@
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
         "httpMethod": "DELETE",
-        "url": "http://:hostname::port/xenmobile/api/v1/netscaler/:id"
+        "url": ":hostname::port/xenmobile/api/v1/netscaler/:id"
       },
       {
         "params": [
@@ -645,7 +645,7 @@
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
         "httpMethod": "PUT",
-        "url": "http://:hostname::port/xenmobile/api/v1/netscaler/default/:id"
+        "url": ":hostname::port/xenmobile/api/v1/netscaler/default/:id"
       },
       {
         "params": [],
@@ -658,7 +658,7 @@
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
         "httpMethod": "GET",
-        "url": "http://:hostname::port/xenmobile/api/v1/notificationserver"
+        "url": ":hostname::port/xenmobile/api/v1/notificationserver"
       },
       {
         "params": [
@@ -679,7 +679,7 @@
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
         "httpMethod": "GET",
-        "url": "http://:hostname::port/xenmobile/api/v1/notificationserver/:id"
+        "url": ":hostname::port/xenmobile/api/v1/notificationserver/:id"
       },
       {
         "params": [
@@ -747,7 +747,7 @@
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
         "httpMethod": "POST",
-        "url": "http://:hostname::port/xenmobile/api/v1/notificationserver/sms"
+        "url": ":hostname::port/xenmobile/api/v1/notificationserver/sms"
       },
       {
         "params": [
@@ -821,7 +821,7 @@
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
         "httpMethod": "PUT",
-        "url": "http://:hostname::port/xenmobile/api/v1/notificationserver/sms/:id"
+        "url": ":hostname::port/xenmobile/api/v1/notificationserver/sms/:id"
       },
       {
         "params": [
@@ -933,7 +933,7 @@
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
         "httpMethod": "POST",
-        "url": "http://:hostname::port/xenmobile/api/v1/notificationserver/smtp"
+        "url": ":hostname::port/xenmobile/api/v1/notificationserver/smtp"
       },
       {
         "params": [
@@ -1052,7 +1052,7 @@
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
         "httpMethod": "POST",
-        "url": "http://:hostname::port/xenmobile/api/v1/notificationserver/smtp/:id"
+        "url": ":hostname::port/xenmobile/api/v1/notificationserver/smtp/:id"
       },
       {
         "params": [
@@ -1074,7 +1074,7 @@
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
         "httpMethod": "DELETE",
-        "url": "http://:hostname::port/xenmobile/api/v1/notificationserver/:id"
+        "url": ":hostname::port/xenmobile/api/v1/notificationserver/:id"
       },
       {
         "params": [
@@ -1096,7 +1096,7 @@
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
         "httpMethod": "PUT",
-        "url": "http://:hostname::port/xenmobile/api/v1/notificationserver/activate/smtp/:id"
+        "url": ":hostname::port/xenmobile/api/v1/notificationserver/activate/smtp/:id"
       },
       {
         "params": [
@@ -1118,7 +1118,7 @@
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
         "httpMethod": "PUT",
-        "url": "http://:hostname::port/xenmobile/api/v1/notificationserver/activate/sms/:id"
+        "url": ":hostname::port/xenmobile/api/v1/notificationserver/activate/sms/:id"
       },
       {
         "params": [
@@ -1258,7 +1258,7 @@
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
         "httpMethod": "POST",
-        "url": "http://:hostname::port/xenmobile/api/v1/deliverygroups"
+        "url": ":hostname::port/xenmobile/api/v1/deliverygroups"
       },
       {
         "params": [
@@ -1277,7 +1277,7 @@
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
         "httpMethod": "DELETE",
-        "url": "http://:hostname::port/xenmobile/api/v1/deliverygroups"
+        "url": ":hostname::port/xenmobile/api/v1/deliverygroups"
       },
       {
         "params": [],
@@ -1290,7 +1290,7 @@
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
         "httpMethod": "GET",
-        "url": "http://:hostname::port/xenmobile/api/v1/serverproperties"
+        "url": ":hostname::port/xenmobile/api/v1/serverproperties"
       },
       {
         "params": [
@@ -1334,7 +1334,7 @@
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
         "httpMethod": "POST",
-        "url": "http://:hostname::port/xenmobile/api/v1/serverproperties/filter"
+        "url": ":hostname::port/xenmobile/api/v1/serverproperties/filter"
       },
       {
         "params": [
@@ -1372,7 +1372,7 @@
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
         "httpMethod": "POST",
-        "url": "http://:hostname::port/xenmobile/api/v1/serverproperties"
+        "url": ":hostname::port/xenmobile/api/v1/serverproperties"
       },
       {
         "params": [
@@ -1410,7 +1410,7 @@
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
         "httpMethod": "PUT",
-        "url": "http://:hostname::port/xenmobile/api/v1/serverproperties"
+        "url": ":hostname::port/xenmobile/api/v1/serverproperties"
       },
       {
         "params": [
@@ -1430,7 +1430,7 @@
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
         "httpMethod": "POST",
-        "url": "http://:hostname::port/xenmobile/api/v1/serverproperties/reset"
+        "url": ":hostname::port/xenmobile/api/v1/serverproperties/reset"
       },
       {
         "params": [
@@ -1449,7 +1449,7 @@
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
         "httpMethod": "DELETE",
-        "url": "http://:hostname::port/xenmobile/api/v1/serverproperties"
+        "url": ":hostname::port/xenmobile/api/v1/serverproperties"
       },
       {
         "params": [
@@ -1471,7 +1471,7 @@
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
         "httpMethod": "GET",
-        "url": "http://:hostname::port/xenmobile/api/v1/"
+        "url": ":hostname::port/xenmobile/api/v1/"
       },
       {
         "params": [
@@ -1493,7 +1493,7 @@
           "url": "http://docs.citrix.com/en-us/xenmobile/10-1/xmob-support-wrapper/xenmobile-rest-api-reference.html"
         },
         "httpMethod": "GET",
-        "url": "http://:hostname::port/xenmobile/api/v1/"
+        "url": ":hostname::port/xenmobile/api/v1/"
       }
     ]
   }
