@@ -7,7 +7,7 @@
   "type": "channel:citrix-lifecycle-management",
   "defaultParams": [
     {
-      "displayName": "Citrix Lifecycle Management server name",
+      "displayName": "Server name",
       "name": ":domain",
       "style": "url",
       "type": "string",
@@ -2548,15 +2548,7 @@
         },
         "displayName": "Get a package's download info",
         "path": "/download/info",
-        "params": [
-          {
-            "required": true,
-            "name": "runid",
-            "displayName": "Run ID",
-            "type": "string",
-            "style": "query"
-          }
-        ],
+        "params": [],
         "url": "https://:domain/download/info"
       }
     ]
