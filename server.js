@@ -175,9 +175,19 @@ app.use(function(req, res, next) {
 
 require('./app/routes.js')(app, passport, config, meshbluJSON);
 
-var httpServer = http.createServer(app);
-var httpsServer = https.createServer(credentials, app);
+var server = app.listen(port, function(error) {
+  if(error)  {
+    console.error(error.stack);
+    process.exit(1);
+  }
 
-httpServer.listen(port, function(){
   console.log('HTTP listening on port ' + port);
+})
+
+process.on('SIGTERM', function(){
+  console.log('SIGTERM received, exiting');
+
+  server.close(function(){
+    process.exit(0);
+  });
 });
