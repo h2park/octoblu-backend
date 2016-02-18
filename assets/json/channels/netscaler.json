@@ -12,6 +12,20 @@
       "type": "string",
       "name": ":baseUrl",
       "required": true
+    },
+    {
+      "displayName": "Username",
+      "style": "header",
+      "type": "string",
+      "name": ":username",
+      "required": true
+    },
+    {
+      "displayName": "Password",
+      "style": "header",
+      "type": "string",
+      "name": ":password",
+      "required": true
     }
   ],
   "application" : {
