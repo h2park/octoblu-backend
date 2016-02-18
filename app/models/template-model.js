@@ -180,12 +180,9 @@ function TemplateModel(dependencies) {
         }
         query = {tags: {$all: tags}};
       }
-      if(pageLimit) {
-        query
-      }
       return templateCollection.list(query, pageLimit, pageNumber);
     },
-    
+
     like: function(userUuid, bluprintId) {
       var templateCollection = new TemplateCollection();
       return templateCollection.like(userUuid, bluprintId);
