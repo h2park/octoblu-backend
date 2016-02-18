@@ -12,15 +12,13 @@ var ClmController = function() {
 
   self.companies = function(req, originRes, servername, apiKey, next, callback) {
     var uri = 'https://' + servername + '/v0/companies?client_id=' + encodeURIComponent(apiKey);
-    console.log('get companies uri', uri);
     var companiesOptions = {
       url: uri,
       timeout: 1500
     }
 
     request.get(companiesOptions, function(err, httpResponse, body) {
-      console.log('company body', body);
-      if (err || company) {
+      if (err || !body) {
         originRes.redirect('/home');
         return;
       }
@@ -71,17 +69,21 @@ var ClmController = function() {
     };
 
     request.get(finalizeOptions, function(err, httpResponse, body) {
-      if (err || !body.access_token) {
+      if (err || !body) {
         res.redirect('/home');
         return;
       }
       try {
-        var token = JSON.parse(body);
+        var json = JSON.parse(body);
       } catch(err) {
         callback(err);
       }
 
-      var auth = {authtype: 'oauth', token_crypt: textCrypt.encrypt(token.access_token)}
+      var auth = {
+        authtype: 'oauth',
+        token_crypt: textCrypt.encrypt(json.access_token)
+      }
+
       User.overwriteOrAddApiByChannelId(req.user, channelId, auth);
       User.update({_id: req.user._id}, req.user).then(function(){
         next();
@@ -92,13 +94,17 @@ var ClmController = function() {
   };
 
   self.authorize = function(req, res, next) {
-
     async.waterfall([
       async.apply(self.companies, req, res, req.query.servername, req.query.apiKey, next),
       self.roles,
       self.finalize
-    ]);
-
+    ], function(err, result) {
+      if (error) {
+        next(error);
+      }
+      next();
+      return;
+    });
   };
 
   self.redirectToConfigure = function(req, res){
