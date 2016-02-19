@@ -170,7 +170,7 @@ function TemplateModel(dependencies) {
       return _.uniq(tags);
     },
 
-    findByPublic: function(tags, pageLimit, pageNumber) {
+    findByPublic: function(tags, pageLimit, pageNumber, nameFilter) {
       debug("Finding template with tags ", tags);
       var templateCollection = new TemplateCollection();
       var query = {};
@@ -180,7 +180,7 @@ function TemplateModel(dependencies) {
         }
         query = {tags: {$all: tags}};
       }
-      return templateCollection.list(query, pageLimit, pageNumber);
+      return templateCollection.list(query, pageLimit, pageNumber, nameFilter);
     },
 
     like: function(userUuid, bluprintId) {
