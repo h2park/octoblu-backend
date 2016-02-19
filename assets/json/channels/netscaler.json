@@ -609,7 +609,7 @@
         "path": "/stat/lbvserver/MyFirstLbVServer",
         "displayName": "Get the statistics of a lbvserver named 'MyFirstLbVServer'",
         "doc": {
-          "url": ":baseUrl/nitro/v1/config/stat/lbvserver/MyFirstLbVServer"
+          "url": "http://:baseUrl/nitro/v1/config/stat/lbvserver/MyFirstLbVServer"
         },
         "httpMethod": "GET",
         "params": [{
@@ -631,7 +631,7 @@
           "name": "MyFirstLbVServer",
           "required": true
         }],
-        "url": ":baseUrl/nitro/v1/config/stat/lbvserver/MyFirstLbVServer"
+        "url": "http://:baseUrl/nitro/v1/config/stat/lbvserver/MyFirstLbVServer"
       },
       {
         "path": "/apptemplateinfo",
