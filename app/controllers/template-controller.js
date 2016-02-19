@@ -34,17 +34,10 @@ var TemplateController = function (options, dependencies) {
   };
 
   self.findByPublic = function(req, res, next) {
-    return templateModel.findByPublic(req.query.tags, req.query.pageLimit, req.query.pageNumber)
+    return templateModel.findByPublic(req.query.tags, req.query.pageLimit, req.query.pageNumber, req.query.nameFilter)
       .then(function(templates) {
-        if(req.query.nameFilter){
-          req.templates = _.filter(templates, function(item){
-            return _.includes(item.name, req.query.nameFilter);
-          });
-          next();
-        }else{
           req.templates = templates;
           next();
-        }
       })
       .catch(function(error){
         res.send(422, error.message);
