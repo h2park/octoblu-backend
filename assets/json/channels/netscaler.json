@@ -12,7 +12,9 @@
       "type": "string",
       "name": ":baseUrl",
       "required": true
-    },
+    }
+  ],
+  "defaultHeaderParams": [
     {
       "displayName": "Username",
       "style": "header",

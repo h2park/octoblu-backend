@@ -33,7 +33,7 @@ module.exports = function (app) {
   });
 
   pickProperties = function(channel){
-    return _.pick(channel, '_id', 'name', 'application', 'type', 'auth_strategy', 'defaultParams');
+    return _.pick(channel, '_id', 'name', 'application', 'type', 'auth_strategy', 'defaultParams', 'defaultHeaderParams');
   };
 
   whiteListProperties = function(channels) {
