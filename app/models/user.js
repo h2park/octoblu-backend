@@ -156,11 +156,17 @@ function UserModel() {
       if(old_api && !new_api.defaultParams && old_api.defaultParams){
         new_api.defaultParams = old_api.defaultParams;
       }
+
+      if(old_api && !new_api.defaultHeaderParams && old_api.defaultHeaderParams){
+        new_api.defaultHeaderParams = old_api.defaultHeaderParams;
+      }
+
       new_api.channelid = self.ObjectId(channel._id);
       new_api._id = self.ObjectId();
 
       new_api.type = channel.type;
       new_api.uuid = oldUuid || uuid.v1();
+
 
       user.api.push(new_api);
     },
