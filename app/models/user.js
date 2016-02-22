@@ -140,7 +140,7 @@ function UserModel() {
       var self = this;
       var index, new_api, old_api, oldUuid;
 
-      if (_.isUndefined(user.api)) {
+      if (!_.isArray(user.api)) {
         user.api = [];
       }
 
