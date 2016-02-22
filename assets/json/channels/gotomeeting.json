@@ -129,7 +129,7 @@
       },
       {
         "path": "/G2M/rest/meetings",
-        "displayName": "DEPRECATED: Get Meetings (Use Historical Meetings)",
+        "displayName": "DEPRECATED: Get Meetings",
         "doc": {
           "url": "https://api.citrixonline.com/G2M/rest/meetings"
         },
@@ -188,6 +188,16 @@
           }
         ],
         "url": "https://api.citrixonline.com/G2M/rest/historicalMeetings"
+      },
+      {
+        "path": "/G2M/rest/upcomingMeetings",
+        "displayName": "Get Upcoming Meetings",
+        "doc": {
+          "url": "https://api.citrixonline.com/G2M/rest/upcomingMeetings"
+        },
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://api.citrixonline.com/G2M/rest/upcomingMeetings"
       },
       {
         "path": "/G2M/rest/groups/:groupKey/meetings",
