@@ -1,0 +1,17 @@
+{
+  "name": "Echo In",
+  "class": "echo-in",
+  "helpText": "Receive to Amazon Echo Intent",
+  "category": "operation",
+  "uuid": "6ae8a808-fc70-4826-aaf3-cf43b76f3007",
+  "type": "operation:echo-in",
+  "defaults": {
+  },
+  "input": 0,
+  "output": 1,
+  "align": "right",
+  "formTemplatePath": "/pages/node_forms/echo_in.html",
+  "nanocyte": {
+    "name": "nanocyte-node-echo-in"
+  }
+}

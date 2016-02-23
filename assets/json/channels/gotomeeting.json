@@ -129,7 +129,7 @@
       },
       {
         "path": "/G2M/rest/meetings",
-        "displayName": "Get Meetings",
+        "displayName": "DEPRECATED: Get Meetings",
         "doc": {
           "url": "https://api.citrixonline.com/G2M/rest/meetings"
         },
@@ -163,6 +163,41 @@
           }
         ],
         "url": "https://api.citrixonline.com/G2M/rest/meetings"
+      },
+      {
+        "path": "/G2M/rest/historicalMeetings",
+        "displayName": "Get Historical Meetings",
+        "doc": {
+          "url": "https://api.citrixonline.com/G2M/rest/historicalMeetings"
+        },
+        "httpMethod": "GET",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "startDate",
+            "displayName": "Start Date",
+            "default": "2016-01-01T00:00:00+00:00"
+          },
+          {
+            "style": "query",
+            "type": "string",
+            "name": "endDate",
+            "displayName": "End Date",
+            "default": "2020-12-31T00:00:00+00:00"
+          }
+        ],
+        "url": "https://api.citrixonline.com/G2M/rest/historicalMeetings"
+      },
+      {
+        "path": "/G2M/rest/upcomingMeetings",
+        "displayName": "Get Upcoming Meetings",
+        "doc": {
+          "url": "https://api.citrixonline.com/G2M/rest/upcomingMeetings"
+        },
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://api.citrixonline.com/G2M/rest/upcomingMeetings"
       },
       {
         "path": "/G2M/rest/groups/:groupKey/meetings",

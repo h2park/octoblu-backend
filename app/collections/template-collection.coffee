@@ -39,16 +39,27 @@ class TemplateCollection
     query = @allowPublic query
     @collection.findOne query
 
-  list:  (query={}, limit, offset) =>
+  list:  (query={}, limit, offset, name) =>
     query = @allowPublic query
     offset = Math.max(0, offset - 1) * limit
 
-    return @collection.find query unless limit?
+    if name?
+      @collection.find(query)
+      .then (result) ->
+        filteredCollection = []
+        _.filter result, (item) ->
+          if _.includes(item.name.toLowerCase(), name.toLowerCase())
+            filteredCollection.push _.omit(item, ["flow"])
+        return filteredCollection
 
-    When.promise (resolve, reject) =>
-      @collection.originalFind(query).skip(offset).limit limit, (error, docs) =>
-        return reject error if error?
-        resolve docs
+    else
+      return @collection.find query unless limit?
+
+
+      When.promise (resolve, reject) =>
+        @collection.originalFind(query).skip(offset).limit limit, (error, docs) =>
+          return reject error if error?
+          resolve docs
 
   like: (userUuid, bluprintId) =>
     query = {uuid: bluprintId}

@@ -14,6 +14,22 @@
       "required": true
     }
   ],
+  "defaultHeaderParams": [
+    {
+      "displayName": "Username",
+      "style": "header",
+      "type": "string",
+      "name": ":username",
+      "required": true
+    },
+    {
+      "displayName": "Password",
+      "style": "header",
+      "type": "string",
+      "name": ":password",
+      "required": true
+    }
+  ],
   "application" : {
     "base" : ":baseUrl/nitro/v1/config/",
     "resources" : [
