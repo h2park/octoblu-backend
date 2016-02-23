@@ -77,6 +77,9 @@ module.exports = function(app, passport, config, meshbluJSON){
     var BoxController = require('./controllers/box-controller');
     var boxController = new BoxController();
 
+    var ClmController = require('./controllers/citrix-lifecycle-management-controller');
+    var clmController = new ClmController();
+
     var DemoFlowController = require('./controllers/demo-flow-controller');
     var demoFlowController = new DemoFlowController({meshbluJSON: meshbluJSON});
 
@@ -432,6 +435,8 @@ module.exports = function(app, passport, config, meshbluJSON){
     app.post('/api/witai/auth', witaiController.authorize, witaiController.redirectToConfigure);
 
     app.get('/api/xenmobile/auth', xenMobileController.authorize, xenMobileController.redirectToConfigure);
+
+    app.get('/api/clm/auth', clmController.authorize, clmController.redirectToConfigure);
 
     app.post('/api/templates',  templateController.create);
 

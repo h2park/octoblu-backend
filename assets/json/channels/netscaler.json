@@ -14,6 +14,22 @@
       "required": true
     }
   ],
+  "defaultHeaderParams": [
+    {
+      "displayName": "Username",
+      "style": "header",
+      "type": "string",
+      "name": ":username",
+      "required": true
+    },
+    {
+      "displayName": "Password",
+      "style": "header",
+      "type": "string",
+      "name": ":password",
+      "required": true
+    }
+  ],
   "application" : {
     "base" : ":baseUrl/nitro/v1/config/",
     "resources" : [
@@ -23,8 +39,6 @@
       "doc": {
         "url": ":baseUrl/nitro/v1/config/login/"
       },
-      "httpMethod": "Post",
-      "curl": "curl -X",
       "params": [{
         "displayName": "Username",
         "style": "body",
@@ -51,8 +65,6 @@
       "doc": {
         "url": ":baseUrl/nitro/v1/config/nsfeature"
       },
-      "httpMethod": "Post",
-      "curl": "curl -X",
       "params": [{
         "displayName": "Set to true, to enable feature",
         "style": "body",
@@ -67,8 +79,6 @@
       "doc": {
         "url": ":baseUrl/nitro/v1/config/nsconfig"
       },
-      "httpMethod": "Post",
-      "curl": "curl -X",
       "params": [{
         "displayName": "Save Configurations",
         "style": "body",
@@ -83,8 +93,6 @@
       "doc": {
         "url": ":baseUrl/nitro/v1/config/logout/"
       },
-      "httpMethod": "Post",
-      "curl": "curl -X",
       "params": [{
         "displayName": "Resource Type",
         "style": "object",
@@ -99,8 +107,7 @@
         "doc": {
           "url": ":baseUrl/nitro/v1/config/lbvserver/"
         },
-        "httpMethod": "Post",
-        "curl": "curl -X",
+        "httpMethod": "POST",
         "params": [{
           "displayName": "Resource Name",
           "style": "body",
@@ -123,7 +130,6 @@
           "url": ":baseUrl/nitro/v1/config/lbvserver/MyFirstLbVServer/"
         },
         "httpMethod": "GET",
-        "curl": "curl -X",
         "params": [{
           "displayName": "Resource Type",
           "style": "object",
@@ -165,7 +171,6 @@
           "url": ":baseUrl/nitro/v1/config/lbvserver/MyFirstLbVServer/"
         },
         "httpMethod": "PUT",
-        "curl": "curl -X",
         "params": [{
           "displayName": "Resource Type",
           "style": "object",
@@ -192,12 +197,11 @@
         "url": ":baseUrl/nitro/v1/config/lbvserver/MyFirstLbVServer/"
       },{
         "path": "/lbvserver/MyFirstLbVServer/",
-        "displayName": "Delete a NetScaler resource, specify the resource name in the URL",
+        "displayName": "DELETE a NetScaler resource, specify the resource name in the URL",
         "doc": {
           "url": ":baseUrl/nitro/v1/config/lbvserver/MyFirstLbVServer/"
         },
-        "httpMethod": "Delete",
-        "curl": "curl -X",
+        "httpMethod": "DELETE",
         "params": [{
           "displayName": "Resource Type",
           "style": "object",
@@ -222,8 +226,7 @@
         "doc": {
           "url": ":baseUrl/nitro/v1/config/lbvserver/MyFirstLbVServer/"
         },
-        "httpMethod": "Post",
-        "curl": "curl -X",
+        "httpMethod": "POST",
         "params": [{
           "displayName": "Resource Type",
           "style": "object",
@@ -259,8 +262,7 @@
         "doc": {
           "url": ":baseUrl/nitro/v1/config/lbvserver_service_binding/"
         },
-        "httpMethod": "Put",
-        "curl": "curl -X",
+        "httpMethod": "PUT",
         "params": [{
           "displayName": "Resource Type",
           "style": "object",
@@ -290,8 +292,7 @@
         "doc": {
           "url": ":baseUrl/nitro/v1/config/lbvserver_service_binding/MyFirstLbVServer"
         },
-        "httpMethod": "Delete",
-        "curl": "curl -X",
+        "httpMethod": "DELETE",
         "params": [{
           "displayName": "Resource Type",
           "style": "object",
@@ -317,8 +318,7 @@
         "doc": {
           "url": ":baseUrl/nitro/v1/config/lbvserver/"
         },
-        "httpMethod": "Post",
-        "curl": "curl -X",
+        "httpMethod": "POST",
         "params": [{
           "displayName": "Resource Type",
           "style": "object",
@@ -354,7 +354,6 @@
           "url": ":baseUrl/nitro/v1/config/lbvserver_service_binding/MyFirstLbVServer"
         },
         "httpMethod": "PUT",
-        "curl": "curl -X",
         "params": [{
           "displayName": "Resource Type",
           "style": "body",
@@ -390,7 +389,6 @@
           "url": ":baseUrl/nitro/v1/config/lbvserver_service_binding/lbv1"
         },
         "httpMethod": "GET",
-        "curl": "curl -X",
         "params": [{
           "displayName": "Resource Type",
           "style": "object",
@@ -416,7 +414,6 @@
           "url": ":baseUrl/nitro/v1/config/aaaglobal_aaapreauthenticationpolicy_binding"
         },
         "httpMethod": "PUT",
-        "curl": "curl -X",
         "params": [{
           "displayName": "Feature Name",
           "style": "object",
@@ -447,8 +444,7 @@
         "doc": {
           "url": ":baseUrl/nitro/v1/config/clusterinstance/"
         },
-        "httpMethod": "Post",
-        "curl": "curl -X",
+        "httpMethod": "POST",
         "params": [{
           "displayName": "Resource Type",
           "style": "object",
@@ -474,7 +470,6 @@
           "url": ":baseUrl/nitro/v1/config/clusternode/"
         },
         "httpMethod": "POST",
-        "curl": "curl -X",
         "params": [{
           "displayName": "Resource Type",
           "style": "object",
@@ -510,7 +505,6 @@
           "url": ":baseUrl/nitro/v1/config/nsip/"
         },
         "httpMethod": "POST",
-        "curl": "curl -X",
         "params": [{
           "displayName": "Resource Type",
           "style": "object",
@@ -537,7 +531,6 @@
           "url": ":baseUrl/nitro/v1/config/nsip/"
         },
         "httpMethod": "POST",
-        "curl": "curl -X",
         "params": [{
           "displayName": "Resource Type",
           "style": "object",
@@ -573,8 +566,7 @@
         "doc": {
           "url": ":baseUrl/nitro/v1/config/cluster/"
         },
-        "httpMethod": "Post",
-        "curl": "curl -X",
+        "httpMethod": "POST",
         "params": [{
           "displayName": "Resource Type",
           "style": "object",
@@ -600,8 +592,7 @@
         "doc": {
           "url": ":baseUrl/nitro/v1/config/nsconfig"
         },
-        "httpMethod": "Post",
-        "curl": "curl -X",
+        "httpMethod": "POST",
         "params": [{
           "displayName": "Resource Type",
           "style": "object",
@@ -623,7 +614,6 @@
           "url": ":baseUrl/nitro/v1/config/stat/lbvserver/MyFirstLbVServer"
         },
         "httpMethod": "GET",
-        "curl": "curl -X",
         "params": [{
           "displayName": "Resource Type",
           "style": "object",
@@ -652,7 +642,6 @@
           "url": ":baseUrl/nitro/v1/config/apptemplateinfo"
         },
         "httpMethod": "POST",
-        "curl": "curl -X",
         "params": [{
           "displayName": "Resource Type",
           "style": "object",
@@ -714,8 +703,7 @@
         "doc": {
           "url": ":baseUrl/nitro/v1/config/apptemplateinfo"
         },
-        "httpMethod": "Post",
-        "curl": "curl -X",
+        "httpMethod": "POST",
         "params": [{
           "displayName": "Resource Type",
           "style": "object",
@@ -751,8 +739,7 @@
         "doc": {
           "url": ":baseUrl/nitro/v1/config/apptemplateinfo"
         },
-        "httpMethod": "Post",
-        "curl": "curl -X",
+        "httpMethod": "POST",
         "params": [{
           "displayName": "Resource Type",
           "style": "object",
@@ -840,8 +827,7 @@
         "doc": {
           "url": ":baseUrl/nitro/v1/config/systemfile"
         },
-        "httpMethod": "Post",
-        "curl": "curl -X",
+        "httpMethod": "POST",
         "params": [{
           "displayName": "Resource Type",
           "style": "object",
@@ -950,11 +936,11 @@
       },
       {
         "path": "/systemfile/<filename>",
-        "displayName": "Delete a file from the NetScaler, specify the filename along with the full file path",
+        "displayName": "DELETE a file from the NetScaler, specify the filename along with the full file path",
         "doc": {
           "url": ":baseUrl/nitro/v1/config/systemfile/:filename/:path"
         },
-        "httpMethod": "Delete",
+        "httpMethod": "DELETE",
         "curl": "curl -X ",
         "params": [{
           "displayName": "Resource Type",

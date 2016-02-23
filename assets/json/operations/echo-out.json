@@ -1,0 +1,18 @@
+{
+  "name": "Echo Out",
+  "class": "echo-out",
+  "helpText": "Respond to Amazon Echo Intent",
+  "category": "operation",
+  "uuid": "a11f9f23-3659-4198-aa22-d1f314d6c3bb",
+  "type": "operation:echo-out",
+  "defaults": {
+    "responseText": "Success"
+  },
+  "input": 1,
+  "output": 0,
+  "align": "right",
+  "formTemplatePath": "/pages/node_forms/echo_out.html",
+  "nanocyte": {
+    "name": "nanocyte-node-echo-out"
+  }
+}

@@ -4,8 +4,8 @@
   "bodyFormat": "json",
   "documentation": "https://rightsignature.com/apidocs/api_calls?api_method=intro",
   "enabled": true,
-  "name": "rightSignature",
-  "type": "channel:rightSignature",
+  "name": "rightsignature",
+  "type": "channel:rightsignature",
   "oauth": {
     "development": {
       "consumerKey": "cWFEaAWOYpJXOK30WGDHw1vL3FWrZUpI4zOhilSN",
