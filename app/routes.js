@@ -155,6 +155,9 @@ module.exports = function(app, passport, config, meshbluJSON){
     var ReadabilityController = require('./controllers/readability-controller');
     var readabilityController = new ReadabilityController();
 
+    var PagerDutyController = require('./controllers/pagerduty-controller');
+    var pagerdutyController = new PagerDutyController();
+
     var RedBoothController = require('./controllers/redbooth-controller');
     var redBoothController = new RedBoothController();
 
@@ -356,6 +359,8 @@ module.exports = function(app, passport, config, meshbluJSON){
     app.get('/api/oauth/octoblu',          octobluController.authorize);
     app.get('/api/oauth/octoblu/callback', octobluController.callback, octobluController.redirectToConfigure);
 
+    app.post('/api/pagerduty/auth', pagerdutyController.authorize, pagerdutyController.redirectToConfigure);
+
     app.get('/api/oauth/podio',          podioController.authorize);
     app.get('/api/oauth/podio/callback', podioController.callback, podioController.redirectToConfigure);
 
@@ -373,7 +378,6 @@ module.exports = function(app, passport, config, meshbluJSON){
 
     app.get('/api/oauth/rightsignature',          rightsignatureController.authorize);
     app.get('/api/oauth/rightsignature/callback', rightsignatureController.callback, rightsignatureController.redirectToConfigure);
-
 
     app.get('/api/oauth/salesforce',          salesForceController.authorize);
     app.get('/api/oauth/salesforce/callback', salesForceController.callback, salesForceController.redirectToConfigure);
