@@ -155,9 +155,6 @@ module.exports = function(app, passport, config, meshbluJSON){
     var ReadabilityController = require('./controllers/readability-controller');
     var readabilityController = new ReadabilityController();
 
-    var PagerDutyController = require('./controllers/pagerduty-controller');
-    var pagerdutyController = new PagerDutyController();
-
     var RedBoothController = require('./controllers/redbooth-controller');
     var redBoothController = new RedBoothController();
 
@@ -233,6 +230,10 @@ module.exports = function(app, passport, config, meshbluJSON){
     var XeroController = require('./controllers/xero-controller');
     var xeroController = new XeroController();
 
+    var ChannelPagerdutyController = require('./controllers/channel-pagerduty-controller');
+    var channelPagerdutyController = new ChannelPagerdutyController();
+
+
     app.post('/api/webhooks/:id', webhookController.trigger);
 
     require('./controllers/auth-controller')(app, passport, config);
@@ -248,6 +249,9 @@ module.exports = function(app, passport, config, meshbluJSON){
     require('./controllers/invitation')(app, passport, config);
 
     app.post('/api/channel/aws/channel/:id', channelAWSAuthController.create);
+
+    app.post('/api/channel/pagerduty/channel/:id', channelPagerdutyController.create);
+
     app.post('/api/channel/google-places/channel/:id', channelGooglePlacesController.create);
     app.post('/api/channel/basic/channel/:id', channelBasicAuthController.create);
     app.post('/api/channel/apikey/channel/:id', channelApiKeyController.create);
@@ -358,8 +362,6 @@ module.exports = function(app, passport, config, meshbluJSON){
 
     app.get('/api/oauth/octoblu',          octobluController.authorize);
     app.get('/api/oauth/octoblu/callback', octobluController.callback, octobluController.redirectToConfigure);
-
-    app.post('/api/pagerduty/auth', pagerdutyController.authorize, pagerdutyController.redirectToConfigure);
 
     app.get('/api/oauth/podio',          podioController.authorize);
     app.get('/api/oauth/podio/callback', podioController.callback, podioController.redirectToConfigure);
