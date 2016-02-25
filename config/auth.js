@@ -1,13 +1,8 @@
 var config = {
-  rh: {
+  'rh': {
   },
-  development: {
-    'promiseTimeout' : 1000,
-    betaInvites : {
-      betaId : 4829,
-      apiKey : 'UrswKVa4CaC6aaXtN6Zh',
-      baseUrl: 'https://octoblu.prefinery.com/api/v2'
-    },
+  'development': {
+    promiseTimeout : 1000,
     email : {
       from: 'serveradmin@octoblu.com',
       SMTP: {
@@ -24,80 +19,40 @@ var config = {
       }
     },
     skynet : {
-      override_token : process.env.SKYNET_OVERRIDE_TOKEN || 'w0rldd0m1n4t10n',
       host : process.env.SKYNET_HOST || 'localhost',
       port : process.env.SKYNET_PORT || 3000
-    },
-    designer: {
-      host: process.env.DESIGNER_HOST || 'http://designer.octoblu.com',
-      port: process.env.DESIGNER_PORT || 1025,
-      docker_port: process.env.DESIGNER_DOCKER_PORT
     },
     port: process.env.PORT || 8080,
     sslPort: process.env.SSL_PORT || 8081,
     elasticSearchUri: process.env.ELASTIC_SEARCH_URI,
-    flowDeployUri: 'http://localhost:8899',
     nanocyteDeployUri: 'http://localhost:5051',
     domain: null,
     flow_logger_uuid: process.env.FLOW_LOGGER_UUID
   },
-  test: {
-    promiseTimeout : 100,
-    betaInvites : {
-      betaId : 4829,
-      apiKey : 'UrswKVa4CaC6aaXtN6Zh',
-      baseUrl: 'https://octoblu.prefinery.com/api/v2'
-    },
-    designer: {
-      host: process.env.DESIGNER_HOST || 'http://designer.octoblu.com',
-      port: process.env.DESIGNER_PORT || 1025,
-      docker_port: process.env.DESIGNER_DOCKER_PORT
-    },
-    flow_logger_uuid: process.env.FLOW_LOGGER_UUID
-  },
-  production: {
+  'octoblu-dev': {
     promiseTimeout : 5000,
     skynet : {
-      host:           process.env.SKYNET_HOST || 'meshblu.octoblu.com',
-      override_token: process.env.SKYNET_OVERRIDE_TOKEN || 'w0rldd0m1n4t10n',
-      port:           process.env.SKYNET_PORT || 443
-    },
-    designer: {
-      host: process.env.DESIGNER_HOST || 'http://designer.octoblu.com',
-      port: process.env.DESIGNER_PORT || 1025,
-      docker_port: process.DESIGNER_DOCKER_PORT
+      host:           process.env.SKYNET_HOST || 'meshblu.octoblu.dev',
+      port:           process.env.SKYNET_PORT || 80
     },
     port:             process.env.PORT || 80,
     sslPort:          process.env.SSL_PORT || 443,
     elasticSearchUri: process.env.ELASTIC_SEARCH_URI,
-    flowDeployUri:    'https://flow-deploy.octoblu.com',
-    nanocyteDeployUri:'https://nanocyte-flow-deploy.octoblu.com',
-    domain:           '.octoblu.com',
+    nanocyteDeployUri:'https://nanocyte-flow-deploy-service.octoblu.dev',
+    domain:           '.octoblu.dev',
     flow_logger_uuid: process.env.FLOW_LOGGER_UUID
   },
-  staging: {
+  'production': {
     promiseTimeout : 5000,
-    betaInvites : {
-      betaId : 4829,
-      apiKey : 'UrswKVa4CaC6aaXtN6Zh',
-      baseUrl: 'https://octoblu.prefinery.com/api/v2'
+    skynet : {
+      host:           process.env.SKYNET_HOST || 'meshblu.octoblu.com',
+      port:           process.env.SKYNET_PORT || 443
     },
-    skynet: {
-      host:           process.env.SKYNET_HOST || 'meshblu-staging.octoblu.com',
-      override_token: process.env.SKYNET_OVERRIDE_TOKEN || 'w0rldd0m1n4t10n',
-      port:           process.env.SKYNET_PORT || 80
-    },
-    designer: {
-      host: process.env.DESIGNER_HOST || 'http://designer.octoblu.com',
-      port: process.env.DESIGNER_PORT || 1025,
-      docker_port: process.DESIGNER_DOCKER_PORT
-    },
-    port :            process.env.PORT || 80,
+    port:             process.env.PORT || 80,
     sslPort:          process.env.SSL_PORT || 443,
     elasticSearchUri: process.env.ELASTIC_SEARCH_URI,
-    flowDeployUri:    'https://flow-deploy.octoblu-staging.com',
-    nanocyteDeployUri:'https://nanocyte-flow-deploy.octoblu-staging.com',
-    domain:           '.octoblu-staging.com',
+    nanocyteDeployUri:'https://nanocyte-flow-deploy.octoblu.com',
+    domain:           '.octoblu.com',
     flow_logger_uuid: process.env.FLOW_LOGGER_UUID
   }
 };

@@ -113,41 +113,6 @@ var FlowDeploy = function(options){
     return flow;
   };
 
-  self.startFlow = function(flow){
-    flow.deploymentUuid = deploymentUuid;
-    return self.updateMeshbluFlow(flow).then(function(){
-      return self.startFlowDeploy(flow);
-    });
-  };
-
-  self.startFlowDeploy = function(flow) {
-    var url = config.flowDeployUri + '/flows/' + flow.flowId + '/instance';
-    var options = {
-      auth: {
-        user: userUUID,
-        pass: userToken
-      },
-      headers: {
-        deploymentUuid: deploymentUuid
-      }
-    };
-    return whenNode.call(request.post, url, options);
-  }
-
-  self.stopFlow = function(flow){
-    var url = config.flowDeployUri + '/flows/' + flow.flowId + '/instance';
-    var options = {
-      auth: {
-        user: userUUID,
-        pass: userToken
-      },
-      headers: {
-        deploymentUuid: deploymentUuid
-      }
-    };
-    return whenNode.call(request.del, url, options);
-  };
-
   self.getNanocyteMessageUrl = function(flowId) {
     return config.nanocyteDeployUri + '/flows/' + flowId + '/instances';
   };
@@ -168,7 +133,7 @@ var FlowDeploy = function(options){
     return whenNode.call(method,
       self.getNanocyteMessageUrl(flowId),
       self.getNanocyteOptions());
-  }
+  };
 
   self.startNanocyteFlow = function(flow) {
     return self.getNanocyteFlowPromise(flow.flowId, request.post);
@@ -279,24 +244,8 @@ FlowDeploy.start = function(userUUID, userToken, flow, meshbluJSON, deploymentUu
     }).catch(function(error){
       flowStatusMessenger.message('error', error.message);
       debug(error.stack);
-      // throw new Error(error);
     });
   }
-
-  // return flowDeploy.setDeploying(flow).then(function(){
-  //   return flowDeploy.getUser();
-  // }).then(function(theUser){
-  //   user = theUser;
-  //   return Channel.findAll();
-  // }).then(function(channels){
-  //   mergedFlow = flowDeploy.mergeFlowTokens(flow, user.api, channels);
-  //   return flowDeploy.startFlow(mergedFlow);
-  // }).then(function(){
-  //   flowStatusMessenger.message('end');
-  // }).catch(function(error){
-  //   flowStatusMessenger.message('error', error.message);
-  //   throw new Error(error);
-  // });
 };
 
 FlowDeploy.stop = function(userUUID, userToken, flow, meshbluJSON, deploymentUuid){
@@ -316,13 +265,11 @@ FlowDeploy.stop = function(userUUID, userToken, flow, meshbluJSON, deploymentUui
 
   return flowDeploy.setStopping(flow).then(function(){
     return flowDeploy.stopNanocyteFlow(flow);
-    // return flowDeploy.stopFlow(flow);
   }).then(function(){
     flowStatusMessenger.message('end');
   }).catch(function(error){
     flowStatusMessenger.message('error', error.message);
     debug(error.stack);
-    // throw new Error(error);
   });
 };
 
