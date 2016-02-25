@@ -279,7 +279,7 @@
           },
           {
             "style": "body",
-            "type": "object",
+            "type": "string",
             "displayName": "An object containing the schedule or user id and type",
             "name": "rule_object",
             "required": "true"
@@ -363,7 +363,7 @@
           },
           {
             "style": "query",
-            "type": "object",
+            "type": "string",
             "displayName": "An object representing the first target",
             "name": "rule_object"
           },
@@ -406,7 +406,7 @@
           },
           {
             "style": "body",
-            "type": "object",
+            "type": "string",
             "name": "rule_object",
             "displayName": "Containing the schedule or user id and type"
           }
@@ -771,7 +771,7 @@
           },
           {
             "style": "body",
-            "type": "object",
+            "type": "string",
             "displayName": "The note object that includes the new note parameter",
             "name": "note",
             "required": "true"
@@ -1039,7 +1039,7 @@
           },
           {
             "style": "body",
-            "type": "object",
+            "type": "string",
             "displayName": "The maintenance window object",
             "name": "maintenance_window"
           },
@@ -1300,7 +1300,7 @@
           },
           {
             "style": "body",
-            "type": "object",
+            "type": "string",
             "displayName": "The schedule object",
             "name": "schedule"
           },
@@ -1410,7 +1410,7 @@
           },
           {
             "style": "body",
-            "type": "object",
+            "type": "string",
             "displayName": "The schedule object",
             "name": "schedule"
           },
@@ -1519,7 +1519,7 @@
           },
           {
             "style": "body",
-            "type": "object",
+            "type": "string",
             "displayName": "The schedule object",
             "name": "schedule"
           },
