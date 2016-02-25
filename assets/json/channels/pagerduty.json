@@ -3,7 +3,7 @@
   "name": "PagerDuty",
   "documentation": "https://developer.pagerduty.com/documentation/rest",
   "type": "channel:pagerduty",
-	"bodyFormat": "json",
+  "bodyFormat": "json",
   "enabled": true,
   "defaultParams": [
     {
@@ -34,7 +34,7 @@
     "resources": [
       {
         "path": "/alerts",
-        "displayName": "Get User Information",
+        "displayName": "Get existing alerts for a given time range",
         "doc": {
           "url": "https://:subdomain.pagerduty.com/api/v1/alerts"
         },
@@ -44,14 +44,14 @@
             "style": "query",
             "type": "date",
             "name": "since",
-            "displayName": "The start of the date range over which you want to search",
+            "displayName": "Start of the date range over which you want to search",
             "required": "true"
           },
           {
             "style": "query",
             "type": "date",
             "name": "until",
-            "displayName": "The end of the date range over which you want to search, must be less than 3 months",
+            "displayName": "End of the date range over which you want to search, must be less than 3 months",
             "required": "true"
           },
           {
@@ -64,7 +64,7 @@
             "style": "query",
             "type": "TimeZone",
             "name": "time_zone",
-            "displayName": "Time zone in which dates in the result will be rendered"
+            "displayName": "Time zone in which dates in the result will be rendered (Defaults to account time zone)"
           }
         ],
         "url": "https://:subdomain.pagerduty.com/api/v1/alerts"
@@ -81,7 +81,7 @@
             "style": "query",
             "type": "string",
             "name": "query",
-            "displayName": "Filters showing only the escalation policies"
+            "displayName": "Filters the result"
           },
           {
             "style": "query",
@@ -128,7 +128,7 @@
           {
             "style": "body",
             "type": "array",
-            "displayName": "There must be at least one escalation rules for this policy",
+            "displayName": "The escalation rules for this policy",
             "name": "escalation_rules",
             "required": "true"
           }
@@ -137,7 +137,7 @@
       },
       {
         "path": "/escalation_policies/:id",
-        "displayName": "Get info about an existing escalation policy & its rules",
+        "displayName": "Get details about an escalation policy",
         "doc": {
           "url": "https://:subdomain.pagerduty.com/api/v1/escalation_policies/:id"
         },
@@ -178,56 +178,68 @@
         "url": "https://:subdomain.pagerduty.com/api/v1/escalation_policies/:id"
       },
       {
-        "path": "/teams/:id",
-        "displayName": "Updates an existing team",
+        "path": "/escalation_policies/:id",
+        "displayName": "Updates an escalation policy",
         "doc": {
-          "url": "https://:subdomain.pagerduty.com/api/v1/teams/:id"
+          "url": "https://:subdomain.pagerduty.com/api/v1/escalation_policies/:id"
         },
         "httpMethod": "PUT",
         "params": [
           {
             "style": "url",
             "type": "string",
-            "displayName": "Team ID",
+            "displayName": "ID of the existing team",
             "name": ":id",
             "required": "true"
           },
           {
             "style": "body",
             "type": "string",
-            "displayName": "Name of the team",
+            "displayName": "Name of the policy",
             "name": "name"
           },
           {
             "style": "body",
-            "type": "string",
-            "displayName": "Description of the team",
-            "name": "description"
+            "type": "boolean",
+            "displayName": "Whether or not to allow this policy to repeat its escalation rules after the last rule is finished",
+            "name": "repeat_enabled"
+          },
+          {
+            "style": "body",
+            "type": "integer",
+            "displayName": "The number of times to loop over the set of rules in this escalation policy",
+            "name": "num_loops"
+          },
+          {
+            "style": "body",
+            "type": "array",
+            "displayName": "The escalation rules for this policy",
+            "name": "escalation_rules"
           }
         ],
-        "url": "https://:subdomain.pagerduty.com/api/v1/teams/:id"
+        "url": "https://:subdomain.pagerduty.com/api/v1/escalation_policies/:id"
       },
       {
-        "path": "/teams/:id",
-        "displayName": "Deletes an existing team",
+        "path": "/escalation_policies/:id",
+        "displayName": "Deletes an escalation policy",
         "doc": {
-          "url": "https://:subdomain.pagerduty.com/api/v1/teams/:id"
+          "url": "https://:subdomain.pagerduty.com/api/v1/escalation_policies/:id"
         },
         "httpMethod": "DELETE",
         "params": [
           {
             "style": "url",
             "type": "string",
-            "displayName": "ID of the team",
+            "displayName": "ID of the existing escalation",
             "name": ":id",
             "required": "true"
           }
         ],
-        "url": "https://:subdomain.pagerduty.com/api/v1/teams/:id"
+        "url": "https://:subdomain.pagerduty.com/api/v1/escalation_policies/:id"
       },
       {
-        "path": "/users/:user-id/followed-by",
-        "displayName": "Get all escalation rules for an existing escalation policy",
+        "path": "/escalation_policies/:escalation_policy_id/escalation_rules",
+        "displayName": "Get escalation rules for an escalation policy",
         "doc": {
           "url": "https://:subdomain.pagerduty.com/api/v1/escalation_policies/:escalation_policy_id/escalation_rules"
         },
@@ -261,29 +273,36 @@
           {
             "style": "body",
             "type": "integer",
-            "displayName": "If an incident is not acknowledged w/i this timeout then it will escalate onto the next escalation rule",
+            "displayName": "The escalation timeout in minutes",
             "name": "escalation_delay_in_minutes",
             "required": "true"
           },
           {
             "style": "body",
-            "type": "array",
-            "displayName": "Array of the targets an incident should be assigned to upon reaching this rule",
-            "name": "targets",
+            "type": "object",
+            "displayName": "An object containing the schedule or user id and type",
+            "name": "rule_object",
             "required": "true"
           },
           {
             "style": "body",
             "type": "string",
-            "displayName": "String of either schedule or user",
+            "displayName": "Can be either schedule or user",
             "name": "type",
             "required": "true"
           },
           {
             "style": "body",
             "type": "string",
-            "displayName": "ID of the Escalation Policy",
+            "displayName": "The id of the schedule or user assigned to this rule",
             "name": "id",
+            "required": "true"
+          },
+          {
+            "style": "body",
+            "type": "array",
+            "displayName": "The array of the targets an incident should be assigned to upon reaching this rule",
+            "name": "targets",
             "required": "true"
           }
         ],
@@ -291,7 +310,7 @@
       },
       {
         "path": "/escalation_policies/:escalation_policy_id/escalation_rules",
-        "displayName": "Update all escalation rules for an existing escalation policy",
+        "displayName": "Updates the entire collection of escalation rules",
         "doc": {
           "url": "https://:subdomain.pagerduty.com/api/v1/escalation_policies/:escalation_policy_id/escalation_rules"
         },
@@ -309,13 +328,6 @@
             "type": "array",
             "displayName": "An ordered array of escalation rules",
             "name": "escalation_rules",
-            "required": "true"
-          },
-          {
-            "style": "body",
-            "type": "array",
-            "displayName": "Array of the targets an incident should be assigned to upon reaching this rule",
-            "name": "targets",
             "required": "true"
           }
         ],
@@ -342,6 +354,24 @@
             "displayName": "ID of the escalation rule",
             "name": ":id",
             "required": "true"
+          },
+          {
+            "style": "query",
+            "type": "integer",
+            "displayName": "The amount of time before an incident escalates away from this rule",
+            "name": "escalation_delay_in_minutes"
+          },
+          {
+            "style": "query",
+            "type": "object",
+            "displayName": "An object representing the first target",
+            "name": "rule_object"
+          },
+          {
+            "style": "query",
+            "type": "array",
+            "displayName": "An array of targets which an incident will be assigned to upon reaching this rule",
+            "name": "targets"
           }
         ],
         "url": "https://:subdomain.pagerduty.com/api/v1/escalation_policies/:escalation_policy_id/escalation_rules/:id"
@@ -372,13 +402,13 @@
             "style": "body",
             "type": "integer",
             "name": "escalation_delay_in_minutes",
-            "displayName": "If an incident is not acknowledged within this timeout then it will escalate onto the next escalation rule"
+            "displayName": "The escalation timeout in minutes"
           },
           {
             "style": "body",
-            "type": "array",
-            "name": "targets",
-            "displayName": "Targets an incident should be assigned to upon reaching this rule"
+            "type": "object",
+            "name": "rule_object",
+            "displayName": "Containing the schedule or user id and type"
           }
         ],
         "url": "https://:subdomain.pagerduty.com/api/v1/escalation_policies/:escalation_policy_id/escalation_rules/:id"
@@ -394,7 +424,7 @@
           {
             "style": "url",
             "type": "string",
-            "displayName": "ID of the Escalation Policy",
+            "displayName": "ID of the escalation policy",
             "name": ":escalation_policy_id",
             "required": "true"
           },
@@ -491,13 +521,19 @@
             "style": "query",
             "type": "string",
             "name": "urgency",
-            "displayName": "List of the urgencies of the incidents to be returned"
+            "displayName": "Comma-separated list of the urgencies of the incidents to be returned"
           },
           {
             "style": "query",
-            "type": "time zone",
+            "type": "TimeZone",
             "name": "time_zone",
             "displayName": "Time zone in which dates in the result will be rendered (defaults to UTC)"
+          },
+          {
+            "style": "query",
+            "type": "string",
+            "name": "sort_by",
+            "displayName": "Sort by the most-recently-created incidents, to sort incidents by urgency, and secondarily sort by incident_number"
           }
         ],
         "url": "https://:subdomain.pagerduty.com/api/v1/incidents"
@@ -514,7 +550,7 @@
             "style": "url",
             "type": "string",
             "name": ":id",
-            "displayName": "Accepts incident id or an incident number",
+            "displayName": "ID of the incident or an incident number",
             "required": "true"
           }
         ],
@@ -532,13 +568,13 @@
             "style": "query",
             "type": "date",
             "name": "since",
-            "displayName": "Start of the date range over which you want to search"
+            "displayName": "The start of the date range over which you want to search"
           },
           {
             "style": "query",
             "type": "date",
             "name": "until",
-            "displayName": "End of the date range over which you want to search"
+            "displayName": "The end of the date range over which you want to search"
           },
           {
             "style": "query",
@@ -568,7 +604,7 @@
             "style": "query",
             "type": "string",
             "name": "teams",
-            "displayName": "Team IDs, specifying teams whose maintenance windows will be returned"
+            "displayName": "A comma-separated list of team IDs, specifying teams whose maintenance windows will be returned"
           },
           {
             "style": "query",
@@ -646,7 +682,7 @@
             "style": "body",
             "type": "string",
             "name": "requester_id",
-            "displayName": "User id of the user making the request"
+            "displayName": "The user id of the user making the request"
           },
           {
             "style": "body",
@@ -688,13 +724,13 @@
             "style": "body",
             "type": "string",
             "name": "requester_id",
-            "displayName": "User id of the user making the request"
+            "displayName": "User id of the user making the request, this user's name will be added to the incident log entry"
           },
           {
             "style": "body",
             "type": "integer",
             "name": "duration",
-            "displayName": "Duration of the snooze",
+            "displayName": "The number of seconds to snooze the incident for",
             "required": "true"
           }
         ],
@@ -702,7 +738,7 @@
       },
       {
         "path": "/incidents/:incident_id/notes",
-        "displayName": "Get existing notes for the specified incident.",
+        "displayName": "Get existing notes for the specified incident",
         "doc": {
           "url": "https://:subdomain.pagerduty.com/api/v1/incidents/:incident_id/notes"
         },
@@ -719,10 +755,10 @@
         "url": "https://:subdomain.pagerduty.com/api/v1/incidents/:incident_id/notes"
       },
       {
-        "path": "/incidents/:incident_id/note",
+        "path": "/incidents/:incident_id/notes",
         "displayName": "Create a new note for the specified incident",
         "doc": {
-          "url": "https://:subdomain.pagerduty.com/api/v1/incidents/:incident_id/note"
+          "url": "https://:subdomain.pagerduty.com/api/v1/incidents/:incident_id/notes"
         },
         "httpMethod": "POST",
         "params": [
@@ -736,24 +772,24 @@
           {
             "style": "body",
             "type": "object",
-            "displayName": "Note object that includes the new note parameter",
+            "displayName": "The note object that includes the new note parameter",
             "name": "note",
             "required": "true"
           },
           {
             "style": "body",
             "type": "string",
-            "displayName": "The note content",
-            "name": "content"
+            "displayName": "The user id of the user making the request",
+            "name": "requester_id"
           },
           {
             "style": "body",
             "type": "string",
-            "displayName": "User id of the user making the request",
-            "name": "requester_id"
+            "displayName": "The note content",
+            "name": "content"
           }
         ],
-        "url": "https://:subdomain.pagerduty.com/api/v1/incidents/:incident_id/note"
+        "url": "https://:subdomain.pagerduty.com/api/v1/incidents/:incident_id/notes"
       },
       {
         "path": "/log_entries",
@@ -765,26 +801,26 @@
         "params": [
           {
             "style": "query",
-            "type": "time_zone",
-            "displayName": "Time zone in the dates of the result (Defaults to UTC)",
+            "type": "TimeZone",
+            "displayName": "Time zone in the dates in the result will be rendered (Defaults to UTC)",
             "name": "time_zone"
           },
           {
             "style": "query",
             "type": "date",
-            "displayName": "Start of the date range over which you want to search",
+            "displayName": "The start of the date range over which you want to search",
             "name": "since"
           },
           {
             "style": "query",
             "type": "date",
-            "displayName": "End of the date range over which you want to search",
+            "displayName": "The end of the date range over which you want to search",
             "name": "until"
           },
           {
             "style": "query",
             "type": "boolean",
-            "displayName": "If true, will only return log entries of type trigger, acknowledge, or resolve (Defaults to false)",
+            "displayName": "If true, will only return log entries of type trigger, acknowledge, or resolve",
             "name": "is_overview"
           },
           {
@@ -813,42 +849,42 @@
           },
           {
             "style": "query",
-            "type": "time_zone",
-            "displayName": "Time zone in the dates of the result (Defaults to UTC)",
+            "type": "TimeZone",
+            "displayName": "Time zone in the dates of the result will be rendered (Defaults to UTC)",
             "name": "time_zone"
           },
           {
             "style": "query",
             "type": "date",
-            "displayName": "Start of the date range over which you want to search",
+            "displayName": "The start of the date range over which you want to search",
             "name": "since"
           },
           {
             "style": "query",
             "type": "date",
-            "displayName": "End of the date range over which you want to search",
+            "displayName": "The end of the date range over which you want to search",
             "name": "until"
           },
           {
             "style": "query",
             "type": "boolean",
-            "displayName": "If true, will only return log entries of type trigger, acknowledge, or resolve (Defaults to false)",
+            "displayName": "If true, will only return log entries of type trigger, acknowledge, or resolve",
             "name": "is_overview"
           },
           {
             "style": "query",
             "type": "array",
-            "displayName": "Array of additional details to include. This API accepts channel, incident, & service",
+            "displayName": "Array of additional details to include (this API accepts channel, incident, & service)",
             "name": "include"
           }
         ],
         "url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/log_entries"
       },
       {
-        "path": "/:incident_id/log_entries",
+        "path": "/incidents/:incident_id/log_entries",
         "displayName": "Get all incident log entries for a specific incident",
         "doc": {
-          "url": "https://:subdomain.pagerduty.com/api/v1/users/:incident_id/log_entries"
+          "url": "https://:subdomain.pagerduty.com/api/v1/users/incidents/:incident_id/log_entries"
         },
         "httpMethod": "GET",
         "params": [
@@ -861,36 +897,36 @@
           },
           {
             "style": "query",
-            "type": "time_zone",
-            "displayName": "Time zone in the dates of the result (Defaults to UTC)",
+            "type": "TimeZone",
+            "displayName": "Time zone in the dates of the result will be rendered (Defaults to UTC)",
             "name": "time_zone"
           },
           {
             "style": "query",
             "type": "date",
-            "displayName": "Start of the date range over which you want to search",
+            "displayName": "The start of the date range over which you want to search",
             "name": "since"
           },
           {
             "style": "query",
             "type": "date",
-            "displayName": "End of the date range over which you want to search",
+            "displayName": "The end of the date range over which you want to search",
             "name": "until"
           },
           {
             "style": "query",
             "type": "boolean",
-            "displayName": "If true, will only return log entries of type trigger, acknowledge, or resolve (Defaults to false)",
+            "displayName": "If true, will only return log entries of type trigger, acknowledge, or resolve",
             "name": "is_overview"
           },
           {
             "style": "query",
             "type": "array",
-            "displayName": "Array of additional details to include. This API accepts channel, incident, & service",
+            "displayName": "Array of additional details to include (this API accepts channel, incident, & service)",
             "name": "include"
           }
         ],
-        "url": "https://:subdomain.pagerduty.com/api/v1/users/:incident_id/log_entries"
+        "url": "https://:subdomain.pagerduty.com/api/v1/users/incidents/:incident_id/log_entries"
       },
       {
         "path": "/log_entries/:id",
@@ -909,63 +945,15 @@
           },
           {
             "style": "query",
+            "type": "TimeZone",
+            "displayName": "Time zone in which dates in the result will be rendered",
+            "name": "time_zone"
+          },
+          {
+            "style": "query",
             "type": "array",
-            "displayName": "Array of additional details to include. Accepts channel, incident, & service",
+            "displayName": "Array of additional details to include (Accepts channel, incident, & service)",
             "name": "include"
-          },
-          {
-            "style": "query",
-            "type": "string",
-            "displayName": "ID of the log entry",
-            "name": "id"
-          },
-          {
-            "style": "query",
-            "type": "date",
-            "displayName": "Time at which the log entry was created",
-            "name": "created_at"
-          },
-          {
-            "style": "query",
-            "type": "string",
-            "displayName": "The type of the log entry, will be one of the above types",
-            "name": "type"
-          },
-          {
-            "style": "query",
-            "type": "object",
-            "displayName": "Polymorphic object representation of the performer of this action",
-            "name": "agent"
-          },
-          {
-            "style": "query",
-            "type": "object",
-            "displayName": "Polymorphic object representation of the means by which the action was channeled",
-            "name": "channel"
-          },
-          {
-            "style": "query",
-            "type": "integer",
-            "displayName": "Field containing an action note, if one was included with the action",
-            "name": "note"
-          },
-          {
-            "style": "query",
-            "type": "object",
-            "name": "assigned_user",
-            "displayName": "Assign & escalate log entries to the user to which the incident is assigned"
-          },
-          {
-            "style": "query",
-            "type": "object",
-            "name": "contexts",
-            "displayName": "Contexts to be included with the incident trigger such as links to graphs or images"
-          },
-          {
-            "style": "query",
-            "type": "string",
-            "displayName": "Foursquare",
-            "name": "foursquare"
           }
         ],
         "url": "https://:subdomain.pagerduty.com/api/v1/log_entries/:id"
@@ -982,7 +970,7 @@
             "style": "query",
             "type": "string",
             "name": "query",
-            "displayName": "Filters the results, showing only the maintenance windows whose descriptions contain the query"
+            "displayName": "Filters the result"
           },
           {
             "style": "query",
@@ -1023,7 +1011,7 @@
             "style": "url",
             "type": "string",
             "name": ":id",
-            "displayName": "ID of a existing maintenance window",
+            "displayName": "ID of maintenance window",
             "required": "true"
           },
           {
@@ -1097,7 +1085,7 @@
             "style": "url",
             "type": "string",
             "name": ":id",
-            "displayName": "ID of an existing maintenance window",
+            "displayName": "ID of maintenance window",
             "required": "true"
           },
           {
@@ -1139,7 +1127,7 @@
             "style": "url",
             "type": "string",
             "name": ":id",
-            "displayName": "ID of the maintenance window",
+            "displayName": "ID of maintenance window",
             "required": "true"
           }
         ],
@@ -1163,14 +1151,14 @@
           {
             "style": "query",
             "type": "date",
-            "displayName": "End of the date range over which you want to search.",
+            "displayName": "End of the date range over which you want to search",
             "name": "until",
             "required": "true"
           },
           {
             "style": "query",
             "type": "string",
-            "displayName": "Specifies the bucket duration for each summation, the possible values are daily, weekly or monthly (defaults to monthly)",
+            "displayName": "Specifies the bucket duration for each summation (the possible values are daily, weekly or monthly)",
             "name": "rollup"
           }
         ],
@@ -1201,7 +1189,7 @@
           {
             "style": "query",
             "type": "string",
-            "displayName": "Specifies the bucket duration for each summation, the possible values are daily, weekly or monthly (defaults to monthly)",
+            "displayName": "Specifies the bucket duration for each summation (the possible values are daily, weekly or monthly)",
             "name": "rollup"
           }
         ],
@@ -1219,7 +1207,7 @@
             "style": "query",
             "type": "string",
             "name": "query",
-            "displayName": "Filters the result, showing only the schedules whose name matches the query"
+            "displayName": "Filters the result"
           },
           {
             "style": "query",
@@ -1259,7 +1247,7 @@
           },
           {
             "style": "query",
-            "type": "time zone",
+            "type": "TimeZone",
             "displayName": "Time zone in which dates in the result will be rendered (defaults to account time zone)",
             "name": "time_zone"
           }
@@ -1308,7 +1296,7 @@
             "style": "body",
             "type": "boolean",
             "name": "overflow",
-            "displayName": "Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter overflow=true is passed"
+            "displayName": "Any on-call schedule entries that pass the date range bounds will be truncated at the bounds (unless the parameter overflow=true is passed)"
           },
           {
             "style": "body",
@@ -1325,7 +1313,7 @@
           },
           {
             "style": "body",
-            "type": "time zone",
+            "type": "TimeZone",
             "name": "time_zone",
             "displayName": "The time zone of the schedule",
             "required": "true"
@@ -1418,7 +1406,7 @@
             "style": "body",
             "type": "boolean",
             "name": "overflow",
-            "displayName": "Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter overflow=true is passed"
+            "displayName": "Any on-call schedule entries that pass the date range bounds will be truncated at the bounds (unless the parameter overflow=true is passed)"
           },
           {
             "style": "body",
@@ -1435,7 +1423,7 @@
           },
           {
             "style": "body",
-            "type": "time zone",
+            "type": "TimeZone",
             "name": "time_zone",
             "displayName": "The time zone of the schedule",
             "required": "true"
@@ -1458,7 +1446,7 @@
             "style": "body",
             "type": "date",
             "name": "end",
-            "displayName": "The end time of this layer. If null, the layer does not end"
+            "displayName": "The end time of this layer (If null, the layer does not end)"
           },
           {
             "style": "body",
@@ -1544,7 +1532,7 @@
           },
           {
             "style": "body",
-            "type": "time zone",
+            "type": "TimeZone",
             "name": "time_zone",
             "displayName": "The time zone of the schedule",
             "required": "true"
@@ -1679,7 +1667,7 @@
           },
           {
             "style": "query",
-            "type": "time zone",
+            "type": "TimeZone",
             "displayName": "Time zone in which dates in the result will be rendered (Defaults to account time zone)",
             "name": "time_zone"
           },
@@ -1704,7 +1692,7 @@
             "style": "url",
             "type": "string",
             "name": ":schedule_id",
-            "displayName": "ID of the schedule override(s)",
+            "displayName": "ID of schedule override(s)",
             "required": "true"
           },
           {
@@ -1730,7 +1718,7 @@
           {
             "style": "query",
             "type": "boolean",
-            "displayName": "Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter overflow=true is passed",
+            "displayName": "Any on-call schedule entries that pass the date range bounds will be truncated at the bounds (unless the parameter overflow=true is passed)",
             "name": "overflow"
           }
         ],
@@ -1748,20 +1736,20 @@
             "style": "url",
             "type": "string",
             "name": ":schedule_id",
-            "displayName": "ID of the schedule override(s)",
+            "displayName": "ID of schedule override(s)",
             "required": "true"
           },
           {
             "style": "query",
             "type": "date",
-            "displayName": "Start date and time for the override.",
+            "displayName": "Start date and time for the override",
             "name": "start",
             "required": "true"
           },
           {
             "style": "query",
             "type": "date",
-            "displayName": "End date and time for the override.",
+            "displayName": "End date and time for the override",
             "name": "end",
             "required": "true"
           },
@@ -1787,14 +1775,14 @@
             "style": "url",
             "type": "string",
             "name": ":schedule_id",
-            "displayName": "ID of the schedule override(s)",
+            "displayName": "ID of schedule override(s)",
             "required": "true"
           },
           {
             "style": "url",
             "type": "string",
             "name": ":id",
-            "displayName": "ID of the override",
+            "displayName": "ID of override",
             "required": "true"
           }
         ],
@@ -1818,18 +1806,18 @@
             "style": "query",
             "type": "array",
             "displayName": "Include extra info (Possible values are escalation_policy, email_filters, & teams)",
-            "name": "count"
+            "name": "include"
           },
           {
             "style": "query",
-            "type": "time zone",
+            "type": "TimeZone",
             "displayName": "Time zone in which dates in the result will be rendered",
             "name": "time_zone"
           },
           {
             "style": "query",
             "type": "string",
-            "displayName": "Filters the result, showing only the services whose name or service_key matches the query",
+            "displayName": "Filters the result",
             "name": "query"
           },
           {
@@ -1903,7 +1891,7 @@
           {
             "style": "body",
             "type": "string",
-            "displayName": "A description for your service. (Max of 1024 characters)",
+            "displayName": "A description for your service (Max of 1024 characters)",
             "name": "description"
           },
           {
@@ -1952,7 +1940,7 @@
             "style": "url",
             "type": "string",
             "name": ":id",
-            "displayName": "ID of the existing service",
+            "displayName": "ID of existing service",
             "required": "true"
           },
           {
@@ -1972,12 +1960,6 @@
             "type": "string",
             "displayName": "The id of the escalation policy to be used by this service",
             "name": "escalation_policy_id"
-          },
-          {
-            "style": "body",
-            "type": "string",
-            "displayName": "Min Id",
-            "name": "min_id"
           },
           {
             "style": "body",
@@ -2024,7 +2006,7 @@
             "style": "url",
             "type": "string",
             "name": ":id",
-            "displayName": "ID of the existing service",
+            "displayName": "ID of existing service",
             "required": "true"
           }
         ],
@@ -2224,11 +2206,11 @@
             "style": "query",
             "type": "string",
             "name": "query",
-            "displayName": "Filters the result, showing only the users whose names or email addresses match the query"
+            "displayName": "Filters the result"
           },
           {
             "style": "query",
-            "type": "object",
+            "type": "array",
             "displayName": "Array of additional details to include (This API accepts contact_methods, and notification_rules)",
             "name": "include"
           }
@@ -2319,7 +2301,7 @@
           },
           {
             "style": "query",
-            "type": "time zone",
+            "type": "TimeZone",
             "displayName": "Time zone the user is in",
             "name": "time_zone"
           },
@@ -2373,7 +2355,7 @@
           },
           {
             "style": "body",
-            "type": "time zone",
+            "type": "TimeZone",
             "displayName": "Time zone the user is in",
             "name": "time_zone"
           }
@@ -2410,7 +2392,7 @@
             "style": "url",
             "type": "string",
             "name": ":user_id",
-            "displayName": "User ID",
+            "displayName": "The user ID",
             "required": "true"
           }
         ],
@@ -2428,14 +2410,14 @@
             "style": "url",
             "type": "string",
             "name": ":user_id",
-            "displayName": "User ID",
+            "displayName": "The user ID",
             "required": "true"
           },
           {
             "style": "url",
             "type": "string",
-            "name": ":user_id",
-            "displayName": "ID of the contact methods",
+            "name": ":id",
+            "displayName": "ID of contact methods",
             "required": "true"
           }
         ],
@@ -2516,7 +2498,7 @@
           {
             "style": "body",
             "type": "string",
-            "displayName": "Address of the contact method (for SMS & phone it is the number, & for email it is the email address)",
+            "displayName": "ID of the contact method (for SMS & phone it is the number, & for email it is the email address)",
             "name": "address"
           },
           {
@@ -2666,15 +2648,13 @@
             "style": "body",
             "type": "integer",
             "displayName": "Number of minutes it will take for the notification rule to be activated (from the time the incident is assigned to the owning user) & an alert be fired",
-            "name": "start_delay_in_minutes",
-            "required": "true"
+            "name": "start_delay_in_minutes"
           },
           {
             "style": "body",
             "type": "string",
             "displayName": "ID of the contact method",
-            "name": "contact_method_id",
-            "required": "true"
+            "name": "contact_method_id"
           }
         ],
         "url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/notification_rules/:id"
@@ -2716,7 +2696,7 @@
             "style": "query",
             "type": "string",
             "name": "query",
-            "displayName": "Filters the result, showing only the users whose names or email addresses match the query"
+            "displayName": "Filters the result"
           },
           {
             "style": "query",
@@ -2729,7 +2709,7 @@
       },
       {
         "path": "/teams",
-        "displayName": "Get a list of existing teams",
+        "displayName": "Get existing teams",
         "doc": {
           "url": "https://:subdomain.pagerduty.com/api/v1/teams"
         },
@@ -2739,7 +2719,7 @@
             "style": "query",
             "type": "string",
             "name": "query",
-            "displayName": "Filters the result, showing only the teams whose names match the query"
+            "displayName": "Filters the result"
           }
         ],
         "url": "https://:subdomain.pagerduty.com/api/v1/teams"
