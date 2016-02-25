@@ -1,7 +1,7 @@
 {
   "_id": "powershell-connector",
   "category": "device",
-  "categories":["Productivity"],
+  "categories":["System Utility"],
   "description": "Powershell",
   "documentation": "https://meshblu-connectors.readme.io/docs/powershell",
   "helpText": "Run Powershell scripts through Gateblu",
