@@ -1,0 +1,16 @@
+{
+  "_id": "device-midi",
+  "category": "device",
+  "categories":["Maker"],
+  "description": "Midi connector for Octoblu",
+  "documentation": "https://meshblu-connectors.readme.io/docs/osc",
+  "helpText": "Send midi messages to Octoblu.",
+  "enabled": true,
+  "name": "Midi",
+  "skynet": {
+    "type": "device",
+    "subtype": "midi"
+  },
+  "connector": "meshblu-midi",
+  "type": "device:midi"
+}

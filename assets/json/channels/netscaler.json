@@ -19,14 +19,14 @@
       "displayName": "Username",
       "style": "header",
       "type": "string",
-      "name": ":username",
+      "name": "username",
       "required": true
     },
     {
       "displayName": "Password",
       "style": "header",
       "type": "string",
-      "name": ":password",
+      "name": "password",
       "required": true
     }
   ],

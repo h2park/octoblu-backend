@@ -58,7 +58,6 @@ gulp.task('watch', ['default', 'mangle-operations'], function() {
   nodemon({
     script : 'server.js',
     ext : 'js json coffee',
-    watch : ['server.js', 'app/*', 'config/*', 'assets/*'],
-    env: { 'NODE_ENV': 'development' }
+    watch : ['server.js', 'app/*', 'config/*', 'assets/*']
   });
 });
