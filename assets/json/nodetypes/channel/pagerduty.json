@@ -1,0 +1,17 @@
+{
+  "_id": "56cde5eb1051ff5cb93b64c3",
+  "deviceId": "62fbb926-63a1-4cea-84ee-1d6301c0ec90",
+  "category": "channel",
+  "categories": ["Productivity"],
+  "description": "PagerDuty is a \"9-1-1 dispatch\" system which helps IT Operations and DevOps engineers resolve problems with their IT systems as quickly as possible",
+  "documentation": "https://developer.pagerduty.com/",
+  "helpText": "PagerDuty is a \"9-1-1 dispatch\" system which helps IT Operations and DevOps engineers resolve problems with their IT systems as quickly as possible.",
+  "enabled": true,
+  "name": "PagerDuty",
+  "skynet": {
+    "subtype": "PagerDuty",
+    "type": "channel"
+  },
+  "channelid": "56cde5f51051ff5cb93b64c4",
+  "type": "channel:pagerduty"
+}

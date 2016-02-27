@@ -4,7 +4,7 @@
   "categories":["Maker"],
   "description": "CC3200 Launchpad",
   "helpText": "A wireless MCU that integrates a high-performance ARM® Cortex®-M4 MCU allowing customers to develop an entire application with a single IC. The board features on-board emulation using FTDI and includes sensors for a full out-of-the-box experience.",
-  "enabled": true,
+  "enabled": false,
   "name": "CC3200 Launchpad",
   "payloadOnly": true,
   "skynet": {

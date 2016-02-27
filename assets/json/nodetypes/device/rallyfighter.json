@@ -4,7 +4,7 @@
   "categories":["Connected Car"],
   "description": "Local Motors Rally Fighter",
   "helpText": "The Local Motors Rally Fighter is the world's first open source, crowd funded car. Connect and control the internet connected car's doors, lights, and more.",
-  "enabled": true,
+  "enabled": false,
   "name": "Rally Fighter",
   "skynet": {
     "type": "device",

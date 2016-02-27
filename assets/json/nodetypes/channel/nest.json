@@ -5,7 +5,7 @@
   "categories": ["Facilities Automation"],
   "description": "",
   "documentation": "https://developer.nest.com/documentation",
-  "helpText": "Reinvents unloved but important home products, like the thermostat and the smoke alarm. Control the temerature remotely, monitor your home, automate setting the home/away status, and more.",
+  "helpText": "Nest reinvents unloved, but important home products. Products such as the Nest Thermostat, Nest Smoke+CO alarm, and Nest Cam provide a secure and connected home. Remotely control the temperature, monitor your home, automate home/away status settings, and more.",
   "enabled": true,
   "name": "Nest",
   "skynet": {

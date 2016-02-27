@@ -230,6 +230,10 @@ module.exports = function(app, passport, config, meshbluJSON){
     var XeroController = require('./controllers/xero-controller');
     var xeroController = new XeroController();
 
+    var ChannelPagerdutyController = require('./controllers/channel-pagerduty-controller');
+    var channelPagerdutyController = new ChannelPagerdutyController();
+
+
     app.post('/api/webhooks/:id', webhookController.trigger);
 
     require('./controllers/auth-controller')(app, passport, config);
@@ -245,6 +249,9 @@ module.exports = function(app, passport, config, meshbluJSON){
     require('./controllers/invitation')(app, passport, config);
 
     app.post('/api/channel/aws/channel/:id', channelAWSAuthController.create);
+
+    app.post('/api/channel/pagerduty/channel/:id', channelPagerdutyController.create);
+
     app.post('/api/channel/google-places/channel/:id', channelGooglePlacesController.create);
     app.post('/api/channel/basic/channel/:id', channelBasicAuthController.create);
     app.post('/api/channel/apikey/channel/:id', channelApiKeyController.create);
@@ -373,7 +380,6 @@ module.exports = function(app, passport, config, meshbluJSON){
 
     app.get('/api/oauth/rightsignature',          rightsignatureController.authorize);
     app.get('/api/oauth/rightsignature/callback', rightsignatureController.callback, rightsignatureController.redirectToConfigure);
-
 
     app.get('/api/oauth/salesforce',          salesForceController.authorize);
     app.get('/api/oauth/salesforce/callback', salesForceController.callback, salesForceController.redirectToConfigure);

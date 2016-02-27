@@ -48,6 +48,26 @@
       },
       {
         "httpMethod": "PATCH",
+        "path": "/devices/cameras/:device_id",
+        "displayName": "Update a camera",
+        "params": [
+          {
+            "name": "device_id",
+            "required": true,
+            "style": "url",
+            "type": "string",
+            "displayName": "Device ID"
+          },
+          {
+            "name": "is_streaming",
+            "style": "body",
+            "type": "boolean"
+          }
+        ],
+        "url": "https://developer-api.nest.com/devices/cameras/:device_id"
+      },
+      {
+        "httpMethod": "PATCH",
         "path": "/devices/thermostats/:device_id",
         "displayName": "Update a thermostat",
         "params": [

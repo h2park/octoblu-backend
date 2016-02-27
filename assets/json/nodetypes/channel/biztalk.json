@@ -7,7 +7,7 @@
   "documentation": "https://msdn.microsoft.com/en-us/library/azure/dn232347.aspx",
   "helpText": "Microsoft Azure BizTalk Services helps organizations integrate with disparate applications, both on cloud and on-premise to deliver solutions such as payment processing, supply chain management, business-to-business EDI, real-time decision making, and reporting.",
   "enabled": true,
-  "name": "Biztalk",
+  "name": "Microsoft Biztalk",
   "skynet": {
     "type": "channel",
     "subtype": "biztalk"
