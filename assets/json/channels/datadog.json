@@ -4,7 +4,6 @@
   "documentation": "http://docs.datadoghq.com/api/",
   "type": "channel:datadog",
   "enabled": true,
-  "defaultParams": [],
   "auth_strategy": "datadog",
   "isPassport": true,
   "oauth": {
