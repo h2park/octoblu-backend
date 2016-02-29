@@ -1,2369 +1,2369 @@
 {
-	"_id": "59243057pufsdh3453p49",
-	"name": "Datadog",
-	"documentation": "http://docs.datadoghq.com/api/",
-	"type": "channel:datadog",
-	"enabled": true,
-	"defaultParams": [],
-	"auth_strategy": "",
-	"isPassport": true,
-	"oauth": {
-		"development": {
-			"clientID": "",
-			"clientSecret": "",
-			"callbackURL": "",
-			"tokenMethod": ""
-		},
-		"staging": {
-			"clientID": "",
-			"clientSecret": "",
-			"callbackURL": "",
-			"tokenMethod": ""
-		},
-		"production": {
-			"clientID": "",
-			"clientSecret": "",
-			"callbackURL": "",
-			"tokenMethod": ""
-		}
-	},
-	"application": {
-		"base": "https://app.datadoghq.com/api/v1",
-		"resources": [{
-			"path": "/series",
-			"displayName": "Post time series points",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/series"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "body",
-				"type": "string",
-				"name": "metric",
-				"displayName": "The name of the time series",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "array",
-				"name": "points",
-				"displayName": "An array of points",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "host",
-				"displayName": "The name of the host that produced the metric"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "tags",
-				"displayName": "A list of tags associated with the metric"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/series"
-		}, {
-			"path": "/query",
-			"displayName": "Query time series points",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/query"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "query",
-				"type": "string",
-				"name": "start",
-				"displayName": "Seconds since the unix epoch",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "Seconds since the unix epoch",
-				"name": "end",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "The query string",
-				"name": "query",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/query"
-		}, {
-			"path": "/events",
-			"displayName": "Creates a new escalation policy",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/events"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "body",
-				"type": "string",
-				"name": "title",
-				"displayName": "The event title (Limited to 100 characters)",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "The body of the event (Limited to 4000 characters)",
-				"name": "text"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "POSIX timestamp of the event",
-				"name": "date_happened"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "The priority of the event ('normal' or 'low')",
-				"name": "priority",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "Host name to associate with the event",
-				"name": "host"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "A list of tags to apply to the event",
-				"name": "tags"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "Alert types ("error", "warning", "info" or "success")",
-				"name": "alert_type"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "An arbitrary string to use for aggregation (max length of 100 characters)",
-				"name": "aggregation_key"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "Type of event being posted (Options: nagios, hudson, jenkins, user, my apps, feed, chef, puppet, git, bitbucket, fabric, and capistrano)",
-				"name": "source_type_name"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/events"
-		}, {
-			"path": "/events/:event_id",
-			"displayName": "Get an event details",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/events/:event_id"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"displayName": "ID of the event",
-				"name": ":event_id",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/events/:event_id"
-		}, {
-			"path": "/events",
-			"displayName": "Query the event stream",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/events"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "query",
-				"type": "string",
-				"displayName": "Start of the POSIX timestamp",
-				"name": "start",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "End of the POSIX timestamp",
-				"name": "end",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "The priority of the event ('normal' or 'low')",
-				"name": "priority"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "A comma separated string of sources",
-				"name": "sources"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "A comma separated string of tags",
-				"name": "tags"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/events"
-		}, {
-			"path": "/check_run,
-			"displayName": "Posts a check run",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/check_run"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "body",
-				"type": "string",
-				"displayName": "The text for the message",
-				"name": "check",
-				"required": "true"
-			},{
-				"style": "body",
-				"type": "string",
-				"displayName": "The name of the host submitting the check",
-				"name": "host_name",
-				"required": "true"
-			},{
-				"style": "body",
-				"type": "integer",
-				"displayName": "An integer for the status of the check",
-				"name": "status",
-				"required": "true"
-			},{
-				"style": "body",
-				"type": "string",
-				"displayName": "POSIX timestamp of the event",
-				"name": "timestamp"
-			},{
-				"style": "body",
-				"type": "string",
-				"displayName": "A description of why this status occurred",
-				"name": "message"
-			},{
-				"style": "body",
-				"type": "string",
-				"displayName": "A list of key:val tags for this check",
-				"name": "tags"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/check_run"
-		}, {
-			"path": "/monitor",
-			"displayName": "Create a monitor",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/monitor"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "body",
-				"type": "string",
-				"displayName": "The type of the monitor (metric alert, service check, or event alert)",
-				"name": "type",
-				"required": "true"
-			},{
-				"style": "body",
-				"type": "string",
-				"displayName": "The monitor query to notify on with syntax varying depending on what type of monitor you are creating",
-				"name": "query",
-				"required": "true"
-			},{
-				"style": "body",
-				"type": "string",
-				"displayName": "The type of the monitor (metric alert, service check, or event alert)",
-				"name": "type",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/monitor"
-		}, {
-			"path": "/monitor/:monitor_id",
-			"displayName": "Get a monitor's details",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"displayName": "Monitor ID",
-				"name": ":monitor_id",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "A comma-separated string indicating what, if any, group states to include (Choose from 'all', 'alert', 'warn', or 'no data')",
-				"name": "group_states"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id"
-		}, {
-			"path": "/monitor/:monitor_id",
-			"displayName": "Edit a monitor",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id"
-			},
-			"httpMethod": "PUT",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"displayName": "Monitor ID",
-				"name": ":monitor_id",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "The metric query to alert on",
-				"name": "query",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "The name of the monitor",
-				"name": "name"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "A message to include with notifications for this monitor",
-				"name": "message"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "Refer to the create monitor documentation for details on the available options",
-				"name": "options"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "A list of tags to associate with your monitor",
-				"name": "tags"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id"
-		}, {
-			"path": "/monitor/:monitor_id",
-			"displayName": "Delete a monitor",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id"
-			},
-			"httpMethod": "DELETE",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"displayName": "Monitor ID",
-				"name": ":monitor_id",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id"
-		}, {
-			"path": "/monitor",
-			"displayName": "Get all monitor details",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/monitor"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "query",
-				"type": "string",
-				"displayName": "A comma-separated string indicating what, if any, group states to include (Choose from 'all', 'alert', 'warn', or 'no data')",
-				"name": "group_states"
-			},{
-				"style": "query",
-				"type": "string",
-				"displayName": "A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope",
-				"name": "tags"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/monitor"
-		}, {
-			"path": "/monitor/mute_all",
-			"displayName": "Mute all monitor",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/monitor/mute_all"
-			},
-			"httpMethod": "POST",
-			"params": [],
-			"url": "https://app.datadoghq.com/api/v1/monitor/mute_all"
-		}, {
-			"path": "/monitor/unmute_all",
-			"displayName": "Disables muting all monitors",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/monitor/unmute_all"
-			},
-			"httpMethod": "POST",
-			"params": [],
-			"url": "https://app.datadoghq.com/api/v1/monitor/unmute_all"
-		}, {
-			"path": "/monitor/:monitor_id/mute",
-			"displayName": "Mute a monitor",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1//monitor/:monitor_id/mute"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"displayName": "Monitor ID",
-				"name": ":monitor_id",
-				"required": "true"
-			},{
-				"style": "body",
-				"type": "string",
-				"name": "scope",
-				"displayName": "The scope to apply the mute to"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "end",
-				"displayName": "A POSIX timestamp for when the mute should end"
-			}],
-			"url": "https://app.datadoghq.com/api/v1//monitor/:monitor_id/mute"
-		}, {
-			"path": "/monitor/:monitor_id/unmute",
-			"displayName": "Unmute a monitor",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id/unmute"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":monitor_id",
-				"displayName": "Monitor ID",
-				"required": "true"
-			},{
-				"style": "body",
-				"type": "string",
-				"name": "scope",
-				"displayName": "The scope to apply the mute to"
-			}, {
-				"style": "body",
-				"type": "boolean",
-				"name": "all_scopes",
-				"displayName": "Clear muting across all scopes"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id/unmute"
-		}, {
-			"path": "/downtime",
-			"displayName": "Schedule monitor downtime",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/downtime"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "body",
-				"type": "string",
-				"name": "scope",
-				"displayName": "The scope to apply the downtime to"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "start",
-				"displayName": "POSIX timestamp to start the downtime"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "end",
-				"displayName": "POSIX timestamp to end the downtime"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "message",
-				"displayName": "A message to include with notifications for this downtime"
-			}, {
-				"style": "body",
-				"type": "object",
-				"name": "recurrence",
-				"displayName": "An object defining the recurrence of the downtime with a variety of parameters such as: type, period, week_days, and until_occurrences"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/downtime"
-		}, {
-			"path": "/downtime/:downtime_id",
-			"displayName": "Update monitor downtime",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/downtime/:downtime_id"
-			},
-			"httpMethod": "PUT",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":downtime_id",
-				"displayName": "Accepts incident id or an incident number",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "id",
-				"displayName": "The integer id of the downtime to be updated",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "scope",
-				"displayName": "POSIX timestamp to start"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "end",
-				"displayName": "POSIX timestamp to end the downtime"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "message",
-				"displayName": "A message to include with notifications for this downtime"
-			}, {
-				"style": "body",
-				"type": "object",
-				"name": "recurrence",
-				"displayName": "An object defining the recurrence of the downtime with a variety of params"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/downtime/:downtime_id"
-		}, {
-			"path": "/downtime/:downtime_id",
-			"displayName": "Cancel monitor downtime",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/downtime/:downtime_id"
-			},
-			"httpMethod": "DELETE",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":downtime_id",
-				"displayName": "Monitor downtime id",
-				"required": "true"
-			}, {
-				"style": "",
-				"type": "string",
-				"name": "id",
-				"displayName": "The integer id of the downtime to be canceled",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/downtime/:downtime_id"
-		}, {
-			"path": "/downtime/:downtime_id",
-			"displayName": "Get a monitor downtime",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/downtime/:downtime_id"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":downtime_id",
-				"displayName": "Monitor downtime id",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/downtime/:downtime_id"
-		}, {
-			"path": "/downtime",
-			"displayName": "Get all monitor downtimes",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/downtime"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "query",
-				"type": "string",
-				"name": "current_only",
-				"displayName": "Only return downtimes that are active when the request is made"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/downtime"
-		}, {
-			"path": "/dash",
-			"displayName": "Create a timeboard",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/dash"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "body",
-				"type": "string",
-				"name": "title",
-				"displayName": "The name of the dashboard",
-				"required": "true"
-			},{
-				"style": "body",
-				"type": "string",
-				"name": "description",
-				"displayName": "A description of the dashboard's content",
-				"required": "true"
-			},{
-				"style": "body",
-				"type": "string",
-				"name": "graphs",
-				"displayName": "A list of graph definitions",
-				"required": "true"
-			},{
-				"style": "body",
-				"type": "string",
-				"name": "graphs",
-				"displayName": "A list of graph definitions"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/dash"
-		}, {
-			"path": "/incidents/:incident_id/note",
-			"displayName": "Create a new note for the specified incident",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/incidents/:incident_id/note"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":incident_id",
-				"displayName": "The incident id",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "object",
-				"displayName": "Note object that includes the new note parameter",
-				"name": "note",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "The note content",
-				"name": "content"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "User id of the user making the request",
-				"name": "requester_id"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/incidents/:incident_id/note"
-		}, {
-			"path": "/log_entries",
-			"displayName": "Get all incident log entries across the entire account",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/log_entries"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "query",
-				"type": "time_zone",
-				"displayName": "Time zone in the dates of the result (Defaults to UTC)",
-				"name": "time_zone"
-			}, {
-				"style": "query",
-				"type": "date",
-				"displayName": "Start of the date range over which you want to search",
-				"name": "since"
-			}, {
-				"style": "query",
-				"type": "date",
-				"displayName": "End of the date range over which you want to search",
-				"name": "until"
-			}, {
-				"style": "query",
-				"type": "boolean",
-				"displayName": "If true, will only return log entries of type trigger, acknowledge, or resolve (Defaults to false)",
-				"name": "is_overview"
-			}, {
-				"style": "query",
-				"type": "array",
-				"displayName": "Array of additional details to include. This API accepts channel, incident, and service",
-				"name": "include"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/log_entries"
-		}, {
-			"path": "/users/:user_id/log_entries",
-			"displayName": "Get all incident log entries that describe interactions with a specific user",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/log_entries"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":user_id",
-				"displayName": "ID of the specific user",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "time_zone",
-				"displayName": "Time zone in the dates of the result (Defaults to UTC)",
-				"name": "time_zone"
-			}, {
-				"style": "query",
-				"type": "date",
-				"displayName": "Start of the date range over which you want to search",
-				"name": "since"
-			}, {
-				"style": "query",
-				"type": "date",
-				"displayName": "End of the date range over which you want to search",
-				"name": "until"
-			}, {
-				"style": "query",
-				"type": "boolean",
-				"displayName": "If true, will only return log entries of type trigger, acknowledge, or resolve (Defaults to false)",
-				"name": "is_overview"
-			}, {
-				"style": "query",
-				"type": "array",
-				"displayName": "Array of additional details to include. This API accepts channel, incident, & service",
-				"name": "include"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/log_entries"
-		}, {
-			"path": "/:incident_id/log_entries",
-			"displayName": "Get all incident log entries for a specific incident",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/users/:incident_id/log_entries"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":incident_id",
-				"displayName": "ID of the specific incident",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "time_zone",
-				"displayName": "Time zone in the dates of the result (Defaults to UTC)",
-				"name": "time_zone"
-			}, {
-				"style": "query",
-				"type": "date",
-				"displayName": "Start of the date range over which you want to search",
-				"name": "since"
-			}, {
-				"style": "query",
-				"type": "date",
-				"displayName": "End of the date range over which you want to search",
-				"name": "until"
-			}, {
-				"style": "query",
-				"type": "boolean",
-				"displayName": "If true, will only return log entries of type trigger, acknowledge, or resolve (Defaults to false)",
-				"name": "is_overview"
-			}, {
-				"style": "query",
-				"type": "array",
-				"displayName": "Array of additional details to include. This API accepts channel, incident, & service",
-				"name": "include"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/users/:incident_id/log_entries"
-		}, {
-			"path": "/log_entries/:id",
-			"displayName": "Get details for a specific incident log entry & also provides additional info you can use to get at raw event data",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/log_entries/:id"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":id",
-				"displayName": "ID of a specific incident log entry",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "array",
-				"displayName": "Array of additional details to include. Accepts channel, incident, & service",
-				"name": "include"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "ID of the log entry",
-				"name": "id"
-			}, {
-				"style": "query",
-				"type": "date",
-				"displayName": "Time at which the log entry was created",
-				"name": "created_at"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "The type of the log entry, will be one of the above types",
-				"name": "type"
-			}, {
-				"style": "query",
-				"type": "object",
-				"displayName": "Polymorphic object representation of the performer of this action",
-				"name": "agent"
-			}, {
-				"style": "query",
-				"type": "object",
-				"displayName": "Polymorphic object representation of the means by which the action was channeled",
-				"name": "channel"
-			}, {
-				"style": "query",
-				"type": "integer",
-				"displayName": "Field containing an action note, if one was included with the action",
-				"name": "note"
-			}, {
-				"style": "query",
-				"type": "object",
-				"name": "assigned_user",
-				"displayName": "Assign & escalate log entries to the user to which the incident is assigned"
-			}, {
-				"style": "query",
-				"type": "object",
-				"name": "contexts",
-				"displayName": "Contexts to be included with the incident trigger such as links to graphs or images"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "Foursquare",
-				"name": "foursquare"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/log_entries/:id"
-		}, {
-			"path": "/maintenance_windows",
-			"displayName": "Get existing maintenance windows, optionally filtered by service, or whether they are from the past, present or future",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/maintenance_windows"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "query",
-				"type": "string",
-				"name": "query",
-				"displayName": "Filters the results, showing only the maintenance windows whose descriptions contain the query"
-			}, {
-				"style": "query",
-				"type": "array",
-				"displayName": "An array of service IDs, specifying services whose maintenance windows will be returned",
-				"name": "service_ids"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "A comma-separated list of team IDs, specifying teams whose maintenance windows will be returned",
-				"name": "teams"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "Only return maintenance windows that are of this type (past, future, ongoing)",
-				"name": "filter"
-			}, {
-				"style": "query",
-				"type": "array",
-				"displayName": "Include extra info in the response",
-				"name": "include"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/maintenance_windows"
-		}, {
-			"path": "/maintenance_windows/:id",
-			"displayName": "Get details about an existing maintenance window",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/maintenance_windows/:id"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":id",
-				"displayName": "ID of a existing maintenance window",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "array",
-				"displayName": "Include extra info in the response",
-				"name": "include"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/maintenance_windows/:id"
-		}, {
-			"path": "/maintenance_windows",
-			"displayName": "Create a new maintenance window for the specified services (no new incidents for a service that is currently in maintenance)",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/maintenance_windows"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "body",
-				"type": "string",
-				"name": "requester_id",
-				"displayName": "User ID of the user creating the maintenance window"
-			}, {
-				"style": "body",
-				"type": "object",
-				"displayName": "The maintenance window object",
-				"name": "maintenance_window"
-			}, {
-				"style": "body",
-				"type": "date",
-				"displayName": "Maintenance window's start time",
-				"name": "start_time",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "date",
-				"name": "end_time",
-				"displayName": "Maintenance window's end time",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "A description for this maintenance window",
-				"name": "description"
-			}, {
-				"style": "body",
-				"type": "array",
-				"displayName": "The IDs of the services that are affected by this maintenance window",
-				"name": "service_ids",
-				"required": "true"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/maintenance_windows"
-		}, {
-			"path": "/maintenance_windows/:id",
-			"displayName": "Update an existing maintenance window",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/maintenance_windows/:id"
-			},
-			"httpMethod": "PUT",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":id",
-				"displayName": "ID of an existing maintenance window",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "date",
-				"displayName": "The maintenance window's start time",
-				"name": "start_time"
-			}, {
-				"style": "body",
-				"type": "date",
-				"displayName": "The maintenance window's end time",
-				"name": "end_time"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "Description for this maintenance window",
-				"name": "description"
-			}, {
-				"style": "body",
-				"type": "array",
-				"displayName": "Future services that are affected by this maintenance window",
-				"name": "service_ids"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/maintenance_windows/:id"
-		}, {
-			"path": "/maintenance_windows/:id",
-			"displayName": "Cancel or delete an existing maintenance window",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/maintenance_windows/:id"
-			},
-			"httpMethod": "DELETE",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":id",
-				"displayName": "ID of the maintenance window",
-				"required": "true"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/maintenance_windows/:id"
-		}, {
-			"path": "/reports/alerts_per_time",
-			"displayName": "Get high level statistics about the number of alerts (SMSes, phone calls & emails) sent for the desired time period, summed daily, weekly or monthly",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/reports/alerts_per_time"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "query",
-				"type": "date",
-				"name": "since",
-				"displayName": "Start of the date range over which you want to search",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "date",
-				"displayName": "End of the date range over which you want to search.",
-				"name": "until",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "Specifies the bucket duration for each summation, the possible values are daily, weekly or monthly (defaults to monthly)",
-				"name": "rollup"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/reports/alerts_per_time"
-		}, {
-			"path": "/reports/incidents_per_time/",
-			"displayName": "Get high level statistics about the number of incidents created for the desired time period, summed daily, weekly or monthly",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/reports/incidents_per_time/"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "query",
-				"type": "date",
-				"name": "since",
-				"displayName": "Start of the date range over which you want to search",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "date",
-				"displayName": "End of the date range over which you want to search.",
-				"name": "until",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "Specifies the bucket duration for each summation, the possible values are daily, weekly or monthly (defaults to monthly)",
-				"name": "rollup"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/reports/incidents_per_time/"
-		}, {
-			"path": "/schedules",
-			"displayName": "Get existing on-call schedules",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/schedules"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "query",
-				"type": "string",
-				"name": "query",
-				"displayName": "Filters the result, showing only the schedules whose name matches the query"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "User ID of the user making the request",
-				"name": "requester_id"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/schedules"
-		}, {
-			"path": "/schedules/:id",
-			"displayName": "Get detailed info about a schedule, including entries for each layer & sub-schedule",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/schedules/:id"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":id",
-				"displayName": "ID of the schedule",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "date",
-				"displayName": "Start of the date range over which you want to return on-call schedule entries & on-call schedule layers",
-				"name": "since"
-			}, {
-				"style": "query",
-				"type": "date",
-				"displayName": "End of the date range over which you want to return schedule entries and on-call schedule layers",
-				"name": "until"
-			}, {
-				"style": "query",
-				"type": "time zone",
-				"displayName": "Time zone in which dates in the result will be rendered (defaults to account time zone)",
-				"name": "time_zone"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/schedules/:id"
-		}, {
-			"path": "/schedules/:id/users",
-			"displayName": "Get all the users on-call in a given schedule for a given time range",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/schedules/:id/users"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":id",
-				"displayName": "Schedule ID",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "date",
-				"displayName": "Start of the date range over which you want to return on-call users",
-				"name": "since"
-			}, {
-				"style": "query",
-				"type": "date",
-				"displayName": "End time of the date range over which you want to return on-call users",
-				"name": "until"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/schedules/:id/users"
-		}, {
-			"path": "/schedules",
-			"displayName": "Create a new on-call schedule",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/schedules"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "body",
-				"type": "boolean",
-				"name": "overflow",
-				"displayName": "Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter overflow=true is passed"
-			}, {
-				"style": "body",
-				"type": "object",
-				"displayName": "The schedule object",
-				"name": "schedule"
-			}, {
-				"style": "body",
-				"type": "array",
-				"displayName": "A list of schedule layers",
-				"name": "schedule_layers",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "time zone",
-				"name": "time_zone",
-				"displayName": "The time zone of the schedule",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "The name of the schedule",
-				"name": "name",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "date",
-				"displayName": "The start time of this layer",
-				"name": "start",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "date",
-				"name": "end",
-				"displayName": "The end time of this layer. If null, the layer does not end"
-			}, {
-				"style": "body",
-				"type": "array",
-				"displayName": "The ordered list of users on this layer",
-				"name": "users",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "Specify the types of restriction (Either Daily or Weekly)",
-				"name": "restriction_type"
-			}, {
-				"style": "body",
-				"type": "array",
-				"name": "restrictions",
-				"displayName": "An array of restrictions for the layer which is a limit on which period of the day or week the schedule layer can accept events"
-			}, {
-				"style": "body",
-				"type": "date",
-				"displayName": "The effective start time of the layer",
-				"name": "rotation_virtual_start",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "integer",
-				"name": "priority",
-				"displayName": "Priority of the layer",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "integer",
-				"displayName": "Duration of each on-call shift in seconds",
-				"name": "rotation_turn_length_seconds",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "Name of the schedule layer",
-				"name": "name"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/schedules"
-		}, {
-			"path": "/schedules/:id",
-			"displayName": "Update an existing on-call schedule",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/schedules/:id"
-			},
-			"httpMethod": "PUT",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":id",
-				"displayName": "ID of an existing on-call schedule",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "boolean",
-				"name": "overflow",
-				"displayName": "Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter overflow=true is passed"
-			}, {
-				"style": "body",
-				"type": "object",
-				"displayName": "The schedule object",
-				"name": "schedule"
-			}, {
-				"style": "body",
-				"type": "array",
-				"displayName": "A list of schedule layers",
-				"name": "schedule_layers",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "time zone",
-				"name": "time_zone",
-				"displayName": "The time zone of the schedule",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "Name of the schedule",
-				"name": "name",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "date",
-				"displayName": "The start time of this layer",
-				"name": "start",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "date",
-				"name": "end",
-				"displayName": "The end time of this layer. If null, the layer does not end"
-			}, {
-				"style": "body",
-				"type": "array",
-				"displayName": "The ordered list of users on this layer",
-				"name": "users",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "Specify the types of restriction (Either Daily or Weekly)",
-				"name": "restriction_type"
-			}, {
-				"style": "body",
-				"type": "array",
-				"name": "restrictions",
-				"displayName": "An array of restrictions for the layer which is a limit on which period of the day or week the schedule layer can accept events"
-			}, {
-				"style": "body",
-				"type": "date",
-				"displayName": "The effective start time of the layer",
-				"name": "rotation_virtual_start",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "integer",
-				"name": "priority",
-				"displayName": "Priority of the layer",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "integer",
-				"displayName": "Duration of each on-call shift in seconds",
-				"name": "rotation_turn_length_seconds",
-				"required": "true"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/schedules/:id"
-		}, {
-			"path": "/schedules/preview",
-			"displayName": "Preview the configuration of an on-call schedule",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/schedules/preview"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "body",
-				"type": "date",
-				"displayName": "Start of the date range over which you want to return on-call schedule entries & on-call schedule layers",
-				"name": "since"
-			}, {
-				"style": "body",
-				"type": "date",
-				"displayName": "End of the date range over which you want to return on-call schedule entries and on-call schedule layers",
-				"name": "until"
-			}, {
-				"style": "body",
-				"type": "boolean",
-				"name": "overflow",
-				"displayName": "Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter overflow=true is passed"
-			}, {
-				"style": "body",
-				"type": "object",
-				"displayName": "The schedule object",
-				"name": "schedule"
-			}, {
-				"style": "body",
-				"type": "array",
-				"displayName": "A list of schedule layers",
-				"name": "schedule_layers",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "time zone",
-				"name": "time_zone",
-				"displayName": "The time zone of the schedule",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "Name of the schedule",
-				"name": "name",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "Unique ID of the schedule layer",
-				"name": "id"
-			}, {
-				"style": "body",
-				"type": "date",
-				"displayName": "The start time of this layer",
-				"name": "start",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "date",
-				"name": "end",
-				"displayName": "The end time of this layer. If null, the layer does not end"
-			}, {
-				"style": "body",
-				"type": "array",
-				"displayName": "The ordered list of users on this layer",
-				"name": "users",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "Specify the types of restriction (Either Daily or Weekly)",
-				"name": "restriction_type"
-			}, {
-				"style": "body",
-				"type": "array",
-				"name": "restrictions",
-				"displayName": "An array of restrictions for the layer which is a limit on which period of the day or week the schedule layer can accept events"
-			}, {
-				"style": "body",
-				"type": "date",
-				"displayName": "The effective start time of the layer",
-				"name": "rotation_virtual_start",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "integer",
-				"name": "priority",
-				"displayName": "Priority of the layer",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "integer",
-				"displayName": "Duration of each on-call shift in seconds",
-				"name": "rotation_turn_length_seconds",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "The name of the schedule layer",
-				"name": "name"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/schedules/preview"
-		}, {
-			"path": "/schedules/:id",
-			"displayName": "Delete an on-call schedule",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/schedules/:id"
-			},
-			"httpMethod": "DELETE",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":id",
-				"displayName": "ID of the on-call schedule",
-				"required": "true"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/schedules/:id"
-		}, {
-			"path": "/schedules/:id/entries",
-			"displayName": "Get schedule entries that are active for a given time range for a specified on-call schedule",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/schedules/:id/entries"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":id",
-				"displayName": "ID of the scheduled entries",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "date",
-				"displayName": "Start of the date range over which you want to return on-call schedule entries (3 months max)",
-				"name": "since",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "date",
-				"displayName": "End of the date range over which you want to return schedule entries",
-				"name": "until",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "boolean",
-				"displayName": "Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter overflow=true is passed",
-				"name": "overflow"
-			}, {
-				"style": "query",
-				"type": "time zone",
-				"displayName": "Time zone in which dates in the result will be rendered (Defaults to account time zone)",
-				"name": "time_zone"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "To filter the returned on-call schedule entries by a specific user",
-				"name": "user_id"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/schedules/:id/entries"
-		}, {
-			"path": "/schedules/:schedule_id/overrides",
-			"displayName": "Get overrides for a given time range",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/schedules/:schedule_id/overrides"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":schedule_id",
-				"displayName": "ID of the schedule override(s)",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "date",
-				"displayName": "Start time of the date range you want to retrieve override for (Max of 3 months)",
-				"name": "since",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "date",
-				"displayName": "End time of the date range you want to retrieve override for",
-				"name": "until",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "boolean",
-				"displayName": "If true, only editable overrides will be returned",
-				"name": "editable"
-			}, {
-				"style": "query",
-				"type": "boolean",
-				"displayName": "Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter overflow=true is passed",
-				"name": "overflow"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/schedules/:schedule_id/overrides"
-		}, {
-			"path": "/schedules/:schedule_id/overrides",
-			"displayName": "Create an override for a specific user covering the specified time range",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/schedules/:schedule_id/overrides"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":schedule_id",
-				"displayName": "ID of the schedule override(s)",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "date",
-				"displayName": "Start date and time for the override.",
-				"name": "start",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "date",
-				"displayName": "End date and time for the override.",
-				"name": "end",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "ID of the user who will be on call for the duration of the override",
-				"name": "user_id",
-				"required": "true"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/schedules/:schedule_id/overrides"
-		}, {
-			"path": "/schedules/:schedule_id/overrides/:id",
-			"displayName": "Remove an override",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/schedules/:schedule_id/overrides/:id"
-			},
-			"httpMethod": "DELETE",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":schedule_id",
-				"displayName": "ID of the schedule override(s)",
-				"required": "true"
-			}, {
-				"style": "url",
-				"type": "string",
-				"name": ":id",
-				"displayName": "ID of the override",
-				"required": "true"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/schedules/:schedule_id/overrides/:id"
-		}, {
-			"path": "/services",
-			"displayName": "Get list of existing services",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/services"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "query",
-				"type": "string",
-				"name": "teams",
-				"displayName": "A comma-separated list of team IDs"
-			}, {
-				"style": "query",
-				"type": "array",
-				"displayName": "Include extra info (Possible values are escalation_policy, email_filters, & teams)",
-				"name": "count"
-			}, {
-				"style": "query",
-				"type": "time zone",
-				"displayName": "Time zone in which dates in the result will be rendered",
-				"name": "time_zone"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "Filters the result, showing only the services whose name or service_key matches the query",
-				"name": "query"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "Used to specify both the field, name or id, you wish to sort the results on (defaults to name)",
-				"name": "sort_by"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/services"
-		}, {
-			"path": "/services/:id",
-			"displayName": "Get details about an existing service",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/services/:id"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":id",
-				"displayName": "ID of an existing service",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "array",
-				"displayName": "Include extra info in the response",
-				"name": "include"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/services/:id"
-		}, {
-			"path": "/services",
-			"displayName": "Create a new service",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/services"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "body",
-				"type": "string",
-				"name": "name",
-				"displayName": "The name of the service",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "ID of the escalation policy to be used by this service",
-				"name": "escalation_policy_id",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "Type of service to create (can be one of generic_email, generic_events_api, integration, keynote, nagios, pingdom or sql_monitor)",
-				"name": "type",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "vendor_id",
-				"displayName": "PagerDuty's internal vendor identifier for this service (will only be accepted if the service type is integration)"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "A description for your service. (Max of 1024 characters)",
-				"name": "description"
-			}, {
-				"style": "body",
-				"type": "integer",
-				"displayName": "Duration in seconds before an incidents acknowledged in this service become triggered again",
-				"name": "acknowledgement_timeout"
-			}, {
-				"style": "body",
-				"type": "integer",
-				"name": "auto_resolve_timeout",
-				"displayName": "Duration in seconds before a triggered incident auto-resolves itself (Defaults to 4 hours)"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "Specifies what severity levels will create a new open incident",
-				"name": "severity_filter"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "The service key for the service",
-				"name": "service_key",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "email_incident_creation",
-				"displayName": "One of only-if-no-open-incidents, on-new-email-subject, or on-new-email (Defaults to on-new-email)"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/services"
-		}, {
-			"path": "/services/:id",
-			"displayName": "Update an existing service",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/services/:id"
-			},
-			"httpMethod": "PUT",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":id",
-				"displayName": "ID of the existing service",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "The name of the service",
-				"name": "name"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "A description for the service",
-				"name": "description"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "The id of the escalation policy to be used by this service",
-				"name": "escalation_policy_id"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "Min Id",
-				"name": "min_id"
-			}, {
-				"style": "body",
-				"type": "integer",
-				"displayName": "Duration in seconds before an incidents acknowledged in this service become triggered again",
-				"name": "acknowledgement_timeout"
-			}, {
-				"style": "body",
-				"type": "integer",
-				"displayName": "Duration in seconds before a triggered incident auto-resolves itself",
-				"name": "auto_resolve_timeout"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "Specifies what severity levels will create a new open incident",
-				"name": "severity_filter"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "The service key for the service",
-				"name": "service_key"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "One of only-if-no-open-incidents, on-new-email-subject or on-new-email (Defaults to on-new-email)",
-				"name": "email_incident_creation"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/services/:id"
-		}, {
-			"path": "/services/:id",
-			"displayName": "Delete an existing service (Once deleted, it will not be accessible from the web UI & new incidents won't be able to be created for this service)",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/services/:id"
-			},
-			"httpMethod": "DELETE",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":id",
-				"displayName": "ID of the existing service",
-				"required": "true"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/services/:id"
-		}, {
-			"path": "/services/:id/disable",
-			"displayName": "Disable a service (Once disabled, it will not be able to create incidents until it is enabled again)",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/services/:id/disable"
-			},
-			"httpMethod": "PUT",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":id",
-				"displayName": "ID of service to disable",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "User ID of the user creating the maintenance window",
-				"name": "requester_id"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/services/:id/disable"
-		}, {
-			"path": "/services/:id/regenerate_key",
-			"displayName": "Regenerate a new service key for an existing service",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/services/:id/regenerate_key"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":id",
-				"displayName": "ID of service",
-				"required": "true"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/services/:id/regenerate_key"
-		}, {
-			"path": "/services/:service_id/email_filters",
-			"displayName": "Create a new Email Filter for the specified service",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/services/:service_id/email_filters"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":service_id",
-				"displayName": "ID of specified service",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "One of always, match, no-match, which, respectively, means to not filter the email trigger by subject, filter it if the email subject matches the given regex, or filter if it doesn't match the given regex",
-				"name": "subject_mode"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "The regex to be used when subject_mode is match or no-match",
-				"name": "subject_regex"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "One of always, match, no-match, which, respectively, means to not filter the email trigger by body, filter it if the body email matches the given regex, or filter if it doesn't match the given regex",
-				"name": "body_mode"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "The regex to be used when body_mode is match or no-match",
-				"name": "body_regex"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "One of always, match, no-match, which, respectively, means to not filter the email trigger by its from address, filter it if the email from address matches the given regex, or filter if it doesn't match the given regex",
-				"name": "from_email_mode"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "The regex to be used when from_email_mode is match or no-match",
-				"name": "from_email_regex"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/services/:service_id/email_filters"
-		}, {
-			"path": "/services/:service_id/email_filters/:id",
-			"displayName": "Update an existing Email Filter",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/services/:service_id/email_filters/:id"
-			},
-			"httpMethod": "PUT",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":service_id",
-				"displayName": "ID of specified service",
-				"required": "true"
-			}, {
-				"style": "url",
-				"type": "string",
-				"name": ":id",
-				"displayName": "ID of email filter",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "One of always, match, no-match, which, respectively, means to not filter the email trigger by subject, filter it if the email subject matches the given regex, or filter if it doesn't match the given regex",
-				"name": "subject_mode"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "The regex to be used when subject_mode is match or no-match",
-				"name": "subject_regex"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "One of always, match, no-match, which, respectively, means to not filter the email trigger by body, filter it if the body email matches the given regex, or filter if it doesn't match the given regex",
-				"name": "body_mode"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "The regex to be used when body_mode is match or no-match",
-				"name": "body_regex"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "One of always, match, no-match, which, respectively, means to not filter the email trigger by its from address, filter it if the email from address matches the given regex, or filter if it doesn't match the given regex",
-				"name": "from_email_mode"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "The regex to be used when from_email_mode is match or no-match",
-				"name": "from_email_regex"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/services/:service_id/email_filters/:id"
-		}, {
-			"path": "/services/:service_id/email_filters/:id",
-			"displayName": "Delete an existing Email Filter",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/services/:service_id/email_filters/:id"
-			},
-			"httpMethod": "DELETE",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":service_id",
-				"displayName": "ID of specified service",
-				"required": "true"
-			}, {
-				"style": "url",
-				"type": "string",
-				"name": ":id",
-				"displayName": "ID of email filter",
-				"required": "true"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/services/:service_id/email_filters/:id"
-		}, {
-			"path": "/users",
-			"displayName": "Get existing users",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/users"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "query",
-				"type": "string",
-				"name": "query",
-				"displayName": "Filters the result, showing only the users whose names or email addresses match the query"
-			}, {
-				"style": "query",
-				"type": "array",
-				"displayName": "Array of additional details to include (This API accepts contact_methods, and notification_rules)",
-				"name": "include"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/users"
-		}, {
-			"path": "/users/:id",
-			"displayName": "Get information about an existing user",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/users/:id"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":id",
-				"displayName": "ID of the user",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "array",
-				"displayName": "Array of additional details to include",
-				"name": "include"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/users/:id"
-		}, {
-			"path": "/users/:id/on_call",
-			"displayName": "Get info about an existing user with current on-call status",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/users/:id/on_call"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":id",
-				"displayName": "ID of the user",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "array",
-				"displayName": "Array of additional details to include",
-				"name": "include"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/users/:id/on_call"
-		}, {
-			"path": "/users",
-			"displayName": "Create a new user",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/users"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "body",
-				"type": "string",
-				"name": "role",
-				"displayName": "The user's role (can either be admin, user, or limited_user)"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "The name of the user",
-				"name": "name",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "The email of the user",
-				"name": "email",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "Job title of the user",
-				"name": "job_title"
-			}, {
-				"style": "query",
-				"type": "time zone",
-				"displayName": "Time zone the user is in",
-				"name": "time_zone"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "User id of the user creating the user",
-				"name": "requester_id"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/users"
-		}, {
-			"path": "/users/:id",
-			"displayName": "Update an existing user",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/users/:id"
-			},
-			"httpMethod": "PUT",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":id",
-				"displayName": "ID of the user",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "The user's role (can be admin, user, or limited_user)",
-				"name": "role"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "Name of the user",
-				"name": "name"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "Email of the user",
-				"name": "email"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "Job title of the user",
-				"name": "job_title"
-			}, {
-				"style": "body",
-				"type": "time zone",
-				"displayName": "Time zone the user is in",
-				"name": "time_zone"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/users/:id"
-		}, {
-			"path": "/users/:id",
-			"displayName": "Remove an existing user",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/users/:id"
-			},
-			"httpMethod": "DELETE",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":id",
-				"displayName": "ID of the user",
-				"required": "true"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/users/:id"
-		}, {
-			"path": "/users/:user_id/contact_methods",
-			"displayName": "Get existing contact methods for the specified user",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/contact_methods"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":user_id",
-				"displayName": "User ID",
-				"required": "true"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/contact_methods"
-		}, {
-			"path": "/users/:user_id/contact_methods/:id",
-			"displayName": "Get details for a contact method",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/contact_methods/:id"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":user_id",
-				"displayName": "User ID",
-				"required": "true"
-			}, {
-				"style": "url",
-				"type": "string",
-				"name": ":user_id",
-				"displayName": "ID of the contact methods",
-				"required": "true"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/contact_methods/:id"
-		}, {
-			"path": "/users/:user_id/contact_methods",
-			"displayName": "Create a new contact method for the specified user",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/contact_methods"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":user_id",
-				"displayName": "User ID",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "Type of the contact method (SMS, email or phone)",
-				"name": "type",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "Id of the contact method (For SMS & phone it is the number, & for email it is the email address)",
-				"name": "address",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "integer",
-				"displayName": "Number code for your country",
-				"name": "country_code"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "A human friendly label for the contact method (ie: 'Home Phone', 'Work Email', etc.)",
-				"name": "label"
-			}, {
-				"style": "body",
-				"type": "boolean",
-				"displayName": "If true, sends an abbreviated email message instead of the standard email output",
-				"name": "send_short_email"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/contact_methods"
-		}, {
-			"path": "/users/:user_id/contact_methods/:id",
-			"displayName": "Update an existing contact method",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/contact_methods/:id"
-			},
-			"httpMethod": "PUT",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":user_id",
-				"displayName": "User ID",
-				"required": "true"
-			}, {
-				"style": "url",
-				"type": "string",
-				"name": ":id",
-				"displayName": "ID of the contact method",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "Address of the contact method (for SMS & phone it is the number, & for email it is the email address)",
-				"name": "address"
-			}, {
-				"style": "body",
-				"type": "integer",
-				"displayName": "The number code for your country (Defaults to 1)",
-				"name": "country_code"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "A human friendly label for the contact method (ie: 'Home Phone', 'Work Email', etc.)",
-				"name": "label"
-			}, {
-				"style": "body",
-				"type": "boolean",
-				"displayName": "If true, sends an abbreviated email message instead of the standard email output",
-				"name": "send_short_email"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/contact_methods/:id"
-		}, {
-			"path": "/users/:user_id/contact_methods/:id",
-			"displayName": "Remove a contact method & any corresponding notification rules",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/contact_methods/:id"
-			},
-			"httpMethod": "DELETE",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":user_id",
-				"displayName": "User ID",
-				"required": "true"
-			}, {
-				"style": "url",
-				"type": "string",
-				"name": ":id",
-				"displayName": "ID of the contact method",
-				"required": "true"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/contact_methods/:id"
-		}, {
-			"path": "/users/:user_id/notification_rules",
-			"displayName": "Get existing notification rules for the specified user",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/notification_rules"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":user_id",
-				"displayName": "User ID",
-				"required": "true"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/notification_rules"
-		}, {
-			"path": "/users/:user_id/notification_rules/:id",
-			"displayName": "Get details for a notification rule",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/notification_rules/:id"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":user_id",
-				"displayName": "User ID",
-				"required": "true"
-			}, {
-				"style": "url",
-				"type": "string",
-				"name": ":id",
-				"displayName": "ID of the notification rule",
-				"required": "true"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/notification_rules/:id"
-		}, {
-			"path": "/users/:user_id/notification_rules",
-			"displayName": "Create a new notification rule for the specified user",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/notification_rules"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":user_id",
-				"displayName": "User ID",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "integer",
-				"displayName": "Number of minutes it will take for the notification rule to be activated (from the time the incident is assigned to the owning user) & an alert be fired",
-				"name": "start_delay_in_minutes",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "ID of the contact method",
-				"name": "contact_method_id",
-				"required": "true"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/notification_rules"
-		}, {
-			"path": "/users/:user_id/notification_rules/:id",
-			"displayName": "Update an existing notification rule",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/notification_rules/:id"
-			},
-			"httpMethod": "PUT",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":id",
-				"displayName": "ID of the notification rules",
-				"required": "true"
-			}, {
-				"style": "url",
-				"type": "string",
-				"name": ":user_id",
-				"displayName": "User ID",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "integer",
-				"displayName": "Number of minutes it will take for the notification rule to be activated (from the time the incident is assigned to the owning user) & an alert be fired",
-				"name": "start_delay_in_minutes",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "ID of the contact method",
-				"name": "contact_method_id",
-				"required": "true"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/notification_rules/:id"
-		}, {
-			"path": "/users/:user_id/notification_rules/:id",
-			"displayName": "Remove a notification rule",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/notification_rules/:id"
-			},
-			"httpMethod": "DELETE",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":id",
-				"displayName": "ID of the notification rules",
-				"required": "true"
-			}, {
-				"style": "url",
-				"type": "string",
-				"name": ":user_id",
-				"displayName": "User ID",
-				"required": "true"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/notification_rules/:id"
-		}, {
-			"path": "/users/on_call",
-			"displayName": "Get a list currently on-call users of your PagerDuty account, optionally filtered by a search query",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/users/on_call"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "query",
-				"type": "string",
-				"name": "query",
-				"displayName": "Filters the result, showing only the users whose names or email addresses match the query"
-			}, {
-				"style": "query",
-				"type": "array",
-				"displayName": "Array of additional details to include (this API accepts contact_methods, & notification_rules)",
-				"name": "include"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/users/on_call"
-		}, {
-			"path": "/teams",
-			"displayName": "Get a list of existing teams",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/teams"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "query",
-				"type": "string",
-				"name": "query",
-				"displayName": "Filters the result, showing only the teams whose names match the query"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/teams"
-		}, {
-			"path": "/teams",
-			"displayName": "Create a new team",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/teams"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "body",
-				"type": "string",
-				"name": "name",
-				"displayName": "The name of the team",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "A description of the team",
-				"name": "description"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/teams"
-		}, {
-			"path": "/teams/:id",
-			"displayName": "Get detailed info about a team",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/teams/:id"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":id",
-				"displayName": "Team ID",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "The name of the team",
-				"name": "name"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "A description of the team",
-				"name": "description"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/teams/:id"
-		}, {
-			"path": "/teams/:id",
-			"displayName": "Update a team",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/teams/:id"
-			},
-			"httpMethod": "PUT",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":id",
-				"displayName": "Team ID",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "The name of the team",
-				"name": "name"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "A description of the team",
-				"name": "description"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/teams/:id"
-		}, {
-			"path": "/teams/:id",
-			"displayName": "Delete a team",
-			"doc": {
-				"url": "https://:subdomain.pagerduty.com/api/v1/teams/:id"
-			},
-			"httpMethod": "DELETE",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":id",
-				"displayName": "Team ID",
-				"required": "true"
-			}],
-			"url": "https://:subdomain.pagerduty.com/api/v1/teams/:id"
-		}]
-	}
+  "_id": "59243057pufsdh3453p49",
+  "name": "Datadog",
+  "documentation": "http://docs.datadoghq.com/api/",
+  "type": "channel:datadog",
+  "enabled": true,
+  "defaultParams": [],
+  "auth_strategy": "",
+  "isPassport": true,
+  "oauth": {
+    "development": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    },
+    "staging": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    },
+    "production": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": "",
+      "tokenMethod": ""
+    }
+  },
+  "application": {
+    "base": "https://app.datadoghq.com/api/v1",
+    "resources": [{
+      "path": "/series",
+      "displayName": "Post time series points",
+      "doc": {
+        "url": "https://app.datadoghq.com/api/v1/series"
+      },
+      "httpMethod": "POST",
+      "params": [{
+        "style": "body",
+        "type": "string",
+        "name": "metric",
+        "displayName": "The name of the time series",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "array",
+        "name": "points",
+        "displayName": "An array of points",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "name": "host",
+        "displayName": "The name of the host that produced the metric"
+      }, {
+        "style": "body",
+        "type": "string",
+        "name": "tags",
+        "displayName": "A list of tags associated with the metric"
+      }],
+      "url": "https://app.datadoghq.com/api/v1/series"
+    }, {
+      "path": "/query",
+      "displayName": "Query time series points",
+      "doc": {
+        "url": "https://app.datadoghq.com/api/v1/query"
+      },
+      "httpMethod": "GET",
+      "params": [{
+        "style": "query",
+        "type": "string",
+        "name": "start",
+        "displayName": "Seconds since the unix epoch",
+        "required": "true"
+      }, {
+        "style": "query",
+        "type": "string",
+        "displayName": "Seconds since the unix epoch",
+        "name": "end",
+        "required": "true"
+      }, {
+        "style": "query",
+        "type": "string",
+        "displayName": "The query string",
+        "name": "query",
+        "required": "true"
+      }],
+      "url": "https://app.datadoghq.com/api/v1/query"
+    }, {
+      "path": "/events",
+      "displayName": "Creates a new escalation policy",
+      "doc": {
+        "url": "https://app.datadoghq.com/api/v1/events"
+      },
+      "httpMethod": "POST",
+      "params": [{
+        "style": "body",
+        "type": "string",
+        "name": "title",
+        "displayName": "The event title (Limited to 100 characters)",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "The body of the event (Limited to 4000 characters)",
+        "name": "text"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "POSIX timestamp of the event",
+        "name": "date_happened"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "The priority of the event ('normal' or 'low')",
+        "name": "priority",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "Host name to associate with the event",
+        "name": "host"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "A list of tags to apply to the event",
+        "name": "tags"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "Alert types (error, warning, info, success )",
+        "name": "alert_type"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "An arbitrary string to use for aggregation (max length of 100 characters)",
+        "name": "aggregation_key"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "Type of event being posted (Options: nagios, hudson, jenkins, user, my apps, feed, chef, puppet, git, bitbucket, fabric, and capistrano)",
+        "name": "source_type_name"
+      }],
+      "url": "https://app.datadoghq.com/api/v1/events"
+    }, {
+      "path": "/events/:event_id",
+      "displayName": "Get an event details",
+      "doc": {
+        "url": "https://app.datadoghq.com/api/v1/events/:event_id"
+      },
+      "httpMethod": "GET",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "displayName": "ID of the event",
+        "name": ":event_id",
+        "required": "true"
+      }],
+      "url": "https://app.datadoghq.com/api/v1/events/:event_id"
+    }, {
+      "path": "/events",
+      "displayName": "Query the event stream",
+      "doc": {
+        "url": "https://app.datadoghq.com/api/v1/events"
+      },
+      "httpMethod": "GET",
+      "params": [{
+        "style": "query",
+        "type": "string",
+        "displayName": "Start of the POSIX timestamp",
+        "name": "start",
+        "required": "true"
+      }, {
+        "style": "query",
+        "type": "string",
+        "displayName": "End of the POSIX timestamp",
+        "name": "end",
+        "required": "true"
+      }, {
+        "style": "query",
+        "type": "string",
+        "displayName": "The priority of the event ('normal' or 'low')",
+        "name": "priority"
+      }, {
+        "style": "query",
+        "type": "string",
+        "displayName": "A comma separated string of sources",
+        "name": "sources"
+      }, {
+        "style": "query",
+        "type": "string",
+        "displayName": "A comma separated string of tags",
+        "name": "tags"
+      }],
+      "url": "https://app.datadoghq.com/api/v1/events"
+    }, {
+      "path": "/check_run",
+      "displayName": "Posts a check run",
+      "doc": {
+        "url": "https://app.datadoghq.com/api/v1/check_run"
+      },
+      "httpMethod": "POST",
+      "params": [{
+        "style": "body",
+        "type": "string",
+        "displayName": "The text for the message",
+        "name": "check",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "The name of the host submitting the check",
+        "name": "host_name",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "integer",
+        "displayName": "An integer for the status of the check",
+        "name": "status",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "POSIX timestamp of the event",
+        "name": "timestamp"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "A description of why this status occurred",
+        "name": "message"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "A list of key:val tags for this check",
+        "name": "tags"
+      }],
+      "url": "https://app.datadoghq.com/api/v1/check_run"
+    }, {
+      "path": "/monitor",
+      "displayName": "Create a monitor",
+      "doc": {
+        "url": "https://app.datadoghq.com/api/v1/monitor"
+      },
+      "httpMethod": "POST",
+      "params": [{
+        "style": "body",
+        "type": "string",
+        "displayName": "The type of the monitor (metric alert, service check, or event alert)",
+        "name": "type",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "The monitor query to notify on with syntax varying depending on what type of monitor you are creating",
+        "name": "query",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "The type of the monitor (metric alert, service check, or event alert)",
+        "name": "type",
+        "required": "true"
+      }],
+      "url": "https://app.datadoghq.com/api/v1/monitor"
+    }, {
+      "path": "/monitor/:monitor_id",
+      "displayName": "Get a monitor's details",
+      "doc": {
+        "url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id"
+      },
+      "httpMethod": "GET",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "displayName": "Monitor ID",
+        "name": ":monitor_id",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "A comma-separated string indicating what, if any, group states to include (Choose from 'all', 'alert', 'warn', or 'no data')",
+        "name": "group_states"
+      }],
+      "url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id"
+    }, {
+      "path": "/monitor/:monitor_id",
+      "displayName": "Edit a monitor",
+      "doc": {
+        "url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id"
+      },
+      "httpMethod": "PUT",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "displayName": "Monitor ID",
+        "name": ":monitor_id",
+        "required": "true"
+      }, {
+        "style": "query",
+        "type": "string",
+        "displayName": "The metric query to alert on",
+        "name": "query",
+        "required": "true"
+      }, {
+        "style": "query",
+        "type": "string",
+        "displayName": "The name of the monitor",
+        "name": "name"
+      }, {
+        "style": "query",
+        "type": "string",
+        "displayName": "A message to include with notifications for this monitor",
+        "name": "message"
+      }, {
+        "style": "query",
+        "type": "string",
+        "displayName": "Refer to the create monitor documentation for details on the available options",
+        "name": "options"
+      }, {
+        "style": "query",
+        "type": "string",
+        "displayName": "A list of tags to associate with your monitor",
+        "name": "tags"
+      }],
+      "url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id"
+    }, {
+      "path": "/monitor/:monitor_id",
+      "displayName": "Delete a monitor",
+      "doc": {
+        "url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id"
+      },
+      "httpMethod": "DELETE",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "displayName": "Monitor ID",
+        "name": ":monitor_id",
+        "required": "true"
+      }],
+      "url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id"
+    }, {
+      "path": "/monitor",
+      "displayName": "Get all monitor details",
+      "doc": {
+        "url": "https://app.datadoghq.com/api/v1/monitor"
+      },
+      "httpMethod": "GET",
+      "params": [{
+        "style": "query",
+        "type": "string",
+        "displayName": "A comma-separated string indicating what, if any, group states to include (Choose from 'all', 'alert', 'warn', or 'no data')",
+        "name": "group_states"
+      }, {
+        "style": "query",
+        "type": "string",
+        "displayName": "A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope",
+        "name": "tags"
+      }],
+      "url": "https://app.datadoghq.com/api/v1/monitor"
+    }, {
+      "path": "/monitor/mute_all",
+      "displayName": "Mute all monitor",
+      "doc": {
+        "url": "https://app.datadoghq.com/api/v1/monitor/mute_all"
+      },
+      "httpMethod": "POST",
+      "params": [],
+      "url": "https://app.datadoghq.com/api/v1/monitor/mute_all"
+    }, {
+      "path": "/monitor/unmute_all",
+      "displayName": "Disables muting all monitors",
+      "doc": {
+        "url": "https://app.datadoghq.com/api/v1/monitor/unmute_all"
+      },
+      "httpMethod": "POST",
+      "params": [],
+      "url": "https://app.datadoghq.com/api/v1/monitor/unmute_all"
+    }, {
+      "path": "/monitor/:monitor_id/mute",
+      "displayName": "Mute a monitor",
+      "doc": {
+        "url": "https://app.datadoghq.com/api/v1//monitor/:monitor_id/mute"
+      },
+      "httpMethod": "POST",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "displayName": "Monitor ID",
+        "name": ":monitor_id",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "name": "scope",
+        "displayName": "The scope to apply the mute to"
+      }, {
+        "style": "body",
+        "type": "string",
+        "name": "end",
+        "displayName": "A POSIX timestamp for when the mute should end"
+      }],
+      "url": "https://app.datadoghq.com/api/v1//monitor/:monitor_id/mute"
+    }, {
+      "path": "/monitor/:monitor_id/unmute",
+      "displayName": "Unmute a monitor",
+      "doc": {
+        "url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id/unmute"
+      },
+      "httpMethod": "POST",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":monitor_id",
+        "displayName": "Monitor ID",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "name": "scope",
+        "displayName": "The scope to apply the mute to"
+      }, {
+        "style": "body",
+        "type": "boolean",
+        "name": "all_scopes",
+        "displayName": "Clear muting across all scopes"
+      }],
+      "url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id/unmute"
+    }, {
+      "path": "/downtime",
+      "displayName": "Schedule monitor downtime",
+      "doc": {
+        "url": "https://app.datadoghq.com/api/v1/downtime"
+      },
+      "httpMethod": "POST",
+      "params": [{
+        "style": "body",
+        "type": "string",
+        "name": "scope",
+        "displayName": "The scope to apply the downtime to"
+      }, {
+        "style": "body",
+        "type": "string",
+        "name": "start",
+        "displayName": "POSIX timestamp to start the downtime"
+      }, {
+        "style": "body",
+        "type": "string",
+        "name": "end",
+        "displayName": "POSIX timestamp to end the downtime"
+      }, {
+        "style": "body",
+        "type": "string",
+        "name": "message",
+        "displayName": "A message to include with notifications for this downtime"
+      }, {
+        "style": "body",
+        "type": "object",
+        "name": "recurrence",
+        "displayName": "An object defining the recurrence of the downtime with a variety of parameters such as: type, period, week_days, and until_occurrences"
+      }],
+      "url": "https://app.datadoghq.com/api/v1/downtime"
+    }, {
+      "path": "/downtime/:downtime_id",
+      "displayName": "Update monitor downtime",
+      "doc": {
+        "url": "https://app.datadoghq.com/api/v1/downtime/:downtime_id"
+      },
+      "httpMethod": "PUT",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":downtime_id",
+        "displayName": "Accepts incident id or an incident number",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "name": "id",
+        "displayName": "The integer id of the downtime to be updated",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "name": "scope",
+        "displayName": "POSIX timestamp to start"
+      }, {
+        "style": "body",
+        "type": "string",
+        "name": "end",
+        "displayName": "POSIX timestamp to end the downtime"
+      }, {
+        "style": "body",
+        "type": "string",
+        "name": "message",
+        "displayName": "A message to include with notifications for this downtime"
+      }, {
+        "style": "body",
+        "type": "object",
+        "name": "recurrence",
+        "displayName": "An object defining the recurrence of the downtime with a variety of params"
+      }],
+      "url": "https://app.datadoghq.com/api/v1/downtime/:downtime_id"
+    }, {
+      "path": "/downtime/:downtime_id",
+      "displayName": "Cancel monitor downtime",
+      "doc": {
+        "url": "https://app.datadoghq.com/api/v1/downtime/:downtime_id"
+      },
+      "httpMethod": "DELETE",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":downtime_id",
+        "displayName": "Monitor downtime id",
+        "required": "true"
+      }, {
+        "style": "",
+        "type": "string",
+        "name": "id",
+        "displayName": "The integer id of the downtime to be canceled",
+        "required": "true"
+      }],
+      "url": "https://app.datadoghq.com/api/v1/downtime/:downtime_id"
+    }, {
+      "path": "/downtime/:downtime_id",
+      "displayName": "Get a monitor downtime",
+      "doc": {
+        "url": "https://app.datadoghq.com/api/v1/downtime/:downtime_id"
+      },
+      "httpMethod": "GET",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":downtime_id",
+        "displayName": "Monitor downtime id",
+        "required": "true"
+      }],
+      "url": "https://app.datadoghq.com/api/v1/downtime/:downtime_id"
+    }, {
+      "path": "/downtime",
+      "displayName": "Get all monitor downtimes",
+      "doc": {
+        "url": "https://app.datadoghq.com/api/v1/downtime"
+      },
+      "httpMethod": "GET",
+      "params": [{
+        "style": "query",
+        "type": "string",
+        "name": "current_only",
+        "displayName": "Only return downtimes that are active when the request is made"
+      }],
+      "url": "https://app.datadoghq.com/api/v1/downtime"
+    }, {
+      "path": "/dash",
+      "displayName": "Create a timeboard",
+      "doc": {
+        "url": "https://app.datadoghq.com/api/v1/dash"
+      },
+      "httpMethod": "POST",
+      "params": [{
+        "style": "body",
+        "type": "string",
+        "name": "title",
+        "displayName": "The name of the dashboard",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "name": "description",
+        "displayName": "A description of the dashboard's content",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "name": "graphs",
+        "displayName": "A list of graph definitions",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "name": "graphs",
+        "displayName": "A list of graph definitions"
+      }],
+      "url": "https://app.datadoghq.com/api/v1/dash"
+    }, {
+      "path": "/incidents/:incident_id/note",
+      "displayName": "Create a new note for the specified incident",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/incidents/:incident_id/note"
+      },
+      "httpMethod": "POST",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":incident_id",
+        "displayName": "The incident id",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "object",
+        "displayName": "Note object that includes the new note parameter",
+        "name": "note",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "The note content",
+        "name": "content"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "User id of the user making the request",
+        "name": "requester_id"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/incidents/:incident_id/note"
+    }, {
+      "path": "/log_entries",
+      "displayName": "Get all incident log entries across the entire account",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/log_entries"
+      },
+      "httpMethod": "GET",
+      "params": [{
+        "style": "query",
+        "type": "time_zone",
+        "displayName": "Time zone in the dates of the result (Defaults to UTC)",
+        "name": "time_zone"
+      }, {
+        "style": "query",
+        "type": "date",
+        "displayName": "Start of the date range over which you want to search",
+        "name": "since"
+      }, {
+        "style": "query",
+        "type": "date",
+        "displayName": "End of the date range over which you want to search",
+        "name": "until"
+      }, {
+        "style": "query",
+        "type": "boolean",
+        "displayName": "If true, will only return log entries of type trigger, acknowledge, or resolve (Defaults to false)",
+        "name": "is_overview"
+      }, {
+        "style": "query",
+        "type": "array",
+        "displayName": "Array of additional details to include. This API accepts channel, incident, and service",
+        "name": "include"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/log_entries"
+    }, {
+      "path": "/users/:user_id/log_entries",
+      "displayName": "Get all incident log entries that describe interactions with a specific user",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/log_entries"
+      },
+      "httpMethod": "GET",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":user_id",
+        "displayName": "ID of the specific user",
+        "required": "true"
+      }, {
+        "style": "query",
+        "type": "time_zone",
+        "displayName": "Time zone in the dates of the result (Defaults to UTC)",
+        "name": "time_zone"
+      }, {
+        "style": "query",
+        "type": "date",
+        "displayName": "Start of the date range over which you want to search",
+        "name": "since"
+      }, {
+        "style": "query",
+        "type": "date",
+        "displayName": "End of the date range over which you want to search",
+        "name": "until"
+      }, {
+        "style": "query",
+        "type": "boolean",
+        "displayName": "If true, will only return log entries of type trigger, acknowledge, or resolve (Defaults to false)",
+        "name": "is_overview"
+      }, {
+        "style": "query",
+        "type": "array",
+        "displayName": "Array of additional details to include. This API accepts channel, incident, & service",
+        "name": "include"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/log_entries"
+    }, {
+      "path": "/:incident_id/log_entries",
+      "displayName": "Get all incident log entries for a specific incident",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/users/:incident_id/log_entries"
+      },
+      "httpMethod": "GET",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":incident_id",
+        "displayName": "ID of the specific incident",
+        "required": "true"
+      }, {
+        "style": "query",
+        "type": "time_zone",
+        "displayName": "Time zone in the dates of the result (Defaults to UTC)",
+        "name": "time_zone"
+      }, {
+        "style": "query",
+        "type": "date",
+        "displayName": "Start of the date range over which you want to search",
+        "name": "since"
+      }, {
+        "style": "query",
+        "type": "date",
+        "displayName": "End of the date range over which you want to search",
+        "name": "until"
+      }, {
+        "style": "query",
+        "type": "boolean",
+        "displayName": "If true, will only return log entries of type trigger, acknowledge, or resolve (Defaults to false)",
+        "name": "is_overview"
+      }, {
+        "style": "query",
+        "type": "array",
+        "displayName": "Array of additional details to include. This API accepts channel, incident, & service",
+        "name": "include"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/users/:incident_id/log_entries"
+    }, {
+      "path": "/log_entries/:id",
+      "displayName": "Get details for a specific incident log entry & also provides additional info you can use to get at raw event data",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/log_entries/:id"
+      },
+      "httpMethod": "GET",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":id",
+        "displayName": "ID of a specific incident log entry",
+        "required": "true"
+      }, {
+        "style": "query",
+        "type": "array",
+        "displayName": "Array of additional details to include. Accepts channel, incident, & service",
+        "name": "include"
+      }, {
+        "style": "query",
+        "type": "string",
+        "displayName": "ID of the log entry",
+        "name": "id"
+      }, {
+        "style": "query",
+        "type": "date",
+        "displayName": "Time at which the log entry was created",
+        "name": "created_at"
+      }, {
+        "style": "query",
+        "type": "string",
+        "displayName": "The type of the log entry, will be one of the above types",
+        "name": "type"
+      }, {
+        "style": "query",
+        "type": "object",
+        "displayName": "Polymorphic object representation of the performer of this action",
+        "name": "agent"
+      }, {
+        "style": "query",
+        "type": "object",
+        "displayName": "Polymorphic object representation of the means by which the action was channeled",
+        "name": "channel"
+      }, {
+        "style": "query",
+        "type": "integer",
+        "displayName": "Field containing an action note, if one was included with the action",
+        "name": "note"
+      }, {
+        "style": "query",
+        "type": "object",
+        "name": "assigned_user",
+        "displayName": "Assign & escalate log entries to the user to which the incident is assigned"
+      }, {
+        "style": "query",
+        "type": "object",
+        "name": "contexts",
+        "displayName": "Contexts to be included with the incident trigger such as links to graphs or images"
+      }, {
+        "style": "query",
+        "type": "string",
+        "displayName": "Foursquare",
+        "name": "foursquare"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/log_entries/:id"
+    }, {
+      "path": "/maintenance_windows",
+      "displayName": "Get existing maintenance windows, optionally filtered by service, or whether they are from the past, present or future",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/maintenance_windows"
+      },
+      "httpMethod": "GET",
+      "params": [{
+        "style": "query",
+        "type": "string",
+        "name": "query",
+        "displayName": "Filters the results, showing only the maintenance windows whose descriptions contain the query"
+      }, {
+        "style": "query",
+        "type": "array",
+        "displayName": "An array of service IDs, specifying services whose maintenance windows will be returned",
+        "name": "service_ids"
+      }, {
+        "style": "query",
+        "type": "string",
+        "displayName": "A comma-separated list of team IDs, specifying teams whose maintenance windows will be returned",
+        "name": "teams"
+      }, {
+        "style": "query",
+        "type": "string",
+        "displayName": "Only return maintenance windows that are of this type (past, future, ongoing)",
+        "name": "filter"
+      }, {
+        "style": "query",
+        "type": "array",
+        "displayName": "Include extra info in the response",
+        "name": "include"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/maintenance_windows"
+    }, {
+      "path": "/maintenance_windows/:id",
+      "displayName": "Get details about an existing maintenance window",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/maintenance_windows/:id"
+      },
+      "httpMethod": "GET",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":id",
+        "displayName": "ID of a existing maintenance window",
+        "required": "true"
+      }, {
+        "style": "query",
+        "type": "array",
+        "displayName": "Include extra info in the response",
+        "name": "include"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/maintenance_windows/:id"
+    }, {
+      "path": "/maintenance_windows",
+      "displayName": "Create a new maintenance window for the specified services (no new incidents for a service that is currently in maintenance)",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/maintenance_windows"
+      },
+      "httpMethod": "POST",
+      "params": [{
+        "style": "body",
+        "type": "string",
+        "name": "requester_id",
+        "displayName": "User ID of the user creating the maintenance window"
+      }, {
+        "style": "body",
+        "type": "object",
+        "displayName": "The maintenance window object",
+        "name": "maintenance_window"
+      }, {
+        "style": "body",
+        "type": "date",
+        "displayName": "Maintenance window's start time",
+        "name": "start_time",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "date",
+        "name": "end_time",
+        "displayName": "Maintenance window's end time",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "A description for this maintenance window",
+        "name": "description"
+      }, {
+        "style": "body",
+        "type": "array",
+        "displayName": "The IDs of the services that are affected by this maintenance window",
+        "name": "service_ids",
+        "required": "true"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/maintenance_windows"
+    }, {
+      "path": "/maintenance_windows/:id",
+      "displayName": "Update an existing maintenance window",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/maintenance_windows/:id"
+      },
+      "httpMethod": "PUT",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":id",
+        "displayName": "ID of an existing maintenance window",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "date",
+        "displayName": "The maintenance window's start time",
+        "name": "start_time"
+      }, {
+        "style": "body",
+        "type": "date",
+        "displayName": "The maintenance window's end time",
+        "name": "end_time"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "Description for this maintenance window",
+        "name": "description"
+      }, {
+        "style": "body",
+        "type": "array",
+        "displayName": "Future services that are affected by this maintenance window",
+        "name": "service_ids"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/maintenance_windows/:id"
+    }, {
+      "path": "/maintenance_windows/:id",
+      "displayName": "Cancel or delete an existing maintenance window",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/maintenance_windows/:id"
+      },
+      "httpMethod": "DELETE",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":id",
+        "displayName": "ID of the maintenance window",
+        "required": "true"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/maintenance_windows/:id"
+    }, {
+      "path": "/reports/alerts_per_time",
+      "displayName": "Get high level statistics about the number of alerts (SMSes, phone calls & emails) sent for the desired time period, summed daily, weekly or monthly",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/reports/alerts_per_time"
+      },
+      "httpMethod": "GET",
+      "params": [{
+        "style": "query",
+        "type": "date",
+        "name": "since",
+        "displayName": "Start of the date range over which you want to search",
+        "required": "true"
+      }, {
+        "style": "query",
+        "type": "date",
+        "displayName": "End of the date range over which you want to search.",
+        "name": "until",
+        "required": "true"
+      }, {
+        "style": "query",
+        "type": "string",
+        "displayName": "Specifies the bucket duration for each summation, the possible values are daily, weekly or monthly (defaults to monthly)",
+        "name": "rollup"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/reports/alerts_per_time"
+    }, {
+      "path": "/reports/incidents_per_time/",
+      "displayName": "Get high level statistics about the number of incidents created for the desired time period, summed daily, weekly or monthly",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/reports/incidents_per_time/"
+      },
+      "httpMethod": "GET",
+      "params": [{
+        "style": "query",
+        "type": "date",
+        "name": "since",
+        "displayName": "Start of the date range over which you want to search",
+        "required": "true"
+      }, {
+        "style": "query",
+        "type": "date",
+        "displayName": "End of the date range over which you want to search.",
+        "name": "until",
+        "required": "true"
+      }, {
+        "style": "query",
+        "type": "string",
+        "displayName": "Specifies the bucket duration for each summation, the possible values are daily, weekly or monthly (defaults to monthly)",
+        "name": "rollup"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/reports/incidents_per_time/"
+    }, {
+      "path": "/schedules",
+      "displayName": "Get existing on-call schedules",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/schedules"
+      },
+      "httpMethod": "GET",
+      "params": [{
+        "style": "query",
+        "type": "string",
+        "name": "query",
+        "displayName": "Filters the result, showing only the schedules whose name matches the query"
+      }, {
+        "style": "query",
+        "type": "string",
+        "displayName": "User ID of the user making the request",
+        "name": "requester_id"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/schedules"
+    }, {
+      "path": "/schedules/:id",
+      "displayName": "Get detailed info about a schedule, including entries for each layer & sub-schedule",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/schedules/:id"
+      },
+      "httpMethod": "GET",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":id",
+        "displayName": "ID of the schedule",
+        "required": "true"
+      }, {
+        "style": "query",
+        "type": "date",
+        "displayName": "Start of the date range over which you want to return on-call schedule entries & on-call schedule layers",
+        "name": "since"
+      }, {
+        "style": "query",
+        "type": "date",
+        "displayName": "End of the date range over which you want to return schedule entries and on-call schedule layers",
+        "name": "until"
+      }, {
+        "style": "query",
+        "type": "time zone",
+        "displayName": "Time zone in which dates in the result will be rendered (defaults to account time zone)",
+        "name": "time_zone"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/schedules/:id"
+    }, {
+      "path": "/schedules/:id/users",
+      "displayName": "Get all the users on-call in a given schedule for a given time range",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/schedules/:id/users"
+      },
+      "httpMethod": "GET",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":id",
+        "displayName": "Schedule ID",
+        "required": "true"
+      }, {
+        "style": "query",
+        "type": "date",
+        "displayName": "Start of the date range over which you want to return on-call users",
+        "name": "since"
+      }, {
+        "style": "query",
+        "type": "date",
+        "displayName": "End time of the date range over which you want to return on-call users",
+        "name": "until"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/schedules/:id/users"
+    }, {
+      "path": "/schedules",
+      "displayName": "Create a new on-call schedule",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/schedules"
+      },
+      "httpMethod": "POST",
+      "params": [{
+        "style": "body",
+        "type": "boolean",
+        "name": "overflow",
+        "displayName": "Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter overflow=true is passed"
+      }, {
+        "style": "body",
+        "type": "object",
+        "displayName": "The schedule object",
+        "name": "schedule"
+      }, {
+        "style": "body",
+        "type": "array",
+        "displayName": "A list of schedule layers",
+        "name": "schedule_layers",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "time zone",
+        "name": "time_zone",
+        "displayName": "The time zone of the schedule",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "The name of the schedule",
+        "name": "name",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "date",
+        "displayName": "The start time of this layer",
+        "name": "start",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "date",
+        "name": "end",
+        "displayName": "The end time of this layer. If null, the layer does not end"
+      }, {
+        "style": "body",
+        "type": "array",
+        "displayName": "The ordered list of users on this layer",
+        "name": "users",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "Specify the types of restriction (Either Daily or Weekly)",
+        "name": "restriction_type"
+      }, {
+        "style": "body",
+        "type": "array",
+        "name": "restrictions",
+        "displayName": "An array of restrictions for the layer which is a limit on which period of the day or week the schedule layer can accept events"
+      }, {
+        "style": "body",
+        "type": "date",
+        "displayName": "The effective start time of the layer",
+        "name": "rotation_virtual_start",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "integer",
+        "name": "priority",
+        "displayName": "Priority of the layer",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "integer",
+        "displayName": "Duration of each on-call shift in seconds",
+        "name": "rotation_turn_length_seconds",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "Name of the schedule layer",
+        "name": "name"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/schedules"
+    }, {
+      "path": "/schedules/:id",
+      "displayName": "Update an existing on-call schedule",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/schedules/:id"
+      },
+      "httpMethod": "PUT",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":id",
+        "displayName": "ID of an existing on-call schedule",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "boolean",
+        "name": "overflow",
+        "displayName": "Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter overflow=true is passed"
+      }, {
+        "style": "body",
+        "type": "object",
+        "displayName": "The schedule object",
+        "name": "schedule"
+      }, {
+        "style": "body",
+        "type": "array",
+        "displayName": "A list of schedule layers",
+        "name": "schedule_layers",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "time zone",
+        "name": "time_zone",
+        "displayName": "The time zone of the schedule",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "Name of the schedule",
+        "name": "name",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "date",
+        "displayName": "The start time of this layer",
+        "name": "start",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "date",
+        "name": "end",
+        "displayName": "The end time of this layer. If null, the layer does not end"
+      }, {
+        "style": "body",
+        "type": "array",
+        "displayName": "The ordered list of users on this layer",
+        "name": "users",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "Specify the types of restriction (Either Daily or Weekly)",
+        "name": "restriction_type"
+      }, {
+        "style": "body",
+        "type": "array",
+        "name": "restrictions",
+        "displayName": "An array of restrictions for the layer which is a limit on which period of the day or week the schedule layer can accept events"
+      }, {
+        "style": "body",
+        "type": "date",
+        "displayName": "The effective start time of the layer",
+        "name": "rotation_virtual_start",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "integer",
+        "name": "priority",
+        "displayName": "Priority of the layer",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "integer",
+        "displayName": "Duration of each on-call shift in seconds",
+        "name": "rotation_turn_length_seconds",
+        "required": "true"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/schedules/:id"
+    }, {
+      "path": "/schedules/preview",
+      "displayName": "Preview the configuration of an on-call schedule",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/schedules/preview"
+      },
+      "httpMethod": "POST",
+      "params": [{
+        "style": "body",
+        "type": "date",
+        "displayName": "Start of the date range over which you want to return on-call schedule entries & on-call schedule layers",
+        "name": "since"
+      }, {
+        "style": "body",
+        "type": "date",
+        "displayName": "End of the date range over which you want to return on-call schedule entries and on-call schedule layers",
+        "name": "until"
+      }, {
+        "style": "body",
+        "type": "boolean",
+        "name": "overflow",
+        "displayName": "Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter overflow=true is passed"
+      }, {
+        "style": "body",
+        "type": "object",
+        "displayName": "The schedule object",
+        "name": "schedule"
+      }, {
+        "style": "body",
+        "type": "array",
+        "displayName": "A list of schedule layers",
+        "name": "schedule_layers",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "time zone",
+        "name": "time_zone",
+        "displayName": "The time zone of the schedule",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "Name of the schedule",
+        "name": "name",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "Unique ID of the schedule layer",
+        "name": "id"
+      }, {
+        "style": "body",
+        "type": "date",
+        "displayName": "The start time of this layer",
+        "name": "start",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "date",
+        "name": "end",
+        "displayName": "The end time of this layer. If null, the layer does not end"
+      }, {
+        "style": "body",
+        "type": "array",
+        "displayName": "The ordered list of users on this layer",
+        "name": "users",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "Specify the types of restriction (Either Daily or Weekly)",
+        "name": "restriction_type"
+      }, {
+        "style": "body",
+        "type": "array",
+        "name": "restrictions",
+        "displayName": "An array of restrictions for the layer which is a limit on which period of the day or week the schedule layer can accept events"
+      }, {
+        "style": "body",
+        "type": "date",
+        "displayName": "The effective start time of the layer",
+        "name": "rotation_virtual_start",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "integer",
+        "name": "priority",
+        "displayName": "Priority of the layer",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "integer",
+        "displayName": "Duration of each on-call shift in seconds",
+        "name": "rotation_turn_length_seconds",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "The name of the schedule layer",
+        "name": "name"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/schedules/preview"
+    }, {
+      "path": "/schedules/:id",
+      "displayName": "Delete an on-call schedule",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/schedules/:id"
+      },
+      "httpMethod": "DELETE",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":id",
+        "displayName": "ID of the on-call schedule",
+        "required": "true"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/schedules/:id"
+    }, {
+      "path": "/schedules/:id/entries",
+      "displayName": "Get schedule entries that are active for a given time range for a specified on-call schedule",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/schedules/:id/entries"
+      },
+      "httpMethod": "GET",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":id",
+        "displayName": "ID of the scheduled entries",
+        "required": "true"
+      }, {
+        "style": "query",
+        "type": "date",
+        "displayName": "Start of the date range over which you want to return on-call schedule entries (3 months max)",
+        "name": "since",
+        "required": "true"
+      }, {
+        "style": "query",
+        "type": "date",
+        "displayName": "End of the date range over which you want to return schedule entries",
+        "name": "until",
+        "required": "true"
+      }, {
+        "style": "query",
+        "type": "boolean",
+        "displayName": "Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter overflow=true is passed",
+        "name": "overflow"
+      }, {
+        "style": "query",
+        "type": "time zone",
+        "displayName": "Time zone in which dates in the result will be rendered (Defaults to account time zone)",
+        "name": "time_zone"
+      }, {
+        "style": "query",
+        "type": "string",
+        "displayName": "To filter the returned on-call schedule entries by a specific user",
+        "name": "user_id"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/schedules/:id/entries"
+    }, {
+      "path": "/schedules/:schedule_id/overrides",
+      "displayName": "Get overrides for a given time range",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/schedules/:schedule_id/overrides"
+      },
+      "httpMethod": "GET",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":schedule_id",
+        "displayName": "ID of the schedule override(s)",
+        "required": "true"
+      }, {
+        "style": "query",
+        "type": "date",
+        "displayName": "Start time of the date range you want to retrieve override for (Max of 3 months)",
+        "name": "since",
+        "required": "true"
+      }, {
+        "style": "query",
+        "type": "date",
+        "displayName": "End time of the date range you want to retrieve override for",
+        "name": "until",
+        "required": "true"
+      }, {
+        "style": "query",
+        "type": "boolean",
+        "displayName": "If true, only editable overrides will be returned",
+        "name": "editable"
+      }, {
+        "style": "query",
+        "type": "boolean",
+        "displayName": "Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter overflow=true is passed",
+        "name": "overflow"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/schedules/:schedule_id/overrides"
+    }, {
+      "path": "/schedules/:schedule_id/overrides",
+      "displayName": "Create an override for a specific user covering the specified time range",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/schedules/:schedule_id/overrides"
+      },
+      "httpMethod": "POST",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":schedule_id",
+        "displayName": "ID of the schedule override(s)",
+        "required": "true"
+      }, {
+        "style": "query",
+        "type": "date",
+        "displayName": "Start date and time for the override.",
+        "name": "start",
+        "required": "true"
+      }, {
+        "style": "query",
+        "type": "date",
+        "displayName": "End date and time for the override.",
+        "name": "end",
+        "required": "true"
+      }, {
+        "style": "query",
+        "type": "string",
+        "displayName": "ID of the user who will be on call for the duration of the override",
+        "name": "user_id",
+        "required": "true"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/schedules/:schedule_id/overrides"
+    }, {
+      "path": "/schedules/:schedule_id/overrides/:id",
+      "displayName": "Remove an override",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/schedules/:schedule_id/overrides/:id"
+      },
+      "httpMethod": "DELETE",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":schedule_id",
+        "displayName": "ID of the schedule override(s)",
+        "required": "true"
+      }, {
+        "style": "url",
+        "type": "string",
+        "name": ":id",
+        "displayName": "ID of the override",
+        "required": "true"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/schedules/:schedule_id/overrides/:id"
+    }, {
+      "path": "/services",
+      "displayName": "Get list of existing services",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/services"
+      },
+      "httpMethod": "GET",
+      "params": [{
+        "style": "query",
+        "type": "string",
+        "name": "teams",
+        "displayName": "A comma-separated list of team IDs"
+      }, {
+        "style": "query",
+        "type": "array",
+        "displayName": "Include extra info (Possible values are escalation_policy, email_filters, & teams)",
+        "name": "count"
+      }, {
+        "style": "query",
+        "type": "time zone",
+        "displayName": "Time zone in which dates in the result will be rendered",
+        "name": "time_zone"
+      }, {
+        "style": "query",
+        "type": "string",
+        "displayName": "Filters the result, showing only the services whose name or service_key matches the query",
+        "name": "query"
+      }, {
+        "style": "query",
+        "type": "string",
+        "displayName": "Used to specify both the field, name or id, you wish to sort the results on (defaults to name)",
+        "name": "sort_by"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/services"
+    }, {
+      "path": "/services/:id",
+      "displayName": "Get details about an existing service",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/services/:id"
+      },
+      "httpMethod": "GET",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":id",
+        "displayName": "ID of an existing service",
+        "required": "true"
+      }, {
+        "style": "query",
+        "type": "array",
+        "displayName": "Include extra info in the response",
+        "name": "include"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/services/:id"
+    }, {
+      "path": "/services",
+      "displayName": "Create a new service",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/services"
+      },
+      "httpMethod": "POST",
+      "params": [{
+        "style": "body",
+        "type": "string",
+        "name": "name",
+        "displayName": "The name of the service",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "ID of the escalation policy to be used by this service",
+        "name": "escalation_policy_id",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "Type of service to create (can be one of generic_email, generic_events_api, integration, keynote, nagios, pingdom or sql_monitor)",
+        "name": "type",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "name": "vendor_id",
+        "displayName": "PagerDuty's internal vendor identifier for this service (will only be accepted if the service type is integration)"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "A description for your service. (Max of 1024 characters)",
+        "name": "description"
+      }, {
+        "style": "body",
+        "type": "integer",
+        "displayName": "Duration in seconds before an incidents acknowledged in this service become triggered again",
+        "name": "acknowledgement_timeout"
+      }, {
+        "style": "body",
+        "type": "integer",
+        "name": "auto_resolve_timeout",
+        "displayName": "Duration in seconds before a triggered incident auto-resolves itself (Defaults to 4 hours)"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "Specifies what severity levels will create a new open incident",
+        "name": "severity_filter"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "The service key for the service",
+        "name": "service_key",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "name": "email_incident_creation",
+        "displayName": "One of only-if-no-open-incidents, on-new-email-subject, or on-new-email (Defaults to on-new-email)"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/services"
+    }, {
+      "path": "/services/:id",
+      "displayName": "Update an existing service",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/services/:id"
+      },
+      "httpMethod": "PUT",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":id",
+        "displayName": "ID of the existing service",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "The name of the service",
+        "name": "name"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "A description for the service",
+        "name": "description"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "The id of the escalation policy to be used by this service",
+        "name": "escalation_policy_id"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "Min Id",
+        "name": "min_id"
+      }, {
+        "style": "body",
+        "type": "integer",
+        "displayName": "Duration in seconds before an incidents acknowledged in this service become triggered again",
+        "name": "acknowledgement_timeout"
+      }, {
+        "style": "body",
+        "type": "integer",
+        "displayName": "Duration in seconds before a triggered incident auto-resolves itself",
+        "name": "auto_resolve_timeout"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "Specifies what severity levels will create a new open incident",
+        "name": "severity_filter"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "The service key for the service",
+        "name": "service_key"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "One of only-if-no-open-incidents, on-new-email-subject or on-new-email (Defaults to on-new-email)",
+        "name": "email_incident_creation"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/services/:id"
+    }, {
+      "path": "/services/:id",
+      "displayName": "Delete an existing service (Once deleted, it will not be accessible from the web UI & new incidents won't be able to be created for this service)",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/services/:id"
+      },
+      "httpMethod": "DELETE",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":id",
+        "displayName": "ID of the existing service",
+        "required": "true"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/services/:id"
+    }, {
+      "path": "/services/:id/disable",
+      "displayName": "Disable a service (Once disabled, it will not be able to create incidents until it is enabled again)",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/services/:id/disable"
+      },
+      "httpMethod": "PUT",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":id",
+        "displayName": "ID of service to disable",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "User ID of the user creating the maintenance window",
+        "name": "requester_id"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/services/:id/disable"
+    }, {
+      "path": "/services/:id/regenerate_key",
+      "displayName": "Regenerate a new service key for an existing service",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/services/:id/regenerate_key"
+      },
+      "httpMethod": "POST",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":id",
+        "displayName": "ID of service",
+        "required": "true"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/services/:id/regenerate_key"
+    }, {
+      "path": "/services/:service_id/email_filters",
+      "displayName": "Create a new Email Filter for the specified service",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/services/:service_id/email_filters"
+      },
+      "httpMethod": "POST",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":service_id",
+        "displayName": "ID of specified service",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "One of always, match, no-match, which, respectively, means to not filter the email trigger by subject, filter it if the email subject matches the given regex, or filter if it doesn't match the given regex",
+        "name": "subject_mode"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "The regex to be used when subject_mode is match or no-match",
+        "name": "subject_regex"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "One of always, match, no-match, which, respectively, means to not filter the email trigger by body, filter it if the body email matches the given regex, or filter if it doesn't match the given regex",
+        "name": "body_mode"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "The regex to be used when body_mode is match or no-match",
+        "name": "body_regex"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "One of always, match, no-match, which, respectively, means to not filter the email trigger by its from address, filter it if the email from address matches the given regex, or filter if it doesn't match the given regex",
+        "name": "from_email_mode"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "The regex to be used when from_email_mode is match or no-match",
+        "name": "from_email_regex"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/services/:service_id/email_filters"
+    }, {
+      "path": "/services/:service_id/email_filters/:id",
+      "displayName": "Update an existing Email Filter",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/services/:service_id/email_filters/:id"
+      },
+      "httpMethod": "PUT",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":service_id",
+        "displayName": "ID of specified service",
+        "required": "true"
+      }, {
+        "style": "url",
+        "type": "string",
+        "name": ":id",
+        "displayName": "ID of email filter",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "One of always, match, no-match, which, respectively, means to not filter the email trigger by subject, filter it if the email subject matches the given regex, or filter if it doesn't match the given regex",
+        "name": "subject_mode"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "The regex to be used when subject_mode is match or no-match",
+        "name": "subject_regex"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "One of always, match, no-match, which, respectively, means to not filter the email trigger by body, filter it if the body email matches the given regex, or filter if it doesn't match the given regex",
+        "name": "body_mode"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "The regex to be used when body_mode is match or no-match",
+        "name": "body_regex"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "One of always, match, no-match, which, respectively, means to not filter the email trigger by its from address, filter it if the email from address matches the given regex, or filter if it doesn't match the given regex",
+        "name": "from_email_mode"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "The regex to be used when from_email_mode is match or no-match",
+        "name": "from_email_regex"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/services/:service_id/email_filters/:id"
+    }, {
+      "path": "/services/:service_id/email_filters/:id",
+      "displayName": "Delete an existing Email Filter",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/services/:service_id/email_filters/:id"
+      },
+      "httpMethod": "DELETE",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":service_id",
+        "displayName": "ID of specified service",
+        "required": "true"
+      }, {
+        "style": "url",
+        "type": "string",
+        "name": ":id",
+        "displayName": "ID of email filter",
+        "required": "true"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/services/:service_id/email_filters/:id"
+    }, {
+      "path": "/users",
+      "displayName": "Get existing users",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/users"
+      },
+      "httpMethod": "GET",
+      "params": [{
+        "style": "query",
+        "type": "string",
+        "name": "query",
+        "displayName": "Filters the result, showing only the users whose names or email addresses match the query"
+      }, {
+        "style": "query",
+        "type": "array",
+        "displayName": "Array of additional details to include (This API accepts contact_methods, and notification_rules)",
+        "name": "include"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/users"
+    }, {
+      "path": "/users/:id",
+      "displayName": "Get information about an existing user",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/users/:id"
+      },
+      "httpMethod": "GET",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":id",
+        "displayName": "ID of the user",
+        "required": "true"
+      }, {
+        "style": "query",
+        "type": "array",
+        "displayName": "Array of additional details to include",
+        "name": "include"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/users/:id"
+    }, {
+      "path": "/users/:id/on_call",
+      "displayName": "Get info about an existing user with current on-call status",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/users/:id/on_call"
+      },
+      "httpMethod": "GET",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":id",
+        "displayName": "ID of the user",
+        "required": "true"
+      }, {
+        "style": "query",
+        "type": "array",
+        "displayName": "Array of additional details to include",
+        "name": "include"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/users/:id/on_call"
+    }, {
+      "path": "/users",
+      "displayName": "Create a new user",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/users"
+      },
+      "httpMethod": "POST",
+      "params": [{
+        "style": "body",
+        "type": "string",
+        "name": "role",
+        "displayName": "The user's role (can either be admin, user, or limited_user)"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "The name of the user",
+        "name": "name",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "The email of the user",
+        "name": "email",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "Job title of the user",
+        "name": "job_title"
+      }, {
+        "style": "query",
+        "type": "time zone",
+        "displayName": "Time zone the user is in",
+        "name": "time_zone"
+      }, {
+        "style": "query",
+        "type": "string",
+        "displayName": "User id of the user creating the user",
+        "name": "requester_id"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/users"
+    }, {
+      "path": "/users/:id",
+      "displayName": "Update an existing user",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/users/:id"
+      },
+      "httpMethod": "PUT",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":id",
+        "displayName": "ID of the user",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "The user's role (can be admin, user, or limited_user)",
+        "name": "role"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "Name of the user",
+        "name": "name"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "Email of the user",
+        "name": "email"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "Job title of the user",
+        "name": "job_title"
+      }, {
+        "style": "body",
+        "type": "time zone",
+        "displayName": "Time zone the user is in",
+        "name": "time_zone"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/users/:id"
+    }, {
+      "path": "/users/:id",
+      "displayName": "Remove an existing user",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/users/:id"
+      },
+      "httpMethod": "DELETE",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":id",
+        "displayName": "ID of the user",
+        "required": "true"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/users/:id"
+    }, {
+      "path": "/users/:user_id/contact_methods",
+      "displayName": "Get existing contact methods for the specified user",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/contact_methods"
+      },
+      "httpMethod": "GET",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":user_id",
+        "displayName": "User ID",
+        "required": "true"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/contact_methods"
+    }, {
+      "path": "/users/:user_id/contact_methods/:id",
+      "displayName": "Get details for a contact method",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/contact_methods/:id"
+      },
+      "httpMethod": "GET",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":user_id",
+        "displayName": "User ID",
+        "required": "true"
+      }, {
+        "style": "url",
+        "type": "string",
+        "name": ":user_id",
+        "displayName": "ID of the contact methods",
+        "required": "true"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/contact_methods/:id"
+    }, {
+      "path": "/users/:user_id/contact_methods",
+      "displayName": "Create a new contact method for the specified user",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/contact_methods"
+      },
+      "httpMethod": "POST",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":user_id",
+        "displayName": "User ID",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "Type of the contact method (SMS, email or phone)",
+        "name": "type",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "Id of the contact method (For SMS & phone it is the number, & for email it is the email address)",
+        "name": "address",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "integer",
+        "displayName": "Number code for your country",
+        "name": "country_code"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "A human friendly label for the contact method (ie: 'Home Phone', 'Work Email', etc.)",
+        "name": "label"
+      }, {
+        "style": "body",
+        "type": "boolean",
+        "displayName": "If true, sends an abbreviated email message instead of the standard email output",
+        "name": "send_short_email"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/contact_methods"
+    }, {
+      "path": "/users/:user_id/contact_methods/:id",
+      "displayName": "Update an existing contact method",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/contact_methods/:id"
+      },
+      "httpMethod": "PUT",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":user_id",
+        "displayName": "User ID",
+        "required": "true"
+      }, {
+        "style": "url",
+        "type": "string",
+        "name": ":id",
+        "displayName": "ID of the contact method",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "Address of the contact method (for SMS & phone it is the number, & for email it is the email address)",
+        "name": "address"
+      }, {
+        "style": "body",
+        "type": "integer",
+        "displayName": "The number code for your country (Defaults to 1)",
+        "name": "country_code"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "A human friendly label for the contact method (ie: 'Home Phone', 'Work Email', etc.)",
+        "name": "label"
+      }, {
+        "style": "body",
+        "type": "boolean",
+        "displayName": "If true, sends an abbreviated email message instead of the standard email output",
+        "name": "send_short_email"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/contact_methods/:id"
+    }, {
+      "path": "/users/:user_id/contact_methods/:id",
+      "displayName": "Remove a contact method & any corresponding notification rules",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/contact_methods/:id"
+      },
+      "httpMethod": "DELETE",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":user_id",
+        "displayName": "User ID",
+        "required": "true"
+      }, {
+        "style": "url",
+        "type": "string",
+        "name": ":id",
+        "displayName": "ID of the contact method",
+        "required": "true"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/contact_methods/:id"
+    }, {
+      "path": "/users/:user_id/notification_rules",
+      "displayName": "Get existing notification rules for the specified user",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/notification_rules"
+      },
+      "httpMethod": "GET",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":user_id",
+        "displayName": "User ID",
+        "required": "true"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/notification_rules"
+    }, {
+      "path": "/users/:user_id/notification_rules/:id",
+      "displayName": "Get details for a notification rule",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/notification_rules/:id"
+      },
+      "httpMethod": "GET",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":user_id",
+        "displayName": "User ID",
+        "required": "true"
+      }, {
+        "style": "url",
+        "type": "string",
+        "name": ":id",
+        "displayName": "ID of the notification rule",
+        "required": "true"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/notification_rules/:id"
+    }, {
+      "path": "/users/:user_id/notification_rules",
+      "displayName": "Create a new notification rule for the specified user",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/notification_rules"
+      },
+      "httpMethod": "POST",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":user_id",
+        "displayName": "User ID",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "integer",
+        "displayName": "Number of minutes it will take for the notification rule to be activated (from the time the incident is assigned to the owning user) & an alert be fired",
+        "name": "start_delay_in_minutes",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "ID of the contact method",
+        "name": "contact_method_id",
+        "required": "true"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/notification_rules"
+    }, {
+      "path": "/users/:user_id/notification_rules/:id",
+      "displayName": "Update an existing notification rule",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/notification_rules/:id"
+      },
+      "httpMethod": "PUT",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":id",
+        "displayName": "ID of the notification rules",
+        "required": "true"
+      }, {
+        "style": "url",
+        "type": "string",
+        "name": ":user_id",
+        "displayName": "User ID",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "integer",
+        "displayName": "Number of minutes it will take for the notification rule to be activated (from the time the incident is assigned to the owning user) & an alert be fired",
+        "name": "start_delay_in_minutes",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "ID of the contact method",
+        "name": "contact_method_id",
+        "required": "true"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/notification_rules/:id"
+    }, {
+      "path": "/users/:user_id/notification_rules/:id",
+      "displayName": "Remove a notification rule",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/notification_rules/:id"
+      },
+      "httpMethod": "DELETE",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":id",
+        "displayName": "ID of the notification rules",
+        "required": "true"
+      }, {
+        "style": "url",
+        "type": "string",
+        "name": ":user_id",
+        "displayName": "User ID",
+        "required": "true"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/users/:user_id/notification_rules/:id"
+    }, {
+      "path": "/users/on_call",
+      "displayName": "Get a list currently on-call users of your PagerDuty account, optionally filtered by a search query",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/users/on_call"
+      },
+      "httpMethod": "GET",
+      "params": [{
+        "style": "query",
+        "type": "string",
+        "name": "query",
+        "displayName": "Filters the result, showing only the users whose names or email addresses match the query"
+      }, {
+        "style": "query",
+        "type": "array",
+        "displayName": "Array of additional details to include (this API accepts contact_methods, & notification_rules)",
+        "name": "include"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/users/on_call"
+    }, {
+      "path": "/teams",
+      "displayName": "Get a list of existing teams",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/teams"
+      },
+      "httpMethod": "GET",
+      "params": [{
+        "style": "query",
+        "type": "string",
+        "name": "query",
+        "displayName": "Filters the result, showing only the teams whose names match the query"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/teams"
+    }, {
+      "path": "/teams",
+      "displayName": "Create a new team",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/teams"
+      },
+      "httpMethod": "POST",
+      "params": [{
+        "style": "body",
+        "type": "string",
+        "name": "name",
+        "displayName": "The name of the team",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "A description of the team",
+        "name": "description"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/teams"
+    }, {
+      "path": "/teams/:id",
+      "displayName": "Get detailed info about a team",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/teams/:id"
+      },
+      "httpMethod": "GET",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":id",
+        "displayName": "Team ID",
+        "required": "true"
+      }, {
+        "style": "query",
+        "type": "string",
+        "displayName": "The name of the team",
+        "name": "name"
+      }, {
+        "style": "query",
+        "type": "string",
+        "displayName": "A description of the team",
+        "name": "description"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/teams/:id"
+    }, {
+      "path": "/teams/:id",
+      "displayName": "Update a team",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/teams/:id"
+      },
+      "httpMethod": "PUT",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":id",
+        "displayName": "Team ID",
+        "required": "true"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "The name of the team",
+        "name": "name"
+      }, {
+        "style": "body",
+        "type": "string",
+        "displayName": "A description of the team",
+        "name": "description"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/teams/:id"
+    }, {
+      "path": "/teams/:id",
+      "displayName": "Delete a team",
+      "doc": {
+        "url": "https://:subdomain.pagerduty.com/api/v1/teams/:id"
+      },
+      "httpMethod": "DELETE",
+      "params": [{
+        "style": "url",
+        "type": "string",
+        "name": ":id",
+        "displayName": "Team ID",
+        "required": "true"
+      }],
+      "url": "https://:subdomain.pagerduty.com/api/v1/teams/:id"
+    }]
+  }
 }
