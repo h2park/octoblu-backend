@@ -227,6 +227,9 @@ module.exports = function(app, passport, config, meshbluJSON){
     var XenMobileController = require('./controllers/xenmobile-controller');
     var xenMobileController = new XenMobileController();
 
+    var DataDogController = require('./controllers/datadog-controller');
+    var dataDogController = new DataDogController();
+
     var XeroController = require('./controllers/xero-controller');
     var xeroController = new XeroController();
 
@@ -435,6 +438,8 @@ module.exports = function(app, passport, config, meshbluJSON){
 
     app.get('/api/travis-ci/auth', travisCIController.authorize, travisCIController.redirectToConfigure);
     app.get('/api/travis-ci-pro/auth', travisCIProController.authorize, travisCIProController.redirectToConfigure);
+
+    app.get('/api/datadog/auth', dataDogController.authorize, dataDogController.redirectToConfigure);
 
     app.post('/api/wink/auth', winkController.authorize, winkController.redirectToConfigure);
 

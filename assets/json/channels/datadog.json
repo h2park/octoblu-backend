@@ -5,7 +5,7 @@
   "type": "channel:datadog",
   "enabled": true,
   "defaultParams": [],
-  "auth_strategy": "",
+  "auth_strategy": "datadog",
   "isPassport": true,
   "oauth": {
     "development": {
