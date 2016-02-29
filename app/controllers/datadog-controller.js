@@ -8,7 +8,6 @@ var DatadogController = function(){
   this.authorize = function(req, res, next){
     var apiKey = req.query.apiKey;
     var appKey = req.query.appKey;
-    console.log('key', apiKey);
     User.overwriteOrAddApiByChannelId(req.user, channelId, {
       "hiddenParams": [{
       "name": "api-key",
@@ -25,8 +24,6 @@ var DatadogController = function(){
       "value": appKey
     }]
   });
-
-  console.log('got here');
 
   User.update({_id: req.user._id}, req.user).then(function(){
     next();

@@ -167,7 +167,6 @@ function UserModel() {
       new_api.type = channel.type;
       new_api.uuid = oldUuid || uuid.v1();
 
-      console.log(new_api);  
       user.api.push(new_api);
     },
 
