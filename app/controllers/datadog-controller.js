@@ -10,7 +10,7 @@ var DatadogController = function(){
     var appKey = req.query.appKey;
     User.overwriteOrAddApiByChannelId(req.user, channelId, {
       "hiddenParams": [{
-      "name": "api-key",
+      "name": "api_key",
       "hidden": "true",
       "style": "query",
       "type": "string",
@@ -19,7 +19,7 @@ var DatadogController = function(){
     {
       "style": "query",
       "type": "string",
-      "name": "app-key",
+      "name": "app_key",
       "required": "true",
       "value": appKey
     }]
