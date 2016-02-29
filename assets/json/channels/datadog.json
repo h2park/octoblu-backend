@@ -4,7 +4,22 @@
   "documentation": "http://docs.datadoghq.com/api/",
   "type": "channel:datadog",
   "enabled": true,
-  "defaultParams": [],
+  "defaultParams": [
+    {
+      "displayName": "API Key (for write access)",
+      "style": "url",
+      "type": "string",
+      "name": ":apikey",
+      "required": true
+    },
+    {
+      "displayName": "App Key (for read access)",
+      "style": "url",
+      "type": "string",
+      "name": ":appkey",
+      "required": true
+    }
+  ],
   "auth_strategy": "",
   "isPassport": true,
   "oauth": {
