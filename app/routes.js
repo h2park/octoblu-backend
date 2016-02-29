@@ -227,8 +227,8 @@ module.exports = function(app, passport, config, meshbluJSON){
     var XenMobileController = require('./controllers/xenmobile-controller');
     var xenMobileController = new XenMobileController();
 
-    var DataDogController = require('./controllers/datadog-controller');
-    var dataDogController = new DataDogController();
+    var DatadogController = require('./controllers/datadog-controller');
+    var dataDogController = new DatadogController();
 
     var XeroController = require('./controllers/xero-controller');
     var xeroController = new XeroController();

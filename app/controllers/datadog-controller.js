@@ -1,39 +1,43 @@
 var request = require('request');
 var Channel = require('../models/channel');
 var User = require('../models/user');
-var channelId = '59243057pufsdh3453p49';
-// var applicationCredentials = Channel.syncFindById(channelId).applicationCredentials;
+var channelId = '56d4b67307b34be42f07575e';
 var textCrypt = require('../lib/textCrypt');
 
-var DataDogController = function(){
+var DatadogController = function(){
   this.authorize = function(req, res, next){
+    var apiKey = req.query.apiKey;
+    var appKey = req.query.appKey;
+    console.log('key', apiKey);
+    User.overwriteOrAddApiByChannelId(req.user, channelId, {
+      "hiddenParams": [{
+      "name": "api-key",
+      "hidden": "true",
+      "style": "query",
+      "type": "string",
+      "value": apiKey
+    },
+    {
+      "style": "query",
+      "type": "string",
+      "name": "app-key",
+      "required": "true",
+      "value": appKey
+    }]
+  });
 
-        User.overwriteOrAddApiByChannelId(req.user, channelId, {
-          "hiddenParams": [{
-          "name": "api-key",
-          "hidden": "true",
-          "style": "query",
-          "type": "string",
-          "value": req.query.api-key
-        },
-        {
-          "style": "query",
-          "type": "string",
-          "value": req.query.app-key,
-          "name": "app-key",
-          "required": "true"
-        }]
-      });
-        User.update({_id: req.user._id}, req.user).then(function(){
-          next();
-        }).catch(function(error){
-          next(error);
-        });
+  console.log('got here');
+
+  User.update({_id: req.user._id}, req.user).then(function(){
+    next();
+    }).catch(function(error){
+      next(error);
     });
   };
-  this.redirectToConfigure = function(req, res){
-    res.redirect('/configure?added=DataDog');
-  };
-};
 
-module.exports = DataDogController;
+  this.redirectToConfigure = function(req, res){
+    res.redirect('/configure?added=Datadog');
+  };
+}
+
+module.exports = DatadogController;
