@@ -1,0 +1,17 @@
+{
+  "_id": "56d4811714e7f9fc18ef2ea4",
+  "deviceId": "62fbb926-63a1-4cea-84ee-1d6301c0ec90",
+  "category": "channel",
+  "categories": ["Productivity"],
+  "description": "Datadog",
+  "documentation": "",
+  "helpText": "Datadog is a multifunctional data management tool. It can be used for data visualization, contextualization, and other analytics. ",
+  "enabled": true,
+  "name": "Datadog",
+  "skynet": {
+    "subtype": "Datadog",
+    "type": "channel"
+  },
+  "channelid": "59243057pufsdh3453p49",
+  "type": "channel:datadog"
+}
