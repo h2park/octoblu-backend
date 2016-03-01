@@ -20,7 +20,7 @@ var DatadogController = function(){
         {
           "style": "query",
           "type": "string",
-          "name": "app_key",
+          "name": "application_key",
           "required": "true",
           "value": appKey
       }
