@@ -23,7 +23,7 @@ var DatadogController = function(){
           "name": "application_key",
           "required": "true",
           "value": appKey
-      }
+        }
     ]
   });
 

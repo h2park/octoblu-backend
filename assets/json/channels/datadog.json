@@ -561,6 +561,72 @@
         "displayName": "A list of graph definitions"
       }],
       "url": "https://app.datadoghq.com/api/v1/dash"
+    },{
+      "path": "/graph/embed",
+      "displayName": "Get a list of embeddable graphs",
+      "doc": {
+        "url": "http://docs.datadoghq.com/api/#embeds"
+      },
+      "httpMethod": "GET",
+      "params": [],
+      "url": "https://app.datadoghq.com/api/v1/graph/embed"
+    },{
+      "path": "/graph/embed/:embed_id",
+      "displayName": "Get an embed by ID",
+      "doc": {
+        "url": "http://docs.datadoghq.com/api/#embeds"
+      },
+      "httpMethod": "GET",
+      "params": [{
+        "style": "body",
+        "type": "string",
+        "name": "graph_json",
+        "displayName": "Graph definition in JSON",
+        "required": "true"
+      },{
+        "style": "body",
+        "type": "string",
+        "name": "timeframe",
+        "displayName": "Timeframe for the graph (One of 1_hour, 4_hours, 1_day, 2_days, and 1_week)",
+        "required": "false"
+      },{
+        "style": "body",
+        "type": "string",
+        "name": "size",
+        "displayName": "Size (One of small, medium, large, or xlarge)",
+        "required": "false"
+      },{
+        "style": "body",
+        "type": "string",
+        "name": "legend",
+        "displayName": "Legend (One of yes or no)",
+        "required": "false"
+      },{
+        "style": "body",
+        "type": "string",
+        "name": "title",
+        "displayName": "title",
+        "required": "false"
+      }],
+      "url": "https://app.datadoghq.com/api/v1/graph/embed/:embed_id"
+    },{
+      "path": "/graph/embed/:embed_id/enable",
+      "displayName": "Enable an embed",
+      "doc": {
+        "url": "http://docs.datadoghq.com/api/#embeds"
+      },
+      "httpMethod": "GET",
+      "params": [],
+      "url": "https://app.datadoghq.com/api/v1/graph/embed/:embed_id/enable"
+    },{
+      "path": "/graph/embed/:embed_id/revoke",
+      "displayName": "Revoke an embed",
+      "doc": {
+        "url": "http://docs.datadoghq.com/api/#embeds"
+      },
+      "httpMethod": "GET",
+      "params": [],
+      "url": "https://app.datadoghq.com/api/v1/graph/embed/:embed_id/revoke"
     }]
   }
 }
