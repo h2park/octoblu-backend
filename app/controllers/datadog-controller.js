@@ -9,20 +9,22 @@ var DatadogController = function(){
     var apiKey = req.query.apiKey;
     var appKey = req.query.appKey;
     User.overwriteOrAddApiByChannelId(req.user, channelId, {
-      "hiddenParams": [{
-      "name": "api_key",
-      "hidden": "true",
-      "style": "query",
-      "type": "string",
-      "value": apiKey
-    },
-    {
-      "style": "query",
-      "type": "string",
-      "name": "app_key",
-      "required": "true",
-      "value": appKey
-    }]
+      "hiddenParams": [
+        {
+          "name": "api_key",
+          "hidden": "true",
+          "style": "query",
+          "type": "string",
+          "value": apiKey
+        },
+        {
+          "style": "query",
+          "type": "string",
+          "name": "app_key",
+          "required": "true",
+          "value": appKey
+      }
+    ]
   });
 
   User.update({_id: req.user._id}, req.user).then(function(){
