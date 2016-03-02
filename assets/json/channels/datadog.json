@@ -1,2418 +1,1440 @@
 {
-	"_id": "56d4b67307b34be42f07575e",
-	"name": "Datadog",
-	"documentation": "http://docs.datadoghq.com/api/",
-	"type": "channel:datadog",
-	"enabled": true,
-	"auth_strategy": "datadog",
-	"application": {
-		"base": "https://app.datadoghq.com/api/v1",
-		"resources": [{
-			"path": "/series",
-			"displayName": "Post time series points",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/series"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "body",
-				"type": "string",
-				"name": "metric",
-				"displayName": "The name of the time series",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "array",
-				"name": "points",
-				"displayName": "An array of points",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "host",
-				"displayName": "The name of the host that produced the metric"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "tags",
-				"displayName": "A list of tags associated with the metric"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/series"
-		}, {
-			"path": "/query",
-			"displayName": "Query time series points",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/query"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "query",
-				"type": "string",
-				"name": "start",
-				"displayName": "Seconds since the unix epoch",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "Seconds since the unix epoch",
-				"name": "end",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "The query string",
-				"name": "query",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/query"
-		}, {
-			"path": "/events",
-			"displayName": "Creates a new escalation policy",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/events"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "body",
-				"type": "string",
-				"name": "title",
-				"displayName": "The event title",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "The body of the event",
-				"name": "text"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "POSIX timestamp of the event",
-				"name": "date_happened"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "The priority of the event ('normal' or 'low')",
-				"name": "priority"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "Host name to associate with the event",
-				"name": "host"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "A list of tags to apply to the event",
-				"name": "tags"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "Alert types (error, warning, info, success )",
-				"name": "alert_type"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "An arbitrary string to use for aggregation (max length of 100 characters)",
-				"name": "aggregation_key"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "Type of event being posted (Options: nagios, hudson, jenkins, user, my apps, feed, chef, puppet, git, bitbucket, fabric, and capistrano)",
-				"name": "source_type_name"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/events"
-		}, {
-			"path": "/events/:event_id",
-			"displayName": "Get an event's details",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/events/:event_id"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"displayName": "ID of the event",
-				"name": ":event_id",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/events/:event_id"
-		}, {
-			"path": "/events",
-			"displayName": "Query the event stream",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/events"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "query",
-				"type": "string",
-				"displayName": "Start of the POSIX timestamp",
-				"name": "start",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "End of the POSIX timestamp",
-				"name": "end",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "The priority of the event ('normal' or 'low')",
-				"name": "priority"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "A comma separated string of sources",
-				"name": "sources"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "A comma separated string of tags",
-				"name": "tags"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/events"
-		}, {
-			"path": "/check_run",
-			"displayName": "Posts a check run",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/check_run"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "body",
-				"type": "string",
-				"displayName": "The text for the message",
-				"name": "check",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "The name of the host submitting the check",
-				"name": "host_name",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "integer",
-				"displayName": "An integer for the status of the check",
-				"name": "status",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "POSIX timestamp of the event",
-				"name": "timestamp"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "A description of why this status occurred",
-				"name": "message"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "A list of key:val tags for this check",
-				"name": "tags"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/check_run"
-		}, {
-			"path": "/monitor",
-			"displayName": "Create a monitor",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/monitor"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "body",
-				"type": "string",
-				"displayName": "The type of the monitor (metric alert, service check, or event alert)",
-				"name": "type",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "The monitor query to notify on with syntax varying depending on what type of monitor you are creating",
-				"name": "query",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "The type of the monitor (metric alert, service check, or event alert)",
-				"name": "type",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/monitor"
-		}, {
-			"path": "/monitor/:monitor_id",
-			"displayName": "Get a monitor's details",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"displayName": "Monitor ID",
-				"name": ":monitor_id",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "A comma-separated string indicating what, if any, group states to include (Choose from 'all', 'alert', 'warn', or 'no data')",
-				"name": "group_states"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id"
-		}, {
-			"path": "/monitor/:monitor_id",
-			"displayName": "Edit a monitor",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id"
-			},
-			"httpMethod": "PUT",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"displayName": "Monitor ID",
-				"name": ":monitor_id",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "The metric query to alert on",
-				"name": "query",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "The name of the monitor",
-				"name": "name"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "A message to include with notifications for this monitor",
-				"name": "message"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "Refer to the create monitor documentation for details on the available options",
-				"name": "options"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "A list of tags to associate with your monitor",
-				"name": "tags"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id"
-		}, {
-			"path": "/monitor/:monitor_id",
-			"displayName": "Delete a monitor",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id"
-			},
-			"httpMethod": "DELETE",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"displayName": "Monitor ID",
-				"name": ":monitor_id",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id"
-		}, {
-			"path": "/monitor",
-			"displayName": "Get all monitor details",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/monitor"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "query",
-				"type": "string",
-				"displayName": "A comma-separated string indicating what, if any, group states to include (Choose from 'all', 'alert', 'warn', or 'no data')",
-				"name": "group_states"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope",
-				"name": "tags"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/monitor"
-		}, {
-			"path": "/monitor/mute_all",
-			"displayName": "Mute all monitor",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/monitor/mute_all"
-			},
-			"httpMethod": "POST",
-			"params": [],
-			"url": "https://app.datadoghq.com/api/v1/monitor/mute_all"
-		}, {
-			"path": "/monitor/unmute_all",
-			"displayName": "Disables muting all monitors",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/monitor/unmute_all"
-			},
-			"httpMethod": "POST",
-			"params": [],
-			"url": "https://app.datadoghq.com/api/v1/monitor/unmute_all"
-		}, {
-			"path": "/monitor/:monitor_id/mute",
-			"displayName": "Mute a monitor",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1//monitor/:monitor_id/mute"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"displayName": "Monitor ID",
-				"name": ":monitor_id",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "scope",
-				"displayName": "The scope to apply the mute to"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "end",
-				"displayName": "A POSIX timestamp for when the mute should end"
-			}],
-			"url": "https://app.datadoghq.com/api/v1//monitor/:monitor_id/mute"
-		}, {
-			"path": "/monitor/:monitor_id/unmute",
-			"displayName": "Unmute a monitor",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id/unmute"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":monitor_id",
-				"displayName": "Monitor ID",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "scope",
-				"displayName": "The scope to apply the mute to"
-			}, {
-				"style": "body",
-				"type": "boolean",
-				"name": "all_scopes",
-				"displayName": "Clear muting across all scopes"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id/unmute"
-		}, {
-			"path": "/downtime",
-			"displayName": "Schedule monitor downtime",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/downtime"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "body",
-				"type": "string",
-				"name": "scope",
-				"displayName": "The scope to apply the downtime to"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "start",
-				"displayName": "POSIX timestamp to start the downtime"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "end",
-				"displayName": "POSIX timestamp to end the downtime"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "message",
-				"displayName": "A message to include with notifications for this downtime"
-			}, {
-				"style": "body",
-				"type": "object",
-				"name": "recurrence",
-				"displayName": "An object defining the recurrence of the downtime with a variety of parameters such as: type, period, week_days, and until_occurrences"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/downtime"
-		}, {
-			"path": "/downtime/:downtime_id",
-			"displayName": "Update monitor downtime",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/downtime/:downtime_id"
-			},
-			"httpMethod": "PUT",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":downtime_id",
-				"displayName": "Accepts incident id or an incident number",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "id",
-				"displayName": "The integer id of the downtime to be updated",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "scope",
-				"displayName": "The scope to apply the downtime"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "start",
-				"displayName": "POSIX timestamp to start"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "end",
-				"displayName": "POSIX timestamp to end the downtime"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "message",
-				"displayName": "A message to include with notifications for this downtime"
-			}, {
-				"style": "body",
-				"type": "object",
-				"name": "recurrence",
-				"displayName": "An object defining the recurrence of the downtime with a variety of params"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/downtime/:downtime_id"
-		}, {
-			"path": "/downtime/:downtime_id",
-			"displayName": "Cancel monitor downtime",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/downtime/:downtime_id"
-			},
-			"httpMethod": "DELETE",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":downtime_id",
-				"displayName": "The integer id of the downtime to be canceled",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/downtime/:downtime_id"
-		}, {
-			"path": "/downtime/:downtime_id",
-			"displayName": "Get a monitor downtime",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/downtime/:downtime_id"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":downtime_id",
-				"displayName": "Monitor's downtime id",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/downtime/:downtime_id"
-		}, {
-			"path": "/downtime",
-			"displayName": "Get all monitor downtimes",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/downtime"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "query",
-				"type": "string",
-				"name": "current_only",
-				"displayName": "Only return downtimes that are active when the request is made"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/downtime"
-		}, {
-			"path": "/dash",
-			"displayName": "Create a timeboard",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/dash"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "body",
-				"type": "string",
-				"name": "title",
-				"displayName": "The name of the dashboard",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "description",
-				"displayName": "A description of the dashboard's content",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "graphs",
-				"displayName": "A list of graph definitions",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "template_variables",
-				"displayName": "A list of template variables for using Dashboard templating"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/dash"
-		}, {
-			"path": "/dash/:dash_id",
-			"displayName": "Update a timeboard",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/dash/:dash_id"
-			},
-			"httpMethod": "PUT",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":dash_id",
-				"displayName": "The dashboard id",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "description",
-				"displayName": "A description of the dashboard's contents",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "graphs",
-				"displayName": "A list of graph definitions",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "template_variables",
-				"displayName": "A list of template variables for using Dashboard templating"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/dash/:dash_id"
-		}, {
-			"path": "/dash/:dash_id",
-			"displayName": "Delete a timeboard",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/dash/:dash_id"
-			},
-			"httpMethod": "DELETE",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":dash_id",
-				"displayName": "The dashboard id",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/dash/:dash_id"
-		}, {
-			"path": "/dash",
-			"displayName": "Get all timeboards",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/dash"
-			},
-			"httpMethod": "GET",
-			"params": [],
-			"url": "https://app.datadoghq.com/api/v1/dash"
-		}, {
-			"path": "/dash/:dash_id",
-			"displayName": "Get or fetch an existing dashboard's definition",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/dash/:dash_id"
-			},
-			"httpMethod": "GET",
-			"params": [],
-			"url": "https://app.datadoghq.com/api/v1/dash/:dash_id"
-		}, {
-			"path": "/screen",
-			"displayName": "Create a screenboard",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/screen"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "body",
-				"type": "string",
-				"name": "board_title",
-				"displayName": "The name of the dashboard",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "description",
-				"displayName": "A description of the dashboard's content"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "widgets",
-				"displayName": "A list of widget definitions",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "template_variables",
-				"displayName": "A list of template variables for using Dashboard templating"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "width",
-				"displayName": "Screenboard width in pixels"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "height",
-				"displayName": "Height in pixels"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/screen"
-		}, {
-			"path": "/screen/:board_id",
-			"displayName": "Delete a screenboard",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/screen/:board_id"
-			},
-			"httpMethod": "DELETE",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":board_id",
-				"displayName": "The screenboard id",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/screen/:board_id"
-		}, {
-			"path": "/screen/:board_id",
-			"displayName": "Get a screenboard",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/screen/:board_id"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":board_id",
-				"displayName": "The screenboard id",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/screen/:board_id"
-		}, {
-			"path": "/screen",
-			"displayName": "Get all screenboards",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/screen"
-			},
-			"httpMethod": "GET",
-			"params": [],
-			"url": "https://app.datadoghq.com/api/v1/screen"
-		}, {
-			"path": "/screen/share/:board_id",
-			"displayName": "Share a screenboard",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/screen/share/:board_id"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":board_id",
-				"displayName": "The screenboard id",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/screen/share/:board_id"
-		}, {
-			"path": "/screen/share/:board_id",
-			"displayName": "Revoke a shared screenboard",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/screen/share/:board_id"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":board_id",
-				"displayName": "The screenboard id",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/screen/share/:board_id"
-		}, {
-			"path": "/host/:hostname/mute",
-			"displayName": "Mute a host",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/host/:hostname/mute"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":hostname",
-				"displayName": "The name of the host",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "end",
-				"displayName": "POSIX timestamp when the host will be unmuted"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "message",
-				"displayName": "Message to associate with the muting of this host"
-			}, {
-				"style": "body",
-				"type": "boolean",
-				"name": "override",
-				"displayName": "If true and the host is already muted, will replace existing host mute settings"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/host/:hostname/mute"
-		}, {
-			"path": "/host/:hostname/unmute",
-			"displayName": "Unmute a host",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/host/:hostname/unmute"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":hostname",
-				"displayName": "The name of the host",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/host/:hostname/unmute"
-		}, {
-			"path": "/tags/hosts",
-			"displayName": "Get tags",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/tags/hosts"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "query",
-				"type": "string",
-				"name": "source",
-				"displayName": "Only show tags from a particular source, otherwise shows all tags"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/tags/hosts"
-		}, {
-			"path": "/tags/hosts/:host_name",
-			"displayName": "Get host tags",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/tags/hosts/:host_name"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":hostname",
-				"displayName": "The name of the host",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "string",
-				"name": "source",
-				"displayName": "Only show tags from a particular source, otherwise shows all tags"
-			}, {
-				"style": "query",
-				"type": "boolean",
-				"name": "by_source",
-				"displayName": "Return tags grouped by source"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/tags/hosts/:host_name"
-		}, {
-			"path": "/tags/hosts/:host_name",
-			"displayName": "Add tags to a host",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/tags/hosts/:host_name"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":hostname",
-				"displayName": "The name of the host",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "tags",
-				"displayName": "A list of tags to apply to the host",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "source",
-				"displayName": "The source of the tags (e.g. chef, puppet)"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/tags/hosts/:host_name"
-		}, {
-			"path": "/tags/hosts/:host_name",
-			"displayName": "Update host tags",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/tags/hosts/:host_name"
-			},
-			"httpMethod": "PUT",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":hostname",
-				"displayName": "The name of the host",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "tags",
-				"displayName": "A list of tags",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "source",
-				"displayName": "The source of the tags (e.g. chef, puppet)"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/tags/hosts/:host_name"
-		}, {
-			"path": "/tags/hosts/:host_name",
-			"displayName": "Remove host tags",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/tags/hosts/:host_name"
-			},
-			"httpMethod": "DELETE",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":hostname",
-				"displayName": "The name of the host",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "string",
-				"name": "source",
-				"displayName": "The source of the tags (e.g. chef, puppet)"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/tags/hosts/:host_name"
-		}, {
-			"path": "/search",
-			"displayName": "Search for hosts & metrics from the last 24 hours in Datadog",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/search"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "query",
-				"type": "string",
-				"name": "q",
-				"displayName": "The query string",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/search"
-		}, {
-			"path": "/comments",
-			"displayName": "Create a comment",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/comments"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "body",
-				"type": "string",
-				"name": "message",
-				"displayName": "The comment text",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "handle",
-				"displayName": "The handle of the user making the comment"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "related_event_id",
-				"displayName": "The id of another comment or event to reply to"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/comments"
-		}, {
-			"path": "/comments/:comment_id",
-			"displayName": "Edit a comment",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/comments/:comment_id"
-			},
-			"httpMethod": "PUT",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":comment_id",
-				"displayName": "The comment's id",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "message",
-				"displayName": "The comment text"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "handle",
-				"displayName": "The handle of the user making the comment"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/comments/:comment_id"
-		}, {
-			"path": "/comments/:comment_id",
-			"displayName": "Delete a comment",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/comments/:comment_id"
-			},
-			"httpMethod": "DELETE",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":comment_id",
-				"displayName": "The comment's id",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/comments/:comment_id"
-		}, {
-			"path": "/user",
-			"displayName": "Create user",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/user"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "body",
-				"type": "string",
-				"name": "handle",
-				"displayName": "The user handle, must be a valid email",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "name",
-				"displayName": "The name of the user"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/user"
-		}, {
-			"path": "/user/:handle",
-			"displayName": "Get user",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/user/:handle"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":handle",
-				"displayName": "The handle of the user",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/user/:handle"
-		}, {
-			"path": "/user",
-			"displayName": "Get all users",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/user"
-			},
-			"httpMethod": "GET",
-			"params": [],
-			"url": "https://app.datadoghq.com/api/v1/user"
-		}, {
-			"path": "/user/:handle",
-			"displayName": "Update user",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/user/:handle"
-			},
-			"httpMethod": "PUT",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":handle",
-				"displayName": "The handle of the user",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "name",
-				"displayName": "The new name of the user"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "email",
-				"displayName": "The new email of the user"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "disabled",
-				"displayName": "The new disabled status of the user"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "is_admin",
-				"displayName": "The new admin status of the user"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/user/:handle"
-		}, {
-			"path": "/user/:handle",
-			"displayName": "Disable user",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/user/:handle"
-			},
-			"httpMethod": "DELETE",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":handle",
-				"displayName": "The handle of the user",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/user/:handle"
-		}, {
-			"path": "/graph/snapshot",
-			"displayName": "Graph snapshot",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/graph/snapshot"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "query",
-				"type": "string",
-				"name": "metric_query",
-				"displayName": "The metric query",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "string",
-				"name": "start",
-				"displayName": "The POSIX timestamp of the start of the query",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "string",
-				"name": "end",
-				"displayName": "The POSIX timestamp of the end of the query",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "string",
-				"name": "event_query",
-				"displayName": "A query that will add event bands to the graph"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/graph/snapshot"
-		}, {
-			"path": "/graph/embed",
-			"displayName": "Get a list of embeddable graphs",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/graph/embed"
-			},
-			"httpMethod": "GET",
-			"params": [],
-			"url": "https://app.datadoghq.com/api/v1/graph/embed"
-		}, {
-			"path": "/graph/embed/:embed_id",
-			"displayName": "Get an embed by ID",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/graph/embed/:embed_id"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":embed_id",
-				"displayName": "Id of the embeded graph",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "string",
-				"name": "size",
-				"displayName": "Size (One of small, medium, large, or xlarge)"
-			}, {
-				"style": "query",
-				"type": "string",
-				"name": "legend",
-				"displayName": "Legend (One of yes or no)"
-			}, {
-				"style": "query",
-				"type": "string",
-				"name": "template_variables",
-				"displayName": "The template variables"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/graph/embed/:embed_id"
-		}, {
-			"path": "/graph/embed",
-			"displayName": "Create a new embeddable graph",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/graph/embed"
-			},
-			"httpMethod": "Post",
-			"params": [{
-				"style": "body",
-				"type": "string",
-				"name": "graph_json",
-				"displayName": "Graph definition in JSON",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "timeframe",
-				"displayName": "Timeframe for the graph (One of 1_hour, 4_hours, 1_day, 2_days, and 1_week)",
-				"required": "false"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "size",
-				"displayName": "Size (One of small, medium, large, or xlarge)",
-				"required": "false"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "legend",
-				"displayName": "Legend (One of yes or no)",
-				"required": "false"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "title",
-				"displayName": "title",
-				"required": "false"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/graph/embed"
-		}, {
-			"path": "/graph/embed/:embed_id/enable",
-			"displayName": "Enable an embed",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/graph/embed/:embed_id/enable"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":embed_id",
-				"displayName": "Id of the embeded graph",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/graph/embed/:embed_id/enable"
-		}, {
-			"path": "/graph/embed/:embed_id/revoke",
-			"displayName": "Revoke an embed",
-			"doc": {
-				"url": "http://docs.datadoghq.com/api/#embeds"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":embed_id",
-				"displayName": "Id of the embeded graph",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/graph/embed/:embed_id/revoke"
-		}]
-	}
-}
-{
-	"_id": "56d4b67307b34be42f07575e",
-	"name": "Datadog",
-	"documentation": "http://docs.datadoghq.com/api/",
-	"type": "channel:datadog",
-	"enabled": true,
-	"auth_strategy": "datadog",
-	"application": {
-		"base": "https://app.datadoghq.com/api/v1",
-		"resources": [{
-			"path": "/series",
-			"displayName": "Post time series points",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/series"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "body",
-				"type": "string",
-				"name": "metric",
-				"displayName": "The name of the time series",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "array",
-				"name": "points",
-				"displayName": "An array of points",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "host",
-				"displayName": "The name of the host that produced the metric"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "tags",
-				"displayName": "A list of tags associated with the metric"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/series"
-		}, {
-			"path": "/query",
-			"displayName": "Query time series points",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/query"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "query",
-				"type": "string",
-				"name": "start",
-				"displayName": "Seconds since the unix epoch",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "Seconds since the unix epoch",
-				"name": "end",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "The query string",
-				"name": "query",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/query"
-		}, {
-			"path": "/events",
-			"displayName": "Creates a new escalation policy",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/events"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "body",
-				"type": "string",
-				"name": "title",
-				"displayName": "The event title",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "The body of the event",
-				"name": "text"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "POSIX timestamp of the event",
-				"name": "date_happened"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "The priority of the event ('normal' or 'low')",
-				"name": "priority"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "Host name to associate with the event",
-				"name": "host"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "A list of tags to apply to the event",
-				"name": "tags"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "Alert types (error, warning, info, success )",
-				"name": "alert_type"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "An arbitrary string to use for aggregation (max length of 100 characters)",
-				"name": "aggregation_key"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "Type of event being posted (Options: nagios, hudson, jenkins, user, my apps, feed, chef, puppet, git, bitbucket, fabric, and capistrano)",
-				"name": "source_type_name"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/events"
-		}, {
-			"path": "/events/:event_id",
-			"displayName": "Get an event's details",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/events/:event_id"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"displayName": "ID of the event",
-				"name": ":event_id",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/events/:event_id"
-		}, {
-			"path": "/events",
-			"displayName": "Query the event stream",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/events"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "query",
-				"type": "string",
-				"displayName": "Start of the POSIX timestamp",
-				"name": "start",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "End of the POSIX timestamp",
-				"name": "end",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "The priority of the event ('normal' or 'low')",
-				"name": "priority"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "A comma separated string of sources",
-				"name": "sources"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "A comma separated string of tags",
-				"name": "tags"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/events"
-		}, {
-			"path": "/check_run",
-			"displayName": "Posts a check run",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/check_run"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "body",
-				"type": "string",
-				"displayName": "The text for the message",
-				"name": "check",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "The name of the host submitting the check",
-				"name": "host_name",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "integer",
-				"displayName": "An integer for the status of the check",
-				"name": "status",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "POSIX timestamp of the event",
-				"name": "timestamp"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "A description of why this status occurred",
-				"name": "message"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "A list of key:val tags for this check",
-				"name": "tags"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/check_run"
-		}, {
-			"path": "/monitor",
-			"displayName": "Create a monitor",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/monitor"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "body",
-				"type": "string",
-				"displayName": "The type of the monitor (metric alert, service check, or event alert)",
-				"name": "type",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "The monitor query to notify on with syntax varying depending on what type of monitor you are creating",
-				"name": "query",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "The type of the monitor (metric alert, service check, or event alert)",
-				"name": "type",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/monitor"
-		}, {
-			"path": "/monitor/:monitor_id",
-			"displayName": "Get a monitor's details",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"displayName": "Monitor ID",
-				"name": ":monitor_id",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "A comma-separated string indicating what, if any, group states to include (Choose from 'all', 'alert', 'warn', or 'no data')",
-				"name": "group_states"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id"
-		}, {
-			"path": "/monitor/:monitor_id",
-			"displayName": "Edit a monitor",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id"
-			},
-			"httpMethod": "PUT",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"displayName": "Monitor ID",
-				"name": ":monitor_id",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "The metric query to alert on",
-				"name": "query",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "The name of the monitor",
-				"name": "name"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "A message to include with notifications for this monitor",
-				"name": "message"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "Refer to the create monitor documentation for details on the available options",
-				"name": "options"
-			}, {
-				"style": "body",
-				"type": "string",
-				"displayName": "A list of tags to associate with your monitor",
-				"name": "tags"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id"
-		}, {
-			"path": "/monitor/:monitor_id",
-			"displayName": "Delete a monitor",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id"
-			},
-			"httpMethod": "DELETE",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"displayName": "Monitor ID",
-				"name": ":monitor_id",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id"
-		}, {
-			"path": "/monitor",
-			"displayName": "Get all monitor details",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/monitor"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "query",
-				"type": "string",
-				"displayName": "A comma-separated string indicating what, if any, group states to include (Choose from 'all', 'alert', 'warn', or 'no data')",
-				"name": "group_states"
-			}, {
-				"style": "query",
-				"type": "string",
-				"displayName": "A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope",
-				"name": "tags"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/monitor"
-		}, {
-			"path": "/monitor/mute_all",
-			"displayName": "Mute all monitor",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/monitor/mute_all"
-			},
-			"httpMethod": "POST",
-			"params": [],
-			"url": "https://app.datadoghq.com/api/v1/monitor/mute_all"
-		}, {
-			"path": "/monitor/unmute_all",
-			"displayName": "Disables muting all monitors",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/monitor/unmute_all"
-			},
-			"httpMethod": "POST",
-			"params": [],
-			"url": "https://app.datadoghq.com/api/v1/monitor/unmute_all"
-		}, {
-			"path": "/monitor/:monitor_id/mute",
-			"displayName": "Mute a monitor",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1//monitor/:monitor_id/mute"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"displayName": "Monitor ID",
-				"name": ":monitor_id",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "scope",
-				"displayName": "The scope to apply the mute to"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "end",
-				"displayName": "A POSIX timestamp for when the mute should end"
-			}],
-			"url": "https://app.datadoghq.com/api/v1//monitor/:monitor_id/mute"
-		}, {
-			"path": "/monitor/:monitor_id/unmute",
-			"displayName": "Unmute a monitor",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id/unmute"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":monitor_id",
-				"displayName": "Monitor ID",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "scope",
-				"displayName": "The scope to apply the mute to"
-			}, {
-				"style": "body",
-				"type": "boolean",
-				"name": "all_scopes",
-				"displayName": "Clear muting across all scopes"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id/unmute"
-		}, {
-			"path": "/downtime",
-			"displayName": "Schedule monitor downtime",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/downtime"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "body",
-				"type": "string",
-				"name": "scope",
-				"displayName": "The scope to apply the downtime to"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "start",
-				"displayName": "POSIX timestamp to start the downtime"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "end",
-				"displayName": "POSIX timestamp to end the downtime"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "message",
-				"displayName": "A message to include with notifications for this downtime"
-			}, {
-				"style": "body",
-				"type": "object",
-				"name": "recurrence",
-				"displayName": "An object defining the recurrence of the downtime with a variety of parameters such as: type, period, week_days, and until_occurrences"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/downtime"
-		}, {
-			"path": "/downtime/:downtime_id",
-			"displayName": "Update monitor downtime",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/downtime/:downtime_id"
-			},
-			"httpMethod": "PUT",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":downtime_id",
-				"displayName": "Accepts incident id or an incident number",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "id",
-				"displayName": "The integer id of the downtime to be updated",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "scope",
-				"displayName": "The scope to apply the downtime"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "start",
-				"displayName": "POSIX timestamp to start"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "end",
-				"displayName": "POSIX timestamp to end the downtime"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "message",
-				"displayName": "A message to include with notifications for this downtime"
-			}, {
-				"style": "body",
-				"type": "object",
-				"name": "recurrence",
-				"displayName": "An object defining the recurrence of the downtime with a variety of params"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/downtime/:downtime_id"
-		}, {
-			"path": "/downtime/:downtime_id",
-			"displayName": "Cancel monitor downtime",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/downtime/:downtime_id"
-			},
-			"httpMethod": "DELETE",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":downtime_id",
-				"displayName": "The integer id of the downtime to be canceled",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/downtime/:downtime_id"
-		}, {
-			"path": "/downtime/:downtime_id",
-			"displayName": "Get a monitor downtime",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/downtime/:downtime_id"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":downtime_id",
-				"displayName": "Monitor's downtime id",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/downtime/:downtime_id"
-		}, {
-			"path": "/downtime",
-			"displayName": "Get all monitor downtimes",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/downtime"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "query",
-				"type": "string",
-				"name": "current_only",
-				"displayName": "Only return downtimes that are active when the request is made"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/downtime"
-		}, {
-			"path": "/dash",
-			"displayName": "Create a timeboard",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/dash"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "body",
-				"type": "string",
-				"name": "title",
-				"displayName": "The name of the dashboard",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "description",
-				"displayName": "A description of the dashboard's content",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "graphs",
-				"displayName": "A list of graph definitions",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "template_variables",
-				"displayName": "A list of template variables for using Dashboard templating"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/dash"
-		}, {
-			"path": "/dash/:dash_id",
-			"displayName": "Update a timeboard",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/dash/:dash_id"
-			},
-			"httpMethod": "PUT",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":dash_id",
-				"displayName": "The dashboard id",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "description",
-				"displayName": "A description of the dashboard's contents",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "graphs",
-				"displayName": "A list of graph definitions",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "template_variables",
-				"displayName": "A list of template variables for using Dashboard templating"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/dash/:dash_id"
-		}, {
-			"path": "/dash/:dash_id",
-			"displayName": "Delete a timeboard",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/dash/:dash_id"
-			},
-			"httpMethod": "DELETE",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":dash_id",
-				"displayName": "The dashboard id",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/dash/:dash_id"
-		}, {
-			"path": "/dash",
-			"displayName": "Get all timeboards",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/dash"
-			},
-			"httpMethod": "GET",
-			"params": [],
-			"url": "https://app.datadoghq.com/api/v1/dash"
-		}, {
-			"path": "/dash/:dash_id",
-			"displayName": "Get or fetch an existing dashboard's definition",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/dash/:dash_id"
-			},
-			"httpMethod": "GET",
-			"params": [],
-			"url": "https://app.datadoghq.com/api/v1/dash/:dash_id"
-		}, {
-			"path": "/screen",
-			"displayName": "Create a screenboard",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/screen"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "body",
-				"type": "string",
-				"name": "board_title",
-				"displayName": "The name of the dashboard",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "description",
-				"displayName": "A description of the dashboard's content"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "widgets",
-				"displayName": "A list of widget definitions",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "template_variables",
-				"displayName": "A list of template variables for using Dashboard templating"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "width",
-				"displayName": "Screenboard width in pixels"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "height",
-				"displayName": "Height in pixels"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/screen"
-		}, {
-			"path": "/screen/:board_id",
-			"displayName": "Delete a screenboard",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/screen/:board_id"
-			},
-			"httpMethod": "DELETE",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":board_id",
-				"displayName": "The screenboard id",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/screen/:board_id"
-		}, {
-			"path": "/screen/:board_id",
-			"displayName": "Get a screenboard",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/screen/:board_id"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":board_id",
-				"displayName": "The screenboard id",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/screen/:board_id"
-		}, {
-			"path": "/screen",
-			"displayName": "Get all screenboards",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/screen"
-			},
-			"httpMethod": "GET",
-			"params": [],
-			"url": "https://app.datadoghq.com/api/v1/screen"
-		}, {
-			"path": "/screen/share/:board_id",
-			"displayName": "Share a screenboard",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/screen/share/:board_id"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":board_id",
-				"displayName": "The screenboard id",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/screen/share/:board_id"
-		}, {
-			"path": "/screen/share/:board_id",
-			"displayName": "Revoke a shared screenboard",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/screen/share/:board_id"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":board_id",
-				"displayName": "The screenboard id",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/screen/share/:board_id"
-		}, {
-			"path": "/host/:hostname/mute",
-			"displayName": "Mute a host",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/host/:hostname/mute"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":hostname",
-				"displayName": "The name of the host",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "end",
-				"displayName": "POSIX timestamp when the host will be unmuted"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "message",
-				"displayName": "Message to associate with the muting of this host"
-			}, {
-				"style": "body",
-				"type": "boolean",
-				"name": "override",
-				"displayName": "If true and the host is already muted, will replace existing host mute settings"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/host/:hostname/mute"
-		}, {
-			"path": "/host/:hostname/unmute",
-			"displayName": "Unmute a host",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/host/:hostname/unmute"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":hostname",
-				"displayName": "The name of the host",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/host/:hostname/unmute"
-		}, {
-			"path": "/tags/hosts",
-			"displayName": "Get tags",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/tags/hosts"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "query",
-				"type": "string",
-				"name": "source",
-				"displayName": "Only show tags from a particular source, otherwise shows all tags"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/tags/hosts"
-		}, {
-			"path": "/tags/hosts/:host_name",
-			"displayName": "Get host tags",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/tags/hosts/:host_name"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":hostname",
-				"displayName": "The name of the host",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "string",
-				"name": "source",
-				"displayName": "Only show tags from a particular source, otherwise shows all tags"
-			}, {
-				"style": "query",
-				"type": "boolean",
-				"name": "by_source",
-				"displayName": "Return tags grouped by source"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/tags/hosts/:host_name"
-		}, {
-			"path": "/tags/hosts/:host_name",
-			"displayName": "Add tags to a host",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/tags/hosts/:host_name"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":hostname",
-				"displayName": "The name of the host",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "tags",
-				"displayName": "A list of tags to apply to the host",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "source",
-				"displayName": "The source of the tags (e.g. chef, puppet)"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/tags/hosts/:host_name"
-		}, {
-			"path": "/tags/hosts/:host_name",
-			"displayName": "Update host tags",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/tags/hosts/:host_name"
-			},
-			"httpMethod": "PUT",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":hostname",
-				"displayName": "The name of the host",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "tags",
-				"displayName": "A list of tags",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "source",
-				"displayName": "The source of the tags (e.g. chef, puppet)"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/tags/hosts/:host_name"
-		}, {
-			"path": "/tags/hosts/:host_name",
-			"displayName": "Remove host tags",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/tags/hosts/:host_name"
-			},
-			"httpMethod": "DELETE",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":hostname",
-				"displayName": "The name of the host",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "string",
-				"name": "source",
-				"displayName": "The source of the tags (e.g. chef, puppet)"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/tags/hosts/:host_name"
-		}, {
-			"path": "/search",
-			"displayName": "Search for hosts & metrics from the last 24 hours in Datadog",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/search"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "query",
-				"type": "string",
-				"name": "q",
-				"displayName": "The query string",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/search"
-		}, {
-			"path": "/comments",
-			"displayName": "Create a comment",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/comments"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "body",
-				"type": "string",
-				"name": "message",
-				"displayName": "The comment text",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "handle",
-				"displayName": "The handle of the user making the comment"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "related_event_id",
-				"displayName": "The id of another comment or event to reply to"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/comments"
-		}, {
-			"path": "/comments/:comment_id",
-			"displayName": "Edit a comment",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/comments/:comment_id"
-			},
-			"httpMethod": "PUT",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":comment_id",
-				"displayName": "The comment's id",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "message",
-				"displayName": "The comment text"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "handle",
-				"displayName": "The handle of the user making the comment"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/comments/:comment_id"
-		}, {
-			"path": "/comments/:comment_id",
-			"displayName": "Delete a comment",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/comments/:comment_id"
-			},
-			"httpMethod": "DELETE",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":comment_id",
-				"displayName": "The comment's id",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/comments/:comment_id"
-		}, {
-			"path": "/user",
-			"displayName": "Create user",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/user"
-			},
-			"httpMethod": "POST",
-			"params": [{
-				"style": "body",
-				"type": "string",
-				"name": "handle",
-				"displayName": "The user handle, must be a valid email",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "name",
-				"displayName": "The name of the user"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/user"
-		}, {
-			"path": "/user/:handle",
-			"displayName": "Get user",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/user/:handle"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":handle",
-				"displayName": "The handle of the user",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/user/:handle"
-		}, {
-			"path": "/user",
-			"displayName": "Get all users",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/user"
-			},
-			"httpMethod": "GET",
-			"params": [],
-			"url": "https://app.datadoghq.com/api/v1/user"
-		}, {
-			"path": "/user/:handle",
-			"displayName": "Update user",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/user/:handle"
-			},
-			"httpMethod": "PUT",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":handle",
-				"displayName": "The handle of the user",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "name",
-				"displayName": "The new name of the user"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "email",
-				"displayName": "The new email of the user"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "disabled",
-				"displayName": "The new disabled status of the user"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "is_admin",
-				"displayName": "The new admin status of the user"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/user/:handle"
-		}, {
-			"path": "/user/:handle",
-			"displayName": "Disable user",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/user/:handle"
-			},
-			"httpMethod": "DELETE",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":handle",
-				"displayName": "The handle of the user",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/user/:handle"
-		}, {
-			"path": "/graph/snapshot",
-			"displayName": "Graph snapshot",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/graph/snapshot"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "query",
-				"type": "string",
-				"name": "metric_query",
-				"displayName": "The metric query",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "string",
-				"name": "start",
-				"displayName": "The POSIX timestamp of the start of the query",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "string",
-				"name": "end",
-				"displayName": "The POSIX timestamp of the end of the query",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "string",
-				"name": "event_query",
-				"displayName": "A query that will add event bands to the graph"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/graph/snapshot"
-		}, {
-			"path": "/graph/embed",
-			"displayName": "Get a list of embeddable graphs",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/graph/embed"
-			},
-			"httpMethod": "GET",
-			"params": [],
-			"url": "https://app.datadoghq.com/api/v1/graph/embed"
-		}, {
-			"path": "/graph/embed/:embed_id",
-			"displayName": "Get an embed by ID",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/graph/embed/:embed_id"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":embed_id",
-				"displayName": "Id of the embeded graph",
-				"required": "true"
-			}, {
-				"style": "query",
-				"type": "string",
-				"name": "size",
-				"displayName": "Size (One of small, medium, large, or xlarge)"
-			}, {
-				"style": "query",
-				"type": "string",
-				"name": "legend",
-				"displayName": "Legend (One of yes or no)"
-			}, {
-				"style": "query",
-				"type": "string",
-				"name": "template_variables",
-				"displayName": "The template variables"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/graph/embed/:embed_id"
-		}, {
-			"path": "/graph/embed",
-			"displayName": "Create a new embeddable graph",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/graph/embed"
-			},
-			"httpMethod": "Post",
-			"params": [{
-				"style": "body",
-				"type": "string",
-				"name": "graph_json",
-				"displayName": "Graph definition in JSON",
-				"required": "true"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "timeframe",
-				"displayName": "Timeframe for the graph (One of 1_hour, 4_hours, 1_day, 2_days, and 1_week)",
-				"required": "false"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "size",
-				"displayName": "Size (One of small, medium, large, or xlarge)",
-				"required": "false"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "legend",
-				"displayName": "Legend (One of yes or no)",
-				"required": "false"
-			}, {
-				"style": "body",
-				"type": "string",
-				"name": "title",
-				"displayName": "title",
-				"required": "false"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/graph/embed"
-		}, {
-			"path": "/graph/embed/:embed_id/enable",
-			"displayName": "Enable an embed",
-			"doc": {
-				"url": "https://app.datadoghq.com/api/v1/graph/embed/:embed_id/enable"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":embed_id",
-				"displayName": "Id of the embeded graph",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/graph/embed/:embed_id/enable"
-		}, {
-			"path": "/graph/embed/:embed_id/revoke",
-			"displayName": "Revoke an embed",
-			"doc": {
-				"url": "http://docs.datadoghq.com/api/#embeds"
-			},
-			"httpMethod": "GET",
-			"params": [{
-				"style": "url",
-				"type": "string",
-				"name": ":embed_id",
-				"displayName": "Id of the embeded graph",
-				"required": "true"
-			}],
-			"url": "https://app.datadoghq.com/api/v1/graph/embed/:embed_id/revoke"
-		}]
-	}
+  "_id": "56d4b67307b34be42f07575e",
+  "name": "Datadog",
+  "documentation": "http://docs.datadoghq.com/api/",
+  "type": "channel:datadog",
+  "enabled": true,
+  "auth_strategy": "datadog",
+  "application": {
+    "base": "https://app.datadoghq.com/api/v1",
+    "resources": [
+      {
+        "path": "/series",
+        "displayName": "Post time series points",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/series"
+        },
+        "httpMethod": "POST",
+        "params": [
+          {
+            "style": "body",
+            "type": "string",
+            "name": "metric",
+            "displayName": "The name of the time series",
+            "required": "true"
+          },
+          {
+            "style": "body",
+            "type": "array",
+            "name": "points",
+            "displayName": "An array of points",
+            "required": "true"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "host",
+            "displayName": "The name of the host that produced the metric"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "tags",
+            "displayName": "A list of tags associated with the metric"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/series"
+      },
+      {
+        "path": "/query",
+        "displayName": "Query time series points",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/query"
+        },
+        "httpMethod": "GET",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "start",
+            "displayName": "Seconds since the unix epoch",
+            "required": "true"
+          },
+          {
+            "style": "query",
+            "type": "string",
+            "displayName": "Seconds since the unix epoch",
+            "name": "end",
+            "required": "true"
+          },
+          {
+            "style": "query",
+            "type": "string",
+            "displayName": "The query string",
+            "name": "query",
+            "required": "true"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/query"
+      },
+      {
+        "path": "/events",
+        "displayName": "Creates a new escalation policy",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/events"
+        },
+        "httpMethod": "POST",
+        "params": [
+          {
+            "style": "body",
+            "type": "string",
+            "name": "title",
+            "displayName": "The event title",
+            "required": "true"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "displayName": "The body of the event",
+            "name": "text"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "displayName": "POSIX timestamp of the event",
+            "name": "date_happened"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "displayName": "The priority of the event ('normal' or 'low')",
+            "name": "priority"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "displayName": "Host name to associate with the event",
+            "name": "host"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "displayName": "A list of tags to apply to the event",
+            "name": "tags"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "displayName": "Alert types (error, warning, info, success )",
+            "name": "alert_type"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "displayName": "An arbitrary string to use for aggregation (max length of 100 characters)",
+            "name": "aggregation_key"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "displayName": "Type of event being posted (Options: nagios, hudson, jenkins, user, my apps, feed, chef, puppet, git, bitbucket, fabric, and capistrano)",
+            "name": "source_type_name"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/events"
+      },
+      {
+        "path": "/events/:event_id",
+        "displayName": "Get an event's details",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/events/:event_id"
+        },
+        "httpMethod": "GET",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "displayName": "ID of the event",
+            "name": ":event_id",
+            "required": "true"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/events/:event_id"
+      },
+      {
+        "path": "/events",
+        "displayName": "Query the event stream",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/events"
+        },
+        "httpMethod": "GET",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "displayName": "Start of the POSIX timestamp",
+            "name": "start",
+            "required": "true"
+          },
+          {
+            "style": "query",
+            "type": "string",
+            "displayName": "End of the POSIX timestamp",
+            "name": "end",
+            "required": "true"
+          },
+          {
+            "style": "query",
+            "type": "string",
+            "displayName": "The priority of the event ('normal' or 'low')",
+            "name": "priority"
+          },
+          {
+            "style": "query",
+            "type": "string",
+            "displayName": "A comma separated string of sources",
+            "name": "sources"
+          },
+          {
+            "style": "query",
+            "type": "string",
+            "displayName": "A comma separated string of tags",
+            "name": "tags"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/events"
+      },
+      {
+        "path": "/check_run",
+        "displayName": "Posts a check run",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/check_run"
+        },
+        "httpMethod": "POST",
+        "params": [
+          {
+            "style": "body",
+            "type": "string",
+            "displayName": "The text for the message",
+            "name": "check",
+            "required": "true"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "displayName": "The name of the host submitting the check",
+            "name": "host_name",
+            "required": "true"
+          },
+          {
+            "style": "body",
+            "type": "integer",
+            "displayName": "An integer for the status of the check",
+            "name": "status",
+            "required": "true"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "displayName": "POSIX timestamp of the event",
+            "name": "timestamp"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "displayName": "A description of why this status occurred",
+            "name": "message"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "displayName": "A list of key:val tags for this check",
+            "name": "tags"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/check_run"
+      },
+      {
+        "path": "/monitor",
+        "displayName": "Create a monitor",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/monitor"
+        },
+        "httpMethod": "POST",
+        "params": [
+          {
+            "style": "body",
+            "type": "string",
+            "displayName": "The type of the monitor (metric alert, service check, or event alert)",
+            "name": "type",
+            "required": "true"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "displayName": "The monitor query to notify on with syntax varying depending on what type of monitor you are creating",
+            "name": "query",
+            "required": "true"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "displayName": "The type of the monitor (metric alert, service check, or event alert)",
+            "name": "type",
+            "required": "true"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/monitor"
+      },
+      {
+        "path": "/monitor/:monitor_id",
+        "displayName": "Get a monitor's details",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id"
+        },
+        "httpMethod": "GET",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "displayName": "Monitor ID",
+            "name": ":monitor_id",
+            "required": "true"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "displayName": "A comma-separated string indicating what, if any, group states to include (Choose from 'all', 'alert', 'warn', or 'no data')",
+            "name": "group_states"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id"
+      },
+      {
+        "path": "/monitor/:monitor_id",
+        "displayName": "Edit a monitor",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id"
+        },
+        "httpMethod": "PUT",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "displayName": "Monitor ID",
+            "name": ":monitor_id",
+            "required": "true"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "displayName": "The metric query to alert on",
+            "name": "query",
+            "required": "true"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "displayName": "The name of the monitor",
+            "name": "name"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "displayName": "A message to include with notifications for this monitor",
+            "name": "message"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "displayName": "Refer to the create monitor documentation for details on the available options",
+            "name": "options"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "displayName": "A list of tags to associate with your monitor",
+            "name": "tags"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id"
+      },
+      {
+        "path": "/monitor/:monitor_id",
+        "displayName": "Delete a monitor",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id"
+        },
+        "httpMethod": "DELETE",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "displayName": "Monitor ID",
+            "name": ":monitor_id",
+            "required": "true"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id"
+      },
+      {
+        "path": "/monitor",
+        "displayName": "Get all monitor details",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/monitor"
+        },
+        "httpMethod": "GET",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "displayName": "A comma-separated string indicating what, if any, group states to include (Choose from 'all', 'alert', 'warn', or 'no data')",
+            "name": "group_states"
+          },
+          {
+            "style": "query",
+            "type": "string",
+            "displayName": "A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope",
+            "name": "tags"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/monitor"
+      },
+      {
+        "path": "/monitor/mute_all",
+        "displayName": "Mute all monitor",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/monitor/mute_all"
+        },
+        "httpMethod": "POST",
+        "params": [],
+        "url": "https://app.datadoghq.com/api/v1/monitor/mute_all"
+      },
+      {
+        "path": "/monitor/unmute_all",
+        "displayName": "Disables muting all monitors",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/monitor/unmute_all"
+        },
+        "httpMethod": "POST",
+        "params": [],
+        "url": "https://app.datadoghq.com/api/v1/monitor/unmute_all"
+      },
+      {
+        "path": "/monitor/:monitor_id/mute",
+        "displayName": "Mute a monitor",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1//monitor/:monitor_id/mute"
+        },
+        "httpMethod": "POST",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "displayName": "Monitor ID",
+            "name": ":monitor_id",
+            "required": "true"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "scope",
+            "displayName": "The scope to apply the mute to"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "end",
+            "displayName": "A POSIX timestamp for when the mute should end"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1//monitor/:monitor_id/mute"
+      },
+      {
+        "path": "/monitor/:monitor_id/unmute",
+        "displayName": "Unmute a monitor",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id/unmute"
+        },
+        "httpMethod": "POST",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":monitor_id",
+            "displayName": "Monitor ID",
+            "required": "true"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "scope",
+            "displayName": "The scope to apply the mute to"
+          },
+          {
+            "style": "body",
+            "type": "boolean",
+            "name": "all_scopes",
+            "displayName": "Clear muting across all scopes"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/monitor/:monitor_id/unmute"
+      },
+      {
+        "path": "/downtime",
+        "displayName": "Schedule monitor downtime",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/downtime"
+        },
+        "httpMethod": "POST",
+        "params": [
+          {
+            "style": "body",
+            "type": "string",
+            "name": "scope",
+            "displayName": "The scope to apply the downtime to"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "start",
+            "displayName": "POSIX timestamp to start the downtime"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "end",
+            "displayName": "POSIX timestamp to end the downtime"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "message",
+            "displayName": "A message to include with notifications for this downtime"
+          },
+          {
+            "style": "body",
+            "type": "object",
+            "name": "recurrence",
+            "displayName": "An object defining the recurrence of the downtime with a variety of parameters such as: type, period, week_days, and until_occurrences"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/downtime"
+      },
+      {
+        "path": "/downtime/:downtime_id",
+        "displayName": "Update monitor downtime",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/downtime/:downtime_id"
+        },
+        "httpMethod": "PUT",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":downtime_id",
+            "displayName": "Accepts incident id or an incident number",
+            "required": "true"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "id",
+            "displayName": "The integer id of the downtime to be updated",
+            "required": "true"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "scope",
+            "displayName": "The scope to apply the downtime"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "start",
+            "displayName": "POSIX timestamp to start"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "end",
+            "displayName": "POSIX timestamp to end the downtime"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "message",
+            "displayName": "A message to include with notifications for this downtime"
+          },
+          {
+            "style": "body",
+            "type": "object",
+            "name": "recurrence",
+            "displayName": "An object defining the recurrence of the downtime with a variety of params"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/downtime/:downtime_id"
+      },
+      {
+        "path": "/downtime/:downtime_id",
+        "displayName": "Cancel monitor downtime",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/downtime/:downtime_id"
+        },
+        "httpMethod": "DELETE",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":downtime_id",
+            "displayName": "The integer id of the downtime to be canceled",
+            "required": "true"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/downtime/:downtime_id"
+      },
+      {
+        "path": "/downtime/:downtime_id",
+        "displayName": "Get a monitor downtime",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/downtime/:downtime_id"
+        },
+        "httpMethod": "GET",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":downtime_id",
+            "displayName": "Monitor's downtime id",
+            "required": "true"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/downtime/:downtime_id"
+      },
+      {
+        "path": "/downtime",
+        "displayName": "Get all monitor downtimes",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/downtime"
+        },
+        "httpMethod": "GET",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "current_only",
+            "displayName": "Only return downtimes that are active when the request is made"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/downtime"
+      },
+      {
+        "path": "/dash",
+        "displayName": "Create a timeboard",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/dash"
+        },
+        "httpMethod": "POST",
+        "params": [
+          {
+            "style": "body",
+            "type": "string",
+            "name": "title",
+            "displayName": "The name of the dashboard",
+            "required": "true"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "description",
+            "displayName": "A description of the dashboard's content",
+            "required": "true"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "graphs",
+            "displayName": "A list of graph definitions",
+            "required": "true"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "template_variables",
+            "displayName": "A list of template variables for using Dashboard templating"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/dash"
+      },
+      {
+        "path": "/dash/:dash_id",
+        "displayName": "Update a timeboard",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/dash/:dash_id"
+        },
+        "httpMethod": "PUT",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":dash_id",
+            "displayName": "The dashboard id",
+            "required": "true"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "description",
+            "displayName": "A description of the dashboard's contents",
+            "required": "true"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "graphs",
+            "displayName": "A list of graph definitions",
+            "required": "true"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "template_variables",
+            "displayName": "A list of template variables for using Dashboard templating"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/dash/:dash_id"
+      },
+      {
+        "path": "/dash/:dash_id",
+        "displayName": "Delete a timeboard",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/dash/:dash_id"
+        },
+        "httpMethod": "DELETE",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":dash_id",
+            "displayName": "The dashboard id",
+            "required": "true"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/dash/:dash_id"
+      },
+      {
+        "path": "/dash",
+        "displayName": "Get all timeboards",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/dash"
+        },
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://app.datadoghq.com/api/v1/dash"
+      },
+      {
+        "path": "/dash/:dash_id",
+        "displayName": "Get or fetch an existing dashboard's definition",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/dash/:dash_id"
+        },
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://app.datadoghq.com/api/v1/dash/:dash_id"
+      },
+      {
+        "path": "/screen",
+        "displayName": "Create a screenboard",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/screen"
+        },
+        "httpMethod": "POST",
+        "params": [
+          {
+            "style": "body",
+            "type": "string",
+            "name": "board_title",
+            "displayName": "The name of the dashboard",
+            "required": "true"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "description",
+            "displayName": "A description of the dashboard's content"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "widgets",
+            "displayName": "A list of widget definitions",
+            "required": "true"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "template_variables",
+            "displayName": "A list of template variables for using Dashboard templating"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "width",
+            "displayName": "Screenboard width in pixels"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "height",
+            "displayName": "Height in pixels"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/screen"
+      },
+      {
+        "path": "/screen/:board_id",
+        "displayName": "Delete a screenboard",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/screen/:board_id"
+        },
+        "httpMethod": "DELETE",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":board_id",
+            "displayName": "The screenboard id",
+            "required": "true"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/screen/:board_id"
+      },
+      {
+        "path": "/screen/:board_id",
+        "displayName": "Get a screenboard",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/screen/:board_id"
+        },
+        "httpMethod": "GET",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":board_id",
+            "displayName": "The screenboard id",
+            "required": "true"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/screen/:board_id"
+      },
+      {
+        "path": "/screen",
+        "displayName": "Get all screenboards",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/screen"
+        },
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://app.datadoghq.com/api/v1/screen"
+      },
+      {
+        "path": "/screen/share/:board_id",
+        "displayName": "Share a screenboard",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/screen/share/:board_id"
+        },
+        "httpMethod": "GET",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":board_id",
+            "displayName": "The screenboard id",
+            "required": "true"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/screen/share/:board_id"
+      },
+      {
+        "path": "/screen/share/:board_id",
+        "displayName": "Revoke a shared screenboard",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/screen/share/:board_id"
+        },
+        "httpMethod": "GET",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":board_id",
+            "displayName": "The screenboard id",
+            "required": "true"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/screen/share/:board_id"
+      },
+      {
+        "path": "/host/:hostname/mute",
+        "displayName": "Mute a host",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/host/:hostname/mute"
+        },
+        "httpMethod": "POST",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":hostname",
+            "displayName": "The name of the host",
+            "required": "true"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "end",
+            "displayName": "POSIX timestamp when the host will be unmuted"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "message",
+            "displayName": "Message to associate with the muting of this host"
+          },
+          {
+            "style": "body",
+            "type": "boolean",
+            "name": "override",
+            "displayName": "If true and the host is already muted, will replace existing host mute settings"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/host/:hostname/mute"
+      },
+      {
+        "path": "/host/:hostname/unmute",
+        "displayName": "Unmute a host",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/host/:hostname/unmute"
+        },
+        "httpMethod": "POST",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":hostname",
+            "displayName": "The name of the host",
+            "required": "true"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/host/:hostname/unmute"
+      },
+      {
+        "path": "/tags/hosts",
+        "displayName": "Get tags",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/tags/hosts"
+        },
+        "httpMethod": "GET",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "source",
+            "displayName": "Only show tags from a particular source, otherwise shows all tags"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/tags/hosts"
+      },
+      {
+        "path": "/tags/hosts/:host_name",
+        "displayName": "Get host tags",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/tags/hosts/:host_name"
+        },
+        "httpMethod": "GET",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":hostname",
+            "displayName": "The name of the host",
+            "required": "true"
+          },
+          {
+            "style": "query",
+            "type": "string",
+            "name": "source",
+            "displayName": "Only show tags from a particular source, otherwise shows all tags"
+          },
+          {
+            "style": "query",
+            "type": "boolean",
+            "name": "by_source",
+            "displayName": "Return tags grouped by source"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/tags/hosts/:host_name"
+      },
+      {
+        "path": "/tags/hosts/:host_name",
+        "displayName": "Add tags to a host",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/tags/hosts/:host_name"
+        },
+        "httpMethod": "POST",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":hostname",
+            "displayName": "The name of the host",
+            "required": "true"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "tags",
+            "displayName": "A list of tags to apply to the host",
+            "required": "true"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "source",
+            "displayName": "The source of the tags (e.g. chef, puppet)"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/tags/hosts/:host_name"
+      },
+      {
+        "path": "/tags/hosts/:host_name",
+        "displayName": "Update host tags",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/tags/hosts/:host_name"
+        },
+        "httpMethod": "PUT",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":hostname",
+            "displayName": "The name of the host",
+            "required": "true"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "tags",
+            "displayName": "A list of tags",
+            "required": "true"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "source",
+            "displayName": "The source of the tags (e.g. chef, puppet)"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/tags/hosts/:host_name"
+      },
+      {
+        "path": "/tags/hosts/:host_name",
+        "displayName": "Remove host tags",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/tags/hosts/:host_name"
+        },
+        "httpMethod": "DELETE",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":hostname",
+            "displayName": "The name of the host",
+            "required": "true"
+          },
+          {
+            "style": "query",
+            "type": "string",
+            "name": "source",
+            "displayName": "The source of the tags (e.g. chef, puppet)"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/tags/hosts/:host_name"
+      },
+      {
+        "path": "/search",
+        "displayName": "Search for hosts & metrics from the last 24 hours in Datadog",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/search"
+        },
+        "httpMethod": "GET",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "q",
+            "displayName": "The query string",
+            "required": "true"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/search"
+      },
+      {
+        "path": "/comments",
+        "displayName": "Create a comment",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/comments"
+        },
+        "httpMethod": "POST",
+        "params": [
+          {
+            "style": "body",
+            "type": "string",
+            "name": "message",
+            "displayName": "The comment text",
+            "required": "true"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "handle",
+            "displayName": "The handle of the user making the comment"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "related_event_id",
+            "displayName": "The id of another comment or event to reply to"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/comments"
+      },
+      {
+        "path": "/comments/:comment_id",
+        "displayName": "Edit a comment",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/comments/:comment_id"
+        },
+        "httpMethod": "PUT",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":comment_id",
+            "displayName": "The comment's id",
+            "required": "true"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "message",
+            "displayName": "The comment text"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "handle",
+            "displayName": "The handle of the user making the comment"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/comments/:comment_id"
+      },
+      {
+        "path": "/comments/:comment_id",
+        "displayName": "Delete a comment",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/comments/:comment_id"
+        },
+        "httpMethod": "DELETE",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":comment_id",
+            "displayName": "The comment's id",
+            "required": "true"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/comments/:comment_id"
+      },
+      {
+        "path": "/user",
+        "displayName": "Create user",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/user"
+        },
+        "httpMethod": "POST",
+        "params": [
+          {
+            "style": "body",
+            "type": "string",
+            "name": "handle",
+            "displayName": "The user handle, must be a valid email",
+            "required": "true"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "name",
+            "displayName": "The name of the user"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/user"
+      },
+      {
+        "path": "/user/:handle",
+        "displayName": "Get user",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/user/:handle"
+        },
+        "httpMethod": "GET",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":handle",
+            "displayName": "The handle of the user",
+            "required": "true"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/user/:handle"
+      },
+      {
+        "path": "/user",
+        "displayName": "Get all users",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/user"
+        },
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://app.datadoghq.com/api/v1/user"
+      },
+      {
+        "path": "/user/:handle",
+        "displayName": "Update user",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/user/:handle"
+        },
+        "httpMethod": "PUT",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":handle",
+            "displayName": "The handle of the user",
+            "required": "true"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "name",
+            "displayName": "The new name of the user"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "email",
+            "displayName": "The new email of the user"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "disabled",
+            "displayName": "The new disabled status of the user"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "is_admin",
+            "displayName": "The new admin status of the user"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/user/:handle"
+      },
+      {
+        "path": "/user/:handle",
+        "displayName": "Disable user",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/user/:handle"
+        },
+        "httpMethod": "DELETE",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":handle",
+            "displayName": "The handle of the user",
+            "required": "true"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/user/:handle"
+      },
+      {
+        "path": "/graph/snapshot",
+        "displayName": "Graph snapshot",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/graph/snapshot"
+        },
+        "httpMethod": "GET",
+        "params": [
+          {
+            "style": "query",
+            "type": "string",
+            "name": "metric_query",
+            "displayName": "The metric query",
+            "required": "true"
+          },
+          {
+            "style": "query",
+            "type": "string",
+            "name": "start",
+            "displayName": "The POSIX timestamp of the start of the query",
+            "required": "true"
+          },
+          {
+            "style": "query",
+            "type": "string",
+            "name": "end",
+            "displayName": "The POSIX timestamp of the end of the query",
+            "required": "true"
+          },
+          {
+            "style": "query",
+            "type": "string",
+            "name": "event_query",
+            "displayName": "A query that will add event bands to the graph"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/graph/snapshot"
+      },
+      {
+        "path": "/graph/embed",
+        "displayName": "Get a list of embeddable graphs",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/graph/embed"
+        },
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://app.datadoghq.com/api/v1/graph/embed"
+      },
+      {
+        "path": "/graph/embed/:embed_id",
+        "displayName": "Get an embed by ID",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/graph/embed/:embed_id"
+        },
+        "httpMethod": "GET",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":embed_id",
+            "displayName": "Id of the embeded graph",
+            "required": "true"
+          },
+          {
+            "style": "query",
+            "type": "string",
+            "name": "size",
+            "displayName": "Size (One of small, medium, large, or xlarge)"
+          },
+          {
+            "style": "query",
+            "type": "string",
+            "name": "legend",
+            "displayName": "Legend (One of yes or no)"
+          },
+          {
+            "style": "query",
+            "type": "string",
+            "name": "template_variables",
+            "displayName": "The template variables"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/graph/embed/:embed_id"
+      },
+      {
+        "path": "/graph/embed",
+        "displayName": "Create a new embeddable graph",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/graph/embed"
+        },
+        "httpMethod": "Post",
+        "params": [
+          {
+            "style": "body",
+            "type": "string",
+            "name": "graph_json",
+            "displayName": "Graph definition in JSON",
+            "required": "true"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "timeframe",
+            "displayName": "Timeframe for the graph (One of 1_hour, 4_hours, 1_day, 2_days, and 1_week)",
+            "required": "false"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "size",
+            "displayName": "Size (One of small, medium, large, or xlarge)",
+            "required": "false"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "legend",
+            "displayName": "Legend (One of yes or no)",
+            "required": "false"
+          },
+          {
+            "style": "body",
+            "type": "string",
+            "name": "title",
+            "displayName": "title",
+            "required": "false"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/graph/embed"
+      },
+      {
+        "path": "/graph/embed/:embed_id/enable",
+        "displayName": "Enable an embed",
+        "doc": {
+          "url": "https://app.datadoghq.com/api/v1/graph/embed/:embed_id/enable"
+        },
+        "httpMethod": "GET",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":embed_id",
+            "displayName": "Id of the embeded graph",
+            "required": "true"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/graph/embed/:embed_id/enable"
+      },
+      {
+        "path": "/graph/embed/:embed_id/revoke",
+        "displayName": "Revoke an embed",
+        "doc": {
+          "url": "http://docs.datadoghq.com/api/#embeds"
+        },
+        "httpMethod": "GET",
+        "params": [
+          {
+            "style": "url",
+            "type": "string",
+            "name": ":embed_id",
+            "displayName": "Id of the embeded graph",
+            "required": "true"
+          }
+        ],
+        "url": "https://app.datadoghq.com/api/v1/graph/embed/:embed_id/revoke"
+      }
+    ]
+  }
 }
