@@ -38,7 +38,7 @@
         "doc": {
           "url": "https://slack.com/api/channels.archive"
         },
-        "httpMethod": "Post",
+        "httpMethod": "POST",
         "params": [
           {
             "displayName": "Authentication token (Requires scope: channels:write)",
@@ -47,7 +47,7 @@
             "name": "token",
             "required": true
           },{
-            "displayName": "Channel To Archive",
+            "displayName": "Channel To archive",
             "style": "body",
             "type": "string",
             "name": "channel",
@@ -58,11 +58,11 @@
       },
       {
         "path": "/channels.create",
-        "displayName": "Creates A Channel",
+        "displayName": "Creates a channel",
         "doc": {
           "url": "https://slack.com/api/channels.create"
         },
-        "httpMethod": "Post",
+        "httpMethod": "POST",
         "params": [
           {
             "displayName": "Authentication token (Requires scope: channels:write)",
@@ -71,7 +71,7 @@
             "name": "token",
             "required": true
           },{
-            "displayName": "Name Of Channel",
+            "displayName": "Name of channel",
             "style": "body",
             "type": "string",
             "name": "name",
@@ -82,11 +82,11 @@
       },
       {
         "path": "/channels.history",
-        "displayName": "Gets the entire History Of Messages & Events from a specified channel",
+        "displayName": "Gets the entire history of messages & events from a specified channel",
         "doc": {
           "url": "https://slack.com/api/channels.history"
         },
-        "httpMethod": "Get",
+        "httpMethod": "GET",
         "params": [
           {
             "displayName": "Authentication token (Requires scope: channels:history)",
@@ -121,7 +121,7 @@
             "type": "string",
             "name": "count"
           },{
-            "displayName": "Include unread_count_display in the output?",
+            "displayName": "To include unread_count_display in the output or not",
             "style": "query",
             "type": "string",
             "name": "unreads"
@@ -134,7 +134,7 @@
         "doc": {
           "url": "https://slack.com/api/channels.info"
         },
-        "httpMethod": "Get",
+        "httpMethod": "GET",
         "params": [{
             "displayName": "Authentication token (Requires scope: channels:read)",
             "style": "query",
@@ -152,11 +152,11 @@
       },
       {
         "path": "/channels.invite",
-        "displayName": "Invites A User to a channel",
+        "displayName": "Invites a user to a channel",
         "doc": {
           "url": "https://slack.com/api/channels.invite"
         },
-        "httpMethod": "Post",
+        "httpMethod": "POST",
         "params": [{
             "displayName": "Authentication token (Requires scope: channels:write)",
             "style": "body",
@@ -180,11 +180,11 @@
       },
       {
         "path": "/channels.join",
-        "displayName": "Joins A Channel, if the channel does not exist then it is created",
+        "displayName": "Joins a channel, if the channel does not exist then it is created",
         "doc": {
           "url": "https://slack.com/api/channels.join"
         },
-        "httpMethod": "Post",
+        "httpMethod": "POST",
         "params": [{
             "displayName": "Authentication token (Requires scope: channels:write)",
             "style": "body",
@@ -206,7 +206,7 @@
         "doc": {
           "url": "https://slack.com/api/channels.kick"
         },
-        "httpMethod": "Post",
+        "httpMethod": "PUT",
         "params": [{
             "displayName": "Authentication token (Requires scope: channels:write)",
             "style": "body",
@@ -230,11 +230,11 @@
       },
       {
         "path": "/channels.leave",
-        "displayName": "Leave A Channel",
+        "displayName": "Leave a channel",
         "doc": {
           "url": "https://slack.com/api/channels.leave"
         },
-        "httpMethod": "Post",
+        "httpMethod": "PUT",
         "params": [{
             "displayName": "Authentication token (Requires scope: channels:write)",
             "style": "body",
@@ -242,7 +242,7 @@
             "name": "token",
             "required": true
           },{
-            "displayName": "Channel To Leave",
+            "displayName": "Channel to leave",
             "style": "body",
             "type": "string",
             "name": "channel",
@@ -256,7 +256,7 @@
         "doc": {
           "url": "https://slack.com/api/channels.list"
         },
-        "httpMethod": "Get",
+        "httpMethod": "GET",
         "curl": "curl -X ",
         "params": [
           {
@@ -276,11 +276,11 @@
       },
       {
         "path": "/channels.mark",
-        "displayName": "Sets or moves The Read Cursor",
+        "displayName": "Sets or moves the read cursor",
         "doc": {
           "url": "https://slack.com/api/channels.mark"
         },
-        "httpMethod": "Post",
+        "httpMethod": "PUT",
         "curl": "curl -X ",
         "params": [
           {
@@ -307,11 +307,11 @@
       },
       {
         "path": "/channels.rename",
-        "displayName": "Renames A team Channel",
+        "displayName": "Rename a team's channel",
         "doc": {
           "url": "https://slack.com/api/channels.rename"
         },
-        "httpMethod": "Post",
+        "httpMethod": "PUT",
         "curl": "curl -X ",
         "params": [
           {
@@ -342,7 +342,7 @@
         "doc": {
           "url": "https://slack.com/api/channels.setPurpose"
         },
-        "httpMethod": "Post",
+        "httpMethod": "PUT",
         "curl": "curl -X ",
         "params": [
           {
@@ -358,7 +358,7 @@
             "name": "channel",
             "required": true
           },{
-            "displayName": "The new Purpose",
+            "displayName": "The new purpose",
             "style": "body",
             "type": "string",
             "name": "purpose",
@@ -373,7 +373,7 @@
         "doc": {
           "url": "https://slack.com/api/channels.setTopic"
         },
-        "httpMethod": "Post",
+        "httpMethod": "PUT",
         "curl": "curl -X ",
         "params": [{
             "displayName": "Authentication token (Requires scope: channels:write)",
@@ -388,7 +388,7 @@
             "name": "channel",
             "required": true
           },{
-            "displayName": "The new Topic",
+            "displayName": "The new topic",
             "style": "body",
             "type": "string",
             "name": "topic",
@@ -398,11 +398,11 @@
       },
       {
         "path": "/channels.unarchive",
-        "displayName": "Unarchives A Channel",
+        "displayName": "Unarchives a channel",
         "doc": {
           "url": "https://slack.com/api/channels.unarchive"
         },
-        "httpMethod": "Post",
+        "httpMethod": "PUT",
         "curl": "curl -X ",
         "params": [{
             "displayName": "Authentication token (Requires scope: channels:write)",
@@ -424,23 +424,23 @@
         "doc": {
           "url": "https://slack.com/api/chat.delete"
         },
-        "httpMethod": "Delete",
+        "httpMethod": "DELETE",
         "params": [
           {
             "displayName": "Authentication token (Requires scope: chat:write:user)",
-            "style": "body",
+            "style": "query",
             "type": "string",
             "name": "token",
             "required": true
           },{
             "displayName": "Timestamp of the message to be deleted",
-            "style": "body",
+            "style": "query",
             "type": "string",
             "name": "ts",
             "required": true
           },{
             "displayName": "Channel containing the message to be deleted",
-            "style": "body",
+            "style": "query",
             "type": "string",
             "name": "channel",
             "required": true
@@ -454,7 +454,7 @@
         "doc": {
           "url": "https://slack.com/api/chat.postMessage"
         },
-        "httpMethod": "Post",
+        "httpMethod": "POST",
         "params": [
           {
             "displayName": "Authentication token (Requires scope: chat:write:bot or chat:write:user)",
@@ -534,7 +534,7 @@
         "doc": {
           "url": "https://slack.com/api/chat.update"
         },
-        "httpMethod": "Put",
+        "httpMethod": "PUT",
         "params": [{
             "displayName": "Authentication token (Requires scope: chat:write:user)",
             "style": "body",
@@ -619,7 +619,7 @@
         "doc": {
           "url": "https://slack.com/api/dnd.info"
         },
-        "httpMethod": "Get",
+        "httpMethod": "GET",
         "params": [{
             "displayName": "Authentication token (Requires scope: dnd:read)",
             "style": "query",
@@ -661,7 +661,7 @@
         "doc": {
           "url": "https://slack.com/api/dnd.teamInfo"
         },
-        "httpMethod": "Get",
+        "httpMethod": "GET",
         "params": [{
             "displayName": "Authentication token (Requires scope: dnd:read)",
             "style": "query",
@@ -698,7 +698,7 @@
         "doc": {
           "url": "https://slack.com/api/files.comments.add"
         },
-        "httpMethod": "Post",
+        "httpMethod": "POST",
         "params": [{
             "displayName": "Authentication token (Requires scope: files:write:user)",
             "style": "body",
@@ -758,7 +758,7 @@
         "doc": {
           "url": "https://slack.com/api/files.comments.edit"
         },
-        "httpMethod": "Put",
+        "httpMethod": "PUT",
         "params": [{
             "displayName": "Authentication token (Requires scope: files:write:user)",
             "style": "body",
@@ -796,7 +796,7 @@
         "doc": {
           "url": "https://slack.com/api/files.delete"
         },
-        "httpMethod": "Delete",
+        "httpMethod": "DELETE",
         "params": [{
             "displayName": "Authentication token (Requires scope: files:write:user)",
             "style": "query",
@@ -819,7 +819,7 @@
         "doc": {
           "url": "https://slack.com/api/files.info"
         },
-        "httpMethod": "Get",
+        "httpMethod": "GET",
         "params": [{
             "displayName": "Authentication token (Requires scope: files:read)",
             "style": "query",
@@ -851,7 +851,7 @@
         "doc": {
           "url": "https://slack.com/api/files.list"
         },
-        "httpMethod": "Get",
+        "httpMethod": "GET",
         "params": [{
             "displayName": "Authentication token (Requires scope: files:read)",
             "style": "query",
@@ -927,13 +927,13 @@
         "httpMethod": "PUT",
         "params": [{
             "displayName": "Authentication token (Requires scope: files:write:user)",
-            "style": "query",
+            "style": "body",
             "type": "string",
             "name": "token",
             "required": true
           },{
             "displayName": "File to share",
-            "style": "query",
+            "style": "body",
             "type": "string",
             "name": "file",
             "required": true
@@ -947,7 +947,7 @@
         "doc": {
           "url": "https://slack.com/api/files.upload"
         },
-        "httpMethod": "Post",
+        "httpMethod": "PUT",
         "params": [{
             "displayName": "Authentication token (Requires scope: files:write:user)",
             "style": "body",
@@ -1000,7 +1000,7 @@
         "doc": {
           "url": "https://slack.com/api/groups.archive"
         },
-        "httpMethod": "Post",
+        "httpMethod": "PUT",
         "curl": "curl -X ",
         "params": [{
           "displayName": "Authentication token (Requires scope: groups:write)",
@@ -1023,7 +1023,7 @@
         "doc": {
           "url": "https://slack.com/api/groups.close"
         },
-        "httpMethod": "Put",
+        "httpMethod": "PUT",
         "curl": "curl -X ",
         "params": [
           {
@@ -1048,7 +1048,7 @@
         "doc": {
           "url": "https://slack.com/api/groups.create"
         },
-        "httpMethod": "Post",
+        "httpMethod": "POST",
         "curl": "curl -X ",
         "params": [{
           "displayName": "Authentication token (Requires scope: groups:write)",
@@ -1057,13 +1057,13 @@
           "name": "token",
           "required": true
         },
-          {
-            "displayName": "Name of private channel to create",
-            "style": "body",
-            "type": "string",
-            "name": "name",
-            "required": true
-          }
+        {
+          "displayName": "Name of private channel to create",
+          "style": "body",
+          "type": "string",
+          "name": "name",
+          "required": true
+         }
         ],
         "url": "https://slack.com/api/groups.create"
       },
@@ -1073,7 +1073,7 @@
         "doc": {
           "url": "https://slack.com/api/groups.createChild"
         },
-        "httpMethod": "Post",
+        "httpMethod": "PUT",
         "curl": "curl -X ",
         "params": [
           {
@@ -1082,14 +1082,13 @@
             "type": "string",
             "name": "token",
             "required": true
-          },
-            {
-              "displayName": "Private channel to clone and archive",
-              "style": "body",
-              "type": "string",
-              "name": "channel",
-              "required": true
-            }
+          },{
+            "displayName": "Private channel to clone and archive",
+            "style": "body",
+            "type": "string",
+            "name": "channel",
+            "required": true
+          }
         ],
         "url": "https://slack.com/api/groups.createChild"
       },
@@ -1099,14 +1098,14 @@
         "doc": {
           "url": "https://slack.com/api/groups.history"
         },
-        "httpMethod": "Get",
+        "httpMethod": "GET",
         "curl": "curl -X ",
         "params": [{
-          "displayName": "Authentication token (Requires scope: groups:history)",
-          "style": "query",
-          "type": "string",
-          "name": "token",
-          "required": true
+           "displayName": "Authentication token (Requires scope: groups:history)",
+           "style": "query",
+           "type": "string",
+           "name": "token",
+           "required": true
         },{
             "displayName": "Private channel to fetch history for",
             "style": "query",
@@ -1157,7 +1156,7 @@
            "required": true
          },{
             "displayName": "Private channel to get info on",
-            "style": "body",
+            "style": "query",
             "type": "string",
             "name": "channel",
             "required": true
@@ -1170,7 +1169,7 @@
         "doc": {
           "url": "https://slack.com/api/groups.invite"
         },
-        "httpMethod": "Post",
+        "httpMethod": "PUT",
         "curl": "curl -X ",
         "params": [{
            "displayName": "Authentication token (Requires scope: groups:write)",
@@ -1198,7 +1197,7 @@
         "doc": {
           "url": "https://slack.com/api/groups.kick"
         },
-        "httpMethod": "Delete",
+        "httpMethod": "DELETE",
         "params": [{
             "displayName": "Authentication token (Requires scope: groups:write)",
             "style": "query",
@@ -1228,7 +1227,7 @@
         "doc": {
           "url": "https://slack.com/api/groups.leave"
         },
-        "httpMethod": "Put",
+        "httpMethod": "PUT",
         "params": [{
             "displayName": "Authentication token (Requires scope: groups:write)",
             "style": "body",
@@ -1236,7 +1235,7 @@
             "name": "token",
             "required": true
           },{
-            "displayName": "Private channel to leave",
+            "displayName": "The private channel to leave",
             "style": "body",
             "type": "string",
             "name": "channel",
@@ -1250,7 +1249,7 @@
         "doc": {
           "url": "https://slack.com/api/groups.list"
         },
-        "httpMethod": "Get",
+        "httpMethod": "GET",
         "params": [{
             "displayName": "Authentication token (Requires scope: groups:read)",
             "style": "query",
@@ -1271,7 +1270,7 @@
         "doc": {
           "url": "https://slack.com/api/groups.mark"
         },
-        "httpMethod": "Put",
+        "httpMethod": "PUT",
         "params": [{
             "displayName": "Authentication token (Requires scope: groups:write)",
             "style": "body",
@@ -1299,7 +1298,7 @@
         "doc": {
           "url": "https://slack.com/api/groups.open"
         },
-        "httpMethod": "Put",
+        "httpMethod": "PUT",
         "params": [{
             "displayName": "Authentication token (Requires scope: groups:write)",
             "style": "body",
@@ -1318,11 +1317,11 @@
       },
       {
         "path": "/groups.rename",
-        "displayName": "Renames A Private channel",
+        "displayName": "Renames A private channel",
         "doc": {
           "url": "https://slack.com/api/groups.rename"
         },
-        "httpMethod": "Put",
+        "httpMethod": "PUT",
         "params": [{
             "displayName": "Authentication token (Requires scope: groups:write)",
             "style": "body",
@@ -1350,7 +1349,7 @@
         "doc": {
           "url": "https://slack.com/api/groups.setPurpose"
         },
-        "httpMethod": "Put",
+        "httpMethod": "PUT",
         "params": [{
             "displayName": "Authentication token (Requires scope: groups:write)",
             "style": "body",
@@ -1378,7 +1377,7 @@
         "doc": {
           "url": "https://slack.com/api/groups.setTopic"
         },
-        "httpMethod": "Put",
+        "httpMethod": "PUT",
         "params": [{
             "displayName": "Authentication token (Requires scope: groups:write)",
             "style": "body",
@@ -1406,7 +1405,7 @@
         "doc": {
           "url": "https://slack.com/api/groups.unarchive"
         },
-        "httpMethod": "Put",
+        "httpMethod": "PUT",
         "params": [{
             "displayName": "Authentication token (Requires scope: groups:write)",
             "style": "body",
@@ -1427,17 +1426,17 @@
         "doc": {
           "url": "https://slack.com/api/im.close"
         },
-        "httpMethod": "Delete",
+        "httpMethod": "DELETE",
         "params": [{
             "displayName": "Authentication token (Requires scope: im:write)",
-            "style": "body",
+            "style": "query",
             "type": "string",
             "name": "token",
             "required": true
           },
           {
             "displayName": "Direct message channel to close",
-            "style": "body",
+            "style": "query",
             "type": "string",
             "name": "channel",
             "required": true
@@ -1451,7 +1450,7 @@
         "doc": {
           "url": "https://slack.com/api/im.history"
         },
-        "httpMethod": "Get",
+        "httpMethod": "GET",
         "params": [{
             "displayName": "Authentication token (Requires scope: im:history)",
             "style": "query",
@@ -1499,7 +1498,7 @@
         "doc": {
           "url": "https://slack.com/api/im.list"
         },
-        "httpMethod": "Get",
+        "httpMethod": "GET",
         "params": [{
             "displayName": "Authentication token (Requires scope: im:read)",
             "style": "query",
@@ -1515,22 +1514,22 @@
         "doc": {
           "url": "https://slack.com/api/im.mark"
         },
-        "httpMethod": "Put",
+        "httpMethod": "PUT",
         "params": [{
             "displayName": "Authentication token (Requires scope: im:write)",
-            "style": "query",
+            "style": "body",
             "type": "string",
             "name": "token",
             "required": true
           },{
             "displayName": "Direct message channel to set reading cursor in",
-            "style": "query",
+            "style": "body",
             "type": "string",
             "name": "channel",
             "required": true
           },{
             "displayName": "Timestamp of the most recently seen message",
-            "style": "query",
+            "style": "body",
             "type": "string",
             "name": "ts",
             "required": true
@@ -1542,10 +1541,10 @@
         "doc": {
           "url": "https://slack.com/api/im.open"
         },
-        "httpMethod": "Put",
+        "httpMethod": "PUT",
         "params": [{
             "displayName": "Authentication token (Requires scope: im:write)",
-            "style": "query",
+            "style": "body",
             "type": "string",
             "name": "token",
             "required": true
@@ -1563,16 +1562,16 @@
         "doc": {
           "url": "https://slack.com/api/mpim.close"
         },
-        "httpMethod": "Put",
+        "httpMethod": "PUT",
         "params": [{
             "displayName": "Authentication token (Requires scope: mpim:write)",
-            "style": "query",
+            "style": "body",
             "type": "string",
             "name": "token",
             "required": true
           },{
             "displayName": "MPIM to close",
-            "style": "query",
+            "style": "body",
             "type": "string",
             "name": "channel",
             "required": true
@@ -1580,11 +1579,11 @@
         "url": "https://slack.com/api/mpim.close"
       },{
         "path": "/mpim.history",
-        "displayName": "Fetches history of messages and events from a multiparty direct message",
+        "displayName": "Fetches history of messages & events from a multiparty direct message",
         "doc": {
           "url": "https://slack.com/api/mpim.history"
         },
-        "httpMethod": "Get",
+        "httpMethod": "GET",
         "params": [{
             "displayName": "Authentication token (Requires scope: mpim:history)",
             "style": "query",
@@ -1630,7 +1629,7 @@
         "doc": {
           "url": "https://slack.com/api/mpim.list"
         },
-        "httpMethod": "Get",
+        "httpMethod": "GET",
         "params": [{
             "displayName": "Authentication token (Requires scope: im:read)",
             "style": "query",
@@ -1645,22 +1644,22 @@
         "doc": {
           "url": "https://slack.com/api/mpim.mark"
         },
-        "httpMethod": "Put",
+        "httpMethod": "PUT",
         "params": [{
             "displayName": "Authentication token (Requires scope: mpim:write)",
-            "style": "query",
+            "style": "body",
             "type": "string",
             "name": "token",
             "required": true
           },{
-            "displayName": "multiparty direct message channel to set reading cursor in",
-            "style": "query",
+            "displayName": "Multiparty direct message channel to set reading cursor in",
+            "style": "body",
             "type": "string",
             "name": "channel",
             "required": true
           },{
             "displayName": "Timestamp of the most recently seen message",
-            "style": "query",
+            "style": "body",
             "type": "string",
             "name": "ts",
             "required": true
@@ -1672,7 +1671,7 @@
         "doc": {
           "url": "https://slack.com/api/mpim.open"
         },
-        "httpMethod": "Put",
+        "httpMethod": "PUT",
         "params": [{
             "displayName": "Authentication token (Requires scope: mpim:write)",
             "style": "body",
@@ -1680,7 +1679,7 @@
             "name": "token",
             "required": true
           },{
-            "displayName": "Comma separated lists of users. The ordering of the users is preserved whenever a MPIM group is returned",
+            "displayName": "Comma separated lists of users, the ordering of the users is preserved whenever a MPIM group is returned",
             "style": "body",
             "type": "string",
             "name": "users",
@@ -1694,7 +1693,7 @@
         "doc": {
           "url": "https://slack.com/api/oauth.access"
         },
-        "httpMethod": "Get",
+        "httpMethod": "GET",
         "params": [{
             "displayName": "Issued when you created your application",
             "style": "query",
@@ -1727,7 +1726,7 @@
         "doc": {
           "url": "https://slack.com/api/pins.add"
         },
-        "httpMethod": "Put",
+        "httpMethod": "POST",
         "params": [{
             "displayName": "Authentication token (Requires scope: pins:write)",
             "style": "body",
@@ -1763,7 +1762,7 @@
         "doc": {
           "url": "https://slack.com/api/pins.list"
         },
-        "httpMethod": "Get",
+        "httpMethod": "GET",
         "params": [{
             "displayName": "Authentication token (Requires scope: pins:read)",
             "style": "query",
@@ -1784,7 +1783,7 @@
         "doc": {
           "url": "https://slack.com/api/pins.remove"
         },
-        "httpMethod": "Put",
+        "httpMethod": "PUT",
         "params": [{
             "displayName": "Authentication token (Requires scope: pins:write)",
             "style": "body",
@@ -1820,7 +1819,7 @@
         "doc": {
           "url": "https://slack.com/api/reactions.add"
         },
-        "httpMethod": "Put",
+        "httpMethod": "POST",
         "params": [{
             "displayName": "Authentication token (Requires scope: reactions:write)",
             "style": "body",
@@ -1861,7 +1860,7 @@
         "doc": {
           "url": "https://slack.com/api/reactions.get"
         },
-        "httpMethod": "Get",
+        "httpMethod": "GET",
         "params": [{
             "displayName": "Authentication token (Requires scope: reactions:read)",
             "style": "query",
@@ -1901,7 +1900,7 @@
         "doc": {
           "url": "https://slack.com/api/reactions.list"
         },
-        "httpMethod": "Get",
+        "httpMethod": "GET",
         "params": [{
             "displayName": "Authentication token (Requires scope: reactions:read)",
             "style": "query",
@@ -1936,37 +1935,37 @@
         "doc": {
           "url": "https://slack.com/api/reactions.remove"
         },
-        "httpMethod": "Put",
+        "httpMethod": "DELETE",
         "params": [{
             "displayName": "Authentication token (Requires scope: reactions:write)",
-            "style": "body",
+            "style": "query",
             "type": "string",
             "name": "token",
             "required": true
           },{
             "displayName": "Reaction (emoji) name",
-            "style": "body",
+            "style": "query",
             "type": "string",
             "name": "name",
             "required": true
           },{
             "displayName": "File to remove reaction from",
-            "style": "body",
+            "style": "query",
             "type": "string",
             "name": "file"
           },{
             "displayName": "File comment to remove reaction from",
-            "style": "body",
+            "style": "query",
             "type": "string",
             "name": "file_comment"
           },{
             "displayName": "Channel where the message to remove reaction from was posted",
-            "style": "body",
+            "style": "query",
             "type": "string",
             "name": "channel"
           },{
             "displayName": "Timestamp of the message to remove reaction from",
-            "style": "body",
+            "style": "query",
             "type": "string",
             "name": "timestamp"
           }],
@@ -1977,7 +1976,7 @@
         "doc": {
           "url": "https://slack.com/api/rtm.start"
         },
-        "httpMethod": "Get",
+        "httpMethod": "GET",
         "params": [{
             "displayName": "Authentication token (Requires scope: client)",
             "style": "query",
@@ -2007,7 +2006,7 @@
         "doc": {
           "url": "https://slack.com/api/search.all"
         },
-        "httpMethod": "Get",
+        "httpMethod": "GET",
         "params": [{
             "displayName": "Authentication token (Requires scope: search:read)",
             "style": "query",
@@ -2052,7 +2051,7 @@
         "doc": {
           "url": "https://slack.com/api/search.files"
         },
-        "httpMethod": "Get",
+        "httpMethod": "GET",
         "params": [{
             "displayName": "Authentication token (Requires scope: search:read)",
             "style": "query",
@@ -2097,7 +2096,7 @@
         "doc": {
           "url": "https://slack.com/api/search.messages"
         },
-        "httpMethod": "Get",
+        "httpMethod": "GET",
         "params": [{
             "displayName": "Authentication token (Requires scope: search:read)",
             "style": "query",
@@ -2137,613 +2136,515 @@
           }],
         "url": "https://slack.com/api/search.messages"
       },{
-        "path": "/oauth.access",
-        "displayName": "Exchanges a temporary OAuth code for an API token",
+        "path": "/stars.add",
+        "displayName": "Adds a star to an item",
         "doc": {
-          "url": "https://slack.com/api/oauth.access"
+          "url": "https://slack.com/api/stars.add"
         },
-        "httpMethod": "Get",
+        "httpMethod": "PUT",
         "params": [{
-            "displayName": "Issued when you created your application",
-            "style": "query",
+            "displayName": "Authentication token (Requires scope: stars:write)",
+            "style": "body",
             "type": "string",
-            "name": "client_id",
+            "name": "token",
             "required": true
           },{
-            "displayName": "Issued when you created your application",
-            "style": "query",
+            "displayName": "File to add star to",
+            "style": "body",
             "type": "string",
-            "name": "client_secret",
-            "required": true
+            "name": "file"
           },{
-            "displayName": "The code param returned via the OAuth callback",
-            "style": "query",
+            "displayName": "File comment to add star to",
+            "style": "body",
             "type": "string",
-            "name": "code",
-            "required": true
+            "name": "file_comment"
           },{
-            "displayName": "This must match the originally submitted URI (if one was sent)",
-            "style": "query",
+            "displayName": "Channel to add star to, or channel where the message to add star to was posted (used with timestamp)",
+            "style": "body",
             "type": "string",
-            "name": "redirect_uri"
+            "name": "channel"
+          },{
+            "displayName": "Timestamp of the message to add star to",
+            "style": "body",
+            "type": "string",
+            "name": "timestamp"
           }],
-        "url": "https://slack.com/api/oauth.access"
+        "url": "https://slack.com/api/stars.add"
       },{
-        "path": "/oauth.access",
-        "displayName": "Exchanges a temporary OAuth code for an API token",
+        "path": "/stars.list",
+        "displayName": "Lists stars for a user",
         "doc": {
-          "url": "https://slack.com/api/oauth.access"
+          "url": "https://slack.com/api/stars.list"
         },
-        "httpMethod": "Get",
+        "httpMethod": "GET",
         "params": [{
-            "displayName": "Issued when you created your application",
+            "displayName": "Authentication token (Requires scope: stars:read)",
             "style": "query",
             "type": "string",
-            "name": "client_id",
+            "name": "token",
             "required": true
           },{
-            "displayName": "Issued when you created your application",
+            "displayName": "Show stars by this user, defaults to the authed user",
             "style": "query",
             "type": "string",
-            "name": "client_secret",
-            "required": true
+            "name": "user"
           },{
-            "displayName": "The code param returned via the OAuth callback",
+            "displayName": "Number of items to return per page",
             "style": "query",
-            "type": "string",
-            "name": "code",
-            "required": true
+            "type": "integer",
+            "name": "count"
           },{
-            "displayName": "This must match the originally submitted URI (if one was sent)",
+            "displayName": "Page number of results to return, defaults to 1",
             "style": "query",
-            "type": "string",
-            "name": "redirect_uri"
+            "type": "integer",
+            "name": "page"
           }],
-        "url": "https://slack.com/api/oauth.access"
+        "url": "https://slack.com/api/stars.list"
       },{
-        "path": "/oauth.access",
-        "displayName": "Exchanges a temporary OAuth code for an API token",
+        "path": "/stars.remove",
+        "displayName": "Removes a star from an item",
         "doc": {
-          "url": "https://slack.com/api/oauth.access"
+          "url": "https://slack.com/api/stars.remove"
         },
-        "httpMethod": "Get",
+        "httpMethod": "PUT",
         "params": [{
-            "displayName": "Issued when you created your application",
-            "style": "query",
+            "displayName": "Authentication token (Requires scope: stars:write)",
+            "style": "body",
             "type": "string",
-            "name": "client_id",
+            "name": "token",
             "required": true
           },{
-            "displayName": "Issued when you created your application",
-            "style": "query",
+            "displayName": "File to remove star from",
+            "style": "body",
             "type": "string",
-            "name": "client_secret",
-            "required": true
+            "name": "file"
           },{
-            "displayName": "The code param returned via the OAuth callback",
-            "style": "query",
+            "displayName": "File comment to remove star from",
+            "style": "body",
             "type": "string",
-            "name": "code",
-            "required": true
+            "name": "file_comment"
           },{
-            "displayName": "This must match the originally submitted URI (if one was sent)",
-            "style": "query",
+            "displayName": "Channel to remove star from, or channel where the message to remove star from was posted (used with timestamp)",
+            "style": "body",
             "type": "string",
-            "name": "redirect_uri"
+            "name": "channel"
+          },{
+            "displayName": "Timestamp of the message to remove star from",
+            "style": "body",
+            "type": "string",
+            "name": "timestamp"
           }],
-        "url": "https://slack.com/api/oauth.access"
+        "url": "https://slack.com/api/stars.remove"
       },{
-        "path": "/oauth.access",
-        "displayName": "Exchanges a temporary OAuth code for an API token",
+        "path": "/team.accessLogs",
+        "displayName": "Get the access logs for users on a team",
         "doc": {
-          "url": "https://slack.com/api/oauth.access"
+          "url": "https://slack.com/api/team.accessLogs"
         },
-        "httpMethod": "Get",
+        "httpMethod": "GET",
         "params": [{
-            "displayName": "Issued when you created your application",
+            "displayName": "Authentication token (Requires scope: admin)",
             "style": "query",
             "type": "string",
-            "name": "client_id",
+            "name": "token",
             "required": true
           },{
-            "displayName": "Issued when you created your application",
+            "displayName": "Number of items to return per page",
             "style": "query",
-            "type": "string",
-            "name": "client_secret",
-            "required": true
+            "type": "integer",
+            "name": "count"
           },{
-            "displayName": "The code param returned via the OAuth callback",
+            "displayName": "Page number of results to return, defaults to 1",
             "style": "query",
-            "type": "string",
-            "name": "code",
-            "required": true
-          },{
-            "displayName": "This must match the originally submitted URI (if one was sent)",
-            "style": "query",
-            "type": "string",
-            "name": "redirect_uri"
+            "type": "integer",
+            "name": "page"
           }],
-        "url": "https://slack.com/api/oauth.access"
+        "url": "https://slack.com/api/team.accessLogs"
       },{
-        "path": "/oauth.access",
-        "displayName": "Exchanges a temporary OAuth code for an API token",
+        "path": "/team.info",
+        "displayName": "Gets information about the current team",
         "doc": {
-          "url": "https://slack.com/api/oauth.access"
+          "url": "https://slack.com/api/team.info"
         },
-        "httpMethod": "Get",
+        "httpMethod": "GET",
         "params": [{
-            "displayName": "Issued when you created your application",
+            "displayName": "Authentication token (Requires scope: team:read)",
             "style": "query",
             "type": "string",
-            "name": "client_id",
+            "name": "token",
             "required": true
-          },{
-            "displayName": "Issued when you created your application",
-            "style": "query",
-            "type": "string",
-            "name": "client_secret",
-            "required": true
-          },{
-            "displayName": "The code param returned via the OAuth callback",
-            "style": "query",
-            "type": "string",
-            "name": "code",
-            "required": true
-          },{
-            "displayName": "This must match the originally submitted URI (if one was sent)",
-            "style": "query",
-            "type": "string",
-            "name": "redirect_uri"
           }],
-        "url": "https://slack.com/api/oauth.access"
+        "url": "https://slack.com/api/team.info"
       },{
-        "path": "/oauth.access",
-        "displayName": "Exchanges a temporary OAuth code for an API token",
+        "path": "/team.integrationLogs",
+        "displayName": "Gets the integration logs for the current team",
         "doc": {
-          "url": "https://slack.com/api/oauth.access"
+          "url": "https://slack.com/api/oteam.integrationLogs"
         },
-        "httpMethod": "Get",
+        "httpMethod": "GET",
         "params": [{
-            "displayName": "Issued when you created your application",
+            "displayName": "Authentication token (Requires scope: admin)",
             "style": "query",
             "type": "string",
-            "name": "client_id",
+            "name": "token",
             "required": true
           },{
-            "displayName": "Issued when you created your application",
+            "displayName": "Filter logs to this service, defaults to all logs",
             "style": "query",
             "type": "string",
-            "name": "client_secret",
-            "required": true
+            "name": "service_id"
           },{
-            "displayName": "The code param returned via the OAuth callback",
+            "displayName": "Filter logs to this Slack app, defaults to all logs",
             "style": "query",
             "type": "string",
-            "name": "code",
-            "required": true
+            "name": "app_id"
           },{
-            "displayName": "This must match the originally submitted URI (if one was sent)",
+            "displayName": "Filter logs generated by this user’s actions, defaults to all logs",
             "style": "query",
             "type": "string",
-            "name": "redirect_uri"
+            "name": "user"
+          },{
+            "displayName": "Filter logs with this change type, defaults to all logs.",
+            "style": "query",
+            "type": "string",
+            "name": "change_type"
+          },{
+            "displayName": "Number of items to return per page",
+            "style": "query",
+            "type": "integer",
+            "name": "count"
+          },{
+            "displayName": "Page number of results to return",
+            "style": "query",
+            "type": "integer",
+            "name": "page"
           }],
-        "url": "https://slack.com/api/oauth.access"
+        "url": "https://slack.com/api/team.integrationLogs"
       },{
-        "path": "/oauth.access",
-        "displayName": "Exchanges a temporary OAuth code for an API token",
+        "path": "/usergroups.create",
+        "displayName": "Create a user group",
         "doc": {
-          "url": "https://slack.com/api/oauth.access"
+          "url": "https://slack.com/api/usergroups.create"
         },
-        "httpMethod": "Get",
+        "httpMethod": "POST",
         "params": [{
-            "displayName": "Issued when you created your application",
-            "style": "query",
+            "displayName": "Authentication token (Requires scope: usergroups:write)",
+            "style": "body",
             "type": "string",
-            "name": "client_id",
+            "name": "token",
             "required": true
           },{
-            "displayName": "Issued when you created your application",
-            "style": "query",
+            "displayName": "An unique name for the user group",
+            "style": "body",
             "type": "string",
-            "name": "client_secret",
+            "name": "name",
             "required": true
           },{
-            "displayName": "The code param returned via the OAuth callback",
-            "style": "query",
+            "displayName": "A mention handle (must be unique among channels, users and user groups)",
+            "style": "body",
             "type": "string",
-            "name": "code",
-            "required": true
+            "name": "handle"
           },{
-            "displayName": "This must match the originally submitted URI (if one was sent)",
-            "style": "query",
+            "displayName": "A short description of the user group",
+            "style": "body",
             "type": "string",
-            "name": "redirect_uri"
+            "name": "description"
+          },{
+            "displayName": "A comma separated string of encoded channel IDs for which the user group uses as a default",
+            "style": "body",
+            "type": "string",
+            "name": "channels"
+          },{
+            "displayName": "Include the number of users in each user group",
+            "style": "body",
+            "type": "integer",
+            "name": "include_count"
           }],
-        "url": "https://slack.com/api/oauth.access"
+        "url": "https://slack.com/api/usergroups.create"
       },{
-        "path": "/oauth.access",
-        "displayName": "Exchanges a temporary OAuth code for an API token",
+        "path": "/usergroups.disable",
+        "displayName": "Disable an existing user group",
         "doc": {
-          "url": "https://slack.com/api/oauth.access"
+          "url": "https://slack.com/api/usergroups.disable"
         },
-        "httpMethod": "Get",
+        "httpMethod": "PUT",
         "params": [{
-            "displayName": "Issued when you created your application",
-            "style": "query",
+            "displayName": "Authentication token (Requires scope: usergroups:write)",
+            "style": "body",
             "type": "string",
-            "name": "client_id",
+            "name": "token",
             "required": true
           },{
-            "displayName": "Issued when you created your application",
-            "style": "query",
+            "displayName": "The encoded ID of the user group to disable",
+            "style": "body",
             "type": "string",
-            "name": "client_secret",
+            "name": "usergroup",
             "required": true
           },{
-            "displayName": "The code param returned via the OAuth callback",
-            "style": "query",
-            "type": "string",
-            "name": "code",
-            "required": true
-          },{
-            "displayName": "This must match the originally submitted URI (if one was sent)",
-            "style": "query",
-            "type": "string",
-            "name": "redirect_uri"
+            "displayName": "Include the number of users in the user group",
+            "style": "body",
+            "type": "integer",
+            "name": "include_count"
           }],
-        "url": "https://slack.com/api/oauth.access"
+        "url": "https://slack.com/api/usergroups.disable"
       },{
-        "path": "/oauth.access",
-        "displayName": "Exchanges a temporary OAuth code for an API token",
+        "path": "/usergroups.enable",
+        "displayName": "Enable a user group",
         "doc": {
-          "url": "https://slack.com/api/oauth.access"
+          "url": "https://slack.com/api/usergroups.enable"
         },
-        "httpMethod": "Get",
+        "httpMethod": "PUT",
         "params": [{
-            "displayName": "Issued when you created your application",
-            "style": "query",
+            "displayName": "Authentication token (Requires scope: usergroups:write)",
+            "style": "body",
             "type": "string",
-            "name": "client_id",
+            "name": "token",
             "required": true
           },{
-            "displayName": "Issued when you created your application",
-            "style": "query",
+            "displayName": "The encoded ID of the user group to enable",
+            "style": "body",
             "type": "string",
-            "name": "client_secret",
+            "name": "usergroup",
             "required": true
           },{
-            "displayName": "The code param returned via the OAuth callback",
-            "style": "query",
-            "type": "string",
-            "name": "code",
-            "required": true
-          },{
-            "displayName": "This must match the originally submitted URI (if one was sent)",
-            "style": "query",
-            "type": "string",
-            "name": "redirect_uri"
+            "displayName": "Include the number of users in the user group",
+            "style": "body",
+            "type": "integer",
+            "name": "include_count"
           }],
-        "url": "https://slack.com/api/oauth.access"
+        "url": "https://slack.com/api/usergroups.enable"
       },{
-        "path": "/oauth.access",
-        "displayName": "Exchanges a temporary OAuth code for an API token",
+        "path": "/usergroups.list",
+        "displayName": "List all user groups for a team",
         "doc": {
-          "url": "https://slack.com/api/oauth.access"
+          "url": "https://slack.com/api/usergroups.list"
         },
-        "httpMethod": "Get",
+        "httpMethod": "GET",
         "params": [{
-            "displayName": "Issued when you created your application",
+            "displayName": "Authentication token (Requires scope: usergroups:read)",
             "style": "query",
             "type": "string",
-            "name": "client_id",
+            "name": "token",
             "required": true
           },{
-            "displayName": "Issued when you created your application",
+            "displayName": "Include disabled user groups",
             "style": "query",
             "type": "string",
-            "name": "client_secret",
-            "required": true
+            "name": "include_disabled"
           },{
-            "displayName": "The code param returned via the OAuth callback",
+            "displayName": "Include the number of users in each user group",
             "style": "query",
-            "type": "string",
-            "name": "code",
-            "required": true
+            "type": "integer",
+            "name": "include_count"
           },{
-            "displayName": "This must match the originally submitted URI (if one was sent)",
+            "displayName": "Include the list of users for each user group",
             "style": "query",
             "type": "string",
-            "name": "redirect_uri"
+            "name": "include_users"
           }],
-        "url": "https://slack.com/api/oauth.access"
+        "url": "https://slack.com/api/usergroups.list"
       },{
-        "path": "/oauth.access",
-        "displayName": "Exchanges a temporary OAuth code for an API token",
+        "path": "/usergroups.update",
+        "displayName": "Update an existing user group",
         "doc": {
-          "url": "https://slack.com/api/oauth.access"
+          "url": "https://slack.com/api/usergroups.update"
         },
-        "httpMethod": "Get",
+        "httpMethod": "PUT",
         "params": [{
-            "displayName": "Issued when you created your application",
-            "style": "query",
+            "displayName": "Authentication token (Requires scope: usergroups:write)",
+            "style": "body",
             "type": "string",
-            "name": "client_id",
+            "name": "token",
             "required": true
           },{
-            "displayName": "Issued when you created your application",
-            "style": "query",
+            "displayName": "The encoded ID of the user group to update",
+            "style": "body",
             "type": "string",
-            "name": "client_secret",
+            "name": "usergroup",
             "required": true
           },{
-            "displayName": "The code param returned via the OAuth callback",
-            "style": "query",
+            "displayName": "An unique name for the user group",
+            "style": "body",
             "type": "string",
-            "name": "code",
-            "required": true
+            "name": "name"
           },{
-            "displayName": "This must match the originally submitted URI (if one was sent)",
-            "style": "query",
+            "displayName": "An unique mention handle",
+            "style": "body",
             "type": "string",
-            "name": "redirect_uri"
+            "name": "handle"
+          },{
+            "displayName": "A short description of the user group",
+            "style": "body",
+            "type": "string",
+            "name": "description"
+          },{
+            "displayName": "A comma separated string of encoded channel IDs for which the user group uses as a default",
+            "style": "body",
+            "type": "string",
+            "name": "channels"
+          },{
+            "displayName": "Include the number of users in the user group",
+            "style": "body",
+            "type": "string",
+            "name": "include_count"
           }],
-        "url": "https://slack.com/api/oauth.access"
+        "url": "https://slack.com/api/usergroups.update"
       },{
-        "path": "/oauth.access",
-        "displayName": "Exchanges a temporary OAuth code for an API token",
+        "path": "/usergroups.users.list",
+        "displayName": "List all users in a user group",
         "doc": {
-          "url": "https://slack.com/api/oauth.access"
+          "url": "https://slack.com/api/usergroups.users.list"
         },
-        "httpMethod": "Get",
+        "httpMethod": "GET",
         "params": [{
-            "displayName": "Issued when you created your application",
+            "displayName": "Authentication token (Requires scope: usergroups:read)",
             "style": "query",
             "type": "string",
-            "name": "client_id",
+            "name": "token",
             "required": true
           },{
-            "displayName": "Issued when you created your application",
+            "displayName": "The encoded ID of the user group to update",
             "style": "query",
             "type": "string",
-            "name": "client_secret",
+            "name": "usergroup",
             "required": true
           },{
-            "displayName": "The code param returned via the OAuth callback",
+            "displayName": "Allow results that involve disabled user groups",
             "style": "query",
             "type": "string",
-            "name": "code",
-            "required": true
-          },{
-            "displayName": "This must match the originally submitted URI (if one was sent)",
-            "style": "query",
-            "type": "string",
-            "name": "redirect_uri"
+            "name": "include_disabled"
           }],
-        "url": "https://slack.com/api/oauth.access"
+        "url": "https://slack.com/api/usergroups.users.list"
       },{
-        "path": "/oauth.access",
-        "displayName": "Exchanges a temporary OAuth code for an API token",
+        "path": "/usergroups.users.update",
+        "displayName": "Update the list of users for a user group",
         "doc": {
-          "url": "https://slack.com/api/oauth.access"
+          "url": "https://slack.com/api/usergroups.users.update"
         },
-        "httpMethod": "Get",
+        "httpMethod": "PUT",
         "params": [{
-            "displayName": "Issued when you created your application",
-            "style": "query",
+            "displayName": "Authentication token (Requires scope: usergroups:write)",
+            "style": "body",
             "type": "string",
-            "name": "client_id",
+            "name": "token",
             "required": true
           },{
-            "displayName": "Issued when you created your application",
-            "style": "query",
+            "displayName": "The encoded ID of the user group to update",
+            "style": "body",
             "type": "string",
-            "name": "client_secret",
+            "name": "usergroup",
             "required": true
           },{
-            "displayName": "The code param returned via the OAuth callback",
-            "style": "query",
+            "displayName": "A comma separated string of encoded user IDs that represent the entire list of users for the user group",
+            "style": "body",
             "type": "string",
-            "name": "code",
+            "name": "users",
             "required": true
           },{
-            "displayName": "This must match the originally submitted URI (if one was sent)",
-            "style": "query",
-            "type": "string",
-            "name": "redirect_uri"
+            "displayName": "Include the number of users in the user group",
+            "style": "body",
+            "type": "integer",
+            "name": "include_count"
           }],
-        "url": "https://slack.com/api/oauth.access"
+        "url": "https://slack.com/api/usergroups.users.update"
       },{
-        "path": "/oauth.access",
-        "displayName": "Exchanges a temporary OAuth code for an API token",
+        "path": "/users.getPresence",
+        "displayName": "Gets user presence information",
         "doc": {
-          "url": "https://slack.com/api/oauth.access"
+          "url": "https://slack.com/api/users.getPresence"
         },
-        "httpMethod": "Get",
+        "httpMethod": "GET",
         "params": [{
-            "displayName": "Issued when you created your application",
+            "displayName": "Authentication token (Requires scope: users:read)",
             "style": "query",
             "type": "string",
-            "name": "client_id",
+            "name": "token",
             "required": true
           },{
-            "displayName": "Issued when you created your application",
+            "displayName": "User to get presence info on. Defaults to the authed user",
             "style": "query",
             "type": "string",
-            "name": "client_secret",
+            "name": "user",
             "required": true
-          },{
-            "displayName": "The code param returned via the OAuth callback",
-            "style": "query",
-            "type": "string",
-            "name": "code",
-            "required": true
-          },{
-            "displayName": "This must match the originally submitted URI (if one was sent)",
-            "style": "query",
-            "type": "string",
-            "name": "redirect_uri"
           }],
-        "url": "https://slack.com/api/oauth.access"
+        "url": "https://slack.com/api/users.getPresence"
       },{
-        "path": "/oauth.access",
-        "displayName": "Exchanges a temporary OAuth code for an API token",
+        "path": "/users.info",
+        "displayName": "Gets information about a user",
         "doc": {
-          "url": "https://slack.com/api/oauth.access"
+          "url": "https://slack.com/api/users.info"
         },
-        "httpMethod": "Get",
+        "httpMethod": "GET",
         "params": [{
-            "displayName": "Issued when you created your application",
+            "displayName": "Authentication token (Requires scope: users:read)",
             "style": "query",
             "type": "string",
-            "name": "client_id",
+            "name": "token",
             "required": true
           },{
-            "displayName": "Issued when you created your application",
+            "displayName": "User to get info on",
             "style": "query",
             "type": "string",
-            "name": "client_secret",
+            "name": "user",
             "required": true
-          },{
-            "displayName": "The code param returned via the OAuth callback",
-            "style": "query",
-            "type": "string",
-            "name": "code",
-            "required": true
-          },{
-            "displayName": "This must match the originally submitted URI (if one was sent)",
-            "style": "query",
-            "type": "string",
-            "name": "redirect_uri"
           }],
-        "url": "https://slack.com/api/oauth.access"
+        "url": "https://slack.com/api/users.info"
       },{
-        "path": "/oauth.access",
-        "displayName": "Exchanges a temporary OAuth code for an API token",
+        "path": "/users.list",
+        "displayName": "Lists all users in a Slack team",
         "doc": {
-          "url": "https://slack.com/api/oauth.access"
+          "url": "https://slack.com/api/users.list"
         },
-        "httpMethod": "Get",
+        "httpMethod": "GET",
         "params": [{
-            "displayName": "Issued when you created your application",
+            "displayName": "Authentication token (Requires scope: users:read)",
             "style": "query",
             "type": "string",
-            "name": "client_id",
+            "name": "token",
             "required": true
           },{
-            "displayName": "Issued when you created your application",
+            "displayName": "Whether to include presence data in the output",
             "style": "query",
             "type": "string",
-            "name": "client_secret",
-            "required": true
-          },{
-            "displayName": "The code param returned via the OAuth callback",
-            "style": "query",
-            "type": "string",
-            "name": "code",
-            "required": true
-          },{
-            "displayName": "This must match the originally submitted URI (if one was sent)",
-            "style": "query",
-            "type": "string",
-            "name": "redirect_uri"
+            "name": "presence"
           }],
-        "url": "https://slack.com/api/oauth.access"
+        "url": "https://slack.com/api/users.list"
       },{
-        "path": "/oauth.access",
-        "displayName": "Exchanges a temporary OAuth code for an API token",
+        "path": "/users.setActive",
+        "displayName": "Marks a user as active",
         "doc": {
-          "url": "https://slack.com/api/oauth.access"
+          "url": "https://slack.com/api/users.setActive"
         },
-        "httpMethod": "Get",
+        "httpMethod": "PUT",
         "params": [{
-            "displayName": "Issued when you created your application",
-            "style": "query",
+            "displayName": "Authentication token (Requires scope: users:write)",
+            "style": "body",
             "type": "string",
-            "name": "client_id",
+            "name": "token",
             "required": true
-          },{
-            "displayName": "Issued when you created your application",
-            "style": "query",
-            "type": "string",
-            "name": "client_secret",
-            "required": true
-          },{
-            "displayName": "The code param returned via the OAuth callback",
-            "style": "query",
-            "type": "string",
-            "name": "code",
-            "required": true
-          },{
-            "displayName": "This must match the originally submitted URI (if one was sent)",
-            "style": "query",
-            "type": "string",
-            "name": "redirect_uri"
           }],
-        "url": "https://slack.com/api/oauth.access"
+        "url": "https://slack.com/api/users.setActive"
       },{
-        "path": "/oauth.access",
-        "displayName": "Exchanges a temporary OAuth code for an API token",
+        "path": "/users.setPresence",
+        "displayName": "Manually sets user presence",
         "doc": {
-          "url": "https://slack.com/api/oauth.access"
+          "url": "https://slack.com/api/users.setPresence"
         },
-        "httpMethod": "Get",
+        "httpMethod": "PUT",
         "params": [{
-            "displayName": "Issued when you created your application",
-            "style": "query",
+            "displayName": "Authentication token (Requires scope: users:write)",
+            "style": "body",
             "type": "string",
-            "name": "client_id",
+            "name": "token",
             "required": true
           },{
-            "displayName": "Issued when you created your application",
-            "style": "query",
+            "displayName": "Either auto or away",
+            "style": "body",
             "type": "string",
-            "name": "client_secret",
+            "name": "presence",
             "required": true
-          },{
-            "displayName": "The code param returned via the OAuth callback",
-            "style": "query",
-            "type": "string",
-            "name": "code",
-            "required": true
-          },{
-            "displayName": "This must match the originally submitted URI (if one was sent)",
-            "style": "query",
-            "type": "string",
-            "name": "redirect_uri"
           }],
-        "url": "https://slack.com/api/oauth.access"
-      },{
-        "path": "/oauth.access",
-        "displayName": "Exchanges a temporary OAuth code for an API token",
-        "doc": {
-          "url": "https://slack.com/api/oauth.access"
-        },
-        "httpMethod": "Get",
-        "params": [{
-            "displayName": "Issued when you created your application",
-            "style": "query",
-            "type": "string",
-            "name": "client_id",
-            "required": true
-          },{
-            "displayName": "Issued when you created your application",
-            "style": "query",
-            "type": "string",
-            "name": "client_secret",
-            "required": true
-          },{
-            "displayName": "The code param returned via the OAuth callback",
-            "style": "query",
-            "type": "string",
-            "name": "code",
-            "required": true
-          },{
-            "displayName": "This must match the originally submitted URI (if one was sent)",
-            "style": "query",
-            "type": "string",
-            "name": "redirect_uri"
-          }],
-        "url": "https://slack.com/api/oauth.access"
+        "url": "https://slack.com/api/users.setPresence"
       }
     ]
   }
