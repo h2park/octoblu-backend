@@ -23,6 +23,7 @@ deploy:
   secret_access_key:
     secure: E8Wd7RlqQfKC8hH6LDAisouMuj+ee7uvwxWWBeh/OZer2HxvO/qAat8fO4Nj7vtUFbIwHBAaX2HqWDiGvyV0GF5wQUTVr3rtDHdvUAplcThFSypUAptfQKznXAMOQLyBC1gKc+/QvmRIobyvneqi+9vTyWU15P0g1daXnUBsI4Y=
   bucket: octoblu-channels
+  region: us-west-2
   local-dir: assets/json
   skip_cleanup: true
   acl: private
