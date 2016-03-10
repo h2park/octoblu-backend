@@ -1,0 +1,16 @@
+{
+  "_id": "56e1dfb6516d6a8164c830ab",
+  "category": "device",
+  "categories":["Citrix"],
+  "description": "Citrix Xen Director",
+  "documentation": "https://meshblu-connectors.readme.io/docs/xen-director",
+  "helpText": "",
+  "enabled": true,
+  "name": "Citrix Xen Director",
+  "skynet": {
+    "type": "device",
+    "subtype": "xen-director"
+  },
+  "connector": "meshblu-xen-director",
+  "type": "device:xen-director"
+}
