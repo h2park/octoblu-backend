@@ -19,10 +19,11 @@ before_script:
 - export NODE_ENV=test
 deploy:
   provider: s3
-  access_key_id: AKIAJFJGT4PA3PB7DIYQ
+  access_key_id: AWS_ACCESS_KEY_ID
   secret_access_key:
-    secure: E8Wd7RlqQfKC8hH6LDAisouMuj+ee7uvwxWWBeh/OZer2HxvO/qAat8fO4Nj7vtUFbIwHBAaX2HqWDiGvyV0GF5wQUTVr3rtDHdvUAplcThFSypUAptfQKznXAMOQLyBC1gKc+/QvmRIobyvneqi+9vTyWU15P0g1daXnUBsI4Y=
+    secure: AWS_SECRET_ACCESS_KEY
   bucket: octoblu-channels
+  region: us-west-2
   local-dir: assets/json
   skip_cleanup: true
   acl: private
