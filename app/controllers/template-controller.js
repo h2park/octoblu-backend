@@ -34,7 +34,7 @@ var TemplateController = function (options, dependencies) {
   };
 
   self.findByPublic = function(req, res, next) {
-    return templateModel.findByPublic(req.query.tags, req.query.pageLimit, req.query.pageNumber, req.query.nameFilter)
+    return templateModel.findByPublic(req.query.tags, parseInt(req.query.pageLimit), req.query.pageNumber, req.query.nameFilter)
       .then(function(templates) {
           req.templates = templates;
           next();

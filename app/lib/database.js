@@ -40,7 +40,7 @@ function wrapFunction(fn){
     var ogCallback = args[arguments.length - 1];
     if(!_.isFunction(ogCallback)) {
       fn.apply(self, args)
-      return
+      return self;
     }
     var callback = function(){
       var cbArgs = arguments
@@ -51,6 +51,7 @@ function wrapFunction(fn){
     }
     args[arguments.length - 1] = callback
     fn.apply(self, args)
+    return self
   }
 }
 
@@ -62,7 +63,7 @@ function wrapCollection(collection){
   var _update = _.bind(collection.update, collection)
   return {
     find: nodefn.lift(_.bind(wrapFunction(_find), collection)),
-    originalFind: _.bind(wrapFunction(_find), collection),
+    originalFind: _find,
     findOne: nodefn.lift(_.bind(wrapFunction(_findOne), collection)),
     remove: nodefn.lift(_.bind(wrapFunction(_remove), collection)),
     insert: nodefn.lift(_.bind(wrapFunction(_insert), collection)),
