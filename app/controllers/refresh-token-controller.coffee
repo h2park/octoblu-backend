@@ -8,7 +8,6 @@ passportRefresh = require 'passport-oauth2-refresh'
 class RefreshTokenController
   constructor: (@meshbluJSON, @dependencies={}) ->
     @MeshbluHttp = @dependencies.MeshbluHttp ? require 'meshblu-http'
-    @meshbluDb = @dependencies.meshbluDb ? require '../lib/database'
 
   refresh: (request, response) =>
     return response.sendStatus(401) unless @verifyDevice request.uuid

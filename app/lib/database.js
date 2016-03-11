@@ -69,6 +69,8 @@ function wrapCollection(collection){
   };
 }
 
+var collections = {};
+
 // Returns a hash of collections
 function Database(){
   return this;
@@ -82,6 +84,9 @@ Database.prototype.createConnection = function(options){
   if(config.databaseType === 'nedb'){
     self.getCollectionBase = createNeDBCollection;
   }else{
+    if(self.db && self.getCollectionBase) {
+      return self;
+    }
     var mongojs = require('mongojs');
     self.db = mongojs(config.mongojsUrl);
     self.getCollectionBase = _.bind(self.db.collection, self.db);
@@ -91,7 +96,11 @@ Database.prototype.createConnection = function(options){
 };
 
 Database.prototype.getCollection = function(collectionName){
-  return wrapCollection(this.getCollectionBase(collectionName));
+  if(collections[collectionName]){
+    return collections[collectionName]
+  }
+  collections[collectionName] = wrapCollection(this.getCollectionBase(collectionName));
+  return collections[collectionName];
 };
 
 module.exports = new Database();
