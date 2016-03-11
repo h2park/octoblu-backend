@@ -10,7 +10,7 @@ describe('ChannelCollection', function () {
     var getUserDefer, fetchChannelByIdDefer, fetchChannelsByIdsDefer;
     octobluDB.createConnection();
 
-    sut     = new ChannelCollection();
+    sut = new ChannelCollection();
 
     fetchChannelsByIdsDefer = when.defer();
     fetchChannelsByIds = sinon.stub(sut, 'fetchChannelsByIds');

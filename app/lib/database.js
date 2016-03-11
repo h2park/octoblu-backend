@@ -24,14 +24,47 @@ function createObjectId(id) {
   return mongojs.ObjectId(id);
 }
 
+function handleFatalError(error, callback) {
+  if(!error) return callback()
+  if(!(/ECONNREFUSED/.test(error.message) || /no primary server available/.test(error.message))) return callback()
+  console.error('FATAL: database error', error)
+  process.exit(1)
+}
+
+function wrapFunction(fn){
+  return function(){
+    var self = this;
+    var args = arguments;
+    var ogCallback = args[arguments.length - 1];
+    if(!_.isFunction(ogCallback)) {
+      fn.apply(self, args)
+      return
+    }
+    var callback = function(){
+      var cbArgs = arguments
+      var error = _.first(cbArgs)
+      handleFatalError(error, function(){
+        ogCallback.apply(self, cbArgs);
+      })
+    }
+    args[arguments.length - 1] = callback
+    fn.apply(self, args)
+  }
+}
+
 function wrapCollection(collection){
+  var _find = _.bind(collection.find, collection)
+  var _findOne = _.bind(collection.findOne, collection)
+  var _remove = _.bind(collection.remove, collection)
+  var _insert = _.bind(collection.insert, collection)
+  var _update = _.bind(collection.update, collection)
   return {
-    find: nodefn.lift(_.bind(collection.find, collection)),
-    originalFind: _.bind(collection.find, collection),
-    findOne: nodefn.lift(_.bind(collection.findOne, collection)),
-    remove: nodefn.lift(_.bind(collection.remove, collection)),
-    insert: nodefn.lift(_.bind(collection.insert, collection)),
-    update: nodefn.lift(_.bind(collection.update, collection)),
+    find: nodefn.lift(_.bind(wrapFunction(_find), collection)),
+    originalFind: _.bind(wrapFunction(_find), collection),
+    findOne: nodefn.lift(_.bind(wrapFunction(_findOne), collection)),
+    remove: nodefn.lift(_.bind(wrapFunction(_remove), collection)),
+    insert: nodefn.lift(_.bind(wrapFunction(_insert), collection)),
+    update: nodefn.lift(_.bind(wrapFunction(_update), collection)),
     ObjectId: createObjectId
   };
 }

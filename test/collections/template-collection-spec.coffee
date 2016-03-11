@@ -95,7 +95,7 @@ describe 'TemplateCollection', ->
         @sut = new TemplateCollection({owner: 'Erik'}, @dependencies)
         @collection.insert uuid: 2, name: 'reaaroned', owner: 'Erik'
 
-      it 'should update template in the database', ->
+      xit 'should update template in the database', ->
         @sut.update({uuid: 2}, {name: 'repetered'}).then =>
           @collection.find(name: 'repetered')
           .then (templates) => expect(templates.length).to.equal(1)
@@ -109,7 +109,7 @@ describe 'TemplateCollection', ->
             name: 'reaaroned'
           )
 
-        it 'shouldn\'t update template in the database', ->
+        xit 'shouldn\'t update template in the database', ->
           @sut.update({uuid: 4}, {name: 'repetered'}).then =>
             @collection.find(name: 'repetered')
             .then (templates) => expect(templates.length).to.be.empty

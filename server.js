@@ -1,5 +1,4 @@
 'use strict';
-
 require('coffee-script/register');
 var config = require('./config/auth');
 
