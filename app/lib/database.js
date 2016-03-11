@@ -5,6 +5,8 @@ var config  = require('../../config/database'),
   _         = require('lodash'),
   path      = require('path');
 
+var debug = require('debug')('octoblu:lib/database');
+
 var nedbCollections = {};
 function createNeDBCollection(collection){
   if(!nedbCollections[collection]){
@@ -87,9 +89,19 @@ Database.prototype.createConnection = function(options){
     if(self.db && self.getCollectionBase) {
       return self;
     }
+    debug('instantiating new database');
     var mongojs = require('mongojs');
     self.db = mongojs(config.mongojsUrl);
     self.getCollectionBase = _.bind(self.db.collection, self.db);
+    self.db.on('ready', function(){
+      debug('received mongo "ready" event');
+    });
+    self.db.on('connect', function(){
+      debug('received mongo "connect" event');
+    });
+    self.db.on('reconnect', function(){
+      debug('received mongo "reconnect" event');
+    });
   }
 
   return self;
