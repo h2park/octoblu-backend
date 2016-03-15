@@ -23,9 +23,9 @@ var config = {
         sessionSecret: 'e2em2miotskynetZOMGBBQ',
         sessionDatabase : 'redis',
         databaseType : 'mongodb',
-        url : 'mongodb://[user]:[password]@lighthouse.4.mongolayer.com:10212,lighthouse.5.mongolayer.com:10212/octoblu?replicaSet=set-5654a6a9e73ab307ec000ca8',
-        mongojsUrl : 'octoblu:VPXrCesMmXayJzSET3qW@lighthouse.4.mongolayer.com:10212,lighthouse.5.mongolayer.com:10212/octoblu?replicaSet=set-5654a6a9e73ab307ec000ca8',
-        redisSessionUrl: process.env.REDIS_URL || 'redis://meshblu-redis.csy8op.0001.usw2.cache.amazonaws.com'
+        url : process.env.MONGO_URI,
+        mongojsUrl : process.env.MONGOJS_URI,
+        redisSessionUrl: process.env.REDIS_URL
     },
     nedb: {
         sessionSecret: 'e2em2miotskynetZOMGBBQ',
