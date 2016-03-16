@@ -18,5 +18,6 @@ meshblu.json
 *.sublime-workspace
 public/angular/compiled
 assets/json/operations.json
-*dockerfile-dev
-npmrc-dev
+
+# dev files
+.*-dev
