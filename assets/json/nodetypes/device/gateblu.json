@@ -1,6 +1,6 @@
 {
   "_id": "53c9b831f400e177dca325b0",
-  "category": "device",
+  "category": "gateblu",
   "categories":["Octoblu"],
   "description": "Meshblu device connection manager",
   "helpText": "Gateblu is Octoblu's gateway to the physical world of IoT. Gateblu allows you to connect smart devices, motors, servos, sensors, and additional protocols to Meshblu and Octoblu!",
