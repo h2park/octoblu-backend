@@ -5,7 +5,7 @@
   "description": "AllJoyn",
   "documentation": "https://allseenalliance.org/docs/api/cpp/annotated.html",
   "helpText": "AllJoyn is a collaborative open-source software framework that makes it easy for devices and apps to discover and communicate with each other. Control features of Alljoyn connected devices such as TV notifications and interact with alljoyn events.",
-  "enabled": true,
+  "enabled": false,
   "name": "AllJoyn",
   "skynet": {
     "type": "device",
