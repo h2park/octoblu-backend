@@ -455,7 +455,8 @@ module.exports = function(app, passport, config, meshbluJSON){
                                 templateController.addOwnerNames);
 
     app.get('/api/templates/public',  templateController.findByPublic,
-                                      templateController.addOwnerNames);
+                                      templateController.addOwnerNames,
+                                      templateController.send);
 
     app.put('/api/templates/:id/like', templateController.like);
 
@@ -465,7 +466,7 @@ module.exports = function(app, passport, config, meshbluJSON){
 
     app.put('/api/templates/:id', templateController.update);
 
-    app.get('/api/templates/:id', templateController.findOne);
+    app.get('/api/templates/:id', templateController.findOne, templateController.addOwnerName);
 
     app.post('/api/templates/:id/flows', templateController.importTemplate);
 
