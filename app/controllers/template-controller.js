@@ -109,7 +109,7 @@ var TemplateController = function (options, dependencies) {
     return templateModel.findOne(req.uuid, query)
       .then(function(template) {
         req.template = template;
-        next();
+        self.addOwnerName(req, res, next);
       })
       .catch(function(error){
         res.send(422, error.message);
