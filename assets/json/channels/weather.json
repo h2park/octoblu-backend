@@ -10,7 +10,7 @@
     "resources": [
       {
         "url": "http://weather.octoblu.com/temperature/fahrenheit",
-        "displayName": "Get Temperature In Fahrenheit",
+        "displayName": "Get Current Temperature In Fahrenheit",
         "path": "/temperature/fahrenheit",
         "httpMethod": "GET",
         "params": [
@@ -36,7 +36,7 @@
       },
       {
         "url": "http://weather.octoblu.com/temperature/celsius",
-        "displayName": "Get Temperature In Celsius",
+        "displayName": "Get Current Temperature In Celsius",
         "path": "/temperature/celsius",
         "httpMethod": "GET",
         "params": [
@@ -62,7 +62,7 @@
       },
       {
         "url": "http://weather.octoblu.com/forecast/fahrenheit",
-        "displayName": "Get 5 day, 3 hour Forecast In Fahrenheit",
+        "displayName": "Get Forecast In Fahrenheit",
         "path": "/forecast/fahrenheit",
         "httpMethod": "GET",
         "params": [
@@ -88,7 +88,7 @@
       },
       {
         "url": "http://weather.octoblu.com/forecast/celsius",
-        "displayName": "Get 5 day, 3 hour Forecast In Celsius",
+        "displayName": "Get Forecast In Celsius",
         "path": "/forecast/celsius",
         "httpMethod": "GET",
         "params": [
