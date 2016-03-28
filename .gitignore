@@ -21,3 +21,4 @@ assets/json/operations.json
 
 # dev files
 .*-dev
+*-dev
