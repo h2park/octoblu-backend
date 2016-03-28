@@ -36,8 +36,60 @@
       },
       {
         "url": "http://weather.octoblu.com/temperature/celsius",
-        "displayName": "Temperature In Celsius",
+        "displayName": "Get Temperature In Celsius",
         "path": "/temperature/celsius",
+        "httpMethod": "GET",
+        "params": [
+          {
+            "name": "city",
+            "displayName": "City",
+            "style": "query",
+            "type": "string"
+          },
+          {
+            "name": "state",
+            "displayName": "State",
+            "style": "query",
+            "type": "string"
+          },
+          {
+            "name": "country",
+            "displayName": "Country",
+            "style": "query",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "url": "http://weather.octoblu.com/forecast/fahrenheit",
+        "displayName": "Get 5 day, 3 hour Forecast In Fahrenheit",
+        "path": "/forecast/fahrenheit",
+        "httpMethod": "GET",
+        "params": [
+          {
+            "name": "city",
+            "displayName": "City",
+            "type": "string",
+            "style": "query"
+          },
+          {
+            "name": "state",
+            "type": "string",
+            "displayName": "State",
+            "style": "query"
+          },
+          {
+            "name": "country",
+            "type": "string",
+            "displayName": "Country",
+            "style": "query"
+          }
+        ]
+      },
+      {
+        "url": "http://weather.octoblu.com/forecast/celsius",
+        "displayName": "Get 5 day, 3 hour Forecast In Celsius",
+        "path": "/forecast/celsius",
         "httpMethod": "GET",
         "params": [
           {
