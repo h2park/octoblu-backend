@@ -1,0 +1,16 @@
+{
+  "_id": "device-google-vision",
+  "category": "device",
+  "categories":["Maker"],
+  "description": "Google Cloud Vision API connector for Octoblu",
+  "documentation": "https://meshblu-connectors.readme.io/docs/google-vision",
+  "helpText": "Send images as urls or base64 for Google to analyze!",
+  "enabled": true,
+  "name": "Google Vision",
+  "skynet": {
+    "type": "device",
+    "subtype": "google-vision"
+  },
+  "connector": "meshblu-google-vision",
+  "type": "device:google-vision"
+}
