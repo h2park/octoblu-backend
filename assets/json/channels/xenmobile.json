@@ -11,7 +11,7 @@
   "defaultParams": [
     {
       "name": ":hostname",
-      "displayName": "XenMobile Hostname (include http/https)",
+      "displayName": "XenMobile URL, include protocol",
       "style": "url",
       "type": "string",
       "required": true
@@ -20,7 +20,7 @@
       "name": ":port",
       "displayName": "XenMobile Port",
       "style": "url",
-      "type": "string",
+      "type": "number",
       "required": true
     }
   ],
