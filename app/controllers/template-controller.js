@@ -44,6 +44,16 @@ var TemplateController = function (options, dependencies) {
       });
   };
 
+  self.findRecentPublic = function(req, res, next) {
+    return templateModel.findRecentPublic(req.query.tags, parseInt(req.query.limit))
+      .then(function(templates) {
+          req.templates = templates;
+          next();
+      })
+      .catch(function(error){
+        res.send(422, error.message);
+      });
+  };
 
   self.like = function(req, res) {
     return templateModel.like(req.uuid, req.params.id)

@@ -183,6 +183,19 @@ function TemplateModel(dependencies) {
       return templateCollection.list(query, pageLimit, pageNumber, nameFilter);
     },
 
+    findRecentPublic: function(tags, limit) {
+      debug("Finding template with tags ", tags);
+      var templateCollection = new TemplateCollection();
+      var query = {};
+      if(tags) {
+        if( ! _.isArray(tags)){
+          tags = [tags]
+        }
+        query = {tags: {$all: tags}};
+      }
+      return templateCollection.recent(query, limit);
+    },
+
     like: function(userUuid, bluprintId) {
       var templateCollection = new TemplateCollection();
       return templateCollection.like(userUuid, bluprintId);

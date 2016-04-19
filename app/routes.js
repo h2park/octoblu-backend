@@ -459,6 +459,10 @@ module.exports = function(app, passport, config, meshbluJSON){
                                       templateController.addOwnerNames,
                                       templateController.send);
 
+    app.get('/api/templates/public/recent',         templateController.findRecentPublic,
+                                                    templateController.addOwnerNames,
+                                                    templateController.send);
+
     app.put('/api/templates/:id/like', templateController.like);
 
     app.delete('/api/templates/:id/unlike', templateController.unlike);

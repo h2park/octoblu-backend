@@ -60,6 +60,13 @@ class TemplateCollection
           return reject error if error?
           resolve docs
 
+  recent:  (query={}, limit) =>
+    query = @allowPublic query
+    When.promise (resolve, reject) =>
+      @collection.originalFind(query).sort({_id: -1}).limit limit, (error, docs) =>
+        return reject error if error?
+        resolve docs
+
   like: (userUuid, bluprintId) =>
     query = {uuid: bluprintId}
     @collection.findOne(query)
