@@ -272,6 +272,7 @@ module.exports = function(app, passport, config, meshbluJSON){
     app.get('/api/flows/:id', flowController.getFlow);
     app.delete('/api/flows/:id', flowController.delete);
     app.get('/api/flows', flowController.getAllFlows);
+    app.get('/api/flows/:limit/paged', flowController.getSomeFlows);
     app.post('/api/flows/:id/instance', flowDeployController.startInstance);
     app.delete('/api/flows/:id/instance', flowDeployController.stopInstance);
 

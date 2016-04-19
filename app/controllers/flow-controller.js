@@ -33,6 +33,14 @@ module.exports = function (options) {
     });
   };
 
+  self.getSomeFlows = function (req, res) {
+    return Flow.someFlows(req.user.resource.uuid, req.params.limit, function(flows){
+      res.send(flows);
+    }, function(error){
+      res.send(500, error);
+    });
+  };
+
   self.getFlow = function (req, res) {
     return Flow.getFlowWithOwner(req.params.id, req.user.resource.uuid).then(function(flow){
       if (!flow) {

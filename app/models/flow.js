@@ -52,6 +52,17 @@ function FlowModel() {
       return self.find({'resource.owner.uuid': userUUID});
     },
 
+    someFlows : function (userUUID, limit, callback) {
+      var self = this;
+      self.originalFind({'resource.owner.uuid': userUUID}).sort({_id: -1})
+      .limit(parseInt(limit), function(err, flows){
+        if(err){
+          callback(err);
+        }
+        callback(flows);
+      });
+    },
+
     getFlowWithOwner : function(flowId, userUUID) {
       var self = this;
       return self.findOne({'flowId': flowId, 'resource.owner.uuid': userUUID});
