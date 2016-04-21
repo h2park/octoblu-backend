@@ -1,10 +1,10 @@
 {
   "_id" : "54ee3d6806876a770837f7d5",
   "type" : "channel:netscaler",
-  "auth_strategy": "basic",
+  "auth_strategy": "none",
   "documentation": "http://support.citrix.com/proddocs/topic/netscaler-main-api-10-5-map/ns-nitro-rest-landing-page-con.html",
   "name": "NetScaler",
-  "enabled": true,
+  "enabled": false,
   "defaultParams": [
     {
       "displayName": "NetScaler Host (including http:// or https://)",
@@ -19,14 +19,14 @@
       "displayName": "Username",
       "style": "header",
       "type": "string",
-      "name": "username",
+      "name": "X-NITRO-USER",
       "required": true
     },
     {
       "displayName": "Password",
       "style": "header",
       "type": "string",
-      "name": "password",
+      "name": "X-NITRO-PASS",
       "required": true
     }
   ],
@@ -34,8 +34,8 @@
     "base" : ":baseUrl/nitro/v1/config/",
     "resources" : [
     {
-      "path": "/login/",
-      "displayName": "Authenticate The Session By Using The NetScaler",
+      "path": "/login",
+      "displayName": "Login",
       "doc": {
         "url": ":baseUrl/nitro/v1/config/login/"
       },
@@ -58,7 +58,7 @@
         "name": "login.timeout",
         "required": false
     }],
-      "url": ":baseUrl/nitro/v1/config/login/"
+      "url": ":baseUrl/nitro/v1/config/login"
     },{
       "path": "/nsfeature",
       "displayName": "Enable the load balancing feature",
@@ -498,31 +498,6 @@
           "name": "backplane"
         }],
         "url": ":baseUrl/nitro/v1/config/clusternode/"
-      },{
-        "path": "/nsip/",
-        "displayName": "Add a Cluster IP Address",
-        "doc": {
-          "url": ":baseUrl/nitro/v1/config/nsip/"
-        },
-        "httpMethod": "POST",
-        "params": [{
-          "displayName": "Resource Type",
-          "style": "object",
-          "type": "string",
-          "name": "nsip",
-          "required": true
-        },{
-          "displayName": "Netmask",
-          "style": "body",
-          "type": "integer",
-          "name": "netmask"
-        },{
-          "displayName": "Type",
-          "style": "body",
-          "type": "string",
-          "name": "type"
-        }],
-        "url": ":baseUrl/nitro/v1/config/nsip/"
       },
       {
         "path": "/nsip/",
@@ -559,6 +534,32 @@
           "name": "ownernode"
         }],
         "url": ":baseUrl/nitro/v1/config/nsip/"
+      },
+      {
+        "path": "/nsip",
+        "displayName": "Add a Cluster IP Address",
+        "doc": {
+          "url": ":baseUrl/nitro/v1/config/nsip/"
+        },
+        "httpMethod": "POST",
+        "params": [{
+          "displayName": "Resource Type",
+          "style": "object",
+          "type": "string",
+          "name": "nsip",
+          "required": true
+        },{
+          "displayName": "Netmask",
+          "style": "body",
+          "type": "integer",
+          "name": "netmask"
+        },{
+          "displayName": "Type",
+          "style": "body",
+          "type": "string",
+          "name": "type"
+        }],
+        "url": ":baseUrl/nitro/v1/config/nsip"
       },
       {
         "path": "/cluster/",
