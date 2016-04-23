@@ -18,15 +18,17 @@ module.exports = function (options) {
   };
 
   self.update = function (req, res) {
-    Flow.updateByFlowIdAndUser(req.params.id, req.user.resource.uuid, req.body).then(function () {
-      res.send(204);
+    config = _.extend({}, meshbluJSON, {token: req.token, uuid: req.uuid});
+    Flow.updateByFlowIdAndUser(req.params.id, req.user.resource.uuid, req.body, config).then(function () {
+      res.send(204)
     }, function (error) {
       res.send(422, error);
     });
   };
 
   self.getAllFlows = function (req, res) {
-    return Flow.getFlows(req.user.resource.uuid).then(function(flows){
+    config = _.extend({}, meshbluJSON, {token: req.token, uuid: req.uuid});
+    return Flow.getFlows(req.user.resource.uuid, config).then(function(flows){
       res.send(flows);
     }, function(error){
       res.send(500, error);
@@ -42,7 +44,8 @@ module.exports = function (options) {
   };
 
   self.getFlow = function (req, res) {
-    return Flow.getFlowWithOwner(req.params.id, req.user.resource.uuid).then(function(flow){
+    config = _.extend({}, meshbluJSON, {token: req.token, uuid: req.uuid});
+    return Flow.getFlowWithOwner(req.params.id, req.user.resource.uuid, config).then(function(flow){
       if (!flow) {
         return res.status(404).json({error: 'Flow not found'});
       }
