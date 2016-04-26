@@ -13,6 +13,7 @@ function FlowModel() {
       var self = this;
       return registerFlow(meshbluJSON, userUUID).then(function (device) {
         var data = mergeFlowData(userUUID, flowData, device);
+        data = _.omit(data, ['token']);
         return self.insert(data).then(function () {
           return data;
         });
