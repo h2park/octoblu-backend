@@ -49,7 +49,7 @@ function FlowModel() {
         "pendingPermissions",
         "selectedFlowNode",
         "selectedLink"
-      ]
+      ];
 
       return self.findOne(query).then(function(flow) {
         if (!flow) {
