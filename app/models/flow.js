@@ -38,12 +38,25 @@ function FlowModel() {
       var updatedFlow;
       var self = this;
       var query = {flowId: flowId, 'resource.owner.uuid': userUUID};
+      var omittedProperties = [
+        "REGISTRY_URL",
+        "ThingService",
+        "UUIDService",
+        "_id",
+        "devicesNeedingPermission",
+        "devicesWithPermissions",
+        "flowDevice",
+        "pendingPermissions",
+        "selectedFlowNode",
+        "selectedLink"
+      ]
 
       return self.findOne(query).then(function(flow) {
         if (!flow) {
           throw new Error('Flow not found', flowId);
         }
-        return _.extend({}, flow, flowData);
+        flow = _.extend({}, flow, flowData);
+        return _.omit(flow, omittedProperties);
       }).then(function(newFlow){
         updatedFlow = newFlow;
         return self.update(query, newFlow);
