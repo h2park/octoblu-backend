@@ -33,7 +33,7 @@ var port           = process.env.OCTOBLU_PORT || configAuth.port;
 var sslPort        = process.env.OCTOBLU_SSLPORT || configAuth.sslPort;
 var databaseConfig = require('./config/database');
 var meshbluHealthcheck = require('express-meshblu-healthcheck');
-var meshbluAuth = require('express-meshblu-auth');
+var MeshbluAuth = require('express-meshblu-auth');
 var debug = require('debug')('octoblu:server');
 var SecurityController = require('./app/controllers/middleware/security-controller');
 
@@ -145,13 +145,13 @@ var canBypassTerms = function(req) {
   debug('canBypassTerms', req.path, !!result);
   return !!result;
 }
-
-var meshbluAuthorizer = meshbluAuth(meshbluJSON);
+var meshbluAuth = new MeshbluAuth(meshbluJSON);
+app.use(meshbluAuth.retrieve());
 app.use(function(req, res, next) {
   if (canBypassAuth(req)) {
     return next();
   }
-  meshbluAuthorizer(req, res, next);
+  meshbluAuth.gateway()(req, res, next);
 });
 
 var security = new SecurityController();
