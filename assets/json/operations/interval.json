@@ -11,7 +11,7 @@
     "repeat": 1000,
     "on": true
   },
-  "input": 1,
+  "input": 0,
   "output": 1,
   "formTemplatePath": "/pages/node_forms/interval_form.html",
   "nanocyte": {
