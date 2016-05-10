@@ -73,7 +73,7 @@ function FlowModel() {
       return when.promise(function (resolve, reject) {
         var meshbluHttp = new MeshbluHttp(meshbluJSON);
         flow = _.omit(flow, ['token']);
-        meshbluHttp.update(flow.flowId, {draft: flow}, function(error){
+        meshbluHttp.update(flow.flowId, {name: flow.name, draft: flow}, function(error){
           if (error) {
             return reject(error);
           }
