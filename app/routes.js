@@ -236,6 +236,11 @@ module.exports = function(app, passport, config, meshbluJSON){
     var ChannelPagerdutyController = require('./controllers/channel-pagerduty-controller');
     var channelPagerdutyController = new ChannelPagerdutyController();
 
+    var UserChannelsController = require('./controllers/user-channels-controller');
+    var userChannelsController = new UserChannelsController();
+
+    var OperationsController = require('./controllers/operations-controller');
+    var operationsController = new OperationsController();
 
     app.post('/api/webhooks/:id', webhookController.trigger);
 
@@ -483,6 +488,8 @@ module.exports = function(app, passport, config, meshbluJSON){
 
     app.get('/api/users/:uuid/templates', templateController.withUserUUID);
 
+    app.get('/api/user_channels', userChannelsController.list);
+    app.get('/api/operations', operationsController.list)
     app.get('/api/topics/summary', topicSummaryController.show);
     app.get('/api/messages/summary', messageSummaryController.show);
     app.get('/api/general/search', generalSearchController.show);

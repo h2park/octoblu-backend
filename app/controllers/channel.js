@@ -2,6 +2,7 @@
 
 var _               = require('lodash');
 var Channel         = require('../models/channel');
+var ChannelCollection = require('../collections/channel-collection');
 
 module.exports = function (app) {
   var pickProperties, whiteListProperties;
