@@ -2571,7 +2571,7 @@
       },
       {
         "path": "/:event_id/photos",
-        "displayName": "Create a photo",
+        "displayName": "Create a photo for an event",
         "doc": {
           "url": "https://graph.facebook.com/v2.6/:event_id/photos"
         },
@@ -2836,129 +2836,6 @@
           }
         ],
         "url": "https://graph.facebook.com/v2.6/:event-id/videos"
-      },
-      {
-        "path": "/:event_id/videos",
-        "displayName": "Create a video",
-        "doc": {
-          "url": "https://graph.facebook.com/v2.6/:event_id/videos"
-        },
-        "httpMethod": "POST",
-        "curl": "curl -X ",
-        "params": [
-          {
-            "displayName": "The event ID",
-            "style": "URL",
-            "type": "string",
-            "name": ":event_id",
-            "required": true
-          },
-          {
-            "displayName": "The content category (examples would include: BEAUTY_FASHION, BUSINESS, CARS_TRUCKS, COMEDY, CUTE_ANIMALS, ENTERTAINMENT, OTHER)",
-            "style": "body",
-            "type": "enum",
-            "name": "content_category"
-          },
-          {
-            "displayName": "The description of the video",
-            "style": "body",
-            "type": "string",
-            "name": "description"
-          },
-          {
-            "displayName": "Whether the video is embeddable",
-            "style": "body",
-            "type": "boolean",
-            "name": "embeddable"
-          },
-          {
-            "displayName": "The size of the entire video file in bytes",
-            "style": "body",
-            "type": "integer",
-            "name": "file_size"
-          },
-          {
-            "displayName": "Accessible URL of a video file",
-            "style": "body",
-            "type": "string",
-            "name": "file_url"
-          },
-          {
-            "displayName": "Specification of a list of images that are used to generate video",
-            "style": "body",
-            "type": "object",
-            "name": "slideshow_spec"
-          },
-          {
-            "displayName": "A 3-7 element array of the URLs of the images",
-            "style": "body",
-            "type": "string",
-            "name": "images_urls",
-            "required": true
-          },
-          {
-            "displayName": "The duration in milliseconds of each image (default value is 1000)",
-            "style": "body",
-            "type": "integer",
-            "name": "duration_ms"
-          },
-          {
-            "displayName": "The duration in milliseconds of the crossfade transition between images (default value is 1000)",
-            "style": "body",
-            "type": "integer",
-            "name": "transition_ms"
-          },
-          {
-            "displayName": "The video, encoded as form data",
-            "style": "body",
-            "type": "string",
-            "name": "source",
-            "required": true
-          },
-          {
-            "displayName": "Start byte position of the file chunk",
-            "style": "body",
-            "type": "integer",
-            "name": "start_offset"
-          },
-          {
-            "displayName": "The video thumbnail raw data to be uploaded and associated with a video",
-            "style": "body",
-            "type": "string",
-            "name": "thumb"
-          },
-          {
-            "displayName": "The title of the video",
-            "style": "body",
-            "type": "string",
-            "name": "title"
-          },
-          {
-            "displayName": "Type of unpublished content, such as scheduled, draft or ads_pos",
-            "style": "body",
-            "type": "enum",
-            "name": "unpublished_content_type"
-          },
-          {
-            "displayName": "Type of chunked upload request {start, transfer, finish, cancel}",
-            "style": "body",
-            "type": "enum",
-            "name": "upload_phase"
-          },
-          {
-            "displayName": "ID of the chunked upload session",
-            "style": "body",
-            "type": "integer",
-            "name": "upload_session_id"
-          },
-          {
-            "displayName": "The video file chunk, encoded as form data (this field is required during transfer upload phase)",
-            "style": "body",
-            "type": "string",
-            "name": "video_file_chunk"
-          }
-        ],
-        "url": "https://graph.facebook.com/v2.6/:event_id/videos"
       },
       {
         "path": "/:friend-list-id",
@@ -4984,7 +4861,7 @@
       },
       {
         "path": "/:page_id/albums",
-        "displayName": "Creates albums",
+        "displayName": "Create empty photo albums for Facebook Pages",
         "doc": {
           "url": "https://graph.facebook.com/v2.6/:page_id/album"
         },
@@ -5326,6 +5203,56 @@
           }
         ],
         "url": "https://graph.facebook.com/v2.6/:page_id/featured_videos_collection"
+      },
+      {
+        "path": "/:page-id/feed",
+        "displayName": "Get the feed of posts from this Page",
+        "doc": {
+          "url": "https://graph.facebook.com/v2.6/:page-id/gfeed"
+        },
+        "httpMethod": "GET",
+        "curl": "curl -X",
+        "params": [
+          {
+             "displayName": "The ID associated with the Page",
+             "style": "URL",
+             "type": "string",
+             "name": ":page-id",
+             "required": true
+         },
+         {
+            "displayName": "Maximum of 100 feed posts",
+            "style": "query",
+            "type": "string",
+            "name": "limit"
+        }
+        ],
+        "url": "https://graph.facebook.com/v2.6/:page-id/feed"
+      },
+      {
+        "path": "/:page-id/feed",
+        "displayName": "Create links, status messages, or posts for this Page",
+        "doc": {
+          "url": "https://graph.facebook.com/v2.6/:page-id/gfeed"
+        },
+        "httpMethod": "POST",
+        "curl": "curl -X",
+        "params": [
+          {
+             "displayName": "The ID associated with the Page",
+             "style": "URL",
+             "type": "string",
+             "name": ":page-id",
+             "required": true
+         },
+         {
+            "displayName": "The main body of the post, either a link or message must be supplied",
+            "style": "body",
+            "type": "string",
+            "name": "message"
+        }
+        ],
+        "url": "https://graph.facebook.com/v2.6/:page-id/feed"
       },
       {
         "path": "/:page-id/global_brand_children",
@@ -5940,7 +5867,7 @@
       },
       {
         "path": "/:page-id/photos",
-        "displayName": "Get this Page's photos",
+        "displayName": "Get individual photos for Facebook Pages",
         "doc": {
           "url": "https://graph.facebook.com/v2.6/:page-id/photos"
         },
@@ -5965,7 +5892,7 @@
       },
       {
         "path": "/:page_id/photos",
-        "displayName": "Create a photo",
+        "displayName": "Create individual photos for Facebook Pages",
         "doc": {
           "url": "https://graph.facebook.com/v2.6/:page_id/photos"
         },
@@ -6914,7 +6841,7 @@
       },
       {
         "path": "/:page_id/videos",
-        "displayName": "Create a video",
+        "displayName": "Create an Page's videos",
         "doc": {
           "url": "https://graph.facebook.com/v2.6/:page_id/videos"
         },
@@ -9641,7 +9568,7 @@
       },
       {
         "path": "/:user_id/albums",
-        "displayName": "Create an album",
+        "displayName": "Create empty photo albums for people",
         "doc": {
           "url": "https://graph.facebook.com/v2.6/:user_id/albums"
         },
@@ -9997,6 +9924,44 @@
           }
         ],
         "url": "https://graph.facebook.com/v2.6/:user_id/favorite_requests"
+      },
+      {
+        "path": "/me/feed",
+        "displayName": "Get feed of posts, status updates, and links published by this person",
+        "doc": {
+          "url": "https://graph.facebook.com/v2.6/me/feed"
+        },
+        "httpMethod": "GET",
+        "curl": "curl -X",
+        "params": [
+          {
+            "displayName": "The id of this person's user account",
+            "style": "URL",
+            "type": "string",
+            "name": ":user-id",
+            "required": true
+          }
+        ],
+        "url": "https://graph.facebook.com/v2.6/me/feed"
+      },
+      {
+        "path": "/me/feed",
+        "displayName": "Publish new posts",
+        "doc": {
+          "url": "https://graph.facebook.com/v2.6/me/feed"
+        },
+        "httpMethod": "POST",
+        "curl": "curl -X",
+        "params": [
+          {
+            "displayName": "The id of this person's user account",
+            "style": "URL",
+            "type": "string",
+            "name": ":user-id",
+            "required": true
+          }
+        ],
+        "url": "https://graph.facebook.com/v2.6/me/feed"
       },
       {
         "path": "/:user-id/friendlists",

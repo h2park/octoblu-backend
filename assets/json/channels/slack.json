@@ -41,12 +41,6 @@
         "httpMethod": "POST",
         "params": [
           {
-            "displayName": "Authentication token (Requires scope: channels:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Channel To archive",
             "style": "body",
             "type": "string",
@@ -65,12 +59,6 @@
         "httpMethod": "POST",
         "params": [
           {
-            "displayName": "Authentication token (Requires scope: channels:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Name of channel",
             "style": "body",
             "type": "string",
@@ -82,19 +70,13 @@
       },
       {
         "path": "/channels.history",
-        "displayName": "Gets the entire history of messages & events from a specified channel",
+        "displayName": "Fetches history of messages and events from a channel",
         "doc": {
           "url": "https://slack.com/api/channels.history"
         },
         "httpMethod": "GET",
         "params": [
           {
-            "displayName": "Authentication token (Requires scope: channels:history)",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Channel to fetch history for",
             "style": "query",
             "type": "string",
@@ -125,7 +107,8 @@
             "style": "query",
             "type": "string",
             "name": "unreads"
-          }],
+          }
+        ],
         "url": "https://slack.com/api/channels.history"
       },
       {
@@ -135,19 +118,15 @@
           "url": "https://slack.com/api/channels.info"
         },
         "httpMethod": "GET",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: channels:read)",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-        },{
+        "params": [
+          {
             "displayName": "Channel to get info on",
             "style": "query",
             "type": "string",
             "name": "channel",
             "required": true
-          }],
+          }
+        ],
         "url": "https://slack.com/api/channels.info"
       },
       {
@@ -157,13 +136,8 @@
           "url": "https://slack.com/api/channels.invite"
         },
         "httpMethod": "POST",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: channels:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Channel to invite user to",
             "style": "body",
             "type": "string",
@@ -175,7 +149,8 @@
             "type": "string",
             "name": "user",
             "required": true
-          }],
+          }
+        ],
         "url": "https://slack.com/api/channels.invite"
       },
       {
@@ -185,19 +160,15 @@
           "url": "https://slack.com/api/channels.join"
         },
         "httpMethod": "POST",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: channels:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Name of channel to join",
             "style": "body",
             "type": "string",
             "name": "name",
             "required": true
-          }],
+          }
+        ],
         "url": "https://slack.com/api/channels.join"
       },
       {
@@ -207,13 +178,8 @@
           "url": "https://slack.com/api/channels.kick"
         },
         "httpMethod": "PUT",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: channels:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Channel to remove user from",
             "style": "body",
             "type": "string",
@@ -225,7 +191,8 @@
             "type": "string",
             "name": "user",
             "required": true
-          }],
+          }
+        ],
         "url": "https://slack.com/api/channels.kick"
       },
       {
@@ -235,19 +202,15 @@
           "url": "https://slack.com/api/channels.leave"
         },
         "httpMethod": "PUT",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: channels:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Channel to leave",
             "style": "body",
             "type": "string",
             "name": "channel",
             "required": true
-          }],
+          }
+        ],
         "url": "https://slack.com/api/channels.leave"
       },
       {
@@ -260,12 +223,6 @@
         "curl": "curl -X ",
         "params": [
           {
-            "displayName": "Authentication token (Requires scope: channels:read)",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Don't return archived channels",
             "style": "query",
             "type": "string",
@@ -284,12 +241,6 @@
         "curl": "curl -X ",
         "params": [
           {
-            "displayName": "Authentication token (Requires scope: channels:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Channel to set reading cursor in",
             "style": "body",
             "type": "string",
@@ -315,12 +266,6 @@
         "curl": "curl -X ",
         "params": [
           {
-            "displayName": "Authentication token (Requires scope: channels:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Channel to rename",
             "style": "body",
             "type": "string",
@@ -346,12 +291,6 @@
         "curl": "curl -X ",
         "params": [
           {
-            "displayName": "Authentication token (Requires scope: channels:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Channel to set the purpose of",
             "style": "body",
             "type": "string",
@@ -375,13 +314,8 @@
         },
         "httpMethod": "PUT",
         "curl": "curl -X ",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: channels:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Channel to set the topic of",
             "style": "body",
             "type": "string",
@@ -404,19 +338,15 @@
         },
         "httpMethod": "PUT",
         "curl": "curl -X ",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: channels:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Channel to unarchive",
             "style": "body",
             "type": "string",
             "name": "channel",
             "required": true
-          }],
+          }
+        ],
         "url": "https://slack.com/api/channels.unarchive"
       },{
         "path": "/chat.delete",
@@ -427,12 +357,6 @@
         "httpMethod": "DELETE",
         "params": [
           {
-            "displayName": "Authentication token (Requires scope: chat:write:user)",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Timestamp of the message to be deleted",
             "style": "query",
             "type": "string",
@@ -457,12 +381,6 @@
         "httpMethod": "POST",
         "params": [
           {
-            "displayName": "Authentication token (Requires scope: chat:write:bot or chat:write:user)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Channel, private group, or IM channel to send message to",
             "style": "body",
             "type": "string",
@@ -536,12 +454,6 @@
         },
         "httpMethod": "PUT",
         "params": [{
-            "displayName": "Authentication token (Requires scope: chat:write:user)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Timestamp of the message to be updated",
             "style": "body",
             "type": "string",
@@ -589,13 +501,7 @@
           "url": "https://slack.com/api/dnd.endDnd"
         },
         "httpMethod": "PUT",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: dnd:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          }],
+        "params": [],
         "url": "https://slack.com/api/dnd.endDnd"
       },{
         "path": "/dnd.endSnooze",
@@ -604,13 +510,7 @@
           "url": "https://slack.com/api/dnd.endSnooze"
         },
         "httpMethod": "PUT",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: dnd:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          }],
+        "params": [],
         "url": "https://slack.com/api/dnd.endSnooze"
       },
       {
@@ -620,18 +520,14 @@
           "url": "https://slack.com/api/dnd.info"
         },
         "httpMethod": "GET",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: dnd:read)",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "User to fetch status for (defaults to current user)",
             "style": "query",
             "type": "string",
             "name": "user"
-          }],
+          }
+        ],
         "url": "https://slack.com/api/dnd.info"
       },
       {
@@ -641,18 +537,14 @@
           "url": "https://slack.com/api/dnd.setSnooze"
         },
         "httpMethod": "PUT",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: dnd:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Number of minutes, from now, to snooze until",
             "style": "body",
             "type": "integer",
             "name": "num_minutes"
-          }],
+          }
+        ],
         "url": "https://slack.com/api/dnd.setSnooze"
       },
       {
@@ -662,18 +554,14 @@
           "url": "https://slack.com/api/dnd.teamInfo"
         },
         "httpMethod": "GET",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: dnd:read)",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Comma-separated list of users to fetch Do Not Disturb status for",
             "style": "query",
             "type": "string",
             "name": "users"
-          }],
+          }
+        ],
         "url": "https://slack.com/api/dnd.teamInfo"
       },
       {
@@ -683,13 +571,7 @@
           "url": "https://slack.com/api/emoji.list"
         },
         "httpMethod": "GET",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: emoji:read)",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          }],
+        "params": [],
         "url": "https://slack.com/api/emoji.list"
       },
       {
@@ -699,13 +581,7 @@
           "url": "https://slack.com/api/files.comments.add"
         },
         "httpMethod": "POST",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: files:write:user)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },
+        "params": [
           {
             "displayName": "File to add a comment to",
             "style": "body",
@@ -729,13 +605,7 @@
           "url": "https://slack.com/api/files.comments.delete"
         },
         "httpMethod": "DELETE",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: files:write:user)",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },
+        "params": [
           {
             "displayName": "File to delete a comment from",
             "style": "query",
@@ -759,13 +629,7 @@
           "url": "https://slack.com/api/files.comments.edit"
         },
         "httpMethod": "PUT",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: files:write:user)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },
+        "params": [
           {
             "displayName": "File containing the comment to edit",
             "style": "body",
@@ -797,13 +661,8 @@
           "url": "https://slack.com/api/files.delete"
         },
         "httpMethod": "DELETE",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: files:write:user)",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "ID of file to delete",
             "style": "query",
             "type": "string",
@@ -820,13 +679,8 @@
           "url": "https://slack.com/api/files.info"
         },
         "httpMethod": "GET",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: files:read)",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Specify a file by providing its ID",
             "style": "query",
             "type": "string",
@@ -842,7 +696,8 @@
             "style": "query",
             "type": "integer",
             "name": "page"
-          }],
+          }
+        ],
         "url": "https://slack.com/api/files.info"
       },
       {
@@ -852,13 +707,8 @@
           "url": "https://slack.com/api/files.list"
         },
         "httpMethod": "GET",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: files:read)",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Filter files created by a single user",
             "style": "query",
             "type": "string",
@@ -903,13 +753,8 @@
           "url": "https://slack.com/api/files.revokePublicURL"
         },
         "httpMethod": "PUT",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: files:write:user)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "File to revoke",
             "style": "query",
             "type": "string",
@@ -925,13 +770,8 @@
           "url": "https://slack.com/api/files.sharedPublicURL"
         },
         "httpMethod": "PUT",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: files:write:user)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "File to share",
             "style": "body",
             "type": "string",
@@ -948,13 +788,8 @@
           "url": "https://slack.com/api/files.upload"
         },
         "httpMethod": "PUT",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: files:write:user)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "File contents via multipart/form-data",
             "style": "body",
             "type": "string",
@@ -1002,19 +837,15 @@
         },
         "httpMethod": "PUT",
         "curl": "curl -X ",
-        "params": [{
-          "displayName": "Authentication token (Requires scope: groups:write)",
-          "style": "body",
-          "type": "string",
-          "name": "token",
-          "required": true
-        },{
+        "params": [
+          {
           "displayName": "Private channel to archive",
           "style": "body",
           "type": "string",
           "name": "channel",
           "required": true
-        }],
+        }
+      ],
         "url": "https://slack.com/api/groups.archive"
       },
       {
@@ -1027,12 +858,6 @@
         "curl": "curl -X ",
         "params": [
           {
-            "displayName": "Authentication token (Requires scope: groups:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Private channel to close",
             "style": "body",
             "type": "string",
@@ -1050,13 +875,7 @@
         },
         "httpMethod": "POST",
         "curl": "curl -X ",
-        "params": [{
-          "displayName": "Authentication token (Requires scope: groups:write)",
-          "style": "body",
-          "type": "string",
-          "name": "token",
-          "required": true
-        },
+        "params": [
         {
           "displayName": "Name of private channel to create",
           "style": "body",
@@ -1064,7 +883,7 @@
           "name": "name",
           "required": true
          }
-        ],
+      ],
         "url": "https://slack.com/api/groups.create"
       },
       {
@@ -1077,12 +896,6 @@
         "curl": "curl -X ",
         "params": [
           {
-            "displayName": "Authentication token (Requires scope: groups:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
             "displayName": "Private channel to clone and archive",
             "style": "body",
             "type": "string",
@@ -1100,13 +913,8 @@
         },
         "httpMethod": "GET",
         "curl": "curl -X ",
-        "params": [{
-           "displayName": "Authentication token (Requires scope: groups:history)",
-           "style": "query",
-           "type": "string",
-           "name": "token",
-           "required": true
-        },{
+        "params": [
+          {
             "displayName": "Private channel to fetch history for",
             "style": "query",
             "type": "string",
@@ -1148,19 +956,15 @@
         },
         "httpMethod": "GET",
         "curl": "curl -X ",
-        "params": [{
-           "displayName": "Authentication token (Requires scope: groups:read)",
-           "style": "query",
-           "type": "string",
-           "name": "token",
-           "required": true
-         },{
+        "params": [
+          {
             "displayName": "Private channel to get info on",
             "style": "query",
             "type": "string",
             "name": "channel",
             "required": true
-          }],
+          }
+        ],
         "url": "https://slack.com/api/groups.info"
       },
       {
@@ -1171,13 +975,8 @@
         },
         "httpMethod": "PUT",
         "curl": "curl -X ",
-        "params": [{
-           "displayName": "Authentication token (Requires scope: groups:write)",
-           "style": "body",
-           "type": "string",
-           "name": "token",
-           "required": true
-         },{
+        "params": [
+          {
             "displayName": "Private channel to invite user to",
             "style": "body",
             "type": "string",
@@ -1189,7 +988,8 @@
             "type": "string",
             "name": "user",
             "required": true
-          }],
+          }
+        ],
         "url": "https://slack.com/api/groups.invite"
       },{
         "path": "/groups.kick",
@@ -1198,13 +998,7 @@
           "url": "https://slack.com/api/groups.kick"
         },
         "httpMethod": "DELETE",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: groups:write)",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },
+        "params": [
           {
             "displayName": "Private channel to remove user from",
             "style": "query",
@@ -1228,19 +1022,15 @@
           "url": "https://slack.com/api/groups.leave"
         },
         "httpMethod": "PUT",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: groups:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "The private channel to leave",
             "style": "body",
             "type": "string",
             "name": "channel",
             "required": true
-          }],
+          }
+        ],
         "url": "https://slack.com/api/groups.leave"
       },
       {
@@ -1250,18 +1040,14 @@
           "url": "https://slack.com/api/groups.list"
         },
         "httpMethod": "GET",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: groups:read)",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Don't return archived private channels",
             "style": "query",
             "type": "string",
             "name": "exclude_archived"
-          }],
+          }
+        ],
         "url": "https://slack.com/api/groups.list"
       },
       {
@@ -1271,13 +1057,8 @@
           "url": "https://slack.com/api/groups.mark"
         },
         "httpMethod": "PUT",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: groups:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Private channel to set reading cursor in",
             "style": "body",
             "type": "string",
@@ -1289,7 +1070,8 @@
             "type": "string",
             "name": "ts",
             "required": true
-          }],
+          }
+        ],
         "url": "https://slack.com/api/groups.mark"
       },
       {
@@ -1299,13 +1081,8 @@
           "url": "https://slack.com/api/groups.open"
         },
         "httpMethod": "PUT",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: groups:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Private channel to open",
             "style": "body",
             "type": "string",
@@ -1322,13 +1099,8 @@
           "url": "https://slack.com/api/groups.rename"
         },
         "httpMethod": "PUT",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: groups:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Private channel to rename",
             "style": "body",
             "type": "string",
@@ -1340,7 +1112,8 @@
             "type": "string",
             "name": "name",
             "required": true
-          }],
+          }
+        ],
         "url": "https://slack.com/api/groups.rename"
       },
       {
@@ -1350,13 +1123,8 @@
           "url": "https://slack.com/api/groups.setPurpose"
         },
         "httpMethod": "PUT",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: groups:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Private channel to set the purpose of",
             "style": "body",
             "type": "string",
@@ -1368,7 +1136,8 @@
             "type": "string",
             "name": "purpose",
             "required": true
-          }],
+          }
+        ],
         "url": "https://slack.com/api/groups.setPurpose"
       },
       {
@@ -1378,13 +1147,8 @@
           "url": "https://slack.com/api/groups.setTopic"
         },
         "httpMethod": "PUT",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: groups:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Private channel to set the topic of",
             "style": "body",
             "type": "string",
@@ -1396,7 +1160,8 @@
             "type": "string",
             "name": "topic",
             "required": true
-          }],
+          }
+        ],
         "url": "https://slack.com/api/groups.setTopic"
       },
       {
@@ -1406,19 +1171,15 @@
           "url": "https://slack.com/api/groups.unarchive"
         },
         "httpMethod": "PUT",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: groups:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Private channel to unarchive",
             "style": "body",
             "type": "string",
             "name": "channel",
             "required": true
-          }],
+          }
+        ],
         "url": "https://slack.com/api/groups.unarchive"
       },{
         "path": "/im.close",
@@ -1427,13 +1188,7 @@
           "url": "https://slack.com/api/im.close"
         },
         "httpMethod": "DELETE",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: im:write)",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },
+        "params": [
           {
             "displayName": "Direct message channel to close",
             "style": "query",
@@ -1451,13 +1206,8 @@
           "url": "https://slack.com/api/im.history"
         },
         "httpMethod": "GET",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: im:history)",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Direct message channel to fetch history for",
             "style": "query",
             "type": "string",
@@ -1499,13 +1249,7 @@
           "url": "https://slack.com/api/im.list"
         },
         "httpMethod": "GET",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: im:read)",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          }],
+        "params": [],
         "url": "https://slack.com/api/im.list"
       },
       {
@@ -1515,13 +1259,8 @@
           "url": "https://slack.com/api/im.mark"
         },
         "httpMethod": "PUT",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: im:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Direct message channel to set reading cursor in",
             "style": "body",
             "type": "string",
@@ -1533,7 +1272,8 @@
             "type": "string",
             "name": "ts",
             "required": true
-          }],
+          }
+        ],
         "url": "https://slack.com/api/im.mark"
       },{
         "path": "/im.open",
@@ -1542,19 +1282,15 @@
           "url": "https://slack.com/api/im.open"
         },
         "httpMethod": "PUT",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: im:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "User to open a direct message channel with",
             "style": "body",
             "type": "string",
             "name": "user",
             "required": true
-          }],
+          }
+        ],
         "url": "https://slack.com/api/im.open"
       },{
         "path": "/mpim.close",
@@ -1563,19 +1299,15 @@
           "url": "https://slack.com/api/mpim.close"
         },
         "httpMethod": "PUT",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: mpim:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "MPIM to close",
             "style": "body",
             "type": "string",
             "name": "channel",
             "required": true
-          }],
+          }
+        ],
         "url": "https://slack.com/api/mpim.close"
       },{
         "path": "/mpim.history",
@@ -1584,13 +1316,8 @@
           "url": "https://slack.com/api/mpim.history"
         },
         "httpMethod": "GET",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: mpim:history)",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Multiparty direct message to fetch history for",
             "style": "query",
             "type": "string",
@@ -1621,7 +1348,8 @@
             "style": "query",
             "type": "string",
             "name": "unreads"
-          }],
+          }
+        ],
         "url": "https://slack.com/api/mpim.history"
       },{
         "path": "/mpim.list",
@@ -1630,13 +1358,7 @@
           "url": "https://slack.com/api/mpim.list"
         },
         "httpMethod": "GET",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: im:read)",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          }],
+        "params": [],
         "url": "https://slack.com/api/mpim.list"
       },{
         "path": "/mpim.mark",
@@ -1645,13 +1367,8 @@
           "url": "https://slack.com/api/mpim.mark"
         },
         "httpMethod": "PUT",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: mpim:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Multiparty direct message channel to set reading cursor in",
             "style": "body",
             "type": "string",
@@ -1663,7 +1380,8 @@
             "type": "string",
             "name": "ts",
             "required": true
-          }],
+          }
+        ],
         "url": "https://slack.com/api/mpim.mark"
       },{
         "path": "/mpim.open",
@@ -1672,19 +1390,15 @@
           "url": "https://slack.com/api/mpim.open"
         },
         "httpMethod": "PUT",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: mpim:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Comma separated lists of users, the ordering of the users is preserved whenever a MPIM group is returned",
             "style": "body",
             "type": "string",
             "name": "users",
             "required": true
-          }],
+          }
+        ],
         "url": "https://slack.com/api/mpim.open"
       },
       {
@@ -1694,13 +1408,8 @@
           "url": "https://slack.com/api/oauth.access"
         },
         "httpMethod": "GET",
-        "params": [{
-            "displayName": "Issued when you created your application",
-            "style": "query",
-            "type": "string",
-            "name": "client_id",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Issued when you created your application",
             "style": "query",
             "type": "string",
@@ -1717,7 +1426,8 @@
             "style": "query",
             "type": "string",
             "name": "redirect_uri"
-          }],
+          }
+        ],
         "url": "https://slack.com/api/oauth.access"
       },
       {
@@ -1727,13 +1437,8 @@
           "url": "https://slack.com/api/pins.add"
         },
         "httpMethod": "POST",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: pins:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Channel to pin the item in",
             "style": "body",
             "type": "string",
@@ -1754,7 +1459,8 @@
             "style": "body",
             "type": "string",
             "name": "timestamp"
-          }],
+          }
+        ],
         "url": "https://slack.com/api/pins.add"
       },{
         "path": "/pins.list",
@@ -1763,19 +1469,15 @@
           "url": "https://slack.com/api/pins.list"
         },
         "httpMethod": "GET",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: pins:read)",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Channel to get pinned items for",
             "style": "query",
             "type": "string",
             "name": "channel",
             "required": true
-          }],
+          }
+        ],
         "url": "https://slack.com/api/pins.list"
       },{
         "path": "/pins.remove",
@@ -1784,13 +1486,8 @@
           "url": "https://slack.com/api/pins.remove"
         },
         "httpMethod": "PUT",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: pins:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Channel where the item is pinned to",
             "style": "body",
             "type": "string",
@@ -1811,7 +1508,8 @@
             "style": "body",
             "type": "string",
             "name": "timestamp"
-          }],
+          }
+        ],
         "url": "https://slack.com/api/pins.remove"
       },{
         "path": "/reactions.add",
@@ -1820,13 +1518,8 @@
           "url": "https://slack.com/api/reactions.add"
         },
         "httpMethod": "POST",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: reactions:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Reaction (emoji) name",
             "style": "body",
             "type": "string",
@@ -1852,7 +1545,8 @@
             "style": "body",
             "type": "string",
             "name": "timestamp"
-          }],
+          }
+        ],
         "url": "https://slack.com/api/reactions.add"
       },{
         "path": "/reactions.get",
@@ -1861,13 +1555,8 @@
           "url": "https://slack.com/api/reactions.get"
         },
         "httpMethod": "GET",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: reactions:read)",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "File to get reactions for",
             "style": "query",
             "type": "string",
@@ -1892,7 +1581,8 @@
             "style": "query",
             "type": "boolean",
             "name": "full"
-          }],
+          }
+        ],
         "url": "https://slack.com/api/reactions.get"
       },{
         "path": "/reactions.list",
@@ -1901,13 +1591,8 @@
           "url": "https://slack.com/api/reactions.list"
         },
         "httpMethod": "GET",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: reactions:read)",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Show reactions made by this user, defaults to the authed user",
             "style": "query",
             "type": "string",
@@ -1936,13 +1621,8 @@
           "url": "https://slack.com/api/reactions.remove"
         },
         "httpMethod": "DELETE",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: reactions:write)",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Reaction (emoji) name",
             "style": "query",
             "type": "string",
@@ -1968,22 +1648,18 @@
             "style": "query",
             "type": "string",
             "name": "timestamp"
-          }],
+          }
+        ],
         "url": "https://slack.com/api/reactions.remove"
       },{
         "path": "/rtm.start",
-        "displayName": "Starts a Real Time Messaging session",
+        "displayName": "Starts a Real Time Messaging session (This method returns lots of data about the current state of a team, along with a WebSocket Message Server URL)",
         "doc": {
           "url": "https://slack.com/api/rtm.start"
         },
         "httpMethod": "GET",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: client)",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Return timestamp only for latest message object of each channel (improves performance)",
             "style": "query",
             "type": "string",
@@ -1998,7 +1674,8 @@
             "style": "query",
             "type": "string",
             "name": "mpim_aware"
-          }],
+          }
+        ],
         "url": "https://slack.com/api/rtm.start"
       },{
         "path": "/search.all",
@@ -2007,13 +1684,8 @@
           "url": "https://slack.com/api/search.all"
         },
         "httpMethod": "GET",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: search:read)",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Search query, might contain booleans, etc.",
             "style": "query",
             "type": "string",
@@ -2043,7 +1715,8 @@
             "style": "query",
             "type": "integer",
             "name": "page"
-          }],
+          }
+        ],
         "url": "https://slack.com/api/search.all"
       },{
         "path": "/search.files",
@@ -2052,13 +1725,8 @@
           "url": "https://slack.com/api/search.files"
         },
         "httpMethod": "GET",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: search:read)",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Search query, might contain booleans, etc.",
             "style": "query",
             "type": "string",
@@ -2088,7 +1756,8 @@
             "style": "query",
             "type": "integer",
             "name": "page"
-          }],
+          }
+        ],
         "url": "https://slack.com/api/search.files"
       },{
         "path": "/search.messages",
@@ -2097,13 +1766,8 @@
           "url": "https://slack.com/api/search.messages"
         },
         "httpMethod": "GET",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: search:read)",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Search query, might contain booleans, etc.",
             "style": "query",
             "type": "string",
@@ -2133,7 +1797,8 @@
             "style": "query",
             "type": "integer",
             "name": "page"
-          }],
+          }
+        ],
         "url": "https://slack.com/api/search.messages"
       },{
         "path": "/stars.add",
@@ -2142,13 +1807,8 @@
           "url": "https://slack.com/api/stars.add"
         },
         "httpMethod": "PUT",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: stars:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "File to add star to",
             "style": "body",
             "type": "string",
@@ -2168,7 +1828,8 @@
             "style": "body",
             "type": "string",
             "name": "timestamp"
-          }],
+          }
+        ],
         "url": "https://slack.com/api/stars.add"
       },{
         "path": "/stars.list",
@@ -2177,13 +1838,8 @@
           "url": "https://slack.com/api/stars.list"
         },
         "httpMethod": "GET",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: stars:read)",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Show stars by this user, defaults to the authed user",
             "style": "query",
             "type": "string",
@@ -2198,7 +1854,8 @@
             "style": "query",
             "type": "integer",
             "name": "page"
-          }],
+          }
+        ],
         "url": "https://slack.com/api/stars.list"
       },{
         "path": "/stars.remove",
@@ -2207,13 +1864,8 @@
           "url": "https://slack.com/api/stars.remove"
         },
         "httpMethod": "PUT",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: stars:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "File to remove star from",
             "style": "body",
             "type": "string",
@@ -2233,7 +1885,8 @@
             "style": "body",
             "type": "string",
             "name": "timestamp"
-          }],
+          }
+        ],
         "url": "https://slack.com/api/stars.remove"
       },{
         "path": "/team.accessLogs",
@@ -2242,13 +1895,8 @@
           "url": "https://slack.com/api/team.accessLogs"
         },
         "httpMethod": "GET",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: admin)",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Number of items to return per page",
             "style": "query",
             "type": "integer",
@@ -2258,7 +1906,8 @@
             "style": "query",
             "type": "integer",
             "name": "page"
-          }],
+          }
+        ],
         "url": "https://slack.com/api/team.accessLogs"
       },{
         "path": "/team.info",
@@ -2267,13 +1916,7 @@
           "url": "https://slack.com/api/team.info"
         },
         "httpMethod": "GET",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: team:read)",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          }],
+        "params": [],
         "url": "https://slack.com/api/team.info"
       },{
         "path": "/team.integrationLogs",
@@ -2282,13 +1925,8 @@
           "url": "https://slack.com/api/oteam.integrationLogs"
         },
         "httpMethod": "GET",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: admin)",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Filter logs to this service, defaults to all logs",
             "style": "query",
             "type": "string",
@@ -2318,7 +1956,8 @@
             "style": "query",
             "type": "integer",
             "name": "page"
-          }],
+          }
+        ],
         "url": "https://slack.com/api/team.integrationLogs"
       },{
         "path": "/usergroups.create",
@@ -2327,13 +1966,8 @@
           "url": "https://slack.com/api/usergroups.create"
         },
         "httpMethod": "POST",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: usergroups:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "An unique name for the user group",
             "style": "body",
             "type": "string",
@@ -2359,7 +1993,8 @@
             "style": "body",
             "type": "integer",
             "name": "include_count"
-          }],
+          }
+        ],
         "url": "https://slack.com/api/usergroups.create"
       },{
         "path": "/usergroups.disable",
@@ -2368,13 +2003,8 @@
           "url": "https://slack.com/api/usergroups.disable"
         },
         "httpMethod": "PUT",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: usergroups:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "The encoded ID of the user group to disable",
             "style": "body",
             "type": "string",
@@ -2385,7 +2015,8 @@
             "style": "body",
             "type": "integer",
             "name": "include_count"
-          }],
+          }
+        ],
         "url": "https://slack.com/api/usergroups.disable"
       },{
         "path": "/usergroups.enable",
@@ -2394,13 +2025,8 @@
           "url": "https://slack.com/api/usergroups.enable"
         },
         "httpMethod": "PUT",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: usergroups:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "The encoded ID of the user group to enable",
             "style": "body",
             "type": "string",
@@ -2411,7 +2037,8 @@
             "style": "body",
             "type": "integer",
             "name": "include_count"
-          }],
+          }
+        ],
         "url": "https://slack.com/api/usergroups.enable"
       },{
         "path": "/usergroups.list",
@@ -2420,13 +2047,8 @@
           "url": "https://slack.com/api/usergroups.list"
         },
         "httpMethod": "GET",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: usergroups:read)",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Include disabled user groups",
             "style": "query",
             "type": "string",
@@ -2441,7 +2063,8 @@
             "style": "query",
             "type": "string",
             "name": "include_users"
-          }],
+          }
+        ],
         "url": "https://slack.com/api/usergroups.list"
       },{
         "path": "/usergroups.update",
@@ -2450,13 +2073,8 @@
           "url": "https://slack.com/api/usergroups.update"
         },
         "httpMethod": "PUT",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: usergroups:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "The encoded ID of the user group to update",
             "style": "body",
             "type": "string",
@@ -2487,7 +2105,8 @@
             "style": "body",
             "type": "string",
             "name": "include_count"
-          }],
+          }
+        ],
         "url": "https://slack.com/api/usergroups.update"
       },{
         "path": "/usergroups.users.list",
@@ -2496,13 +2115,8 @@
           "url": "https://slack.com/api/usergroups.users.list"
         },
         "httpMethod": "GET",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: usergroups:read)",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "The encoded ID of the user group to update",
             "style": "query",
             "type": "string",
@@ -2513,7 +2127,8 @@
             "style": "query",
             "type": "string",
             "name": "include_disabled"
-          }],
+          }
+        ],
         "url": "https://slack.com/api/usergroups.users.list"
       },{
         "path": "/usergroups.users.update",
@@ -2522,13 +2137,8 @@
           "url": "https://slack.com/api/usergroups.users.update"
         },
         "httpMethod": "PUT",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: usergroups:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "The encoded ID of the user group to update",
             "style": "body",
             "type": "string",
@@ -2545,7 +2155,8 @@
             "style": "body",
             "type": "integer",
             "name": "include_count"
-          }],
+          }
+        ],
         "url": "https://slack.com/api/usergroups.users.update"
       },{
         "path": "/users.getPresence",
@@ -2554,19 +2165,15 @@
           "url": "https://slack.com/api/users.getPresence"
         },
         "httpMethod": "GET",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: users:read)",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "User to get presence info on. Defaults to the authed user",
             "style": "query",
             "type": "string",
             "name": "user",
             "required": true
-          }],
+          }
+        ],
         "url": "https://slack.com/api/users.getPresence"
       },{
         "path": "/users.info",
@@ -2575,19 +2182,15 @@
           "url": "https://slack.com/api/users.info"
         },
         "httpMethod": "GET",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: users:read)",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "User to get info on",
             "style": "query",
             "type": "string",
             "name": "user",
             "required": true
-          }],
+          }
+        ],
         "url": "https://slack.com/api/users.info"
       },{
         "path": "/users.list",
@@ -2596,18 +2199,14 @@
           "url": "https://slack.com/api/users.list"
         },
         "httpMethod": "GET",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: users:read)",
-            "style": "query",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Whether to include presence data in the output",
             "style": "query",
             "type": "string",
             "name": "presence"
-          }],
+          }
+        ],
         "url": "https://slack.com/api/users.list"
       },{
         "path": "/users.setActive",
@@ -2616,13 +2215,7 @@
           "url": "https://slack.com/api/users.setActive"
         },
         "httpMethod": "PUT",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: users:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          }],
+        "params": [],
         "url": "https://slack.com/api/users.setActive"
       },{
         "path": "/users.setPresence",
@@ -2631,19 +2224,15 @@
           "url": "https://slack.com/api/users.setPresence"
         },
         "httpMethod": "PUT",
-        "params": [{
-            "displayName": "Authentication token (Requires scope: users:write)",
-            "style": "body",
-            "type": "string",
-            "name": "token",
-            "required": true
-          },{
+        "params": [
+          {
             "displayName": "Either auto or away",
             "style": "body",
             "type": "string",
             "name": "presence",
             "required": true
-          }],
+          }
+        ],
         "url": "https://slack.com/api/users.setPresence"
       }
     ]
