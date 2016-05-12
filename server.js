@@ -36,6 +36,7 @@ var meshbluHealthcheck = require('express-meshblu-healthcheck');
 var MeshbluAuth = require('express-meshblu-auth');
 var debug = require('debug')('octoblu:server');
 var SecurityController = require('./app/controllers/middleware/security-controller');
+var expressVersion     = require('express-package-version');
 
 if (process.env.AIRBRAKE_KEY) {
   var airbrake = require('airbrake').createClient(process.env.AIRBRAKE_KEY);
@@ -64,7 +65,8 @@ var PassportStrategyLoader = require('./config/passport-strategy-loader');
 var passportStrategyLoader = new PassportStrategyLoader();
 passportStrategyLoader.load();
 
-app.use(meshbluHealthcheck())
+app.use(meshbluHealthcheck());
+app.use(expressVersion({format: '{"version": "%s"}'}));
 // set up our express application
 app.use(morgan('dev', {immediate:false})); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
