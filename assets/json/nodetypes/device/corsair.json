@@ -1,0 +1,15 @@
+{
+  "_id": "corsair-rgb",
+  "category": "device",
+  "categories":["Maker"],
+  "description": "Corsair RGB Keyboard Plugin",
+  "documentation": "https://meshblu-connectors.readme.io/docs/corsair",
+  "helpText": "A Gateblu plugin to control the LEDs of a Corsair Keyboard",
+  "enabled": true,
+  "name": "Corsair RGB",
+  "skynet": {
+    "type": "device:corsair"
+  },
+  "type": "device:corsair",
+  "connector": "meshblu-connector-corsair"
+}
