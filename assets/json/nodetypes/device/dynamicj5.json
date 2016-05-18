@@ -12,5 +12,5 @@
     "subtype": "dynamicj5"
   },
   "type": "device:dynamicj5",
-  "connector": "meshblu-arduino"
+  "connector": "meshblu-connector-arduino"
 }

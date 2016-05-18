@@ -12,5 +12,5 @@
     "subtype": "curie"
   },
   "type": "device:curie",
-  "connector": "meshblu-curie"
+  "connector": "meshblu-connector-curie"
 }
