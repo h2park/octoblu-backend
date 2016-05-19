@@ -6,7 +6,7 @@
   "description": "",
   "documentation": "http://www.rdio.com/developers/docs/",
   "helpText": "Plays your music, any way you want. Tune in to your personal radio station, You FM, or choose from countless others to suit the mood. Access Rdio's data and incorporate the playback of licensed Rdio music into web applications.",
-  "enabled": true,
+  "enabled": false,
   "name": "Rdio",
   "skynet": {
     "subtype": "Rdio",
