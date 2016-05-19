@@ -34,6 +34,7 @@ var TemplateController = function (options, dependencies) {
   };
 
   self.findByPublic = function(req, res, next) {
+    req.query.pageLimit = req.query.pageLimit || 10;
     return templateModel.findByPublic(req.query.tags, parseInt(req.query.pageLimit), req.query.pageNumber, req.query.nameFilter)
       .then(function(templates) {
           req.templates = templates;
@@ -45,6 +46,7 @@ var TemplateController = function (options, dependencies) {
   };
 
   self.findRecentPublic = function(req, res, next) {
+    req.query.limit = req.query.limit || 10;
     return templateModel.findRecentPublic(req.query.tags, parseInt(req.query.limit))
       .then(function(templates) {
           req.templates = templates;
