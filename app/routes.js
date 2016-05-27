@@ -125,6 +125,9 @@ module.exports = function(app, passport, config, meshbluJSON){
     var InstagramController = require('./controllers/instagram-controller');
     var instagramController = new InstagramController();
 
+    var IntercomController = require('./controllers/intercom-controller');
+    var intercomController = new IntercomController();
+
     var InvitationController = require('./controllers/invitation-controller');
     var invitationController = new InvitationController(config.betaInvites);
 
@@ -256,6 +259,7 @@ module.exports = function(app, passport, config, meshbluJSON){
     require('./controllers/designer')(app);
     require('./controllers/invitation')(app, passport, config);
 
+    app.get('/api/intercom/user_hash', intercomController.getUserHash);
     app.post('/api/channel/aws/channel/:id', channelAWSAuthController.create);
 
     app.post('/api/channel/pagerduty/channel/:id', channelPagerdutyController.create);
