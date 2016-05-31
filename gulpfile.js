@@ -1,14 +1,15 @@
-var gulp              = require('gulp');
-var _                 = require('lodash');
-var concat            = require('gulp-concat');
-var jsoncombine       = require('gulp-jsoncombine');
-var plumber           = require('gulp-plumber');
-var sourcemaps        = require('gulp-sourcemaps');
-var nodemon           = require('gulp-nodemon');
-var coffee            = require('gulp-coffee');
-var clean             = require('gulp-clean');
-var source            = require('vinyl-source-stream')
-var OperationsMangler = require('./setup/gulp-operations-mangler');
+var gulp                = require('gulp');
+var _                   = require('lodash');
+var concat              = require('gulp-concat');
+var jsoncombine         = require('gulp-jsoncombine');
+var plumber             = require('gulp-plumber');
+var sourcemaps          = require('gulp-sourcemaps');
+var nodemon             = require('gulp-nodemon');
+var coffee              = require('gulp-coffee');
+var clean               = require('gulp-clean');
+var source              = require('vinyl-source-stream')
+var OperationsMangler   = require('./setup/gulp-operations-mangler');
+var ChristacheioStream  = require('gulp-json-template-christacheio');
 
 var NODE_REGISTRY_URL = process.env.NODE_REGISTRY_URL;
 
@@ -20,11 +21,17 @@ gulp.task('channels:concat', function(){
     .pipe(gulp.dest('./assets/json/'));
 });
 
-gulp.task('nodetypes:concat', function(){
+gulp.task('nodetypes:concat', function(){  
+  var christacheioStream = new ChristacheioStream({data: {
+    endoDomain: process.env.ENDO_DOMAIN || 'octoblu.com',
+    dataForwarderDomain: process.env.DATA_FORWARDER_DOMAIN || 'octoblu.com'
+  }});
+
   return gulp.src('./assets/json/nodetypes/**/*.json')
     .pipe(jsoncombine('nodetypes.json', function(data){
       return new Buffer(JSON.stringify(_.values(data)));
     }))
+    .pipe(christacheioStream)
     .pipe(gulp.dest('./assets/json/'));
 });
 

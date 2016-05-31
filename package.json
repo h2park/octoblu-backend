@@ -32,6 +32,7 @@
     "gulp-clean": "^0.3.1",
     "gulp-coffee": "^2.2.0",
     "gulp-concat": "^2.3.3",
+    "gulp-json-template-christacheio": "^1.0.0",
     "gulp-jsoncombine": "^1.0.0",
     "gulp-nodemon": "^2.0.6",
     "gulp-plumber": "^0.6.4",
