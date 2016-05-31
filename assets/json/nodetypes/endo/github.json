@@ -1,0 +1,10 @@
+{
+  "_id": "endo-github",
+  "category": "endo",
+  "categories": ["Social"],
+  "helpText": "Endoooooooo",
+  "enabled": false,
+  "name": "Party Github",
+  "type": "endo:github",
+  "url": "http://endo-github.octoblu.dev:3000"
+}
