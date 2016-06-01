@@ -5,7 +5,7 @@
   "description": "MongoDB Forwarder",
   "documentation": "https://meshblu-connectors.readme.io/docs/mongodb",
   "helpText": "A Gateblu plugin for innteracting with a mongo database",
-  "enabled": true,
+  "enabled": false,
   "name": "MongoDB Forwarder",
   "skynet": {
     "type": "device:mongodb"
