@@ -4,7 +4,7 @@
   "bodyFormat": "json",
   "bodyParam": "body",
   "auth_strategy": "wink",
-  "documentation": "http://docs.wink.apiary.io",
+  "documentation": "http://docs.winkapiv2.apiary.io/#",
   "name": "Wink",
   "enabled": true,
   "oauth": {
@@ -25,530 +25,897 @@
     }
   },
   "application": {
-    "base": "https://winkapi.quirky.com",
+    "base": "https://api.wink.com",
     "resources": [
       {
-        "path": "/users/:user_id/update_password",
-        "displayName": "Create User",
+        "path": "/device_type/device_id/desired_state",
+        "displayName": "Update desired state",
         "doc": {
-          "url": "https://winkapi.quirky.com/users/:user_id/update_password"
+          "url": "https://api.wink.com/device_type/device_id/desired_state"
         },
-        "httpMethod": "Post",
+        "httpMethod": "PUT",
         "params": [
           {
-            "displayName": "User ID",
+            "displayName": "Device type",
             "style": "url",
             "type": "string",
-            "name": ":user_id",
+            "name": "device_type",
             "required": true
           },
           {
-            "style": "body",
-            "type": "object",
-            "name": "body",
-            "displayName": "body",
-            "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/users/:user_id/update_password"
-      },
-      {
-        "path": "/users/:user_id/update_password",
-        "displayName": "Update Current User's Profile",
-        "doc": {
-          "url": "https://winkapi.quirky.com/users/:user_id/update_password"
-        },
-        "httpMethod": "Put",
-        "params": [
-          {
-            "displayName": "User ID",
+            "displayName": "Device ID",
             "style": "url",
             "type": "string",
-            "name": ":user_id",
-            "required": true
-          },
-          {
-            "style": "body",
-            "type": "object",
-            "name": "body",
-            "displayName": "body",
+            "name": "device_id",
             "required": true
           }
         ],
-        "url": "https://winkapi.quirky.com/users/:user_id/update_password"
-      },
-      {
-        "path": "/users/me/linked_services",
-        "displayName": "List User's Linked Services",
-        "doc": {
-          "url": "https://winkapi.quirky.com/users/me/linked_services"
-        },
-        "httpMethod": "Get",
-        "params": [],
-        "url": "https://winkapi.quirky.com/users/me/linked_services"
-      },
-      {
-        "path": "/users/me/linked_services",
-        "displayName": "Create New Linked Service",
-        "doc": {
-          "url": "https://winkapi.quirky.com/users/me/linked_services"
-        },
-        "httpMethod": "Post",
-        "params": [
-          {
-            "style": "body",
-            "type": "object",
-            "name": "body",
-            "displayName": "body",
-            "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/users/me/linked_services"
-      },
-      {
-        "path": "/:device_type/:device_id",
-        "displayName": "Get a Device",
-        "doc": {
-          "url": "https://winkapi.quirky.com/:device_type/:device_id"
-        },
-        "httpMethod": "Get",
-        "params": [
-          {
-            "displayName": "Device Type",
-            "style": "url",
-            "type": "String",
-            "name": ":device_type",
-            "required": true
-          },
-          {
-            "displayName": "Device ID",
-            "style": "url",
-            "type": "String",
-            "name": ":device_id",
-            "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/:device_type/:device_id"
-      },
-      {
-        "path": "/:device_type/:device_id",
-        "displayName": "Update a Device",
-        "doc": {
-          "url": "https://winkapi.quirky.com/:device_type/:device_id"
-        },
-        "httpMethod": "Put",
-        "params": [
-          {
-            "displayName": "Device Type",
-            "style": "url",
-            "type": "String",
-            "name": ":device_type",
-            "required": true
-          },
-          {
-            "displayName": "Device ID",
-            "style": "url",
-            "type": "String",
-            "name": ":device_id",
-            "required": true
-          },
-          {
-            "style": "body",
-            "type": "object",
-            "name": "body",
-            "displayName": "body",
-            "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/:device_type/:device_id"
-      },
-      {
-        "path": "/:device_type/:device_id/refresh",
-        "displayName": "Refresh a Device",
-        "doc": {
-          "url": "https://winkapi.quirky.com/:device_type/:device_id/refresh"
-        },
-        "httpMethod": "Post",
-        "params": [
-          {
-            "displayName": "Device Type",
-            "style": "url",
-            "type": "String",
-            "name": ":device_type",
-            "required": true
-          },
-          {
-            "displayName": "Device ID",
-            "style": "url",
-            "type": "String",
-            "name": ":device_id",
-            "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/:device_type/:device_id/refresh"
+        "url": "https://api.wink.com/device_type/device_id/desired_state"
       },
       {
         "path": "/users/me/wink_devices",
-        "displayName": "Retrieve All Devices of User",
+        "displayName": "Retrieve all devices of user",
         "doc": {
-          "url": "https://winkapi.quirky.com/users/me/wink_devices"
+          "url": "https://api.wink.com/users/me/wink_devices"
         },
-        "httpMethod": "Get",
+        "httpMethod": "GET",
         "params": [],
-        "url": "https://winkapi.quirky.com/users/me/wink_devices"
+        "url": "https://api.wink.comusers/users/me/wink_devices"
       },
       {
-        "path": "/users/me/:device_type",
-        "displayName": "Retrieve All Devices of Type for User",
+        "path": "/device_type/device_id/users",
+        "displayName": "List shared device users",
         "doc": {
-          "url": "https://winkapi.quirky.com/users/me/:device_type"
+          "url": "https://api.wink.comusers/device_type/device_id/users"
         },
-        "httpMethod": "Get",
-        "params": [
-          {
-            "displayName": "Device Type",
-            "style": "url",
-            "type": "String",
-            "name": ":device_type",
-            "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/users/me/:device_type"
+        "httpMethod": "GET",
+        "params": [{
+          "displayName": "Device type",
+          "style": "url",
+          "type": "string",
+          "name": "device_type",
+          "required": true
+        },
+        {
+          "displayName": "Device ID",
+          "style": "url",
+          "type": "string",
+          "name": "device_id",
+          "required": true
+        }],
+        "url": "https://api.wink.com/device_type/device_id/users"
       },
       {
-        "path": "/:device_type/:device_id/users",
-        "displayName": "List Shared Device Users",
+        "path": "/device_type/device_id/users",
+        "displayName": "Share a device",
         "doc": {
-          "url": "https://winkapi.quirky.com/:device_type/:device_id/users"
+          "url": "https://api.wink.comusers/device_type/device_id/users"
         },
-        "httpMethod": "Get",
+        "httpMethod": "POST",
         "params": [
           {
-            "displayName": "Device Type",
+            "displayName": "Device type",
             "style": "url",
-            "type": "String",
-            "name": ":device_type",
+            "type": "string",
+            "name": "device_type",
             "required": true
           },
           {
             "displayName": "Device ID",
             "style": "url",
-            "type": "String",
-            "name": ":device_id",
-            "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/:device_type/:device_id/users"
-      },
-      {
-        "path": "/:device_type/:device_id/users",
-        "displayName": "Share a Device",
-        "doc": {
-          "url": "https://winkapi.quirky.com/:device_type/:device_id/users"
-        },
-        "httpMethod": "Get",
-        "params": [
-          {
-            "displayName": "Device Type",
-            "style": "url",
-            "type": "String",
-            "name": ":device_type",
+            "type": "string",
+            "name": "device_id",
             "required": true
           },
           {
-            "displayName": "Device ID",
-            "style": "url",
-            "type": "String",
-            "name": ":device_id",
-            "required": true
-          },
-          {
+            "displayName": "Email address of user to share device with",
             "style": "body",
-            "type": "object",
-            "name": "body",
-            "displayName": "body",
+            "type": "string",
+            "name": "email"
+          }
+        ],
+        "url": "https://api.wink.com/device_type/device_id/users"
+      },
+      {
+        "path": "/device_type/device_id/users/email",
+        "displayName": "Unshare a device",
+        "doc": {
+          "url": "https://api.wink.comusers/device_type/device_id/users/email"
+        },
+        "httpMethod": "DELETE",
+        "params": [
+          {
+            "displayName": "Device type",
+            "style": "url",
+            "type": "string",
+            "name": "device_type",
+            "required": true
+          },
+          {
+            "displayName": "Device ID",
+            "style": "url",
+            "type": "string",
+            "name": "device_id",
+            "required": true
+          },
+          {
+            "displayName": "Email address of user to unshare device with",
+            "style": "url",
+            "type": "string",
+            "name": "email",
             "required": true
           }
         ],
-        "url": "https://winkapi.quirky.com/:device_type/:device_id/users"
+        "url": "https://api.wink.com/device_type/device_id/users/email"
       },
       {
-        "path": "/:device_type/:device_id/users",
-        "displayName": "Update Training Registration Settings",
+        "path": "/air_conditioners/device_id",
+        "displayName": "Get air conditioner",
         "doc": {
-          "url": "https://winkapi.quirky.com/:device_type/:device_id/users"
+          "url": "https://api.wink.com/air_conditioners/device_id"
         },
-        "httpMethod": "Post",
+        "httpMethod": "GET",
         "params": [
-          {
-            "displayName": "Device Type",
-            "style": "url",
-            "type": "String",
-            "name": ":device_type",
-            "required": true
-          },
           {
             "displayName": "Device ID",
             "style": "url",
             "type": "String",
             "name": ":device_id",
             "required": true
+          },
+          {
+            "displayName": "Id of the air conditioner",
+            "style": "query",
+            "type": "String",
+            "name": "air_conditioner_id"
           }
         ],
-        "url": "https://winkapi.quirky.com/:device_type/:device_id/users"
+        "url": "https://api.wink.com/air_conditioners/device_id"
       },
       {
-        "path": "/:device_type/:device_id/users/:email",
-        "displayName": "Unshare a Device",
+        "path": "/binary_switches/device_id",
+        "displayName": "Get binary switch",
         "doc": {
-          "url": "https://winkapi.quirky.com/:device_type/:device_id/users/:email"
+          "url": "https://api.wink.com/binary_switches/device_id"
+        },
+        "httpMethod": "GET",
+        "params": [
+          {
+            "displayName": "Device Id",
+            "style": "url",
+            "type": "String",
+            "name": "device_id",
+            "required": true
+          },
+          {
+            "displayName": "Binary Switch Id",
+            "style": "query",
+            "type": "String",
+            "name": "binary_switch_id"
+          }
+        ],
+        "url": "https://api.wink.com/binary_switches/device_id"
+      },
+      {
+        "path": "/shades/device_id",
+        "displayName": "Get blind",
+        "doc": {
+          "url": "https://api.wink.com/shades/device_id"
+        },
+        "httpMethod": "GET",
+        "params": [
+          {
+            "displayName": "Device id",
+            "style": "url",
+            "type": "string",
+            "name": ":device_id",
+            "required": true
+          },
+          {
+            "displayName": "Id of the shade/blind",
+            "style": "query",
+            "type": "string",
+            "name": "shade_id"
+          }
+        ],
+        "url": "https://api.wink.com/shades/device_id"
+      },
+      {
+        "path": "/cameras/device_id",
+        "displayName": "Get camera",
+        "doc": {
+          "url": "https://api.wink.com/cameras/device_id"
+        },
+        "httpMethod": "GET",
+        "params": [{
+          "displayName": "Device id",
+          "style": "url",
+          "type": "string",
+          "name": ":device_id",
+          "required": true
+        },
+        {
+          "displayName": "Id of the camera",
+          "style": "query",
+          "type": "string",
+          "name": "camera_id"
+        }],
+        "url": "https://api.wink.com/cameras/device_id"
+      },
+      {
+        "path": "/doorbells/device_id",
+        "displayName": "Get doorbell",
+        "doc": {
+          "url": "https://api.wink.com/doorbells/device_id"
+        },
+        "httpMethod": "GET",
+        "params": [{
+          "displayName": "Device id",
+          "style": "url",
+          "type": "string",
+          "name": "device_id",
+          "required": true
+        },
+        {
+          "displayName": "Id of the doorbell",
+          "style": "query",
+          "type": "string",
+          "name": "doorbell_id"
+        }],
+        "url": "https://api.wink.com/doorbells/device_id"
+      },
+      {
+        "path": "/eggtrays/:device_id",
+        "displayName": "Get Egg Minder",
+        "doc": {
+          "url": "https://api.wink.com/eggtrays/:device_id"
+        },
+        "httpMethod": "GET",
+        "params": [{
+          "displayName": "Device id",
+          "style": "url",
+          "type": "string",
+          "name": ":device_id",
+          "required": true
+        },
+        {
+          "displayName": "Id of the egg tray",
+          "style": "query",
+          "type": "string",
+          "name": "eggtray_id"
+        },
+        {
+          "displayName": "Period during which eggs are defined as fresh in seconds",
+          "style": "query",
+          "type": "integer",
+          "name": "freshness_period"
+        },
+        {
+          "displayName": "Motion detected by doorbell event",
+          "style": "query",
+          "type": "boolean",
+          "name": "motion"
+        },
+        {
+          "displayName": "Array of timestamps in seconds of when each egg was added",
+          "style": "query",
+          "type": "array",
+          "name": "eggs"
+        }],
+        "url": "https://api.wink.com/eggtrays/:device_id"
+      },
+      {
+        "path": "/garage_doors/device_id",
+        "displayName": "Get Garage Door",
+        "doc": {
+          "url": "https://api.wink.com/garage_doors/device_id"
+        },
+        "httpMethod": "GET",
+        "params": [{
+          "displayName": "Device id",
+          "style": "url",
+          "type": "string",
+          "name": "device_id",
+          "required": true
+        },
+        {
+          "displayName": "Id of the garage door",
+          "style": "query",
+          "type": "string",
+          "name": "garage_door_id"
+        }],
+        "url": "https://api.wink.com/garage_doors/device_id"
+      },
+      {
+        "path": "/hubs/device_id",
+        "displayName": "Get hub",
+        "doc": {
+          "url": "https://api.wink.com/hubs/device_id"
+        },
+        "httpMethod": "GET",
+        "params": [
+          {
+            "displayName": "Device id",
+            "style": "url",
+            "type": "string",
+            "name": "device_id",
+            "required": true
+          },
+          {
+            "displayName": "Id of the hub",
+            "style": "query",
+            "type": "string",
+            "name": "hub_id"
+          }
+        ],
+        "url": "https://api.wink.com/hubs/device_id"
+      },
+      {
+        "path": "/light_bulb/device_id",
+        "displayName": "List light bulb",
+        "doc": {
+          "url": "https://api.wink.com/light_bulb/device_id"
+        },
+        "httpMethod": "Get",
+        "params": [
+          {
+            "displayName": "Device Id",
+            "style": "url",
+            "type": "string",
+            "name": "device_id",
+            "required": true
+          },
+          {
+            "displayName": "Id of light bulb",
+            "style": "query",
+            "type": "string",
+            "name": "light_bulb_id"
+          }
+        ],
+        "url": "https://api.wink.com/light_bulb/device_id"
+      },
+      {
+        "path": "/locks/device_id",
+        "displayName": "Get lock",
+        "doc": {
+          "url": "https://api.wink.com/locks/device_id"
+        },
+        "httpMethod": "GET",
+        "params": [
+          {
+            "displayName": "Device Id",
+            "style": "url",
+            "type": "string",
+            "name": "device_id",
+            "required": true
+          },
+          {
+            "displayName": "Id of the lock",
+            "style": "query",
+            "type": "string",
+            "name": "lock_id"
+          }
+        ],
+        "url": "https://api.wink.com/locks/device_id"
+      },
+      {
+        "path": "/cloud_clocks/cloud_clock_id/alarms",
+        "displayName": "List alarms of nimbus",
+        "doc": {
+          "url": "https://api.wink.com/cloud_clocks/cloud_clock_id/alarms"
+        },
+        "httpMethod": "GET",
+        "params": [
+          {
+            "displayName": "The cloud clock Id",
+            "style": "url",
+            "type": "string",
+            "name": "cloud_clock_id",
+            "required": true
+          }
+        ],
+        "url": "https://api.wink.com/cloud_clocks/cloud_clock_id/alarms"
+      },
+      {
+        "path": "/cloud_clocks/cloud_clock_id/alarms",
+        "displayName": "Create an alarm",
+        "doc": {
+          "url": "https://api.wink.com/cloud_clocks/cloud_clock_id/alarms"
+        },
+        "httpMethod": "POST",
+        "params": [
+          {
+            "displayName": "The cloud clock Id",
+            "style": "url",
+            "type": "string",
+            "name": "cloud_clock_id",
+            "required": true
+          }
+        ],
+        "url": "https://api.wink.com/cloud_clocks/cloud_clock_id/alarms"
+      },
+      {
+        "path": "/alarms/alarm_id",
+        "displayName": "Edit an alarm",
+        "doc": {
+          "url": "https://api.wink.com/alarms/alarm_id"
+        },
+        "httpMethod": "PUT",
+        "params": [
+          {
+            "displayName": "Alarm Id",
+            "style": "url",
+            "type": "string",
+            "name": "alarm_id",
+            "required": true
+          }
+        ],
+        "url": "https://api.wink.com/alarms/alarm_id"
+      },
+      {
+        "path": "/alarms/alarm_id",
+        "displayName": "Delete an alarm",
+        "doc": {
+          "url": "https://api.wink.com/alarms/alarm_id"
+        },
+        "httpMethod": "DELETE",
+        "params": [
+          {
+            "displayName": "Alarm Id",
+            "style": "url",
+            "type": "string",
+            "name": "alarm_id",
+            "required": true
+          }
+        ],
+        "url": "https://api.wink.com/alarms/alarm_id"
+      },
+      {
+        "path": "/power_strips/device_id",
+        "displayName": "Get power strip",
+        "doc": {
+          "url": "https://api.wink.com/power_strips/device_id"
+        },
+        "httpMethod": "GET",
+        "params": [{
+          "displayName": "Device Id",
+          "style": "url",
+          "type": "string",
+          "name": "device_id",
+          "required": true
+        },{
+          "displayName": "Power strip Id",
+          "style": "query",
+          "type": "string",
+          "name": "power_strip_id"
+        },{
+          "displayName": "The two outlets of the powerstrip",
+          "style": "query",
+          "type": "string",
+          "name": "outlets"
+        }],
+        "url": "https://api.wink.com/power_strips/device_id"
+      },
+      {
+        "path": "/piggy_bank/device_id",
+        "displayName": "Get piggy bank",
+        "doc": {
+          "url": "https://api.wink.com/piggy_bank/device_id"
+        },
+        "httpMethod": "GET",
+        "params": [
+          {
+            "displayName": "Device Id",
+            "style": "url",
+            "type": "string",
+            "name": "device_id",
+            "required": true
+          },{
+            "displayName": "Piggy bank Id",
+            "style": "query",
+            "type": "string",
+            "name": "piggy_bank_id"
+          },{
+            "displayName": "Hex string of porkfolio nose color",
+            "style": "query",
+            "type": "string",
+            "name": "color"
+          }
+        ],
+        "url": "https://api.wink.com/piggy_bank/device_id"
+      },
+      {
+        "path": "/piggy_banks/piggy_bank_id/deposits",
+        "displayName": "Get all deposits for piggy bank",
+        "doc": {
+          "url": "https://api.wink.com/piggy_banks/piggy_bank_id/deposits"
+        },
+        "httpMethod": "GET",
+        "params": [
+          {
+            "displayName": "Piggy bank Id",
+            "style": "url",
+            "type": "string",
+            "name": "piggy_bank_id",
+            "required": true
+          },{
+            "displayName": "Timestamp of when deposit was created",
+            "style": "query",
+            "type": "integer",
+            "name": "since"
+          }
+        ],
+        "url": "https://api.wink.com/piggy_banks/piggy_bank_id/deposits"
+      },
+      {
+        "path": "/piggy_banks/piggy_bank_id/deposits",
+        "displayName": "Create a deposit or withdrawal",
+        "doc": {
+          "url": "https://api.wink.com/piggy_banks/piggy_bank_id/deposits"
+        },
+        "httpMethod": "POST",
+        "params": [
+          {
+            "displayName": "Piggy bank Id",
+            "style": "url",
+            "type": "string",
+            "name": "piggy_bank_id",
+            "required": true
+          },{
+            "displayName": "Timestamp of when deposit was created",
+            "style": "body",
+            "type": "integer",
+            "name": "since"
+          }
+        ],
+        "url": "https://api.wink.com/piggy_banks/piggy_bank_id/deposits"
+      },
+      {
+        "path": "/refrigerators/device_id",
+        "displayName": "Get refrigerator",
+        "doc": {
+          "url": "https://api.wink.com/refrigerators/device_id"
         },
         "httpMethod": "Delete",
         "params": [
           {
-            "displayName": "Device Type",
-            "style": "url",
-            "type": "String",
-            "name": ":device_type",
-            "required": true
-          },
-          {
-            "displayName": "Device ID",
-            "style": "url",
-            "type": "String",
-            "name": ":device_id",
-            "required": true
-          },
-          {
-            "displayName": "Email of The User Account",
-            "style": "url",
-            "type": "String",
-            "name": ":email",
-            "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/:device_type/:device_id/users/:email"
-      },
-      {
-        "path": "/channels",
-        "displayName": "List Available Channels",
-        "doc": {
-          "url": "https://winkapi.quirky.com/channels"
-        },
-        "httpMethod": "Get",
-        "params": [],
-        "url": "https://winkapi.quirky.com/channels"
-      },
-      {
-        "path": "/groups/:group_id",
-        "displayName": "Retrieve a Group",
-        "doc": {
-          "url": "https://winkapi.quirky.com/groups/:group_id"
-        },
-        "httpMethod": "Get",
-        "params": [
-          {
-            "displayName": "Group ID",
-            "style": "url",
-            "type": "String",
-            "name": ":group_id",
-            "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/groups/:group_id"
-      },
-      {
-        "path": "/groups/:group_id",
-        "displayName": "Update Group Settings",
-        "doc": {
-          "url": "https://winkapi.quirky.com/groups/:group_id"
-        },
-        "httpMethod": "Put",
-        "params": [
-          {
-            "displayName": "Group ID",
-            "style": "url",
-            "type": "String",
-            "name": ":group_id",
-            "required": true
-          },
-          {
-            "style": "body",
-            "type": "object",
-            "name": "body",
-            "displayName": "body",
-            "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/groups/:group_id"
-      },
-      {
-        "path": "/groups/:group_id",
-        "displayName": "Delete a Group",
-        "doc": {
-          "url": "https://winkapi.quirky.com/groups/:group_id"
-        },
-        "httpMethod": "Delete",
-        "params": [
-          {
-            "displayName": "Group ID",
-            "style": "url",
-            "type": "String",
-            "name": ":group_id",
-            "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/groups/:group_id"
-      },
-      {
-        "path": "/groups",
-        "displayName": "Create a Group",
-        "doc": {
-          "url": "https://winkapi.quirky.com/groups"
-        },
-        "httpMethod": "Post",
-        "params": [
-          {
-            "style": "body",
-            "type": "object",
-            "name": "body",
-            "displayName": "body",
-            "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/groups"
-      },
-      {
-        "path": "/groups/:group_id/activate",
-        "displayName": "Activate State of Group",
-        "doc": {
-          "url": "https://winkapi.quirky.com/groups/:group_id/activate"
-        },
-        "httpMethod": "Post",
-        "params": [
-          {
-            "displayName": "Group ID",
-            "style": "url",
-            "type": "String",
-            "name": ":group_id",
-            "required": true
-          },
-          {
-            "style": "body",
-            "type": "object",
-            "name": "body",
-            "displayName": "body",
-            "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/groups/:group_id/activate"
-      },
-      {
-        "path": "/icons",
-        "displayName": "List Available Icons",
-        "doc": {
-          "url": "https://winkapi.quirky.com/icons"
-        },
-        "httpMethod": "Get",
-        "params": [],
-        "url": "https://winkapi.quirky.com/icons"
-      },
-      {
-        "path": "/robots/:robot_id",
-        "displayName": "Retrieve a Robot",
-        "doc": {
-          "url": "https://winkapi.quirky.com/robots/:robot_id"
-        },
-        "httpMethod": "Get",
-        "params": [
-          {
-            "displayName": "Robot ID",
+            "displayName": "Device Id",
             "style": "url",
             "type": "string",
-            "name": ":robot_id",
+            "name": "device_id",
+            "required": true
+          },{
+            "displayName": "Id of the refrigerator",
+            "style": "body",
+            "type": "integer",
+            "name": "refrigerator_id"
+          }
+        ],
+        "url": "https://api.wink.com/refrigerators/device_id"
+      },
+      {
+        "path": "/propane_tanks/device_id",
+        "displayName": "Get refuel",
+        "doc": {
+          "url": "https://api.wink.com/propane_tanks/device_id"
+        },
+        "httpMethod": "GET",
+        "params": [
+          {
+            "displayName": "Device Id",
+            "style": "url",
+            "type": "string",
+            "name": "device_id",
+            "required": true
+          },{
+            "displayName": "Id of the propane tank",
+            "style": "query",
+            "type": "string",
+            "name": "propane_tank_id"
+          }
+        ],
+        "url": "https://api.wink.com/propane_tanks/device_id"
+      },
+      {
+        "path": "/remotes/device_id",
+        "displayName": "Get remote",
+        "doc": {
+          "url": "https://api.wink.com/remotes/device_id"
+        },
+        "httpMethod": "GET",
+        "params": [
+          {
+            "displayName": "Device Id",
+            "style": "url",
+            "type": "string",
+            "name": "device_id",
+            "required": true
+          },{
+            "displayName": "Id of remote",
+            "style": "query",
+            "type": "string",
+            "name": "remote_id"
+          }
+        ],
+        "url": "https://api.wink.com/remotes/device_id"
+      },
+      {
+        "path": "/sensor_pods/device_id",
+        "displayName": "Get sensor",
+        "doc": {
+          "url": "https://api.wink.com/sensor_pods/device_id"
+        },
+        "httpMethod": "GET",
+        "params": [{
+          "displayName": "Device Id",
+          "style": "url",
+          "type": "string",
+          "name": "device_id",
+          "required": true
+        },{
+          "displayName": "Id of sensor pod",
+          "style": "query",
+          "type": "string",
+          "name": "sensor_pod_id"
+        }],
+        "url": "https://api.wink.com/sensor_pods/device_id"
+      },
+      {
+        "path": "/sensor_pods/device_id",
+        "displayName": "Get siren",
+        "doc": {
+          "url": "https://api.wink.com/sensor_pods/device_id"
+        },
+        "httpMethod": "GET",
+        "params": [{
+          "displayName": "Device Id",
+          "style": "url",
+          "type": "string",
+          "name": "device_id",
+          "required": true
+        },{
+          "displayName": "Id of siren",
+          "style": "query",
+          "type": "string",
+          "name": "siren_id"
+        }],
+        "url": "https://api.wink.com/sensor_pods/device_id"
+      },
+      {
+        "path": "/smoke_detector/device_id",
+        "displayName": "Get smoke alarm",
+        "doc": {
+          "url": "https://api.wink.com/smoke_detector/device_id"
+        },
+        "httpMethod": "GET",
+        "params": [{
+          "displayName": "Device Id",
+          "style": "url",
+          "type": "string",
+          "name": "device_id",
+          "required": true
+        },{
+          "displayName": "Id of smoke detector",
+          "style": "query",
+          "type": "string",
+          "name": "smoke_detector_id"
+        }],
+        "url": "https://api.wink.com/smoke_detector/device_id"
+      },
+      {
+        "path": "/sprinklers/device_id",
+        "displayName": "Get sprinklers",
+        "doc": {
+          "url": "https://api.wink.com/sprinklers/device_id"
+        },
+        "httpMethod": "GET",
+        "params": [{
+          "displayName": "Device Id",
+          "style": "url",
+          "type": "string",
+          "name": "device_id",
+          "required": true
+        },{
+          "displayName": "Id of sprinklers",
+          "style": "query",
+          "type": "string",
+          "name": "sprinkler_id"
+        },{
+          "displayName": "Zones of sprinkler, which can display the state of the given nozzles",
+          "style": "query",
+          "type": "array",
+          "name": "zones"
+        }],
+        "url": "https://api.wink.com/sprinklers/device_id"
+      },
+      {
+        "path": "/thermostats/device_id",
+        "displayName": "Get thermostat",
+        "doc": {
+          "url": "https://api.wink.com/thermostats/device_id"
+        },
+        "httpMethod": "GET",
+        "params": [{
+          "displayName": "Device Id",
+          "style": "url",
+          "type": "string",
+          "name": "device_id",
+          "required": true
+        },{
+          "displayName": "Id of the thermostat",
+          "style": "query",
+          "type": "string",
+          "name": "thermostat_id"
+        }],
+        "url": "https://api.wink.com/thermostats/device_id"
+      },
+      {
+        "path": "/water_heaters/device_id",
+        "displayName": "Get water heater",
+        "doc": {
+          "url": "https://api.wink.com/water_heaters/device_id"
+        },
+        "httpMethod": "GET",
+        "params": [
+          {
+            "displayName": "Device Id",
+            "style": "url",
+            "type": "string",
+            "name": "device_id",
+            "required": true
+          },{
+            "displayName": "Id of the water heater",
+            "style": "query",
+            "type": "string",
+            "name": "water_heater_id"
+          }
+        ],
+        "url": "https://api.wink.com/water_heaters/device_id"
+      },
+      {
+        "path": "/users/me/groups",
+        "displayName": "Get all groups",
+        "doc": {
+          "url": "https://api.wink.com/users/me/groups"
+        },
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://api.wink.com/users/me/groups"
+      },
+      {
+        "path": "/users/me/groups",
+        "displayName": "Create a group",
+        "doc": {
+          "url": "https://api.wink.com/users/me/groups"
+        },
+        "httpMethod": "POST",
+        "params": [],
+        "url": "https://api.wink.com/users/me/groups"
+      },
+      {
+        "path": "/groups/group_id/",
+        "displayName": "Retrieve a group",
+        "doc": {
+          "url": "https://api.wink.com/groups/group_id/"
+        },
+        "httpMethod": "GET",
+        "params": [
+          {
+            "displayName": "Group ID",
+            "style": "url",
+            "type": "string",
+            "name": "group_id",
             "required": true
           }
         ],
-        "url": "https://winkapi.quirky.com/robots/:robot_id"
+        "url": "https://api.wink.com/groups/group_id/"
       },
       {
-        "path": "/robots/:robot_id",
-        "displayName": "Update a Robot",
+        "path": "/groups/group_id/",
+        "displayName": "Update a group settings",
         "doc": {
-          "url": "https://winkapi.quirky.com/robots/:robot_id"
+          "url": "https://api.wink.com/groups/group_id/"
         },
-        "httpMethod": "Put",
+        "httpMethod": "PUT",
         "params": [
           {
-            "displayName": "Robot ID",
+            "displayName": "Group ID",
             "style": "url",
             "type": "string",
-            "name": ":robot_id",
+            "name": "group_id",
+            "required": true
+          }
+        ],
+        "url": "https://api.wink.com/groups/group_id/"
+      },
+      {
+        "path": "/groups/group_id/",
+        "displayName": "Delete a group",
+        "doc": {
+          "url": "https://api.wink.com/groups/group_id/"
+        },
+        "httpMethod": "DELETE",
+        "params": [
+          {
+            "displayName": "Group ID",
+            "style": "url",
+            "type": "string",
+            "name": "group_id",
+            "required": true
+          }
+        ],
+        "url": "https://api.wink.com/groups/group_id/"
+      },
+      {
+        "path": "/groups/group_id/activates",
+        "displayName": "Set state",
+        "doc": {
+          "url": "https://api.wink.com/groups/group_id/activate"
+        },
+        "httpMethod": "POST",
+        "params": [
+          {
+            "displayName": "Group ID",
+            "style": "url",
+            "type": "string",
+            "name": "group_id",
             "required": true
           },
           {
-            "style": "body",
-            "type": "object",
-            "name": "body",
-            "displayName": "body",
-            "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/robots/:robot_id"
-      },
-      {
-        "path": "/robots/:robot_id",
-        "displayName": "Delete a Robot",
-        "doc": {
-          "url": "https://winkapi.quirky.com/robots/:robot_id"
-        },
-        "httpMethod": "Delete",
-        "params": [
-          {
-            "displayName": "Robot ID",
+            "displayName": "Desired state will update the appropriate devices and ignore that state for devices that do not have a color state, such as air_conditioners",
             "style": "url",
             "type": "string",
-            "name": ":robot_id",
+            "name": "desired_state",
             "required": true
           }
         ],
-        "url": "https://winkapi.quirky.com/robots/:robot_id"
+        "url": "https://api.wink.com/groups/group_id/activate"
       },
       {
-        "path": "/users/me/robots",
-        "displayName": "Create a New Robot",
+        "path": "/users/me/scenes",
+        "displayName": "Get all scenes",
         "doc": {
-          "url": "https://winkapi.quirky.com/users/me/robots"
+          "url": "https://api.wink.com/users/me/scenes"
         },
-        "httpMethod": "Post",
+        "httpMethod": "GET",
+        "params": [],
+        "url": "https://api.wink.com/users/me/scenes"
+      },
+      {
+        "path": "/users/me/scenes",
+        "displayName": "Create a scene",
+        "doc": {
+          "url": "https://api.wink.com/users/me/scenes"
+        },
+        "httpMethod": "POST",
+        "params": [],
+        "url": "https://api.wink.com/users/me/scenes"
+      },
+      {
+        "path": "/scenes/scene_id",
+        "displayName": "Retrieve a scene",
+        "doc": {
+          "url": "https://api.wink.com/scenes/scene_id"
+        },
+        "httpMethod": "GET",
         "params": [
           {
-            "style": "body",
-            "type": "object",
-            "name": "body",
-            "displayName": "body",
+            "displayName": "Scene ID",
+            "style": "url",
+            "type": "string",
+            "name": "scene_id",
             "required": true
           }
         ],
-        "url": "https://winkapi.quirky.com/users/me/robots"
+        "url": "https://api.wink.com/scenes/scene_id"
       },
       {
-        "path": "/users/me/robots",
-        "displayName": "Get All Robots Belonging to User",
+        "path": "/scenes/scene_id",
+        "displayName": "Update scene settings",
         "doc": {
-          "url": "https://winkapi.quirky.com/users/me/robots"
+          "url": "https://api.wink.com/scenes/scene_id"
         },
-        "httpMethod": "Get",
-        "params": [],
-        "url": "https://winkapi.quirky.com/users/me/robots"
-      },
-      {
-        "path": "/scenes/:scene_id",
-        "displayName": "Retrieve a Scene",
-        "doc": {
-          "url": "https://winkapi.quirky.com/scenes/:scene_id"
-        },
-        "httpMethod": "Get",
+        "httpMethod": "PUT",
         "params": [
           {
             "displayName": "Scene ID",
@@ -556,824 +923,211 @@
             "type": "string",
             "name": ":scene_id",
             "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/scenes/:scene_id"
-      },
-      {
-        "path": "/scenes/:scene_id",
-        "displayName": "Update Scene Settings",
-        "doc": {
-          "url": "https://winkapi.quirky.com/scenes/:scene_id"
-        },
-        "httpMethod": "Put",
-        "params": [
-          {
-            "displayName": "Scene ID",
-            "style": "url",
-            "type": "string",
-            "name": ":scene_id",
-            "required": true
           },
           {
             "style": "body",
-            "type": "object",
-            "name": "body",
-            "displayName": "body",
-            "required": true
+            "type": "string",
+            "name": "name",
+            "displayName": "Name "
           }
 
         ],
-        "url": "https://winkapi.quirky.com/scenes/:scene_id"
+        "url": "https://api.wink.com/scenes/scene_id"
       },
       {
-        "path": "/scenes/:scene_id",
-        "displayName": "Delete a Scene",
+        "path": "/scenes/scene_id/activate",
+        "displayName": "Set state of scene",
         "doc": {
-          "url": "https://winkapi.quirky.com/scenes/:scene_id"
+          "url": "https://api.wink.com/scenes/scene_id/activate"
         },
-        "httpMethod": "Delete",
+        "httpMethod": "POST",
         "params": [
           {
             "displayName": "Scene ID",
             "style": "url",
             "type": "string",
-            "name": ":scene_id",
+            "name": "scene_id",
             "required": true
           }
         ],
-        "url": "https://winkapi.quirky.com/scenes/:scene_id"
+        "url": "https://api.wink.com/scenes/scene_id/activate"
       },
       {
-        "path": "/users/me/scenes",
-        "displayName": "New Scene",
+        "path": "/users/me/robots",
+        "displayName": "Get all robots",
         "doc": {
-          "url": "https://winkapi.quirky.com/users/me/scenes"
+          "url": "https://api.wink.com/users/me/robots"
         },
-        "httpMethod": "Post",
-        "params": [
-          {
-            "style": "body",
-            "type": "object",
-            "name": "body",
-            "displayName": "body",
-            "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/users/me/scenes"
-      },
-      {
-        "path": "/users/me/scenes",
-        "displayName": "Retrieve All Scenes",
-        "doc": {
-          "url": "https://winkapi.quirky.com/users/me/scenes"
-        },
-        "httpMethod": "Get",
+        "httpMethod": "GET",
         "params": [],
-        "url": "https://winkapi.quirky.com/users/me/scenes"
+        "url": "https://api.wink.com/users/me/robots"
       },
       {
-        "path": "/scenes/:scene_id/activate",
-        "displayName": "Activate a Scene",
+        "path": "/users/me/robots",
+        "displayName": "Create all robots",
         "doc": {
-          "url": "https://winkapi.quirky.com/scenes/:scene_id/activate"
+          "url": "https://api.wink.com/users/me/robots"
         },
-        "httpMethod": "Post",
-        "params": [
-          {
-            "displayName": "Scene ID",
-            "style": "url",
-            "type": "string",
-            "name": ":scene_id",
-            "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/scenes/:scene_id/activate"
-      },
-      {
-        "path": "/air_conditioners/:air_conditioner_id",
-        "displayName": "Retrieve an Air Conditioner",
-        "doc": {
-          "url": "https://winkapi.quirky.com/air_conditioners/:air_conditioner_id"
-        },
-        "httpMethod": "Get",
-        "params": [
-          {
-            "displayName": "Air Conditioner ID",
-            "style": "url",
-            "type": "string",
-            "name": ":air_conditioner_id",
-            "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/air_conditioners/:air_conditioner_id"
-      },
-      {
-        "path": "/air_conditioners/:air_conditioner_id",
-        "displayName": "Update Air Conditioner Settings",
-        "doc": {
-          "url": "https://winkapi.quirky.com/air_conditioners/:air_conditioner_id"
-        },
-        "httpMethod": "Put",
-        "params": [
-          {
-            "displayName": "Air Conditioner ID",
-            "style": "url",
-            "type": "string",
-            "name": ":air_conditioner_id",
-            "required": true
-          },
-          {
-            "style": "body",
-            "type": "object",
-            "name": "body",
-            "displayName": "body",
-            "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/air_conditioners/:air_conditioner_id"
-      },
-      {
-        "path": "/air_conditioners/:air_conditioner_id/readings/",
-        "displayName": "List Readings of an Air Conditioner",
-        "doc": {
-          "url": "https://winkapi.quirky.com/air_conditioners/:air_conditioner_id/readings/"
-        },
-        "httpMethod": "Get",
-        "params": [
-          {
-            "displayName": "Air Conditioner ID",
-            "style": "url",
-            "type": "string",
-            "name": ":air_conditioner_id",
-            "required": true
-          },
-          {
-            "displayName": "Since",
-            "style": "query",
-            "type": "integer",
-            "name": "since"
-          },
-          {
-            "displayName": "Until",
-            "style": "query",
-            "type": "integer",
-            "name": "until"
-          },
-          {
-            "displayName": "Keys",
-            "style": "query",
-            "type": "string",
-            "name": "keys"
-          },
-          {
-            "displayName": "Filter Type",
-            "style": "query",
-            "type": "string",
-            "name": "filter_type"
-          },
-          {
-            "displayName": "Timezone",
-            "style": "query",
-            "type": "string",
-            "name": "timezone"
-          }
-        ],
-        "url": "https://winkapi.quirky.com/air_conditioners/:air_conditioner_id/readings/"
-      },
-      {
-        "path": "/air_conditioners/:air_conditioner_id/projections",
-        "displayName": "List Projections of an Air Conditioner",
-        "doc": {
-          "url": "https://winkapi.quirky.com/air_conditioners/:air_conditioner_id/projections"
-        },
-        "httpMethod": "Get",
-        "params": [
-          {
-            "displayName": "Air Conditioner ID",
-            "style": "url",
-            "type": "string",
-            "name": ":air_conditioner_id",
-            "required": true
-          },
-          {
-            "displayName": "Since",
-            "style": "query",
-            "type": "integer",
-            "name": "since"
-          },
-          {
-            "displayName": "Until",
-            "style": "query",
-            "type": "integer",
-            "name": "until"
-          },
-          {
-            "displayName": "Keys",
-            "style": "query",
-            "type": "string",
-            "name": "keys"
-          },
-          {
-            "displayName": "Filter Type",
-            "style": "query",
-            "type": "string",
-            "name": "filter_type"
-          },
-          {
-            "displayName": "Timezone",
-            "style": "query",
-            "type": "string",
-            "name": "timezone"
-          }
-        ],
-        "url": "https://winkapi.quirky.com/air_conditioners/:air_conditioner_id/projections"
-      },
-      {
-        "path": "/air_conditioners/:air_conditioner_id/stats",
-        "displayName": "List Stats of an Air Conditioner",
-        "doc": {
-          "url": "https://winkapi.quirky.com/air_conditioners/:air_conditioner_id/stats"
-        },
-        "httpMethod": "Get",
-        "params": [
-          {
-            "displayName": "Air Conditioner ID",
-            "style": "url",
-            "type": "string",
-            "name": ":air_conditioner_id",
-            "required": true
-          },
-          {
-            "displayName": "Since",
-            "style": "query",
-            "type": "integer",
-            "name": "since"
-          },
-          {
-            "displayName": "Until",
-            "style": "query",
-            "type": "integer",
-            "name": "until"
-          }
-        ],
-        "url": "https://winkapi.quirky.com/air_conditioners/:air_conditioner_id/stats"
-      },
-      {
-        "path": "/cloud_clocks/:cloud_clock_id",
-        "displayName": "Retrieve a Clock",
-        "doc": {
-          "url": "https://winkapi.quirky.com/cloud_clocks/:cloud_clock_id"
-        },
-        "httpMethod": "Get",
-        "params": [
-          {
-            "displayName": "Cloud Clock ID",
-            "style": "url",
-            "type": "string",
-            "name": ":cloud_clock_id",
-            "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/cloud_clocks/:cloud_clock_id"
-      },
-      {
-        "path": "/cloud_clocks/:cloud_clock_id",
-        "displayName": "Update a Clock",
-        "doc": {
-          "url": "https://winkapi.quirky.com/cloud_clocks/:cloud_clock_id"
-        },
-        "httpMethod": "Put",
-        "params": [
-          {
-            "displayName": "Cloud Clock ID",
-            "style": "url",
-            "type": "string",
-            "name": ":cloud_clock_id",
-            "required": true
-          },
-          {
-            "style": "body",
-            "type": "object",
-            "name": "body",
-            "displayName": "body",
-            "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/cloud_clocks/:cloud_clock_id"
-      },
-      {
-        "path": "/dial_template",
-        "displayName": "View All Dial Templates",
-        "doc": {
-          "url": "https://winkapi.quirky.com/dial_template"
-        },
-        "httpMethod": "Get",
+        "httpMethod": "POST",
         "params": [],
-        "url": "https://winkapi.quirky.com/dial_template"
+        "url": "https://api.wink.com/users/me/robots"
       },
       {
-        "path": "/dials/:dial_id",
-        "displayName": "Updating a Dial",
+        "path": "/robots/robot_id/",
+        "displayName": "Retrieve a robot",
         "doc": {
-          "url": "https://winkapi.quirky.com/dials/:dial_id"
+          "url": "https://api.wink.com/robots/robot_id/"
         },
-        "httpMethod": "Put",
+        "httpMethod": "GET",
         "params": [
           {
-            "displayName": "Dial ID",
+            "displayName": "Robot ID",
             "style": "url",
             "type": "string",
-            "name": ":dial_id",
+            "name": "robot_id",
             "required": true
-          },
+          }
+        ],
+        "url": "https://api.wink.com/robots/robot_id/"
+      },
+      {
+        "path": "/robots/robot_id/",
+        "displayName": "Update robot settings",
+        "doc": {
+          "url": "https://api.wink.com/robots/robot_id/"
+        },
+        "httpMethod": "PUT",
+        "params": [
           {
+            "displayName": "Robot ID",
+            "style": "url",
+            "type": "string",
+            "name": "robot_id",
+            "required": true
+          }
+        ],
+        "url": "https://api.wink.com/robots/robot_id/"
+      },
+      {
+        "path": "/robots/robot_id/",
+        "displayName": "Delete a robot",
+        "doc": {
+          "url": "https://api.wink.com/robots/robot_id/"
+        },
+        "httpMethod": "PUT",
+        "params": [
+          {
+            "displayName": "Robot ID",
+            "style": "url",
+            "type": "string",
+            "name": "robot_id",
+            "required": true
+          }
+        ],
+        "url": "https://api.wink.com/robots/robot_id/"
+      },
+      {
+        "path": "/users",
+        "displayName": "Create a user",
+        "doc": {
+          "url": "https://api.wink.com/users"
+        },
+        "httpMethod": "POST",
+        "params": [
+          {
+            "displayName": "Id of the client",
             "style": "body",
-            "type": "object",
-            "name": "body",
-            "displayName": "body",
-            "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/dials/:dial_id"
-      },
-      {
-        "path": "/alarms/:alarm_id",
-        "displayName": "Update an Alarm",
-        "doc": {
-          "url": "https://winkapi.quirky.com/alarms/:alarm_id"
-        },
-        "httpMethod": "Put",
-        "params": [
-          {
-            "displayName": "Alarm ID",
-            "style": "url",
             "type": "string",
-            "name": ":alarm_id",
-            "required": true
+            "name": "client_id"
           },
           {
+            "displayName": "The client's secret",
             "style": "body",
-            "type": "object",
-            "name": "body",
-            "displayName": "body",
-            "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/alarms/:alarm_id"
-      },
-      {
-        "path": "/alarms/:alarm_id",
-        "displayName": "Delete an Alarm",
-        "doc": {
-          "url": "https://winkapi.quirky.com/alarms/:alarm_id"
-        },
-        "httpMethod": "Delete",
-        "params": [
-          {
-            "displayName": "Alarm ID",
-            "style": "url",
             "type": "string",
-            "name": ":alarm_id",
-            "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/alarms/:alarm_id"
-      },
-      {
-        "path": "/cloud_clocks/:cloud_clock_id/alarms",
-        "displayName": "List Alarms of Clock",
-        "doc": {
-          "url": "https://winkapi.quirky.com/cloud_clocks/:cloud_clock_id/alarms"
-        },
-        "httpMethod": "Get",
-        "params": [
-          {
-            "displayName": "Cloud Clock ID",
-            "style": "url",
-            "type": "string",
-            "name": ":cloud_clock_id",
-            "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/cloud_clocks/:cloud_clock_id/alarms"
-      },
-      {
-        "path": "/cloud_clocks/:cloud_clock_id/alarms",
-        "displayName": "Create New Alarm",
-        "doc": {
-          "url": "https://winkapi.quirky.com/cloud_clocks/:cloud_clock_id/alarms"
-        },
-        "httpMethod": "Post",
-        "params": [
-          {
-            "displayName": "Cloud Clock ID",
-            "style": "url",
-            "type": "string",
-            "name": ":cloud_clock_id",
-            "required": true
+            "name": "client_secret"
           },
           {
+            "displayName": "Email address",
             "style": "body",
-            "type": "object",
-            "name": "body",
-            "displayName": "body",
-            "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/cloud_clocks/:cloud_clock_id/alarms"
-      },
-      {
-        "path": "/eggtrays/:eggtray_id",
-        "displayName": "Retrieve an Eggminder",
-        "doc": {
-          "url": "https://winkapi.quirky.com/eggtrays/:eggtray_id"
-        },
-        "httpMethod": "Get",
-        "params": [
-          {
-            "displayName": "Eggtray ID",
-            "style": "url",
             "type": "string",
-            "name": ":eggtray_id",
-            "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/eggtrays/:eggtray_id"
-      },
-      {
-        "path": "/eggtrays/:eggtray_id",
-        "displayName": "Update an Eggminder",
-        "doc": {
-          "url": "https://winkapi.quirky.com/eggtrays/:eggtray_id"
-        },
-        "httpMethod": "Put",
-        "params": [
-          {
-            "displayName": "Eggtray ID",
-            "style": "url",
-            "type": "string",
-            "name": ":eggtray_id",
-            "required": true
+            "name": "email"
           },
           {
+            "displayName": "First name",
             "style": "body",
-            "type": "object",
-            "name": "body",
-            "displayName": "body",
-            "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/eggtrays/:eggtray_id"
-      },
-      {
-        "path": "/piggy_banks/:piggy_bank_id",
-        "displayName": "Retrieve a Piggy Bank",
-        "doc": {
-          "url": "https://winkapi.quirky.com/piggy_banks/:piggy_bank_id"
-        },
-        "httpMethod": "Get",
-        "params": [
-          {
-            "displayName": "Piggy Bank ID",
-            "style": "url",
-            "type": "String",
-            "name": ":piggy_bank_id",
-            "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/piggy_banks/:piggy_bank_id"
-      },
-      {
-        "path": "/piggy_banks/:piggy_bank_id",
-        "displayName": "Update a Piggy Bank",
-        "doc": {
-          "url": "https://winkapi.quirky.com/piggy_banks/:piggy_bank_id"
-        },
-        "httpMethod": "Put",
-        "params": [
-          {
-            "displayName": "Piggy Bank ID",
-            "style": "url",
-            "type": "String",
-            "name": ":piggy_bank_id",
-            "required": true
+            "type": "string",
+            "name": "first_name"
           },
           {
+            "displayName": "Last Name",
             "style": "body",
-            "type": "object",
-            "name": "body",
-            "displayName": "body",
-            "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/piggy_banks/:piggy_bank_id"
-      },
-      {
-        "path": "/piggy_banks/:piggy_bank_id/deposits",
-        "displayName": "List Deposits of a Piggy Bank",
-        "doc": {
-          "url": "https://winkapi.quirky.com/piggy_banks/:piggy_bank_id/deposits"
-        },
-        "httpMethod": "Get",
-        "params": [
-          {
-            "displayName": "Piggy Bank ID",
-            "style": "url",
-            "type": "String",
-            "name": ":piggy_bank_id",
-            "required": true
+            "type": "string",
+            "name": "last_name"
           },
           {
-            "displayName": "Timestamp",
-            "style": "query",
-            "type": "integer",
-            "name": "timestamp"
-          }
-        ],
-        "url": "https://winkapi.quirky.com/piggy_banks/:piggy_bank_id/deposits"
-      },
-      {
-        "path": "/piggy_banks/:piggy_bank_id/deposits",
-        "displayName": "Create a Deposit or Withdrawal",
-        "doc": {
-          "url": "https://winkapi.quirky.com/piggy_banks/:piggy_bank_id/deposits"
-        },
-        "httpMethod": "Post",
-        "params": [
-          {
-            "displayName": "Piggy Bank ID",
-            "style": "url",
-            "type": "String",
-            "name": ":piggy_bank_id",
-            "required": true
-          },
-          {
+            "displayName": "Locale",
             "style": "body",
-            "type": "object",
-            "name": "body",
-            "displayName": "body",
-            "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/piggy_banks/:piggy_bank_id/deposits"
-      },
-      {
-        "path": "/powerstrips/:powerstrip_id",
-        "displayName": "Retrieve a Powerstrip",
-        "doc": {
-          "url": "https://winkapi.quirky.com/powerstrips/:powerstrip_id"
-        },
-        "httpMethod": "Get",
-        "params": [
-          {
-            "displayName": "Powerstrip ID",
-            "style": "url",
-            "type": "String",
-            "name": ":powerstrip_id",
-            "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/powerstrips/:powerstrip_id"
-      },
-      {
-        "path": "/powerstrips/:powerstrip_id",
-        "displayName": "Update Powerstrip Settings",
-        "doc": {
-          "url": "https://winkapi.quirky.com/powerstrips/:powerstrip_id"
-        },
-        "httpMethod": "Put",
-        "params": [
-          {
-            "displayName": "Powerstrip ID",
-            "style": "url",
-            "type": "String",
-            "name": ":powerstrip_id",
-            "required": true
+            "type": "string",
+            "name": "locale"
           },
           {
+            "displayName": "New password",
             "style": "body",
-            "type": "object",
-            "name": "body",
-            "displayName": "body",
-            "required": true
+            "type": "string",
+            "name": "new_password"
           }
         ],
-        "url": "https://winkapi.quirky.com/powerstrips/:powerstrip_id"
+        "url": "https://api.wink.com/users"
       },
       {
-        "path": "/outlets/:outlet_id",
-        "displayName": "Retrieve an Outlet",
+        "path": "/users/user_id",
+        "displayName": "Update current user's profile",
         "doc": {
-          "url": "https://winkapi.quirky.com/outlets/:outlet_id"
+          "url": "https://api.wink.com/users/user_id"
         },
-        "httpMethod": "Get",
+        "httpMethod": "PUT",
         "params": [
           {
-            "displayName": "Outlet ID",
-            "style": "url",
-            "type": "String",
-            "name": ":outlet_id",
-            "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/outlets/:outlet_id"
-      },
-      {
-        "path": "/outlets/:outlet_id",
-        "displayName": "Update Outlet Settings",
-        "doc": {
-          "url": "https://winkapi.quirky.com/outlets/:outlet_id"
-        },
-        "httpMethod": "Post",
-        "params": [
-          {
-            "displayName": "Outlet ID",
-            "style": "url",
-            "type": "String",
-            "name": ":outlet_id",
-            "required": true
-          },
-          {
-            "style": "body",
-            "type": "object",
-            "name": "body",
-            "displayName": "body",
-            "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/outlets/:outlet_id"
-      },
-      {
-        "path": "/propane_tanks/:propane_tank_id",
-        "displayName": "Retrieve an Propane Tank",
-        "doc": {
-          "url": "https://winkapi.quirky.com/propane_tanks/:propane_tank_id"
-        },
-        "httpMethod": "Get",
-        "params": [
-          {
-            "displayName": "Propane Tank ID",
-            "style": "url",
-            "type": "String",
-            "name": ":propane_tank_id",
-            "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/propane_tanks/:propane_tank_id"
-      },
-      {
-        "path": "/propane_tanks/:propane_tank_id",
-        "displayName": "Update Propane Tank Settings",
-        "doc": {
-          "url": "https://winkapi.quirky.com/propane_tanks/:propane_tank_id"
-        },
-        "httpMethod": "Put",
-        "params": [
-          {
-            "displayName": "Propane Tank ID",
-            "style": "url",
-            "type": "String",
-            "name": ":propane_tank_id",
-            "required": true
-          },
-          {
-            "style": "body",
-            "type": "object",
-            "name": "body",
-            "displayName": "body",
-            "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/propane_tanks/:propane_tank_id"
-      },
-      {
-        "path": "/propane_tanks/:propane_tank_id/readings",
-        "displayName": "List Readings of a Propane Tank",
-        "doc": {
-          "url": "https://winkapi.quirky.com/propane_tanks/:propane_tank_id/readings"
-        },
-        "httpMethod": "Get",
-        "params": [
-          {
-            "displayName": "Propane Tank ID",
+            "displayName": "Id of the user to perform action on",
             "style": "url",
             "type": "string",
-            "name": ":propane_tank_id",
+            "name": "user_id",
             "required": true
-          },
-          {
-            "displayName": "Since",
-            "style": "query",
-            "type": "integer",
-            "name": "since"
-          },
-          {
-            "displayName": "Until",
-            "style": "query",
-            "type": "integer",
-            "name": "until"
-          },
-          {
-            "displayName": "Filter Type",
-            "style": "query",
-            "type": "string",
-            "name": "filter_type"
-          },
-          {
-            "displayName": "Keys",
-            "style": "query",
-            "type": "string",
-            "name": "keys"
-          },
-          {
-            "displayName": "Timezone",
-            "style": "query",
-            "type": "string",
-            "name": "timezone"
           }
         ],
-        "url": "https://winkapi.quirky.com/propane_tanks/:propane_tank_id/readings"
+        "url": "https://api.wink.com/users/user_id"
       },
       {
-        "path": "/propane_tanks/:propane_tank_id/stats",
-        "displayName": "Update a Propane Tank",
+        "path": "/users/user_id/update_password",
+        "displayName": "Update password",
         "doc": {
-          "url": "https://winkapi.quirky.com/:propane_tank_id/stats"
+          "url": "https://api.wink.com/users/user_id/update_password"
         },
-        "httpMethod": "Put",
+        "httpMethod": "PUT",
         "params": [
           {
-            "displayName": "Propane Tank ID",
+            "displayName": "Id of the user to perform action on",
             "style": "url",
             "type": "string",
-            "name": ":propane_tank_id",
+            "name": "user_id",
             "required": true
           },
           {
-            "displayName": "Since",
-            "style": "query",
-            "type": "integer",
-            "name": "since"
-          },
-          {
-            "displayName": "Until",
-            "style": "query",
-            "type": "integer",
-            "name": "until"
-          },
-          {
+            "displayName": "Old password",
             "style": "body",
-            "type": "object",
-            "name": "body",
-            "displayName": "body",
-            "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/:propane_tank_id/stats"
-      },
-      {
-        "path": "/sensor_pods/:sensor_pods",
-        "displayName": "Retrieve a Sensor Pod",
-        "doc": {
-          "url": "https://winkapi.quirky.com/sensor_pods/:sensor_pods"
-        },
-        "httpMethod": "Get",
-        "params": [
-          {
-            "displayName": "Sensor Pods",
-            "style": "url",
             "type": "string",
-            "name": ":sensor_pods",
-            "required": true
-          }
-        ],
-        "url": "https://winkapi.quirky.com/sensor_pods/:sensor_pods"
-      },
-      {
-        "path": "/sensor_pods/:sensor_pod_id",
-        "displayName": "Update a Sensor Pod",
-        "doc": {
-          "url": "https://winkapi.quirky.com/sensor_pods/:sensor_pod_id"
-        },
-        "httpMethod": "Put",
-        "params": [
-          {
-            "displayName": "Sensor Pod ID",
-            "style": "url",
-            "type": "string",
-            "name": ":sensor_pod_id",
+            "name": "old_password",
             "required": true
           },
           {
+            "displayName": "New password",
             "style": "body",
-            "type": "object",
-            "name": "body",
-            "displayName": "body",
+            "type": "string",
+            "name": "new_password",
             "required": true
           }
         ],
-        "url": "https://winkapi.quirky.com/sensor_pods/:sensor_pod_id"
+        "url": "https://api.wink.com/users/user_id/update_password"
       }
     ]
   }

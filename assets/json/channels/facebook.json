@@ -9959,6 +9959,12 @@
             "type": "string",
             "name": ":user-id",
             "required": true
+          },
+          {
+            "displayName": "The message of your new post",
+            "style": "body",
+            "type": "string",
+            "name": "message"
           }
         ],
         "url": "https://graph.facebook.com/v2.6/me/feed"
