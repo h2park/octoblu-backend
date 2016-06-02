@@ -4,7 +4,7 @@
   "categories": ["forwarders"],
   "helpText": "Forward your data to a MongoDB instance",
   "enabled": true,
-  "name": "MongoDB",
+  "name": "MongoDB Forwarder",
   "type": "forwarder:mongodb",
   "url": "http://forwarder.{{endoDomain}}/new/forwarder:mongodb"
 }

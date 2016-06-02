@@ -1,0 +1,10 @@
+{
+  "_id": "forwarder-msazure",
+  "category": "forwarder",
+  "categories": ["forwarders"],
+  "helpText": "Forward your data to a Azure instance",
+  "enabled": true,
+  "name": "Azure Forwarder",
+  "type": "forwarder:msazure",
+  "url": "http://forwarder.{{endoDomain}}/new/forwarder:msazure"
+}

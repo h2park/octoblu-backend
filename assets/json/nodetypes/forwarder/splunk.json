@@ -1,0 +1,10 @@
+{
+  "_id": "forwarder-splunk",
+  "category": "forwarder",
+  "categories": ["forwarders"],
+  "helpText": "Forward your data to a Splunk instance",
+  "enabled": true,
+  "name": "Splunk Forwarder",
+  "type": "forwarder:splunk",
+  "url": "http://forwarder.{{endoDomain}}/new/forwarder:splunk"
+}

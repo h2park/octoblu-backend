@@ -1,0 +1,10 @@
+{
+  "_id": "forwarder-elasticsearch",
+  "category": "forwarder",
+  "categories": ["forwarders"],
+  "helpText": "Forward your data to a Elasticsearch instance",
+  "enabled": true,
+  "name": "Elasticsearch Forwarder",
+  "type": "forwarder:elasticsearch",
+  "url": "http://forwarder.{{endoDomain}}/new/forwarder:elasticsearch"
+}

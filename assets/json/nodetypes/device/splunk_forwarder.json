@@ -6,7 +6,7 @@
   "logo": "https://ds78apnml6was.cloudfront.net/channel/splunk.svg",
   "documentation": "https://octoblu-splunk.readme.io",
   "helpText": "A Gateblu plugin to forward messages to a Splunk HTTP Event Collector",
-  "enabled": true,
+  "enabled": false,
   "name": "Splunk Event Collector",
   "skynet": {
     "type": "device:forwarder"
