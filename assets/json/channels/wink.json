@@ -60,7 +60,7 @@
         },
         "httpMethod": "GET",
         "params": [],
-        "url": "https://api.wink.comusers/users/me/wink_devices"
+        "url": "https://api.wink.com/users/me/wink_devices"
       },
       {
         "path": "/device_type/device_id/users",
