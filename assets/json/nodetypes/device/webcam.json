@@ -11,6 +11,6 @@
     "type": "device",
     "subtype": "webcam"
   },
-  "connector": "meshblu-cam",
+  "url": "https://camera.octoblu.com/",
   "type": "device:webcam"
 }

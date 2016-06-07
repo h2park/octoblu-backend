@@ -6,6 +6,7 @@
   "helpText": "A meshblu service for dynamically displaying webpages. Navigate to kiosk.octoblu.com to claim it, and receive the unique url for the kiosk.",
   "enabled": true,
   "name": "Kiosk",
+  "url": "https://kiosk.octoblu.com/",
   "skynet": {
     "type": "device:kiosk"
   },
