@@ -1,16 +1,12 @@
 {
   "_id": "device-webcam",
-  "category": "device",
+  "category": "octosite",
   "categories":["Maker"],
   "description": "Webcam access",
   "documentation": "https://meshblu-connectors.readme.io/docs/webcam",
-  "helpText": "Uses your webcam on OSX/Linux and takes an image to broadcast as base64 at an interval.",
+  "helpText": "Uses your webcam via a browser with Octoblu",
   "enabled": true,
   "name": "webcam",
-  "skynet": {
-    "type": "device",
-    "subtype": "webcam"
-  },
   "url": "https://camera.octoblu.com/",
   "type": "device:webcam"
 }

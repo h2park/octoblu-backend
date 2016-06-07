@@ -1,0 +1,11 @@
+{
+  "_id": "557efb9a2c221fe2d1f01d17",
+  "category": "octosite",
+  "categories":["Octoblu"],
+  "description": "Kiosk",
+  "helpText": "A meshblu service for dynamically displaying webpages.",
+  "enabled": true,
+  "name": "Kiosk",
+  "url": "https://kiosk.octoblu.com/",
+  "type": "device:kiosk"
+}
