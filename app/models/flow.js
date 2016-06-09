@@ -61,7 +61,21 @@ function FlowModel() {
         updatedFlow = newFlow;
         return self.update(query, newFlow);
       }).then(function(){
-        self.updateMeshbluFlow(updatedFlow, meshbluJSON);
+        return self.updateMeshbluFlow(updatedFlow, meshbluJSON);
+      });
+    },
+
+    updateForDeploy : function (flow, meshbluJSON){
+      console.log('meshblujson', meshbluJSON);
+      var meshbluHttp = new MeshbluHttp(meshbluJSON);
+      flow = _.omit(flow, ['token']);
+      return when.promise(function (resolve, reject) {
+        meshbluHttp.update(flow.flowId, {flow: flow}, function(error){
+          if (error) {
+            return reject(error);
+          }
+          return resolve(flow);
+        });
       });
     },
 

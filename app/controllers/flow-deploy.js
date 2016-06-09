@@ -1,3 +1,5 @@
+var When = require('when');
+
 var FlowDeploy = function (options) {
   var FlowDeploy, self, Flow, _, meshbluJSON;
 
@@ -34,9 +36,14 @@ var FlowDeploy = function (options) {
     config = _.extend({}, meshbluJSON, {uuid: userUUID, token: userToken});
     return Flow.getFlow(req.params.id, config)
       .then(function (flow) {
-        return Flow.updateByFlowIdAndUser(flow.flowId, userUUID, {activated: activated}).then(function(){
-          cmd(userUUID, userToken, flow, meshbluJSON, deploymentUuid);
-        })
+        return Flow.updateByFlowIdAndUser(flow.flowId, userUUID, {activated: activated})
+      }).then(function(flow){
+        if (!activated) {
+          return When.resolve(flow);
+        }
+        return Flow.updateForDeploy(flow, config);
+      }).then(function(flow){
+        return cmd(userUUID, userToken, flow, meshbluJSON, deploymentUuid);
       });
   };
 
