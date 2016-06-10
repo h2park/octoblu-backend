@@ -17,7 +17,7 @@ var config = {
         databaseDirectory : path.join(__dirname, '../database'),
         url : process.env.OCTOBLU_DB || 'mongodb://localhost:27017/meshines',
         mongojsUrl : process.env.OCTOBLU_DB || 'mongodb://localhost:27017/meshines',
-        redisSessionUrl: process.env.REDIS_URL || 'redis://localhost'
+        redisSessionUrl: 'redis://foo.bar'
     },
     production: {
         sessionSecret: 'e2em2miotskynetZOMGBBQ',
