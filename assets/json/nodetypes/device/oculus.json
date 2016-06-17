@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Maker"],
   "description": "Oculus Rift Tracking Data",
-  "documentation": "https://meshblu-connectors.readme.io/docs/oculus-rift",
+  "documentation": "https://legacy-connectors.readme.io/docs/oculus-rift",
   "helpText": "The Oculus Rift is a Virtual Reality (VR) headset that allows you to be completely immersed in your games, movies, or any other VR experience.",
   "enabled": true,
   "name": "Oculus Rift",

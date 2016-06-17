@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Music"],
   "description": "Sonos device",
-  "documentation": "https://meshblu-connectors.readme.io/docs/sonos",
+  "documentation": "https://legacy-connectors.readme.io/docs/sonos",
   "helpText": "Sonos is a smart system of HiFi wireless speakers and audio components. It unites your digital music collection in one app that you control from any device. Use Octoblu to trigger tracks to play on your local Sonos speakers.",
   "enabled": true,
   "name": "Sonos",

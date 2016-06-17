@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Maker"],
   "description": "Thalmic Labs MYO",
-  "documentation": "https://meshblu-connectors.readme.io/docs/myo-armband",
+  "documentation": "https://legacy-connectors.readme.io/docs/myo-armband",
   "helpText": "Myo is a gesture control armband that reads your muscle activity so you can control your favorite presentation software, desktop, music app, and anything else with gestures and motion. It's the secret up your sleeve.",
   "enabled": true,
   "name": "MYO",

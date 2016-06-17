@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Maker"],
   "description": "Neurosky Mindwave",
-  "documentation": "https://meshblu-connectors.readme.io/docs/neurosky-mindwave",
+  "documentation": "https://legacy-connectors.readme.io/docs/neurosky-mindwave",
   "helpText": "Mindwave safely measures brainwave signals and monitors the attention levels of students as they interact with math, memory and pattern recognition applications. The Neurosky Mindwave provides streaming brain wave data on concentration, attention and meditation.",
   "enabled": true,
   "name": "Mindwave",

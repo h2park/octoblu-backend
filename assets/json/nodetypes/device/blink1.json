@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Maker"],
   "description": "Blink1 USB LED",
-  "documentation": "https://meshblu-connectors.readme.io/docs/blink1",
+  "documentation": "https://legacy-connectors.readme.io/docs/blink1",
   "helpText": "The world's best indicator light, designed to give you glanceable notice of anything on your computer or the internet. Blink(1) makes it easy to connect data sources in the cloud or on your computer to a full-color RGB LED so you can know what’s happening without checking any windows, going to any websites or typing any command.",
   "enabled": true,
   "name": "Blink(1)",

@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Facilities Automation"],
   "description": "Lifx Single Light",
-  "documentation": "https://meshblu-connectors.readme.io/docs/lifx-bulbs",
+  "documentation": "https://legacy-connectors.readme.io/docs/lifx-bulbs",
   "helpText": "LIFX lets you get more out of light with their multi-color LED smart lightbulb. Interact directly with the hardware by connecting LIFX to gateblu and changing the name property to match the one in the LIFX app.",
   "enabled": true,
   "name": "Lifx Single Light",

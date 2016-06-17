@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Maker"],
   "description": "Gateblu Beacon",
-  "documentation": "https://meshblu-connectors.readme.io/docs/beacon",
+  "documentation": "https://legacy-connectors.readme.io/docs/beacon",
   "helpText": "Gateblu plugin for scanning beacons. Connect your beacons to Octoblu and read their data.",
   "enabled": true,
   "name": "Beacon",

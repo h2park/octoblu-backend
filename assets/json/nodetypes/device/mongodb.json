@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Productivity"],
   "description": "MongoDB Forwarder",
-  "documentation": "https://meshblu-connectors.readme.io/docs/mongodb",
+  "documentation": "https://legacy-connectors.readme.io/docs/mongodb",
   "helpText": "A Gateblu plugin for innteracting with a mongo database",
   "enabled": false,
   "name": "MongoDB Forwarder",

@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Maker"],
   "description": "Johnny Five",
-  "documentation": "https://meshblu-connectors.readme.io/docs/johnny-five",
+  "documentation": "https://legacy-connectors.readme.io/docs/johnny-five",
   "helpText": "JavaScript Robotics and IoT programming framework, developed at Bocoup.  Based on Arduino Firmata Protocol.",
   "enabled": true,
   "name": "Johnny-Five",

@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Octoblu"],
   "description": "BeaconBlu",
-  "documentation": "https://meshblu-connectors.readme.io/docs/beaconblu",
+  "documentation": "https://legacy-connectors.readme.io/docs/beaconblu",
   "helpText": "An iOS and Android app for iBeacons. Manage your beacons, trigger flows, and recieve proximity data to create automations through Octoblu.",
   "enabled": true,
   "name": "BeaconBlu",

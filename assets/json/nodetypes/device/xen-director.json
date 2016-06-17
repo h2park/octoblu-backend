@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Citrix"],
   "description": "Citrix Xen Director",
-  "documentation": "https://meshblu-connectors.readme.io/docs/xen-director",
+  "documentation": "https://legacy-connectors.readme.io/docs/xen-director",
   "helpText": "",
   "enabled": true,
   "name": "Citrix Xen Director",

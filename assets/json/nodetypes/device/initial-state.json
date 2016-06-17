@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Productivity"],
   "description": "Initial-State Gateblu Plugin",
-  "documentation": "https://meshblu-connectors.readme.io/docs/initial-state",
+  "documentation": "https://legacy-connectors.readme.io/docs/initial-state",
   "helpText": "A Gateblu plugin to forward messages to Initial-State",
   "enabled": true,
   "name": "Initial-State",

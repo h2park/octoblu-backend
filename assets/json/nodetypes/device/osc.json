@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Maker"],
   "description": "OSC Udp transfer",
-  "documentation": "https://meshblu-connectors.readme.io/docs/osc",
+  "documentation": "https://legacy-connectors.readme.io/docs/osc",
   "helpText": "Plugin for Open Sound Control protocol to interface to applications such as MAX, Ableton, Processing, TouchOSC, etc.",
   "enabled": true,
   "name": "OSC",

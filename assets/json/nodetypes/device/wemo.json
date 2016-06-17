@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Facilities Automation"],
   "description": "Belkin Wemo home automation",
-  "documentation": "https://meshblu-connectors.readme.io/docs/belkin-wemo",
+  "documentation": "https://legacy-connectors.readme.io/docs/belkin-wemo",
   "helpText": "Home automation made easy. Wemo is a series of Iot products from Belkin International, Inc. that allows users to control your home electronics from anywhere.",
   "enabled": true,
   "name": "Belkin Wemo",

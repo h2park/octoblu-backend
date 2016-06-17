@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Maker"],
   "description": "Blend Micro BLE microcontroller",
-  "documentation": "https://meshblu-connectors.readme.io/docs/blend-micro",
+  "documentation": "https://legacy-connectors.readme.io/docs/blend-micro",
   "helpText": "The first integrated developement board, a blend between Arduino and Bluetooth Low Energy into a single board. It is targeted for makers to develop low power Internet-Of-Things projects.",
   "enabled": true,
   "name": "Blend Micro",

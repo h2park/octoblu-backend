@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["System Utility"],
   "description": "Powershell",
-  "documentation": "https://meshblu-connectors.readme.io/docs/powershell",
+  "documentation": "https://legacy-connectors.readme.io/docs/powershell",
   "helpText": "Run Powershell scripts through Gateblu",
   "enabled": true,
   "name": "PowerShell",

@@ -3,7 +3,7 @@
   "category": "device",
   "categories": ["Maker"],
   "description": "BlinkyTape USB LED Light",
-  "documentation": "https://meshblu-connectors.readme.io/docs/blinky-tape",
+  "documentation": "https://legacy-connectors.readme.io/docs/blinky-tape",
   "helpText": "BlinkyTape is a super-cool LED strip with full-color RGB LEDs and an integrated controller. It’s powered and controlled via a single USB connection!",
   "enabled": true,
   "name": "Blinky Tape",

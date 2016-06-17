@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Maker"],
   "description": "Intel Edison",
-  "documentation": "https://meshblu-connectors.readme.io/docs/intel-edison",
+  "documentation": "https://legacy-connectors.readme.io/docs/intel-edison",
   "helpText": "Configure and control the Intel Edison IoT device from Octoblu. The Intel Edison provides a fully open source hardware and software development environment for your Maker projects.",
   "enabled": true,
   "name": "Intel Edison",
