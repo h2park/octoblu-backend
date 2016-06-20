@@ -2,7 +2,7 @@
   "name": "Less Than or Equal",
   "class": "less-than-equal",
   "helpText": "Filter out messages that do not pass a less or equal than test. Reference incoming messages using {{msg.values}}  \n  \nSupported inputs include: date and numbers",
-  "documenation": "https://octoblu-designer.readme.io/docs/less-than-or-equal",
+  "documentation": "https://octoblu-designer.readme.io/docs/less-than-or-equal",
   "category": "operation",
   "uuid": "e3d81634-2536-427f-b87f-5305916e28db",
   "type": "operation:less-than-equal",

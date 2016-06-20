@@ -2,7 +2,7 @@
   "name": "Equal",
   "class": "equal",
   "helpText": "Filter out messages that do not pass an equality test. Reference incoming messages using {{msg.values}}  \n  \nSupported inputs include: arrays, date, objects, numbers, and strings",
-  "documenation": "https://octoblu-designer.readme.io/docs/equal",
+  "documentation": "https://octoblu-designer.readme.io/docs/equal",
   "category": "operation",
   "uuid": "2bebd428-4818-48ea-b1f5-88a32199f17b",
   "type": "operation:equal",

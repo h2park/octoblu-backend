@@ -2,7 +2,7 @@
   "name": "Greater Than or Equal",
   "class": "greater-than-equal",
   "helpText": "Filter out messages that do not pass a greater than or equal test. Reference incoming messages using {{msg.values}}  \n  \nSupported inputs include: date and numbers",
-  "documenation": "https://octoblu-designer.readme.io/docs/greater-than-or-equal",
+  "documentation": "https://octoblu-designer.readme.io/docs/greater-than-or-equal",
   "category": "operation",
   "uuid": "c36c413c-c4df-4c5b-9861-fcd08bc81503",
   "type": "operation:greater-than-equal",

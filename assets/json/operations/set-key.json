@@ -2,7 +2,7 @@
   "name": "Set Key",
   "class": "set-key",
   "helpText": "Store a value for later retrieval",
-  "documenation": "https://octoblu-designer.readme.io/docs/set-key",
+  "documentation": "https://octoblu-designer.readme.io/docs/set-key",
   "category": "operation",
   "uuid": "5a6bb5a5-b2ef-4a9e-b15f-f0f646ee90d6",
   "type": "operation:set-key",

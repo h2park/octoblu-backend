@@ -2,7 +2,7 @@
   "name": "Comment",
   "class": "comment",
   "helpText": "Displays a comment in the flow",
-  "documenation": "https://octoblu-designer.readme.io/docs/comment",
+  "documentation": "https://octoblu-designer.readme.io/docs/comment",
   "category": "operation",
   "uuid": "37f0be60-2f17-11e4-9617-a6c5e4d22fb7",
   "type": "operation:comment",

@@ -2,7 +2,7 @@
   "name": "Debounce",
   "class": "debounce",
   "helpText": "Debounce will delay the message until after the specified interval has elapsed since the last time it received a message",
-  "documenation": "https://octoblu-designer.readme.io/docs/debounce",
+  "documentation": "https://octoblu-designer.readme.io/docs/debounce",
   "type": "operation:debounce",
   "category": "operation",
   "uuid": "52a55b44-923d-4f56-9ad4-e7aa1262c6cb",

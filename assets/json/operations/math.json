@@ -2,7 +2,7 @@
   "name": "Math",
   "class": "math",
   "helpText": "Perform math operations",
-  "documenation": "https://octoblu-designer.readme.io/docs/math",
+  "documentation": "https://octoblu-designer.readme.io/docs/math",
   "category": "operation",
   "uuid": "03a54d95-141f-47cb-809f-dd98959ad927",
   "type": "operation:math",

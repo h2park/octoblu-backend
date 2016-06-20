@@ -2,7 +2,7 @@
   "name": "http POST",
   "class": "http-post-request",
   "helpText": "Perform an HTTP Post request",
-  "documenation": "https://octoblu-designer.readme.io/docs/http-post",
+  "documentation": "https://octoblu-designer.readme.io/docs/http-post",
   "category": "operation",
   "uuid": "95675c2c-5305-11e4-9e35-164230d1df67",
   "type": "operation:http-post-request",

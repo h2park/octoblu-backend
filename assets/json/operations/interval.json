@@ -2,7 +2,7 @@
   "name": "Interval",
   "class": "interval",
   "helpText": "Emit a message at the specified interval.",
-  "documenation": "https://octoblu-designer.readme.io/docs/interval",
+  "documentation": "https://octoblu-designer.readme.io/docs/interval",
   "category": "operation",
   "uuid": "37f0a966-2f17-11e4-9617-a6c5e4d22fb7",
   "deviceId": "765bd3a4-546d-45e6-a62f-1157281083f0",

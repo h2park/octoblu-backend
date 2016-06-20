@@ -2,7 +2,7 @@
   "name": "Leading-Edge Debounce",
   "class": "leading-edge-debounce",
   "helpText": "Debounce will immediately send the message, and not send any more messages until after the specified interval has elapsed since the last time it received a message",
-  "documenation": "https://octoblu-designer.readme.io/docs/leading-edge-debounce",
+  "documentation": "https://octoblu-designer.readme.io/docs/leading-edge-debounce",
   "type": "operation:leading-edge-debounce",
   "category": "operation",
   "uuid": "52dd3362-beb5-4db3-8e5f-9da3f576042d",

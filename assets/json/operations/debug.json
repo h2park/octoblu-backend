@@ -2,7 +2,7 @@
   "name": "Debug",
   "class": "debug",
   "helpText": "Display the contents of the messages it receives in the debug panel",
-  "documenation": "https://octoblu-designer.readme.io/docs/debug",
+  "documentation": "https://octoblu-designer.readme.io/docs/debug",
   "category": "operation",
   "uuid": "37f0b88e-2f17-11e4-9617-a6c5e4d22fb7",
   "type": "operation:debug",

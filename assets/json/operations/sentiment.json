@@ -2,7 +2,7 @@
   "name": "Sentiment",
   "class": "sentiment",
   "helpText": "Performs sentiment analysis on the words in the key, sends msg.score",
-  "documenation": "https://octoblu-designer.readme.io/docs/sentiment",
+  "documentation": "https://octoblu-designer.readme.io/docs/sentiment",
   "category": "operation",
   "uuid": "37f0b3f2-2f17-11e4-9617-a6c5e4d22fb7",
   "type": "operation:sentiment",

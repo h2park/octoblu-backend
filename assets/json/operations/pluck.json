@@ -2,7 +2,7 @@
   "name": "Pluck",
   "class": "pluck",
   "helpText": "Extract a portion of the message. Use {{msg.foo}} to reference incoming fields",
-  "documenation": "https://octoblu-designer.readme.io/docs/pluck",
+  "documentation": "https://octoblu-designer.readme.io/docs/pluck",
   "category": "operation",
   "uuid": "86aef89e-6dfd-435f-863e-6deac12fc6ec",
   "type": "operation:pluck",

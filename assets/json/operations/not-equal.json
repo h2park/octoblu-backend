@@ -2,7 +2,7 @@
   "name": "Not Equal",
   "class": "not-equal",
   "helpText": "Filter out messages that pass an equality test. Reference incoming messages using {{msg.values}}  \n  \nSupported inputs include: date and numbers",
-  "documenation": "https://octoblu-designer.readme.io/docs/not-equal",
+  "documentation": "https://octoblu-designer.readme.io/docs/not-equal",
   "category": "operation",
   "uuid": "3b7a9463-f485-4cee-a55e-e6df341c27b5",
   "type": "operation:not-equal",

@@ -2,7 +2,7 @@
   "name": "http PUT",
   "class": "http-put-request",
   "helpText": "Perform an HTTP Put request",
-  "documenation": "https://octoblu-designer.readme.io/docs/http-put",
+  "documentation": "https://octoblu-designer.readme.io/docs/http-put",
   "category": "operation",
   "uuid": "adb9dfe0-5326-11e4-ad12-c7f5132c4ef6",
   "type": "operation:http-put-request",
