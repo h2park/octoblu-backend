@@ -3,7 +3,7 @@
   "category": "octosite",
   "categories":["Maker"],
   "description": "Webcam access",
-  "documentation": "https://meshblu-connectors.readme.io/docs/webcam",
+  "documentation": "https://legacy-connectors.readme.io/docs/webcam",
   "helpText": "Uses your webcam via a browser with Octoblu",
   "enabled": true,
   "name": "webcam",
