@@ -2,6 +2,7 @@
   "name": "Collect",
   "class": "collect",
   "helpText": "Collect input data and output entire collection",
+  "documenation": "https://octoblu-designer.readme.io/docs/collect",
   "category": "operation",
   "uuid": "5431b4eb-133f-42ca-b96c-491b8a68d040",
   "type": "operation:collect",

@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Maker"],
   "description": "Serial access",
-  "documentation": "https://meshblu-connectors.readme.io/docs/serial",
+  "documentation": "https://legacy-connectors.readme.io/docs/serial",
   "helpText": "Lets you read and write to a serial port through a Gateblu.",
   "enabled": true,
   "name": "serial",

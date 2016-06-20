@@ -2,6 +2,7 @@
   "name": "Compose",
   "class": "compose",
   "helpText": "Wait for all values to be received before sending the message",
+  "documenation": "https://octoblu-designer.readme.io/docs/compose",
   "category": "operation",
   "uuid": "46b72292-e288-4bc4-855c-019fb241c1ad",
   "type": "operation:compose",

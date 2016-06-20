@@ -2,6 +2,7 @@
   "name": "Echo Out",
   "class": "echo-out",
   "helpText": "Respond to Amazon Echo Intent",
+  "documenation": "https://octoblu-designer.readme.io/docs/echo-out",
   "category": "operation",
   "uuid": "a11f9f23-3659-4198-aa22-d1f314d6c3bb",
   "type": "operation:echo-out",

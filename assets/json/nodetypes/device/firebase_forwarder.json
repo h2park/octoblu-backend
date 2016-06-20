@@ -4,7 +4,7 @@
   "categories":["Productivity"],
   "description": "Firebase Forwarder",
   "logo": "https://ds78apnml6was.cloudfront.net/channel/firebase.svg",
-  "documentation": "https://meshblu-connectors.readme.io",
+  "documentation": "https://legacy-connectors.readme.io",
   "helpText": "A Gateblu plugin to send/recieve messages to Firebase",
   "enabled": false,
   "name": "Firebase",

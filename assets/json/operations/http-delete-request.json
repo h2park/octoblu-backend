@@ -2,6 +2,7 @@
   "name": "http DELETE",
   "class": "http-request-delete",
   "helpText": "Perform an HTTP Delete request",
+  "documenation": "https://octoblu-designer.readme.io/docs/http-delete",
   "category": "operation",
   "uuid": "da37cc30-5326-11e4-ad12-c7f5132c4ef6",
   "type": "operation:http-delete-request",

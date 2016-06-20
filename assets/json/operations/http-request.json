@@ -2,6 +2,7 @@
   "name": "http GET",
   "class": "http-request",
   "helpText": "Perform an HTTP Get request",
+  "documenation": "https://octoblu-designer.readme.io/docs/http-get",
   "category": "operation",
   "uuid": "37f0aefc-2f17-11e4-9617-a6c5e4d22fb7",
   "type": "operation:http-request",

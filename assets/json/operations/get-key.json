@@ -2,6 +2,7 @@
   "name": "Get Key",
   "class": "get-key",
   "helpText": "Get a value stored by Set Key",
+  "documenation": "https://octoblu-designer.readme.io/docs/get-key",
   "category": "operation",
   "uuid": "6daa638e-ced8-4de9-be9b-dcd026be6348",
   "type": "operation:get-key",

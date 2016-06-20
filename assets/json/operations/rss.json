@@ -2,6 +2,7 @@
   "name": "RSS request",
   "class": "rss",
   "helpText": "Perform a request to retrieve an RSS Feed. Response is auto translated to the Octoblu message format",
+  "documenation": "https://octoblu-designer.readme.io/docs/rss-request",
   "category": "operation",
   "uuid": "2aac8e4a-7695-4269-ba98-3678581f7a59",
   "type": "operation:rss",

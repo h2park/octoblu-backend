@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Maker"],
   "description": "Node Copter",
-  "documentation": "https://meshblu-connectors.readme.io/docs/parrotar-drone-nodecopter",
+  "documentation": "https://legacy-connectors.readme.io/docs/parrotar-drone-nodecopter",
   "helpText": "Plugin for remote controlling AR drones.",
   "enabled": true,
   "name": "Node Copter",

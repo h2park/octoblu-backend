@@ -2,6 +2,7 @@
   "name": "Template",
   "class": "template",
   "helpText": "Sends a custom message using handlebars (e.g. {{msg.text}})",
+  "documenation": "https://octoblu-designer.readme.io/docs/template",
   "category": "operation",
   "uuid": "8f2e02ff-08da-446d-ab50-e5115f511cba",
   "type": "operation:template",

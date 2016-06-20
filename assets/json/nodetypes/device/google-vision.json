@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Maker"],
   "description": "Google Cloud Vision API connector for Octoblu",
-  "documentation": "https://meshblu-connectors.readme.io/docs/google-vision",
+  "documentation": "https://legacy-connectors.readme.io/docs/google-vision",
   "helpText": "Send images as urls or base64 for Google to analyze!",
   "enabled": true,
   "name": "Google Vision",

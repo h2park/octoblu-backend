@@ -2,6 +2,7 @@
   "name": "Null",
   "class": "null",
   "helpText": "Check if a value is null",
+  "documenation": "https://octoblu-designer.readme.io/docs/null",
   "category": "operation",
   "uuid": "556e03455230011d3ce028a6",
   "type": "operation:null",

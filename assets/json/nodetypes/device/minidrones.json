@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Maker"],
   "description": "Gateblu plugin to control single or swarms of BLE minidrones from Parrot",
-  "documentation": "https://meshblu-connectors.readme.io/docs/parrot-minidrones",
+  "documentation": "https://legacy-connectors.readme.io/docs/parrot-minidrones",
   "helpText": "Plugin for remote controlling AR drones.",
   "enabled": true,
   "name": "Parrot Minidrones",

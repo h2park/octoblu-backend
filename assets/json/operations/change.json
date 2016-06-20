@@ -2,6 +2,7 @@
   "name": "Change",
   "class": "change",
   "helpText": "Compare the previous message and only send if the previous message is not equal to the current message",
+  "documenation": "https://octoblu-designer.readme.io/docs/change",
   "category": "operation",
   "uuid": "219ecd2e-49f7-437f-9a87-7385c2c9a944",
   "type": "operation:change",

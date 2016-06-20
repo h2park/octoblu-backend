@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Maker"],
   "description": "Plugin for BLE Sphero BB-8",
-  "documentation": "https://meshblu-connectors.readme.io/docs/sphero-bb8",
+  "documentation": "https://legacy-connectors.readme.io/docs/sphero-bb8",
   "helpText": "Plugin for BLE Sphero BB-8",
   "enabled": true,
   "name": "Sphero BB-8",

@@ -2,6 +2,7 @@
   "name": "Echo In",
   "class": "echo-in",
   "helpText": "Receive to Amazon Echo Intent",
+  "documenation": "https://octoblu-designer.readme.io/docs/echo-in",
   "category": "operation",
   "uuid": "6ae8a808-fc70-4826-aaf3-cf43b76f3007",
   "type": "operation:echo-in",

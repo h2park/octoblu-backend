@@ -2,6 +2,7 @@
   "name": "Broadcast",
   "class": "broadcast",
   "helpText": "Broadcast message to any meshblu device or Octoblu flow",
+  "documenation": "https://octoblu-designer.readme.io/docs/broadcast",
   "category": "operation",
   "uuid": "2be62b90-6519-11e4-867f-276797c27ed6",
   "type": "operation:broadcast",

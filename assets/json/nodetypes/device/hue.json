@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Facilities Automation"],
   "description": "Philips Hue light bulbs",
-  "documentation": "https://meshblu-connectors.readme.io/docs/phillips-hue-bulbs",
+  "documentation": "https://legacy-connectors.readme.io/docs/phillips-hue-bulbs",
   "helpText": "Philips hue combines brilliant LED light with intuitive technology, then puts it in the palm of your hand. Experiment with shades of white, from invigorating blue/white to cozy yellow/white.",
   "enabled": true,
   "name": "Philips Hue",

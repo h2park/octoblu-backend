@@ -3,7 +3,7 @@
   "category": "device",
   "categories":["Maker"],
   "description": "Corsair RGB Keyboard Plugin",
-  "documentation": "https://meshblu-connectors.readme.io/docs/corsair",
+  "documentation": "https://legacy-connectors.readme.io/docs/corsair",
   "helpText": "A Gateblu plugin to control the LEDs of a Corsair Keyboard",
   "enabled": true,
   "name": "Corsair RGB",

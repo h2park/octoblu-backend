@@ -2,6 +2,7 @@
   "name": "On Start",
   "class": "on-start",
   "helpText": "Automatically trigger on flow start",
+  "documenation": "https://octoblu-designer.readme.io/docs/on-start",
   "category": "operation",
   "uuid": "9d524707-1152-4765-9fb4-5e6cac65da50",
   "type": "operation:on-start",
