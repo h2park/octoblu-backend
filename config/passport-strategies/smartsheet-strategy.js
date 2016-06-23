@@ -10,7 +10,7 @@ CONFIG.passReqToCallback = true;
 
 var smartsheetStrategy = new SmartsheetStrategy(CONFIG, function(req, accessToken, refreshToken, profile, done){
 
-  User.overwriteOrAddApiByChannelId(req.user, 'channel:smartsheet', {authtype: 'oauth', token_crypt: textCrypt.encrypt(accessToken)}).then(function () {
+  User.addApiAuthorization(req.user, 'channel:smartsheet', {authtype: 'oauth', token_crypt: textCrypt.encrypt(accessToken)}).then(function () {
     done(null, req.user);
   }).catch(function(error){
     done(error);

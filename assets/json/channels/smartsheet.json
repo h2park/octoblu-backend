@@ -305,7 +305,7 @@
             }
           },
           {
-            "name": "Accept",            
+            "name": "Accept",
             "required": "true",
             "style": "query",
             "doc": {
@@ -1573,6 +1573,7 @@
       "clientSecret": "INSERT_SECERT_HERE",
       "scope": "READ_SHEETS,WRITE_SHEETS,SHARE_SHEETS,DELETE_SHEETS,CREATE_SHEETS,ADMIN_USERS,ADMIN_SHEETS,ADMIN_WORKSPACES",
       "tokenMethod": "access_token_bearer",
+      "tokenURL": "https://api.smartsheet.com/2.0/token",
       "callbackURL": "http://localhost:8080/api/oauth/smartsheet/callback"
     },
     "staging": {
@@ -1580,6 +1581,7 @@
       "clientSecret": "INSERT_SECERT_HERE",
       "scope": "READ_SHEETS,WRITE_SHEETS,SHARE_SHEETS,DELETE_SHEETS,CREATE_SHEETS,ADMIN_USERS,ADMIN_SHEETS,ADMIN_WORKSPACES",
       "tokenMethod": "access_token_bearer",
+      "tokenURL": "https://api.smartsheet.com/2.0/token",
       "callbackURL": "https://staging.octoblu.com/api/oauth/smartsheet/callback"
     },
     "production": {
@@ -1587,6 +1589,7 @@
       "clientSecret": "INSERT_SECERT_HERE",
       "scope": "READ_SHEETS,WRITE_SHEETS,SHARE_SHEETS,DELETE_SHEETS,CREATE_SHEETS,ADMIN_USERS,ADMIN_SHEETS,ADMIN_WORKSPACES",
       "tokenMethod": "access_token_bearer",
+      "tokenURL": "https://api.smartsheet.com/2.0/token",
       "callbackURL": "https://app.octoblu.com/api/oauth/smartsheet/callback"
     }
   },
