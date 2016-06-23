@@ -1,0 +1,4157 @@
+{
+  "_id" : "2395fd932523049ef2304",
+  "name" : "Google Sheets",
+  "documentation": "https://developers.google.com/sheets/reference/rest/",
+  "type" : "channel:google-sheets",
+  "bodyFormat": "json",
+  "enabled": true,
+  "defaultParams": [],
+  "auth_strategy" : "oauth",
+  "application" : {
+    "base" : "https://sheets.googleapis.com/v4",
+     "resources": [
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Applies one or more updates to the spreadsheet",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "requests",
+              "displayName": "A list of updates to apply to the spreadsheet"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Updates properties of a spreadsheet",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "properties",
+              "displayName": "The Spreadsheet Properties to update"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "title",
+              "displayName": "The title of the spreadsheet"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "locale",
+              "displayName": "The locale of the spreadsheet"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "autoRecalc",
+              "displayName": "The amount of time to wait before volatile functions are recalculated"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "timeZone",
+              "displayName": "The time zone of the spreadsheet, in CLDR format such as America/New_York"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "defaultFormat",
+              "displayName": "The default format of all cells in the spreadsheet"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "fields",
+              "displayName": "The fields that should be updated (A comma-separated list of fully qualified names of fields, Example: 'user.displayName,photo')"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Updates properties of the sheet with the specified sheetId",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "properties",
+              "displayName": "The Spreadsheet Properties to update"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The ID of the sheet"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "title",
+              "displayName": "The name of the sheet"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "index",
+              "displayName": "The index of the sheet within the spreadsheet (if this field is excluded then the sheet will be added or moved to the end of the sheet list)"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "sheetType",
+              "displayName": "The type of sheet (defaults to GRID)"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "gridProperties",
+              "displayName": "Additional properties of the sheet if this sheet is a grid. (if the sheet is an object sheet, containing a chart or image, then this field will be absent)"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "rowCount",
+              "displayName": "The number of rows in the grid"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "columnCount",
+              "displayName": "The number of columns in the grid"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "frozenRowCount",
+              "displayName": "The number of rows that are frozen in the grid"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "frozenColumnCount",
+              "displayName": "The number of columns that are frozen in the grid"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "hideGridlines",
+              "displayName": "True, if the grid isn't showing gridlines in the UI"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "hidden",
+              "displayName": "True, if the sheet is hidden in the UI, false if it's visible"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "tabColor",
+              "displayName": "The color of the tab in the UI"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "red",
+              "displayName": "The amount of red in the color as a value in the interval [0, 1]"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "green",
+              "displayName": "The amount of green in the color as a value in the interval [0, 1]"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "blue",
+              "displayName": "The amount of blue in the color as a value in the interval [0, 1]"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "alpha",
+              "displayName": "The fraction of this color that should be applied to the pixel {final pixel color is defined by the equation: pixel color = alpha * (this color) + (1.0 - alpha) * (background color)}"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "rightToLeft",
+              "displayName": "True, if the sheet is an RTL sheet instead of an LTR sheet"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Updates properties of dimensions within the specified range",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "range",
+              "displayName": "The rows or columns to update"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The sheet this span is on"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "dimension",
+              "displayName": "The dimension of the span"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startIndex",
+              "displayName": "The start (inclusive) of the span, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endIndex",
+              "displayName": "The end (exclusive) of the span, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "properties",
+              "displayName": "The dimension properties to update"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "hiddenByFilter",
+              "displayName": "True if this dimension is being filtered"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "hiddenByUser",
+              "displayName": "True if this dimension is explicitly hidden"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "pixelSize",
+              "displayName": "The height (if a row) or width (if a column) of the dimension in pixels"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "fields",
+              "displayName": "The fields that should be updated (A comma-separated list of fully qualified names of fields, example: 'user.displayName,photo')"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Updates the Dimension Range",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The sheet this span is on"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "dimension",
+              "displayName": "The dimension of the span"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startIndex",
+              "displayName": "The start (inclusive) of the span, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endIndex",
+              "displayName": "The end (exclusive) of the span, or not set if unbounded"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Updates properties of the named range with the specified named RangeId",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "namedRange",
+              "displayName": "The named range to update with the new properties"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "namedRangeId",
+              "displayName": "The ID of the named range"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "name",
+              "displayName": "The name of the named range"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "range",
+              "displayName": "The range this represents"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The sheet this range is on"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startRowIndex",
+              "displayName": "The start row (inclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endRowIndex",
+              "displayName": "The end row (exclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startColumnIndex",
+              "displayName": "The start column (inclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endColumnIndex",
+              "displayName": "The end column (exclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "range",
+              "displayName": "The range this represents"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "fields",
+              "displayName": "The fields that should be updated (A comma-separated list of fully qualified names of fields, example: 'user.displayName,photo')"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Updates all cells in the range to the values in the given Cell object",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "range",
+              "displayName": "The range to repeat the cell in"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The sheet this range is on"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startRowIndex",
+              "displayName": "The start row (inclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endRowIndex",
+              "displayName": "The end row (exclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startColumnIndex",
+              "displayName": "The start column (inclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endColumnIndex",
+              "displayName": "The end column (exclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "cell",
+              "displayName": "The data to write"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "userEnteredValue",
+              "displayName": "The value the user entered in the cell. e.g, 1234, 'Hello', or =NOW() (Note: Dates, Times and DateTimes are represented as doubles in serial number format)"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "numberValue",
+              "displayName": "Represents a double value (Note: Dates, Times and DateTimes are represented as doubles in 'serial number' format)"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "stringValue",
+              "displayName": "Represents a string value"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "boolValue",
+              "displayName": "Represents a boolean value"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "formulaValue",
+              "displayName": "Represents a formula"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "errorValue",
+              "displayName": "Represents an error (This field is read-only)"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "type",
+              "displayName": "The type of error"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "message",
+              "displayName": "A message with more information about the error (in the spreadsheet's locale)"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "effectiveValue",
+              "displayName": "The effective value of the cell. For cells with formulas, this will be the calculated value. (for cells with literals, this will be the same as the userEnteredValue)"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "formattedValue",
+              "displayName": "The formatted value of the cell (This is the value as it's shown to the user)"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "userEnteredFormat",
+              "displayName": "The format the user entered for the cell (When writing, the new format will be merged with the existing format)"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "numberFormat",
+              "displayName": "A format describing how number values should be represented to the user"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "type",
+              "displayName": "The type of the number format (When writing, this field must be set)"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "pattern",
+              "displayName": "Pattern string used for formatting"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "backgroundColor",
+              "displayName": "The background color of the cell"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "top",
+              "displayName": "The top border of the cell"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "style",
+              "displayName": "The style of the border"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "width",
+              "displayName": "The width of the border, in pixels (border widths must be between 0 and 3 pixels, inclusive)"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "color",
+              "displayName": "The color of the border"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "red",
+              "displayName": "The amount of red in the color as a value in the interval [0, 1]"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "green",
+              "displayName": "The amount of green in the color as a value in the interval [0, 1]"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "blue",
+              "displayName": "The amount of blue in the color as a value in the interval [0, 1]"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "alpha",
+              "displayName": "The fraction of this color that should be applied to the pixel {The final pixel color is defined by the equation: pixel color = alpha * (this color) + (1.0 - alpha) * (background color)}"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "left",
+              "displayName": "The left border of the cell"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "right",
+              "displayName": "The right border of the cell"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "padding",
+              "displayName": "The padding of the cell"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "top",
+              "displayName": "The top padding of the cell"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "right",
+              "displayName": "The right padding of the cell"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "left",
+              "displayName": "The left padding of the cell"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "horizontalAlignment",
+              "displayName": "The horizontal alignment of the value in the cell"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "verticalAlignment",
+              "displayName": "The vertical alignment of the value in the cell"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "wrapStrategy",
+              "displayName": "The wrap strategy for the value in the cell"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "textDirection",
+              "displayName": "The direction of the text in the cell"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "textFormat",
+              "displayName": "The format of the text in the cell (unless overridden by a format run)"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "foregroundColor",
+              "displayName": "The foreground color of the text"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "fontFamily",
+              "displayName": "The font family"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "fontSize",
+              "displayName": "The size of the font"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "bold",
+              "displayName": "True if the text is bold"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "italic",
+              "displayName": "True if the text is italicized"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "strikethrough",
+              "displayName": "True if the text has a strikethrough"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "underline",
+              "displayName": "True if the text is underlined."
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "hyperlinkDisplayType",
+              "displayName": "How a hyperlink, if it exists, should be displayed in the cell"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "effectiveFormat",
+              "displayName": "The effective format being used by the cell"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "hyperlink",
+              "displayName": "A hyperlink this cell points to, if any"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "note",
+              "displayName": "Any note on the cell"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "textFormatRuns",
+              "displayName": "Runs of rich text applied to subsections of the cell"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startIndex",
+              "displayName": "The character index where this run starts"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "format",
+              "displayName": "The format of this run, absent values inherit the cell's format"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "dataValidation",
+              "displayName": "A data validation rule on the cell, if any"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "relativeDate",
+              "displayName": "A relative date"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "userEnteredValue",
+              "displayName": "A value the condition is based on"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "inputMessage",
+              "displayName": "A message to show the user when adding data to the cell"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "strict",
+              "displayName": "True if invalid data should be rejected"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "showCustomUi",
+              "displayName": "True if the UI should be customized based on the kind of condition"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "pivotTable",
+              "displayName": "A pivot table anchored at this cell (The size of pivot table itself is computed dynamically based on its data, grouping, filters, values, etc.)"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "source",
+              "displayName": "The range the pivot table is reading data from"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "rows",
+              "displayName": "Each row grouping in the pivot table"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "columns",
+              "displayName": "Each column grouping in the pivot table"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "criteria",
+              "displayName": "An optional mapping of filters per source column offset"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "values",
+              "displayName": "A list of values to include in the pivot table"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "valueLayout",
+              "displayName": "Whether values should be listed horizontally (as columns) or vertically (as rows)"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "fields",
+              "displayName": "The fields that should be updated (A comma-separated list of fully qualified names of fields. Example: 'user.displayName,photo')"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Adds a named range to the spreadsheet",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "namedRange",
+              "displayName": "The named range to update with the new properties is specified, the named range will use that ID."
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "namedRangeId",
+              "displayName": "The ID of the named range"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "name",
+              "displayName": "The name of the named range"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "range",
+              "displayName": "The range this represents"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The sheet this range is on"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startRowIndex",
+              "displayName": "The start row (inclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endRowIndex",
+              "displayName": "The end row (exclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startColumnIndex",
+              "displayName": "The start column (inclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endColumnIndex",
+              "displayName": "The end column (exclusive) of the range, or not set if unbounded"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Removes the named range with the given ID from the spreadsheet",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "namedRangeId",
+              "displayName": "The ID of the named range to delete"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Adds a new sheet",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "properties",
+              "displayName": "The properties the new sheet should have (If a sheetId is specified, the sheet will use that ID)"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The ID of the sheet"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "title",
+              "displayName": "The name of the sheet"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "index",
+              "displayName": "The index of the sheet within the spreadsheet"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "sheetType",
+              "displayName": "The type of sheet"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "gridProperties",
+              "displayName": "Additional properties of the sheet if this sheet is a grid"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "rowCount",
+              "displayName": "The number of rows in the grid"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "columnCount",
+              "displayName": "The number of columns in the grid"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "frozenRowCount",
+              "displayName": "The number of rows that are frozen in the grid"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "frozenColumnCount",
+              "displayName": "The number of columns that are frozen in the grid"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "hideGridlines",
+              "displayName": "True if the grid isn't showing gridlines in the UI"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "hidden",
+              "displayName": "True if the sheet is hidden in the UI, false if it's visible"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "tabColor",
+              "displayName": "The color of the tab in the UI"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "red",
+              "displayName": "The amount of red in the color as a value in the interval [0, 1]"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "green",
+              "displayName": "The amount of green in the color as a value in the interval [0, 1]"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "blue",
+              "displayName": "The amount of blue in the color as a value in the interval [0, 1]"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "alpha",
+              "displayName": "The fraction of this color that should be applied to the pixel {The final pixel color is defined by the equation: pixel color = alpha * (this color) + (1.0 - alpha) * (background color)}"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "rightToLeft",
+              "displayName": "True if the sheet is an RTL sheet instead of an LTR sheet"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Deletes the requested sheet",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The ID of the sheet to delete"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Fills in more data based on existing data",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "useAlternateSeries",
+              "displayName": "True if we should generate data with the 'alternate' series"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "range",
+              "displayName": "The range to autofill"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The sheet this range is on"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startRowIndex",
+              "displayName": "The start row (inclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endRowIndex",
+              "displayName": "The end row (exclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startColumnIndex",
+              "displayName": "The start column (inclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endColumnIndex",
+              "displayName": "The end column (exclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "sourceAndDestination",
+              "displayName": "The source and destination areas to autofill"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "source",
+              "displayName": "The location of the data to use as the source of the autofill"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "dimension",
+              "displayName": "The dimension that data should be filled into"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "fillLength",
+              "displayName": "The number of rows or columns that data should be filled into"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "A combination of a source range and how to extend that source",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "source",
+              "displayName": "The location of the data to use as the source of the autofill"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The sheet this range is on"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startRowIndex",
+              "displayName": "The start row (inclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endRowIndex",
+              "displayName": "The end row (exclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startColumnIndex",
+              "displayName": "The start column (inclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endColumnIndex",
+              "displayName": "The end column (exclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "dimension",
+              "displayName": "The dimension that data should be filled into"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "fillLength",
+              "displayName": "The number of rows or columns that data should be filled into"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Moves data from the source to the destination",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "source",
+              "displayName": "The source data to cut"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The sheet this range is on"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startRowIndex",
+              "displayName": "The start row (inclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endRowIndex",
+              "displayName": "The end row (exclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startColumnIndex",
+              "displayName": "The start column (inclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endColumnIndex",
+              "displayName": "The end column (exclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "destination",
+              "displayName": "The top-left coordinate where the data should be pasted"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The sheet this coordinate is on"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "rowIndex",
+              "displayName": "The row index of the coordinate"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "columnIndex",
+              "displayName": "The column index of the coordinate"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "pasteType",
+              "displayName": "What kind of data to paste (all the source data will be cut, regardless of what is pasted)"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Copies data from the source to the destination",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "source",
+              "displayName": "The source range to copy"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The sheet this range is on"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startRowIndex",
+              "displayName": "The start row (inclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endRowIndex",
+              "displayName": "The end row (exclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startColumnIndex",
+              "displayName": "The start column (inclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endColumnIndex",
+              "displayName": "The end column (exclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "destination",
+              "displayName": "The location to paste to"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "pasteType",
+              "displayName": "What kind of data to paste"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "pasteOrientation",
+              "displayName": "How that data should be oriented when pasting"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Merges all cells in the range",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "range",
+              "displayName": "The range of cells to merge"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The sheet this range is on"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startRowIndex",
+              "displayName": "The start row (inclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endRowIndex",
+              "displayName": "The end row (exclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startColumnIndex",
+              "displayName": "The start column (inclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endColumnIndex",
+              "displayName": "The end column (exclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "mergeType",
+              "displayName": "How the cells should be merged"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Unmerges cells in the given range",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "range",
+              "displayName": "The range within which all cells should be unmerged"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The sheet this range is on"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startRowIndex",
+              "displayName": "The start row (inclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endRowIndex",
+              "displayName": "The end row (exclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startColumnIndex",
+              "displayName": "The start column (inclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endColumnIndex",
+              "displayName": "The end column (exclusive) of the range, or not set if unbounded"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Updates all cells in a range with new data",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "range",
+              "displayName": "The range to write data to"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The sheet this range is on"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startRowIndex",
+              "displayName": "The start row (inclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endRowIndex",
+              "displayName": "The end row (exclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startColumnIndex",
+              "displayName": "The start column (inclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endColumnIndex",
+              "displayName": "The end column (exclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "fields",
+              "displayName": "The fields of CellData that should be updated (A comma-separated list of fully qualified names of fields. Example: 'user.displayName,photo'.)"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "start",
+              "displayName": "The coordinate to start writing data at. Any number of rows and columns (including a different number of columns per row) may be written."
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The sheet this coordinate is on"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "rowIndex",
+              "displayName": "The row index of the coordinate"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "columnIndex",
+              "displayName": "The column index of the coordinate"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "rows",
+              "displayName": "The data to write"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "values",
+              "displayName": "The values in the row, one per column"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "userEnteredValue",
+              "displayName": "The value the user entered in the cell. e.g, 1234, 'Hello', or =NOW() (Note: Dates, Times and DateTimes are represented as doubles in serial number format)"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "numberValue",
+              "displayName": "Represents a double value (Note: Dates, Times and DateTimes are represented as doubles in 'serial number' format)"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "stringValue",
+              "displayName": "Represents a string value"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "boolValue",
+              "displayName": "Represents a boolean value"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "formulaValue",
+              "displayName": "Represents a formula"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "errorValue",
+              "displayName": "Represents an error (This field is read-only)"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "type",
+              "displayName": "The type of error"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "message",
+              "displayName": "A message with more information about the error (in the spreadsheet's locale)"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "effectiveValue",
+              "displayName": "The effective value of the cell. For cells with formulas, this will be the calculated value. (for cells with literals, this will be the same as the userEnteredValue)"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "formattedValue",
+              "displayName": "The formatted value of the cell (This is the value as it's shown to the user)"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "userEnteredFormat",
+              "displayName": "The format the user entered for the cell (When writing, the new format will be merged with the existing format)"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "numberFormat",
+              "displayName": "A format describing how number values should be represented to the user"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "type",
+              "displayName": "The type of the number format (When writing, this field must be set)"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "pattern",
+              "displayName": "Pattern string used for formatting"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "backgroundColor",
+              "displayName": "The background color of the cell"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "top",
+              "displayName": "The top border of the cell"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "style",
+              "displayName": "The style of the border"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "width",
+              "displayName": "The width of the border, in pixels (border widths must be between 0 and 3 pixels, inclusive)"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "color",
+              "displayName": "The color of the border"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "red",
+              "displayName": "The amount of red in the color as a value in the interval [0, 1]"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "green",
+              "displayName": "The amount of green in the color as a value in the interval [0, 1]"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "blue",
+              "displayName": "The amount of blue in the color as a value in the interval [0, 1]"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "alpha",
+              "displayName": "The fraction of this color that should be applied to the pixel {The final pixel color is defined by the equation: pixel color = alpha * (this color) + (1.0 - alpha) * (background color)}"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "left",
+              "displayName": "The left border of the cell"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "right",
+              "displayName": "The right border of the cell"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "padding",
+              "displayName": "The padding of the cell"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "top",
+              "displayName": "The top padding of the cell"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "right",
+              "displayName": "The right padding of the cell"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "left",
+              "displayName": "The left padding of the cell"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "horizontalAlignment",
+              "displayName": "The horizontal alignment of the value in the cell"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "verticalAlignment",
+              "displayName": "The vertical alignment of the value in the cell"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "wrapStrategy",
+              "displayName": "The wrap strategy for the value in the cell"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "textDirection",
+              "displayName": "The direction of the text in the cell"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "textFormat",
+              "displayName": "The format of the text in the cell (unless overridden by a format run)"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "foregroundColor",
+              "displayName": "The foreground color of the text"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "fontFamily",
+              "displayName": "The font family"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "fontSize",
+              "displayName": "The size of the font"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "bold",
+              "displayName": "True if the text is bold"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "italic",
+              "displayName": "True if the text is italicized"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "strikethrough",
+              "displayName": "True if the text has a strikethrough"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "underline",
+              "displayName": "True if the text is underlined."
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "hyperlinkDisplayType",
+              "displayName": "How a hyperlink, if it exists, should be displayed in the cell"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "effectiveFormat",
+              "displayName": "The effective format being used by the cell"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "hyperlink",
+              "displayName": "A hyperlink this cell points to, if any"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "note",
+              "displayName": "Any note on the cell"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "textFormatRuns",
+              "displayName": "Runs of rich text applied to subsections of the cell"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startIndex",
+              "displayName": "The character index where this run starts"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "format",
+              "displayName": "The format of this run, absent values inherit the cell's format"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "dataValidation",
+              "displayName": "A data validation rule on the cell, if any"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "relativeDate",
+              "displayName": "A relative date"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "userEnteredValue",
+              "displayName": "A value the condition is based on"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "inputMessage",
+              "displayName": "A message to show the user when adding data to the cell"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "strict",
+              "displayName": "True if invalid data should be rejected"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "showCustomUi",
+              "displayName": "True if the UI should be customized based on the kind of condition"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "pivotTable",
+              "displayName": "A pivot table anchored at this cell (The size of pivot table itself is computed dynamically based on its data, grouping, filters, values, etc.)"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "source",
+              "displayName": "The range the pivot table is reading data from"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "rows",
+              "displayName": "Each row grouping in the pivot table"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "columns",
+              "displayName": "Each column grouping in the pivot table"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "criteria",
+              "displayName": "An optional mapping of filters per source column offset"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "values",
+              "displayName": "A list of values to include in the pivot table"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "valueLayout",
+              "displayName": "Whether values should be listed horizontally (as columns) or vertically (as rows)"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Adds a filter view",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "filter",
+              "displayName": "The filter to add"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "filterViewId",
+              "displayName": "The ID of the filter view"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "title",
+              "displayName": "The name of the filter view"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "range",
+              "displayName": "The range this filter view covers"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The sheet this range is on"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startRowIndex",
+              "displayName": "The start row (inclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endRowIndex",
+              "displayName": "The end row (exclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startColumnIndex",
+              "displayName": "The start column (inclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endColumnIndex",
+              "displayName": "The end column (exclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "namedRangeId",
+              "displayName": "The named range this filter view is backed by, if any"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "sortSpecs",
+              "displayName": "The sort order per column"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "dimensionIndex",
+              "displayName": "The dimension the sort should be applied to"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "sortOrder",
+              "displayName": "The order data should be sorted"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "criteria",
+              "displayName": "The criteria for showing/hiding values per column"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "sortOrder",
+              "displayName": "The order data should be sorted"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "hiddenValues",
+              "displayName": "Values that should be hidden"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "condition",
+              "displayName": "A condition that must be true for values to be shown"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "type",
+              "displayName": "The type of condition"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "values",
+              "displayName": "The values of the condition"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "relativeDate",
+              "displayName": "A relative date (based on the current date)"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "userEnteredValue",
+              "displayName": "A value the condition is based on"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Adds new cells after the last row with data in a sheet, inserting new rows into the sheet if necessary",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The sheet ID to append the data to"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "rows",
+              "displayName": "The data to append"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "values",
+              "displayName": "The values in the row, one per column"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "values",
+              "displayName": "The values in the row, one per column"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "userEnteredValue",
+              "displayName": "The value the user entered in the cell. e.g, 1234, 'Hello', or =NOW() (Note: Dates, Times and DateTimes are represented as doubles in serial number format)"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "numberValue",
+              "displayName": "Represents a double value (Note: Dates, Times and DateTimes are represented as doubles in 'serial number' format)"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "stringValue",
+              "displayName": "Represents a string value"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "boolValue",
+              "displayName": "Represents a boolean value"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "formulaValue",
+              "displayName": "Represents a formula"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "errorValue",
+              "displayName": "Represents an error (This field is read-only)"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "type",
+              "displayName": "The type of error"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "message",
+              "displayName": "A message with more information about the error (in the spreadsheet's locale)"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "effectiveValue",
+              "displayName": "The effective value of the cell. For cells with formulas, this will be the calculated value. (for cells with literals, this will be the same as the userEnteredValue)"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "formattedValue",
+              "displayName": "The formatted value of the cell (This is the value as it's shown to the user)"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "userEnteredFormat",
+              "displayName": "The format the user entered for the cell (When writing, the new format will be merged with the existing format)"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "numberFormat",
+              "displayName": "A format describing how number values should be represented to the user"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "type",
+              "displayName": "The type of the number format (When writing, this field must be set)"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "pattern",
+              "displayName": "Pattern string used for formatting"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "backgroundColor",
+              "displayName": "The background color of the cell"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "top",
+              "displayName": "The top border of the cell"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "style",
+              "displayName": "The style of the border"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "width",
+              "displayName": "The width of the border, in pixels (border widths must be between 0 and 3 pixels, inclusive)"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "color",
+              "displayName": "The color of the border"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "red",
+              "displayName": "The amount of red in the color as a value in the interval [0, 1]"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "green",
+              "displayName": "The amount of green in the color as a value in the interval [0, 1]"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "blue",
+              "displayName": "The amount of blue in the color as a value in the interval [0, 1]"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "alpha",
+              "displayName": "The fraction of this color that should be applied to the pixel {The final pixel color is defined by the equation: pixel color = alpha * (this color) + (1.0 - alpha) * (background color)}"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "left",
+              "displayName": "The left border of the cell"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "right",
+              "displayName": "The right border of the cell"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "padding",
+              "displayName": "The padding of the cell"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "top",
+              "displayName": "The top padding of the cell"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "right",
+              "displayName": "The right padding of the cell"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "left",
+              "displayName": "The left padding of the cell"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "horizontalAlignment",
+              "displayName": "The horizontal alignment of the value in the cell"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "verticalAlignment",
+              "displayName": "The vertical alignment of the value in the cell"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "wrapStrategy",
+              "displayName": "The wrap strategy for the value in the cell"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "textDirection",
+              "displayName": "The direction of the text in the cell"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "textFormat",
+              "displayName": "The format of the text in the cell (unless overridden by a format run)"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "foregroundColor",
+              "displayName": "The foreground color of the text"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "fontFamily",
+              "displayName": "The font family"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "fontSize",
+              "displayName": "The size of the font"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "bold",
+              "displayName": "True if the text is bold"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "italic",
+              "displayName": "True if the text is italicized"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "strikethrough",
+              "displayName": "True if the text has a strikethrough"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "underline",
+              "displayName": "True if the text is underlined."
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "hyperlinkDisplayType",
+              "displayName": "How a hyperlink, if it exists, should be displayed in the cell"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "effectiveFormat",
+              "displayName": "The effective format being used by the cell"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "hyperlink",
+              "displayName": "A hyperlink this cell points to, if any"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "note",
+              "displayName": "Any note on the cell"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "textFormatRuns",
+              "displayName": "Runs of rich text applied to subsections of the cell"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startIndex",
+              "displayName": "The character index where this run starts"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "format",
+              "displayName": "The format of this run, absent values inherit the cell's format"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "dataValidation",
+              "displayName": "A data validation rule on the cell, if any"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "relativeDate",
+              "displayName": "A relative date"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "userEnteredValue",
+              "displayName": "A value the condition is based on"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "inputMessage",
+              "displayName": "A message to show the user when adding data to the cell"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "strict",
+              "displayName": "True if invalid data should be rejected"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "showCustomUi",
+              "displayName": "True if the UI should be customized based on the kind of condition"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "pivotTable",
+              "displayName": "A pivot table anchored at this cell (The size of pivot table itself is computed dynamically based on its data, grouping, filters, values, etc.)"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "source",
+              "displayName": "The range the pivot table is reading data from"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "rows",
+              "displayName": "Each row grouping in the pivot table"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "columns",
+              "displayName": "Each column grouping in the pivot table"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "criteria",
+              "displayName": "An optional mapping of filters per source column offset"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "values",
+              "displayName": "A list of values to include in the pivot table"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "valueLayout",
+              "displayName": "Whether values should be listed horizontally (as columns) or vertically (as rows)"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "fields",
+              "displayName": "The fields of CellData that should be updated (A comma-separated list of fully qualified names of fields. Example: 'user.displayName,photo')"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Clears the basic filter, if any exists on the sheet",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The sheet ID on which the basic filter should be cleared"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Deletes the dimensions from the sheet",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "range",
+              "displayName": "The dimensions to delete from the sheet"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The sheet this span is on"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "dimension",
+              "displayName": "The dimension of the span"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startIndex",
+              "displayName": "The start (inclusive) of the span, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endIndex",
+              "displayName": "The end (exclusive) of the span, or not set if unbounded"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Deletes the embedded object with the given ID",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "objectId",
+              "displayName": "The ID of the embedded object to delete"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Deletes a particular filter view",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "filterId",
+              "displayName": "The ID of the filter to delete"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Duplicates a particular filter view",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "filterId",
+              "displayName": "The ID of the filter being duplicated"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Duplicates the contents of a sheet",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sourceSheetId",
+              "displayName": "The sheet to duplicate"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "insertSheetIndex",
+              "displayName": "The zero-based index where the new sheet should be inserted. The index of all sheets after this are incremented."
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "newSheetId",
+              "displayName": "If set, it will be the ID of the new sheet"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "newSheetName",
+              "displayName": "The name of the new sheet"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Finds and replaces data in cells over a range, sheet, or all sheets",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "find",
+              "displayName": "The value to search"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "replacement",
+              "displayName": "The value to use as the replacement"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "matchCase",
+              "displayName": "True if the search is case sensitive"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "matchEntireCell",
+              "displayName": "True if the find value should match the entire cell"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "searchByRegex",
+              "displayName": "True if the find value is a regex"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "includeFormulas",
+              "displayName": "True if the search should include cells with formulas"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "range",
+              "displayName": "The range to find/replace over"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The sheet this range is on"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startRowIndex",
+              "displayName": "The start row (inclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endRowIndex",
+              "displayName": "The end row (exclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startColumnIndex",
+              "displayName": "The start column (inclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endColumnIndex",
+              "displayName": "The end column (exclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The sheet to find/replace over"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "allSheets",
+              "displayName": "True to find/replace over all sheets"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Inserts rows or columns in a sheet at a particular index",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "range",
+              "displayName": "The dimensions to insert. Both the start and end indexes must be bounded."
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The sheet this span is on"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "dimension",
+              "displayName": "The dimension of the span"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startIndex",
+              "displayName": "The start (inclusive) of the span, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endIndex",
+              "displayName": "The end (exclusive) of the span, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "inheritFromBefore",
+              "displayName": "Whether dimension properties should be extended from the dimensions before or after the newly inserted dimensions. True to inherit from the dimensions before (in which case the start index must be greater than 0), and false to inherit from the dimensions after."
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Moves one or more rows or columns",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "source",
+              "displayName": "The source dimensions to move"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The sheet this span is on"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "dimension",
+              "displayName": "The dimension of the span"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startIndex",
+              "displayName": "The start (inclusive) of the span, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endIndex",
+              "displayName": "The end (exclusive) of the span, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "destinationIndex",
+              "displayName": "The zero-based start index of where to move the source data to, based on the coordinates before the source data is removed from the grid"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Update an embedded object's position (such as a moving or resizing a chart or image)",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "objectId",
+              "displayName": "The ID of the object to moved"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "newPosition",
+              "displayName": "An explicit position to move the embedded object to"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The sheet this is on. Set only if the embedded object is on its own sheet."
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "overlayPosition",
+              "displayName": "The position at which the object is overlaid on top of a grid"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "anchorCell",
+              "displayName": "The cell the object is anchored to"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The sheet this coordinate is on"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "rowIndex",
+              "displayName": "The row index of the coordinate"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "columnIndex",
+              "displayName": "The column index of the coordinate"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "offsetXPixels",
+              "displayName": "The horizontal offset, in pixels, that the object is offset from the anchor cell"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "offsetYPixels",
+              "displayName": "The vertical offset, in pixels, that the object is offset from the anchor cell"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "widthPixels",
+              "displayName": "The width of the object, in pixels. Defaults to 600."
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "heightPixels",
+              "displayName": "The height of the object, in pixels. Defaults to 371."
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "newSheet",
+              "displayName": "If true, the embedded object will be put on a new sheet whose ID is chosen for you"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Inserts data into the spreadsheet starting at the specified coordinate",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "coordinate",
+              "displayName": "The coordinate at which the data should start being inserted"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The sheet this coordinate is on"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "rowIndex",
+              "displayName": "The row index of the coordinate"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "columnIndex",
+              "displayName": "The column index of the coordinate"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "data",
+              "displayName": "The data to insert"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "type",
+              "displayName": "How the data should be pasted"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "delimiter",
+              "displayName": "The delimiter in the data"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "html",
+              "displayName": "True if the data is HTML"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Splits a column of text into multiple columns, based on a delimiter in each cell",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "source",
+              "displayName": "The source data range. This must span exactly one column."
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The sheet this range is on"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startRowIndex",
+              "displayName": "The start row (inclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endRowIndex",
+              "displayName": "The end row (exclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startColumnIndex",
+              "displayName": "The start column (inclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endColumnIndex",
+              "displayName": "The end column (exclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "delimiter",
+              "displayName": "The delimiter to use (used only if delimiterType is CUSTOM)"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "delimiterType",
+              "displayName": "The delimiter type to use"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Updates properties of the filter view",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "filter",
+              "displayName": "The new properties of the filter view"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "filterViewId",
+              "displayName": "The ID of the filter view"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "title",
+              "displayName": "The name of the filter view"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "range",
+              "displayName": "The range this filter view covers"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The sheet this range is on"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startRowIndex",
+              "displayName": "The start row (inclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endRowIndex",
+              "displayName": "The end row (exclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startColumnIndex",
+              "displayName": "The start column (inclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endColumnIndex",
+              "displayName": "The end column (exclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "namedRangeId",
+              "displayName": "The named range this filter view is backed by, if any"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "sortSpecs",
+              "displayName": "The sort order per column"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "dimensionIndex",
+              "displayName": "The dimension the sort should be applied to"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "sortOrder",
+              "displayName": "The order data should be sorted"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "criteria",
+              "displayName": "The criteria for showing/hiding values per column"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "sortOrder",
+              "displayName": "The order data should be sorted"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "hiddenValues",
+              "displayName": "Values that should be hidden"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "condition",
+              "displayName": "A condition that must be true for values to be shown"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "fields",
+              "displayName": "The fields that should be updated"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Appends rows or columns to the end of a sheet",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The sheet to append rows or columns to"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "dimension",
+              "displayName": "Whether rows or columns should be appended"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "length",
+              "displayName": "The number of rows or columns to append"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Adds a new conditional format rule at the given index. All subsequent rules' indexes are incremented.",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "rule",
+              "displayName": "The rule to add"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "index",
+              "displayName": "The zero-based index where the rule should be inserted"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Deletes a conditional format rule at the given index. All subsequent rules' indexes are decremented.",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "index",
+              "displayName": "The zero-based index of the rule to be deleted."
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The sheet the rule is being deleted from"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Sorts data in rows based on a sort order per column",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "range",
+              "displayName": "The range to sort"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The sheet this range is on"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startRowIndex",
+              "displayName": "The start row (inclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endRowIndex",
+              "displayName": "The end row (exclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startColumnIndex",
+              "displayName": "The start column (inclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endColumnIndex",
+              "displayName": "The end column (exclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "sortSpecs",
+              "displayName": "The sort order per column (Later specifications are used when values are equal in the earlier specifications)"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "dimensionIndex",
+              "displayName": "The dimension the sort should be applied to"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "sortOrder",
+              "displayName": "The order data should be sorted"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Sets a data validation rule to every cell in the range",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "range",
+              "displayName": "The range to sort"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The sheet this range is on"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startRowIndex",
+              "displayName": "The start row (inclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endRowIndex",
+              "displayName": "The end row (exclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startColumnIndex",
+              "displayName": "The start column (inclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endColumnIndex",
+              "displayName": "The end column (exclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "rule",
+              "displayName": "The data validation rule to set on each cell in the range, or empty to clear the data validation in the range"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "condition",
+              "displayName": "The condition that data in the cell must match"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "type",
+              "displayName": "The type of condition"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "values",
+              "displayName": "The values of the condition"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "relativeDate",
+              "displayName": "A relative date (based on the current date)"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "userEnteredValue",
+              "displayName": "A value the condition is based on"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "inputMessage",
+              "displayName": "A message to show the user when adding data to the cell"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "strict",
+              "displayName": "True if invalid data should be rejected"
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "showCustomUi",
+              "displayName": "True if the UI should be customized based on the kind of condition"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Sets the basic filter associated with a sheet",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "filter",
+              "displayName": "The filter to set"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "range",
+              "displayName": "The range the filter covers"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The sheet this range is on"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startRowIndex",
+              "displayName": "The start row (inclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endRowIndex",
+              "displayName": "The end row (exclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startColumnIndex",
+              "displayName": "The start column (inclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endColumnIndex",
+              "displayName": "The end column (exclusive) of the range, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "sortSpecs",
+              "displayName": "The sort order per column"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "dimensionIndex",
+              "displayName": "The dimension the sort should be applied to"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "sortOrder",
+              "displayName": "The order data should be sorted"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "criteria",
+              "displayName": "The criteria for showing/hiding values per column"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "hiddenValues",
+              "displayName": "Values that should be hidden"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "condition",
+              "displayName": "A condition that must be true for values to be shown"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "type",
+              "displayName": "The type of condition"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "values",
+              "displayName": "The values of the condition"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "relativeDate",
+              "displayName": "A relative date (based on the current date)"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "userEnteredValue",
+              "displayName": "A value the condition is based on"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Automatically resizes one or more dimensions based on the contents of the cells in that dimension",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "dimensions",
+              "displayName": "The dimensions to automatically resize (Only COLUMNS are supported)"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The sheet this span is on"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "dimension",
+              "displayName": "The dimension of the span"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "startIndex",
+              "displayName": "The start (inclusive) of the span, or not set if unbounded"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "endIndex",
+              "displayName": "The end (exclusive) of the span, or not set if unbounded"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Adds a chart to a sheet in the spreadsheet",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "chart",
+              "displayName": "The chart that should be added to the spreadsheet, including the position where it should be placed"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "chartId",
+              "displayName": "The ID of the chart"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "spec",
+              "displayName": "The specification of the chart"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "title",
+              "displayName": "The title of the chart"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "hiddenDimensionStrategy",
+              "displayName": "Determines how the charts will use hidden rows or columns"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The sheet this is on (set only if the embedded object is on its own sheet)"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "overlayPosition",
+              "displayName": "The position at which the object is overlaid on top of a grid"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "anchorCell",
+              "displayName": "The cell the object is anchored to"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "sheetId",
+              "displayName": "The sheet this coordinate is on"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "rowIndex",
+              "displayName": "The row index of the coordinate"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "columnIndex",
+              "displayName": "The column index of the coordinate"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "offsetXPixels",
+              "displayName": "The horizontal offset, in pixels, that the object is offset from the anchor cell"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "offsetYPixels",
+              "displayName": "The vertical offset, in pixels, that the object is offset from the anchor cell"
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "widthPixels",
+              "displayName": "The width of the object, in pixels. Defaults to 600."
+            },
+            {
+              "style": "body",
+              "type": "number",
+              "name": "heightPixels",
+              "displayName": "The height of the object, in pixels. Defaults to 371."
+            },
+            {
+              "style": "body",
+              "type": "boolean",
+              "name": "newSheet",
+              "displayName": "If true, the embedded object will be put on a new sheet whose ID is chosen for you"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Updates a chart's specifications",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to apply the updates to",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "chartId",
+              "displayName": "The ID of the chart to update"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets",
+          "displayName": "Creates a spreadsheet, returning the newly created spreadsheet",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "body",
+              "type": "object",
+              "name": "spreadsheetId",
+              "displayName": "The ID of the spreadsheet. This field is read-only."
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "properties",
+              "displayName": "Overall properties of a spreadsheet"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "sheets",
+              "displayName": "The sheets that are part of a spreadsheet"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "namedRanges",
+              "displayName": "The named ranges defined in a spreadsheet"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId",
+          "displayName": "Gets the spreadsheet at the given ID",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+          },
+          "httpMethod": "GET",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The spreadsheet to request",
+              "required": "true"
+            },
+            {
+              "style": "query",
+              "type": "string",
+              "name": "ranges",
+              "displayName": "The ranges to retrieve from the spreadsheet"
+            },
+            {
+              "style": "query",
+              "type": "boolean",
+              "name": "includeGridData",
+              "displayName": "True if grid data should be returned. This parameter is ignored if a field mask was set in the request."
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId/sheets/:sheetId",
+          "displayName": "Automatically resizes one or more dimensions based on the contents of the cells in that dimension",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId/sheets/:sheetId"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet containing the sheet to copy",
+              "required": "true"
+            },
+            {
+              "style": "URL",
+              "type": "number",
+              "name": ":sheetId",
+              "displayName": "The ID of the sheet to copy",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "destinationSpreadsheetId",
+              "displayName": "The ID of the spreadsheet to copy the sheet to"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId/sheets/:sheetId"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId/values",
+          "displayName": "Gets one or more ranges of values from a spreadsheet",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId/values"
+          },
+          "httpMethod": "GET",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to retrieve data from",
+              "required": "true"
+            },
+            {
+              "style": "query",
+              "type": "string",
+              "name": "ranges",
+              "displayName": "The A1 notation of the values to retrieve"
+            },
+            {
+              "style": "query",
+              "type": "enum",
+              "name": "majorDimension",
+              "displayName": "The major dimension that results should use"
+            },
+            {
+              "style": "query",
+              "type": "enum",
+              "name": "valueRenderOption",
+              "displayName": "How values should be represented in the output"
+            },
+            {
+              "style": "query",
+              "type": "enum",
+              "name": "dateTimeRenderOption",
+              "displayName": "How dates, times, and durations should be represented in the output"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId/values"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId/values",
+          "displayName": "Sets values in one or more ranges of a spreadsheet",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId/values"
+          },
+          "httpMethod": "POST",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to update",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "valueInputOption",
+              "displayName": "How the input data should be interpreted"
+            },
+            {
+              "style": "body",
+              "type": "object",
+              "name": "data",
+              "displayName": "The new values to apply to the spreadsheet"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "range",
+              "displayName": "The range the values cover, in A1 notation"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "majorDimension",
+              "displayName": "The major dimension of the values"
+            },
+            {
+              "style": "body",
+              "type": "array",
+              "name": "values",
+              "displayName": "The data that was read or to be written"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId/values"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId/values/:range",
+          "displayName": "Gets a range of values from a spreadsheet",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId/values/:range"
+          },
+          "httpMethod": "GET",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to retrieve data from",
+              "required": "true"
+            },
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":range",
+              "displayName": "The A1 notation of the values to retrieve",
+              "required": "true"
+            },
+            {
+              "style": "query",
+              "type": "enum",
+              "name": "majorDimension",
+              "displayName": "The major dimension that results should use"
+            },
+            {
+              "style": "query",
+              "type": "enum",
+              "name": "valueRenderOption",
+              "displayName": "How values should be represented in the output"
+            },
+            {
+              "style": "query",
+              "type": "enum",
+              "name": "dateTimeRenderOption",
+              "displayName": "How dates, times, and durations should be represented in the output"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId/values/:range"
+        },
+        {
+          "path": "/spreadsheets/:spreadsheetId/values/:range",
+          "displayName": "Sets values in a range of a spreadsheet",
+          "doc": {
+            "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId/values/:range"
+          },
+          "httpMethod": "PUT",
+          "params": [
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":spreadsheetId",
+              "displayName": "The ID of the spreadsheet to update",
+              "required": "true"
+            },
+            {
+              "style": "URL",
+              "type": "string",
+              "name": ":range",
+              "displayName": "The A1 notation of the values to update",
+              "required": "true"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "valueInputOption",
+              "displayName": "How the input data should be interpreted"
+            },
+            {
+              "style": "body",
+              "type": "string",
+              "name": "range",
+              "displayName": "The range the values cover, in A1 notation"
+            },
+            {
+              "style": "body",
+              "type": "enum",
+              "name": "majorDimension",
+              "displayName": "The major dimension of the values"
+            },
+            {
+              "style": "body",
+              "type": "array",
+              "name": "values",
+              "displayName": "The data that was read or to be written"
+            }
+          ],
+          "url": "https://sheets.googleapis.com/v4/spreadsheets/:spreadsheetId/values/:range"
+        }
+      ]
+    }
+  }
