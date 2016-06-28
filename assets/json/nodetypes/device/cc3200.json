@@ -1,7 +1,9 @@
 {
   "_id": "546e4ddcb0f01467ee1d670a",
   "category": "microblu",
-  "categories":["Maker"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "CC3200 Launchpad",
   "helpText": "A wireless MCU that integrates a high-performance ARM® Cortex®-M4 MCU allowing customers to develop an entire application with a single IC. The board features on-board emulation using FTDI and includes sensors for a full out-of-the-box experience.",
   "enabled": false,
@@ -11,5 +13,6 @@
     "type": "device",
     "subtype": "cc3200"
   },
-  "type": "device:cc3200"
+  "type": "device:cc3200",
+  "deprecated": true
 }

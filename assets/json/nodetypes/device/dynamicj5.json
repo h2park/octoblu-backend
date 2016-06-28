@@ -1,7 +1,9 @@
 {
   "_id": "device-dynamicj5",
   "category": "device",
-  "categories":["Maker"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Johnny Five",
   "documentation": "https://legacy-connectors.readme.io/docs/johnny-five",
   "helpText": "JavaScript Robotics and IoT programming framework, developed at Bocoup.  Based on Arduino Firmata Protocol.",
@@ -12,5 +14,6 @@
     "subtype": "dynamicj5"
   },
   "type": "device:dynamicj5",
-  "connector": "meshblu-connector-arduino"
+  "connector": "meshblu-connector-arduino",
+  "deprecated": true
 }

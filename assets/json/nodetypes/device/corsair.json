@@ -1,7 +1,9 @@
 {
   "_id": "corsair-rgb",
   "category": "device",
-  "categories":["Maker"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Corsair RGB Keyboard Plugin",
   "documentation": "https://legacy-connectors.readme.io/docs/corsair",
   "helpText": "A Gateblu plugin to control the LEDs of a Corsair Keyboard",
@@ -11,5 +13,6 @@
     "type": "device:corsair"
   },
   "type": "device:corsair",
-  "connector": "meshblu-connector-corsair"
+  "connector": "meshblu-connector-corsair",
+  "deprecated": true
 }

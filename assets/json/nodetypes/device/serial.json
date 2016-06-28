@@ -1,7 +1,9 @@
 {
   "_id": "device-serial",
   "category": "device",
-  "categories":["Maker"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Serial access",
   "documentation": "https://legacy-connectors.readme.io/docs/serial",
   "helpText": "Lets you read and write to a serial port through a Gateblu.",
@@ -12,5 +14,6 @@
     "subtype": "serial"
   },
   "connector": "meshblu-serial",
-  "type": "device:serial"
+  "type": "device:serial",
+  "deprecated": true
 }

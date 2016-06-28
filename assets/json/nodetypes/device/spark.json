@@ -1,7 +1,9 @@
 {
   "_id": "53c9b830f400e177dca325ab",
   "category": "device",
-  "categories":["Maker"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Spark device",
   "helpText": "Microblu for spark core device.",
   "enabled": false,
@@ -11,5 +13,6 @@
     "type": "device",
     "subtype": "spark"
   },
-  "type": "device:spark"
+  "type": "device:spark",
+  "deprecated": true
 }

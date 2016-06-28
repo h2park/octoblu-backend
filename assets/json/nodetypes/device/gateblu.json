@@ -1,7 +1,9 @@
 {
   "_id": "53c9b831f400e177dca325b0",
   "category": "gateblu",
-  "categories":["Octoblu"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Meshblu device connection manager",
   "helpText": "Gateblu is Octoblu's gateway to the physical world of IoT. Gateblu allows you to connect smart devices, motors, servos, sensors, and additional protocols to Meshblu and Octoblu!",
   "enabled": true,
@@ -9,5 +11,6 @@
   "skynet": {
     "type": "device:gateblu"
   },
-  "type": "device:gateblu"
+  "type": "device:gateblu",
+  "deprecated": true
 }

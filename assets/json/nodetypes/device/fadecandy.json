@@ -1,7 +1,9 @@
 {
   "_id": "device-fadecandy",
   "category": "device",
-  "categories":["Maker"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "FadeCandy device",
   "documentation": "https://legacy-connectors.readme.io/docs/fadecandy",
   "helpText": "Fadecandy is a NeoPixel driver with built in dithering, that can be controlled over USB. Fadecandy is not just hardware! It is a kit of both hardware and software parts that make LED art projects easier to build.",
@@ -12,5 +14,6 @@
     "subtype": "fadecandy"
   },
   "connector": "meshblu-fadecandy",
-  "type": "device:fadecandy"
+  "type": "device:fadecandy",
+  "deprecated": true
 }

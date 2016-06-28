@@ -1,7 +1,9 @@
 {
   "_id": "54a91a102ef277e103b65404",
   "category": "device",
-  "categories":["Maker"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Relayr",
   "documentation": "https://developer.relayr.io/documents/relayrAPI/Introduction",
   "helpText": "Relayr works to accelerate businesses, small and large, into the Internet of Things! The WunderBAR sensors connect to Arduino and RaspberryPi to quickly get data like temperature, sound levels, and light.",
@@ -12,5 +14,6 @@
     "subtype": "relayr"
   },
   "type": "device:relayr",
-  "connector": "meshblu-relayr"
+  "connector": "meshblu-relayr",
+  "deprecated": true
 }

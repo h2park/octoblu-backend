@@ -1,10 +1,13 @@
 {
   "_id": "57322d662efb756393c99a1f",
   "category": "device",
-  "categories":["Citrix"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Citrix Insight Services",
   "helpText": "Connect Citrix Insight Services to Octoblu",
   "enabled": true,
   "name": "Citrix Insight Service",
-  "type": "device:cis"
+  "type": "device:cis",
+  "deprecated": true
 }

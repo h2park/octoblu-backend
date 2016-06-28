@@ -1,7 +1,9 @@
 {
   "_id": "53c9b830f400e177dca325aa",
   "category": "device",
-  "categories":["Maker"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Beagle Bone",
   "helpText": "A credit-card-sized Linux computer that connects to the Internet and runs software such as Android 4.0 and Ubuntu. With plenty of I/O and processing power for real-time analysis, BeagleBone can be complemented with cape plug-in boards to augment functionality.",
   "enabled": false,
@@ -11,5 +13,6 @@
     "type": "device",
     "subtype": "beaglebone"
   },
-  "type": "device:beaglebone"
+  "type": "device:beaglebone",
+  "deprecated": true
 }

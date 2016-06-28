@@ -1,7 +1,9 @@
 {
   "_id": "53c9b82ff400e177dca325a7",
   "category": "device",
-  "categories":["Maker"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Blink1 USB LED",
   "documentation": "https://legacy-connectors.readme.io/docs/blink1",
   "helpText": "The world's best indicator light, designed to give you glanceable notice of anything on your computer or the internet. Blink(1) makes it easy to connect data sources in the cloud or on your computer to a full-color RGB LED so you can know what’s happening without checking any windows, going to any websites or typing any command.",
@@ -12,5 +14,6 @@
     "subtype": "blink1"
   },
   "connector": "meshblu-blink1",
-  "type": "device:blink1"
+  "type": "device:blink1",
+  "deprecated": true
 }

@@ -1,7 +1,9 @@
 {
   "_id": "device-tentacle-serial",
   "category": "device",
-  "categories":["Maker"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "The Tentacle. Control Microcontrollers with Octoblu!",
   "documentation": "https://tentacle.readme.io/",
   "helpText": "A collection of open-source libraries and services that allow microcontrollers to communicate with Meshblu. Tentacle Serial communicates through serial port and is added as a Gateblu device.",
@@ -11,5 +13,6 @@
     "type": "device:tentacle-serial"
   },
   "connector": "meshblu-tentacle",
-  "type": "device:tentacle-serial"
+  "type": "device:tentacle-serial",
+  "deprecated": true
 }

@@ -1,7 +1,9 @@
 {
   "_id": "28be4cebbbbc8bbaf576d6f3",
   "category": "device",
-  "categories":["Healthcare Devices"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Polar Heart Rate Monitor",
   "helpText": "Offers a high-quality selection of heart rate monitors for running, triathlon, fitness & cross-training, as well as GPS-enabled cycling computers.",
   "enabled": true,
@@ -11,5 +13,6 @@
     "subtype": "polar"
   },
   "type": "device:polar",
-  "connector": "meshblu-ble-heartrate"
+  "connector": "meshblu-ble-heartrate",
+  "deprecated": true
 }

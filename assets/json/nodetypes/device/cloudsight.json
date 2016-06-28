@@ -1,7 +1,9 @@
 {
   "_id": "device-cloudsight",
   "category": "device",
-  "categories":["Maker"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Recognize base64 images using cloudsight.",
   "documentation": "https://legacy-connectors.readme.io/docs/cloudsight",
   "helpText": "Send a base64 image to have it recognized, it can take a few seconds for it to process.",
@@ -12,5 +14,6 @@
     "subtype": "cloudsight"
   },
   "connector": "meshblu-img-2-text",
-  "type": "device:cloudsight"
+  "type": "device:cloudsight",
+  "deprecated": true
 }

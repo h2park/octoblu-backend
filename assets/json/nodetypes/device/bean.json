@@ -1,7 +1,9 @@
 {
   "_id": "5f8f2fa1349c4a1293109486",
   "category": "device",
-  "categories":["Maker"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Lightblue Bean",
   "documentation": "https://legacy-connectors.readme.io/docs/light-blue-bean",
   "helpText": "The LightBlue Bean is a low energy Bluetooth Arduino microcontroller. Using Bluetooth 4.0, it is programmed wirelessly, runs on a coin cell battery, and is perfect for any project. Interact with proximity, acceleromitor, and temperature data.",
@@ -12,5 +14,6 @@
     "subtype": "bean"
   },
   "type": "device:bean",
-  "connector": "meshblu-bean"
+  "connector": "meshblu-bean",
+  "deprecated": true
 }

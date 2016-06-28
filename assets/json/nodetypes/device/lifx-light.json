@@ -1,7 +1,9 @@
 {
   "_id": "55cca8cbfae1668be17a8eb1",
   "category": "device",
-  "categories":["Facilities Automation"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Lifx Single Light",
   "documentation": "https://legacy-connectors.readme.io/docs/lifx-bulbs",
   "helpText": "LIFX lets you get more out of light with their multi-color LED smart lightbulb. Interact directly with the hardware by connecting LIFX to gateblu and changing the name property to match the one in the LIFX app.",
@@ -12,5 +14,6 @@
     "subtype": "lifx-light"
   },
   "type": "device:lifx-light",
-  "connector": "meshblu-lifx-light"
+  "connector": "meshblu-lifx-light",
+  "deprecated": true
 }

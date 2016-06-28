@@ -1,7 +1,9 @@
 {
   "_id": "device-midi",
   "category": "device",
-  "categories":["Maker"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Midi connector for Octoblu",
   "documentation": "https://legacy-connectors.readme.io/docs/osc",
   "helpText": "Send midi messages to Octoblu.",
@@ -12,5 +14,6 @@
     "subtype": "midi"
   },
   "connector": "meshblu-midi",
-  "type": "device:midi"
+  "type": "device:midi",
+  "deprecated": true
 }

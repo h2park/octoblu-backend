@@ -1,7 +1,9 @@
 {
   "_id": "55ba98c4fa3829d26c3db5cb",
   "category": "device",
-  "categories":["Facilities Automation"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Device Discoverer",
   "helpText": "Use this device to discover hues light bulbs and bridges, lifx, and chromecast.",
   "enabled": true,
@@ -11,5 +13,6 @@
     "subtype": "device-discoverer"
   },
   "connector": "meshblu-device-discoverer",
-  "type": "device:device-discoverer"
+  "type": "device:device-discoverer",
+  "deprecated": true
 }

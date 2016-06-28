@@ -1,7 +1,9 @@
 {
   "_id": "firebase-device",
   "category": "device",
-  "categories":["Productivity"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Firebase Forwarder",
   "logo": "https://ds78apnml6was.cloudfront.net/channel/firebase.svg",
   "documentation": "https://legacy-connectors.readme.io",
@@ -12,5 +14,6 @@
     "type": "device:firebase"
   },
   "type": "device:firebase",
-  "connector": "meshblu-firebase"
+  "connector": "meshblu-firebase",
+  "deprecated": true
 }

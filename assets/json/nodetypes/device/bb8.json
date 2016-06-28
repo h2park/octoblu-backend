@@ -1,7 +1,9 @@
 {
   "_id": "bb8",
   "category": "device",
-  "categories":["Maker"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Plugin for BLE Sphero BB-8",
   "documentation": "https://legacy-connectors.readme.io/docs/sphero-bb8",
   "helpText": "Plugin for BLE Sphero BB-8",
@@ -12,5 +14,6 @@
     "subtype": "sphero-bb-8"
   },
   "connector": "meshblu-bb-8",
-  "type": "device:sphero-bb-8"
+  "type": "device:sphero-bb-8",
+  "deprecated": true
 }

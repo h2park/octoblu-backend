@@ -1,7 +1,9 @@
 {
   "_id": "385bc510-1ea2-43aa-bed9-af120cf16890",
   "category": "device",
-  "categories":["Facilities Automation"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "AllJoyn",
   "documentation": "https://allseenalliance.org/docs/api/cpp/annotated.html",
   "helpText": "AllJoyn is a collaborative open-source software framework that makes it easy for devices and apps to discover and communicate with each other. Control features of Alljoyn connected devices such as TV notifications and interact with alljoyn events.",
@@ -12,5 +14,6 @@
     "subtype": "alljoyn"
   },
   "type": "device:alljoyn",
-  "connector": "meshblu-alljoyn"
+  "connector": "meshblu-alljoyn",
+  "deprecated": true
 }

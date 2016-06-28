@@ -1,7 +1,9 @@
 {
   "_id": "parrot-minidrone",
   "category": "device",
-  "categories":["Maker"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Gateblu plugin to control single or swarms of BLE minidrones from Parrot",
   "documentation": "https://legacy-connectors.readme.io/docs/parrot-minidrones",
   "helpText": "Plugin for remote controlling AR drones.",
@@ -12,5 +14,6 @@
     "subtype": "rolling-spider"
   },
   "connector": "meshblu-rolling-spider",
-  "type": "device:rolling-spider"
+  "type": "device:rolling-spider",
+  "deprecated": true
 }

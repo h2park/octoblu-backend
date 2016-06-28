@@ -1,7 +1,9 @@
 {
   "_id": "53c9b830f400e177dca325a9",
   "category": "microblu",
-  "categories":["Maker"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Intel Galileo",
   "helpText": "The first in a line of Arduino-certified development boards based on Intel x86 architecture and is designed for the maker and education communities.",
   "enabled": false,
@@ -10,5 +12,6 @@
     "type": "device",
     "subtype": "arduino"
   },
-  "type": "device:galileo"
+  "type": "device:galileo",
+  "deprecated": true
 }

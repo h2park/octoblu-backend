@@ -1,7 +1,9 @@
 {
   "_id": "54c95e10c6caa4da13042abd",
   "category": "device",
-  "categories":["Connected Car"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Local Motors Rally Fighter",
   "helpText": "The Local Motors Rally Fighter is the world's first open source, crowd funded car. Connect and control the internet connected car's doors, lights, and more.",
   "enabled": false,
@@ -11,5 +13,6 @@
     "subtype": "rallyfighter"
   },
   "connector": "meshblu-rallyfighter",
-  "type": "device:rallyfighter"
+  "type": "device:rallyfighter",
+  "deprecated": true
 }

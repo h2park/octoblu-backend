@@ -1,7 +1,9 @@
 {
   "_id": "5557c75bd09572cd87af1ed9",
   "category": "device",
-  "categories":["Maker"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Gateblu Beacon",
   "documentation": "https://legacy-connectors.readme.io/docs/beacon",
   "helpText": "Gateblu plugin for scanning beacons. Connect your beacons to Octoblu and read their data.",
@@ -12,5 +14,6 @@
     "subtype": "beacon"
   },
   "connector": "meshblu-beacon",
-  "type": "device:beacon"
+  "type": "device:beacon",
+  "deprecated": true
 }

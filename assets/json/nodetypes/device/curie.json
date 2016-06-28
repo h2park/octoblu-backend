@@ -1,7 +1,9 @@
 {
   "_id": "device-curie",
   "category": "device",
-  "categories":["Maker"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Arduino101/Genuino101 Curie Plugin",
   "documentation": "https://legacy-connectors.readme.io/docs/meshblu-curie",
   "helpText": "Arduino101/Genuino101 Curie connector that uses Johnny-Five and BLE-Serial",
@@ -12,5 +14,6 @@
     "subtype": "curie"
   },
   "type": "device:curie",
-  "connector": "meshblu-connector-curie"
+  "connector": "meshblu-connector-curie",
+  "deprecated": true
 }

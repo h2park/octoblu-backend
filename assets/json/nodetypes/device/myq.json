@@ -1,7 +1,9 @@
 {
   "_id": "c6ac481aa135c447f3ecc4cf",
   "category": "device",
-  "categories":["Facilities Automation"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "MyQ",
   "documentation": "http://docs.unofficialliftmastermyq.apiary.io/",
   "helpText": "MyQ® Accessories let you take full advantage of your MyQ-Enabled Garage Door or Gate Operator. By tapping into the power of your Internet Gateway, you can monitor and control your home’s or business’s garage door, gate or lighting from your smartphone, tablet or computer.",
@@ -12,5 +14,6 @@
     "subtype": "myq"
   },
   "type": "device:myq",
-  "connector": "meshblu-myq"
+  "connector": "meshblu-myq",
+  "deprecated": true
 }

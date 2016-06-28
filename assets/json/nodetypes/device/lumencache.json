@@ -1,7 +1,9 @@
 {
   "_id": "device-lumencache",
   "category": "device",
-  "categories":["Facilities Automation"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Control your Lumencache lighting system",
   "helpText": "The LumenCache platform replaces traditional 110V AC power distribution in buildings with a new standard more appropriate to the low power needs and digital capabilities of electronic devices including LED lights.",
   "enabled": true,
@@ -11,5 +13,6 @@
     "subtype": "lumencache"
   },
   "connector": "meshblu-lumencache",
-  "type": "device:lumencache"
+  "type": "device:lumencache",
+  "deprecated": true
 }

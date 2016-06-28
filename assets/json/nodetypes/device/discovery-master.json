@@ -1,7 +1,9 @@
 {
   "_id": "55cca8a64ecd5f14931c479f",
   "category": "device",
-  "categories":["Facilities Automation"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Discovery Master",
   "helpText": "Use this device to discover hue lightbulbs, lifx and chromecast then automatically add them to your account and gateblu.",
   "enabled": true,
@@ -11,5 +13,6 @@
     "subtype": "discovery-master"
   },
   "connector": "meshblu-discovery-master",
-  "type": "device:discovery-master"
+  "type": "device:discovery-master",
+  "deprecated": true
 }

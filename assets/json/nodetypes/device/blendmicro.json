@@ -1,7 +1,9 @@
 {
   "_id": "device-blendmicro",
   "category": "device",
-  "categories":["Maker"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Blend Micro BLE microcontroller",
   "documentation": "https://legacy-connectors.readme.io/docs/blend-micro",
   "helpText": "The first integrated developement board, a blend between Arduino and Bluetooth Low Energy into a single board. It is targeted for makers to develop low power Internet-Of-Things projects.",
@@ -11,5 +13,6 @@
     "type": "device"
   },
   "type": "device:blendmicro",
-  "connector": "meshblu-blendmicro"
+  "connector": "meshblu-blendmicro",
+  "deprecated": true
 }

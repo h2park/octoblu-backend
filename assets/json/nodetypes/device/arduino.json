@@ -1,7 +1,9 @@
 {
   "_id": "53c9b82ef400e177dca325a2",
   "category": "microblu",
-  "categories":["Maker"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Arduino microcontroller",
   "helpText": "Arduino is an open-source electronic prototyping platform allowing to create interactive electronic objects. Arduino boards are able to read inputs - light on a sensor, a finger on a button, or a Twitter message - and turn it into an output - activating a motor, turning on an LED, publishing something online.",
   "enabled": false,
@@ -11,5 +13,6 @@
     "type": "device",
     "subtype": "arduino"
   },
-  "type": "device:arduino"
+  "type": "device:arduino",
+  "deprecated": true
 }

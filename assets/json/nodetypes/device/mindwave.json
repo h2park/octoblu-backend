@@ -1,7 +1,9 @@
 {
   "_id": "54616a3e2a3a76512a29221c",
   "category": "device",
-  "categories":["Maker"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Neurosky Mindwave",
   "documentation": "https://legacy-connectors.readme.io/docs/neurosky-mindwave",
   "helpText": "Mindwave safely measures brainwave signals and monitors the attention levels of students as they interact with math, memory and pattern recognition applications. The Neurosky Mindwave provides streaming brain wave data on concentration, attention and meditation.",
@@ -12,5 +14,6 @@
     "subtype": "mindwave"
   },
   "type": "device:mindwave",
-  "connector": "meshblu-mindwave"
+  "connector": "meshblu-mindwave",
+  "deprecated": true
 }

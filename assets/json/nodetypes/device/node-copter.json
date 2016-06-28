@@ -1,7 +1,9 @@
 {
   "_id": "4251418bac23bc96fe6577b1",
   "category": "device",
-  "categories":["Maker"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Node Copter",
   "documentation": "https://legacy-connectors.readme.io/docs/parrotar-drone-nodecopter",
   "helpText": "Plugin for remote controlling AR drones.",
@@ -12,5 +14,6 @@
     "subtype": "node-copter"
   },
   "connector": "meshblu-drone-army",
-  "type": "device:node-copter"
+  "type": "device:node-copter",
+  "deprecated": true
 }

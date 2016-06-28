@@ -1,7 +1,9 @@
 {
   "_id": "54bd99f3e9412e988f2f20e9",
   "category": "device",
-  "categories":["Maker"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Oculus Rift Tracking Data",
   "documentation": "https://legacy-connectors.readme.io/docs/oculus-rift",
   "helpText": "The Oculus Rift is a Virtual Reality (VR) headset that allows you to be completely immersed in your games, movies, or any other VR experience.",
@@ -12,5 +14,6 @@
     "subtype": "oculus"
   },
   "connector": "meshblu-oculus",
-  "type": "device:oculus"
+  "type": "device:oculus",
+  "deprecated": true
 }

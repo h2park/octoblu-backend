@@ -1,7 +1,9 @@
 {
   "_id": "initial-state",
   "category": "device",
-  "categories":["Productivity"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Initial-State Gateblu Plugin",
   "documentation": "https://legacy-connectors.readme.io/docs/initial-state",
   "helpText": "A Gateblu plugin to forward messages to Initial-State",
@@ -11,5 +13,6 @@
     "type": "device:initial-state"
   },
   "type": "device:initial-state",
-  "connector": "meshblu-initial-state"
+  "connector": "meshblu-initial-state",
+  "deprecated": true
 }

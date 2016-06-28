@@ -1,7 +1,9 @@
 {
   "_id": "53c9b831f400e177dca325ae",
   "category": "device",
-  "categories":["Mobile"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Mobiblu iOS",
   "helpText": "The Mobiblu app for iOS.",
   "enabled": false,
@@ -10,5 +12,6 @@
     "type": "octobluMobile",
     "subtype": "apple"
   },
-  "type": "device:apple"
+  "type": "device:apple",
+  "deprecated": true
 }

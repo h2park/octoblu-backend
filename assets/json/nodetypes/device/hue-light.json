@@ -1,7 +1,9 @@
 {
   "_id": "55cca8dbb121a6300f865e43",
   "category": "device",
-  "categories":["Facilities Automation"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Philips Hue Single Light",
   "documentation": "https://legacy-connectors.readme.io/docs/phillips-hue-bulbs",
   "helpText": "Philips hue combines brilliant LED light with intuitive technology, then puts it in the palm of your hand. Experiment with shades of white, from invigorating blue/white to cozy yellow/white.",
@@ -12,5 +14,6 @@
     "subtype": "hue-light"
   },
   "connector": "meshblu-hue-light",
-  "type": "device:hue-light"
+  "type": "device:hue-light",
+  "deprecated": true
 }

@@ -1,7 +1,9 @@
 {
   "_id": "5508904b5eaf352b59e1c06d",
   "category": "device",
-  "categories":["Citrix"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Citrix Receiver",
   "helpText": "Citrix Receiver is the easy-to-install client software that provides access to your XenDesktop and XenApp installations. You can access applications, desktops and data easily and securely from any device, including smartphones, tablets, PCs and Macs. Open Receiver applications remotely through Octoblu.",
   "enabled": true,
@@ -11,5 +13,6 @@
     "subtype": "citrix-receiver"
   },
   "type": "device:citrix-receiver",
-  "connector": "meshblu-citrix-receiver"
+  "connector": "meshblu-citrix-receiver",
+  "deprecated": true
 }

@@ -1,7 +1,9 @@
 {
   "_id": "device-edison",
   "category": "device",
-  "categories":["Maker"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Intel Edison",
   "documentation": "https://legacy-connectors.readme.io/docs/intel-edison",
   "helpText": "Configure and control the Intel Edison IoT device from Octoblu. The Intel Edison provides a fully open source hardware and software development environment for your Maker projects.",
@@ -10,5 +12,6 @@
   "skynet": {
     "type": "device:edison"
   },
-  "type": "device:edison"
+  "type": "device:edison",
+  "deprecated": true
 }

@@ -1,7 +1,9 @@
 {
   "_id": "device-google-vision",
   "category": "device",
-  "categories":["Maker"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Google Cloud Vision API connector for Octoblu",
   "documentation": "https://legacy-connectors.readme.io/docs/google-vision",
   "helpText": "Send images as urls or base64 for Google to analyze!",
@@ -12,5 +14,6 @@
     "subtype": "google-vision"
   },
   "connector": "meshblu-google-vision",
-  "type": "device:google-vision"
+  "type": "device:google-vision",
+  "deprecated": true
 }

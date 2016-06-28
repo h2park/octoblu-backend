@@ -1,7 +1,9 @@
 {
   "_id": "53c9b831f400e177dca325af",
   "category": "device",
-  "categories":["Mobile"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Mobiblu Android",
   "helpText": "The Mobiblu app for Android.",
   "enabled": false,
@@ -10,5 +12,6 @@
     "type": "octobluMobile",
     "subtype": "android"
   },
-  "type": "device:android"
+  "type": "device:android",
+  "deprecated": true
 }

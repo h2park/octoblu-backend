@@ -1,7 +1,9 @@
 {
   "_id": "powershell-connector",
   "category": "device",
-  "categories":["System Utility"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Powershell",
   "documentation": "https://legacy-connectors.readme.io/docs/powershell",
   "helpText": "Run Powershell scripts through Gateblu",
@@ -11,5 +13,6 @@
     "type": "device:powershell"
   },
   "type": "device:powershell",
-  "connector": "meshblu-powershell"
+  "connector": "meshblu-powershell",
+  "deprecated": true
 }

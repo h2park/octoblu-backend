@@ -1,7 +1,9 @@
 {
   "_id": "ced95b60-7fef-11e4-ad43-5b5922958876",
   "category": "device",
-  "categories":["Maker"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Intel Analytics",
   "helpText": "Intel's analytics platform for use with the Intel IoT Gateway hardware. Collect, analyze and learn from sensor data.",
   "enabled": true,
@@ -11,5 +13,6 @@
     "subtype": "intelanalytics"
   },
   "connector": "meshblu-intelanalytics",
-  "type": "device:intelanalytics"
+  "type": "device:intelanalytics",
+  "deprecated": true
 }

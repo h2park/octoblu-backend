@@ -1,7 +1,9 @@
 {
   "_id": "558b45199c5a4bb1cfbc10df",
   "category": "device",
-  "categories":["Maker"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Intel AIM Suite",
   "helpText": "Intel AIM Suite gives retailers and brands the power to know how shoppers are responding to visual messaging, and how they move through retail environments. Using their facial recognition software, Intel AIM Suite provides demographic and age information about users.",
   "enabled": true,
@@ -11,5 +13,6 @@
     "subtype": "intelaim"
   },
   "connector": "meshblu-aim",
-  "type": "device:intelaim"
+  "type": "device:intelaim",
+  "deprecated": true
 }

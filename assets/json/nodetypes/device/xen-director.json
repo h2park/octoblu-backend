@@ -1,7 +1,9 @@
 {
   "_id": "56e1dfb6516d6a8164c830ab",
   "category": "device",
-  "categories":["Citrix"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Citrix Xen Director",
   "documentation": "https://legacy-connectors.readme.io/docs/xen-director",
   "helpText": "",
@@ -12,5 +14,6 @@
     "subtype": "xen-director"
   },
   "connector": "meshblu-xen-director",
-  "type": "device:xen-director"
+  "type": "device:xen-director",
+  "deprecated": true
 }

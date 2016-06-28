@@ -1,7 +1,9 @@
 {
   "_id": "553e9ef1c940d785ad48497a",
   "category": "device",
-  "categories":["Social"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Twitter Streaming",
   "documentation": "https://dev.twitter.com/streaming/overview",
   "helpText": "The Streaming APIs give developers low latency access to Twitter’s global stream of Tweet data. A proper implementation of a streaming client will be pushed messages indicating Tweets and other events have occurred, without any of the overhead associated with polling a REST endpoint.",
@@ -12,5 +14,6 @@
     "subtype": "twitter-stream"
   },
   "type": "device:twitter-stream",
-  "connector": "meshblu-twitter-stream"
+  "connector": "meshblu-twitter-stream",
+  "deprecated": true
 }

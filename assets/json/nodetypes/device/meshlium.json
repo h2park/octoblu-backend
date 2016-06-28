@@ -1,7 +1,9 @@
 {
   "_id": "c4f1af69-a889-424c-b371-d9b949506f23",
   "category": "device",
-  "categories":["Maker"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Meshlium Xtreme Hub",
   "helpText": "The new multiprotocol router for wireless sensor networks designed to connect ZigBee, Wifi and Bluetooth sensors to the Internet through 3G connectivity.",
   "enabled": true,
@@ -11,5 +13,6 @@
     "subtype": "meshlium"
   },
   "connector": "meshblu-meshlium",
-  "type": "device:meshlium"
+  "type": "device:meshlium",
+  "deprecated": true
 }

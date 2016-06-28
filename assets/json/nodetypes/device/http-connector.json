@@ -1,7 +1,9 @@
 {
   "_id": "f8374d439bdc7c70c09b23c2",
   "category": "device",
-  "categories":["Octoblu"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "HTTP Connector for Gateblu",
   "helpText": "Gateblu plugin for making http requests. Similar to the HTTP tools that runs on a local Gateblu.",
   "enabled": true,
@@ -11,5 +13,6 @@
     "subtype": "http-connector"
   },
   "connector": "meshblu-http-connector",
-  "type": "device:http-connector"
+  "type": "device:http-connector",
+  "deprecated": true
 }

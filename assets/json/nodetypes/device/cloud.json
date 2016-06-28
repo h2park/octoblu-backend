@@ -1,7 +1,9 @@
 {
   "_id": "53c9b82ef400e177dca325a1",
   "category": "device",
-  "categories":["Office"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "SkyNet cloud",
   "helpText": "disabled",
   "enabled": false,
@@ -10,5 +12,6 @@
     "type": "skynet",
     "subtype": "cloud"
   },
-  "type": "device:cloud"
+  "type": "device:cloud",
+  "deprecated": true
 }

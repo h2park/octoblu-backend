@@ -1,7 +1,9 @@
 {
   "_id": "a0548715d9134e21969bc2f5",
   "category": "device",
-  "categories":["Facilities Automation"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Philips Hue Button",
   "helpText": "The world's first wireless smart switch. Use the Hue Button to change your Hue Lights, trigger your flows, or control other Things in Octoblu.",
   "enabled": true,
@@ -11,5 +13,6 @@
     "subtype": "hue-button"
   },
   "connector": "meshblu-hue-button",
-  "type": "device:hue-button"
+  "type": "device:hue-button",
+  "deprecated": true
 }

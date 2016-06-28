@@ -1,7 +1,9 @@
 {
   "_id": "53c9b830f400e177dca325ad",
   "category": "device",
-  "categories":["Maker"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Tessel device",
   "documentation": "https://tessel.io/docs/hardwareAPI",
   "helpText": "Remote-io plugin to control tessel devices. Interact with the physical world from sensing to actuation to connecting with other devices. Each module has an open source library on NPM, with instructions and tutorials available online.",
@@ -12,5 +14,6 @@
     "type": "device",
     "subtype": "tessel"
   },
-  "type": "device:tessel"
+  "type": "device:tessel",
+  "deprecated": true
 }

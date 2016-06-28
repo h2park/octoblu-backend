@@ -1,7 +1,9 @@
 {
   "_id": "55022639b85ed301b818d521",
   "category": "device",
-  "categories":["Facilities Automation"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Chromecast",
   "documentation": "https://developers.google.com/cast/",
   "helpText": "Chromecast is a thumb-sized media streaming device that plugs into the HDMI port on your TV. Cast your favorite entertainment and apps right to the big screen.",
@@ -12,5 +14,6 @@
     "subtype": "chromecast"
   },
   "type": "device:chromecast",
-  "connector": "meshblu-chromecast"
+  "connector": "meshblu-chromecast",
+  "deprecated": true
 }

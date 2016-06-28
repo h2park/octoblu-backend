@@ -1,7 +1,9 @@
 {
   "_id": "device-sonos",
   "category": "device",
-  "categories":["Music"],
+  "categories": [
+    "Deprecated Devices"
+  ],
   "description": "Sonos device",
   "documentation": "https://legacy-connectors.readme.io/docs/sonos",
   "helpText": "Sonos is a smart system of HiFi wireless speakers and audio components. It unites your digital music collection in one app that you control from any device. Use Octoblu to trigger tracks to play on your local Sonos speakers.",
@@ -12,5 +14,6 @@
     "subtype": "sonos"
   },
   "connector": "meshblu-sonos",
-  "type": "device:sonos"
+  "type": "device:sonos",
+  "deprecated": true
 }
