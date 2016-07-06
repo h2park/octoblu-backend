@@ -96,6 +96,7 @@ function FlowModel() {
           if (error) {
             return reject(error);
           }
+          console.log('UPDATED FLOW');
           return resolve(flow);
         });
       }).then(function(){
@@ -184,7 +185,7 @@ var getOctobluLinksForFlow = function (flowUuid) {
     links: [
       {
         title: 'Publish IoT App',
-        url: 'https://bluprinter.' + hostname + '/bluprints/' + flowUuid + '/import',
+        url: 'https://bluprinter.' + hostname + '/flows/' + flowUuid + '/new',
       },
     ],
   }
