@@ -1,8 +1,8 @@
 'use strict';
-var octobluDB = require('../lib/database');
-var _         = require('lodash');
-var when      = require('when');
-var request   = require('request');
+var octobluDB   = require('../lib/database');
+var _           = require('lodash');
+var when        = require('when');
+var request     = require('request');
 var MeshbluHttp = require('meshblu-http');
 
 function FlowModel() {
@@ -66,7 +66,7 @@ function FlowModel() {
     },
 
     updateForDeploy : function (flow, meshbluJSON){
-      console.log('meshblujson', meshbluJSON);
+
       var meshbluHttp = new MeshbluHttp(meshbluJSON);
       flow = _.omit(flow, ['token']);
       return when.promise(function (resolve, reject) {
@@ -80,14 +80,19 @@ function FlowModel() {
     },
 
     updateMeshbluFlow : function (flow, meshbluJSON){
+
       var self = this;
       if (!meshbluJSON){
         return when.resolve(flow);
       }
+
       return when.promise(function (resolve, reject) {
         var meshbluHttp = new MeshbluHttp(meshbluJSON);
         flow = _.omit(flow, ['token']);
-        meshbluHttp.update(flow.flowId, {name: flow.name, draft: flow}, function(error){
+
+        var octobluLinks = getOctobluLinksForFlow(flow.flowId)
+
+        meshbluHttp.update(flow.flowId, {name: flow.name, draft: flow, octoblu: octobluLinks}, function(error){
           if (error) {
             return reject(error);
           }
@@ -159,6 +164,7 @@ function FlowModel() {
     },
 
     getFlow : function (flowId, meshbluJSON) {
+
       var self = this;
       return self.findOne({'flowId': flowId}).then(function(flow){
         return self.migrateAndUseDraft(flow, meshbluJSON);
@@ -167,6 +173,21 @@ function FlowModel() {
   };
 
   return _.extend({}, collection, methods);
+}
+
+var getOctobluLinksForFlow = function (flowUuid) {
+
+  var hostname = 'octoblu.dev'
+  if (process.env.NODE_ENV === 'production') hostname = 'octoblu.com'
+
+  return {
+    links: [
+      {
+        title: 'Publish IoT App',
+        url: 'https://bluprinter.' + hostname + '/bluprints/' + flowUuid + '/import',
+      },
+    ],
+  }
 }
 
 var registerFlow = function (meshbluJSON, userUUID) {
