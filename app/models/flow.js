@@ -24,7 +24,7 @@ function FlowModel() {
       var query, self;
       var FlowDeploy = require('./flow-deploy');
       self = this;
-      query = {flowId: flowId};
+      query = {flowId: flowId, 'resource.owner.uuid': userUUID};
 
       return self.findOne(query).then(function (flow) {
         FlowDeploy.stop(userUUID, userToken, flow, meshbluJSON);
@@ -96,7 +96,6 @@ function FlowModel() {
           if (error) {
             return reject(error);
           }
-          console.log('UPDATED FLOW');
           return resolve(flow);
         });
       }).then(function(){
