@@ -107,11 +107,14 @@
   "devDependencies": {
     "chai": "^1.10.0",
     "chai-as-promised": "^4.1.1",
+    "chai-subset": "^1.2.2",
     "colors": "^1.0.3",
     "commander": "^2.3.0",
     "errorhandler": "^1.1.1",
     "mocha": "^2.1.0",
+    "server-destroy": "^1.0.1",
     "shelljs": "^0.3.0",
+    "shmock": "^0.8.1",
     "sinon": "^1.12.2",
     "sinon-chai": "^2.6.0"
   },
