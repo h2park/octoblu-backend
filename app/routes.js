@@ -36,6 +36,9 @@ module.exports = function(app, passport, config, meshbluJSON){
     var FlowController = require('./controllers/flow-controller');
     var flowController = new FlowController({meshbluJSON: meshbluJSON});
 
+    var FlowControllerV2 = require('./controllers/flow-controller-v2');
+    var flowControllerV2 = new FlowControllerV2({meshbluJSON: meshbluJSON});
+
     var FlowDeployController = require('./controllers/flow-deploy');
     var flowDeployController = new FlowDeployController({meshbluJSON: meshbluJSON});
 
@@ -282,6 +285,10 @@ module.exports = function(app, passport, config, meshbluJSON){
     app.delete('/api/flows/:id', flowController.delete);
     app.get('/api/flows', flowController.getAllFlows);
     app.get('/api/flows/:limit/paged', flowController.getSomeFlows);
+
+    app.get('/api/v2/flows', flowControllerV2.getFlows);
+    app.get('/api/v2/flows/:limit/paged', flowControllerV2.getSomeFlows);
+
     app.post('/api/flows/:id/instance', flowDeployController.startInstance);
     app.delete('/api/flows/:id/instance', flowDeployController.stopInstance);
 
