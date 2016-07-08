@@ -35,7 +35,7 @@ class FlowModelV2
     updatedFlows
 
   _mapFlow: (flow) =>
-    return @_noDraft(flow) unless flow.draft?
+    return @_updateMeshbluFlow(flow) unless flow.draft?
     return updatedFlow =
       name: flow.draft.name
       flowId: flow.draft.flowId
@@ -43,24 +43,25 @@ class FlowModelV2
       nodes: flow.draft.nodes
       description: flow.draft.description
 
-  _noDraft: (flow) =>
-    #migrate flow here
-
+  _updateMeshbluFlow: (device) =>
+    return false unless device.flow?
+    @_migrateAndUseDraft device
     return updatedFlow =
-      name: flow.name
-      flowId: flow.uuid
-      online: flow.online
-      description: flow.description || ''
+      name: device.flow.name
+      flowId: device.uuid
+      online: device.online
+      nodes: device.flow.nodes
+      description: device.flow.description || ''
 
   _migrateAndUseDraft: (flowDevice) =>
-    #get flow from db
-
+    { flow } = flowDevice
     options =
       name: flow.name
       draft: flow
-      octoblu: _createOctobluLinks flowDevice.uuid
+      octoblu: @_createOctobluLinks flowDevice.uuid
     meshbluHttp.update flowDevice.uuid, options, (error) =>
       console.log error
+
   _createOctobluLinks: (flowUuid) =>
     hostname = 'octoblu.dev'
     hostname = 'octoblu.com' if process.env.NODE_ENV == 'production'
