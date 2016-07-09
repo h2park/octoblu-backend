@@ -26,7 +26,6 @@ describe.only 'Flow Model', ->
           server: '127.0.0.1'
           port: 0xd00d
 
-
         @meshblu.get('/mydevices')
           .reply(200, myFlows)
 

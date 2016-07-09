@@ -18,7 +18,9 @@ class FlowModelV2
     When.promise (resolve, reject) =>
       meshbluHttp.mydevices { type: 'octoblu:flow', 'owner': ownerUUID }, (error, data) =>
         return reject(error) if error?
-        flows = @_filterFlows data.devices
+        flows = _.map data.devices, @_mapFlow
+        flows = _.filter flows, (flow) =>
+          flow?
         resolve flows
 
   getSomeFlows: (ownerUUID, meshbluJSON, limit, callback) =>
@@ -28,11 +30,6 @@ class FlowModelV2
       callback null, flows
     .catch (error) =>
       callback error
-
-  _filterFlows: (flows) =>
-    updatedFlows = _.map flows, (flow) =>
-      @_mapFlow flow
-    updatedFlows
 
   _mapFlow: (flow) =>
     return @_updateMeshbluFlow(flow) unless flow.draft?
@@ -44,7 +41,7 @@ class FlowModelV2
       description: flow.draft.description
 
   _updateMeshbluFlow: (device) =>
-    return false unless device.flow?
+    return null unless device.flow?
     @_migrateAndUseDraft device
     return updatedFlow =
       name: device.flow.name
