@@ -17,7 +17,7 @@ class FlowModelV2
     meshbluHttp = new MeshbluHttp(meshbluJSON)
     When.promise (resolve, reject) =>
       meshbluHttp.mydevices { type: 'octoblu:flow', 'owner': ownerUUID }, (error, data) =>
-        return reject(error) if error?
+        return reject error if error?
         flows = _.map data.devices, @_mapFlow
         flows = _.filter flows, (flow) =>
           flow?

@@ -5,7 +5,7 @@ sinon = require 'sinon'
 enableDestroy = require 'server-destroy'
 myFlows = require '../data/my-flows'
 
-describe.only 'Flow Model', ->
+describe.only 'Flow Model V2', ->
   beforeEach ->
     @meshblu = shmock 0xd00d
     enableDestroy @meshblu
@@ -14,22 +14,20 @@ describe.only 'Flow Model', ->
     @sut = require '../../app/models/flow-v2'
     @ownerUUID = 'ownerId'
 
+    @meshbluJSON =
+      uuid: 'batman-and-robin'
+      token: 'joker-kills-robin'
+      server: '127.0.0.1'
+      port: 0xd00d
+
   afterEach (done) ->
     @meshblu.destroy done
 
-  describe '->getFlowsV2', ->
+  describe '->getFlows', ->
     describe 'when given a valid Meshblu config', ->
       beforeEach (done) ->
-        meshbluJSON =
-          uuid: 'batman-and-robin'
-          token: 'joker-kills-robin'
-          server: '127.0.0.1'
-          port: 0xd00d
-
-        @meshblu.get('/mydevices')
-          .reply(200, myFlows)
-
-        @sut.getFlows @ownerUUID, meshbluJSON, (@error, @body) => done()
+        @meshblu.get('/mydevices').reply(200, myFlows)
+        @sut.getFlows @ownerUUID, @meshbluJSON, (@error, @body) => done()
 
       it 'should retreive all of my flows', ->
         expect(@body).to.have.lengthOf(4)
@@ -41,36 +39,20 @@ describe.only 'Flow Model', ->
         expect(@body[2]).to.contain.keys(expectedKeys)
         expect(@body[3]).to.contain.keys(expectedKeys)
 
-
-
     describe 'when given an invalid Meshblu config', ->
       beforeEach (done) ->
-        meshbluJSON =
-          uuid: 'blah'
-          server: '127.0.0.1'
-          port: 0xd00d
-
-        @meshblu.get('/mydevices')
-          .reply( 403, 'not sure' )
-
-        @sut.getFlows @ownerUUID, meshbluJSON, (@error, @body) => done()
+        @meshblu.get('/mydevices').reply(401, 'not sure')
+        @sut.getFlows @ownerUUID, @meshbluJSON, (@error, @body) => done()
 
       it 'should respond with an error', ->
         expect(@error).to.exist
 
-  describe '->getSomeFlowsV2', ->
+  describe '->getSomeFlows', ->
     describe 'when given a valid Meshblu config', ->
       beforeEach (done) ->
-        meshbluJSON =
-          uuid: 'batman-and-robin'
-          token: 'joker-kills-robin'
-          server: '127.0.0.1'
-          port: 0xd00d
+        @meshblu.get('/mydevices').reply(200, myFlows)
+        @sut.getSomeFlows @ownerUUID, @meshbluJSON, 2, (@error, @body) => done()
 
-        @meshblu.get('/mydevices')
-          .reply(200, myFlows)
-
-        @sut.getSomeFlows @ownerUUID, meshbluJSON, 2, (@error, @body) => done()
       it 'should retreive some of my flows', ->
         expect(@body).to.have.lengthOf(2)
 
@@ -78,3 +60,12 @@ describe.only 'Flow Model', ->
         expectedKeys = ['flowId', 'name', 'online']
         expect(@body[0]).to.contain.keys(expectedKeys)
         expect(@body[1]).to.contain.keys(expectedKeys)
+
+    describe 'when given an invalid Meshblu config', ->
+      beforeEach (done) ->
+        @meshblu.get('/mydevices').reply(401, 'not sure')
+        @sut.getSomeFlows @ownerUUID, @meshbluJSON, 2, (@error, @body) => done()
+
+      it 'should respond with an error', ->
+        expect(@error).to.exist
+  
