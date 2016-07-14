@@ -5,7 +5,7 @@ sinon = require 'sinon'
 enableDestroy = require 'server-destroy'
 myFlows = require '../data/my-flows'
 
-describe.only 'Flow Model V2', ->
+describe 'Flow Model V2', ->
   beforeEach ->
     @meshblu = shmock 0xd00d
     enableDestroy @meshblu
