@@ -96,6 +96,7 @@
     "passport-wordpress": "0.0.3",
     "passport-xero": "^1.0.0",
     "q": "^1.0.1",
+    "raven": "^0.11.0",
     "request": "^2.51.0",
     "rest": "^1.0.3",
     "safe_datejs": "^0.0.1",

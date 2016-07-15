@@ -1,51 +1,40 @@
 'use strict';
 require('coffee-script/register');
-var config = require('./config/auth');
 
-if ((process.env.USE_NEWRELIC  || 'false').toLowerCase() === 'true') {
-  require('newrelic');
-}
-
-if ((process.env.USE_APP_DYNAMICS || 'false').toLowerCase() === 'true') {
-  require('./config/appdynamics.js');
-}
-
-var _              = require('lodash');
-var express        = require('express');
-var path           = require('path');
-var errorhandler   = require('errorhandler');
-var http           = require('http');
-var https          = require('https');
-var morgan         = require('morgan');
-var cookieParser   = require('cookie-parser');
-var bodyParser     = require('body-parser');
-var cors           = require('cors');
-var passport       = require('passport');
-var flash          = require('connect-flash');
-var fs             = require('fs');
-var privateKey     = fs.readFileSync('config/server.key', 'utf8');
-var certificate    = fs.readFileSync('config/server.crt', 'utf8');
-var credentials    = {key: privateKey, cert: certificate};
-var app            = express();
-var env            = app.settings.env;
-var configAuth     = require('./config/auth.js');
-var port           = process.env.OCTOBLU_PORT || configAuth.port;
-var sslPort        = process.env.OCTOBLU_SSLPORT || configAuth.sslPort;
-var databaseConfig = require('./config/database');
+var _                  = require('lodash');
+var express            = require('express');
+var path               = require('path');
+var morgan             = require('morgan');
+var cookieParser       = require('cookie-parser');
+var bodyParser         = require('body-parser');
+var cors               = require('cors');
+var passport           = require('passport');
+var flash              = require('connect-flash');
+var fs                 = require('fs');
 var meshbluHealthcheck = require('express-meshblu-healthcheck');
-var MeshbluAuth = require('express-meshblu-auth');
-var debug = require('debug')('octoblu:server');
-var SecurityController = require('./app/controllers/middleware/security-controller');
+var MeshbluAuth        = require('express-meshblu-auth');
 var expressVersion     = require('express-package-version');
+var session            = require('cookie-session');
+var raven              = require('raven');
+var debug              = require('debug')('octoblu:server');
 
-if (process.env.AIRBRAKE_KEY) {
-  var airbrake = require('airbrake').createClient(process.env.AIRBRAKE_KEY);
-  var disableUncaughtException = true;
-  app.use(airbrake.expressHandler(disableUncaughtException));
-} else {
-  process.on('uncaughtException', function(error) {
-    console.error(error.message, error.stack);
-  });
+var databaseConfig     = require('./config/database');
+var configAuth         = require('./config/auth.js');
+var SecurityController = require('./app/controllers/middleware/security-controller');
+var Routes             = require('./app/routes.js');
+var privateKey         = fs.readFileSync('config/server.key', 'utf8');
+var certificate        = fs.readFileSync('config/server.crt', 'utf8');
+var credentials        = {key: privateKey, cert: certificate};
+var app                = express();
+
+var port               = process.env.OCTOBLU_PORT || configAuth.port;
+var sslPort            = process.env.OCTOBLU_SSLPORT || configAuth.sslPort;
+
+var SENTRY_DSN         = process.env.SENTRY_DSN
+
+if (SENTRY_DSN) {
+  app.use(raven.middleware.express.requestHandler(SENTRY_DSN));
+  app.use(raven.middleware.express.errorHandler(SENTRY_DSN));
 }
 
 var databaseOptions = {
@@ -60,46 +49,43 @@ octobluDB.createConnection(databaseOptions);
 // Initialize Models
 
 //moved all the models initialization into here, because otherwise when we include the schema twice,
-
 var PassportStrategyLoader = require('./config/passport-strategy-loader');
 var passportStrategyLoader = new PassportStrategyLoader();
 passportStrategyLoader.load();
 
 app.use(meshbluHealthcheck());
-app.use(expressVersion({format: '{"version": "%s"}'}));
+app.use(expressVersion({ format: '{"version": "%s"}' }));
+
 // set up our express application
-app.use(morgan('dev', {immediate:false})); // log every request to the console
+app.use(morgan('dev', { immediate:false })); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
 
 // increasing body size for resources
-app.use(bodyParser.urlencoded({ extended : true, limit : '50mb' }));
-
-app.use(bodyParser.json({ limit : '50mb' }));
+app.use(bodyParser.urlencoded({ extended : true, limit : '1mb' }));
+app.use(bodyParser.json({ limit : '1mb' }));
 
 var meshbluJSON;
 try {
-    meshbluJSON  = require(process.cwd()+'/meshblu.json');
-}
-catch (error) {
-    meshbluJSON = {
-        uuid:   process.env.OCTOBLU_UUID,
-        token:  process.env.OCTOBLU_TOKEN,
-        server: config.skynet.host,
-        port:   config.skynet.port
-    };
+  meshbluJSON  = require('./meshblu.json');
+} catch (error) {
+  meshbluJSON = {
+    uuid:   process.env.OCTOBLU_UUID,
+    token:  process.env.OCTOBLU_TOKEN,
+    server: configAuth.skynet.host,
+    port:   configAuth.skynet.port
+  }
 }
 
-if ( !meshbluJSON || typeof meshbluJSON.uuid === 'undefined' ) {
+if ( !meshbluJSON || meshbluJSON.uuid == null ) {
   console.error("Octoblu UUID not defined in meshblu.json or OCTOBLU_UUID environment variable");
   process.exit(1);
 }
 
-if ( !meshbluJSON || typeof meshbluJSON.token === 'undefined' ) {
+if ( !meshbluJSON || meshbluJSON.token == null ) {
   console.error("Octoblu token not defined in meshblu.json or OCTOBLU_TOKEN environment variable");
   process.exit(1);
 }
 
-var session = require('cookie-session');
 app.use(session(
   {
     name: 'octoblu:sess',
@@ -111,12 +97,8 @@ app.use(session(
 
 app.use(passport.initialize());
 app.use(cors());
-if (process.env.NODE_ENV === 'development') {
-  app.use(errorhandler());
-}
 
 // begin bypass and heartache
-
 var bypassedAuthRoutes = [
   {method: 'POST', path: '/api/webhooks/.*'},
   {method: 'GET', path: '/api/session'},
@@ -148,6 +130,7 @@ var canBypassTerms = function(req) {
   return !!result;
 }
 var meshbluAuth = new MeshbluAuth(meshbluJSON);
+
 app.use(meshbluAuth.retrieve());
 app.use(function(req, res, next) {
   if (canBypassAuth(req)) {
@@ -157,7 +140,6 @@ app.use(function(req, res, next) {
 });
 
 var security = new SecurityController();
-
 app.use(function(req, res, next) {
   if (canBypassAuth(req)) {
     return next();
@@ -174,7 +156,7 @@ app.use(function(req, res, next) {
 
 // end bypass, but still heartache
 
-require('./app/routes.js')(app, passport, config, meshbluJSON);
+Routes(app, passport, configAuth, meshbluJSON);
 
 var server = app.listen(port, function(error) {
   if(error)  {
@@ -187,7 +169,6 @@ var server = app.listen(port, function(error) {
 
 process.on('SIGTERM', function(){
   console.log('SIGTERM received, exiting');
-
   server.close(function(){
     process.exit(0);
   });
