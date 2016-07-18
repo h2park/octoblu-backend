@@ -15,7 +15,7 @@ var meshbluHealthcheck = require('express-meshblu-healthcheck');
 var MeshbluAuth        = require('express-meshblu-auth');
 var expressVersion     = require('express-package-version');
 var session            = require('cookie-session');
-var raven              = require('raven');
+var OctobluRaven       = require('octoblu-raven');
 var debug              = require('debug')('octoblu:server');
 
 var databaseConfig     = require('./config/database');
@@ -30,12 +30,12 @@ var app                = express();
 var port               = process.env.OCTOBLU_PORT || configAuth.port;
 var sslPort            = process.env.OCTOBLU_SSLPORT || configAuth.sslPort;
 
-var SENTRY_DSN         = process.env.SENTRY_DSN
-
-if (SENTRY_DSN) {
-  app.use(raven.middleware.express.requestHandler(SENTRY_DSN));
-  app.use(raven.middleware.express.errorHandler(SENTRY_DSN));
-}
+var octobluRaven = new OctobluRaven();
+octobluRaven.worker().handleErrors();
+var ravenExpress = octobluRaven.express();
+app.use(ravenExpress.requestHandler());
+app.use(ravenExpress.errorHandler());
+app.use(ravenExpress.sendError());
 
 var databaseOptions = {
 	collections : [
