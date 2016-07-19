@@ -49,7 +49,8 @@ class TemplateCollection
         filteredCollection = []
         _.filter result, (item) ->
           if _.includes(item.name.toLowerCase(), name.toLowerCase())
-            filteredCollection.push _.omit(item, ["flow"])
+            item.flow = nodes: item.flow.nodes
+            filteredCollection.push item
         return filteredCollection
 
     else
