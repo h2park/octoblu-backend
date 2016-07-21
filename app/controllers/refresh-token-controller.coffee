@@ -64,8 +64,8 @@ class RefreshTokenController
       return @refreshTokenError uuid, type, channelAuth, error, callback if error?
 
       expiresOn = Date.now() + (results.expires_in * 1000)
-      channelAuth.token_crypt = textCrypt.encrypt accessToken
-      channelAuth.refreshToken_crypt = textCrypt.encrypt refreshToken
+      channelAuth.token_crypt = textCrypt.encrypt accessToken if accessToken?
+      channelAuth.refreshToken_crypt = textCrypt.encrypt refreshToken if refreshToken?
       channelAuth.expiresOn = expiresOn
       channelAuth.validToken = true
       channelAuth.refreshTokenError = null

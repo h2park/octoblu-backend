@@ -13,6 +13,7 @@ var flash              = require('connect-flash');
 var fs                 = require('fs');
 var meshbluHealthcheck = require('express-meshblu-healthcheck');
 var MeshbluAuth        = require('express-meshblu-auth');
+var sendError          = require('express-send-error');
 var expressVersion     = require('express-package-version');
 var session            = require('cookie-session');
 var OctobluRaven       = require('octoblu-raven');
@@ -31,11 +32,12 @@ var port               = process.env.OCTOBLU_PORT || configAuth.port;
 var sslPort            = process.env.OCTOBLU_SSLPORT || configAuth.sslPort;
 
 var octobluRaven = new OctobluRaven();
-octobluRaven.worker().handleErrors();
+octobluRaven.patchGlobal();
+
 var ravenExpress = octobluRaven.express();
-app.use(ravenExpress.requestHandler());
-app.use(ravenExpress.errorHandler());
-app.use(ravenExpress.sendError());
+app.use(ravenExpress.handleErrors());
+app.use(sendError());
+
 
 var databaseOptions = {
 	collections : [
@@ -138,6 +140,8 @@ app.use(function(req, res, next) {
   }
   meshbluAuth.gateway()(req, res, next);
 });
+
+app.use(ravenExpress.meshbluAuthContext());
 
 var security = new SecurityController();
 app.use(function(req, res, next) {
