@@ -9,7 +9,11 @@ var CONFIG = Channel.syncFindOauthConfigByType('channel:spotify');
 CONFIG.passReqToCallback = true;
 
 var spotifyStrategy = new SpotifyStrategy(CONFIG, function(req, accessToken, refreshToken, profile, done){
-  var expiresOn = Date.now() + (profile._json.push.expires_in * 1000);
+  var expiresIn = 3600;
+  if (profile && profile.expires_in) {
+    expiresIn = profile.expires_in;
+  }
+  var expiresOn = Date.now() + (expiresIn * 1000);
 
   User.addApiAuthorization(req.user, 'channel:spotify', {authtype: 'oauth', token_crypt: textCrypt.encrypt(accessToken), refreshToken_crypt: textCrypt.encrypt(refreshToken), expiresOn: expiresOn}).then(function () {
     done(null, req.user);
