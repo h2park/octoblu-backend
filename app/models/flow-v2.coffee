@@ -27,7 +27,7 @@ class FlowModelV2
     When.promise (resolve, reject) =>
       query = owner: ownerUUID, type: 'octoblu:flow'
       options = projection: {draft: true, name: true, uuid: true, online: true}
-      meshbluHttp.search query, options, (error, devices) =>        
+      meshbluHttp.search query, options, (error, devices) =>
         return reject error if error?
         flows = _.compact _.map devices, @_mapFlow
         resolve flows
@@ -44,6 +44,7 @@ class FlowModelV2
     meshbluHttp = new MeshbluHttp(meshbluJSON)
     query = {owner: ownerUUID, flow: {$exists: true}, draft: {$exists: false}, type: 'octoblu:flow'}
     meshbluHttp.search query, {}, (error, devices) =>
+      return callback error if error?
       async.eachSeries devices, async.apply(@_migrateFlow, meshbluHttp), callback
 
   _migrateFlow: (meshbluHttp, flowDevice, callback) =>
