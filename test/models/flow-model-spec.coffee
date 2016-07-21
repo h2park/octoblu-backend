@@ -3,7 +3,10 @@ MeshbluHttp = require 'meshblu-http'
 shmock = require 'shmock'
 sinon = require 'sinon'
 enableDestroy = require 'server-destroy'
+
 myFlows = require '../data/my-flows'
+flowsToMigrate = require '../data/flows-to-migrate'
+myOtherFlows = require '../data/my-other-flows'
 
 describe 'Flow Model V2', ->
   beforeEach ->
@@ -22,6 +25,39 @@ describe 'Flow Model V2', ->
 
   afterEach (done) ->
     @meshblu.destroy done
+
+  describe '->migrateNoDraftFlows', ->
+    describe 'when given a valid Meshblu config', ->
+      beforeEach (done) ->
+        @meshblu.post('/search/devices')
+          .send({owner: 'duckman', flow: {$exists: true}, draft: {$exists: false}, type: 'octoblu:flow'})
+          .reply(200, flowsToMigrate)
+
+        @flow1UpdateHandler = @meshblu.patch('/v2/devices/1')
+          .send(
+            name: "og flow"
+            draft: flowsToMigrate[0].flow
+            octoblu:
+              links: [
+                  title: 'Publish IoT App'
+                  url: 'https://bluprinter.octoblu.dev/flows/1/new'
+                ])
+          .reply(200)
+        @flow3UpdateHandler = @meshblu.patch('/v2/devices/3')
+          .send(
+            name: "sdadad"
+            draft: flowsToMigrate[1].flow
+            octoblu:
+              links: [
+                  title: 'Publish IoT App'
+                  url: 'https://bluprinter.octoblu.dev/flows/3/new'
+                ])
+          .reply(200)
+        @sut.migrateNoDraftFlows 'duckman', @meshbluJSON, done
+
+      it 'should migrate the flows', ->
+        @flow1UpdateHandler.done()
+        @flow3UpdateHandler.done()
 
   describe '->getFlows', ->
     describe 'when given a valid Meshblu config', ->
@@ -68,4 +104,3 @@ describe 'Flow Model V2', ->
 
       it 'should respond with an error', ->
         expect(@error).to.exist
-  

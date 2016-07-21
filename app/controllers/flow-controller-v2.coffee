@@ -22,4 +22,11 @@ class FlowControllerV2
       return response.send 422, error if error?
       return response.send 200, flows
 
+  migrateNoDraftFlows: (request, response, next) =>
+    return response.send 403, error unless request.user.resource.uuid?
+    config = _.extend {}, @meshbluJSON, {token: request.token, uuid: request.uuid}
+    @Flow.migrateNoDraftFlows request.user.resource.uuid, config, (error) =>
+      return response.send 422, error if error?
+      next()
+      
 module.exports = FlowControllerV2

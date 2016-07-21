@@ -2,6 +2,7 @@ _           = require 'lodash'
 When        = require 'when'
 request     = require 'request'
 MeshbluHttp = require 'meshblu-http'
+async       = require 'async'
 
 class FlowModelV2
   constructor: () ->
@@ -13,16 +14,6 @@ class FlowModelV2
     .catch (error) =>
       callback error
 
-  getMyDevices: (ownerUUID, meshbluJSON) =>
-    meshbluHttp = new MeshbluHttp(meshbluJSON)
-    When.promise (resolve, reject) =>
-      meshbluHttp.mydevices { type: 'octoblu:flow', 'owner': ownerUUID }, (error, data) =>
-        return reject error if error?
-        flows = _.map data.devices, @_mapFlow
-        flows = _.filter flows, (flow) =>
-          flow?
-        resolve flows
-
   getSomeFlows: (ownerUUID, meshbluJSON, limit, callback) =>
     @getMyDevices(ownerUUID, meshbluJSON)
     .then (flows) =>
@@ -31,33 +22,35 @@ class FlowModelV2
     .catch (error) =>
       callback error
 
+  getMyDevices: (ownerUUID, meshbluJSON) =>
+    meshbluHttp = new MeshbluHttp(meshbluJSON)
+    When.promise (resolve, reject) =>
+      meshbluHttp.mydevices { type: 'octoblu:flow', 'owner': ownerUUID }, (error, data) =>
+        return reject error if error?
+        flows = _.compact _.map data.devices, @_mapFlow
+        resolve flows
+
   _mapFlow: (flow) =>
-    return @_updateMeshbluFlow(flow) unless flow.draft?
     return updatedFlow =
-      name: flow.draft.name
-      flowId: flow.draft.flowId
+      name: flow.draft?.name || flow.name || flow.uuid
+      flowId: flow.draft?.flowId || flow.uuid
       online: flow.online
-      nodes: flow.draft.nodes
-      description: flow.draft.description
+      nodes: flow.draft?.nodes || []
+      description: flow.draft?.description
 
-  _updateMeshbluFlow: (device) =>
-    return null unless device.flow?
-    @_migrateAndUseDraft device
-    return updatedFlow =
-      name: device.flow.name
-      flowId: device.uuid
-      online: device.online
-      nodes: device.flow.nodes
-      description: device.flow.description || ''
+  migrateNoDraftFlows: (ownerUUID, meshbluJSON, callback) =>
+    meshbluHttp = new MeshbluHttp(meshbluJSON)
+    query = {owner: ownerUUID, flow: {$exists: true}, draft: {$exists: false}, type: 'octoblu:flow'}
+    meshbluHttp.search query, {}, (error, devices) =>
+      async.eachSeries devices, async.apply(@_migrateFlow, meshbluHttp), callback
 
-  _migrateAndUseDraft: (flowDevice) =>
+  _migrateFlow: (meshbluHttp, flowDevice, callback) =>
     { flow } = flowDevice
     options =
       name: flow.name
       draft: flow
       octoblu: @_createOctobluLinks flowDevice.uuid
-    meshbluHttp.update flowDevice.uuid, options, (error) =>
-      console.log error
+    meshbluHttp.update flowDevice.uuid, options, callback
 
   _createOctobluLinks: (flowUuid) =>
     hostname = 'octoblu.dev'

@@ -1,0 +1,638 @@
+{
+    "devices": [
+      {
+        "online": false,
+        "owner": "ownerId",
+        "type": "octoblu:flow",
+        "sendWhitelist": ["ownerId"],
+        "receiveWhitelist": ["ownerId"],
+        "configureWhitelist": ["ownerId", "ownerId"],
+        "discoverWhitelist": ["ownerId"],
+        "uuid": "1",
+        "token": "$2a$08$OqkYWnBiaw9XpiL8Vb3opO3y01KhxCU3EwfI2RA/kyHCnXy6Xpx4G",
+        "meshblu": {
+            "createdAt": "2016-07-07T15:13:28-07:00",
+            "hash": "atFcBea59FaFasWBExpg8SqGUVzc/ibRQbMvzBOKXRo=",
+            "updatedAt": "2016-07-07T22:29:20.378Z"
+        },
+        "name": "og flow",
+        "flow": {
+            "flowId": "1",
+            "name": "og flow",
+            "description": null,
+            "resource": {
+                "nodeType": "flow",
+                "owner": {
+                    "uuid": "ownerId",
+                    "nodeType": "user"
+                }
+            },
+            "drafted": true,
+            "links": [{
+                "from": "0cef0830-4490-11e6-bd58-95b1ee43a2f1",
+                "fromPort": 0,
+                "to": "10b18e70-4490-11e6-bd58-95b1ee43a2f1",
+                "toPort": 0
+            }],
+            "nodes": [{
+                "name": "Trigger",
+                "class": "trigger",
+                "documentation": "https://octoblu-designer.readme.io/docs/trigger",
+                "category": "operation",
+                "uuid": "37f0a74a-2f17-11e4-9617-a6c5e4d22fb7",
+                "type": "operation:trigger",
+                "nanocyte": {
+                    "name": "nanocyte-node-trigger"
+                },
+                "omniboxItemTemplateUrl": "/pages/omnibox-flow-node.html",
+                "id": "0cef0830-4490-11e6-bd58-95b1ee43a2f1",
+                "payloadType": "date",
+                "once": false,
+                "x": 633.6181640625,
+                "y": 673.569091796875,
+                "staticMessage": {},
+                "needsConfiguration": false,
+                "needsSetup": false
+            }, {
+                "name": "Broadcast",
+                "class": "broadcast",
+                "documentation": "https://octoblu-designer.readme.io/docs/broadcast",
+                "category": "operation",
+                "uuid": "2be62b90-6519-11e4-867f-276797c27ed6",
+                "type": "operation:broadcast",
+                "nanocyte": {
+                    "name": "nanocyte-node-broadcast"
+                },
+                "omniboxItemTemplateUrl": "/pages/omnibox-flow-node.html",
+                "id": "10b18e70-4490-11e6-bd58-95b1ee43a2f1",
+                "topic": "message",
+                "x": 879.5833333333333,
+                "y": 692.5703125,
+                "staticMessage": {},
+                "needsConfiguration": false,
+                "needsSetup": false
+            }]
+        }
+    }, {
+        "online": false,
+        "owner": "ownerId",
+        "type": "octoblu:flow",
+        "sendWhitelist": ["ownerId"],
+        "receiveWhitelist": ["ownerId"],
+        "configureWhitelist": ["ownerId", "ownerId"],
+        "discoverWhitelist": ["ownerId"],
+        "uuid": "2",
+        "token": "$2a$08$U.sfxYR0PoTnNzX0PPMlpO57cVpqKcD/ueiole6NyuyLruQER2bZO",
+        "meshblu": {
+            "createdAt": "2016-07-07T12:25:10-07:00",
+            "hash": "hkFTn/vU+DS6+jLj51c0O9MmxFLdKNLN/0gkzwm3Sbs=",
+            "updatedAt": "2016-07-07T12:25:11-07:00"
+        },
+        "name": "Flow 8b14c5d6",
+        "draft": {
+            "_id": "577eac960d40fe2eeadceb0e",
+            "flowId": "2",
+            "name": "Flow 8b14c5d6",
+            "description": null,
+            "resource": {
+                "nodeType": "flow",
+                "owner": {
+                    "uuid": "ownerId",
+                    "nodeType": "user"
+                }
+            }
+        }
+    }, {
+        "online": true,
+        "owner": "ownerId",
+        "type": "octoblu:flow",
+        "sendWhitelist": ["ownerId", "b560b6ee-c264-4ed9-b98e-e3376ce6ce64"],
+        "receiveWhitelist": ["ownerId"],
+        "configureWhitelist": ["ownerId", "ownerId"],
+        "discoverWhitelist": ["ownerId", "fa593bd5-9419-46c8-b2b3-ffe2a7a302eb", "4a5d2700-de5c-4452-b152-c35a5c7d31ca"],
+        "uuid": "3",
+        "token": "$2a$08$2wASvDqpx/pamqfPA.hz0eNbmYIHZ.lC1SjE9S9cFhU4sobV7Y1tS",
+        "meshblu": {
+            "createdAt": "2016-07-07T12:19:32-07:00",
+            "hash": "hruVdBBg8OZhzrSqYAZ+rb1LXIxyvmIzFDrVgpGtHTo=",
+            "updatedAt": "2016-07-07T22:39:09.815Z",
+            "tokens": {
+                "qJSGuKBjDPua+TcnotSkV9vSYwGBDBrMtGys2YTY5Tw=": {
+                    "tag": "nanocyte-flow-deploy-service",
+                    "createdAt": "2016-07-07T19:21:02.938Z"
+                },
+                "MoJxg64Dzp37Bat1S/bnERMXC7a0fJEQfWqvWVjCi7k=": {
+                    "tag": "nanocyte-flow-deploy-service",
+                    "createdAt": "2016-07-07T19:21:02.938Z"
+                },
+                "XuquWv/Pvqz1ey2o089T+NQf7KhECDMVl4+wWSthSuc=": {
+                    "tag": "nanocyte-flow-deploy-service",
+                    "createdAt": "2016-07-07T19:21:07.052Z"
+                },
+                "qrBgEa+IxhJ1ujV6UlCfZ1XqkjBW2uWZkR1/zxozToU=": {
+                    "tag": "nanocyte-flow-deploy-service",
+                    "createdAt": "2016-07-07T19:22:39.607Z"
+                },
+                "U6PO+yH4EGQjTHpGYzF76ovVXMrDJWkeYebyIDGmjqY=": {
+                    "tag": "nanocyte-flow-deploy-service",
+                    "createdAt": "2016-07-07T19:25:20.326Z"
+                },
+                "wR5aIRjZvdTTz3Grn5YW7M1ATXP9mpsNsevBNV9ozwA=": {
+                    "tag": "nanocyte-flow-deploy-service",
+                    "createdAt": "2016-07-07T19:26:34.140Z"
+                }
+            },
+            "forwarders": {
+                "broadcast": {
+                    "received": [{
+                        "url": "http://nanocyte-engine-http.octoblu.dev/flows/3/instances/d483147c-490a-4fa3-813f-26bedd02c042/messages",
+                        "method": "POST",
+                        "signRequest": true,
+                        "name": "nanocyte-flow-deploy",
+                        "type": "webhook"
+                    }]
+                },
+                "message": {
+                    "received": [{
+                        "url": "http://nanocyte-engine-http.octoblu.dev/flows/3/instances/d483147c-490a-4fa3-813f-26bedd02c042/messages",
+                        "method": "POST",
+                        "signRequest": true,
+                        "name": "nanocyte-flow-deploy",
+                        "type": "webhook"
+                    }]
+                }
+            }
+        },
+        "name": "sdadad",
+        "draft": {
+            "flowId": "3",
+            "name": "sdadad",
+            "description": null,
+            "resource": {
+                "nodeType": "flow",
+                "owner": {
+                    "uuid": "ownerId",
+                    "nodeType": "user"
+                }
+            },
+            "drafted": true,
+            "links": [{
+                "from": "bf2e7a30-4477-11e6-827f-f3575feb9b14",
+                "fromPort": 0,
+                "to": "c0b5dd80-4477-11e6-827f-f3575feb9b14",
+                "toPort": 0
+            }, {
+                "from": "bf2e7a30-4477-11e6-827f-f3575feb9b14",
+                "fromPort": 0,
+                "to": "92c84ae0-4493-11e6-8cc1-156806cb5a6a",
+                "toPort": 0
+            }, {
+                "from": "92c84ae0-4493-11e6-8cc1-156806cb5a6a",
+                "fromPort": 0,
+                "to": "c0b5dd80-4477-11e6-827f-f3575feb9b14",
+                "toPort": 0
+            }],
+            "nodes": [{
+                "name": "Trigger",
+                "class": "trigger",
+                "documentation": "https://octoblu-designer.readme.io/docs/trigger",
+                "category": "operation",
+                "uuid": "37f0a74a-2f17-11e4-9617-a6c5e4d22fb7",
+                "type": "operation:trigger",
+                "nanocyte": {
+                    "name": "nanocyte-node-trigger"
+                },
+                "omniboxItemTemplateUrl": "/pages/omnibox-flow-node.html",
+                "id": "bf2e7a30-4477-11e6-827f-f3575feb9b14",
+                "payloadType": "date",
+                "once": false,
+                "x": 679.783203125,
+                "y": 679.7096557617188,
+                "staticMessage": {},
+                "needsConfiguration": false,
+                "needsSetup": false
+            }, {
+                "name": "Debug",
+                "class": "debug",
+                "documentation": "https://octoblu-designer.readme.io/docs/debug",
+                "category": "operation",
+                "uuid": "37f0b88e-2f17-11e4-9617-a6c5e4d22fb7",
+                "type": "operation:debug",
+                "color": "#87a980",
+                "align": "right",
+                "nanocyte": {
+                    "name": "nanocyte-node-debug"
+                },
+                "omniboxItemTemplateUrl": "/pages/omnibox-flow-node.html",
+                "id": "c0b5dd80-4477-11e6-827f-f3575feb9b14",
+                "active": true,
+                "debug": true,
+                "complete": false,
+                "x": 755.5833333333333,
+                "y": 942.6796875,
+                "staticMessage": {},
+                "needsConfiguration": false,
+                "needsSetup": false
+            }, {
+                "id": "92c84ae0-4493-11e6-8cc1-156806cb5a6a",
+                "name": "Template",
+                "class": "template",
+                "documentation": "https://octoblu-designer.readme.io/docs/template",
+                "category": "operation",
+                "uuid": "8f2e02ff-08da-446d-ab50-e5115f511cba",
+                "type": "operation:template",
+                "nanocyte": {
+                    "name": "nanocyte-node-template"
+                },
+                "omniboxItemTemplateUrl": "/pages/omnibox-flow-node.html",
+                "staticMessage": {},
+                "x": 666.83056640625,
+                "y": 880.7063598632812,
+                "needsConfiguration": false,
+                "needsSetup": false
+            }],
+            "activated": true
+        },
+        "deploying": false,
+        "stopping": false,
+        "flow": {
+            "flowId": "3",
+            "name": "sdadad",
+            "description": null,
+            "resource": {
+                "nodeType": "flow",
+                "owner": {
+                    "uuid": "ownerId",
+                    "nodeType": "user"
+                }
+            },
+            "drafted": true,
+            "links": [{
+                "from": "bf2e7a30-4477-11e6-827f-f3575feb9b14",
+                "fromPort": 0,
+                "to": "c0b5dd80-4477-11e6-827f-f3575feb9b14",
+                "toPort": 0
+            }, {
+                "from": "bf2e7a30-4477-11e6-827f-f3575feb9b14",
+                "fromPort": 0,
+                "to": "92c84ae0-4493-11e6-8cc1-156806cb5a6a",
+                "toPort": 0
+            }, {
+                "from": "92c84ae0-4493-11e6-8cc1-156806cb5a6a",
+                "fromPort": 0,
+                "to": "c0b5dd80-4477-11e6-827f-f3575feb9b14",
+                "toPort": 0
+            }],
+            "nodes": [{
+                "name": "Trigger",
+                "class": "trigger",
+                "documentation": "https://octoblu-designer.readme.io/docs/trigger",
+                "category": "operation",
+                "uuid": "37f0a74a-2f17-11e4-9617-a6c5e4d22fb7",
+                "type": "operation:trigger",
+                "nanocyte": {
+                    "name": "nanocyte-node-trigger"
+                },
+                "omniboxItemTemplateUrl": "/pages/omnibox-flow-node.html",
+                "id": "bf2e7a30-4477-11e6-827f-f3575feb9b14",
+                "payloadType": "date",
+                "once": false,
+                "x": 679.783203125,
+                "y": 679.7096557617188,
+                "staticMessage": {},
+                "needsConfiguration": false,
+                "needsSetup": false
+            }, {
+                "name": "Debug",
+                "class": "debug",
+                "documentation": "https://octoblu-designer.readme.io/docs/debug",
+                "category": "operation",
+                "uuid": "37f0b88e-2f17-11e4-9617-a6c5e4d22fb7",
+                "type": "operation:debug",
+                "color": "#87a980",
+                "align": "right",
+                "nanocyte": {
+                    "name": "nanocyte-node-debug"
+                },
+                "omniboxItemTemplateUrl": "/pages/omnibox-flow-node.html",
+                "id": "c0b5dd80-4477-11e6-827f-f3575feb9b14",
+                "active": true,
+                "debug": true,
+                "complete": false,
+                "x": 755.5833333333333,
+                "y": 942.6796875,
+                "staticMessage": {},
+                "needsConfiguration": false,
+                "needsSetup": false
+            }, {
+                "id": "92c84ae0-4493-11e6-8cc1-156806cb5a6a",
+                "name": "Template",
+                "class": "template",
+                "documentation": "https://octoblu-designer.readme.io/docs/template",
+                "category": "operation",
+                "uuid": "8f2e02ff-08da-446d-ab50-e5115f511cba",
+                "type": "operation:template",
+                "nanocyte": {
+                    "name": "nanocyte-node-template"
+                },
+                "omniboxItemTemplateUrl": "/pages/omnibox-flow-node.html",
+                "staticMessage": {},
+                "x": 666.83056640625,
+                "y": 880.7063598632812,
+                "needsConfiguration": false,
+                "needsSetup": false
+            }],
+            "activated": true
+        },
+        "messageSchema": {
+            "type": "object",
+            "properties": {
+                "from": {
+                    "type": "string",
+                    "title": "Trigger",
+                    "required": true,
+                    "enum": ["bf2e7a30-4477-11e6-827f-f3575feb9b14"]
+                },
+                "payload": {
+                    "title": "payload",
+                    "description": "Use {{msg}} to send the entire message"
+                },
+                "replacePayload": {
+                    "type": "string",
+                    "default": "payload"
+                }
+            }
+        },
+        "messageFormSchema": [{
+            "key": "from",
+            "titleMap": {
+                "bf2e7a30-4477-11e6-827f-f3575feb9b14": "Trigger (bf2e7a30)"
+            }
+        }, {
+            "key": "payload",
+            "type": "input",
+            "title": "Payload",
+            "description": "Use {{msg}} to send the entire message"
+        }],
+        "instanceId": "d483147c-490a-4fa3-813f-26bedd02c042",
+        "octoblu": {
+            "links": [{
+                "title": "Publish IoT App",
+                "url": "https://bluprinter.octoblu.dev/flows/3/new"
+            }]
+        }
+    }, {
+        "online": false,
+        "owner": "ownerId",
+        "type": "octoblu:flow",
+        "sendWhitelist": ["ownerId"],
+        "receiveWhitelist": ["ownerId"],
+        "configureWhitelist": ["ownerId", "ownerId"],
+        "discoverWhitelist": ["ownerId"],
+        "uuid": "4",
+        "token": "$2a$08$IqXWFHMjWAftjmRnkWCM2.O4p9I9Mx7ZU.zvC5cFq3KvhfkiFasX6",
+        "meshblu": {
+            "createdAt": "2016-07-07T12:19:02-07:00",
+            "hash": "dafL+xF+qRe+bSzd21Hbpyl01D7yF/44GwMfy616CeQ=",
+            "updatedAt": "2016-07-07T12:19:02-07:00"
+        },
+        "name": "Demo Flow",
+        "draft": {
+            "_id": "577eab260d40fe2eeadceb0b",
+            "name": "Demo Flow",
+            "nodes": [{
+                "method": "GET",
+                "url": "http://stock.octoblu.com/last-trade-price/:symbol",
+                "queryParams": {},
+                "y": 390.4808349609375,
+                "x": 749.4615478515625,
+                "outputLocations": [30],
+                "inputLocations": [30],
+                "logo": "https://ds78apnml6was.cloudfront.net/channel/stock-price.svg",
+                "formTemplatePath": "/pages/node_forms/channel_form.html",
+                "output": 1,
+                "input": 1,
+                "defaults": {
+                    "category": "channel",
+                    "type": "channel:stock-price",
+                    "name": "StockPrice",
+                    "channelid": "53275d4841da719147d9e36a"
+                },
+                "class": "StockPrice",
+                "category": "channel",
+                "type": "channel:stock-price",
+                "name": "StockPrice",
+                "channelid": "53275d4841da719147d9e36a",
+                "resourceType": "flow-node",
+                "id": "a9be3230-4477-11e6-b15d-878428029996",
+                "urlParams": {
+                    ":symbol": "GOOG"
+                },
+                "bodyParams": {},
+                "needsConfiguration": true,
+                "needsSetup": true
+            }, {
+                "method": "GET",
+                "url": "http://weather.octoblu.com/temperature/fahrenheit",
+                "queryParams": {
+                    "city": "Chandler",
+                    "state": "Arizona",
+                    "country": "USA"
+                },
+                "y": 488.1766357421875,
+                "x": 745.2745971679688,
+                "outputLocations": [30],
+                "inputLocations": [30],
+                "logo": "https://ds78apnml6was.cloudfront.net/channel/weather.svg",
+                "formTemplatePath": "/pages/node_forms/channel_form.html",
+                "output": 1,
+                "input": 1,
+                "defaults": {
+                    "category": "channel",
+                    "type": "channel:weather",
+                    "name": "Weather",
+                    "channelid": "5337a38d76a65b9693bc2a9f"
+                },
+                "class": "Weather",
+                "category": "channel",
+                "type": "channel:weather",
+                "name": "Weather",
+                "channelid": "5337a38d76a65b9693bc2a9f",
+                "resourceType": "flow-node",
+                "id": "a9be5940-4477-11e6-b15d-878428029996",
+                "urlParams": {},
+                "bodyParams": {},
+                "needsConfiguration": true,
+                "needsSetup": true
+            }, {
+                "y": 447.00482177734375,
+                "x": 541.5090942382812,
+                "outputLocations": [30],
+                "inputLocations": [],
+                "logo": "https://ds78apnml6was.cloudfront.net/operation/trigger.svg",
+                "formTemplatePath": "/pages/node_forms/button_form.html",
+                "output": 1,
+                "input": 0,
+                "defaults": {
+                    "once": false,
+                    "payloadType": "date"
+                },
+                "type": "operation:trigger",
+                "uuid": "37f0a74a-2f17-11e4-9617-a6c5e4d22fb7",
+                "category": "operation",
+                "class": "trigger",
+                "name": "trigger",
+                "once": false,
+                "payloadType": "date",
+                "resourceType": "flow-node",
+                "id": "a9be5941-4477-11e6-b15d-878428029996",
+                "needsConfiguration": true,
+                "needsSetup": true
+            }, {
+                "y": 350.7047424316406,
+                "x": 909.2639770507812,
+                "outputLocations": [],
+                "inputLocations": [30],
+                "logo": "https://ds78apnml6was.cloudfront.net/operation/debug.svg",
+                "align": "right",
+                "output": 0,
+                "input": 1,
+                "color": "#87a980",
+                "defaults": {
+                    "complete": false,
+                    "debug": true,
+                    "active": true
+                },
+                "type": "operation:debug",
+                "uuid": "37f0b88e-2f17-11e4-9617-a6c5e4d22fb7",
+                "category": "operation",
+                "class": "debug",
+                "name": "debug",
+                "complete": false,
+                "debug": true,
+                "active": true,
+                "resourceType": "flow-node",
+                "id": "a9be5942-4477-11e6-b15d-878428029996",
+                "needsConfiguration": true,
+                "needsSetup": true
+            }, {
+                "y": 433.0740966796875,
+                "x": 430.8520202636719,
+                "outputLocations": [],
+                "inputLocations": [],
+                "logo": "https://ds78apnml6was.cloudfront.net/operation/comment.svg",
+                "formTemplatePath": "/pages/node_forms/comment_form.html",
+                "output": 0,
+                "input": 0,
+                "type": "operation:comment",
+                "uuid": "37f0be60-2f17-11e4-9617-a6c5e4d22fb7",
+                "category": "operation",
+                "class": "comment",
+                "name": "click the trigger to \ntest out your flow",
+                "resourceType": "flow-node",
+                "id": "a9be5943-4477-11e6-b15d-878428029996",
+                "needsConfiguration": true,
+                "needsSetup": true
+            }, {
+                "y": 523.7658081054688,
+                "x": 913.450927734375,
+                "outputLocations": [],
+                "inputLocations": [30],
+                "logo": "https://ds78apnml6was.cloudfront.net/operation/debug.svg",
+                "align": "right",
+                "output": 0,
+                "input": 1,
+                "color": "#87a980",
+                "defaults": {
+                    "complete": false,
+                    "debug": true,
+                    "active": true
+                },
+                "type": "operation:debug",
+                "uuid": "37f0b88e-2f17-11e4-9617-a6c5e4d22fb7",
+                "category": "operation",
+                "class": "debug",
+                "name": "debug",
+                "complete": false,
+                "debug": true,
+                "active": true,
+                "resourceType": "flow-node",
+                "id": "a9be5944-4477-11e6-b15d-878428029996",
+                "needsConfiguration": true,
+                "needsSetup": true
+            }, {
+                "y": 405.931640625,
+                "x": 1051.7479248046875,
+                "outputLocations": [],
+                "inputLocations": [],
+                "logo": "https://ds78apnml6was.cloudfront.net/operation/comment.svg",
+                "formTemplatePath": "/pages/node_forms/comment_form.html",
+                "output": 0,
+                "input": 0,
+                "type": "operation:comment",
+                "uuid": "37f0be60-2f17-11e4-9617-a6c5e4d22fb7",
+                "category": "operation",
+                "class": "comment",
+                "name": "click the debug tab\nto see the output of the\nWeather and StockPrice nodes",
+                "resourceType": "flow-node",
+                "id": "a9be5945-4477-11e6-b15d-878428029996",
+                "needsConfiguration": true,
+                "needsSetup": true
+            }, {
+                "y": 137.26058959960938,
+                "x": 1330.082275390625,
+                "outputLocations": [],
+                "inputLocations": [],
+                "logo": "https://ds78apnml6was.cloudfront.net/operation/comment.svg",
+                "formTemplatePath": "/pages/node_forms/comment_form.html",
+                "output": 0,
+                "input": 0,
+                "type": "operation:comment",
+                "uuid": "37f0be60-2f17-11e4-9617-a6c5e4d22fb7",
+                "category": "operation",
+                "class": "comment",
+                "name": "Click Play to see your flow run",
+                "resourceType": "flow-node",
+                "id": "a9be5946-4477-11e6-b15d-878428029996",
+                "needsConfiguration": true,
+                "needsSetup": true
+            }],
+            "links": [{
+                "toPort": 0,
+                "to": "a9be3230-4477-11e6-b15d-878428029996",
+                "fromPort": 0,
+                "from": "a9be5941-4477-11e6-b15d-878428029996"
+            }, {
+                "toPort": 0,
+                "to": "a9be5940-4477-11e6-b15d-878428029996",
+                "fromPort": 0,
+                "from": "a9be5941-4477-11e6-b15d-878428029996"
+            }, {
+                "toPort": 0,
+                "to": "a9be5942-4477-11e6-b15d-878428029996",
+                "fromPort": 0,
+                "from": "a9be3230-4477-11e6-b15d-878428029996"
+            }, {
+                "toPort": 0,
+                "to": "a9be5944-4477-11e6-b15d-878428029996",
+                "fromPort": 0,
+                "from": "a9be5940-4477-11e6-b15d-878428029996"
+            }],
+            "zoomScale": 0.878711788453005,
+            "zoomX": -18.331846884763404,
+            "zoomY": -20.451854727215686,
+            "selectedLink": null,
+            "selectedFlowNode": null,
+            "hash": "ae08c4e4",
+            "flowId": "4",
+            "description": null,
+            "resource": {
+                "nodeType": "flow",
+                "owner": {
+                    "uuid": "ownerId",
+                    "nodeType": "user"
+                }
+            }
+        }
+    }]
+}
