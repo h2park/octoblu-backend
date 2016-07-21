@@ -25,9 +25,11 @@ class FlowModelV2
   getMyDevices: (ownerUUID, meshbluJSON) =>
     meshbluHttp = new MeshbluHttp(meshbluJSON)
     When.promise (resolve, reject) =>
-      meshbluHttp.mydevices { type: 'octoblu:flow', 'owner': ownerUUID }, (error, data) =>
+      query = owner: ownerUUID, type: 'octoblu:flow'
+      options = projection: {draft: true, name: true, uuid: true, online: true}
+      meshbluHttp.search query, options, (error, devices) =>        
         return reject error if error?
-        flows = _.compact _.map data.devices, @_mapFlow
+        flows = _.compact _.map devices, @_mapFlow
         resolve flows
 
   _mapFlow: (flow) =>

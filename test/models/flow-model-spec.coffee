@@ -62,7 +62,10 @@ describe 'Flow Model V2', ->
   describe '->getFlows', ->
     describe 'when given a valid Meshblu config', ->
       beforeEach (done) ->
-        @meshblu.get('/mydevices').reply(200, myFlows)
+        @meshblu.post('/search/devices')
+          .send({owner: @ownerUUID, type: 'octoblu:flow'})
+          .reply(200, myFlows)
+
         @sut.getFlows @ownerUUID, @meshbluJSON, (@error, @body) => done()
 
       it 'should retreive all of my flows', ->
@@ -77,7 +80,8 @@ describe 'Flow Model V2', ->
 
     describe 'when given an invalid Meshblu config', ->
       beforeEach (done) ->
-        @meshblu.get('/mydevices').reply(401, 'not sure')
+        @meshblu.post('/search/devices').reply(401)
+
         @sut.getFlows @ownerUUID, @meshbluJSON, (@error, @body) => done()
 
       it 'should respond with an error', ->
@@ -86,7 +90,10 @@ describe 'Flow Model V2', ->
   describe '->getSomeFlows', ->
     describe 'when given a valid Meshblu config', ->
       beforeEach (done) ->
-        @meshblu.get('/mydevices').reply(200, myFlows)
+        @meshblu.post('/search/devices')
+          .send({owner: @ownerUUID, type: 'octoblu:flow'})
+          .reply(200, myFlows)
+
         @sut.getSomeFlows @ownerUUID, @meshbluJSON, 2, (@error, @body) => done()
 
       it 'should retreive some of my flows', ->
@@ -99,7 +106,10 @@ describe 'Flow Model V2', ->
 
     describe 'when given an invalid Meshblu config', ->
       beforeEach (done) ->
-        @meshblu.get('/mydevices').reply(401, 'not sure')
+        @meshblu.post('/search/devices')
+          .send({owner: @ownerUUID, type: 'octoblu:flow'})
+          .reply(401)
+
         @sut.getSomeFlows @ownerUUID, @meshbluJSON, 2, (@error, @body) => done()
 
       it 'should respond with an error', ->

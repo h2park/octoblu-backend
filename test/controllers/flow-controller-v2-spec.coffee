@@ -10,8 +10,7 @@ describe 'Flow Controller V2', ->
   beforeEach ->
     @meshblu = shmock 0xd00d
     enableDestroy @meshblu
-
-    @meshblu.get('/mydevices')
+    @meshblu.post('/search/devices')
       .reply(200, myFlows)
 
     meshbluJSON =

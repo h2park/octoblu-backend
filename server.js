@@ -3,6 +3,7 @@ require('coffee-script/register');
 
 var _                  = require('lodash');
 var express            = require('express');
+var compression				 = require('compression');
 var path               = require('path');
 var morgan             = require('morgan');
 var cookieParser       = require('cookie-parser');
@@ -27,7 +28,6 @@ var privateKey         = fs.readFileSync('config/server.key', 'utf8');
 var certificate        = fs.readFileSync('config/server.crt', 'utf8');
 var credentials        = {key: privateKey, cert: certificate};
 var app                = express();
-
 var port               = process.env.OCTOBLU_PORT || configAuth.port;
 var sslPort            = process.env.OCTOBLU_SSLPORT || configAuth.sslPort;
 
@@ -37,7 +37,7 @@ octobluRaven.patchGlobal();
 var ravenExpress = octobluRaven.express();
 app.use(ravenExpress.handleErrors());
 app.use(sendError());
-
+app.use(compression());
 
 var databaseOptions = {
 	collections : [
