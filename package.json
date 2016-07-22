@@ -1,6 +1,6 @@
 {
   "name": "api-octoblu",
-  "version": "2.2.8",
+  "version": "2.2.9",
   "description": "octoblu.com",
   "main": "server.js",
   "private": true,
@@ -46,7 +46,7 @@
     "nodemailer": "^1.3.0",
     "nodemailer-smtp-transport": "^0.1.13",
     "oauth": "^0.9.11",
-    "octoblu-raven": "^3.0.4",
+    "octoblu-raven": "^3.0.5",
     "passport": "^0.2.0",
     "passport-appdotnet": "^0.1.1",
     "passport-automatic": "^1.1.0",
