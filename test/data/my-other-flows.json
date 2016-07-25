@@ -377,8 +377,8 @@
         "instanceId": "d483147c-490a-4fa3-813f-26bedd02c042",
         "octoblu": {
             "links": [{
-                "title": "Publish IoT App",
-                "url": "https://bluprinter.octoblu.dev/flows/3/new"
+                "title": "Publish IoT App Bluprint",
+                "url": "https://bluprinter.octoblu.dev/bluprints/new/3"
             }]
         }
     }, {

@@ -61,12 +61,12 @@ class FlowModelV2
     octobluLinks =
       links: [
         {
-          title: 'Publish IoT App'
-          url: 'https://bluprinter.' + hostname + '/flows/' + flowUuid + '/new'
+          title: 'Publish IoT App Bluprint'
+          url: "https://bluprinter.#{hostname}/bluprints/new/#{flowUuid}"
         }
       ]
-    return octobluLinks
 
+    return octobluLinks
 
   _applyProjections: (flows, projections) =>
     return flows if _.isEmpty projections
