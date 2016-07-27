@@ -184,7 +184,7 @@ var getOctobluLinksForFlow = function (flowUuid) {
     links: [
       {
         title: 'Publish IoT App Bluprint',
-        url: 'https://bluprinter.' + hostname + '/bluprints/new/' + flowUuid,
+        url: 'https://bluprinter.' + hostname + '/bluprints/setup/new/' + flowUuid,
       },
     ],
   }

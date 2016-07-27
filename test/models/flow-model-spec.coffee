@@ -40,7 +40,7 @@ describe 'Flow Model V2', ->
             octoblu:
               links: [
                   title: 'Publish IoT App Bluprint'
-                  url: 'https://bluprinter.octoblu.dev/bluprints/new/1'
+                  url: 'https://bluprinter.octoblu.dev/bluprints/setup/new/1'
                 ])
           .reply(200)
         @flow3UpdateHandler = @meshblu.patch('/v2/devices/3')
@@ -50,7 +50,7 @@ describe 'Flow Model V2', ->
             octoblu:
               links: [
                   title: 'Publish IoT App Bluprint'
-                  url: 'https://bluprinter.octoblu.dev/bluprints/new/3'
+                  url: 'https://bluprinter.octoblu.dev/bluprints/setup/new/3'
                 ])
           .reply(200)
         @sut.migrateNoDraftFlows 'duckman', @meshbluJSON, done
