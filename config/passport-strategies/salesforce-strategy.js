@@ -17,8 +17,13 @@ var salesForceStrategy = new SalesForceStrategy(CONFIG, function(req, accessToke
     done(new Error('Invalid Access Token'))
     return
   }
+  var expiresIn = 3600;
+  if (profile && profile.expires_in) {
+    expiresIn = profile.expires_in;
+  }
+  var expiresOn = Date.now() + (expiresIn * 1000);
 
-  User.addApiAuthorization(req.user, 'channel:salesforce', {authtype: 'oauth', token_crypt: textCrypt.encrypt(accessToken), refreshToken_crypt: textCrypt.encrypt(refreshToken)}).then(function () {
+  User.addApiAuthorization(req.user, 'channel:salesforce', {authtype: 'oauth', token_crypt: textCrypt.encrypt(accessToken), refreshToken_crypt: textCrypt.encrypt(refreshToken), expiresOn: expiresOn}).then(function () {
     done(null, req.user);
   }).catch(function(error){
     done(error);
