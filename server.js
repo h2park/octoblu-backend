@@ -3,7 +3,7 @@ require('coffee-script/register');
 
 var _                  = require('lodash');
 var express            = require('express');
-var compression				 = require('compression');
+var compression        = require('compression');
 var path               = require('path');
 var morgan             = require('morgan');
 var cookieParser       = require('cookie-parser');
@@ -59,7 +59,10 @@ app.use(meshbluHealthcheck());
 app.use(expressVersion({ format: '{"version": "%s"}' }));
 
 // set up our express application
-app.use(morgan('dev', { immediate:false })); // log every request to the console
+var skip = function(req, res) {
+  return res.statusCode < 400
+}
+app.use(morgan('dev', { immediate:false, skip: skip })); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
 
 // increasing body size for resources
