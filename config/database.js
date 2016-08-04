@@ -20,9 +20,9 @@ var config = {
         redisSessionUrl: 'redis://foo.bar'
     },
     production: {
-        sessionSecret: 'e2em2miotskynetZOMGBBQ',
-        sessionDatabase : 'redis',
-        databaseType : 'mongodb',
+        sessionSecret: process.env.SESSION_SECRET || 'e2em2miotskynetZOMGBBQ',
+        sessionDatabase : process.env.SESSION_DATABASE || 'redis',
+        databaseType : process.env.DATABASE_TYPE || 'mongodb',
         url : process.env.MONGO_URI,
         mongojsUrl : process.env.MONGOJS_URI,
         redisSessionUrl: process.env.REDIS_URL
@@ -34,13 +34,5 @@ var config = {
         databaseDirectory : path.join(__dirname, '../database')
     }
 };
-
-console.log('### USING "'+ process.env.NODE_ENV+'" DATABASE CONFIGURATION ###')
-
-if(!config[process.env.NODE_ENV]) {
-  console.log("===> Actually scratch that, you'll be using development since that NODE_ENV doesn't exist in the config")
-}else if(process.env.NODE_ENV === 'production') {
-  console.log("===> You are running in PRODUCTION, this will do dangerous things if you are not actually in production")
-}
 
 module.exports = config[process.env.NODE_ENV] || config['development'];

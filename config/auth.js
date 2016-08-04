@@ -29,31 +29,18 @@ var config = {
     domain: null,
     flow_logger_uuid: process.env.FLOW_LOGGER_UUID
   },
-  'octoblu-dev': {
-    promiseTimeout : 5000,
-    skynet : {
-      host:           process.env.SKYNET_HOST || 'meshblu.octoblu.dev',
-      port:           process.env.SKYNET_PORT || 80
-    },
-    port:             process.env.PORT || 80,
-    sslPort:          process.env.SSL_PORT || 443,
-    elasticSearchUri: process.env.ELASTIC_SEARCH_URI,
-    nanocyteDeployUri:'http://nanocyte-flow-deploy.octoblu.dev',
-    domain:           '.octoblu.dev',
-    flow_logger_uuid: process.env.FLOW_LOGGER_UUID
-  },
   'production': {
     promiseTimeout : 5000,
     skynet : {
-      host:           process.env.SKYNET_HOST || 'meshblu.octoblu.com',
-      port:           process.env.SKYNET_PORT || 443
+      host:            process.env.SKYNET_HOST || 'meshblu.octoblu.com',
+      port:            process.env.SKYNET_PORT || 443
     },
-    port:             process.env.PORT || 80,
-    sslPort:          process.env.SSL_PORT || 443,
-    elasticSearchUri: process.env.ELASTIC_SEARCH_URI,
-    nanocyteDeployUri:'https://nanocyte-flow-deploy.octoblu.com',
-    domain:           '.octoblu.com',
-    flow_logger_uuid: process.env.FLOW_LOGGER_UUID
+    port:              process.env.PORT || 80,
+    sslPort:           process.env.SSL_PORT || 443,
+    elasticSearchUri:  process.env.ELASTIC_SEARCH_URI,
+    nanocyteDeployUri: process.env.NANOCYTE_DEPLOY_URI || 'https://nanocyte-flow-deploy.octoblu.com',
+    domain:            process.env.CLUSTER_DOMAIN || '.octoblu.com',
+    flow_logger_uuid:  process.env.FLOW_LOGGER_UUID
   }
 };
 

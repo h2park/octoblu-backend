@@ -4,6 +4,7 @@ var _           = require('lodash');
 var when        = require('when');
 var request     = require('request');
 var MeshbluHttp = require('meshblu-http');
+var config      = require('../../config/auth')
 
 function FlowModel() {
   var collection = octobluDB.getCollection('flows');
@@ -176,15 +177,11 @@ function FlowModel() {
 }
 
 var getOctobluLinksForFlow = function (flowUuid) {
-
-  var hostname = 'octoblu.dev'
-  if (process.env.NODE_ENV === 'production') hostname = 'octoblu.com'
-
   return {
     links: [
       {
         title: 'Publish IoT App Bluprint',
-        url: 'https://bluprinter.' + hostname + '/bluprints/setup/new/' + flowUuid,
+        url: 'https://bluprinter' + config.domain + '/bluprints/setup/new/' + flowUuid,
       },
     ],
   }

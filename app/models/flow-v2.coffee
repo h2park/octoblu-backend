@@ -3,6 +3,7 @@ When        = require 'when'
 request     = require 'request'
 MeshbluHttp = require 'meshblu-http'
 async       = require 'async'
+config      = require '../../config/auth.js'
 
 class FlowModelV2
   constructor: () ->
@@ -56,13 +57,11 @@ class FlowModelV2
     meshbluHttp.update flowDevice.uuid, options, callback
 
   _createOctobluLinks: (flowUuid) =>
-    hostname = 'octoblu.dev'
-    hostname = 'octoblu.com' if process.env.NODE_ENV == 'production'
     octobluLinks =
       links: [
         {
           title: 'Publish IoT App Bluprint'
-          url: "https://bluprinter.#{hostname}/bluprints/setup/new/#{flowUuid}"
+          url: "https://bluprinter.#{config.domain}/bluprints/setup/new/#{flowUuid}"
         }
       ]
 
