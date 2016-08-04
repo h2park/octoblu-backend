@@ -61,7 +61,7 @@ class FlowModelV2
       links: [
         {
           title: 'Publish IoT App Bluprint'
-          url: "https://bluprinter.#{config.domain}/bluprints/setup/new/#{flowUuid}"
+          url: "https://bluprinter#{config.domain}/bluprints/setup/new/#{flowUuid}"
         }
       ]
 

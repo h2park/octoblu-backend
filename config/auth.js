@@ -27,7 +27,8 @@ var config = {
     elasticSearchUri: process.env.ELASTIC_SEARCH_URI,
     nanocyteDeployUri: 'http://localhost:5051',
     domain: null,
-    flow_logger_uuid: process.env.FLOW_LOGGER_UUID
+    flow_logger_uuid: process.env.FLOW_LOGGER_UUID,
+    domain: '.octoblu.test'
   },
   'production': {
     promiseTimeout : 5000,
