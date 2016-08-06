@@ -1,0 +1,11 @@
+{
+  "_id": "endo-intercom",
+  "category": "endo",
+  "categories": ["Productivity"],
+  "helpText": "The (very) Beta Intercom Channel",
+  "enabled": false,
+  "name": "Intercom Beta",
+  "type": "endo-intercom",
+  "logo": "https://s3-us-west-2.amazonaws.com/octoblu-icons/channel/intercom.svg",
+  "url": "http://endo-intercom.{{endoDomain}}/auth/octoblu"
+}
