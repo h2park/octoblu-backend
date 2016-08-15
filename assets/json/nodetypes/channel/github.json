@@ -2,7 +2,7 @@
   "_id": "53c9b839f400e177dca325c8",
   "deviceId": "c339f6ce-fe26-4788-beee-c97605f50403",
   "category": "channel",
-  "categories": ["Social"],
+  "categories": ["Developer Tools"],
   "description": "",
   "documentation": "https://developer.github.com/v3/",
   "helpText": "GitHub is a web-based Git repository hosting service, that is the best place to share code with friends, co-workers, classmates, and complete strangers. Also offers distributed revision control and source code management functionalities to fork projects, send pull requests, and monitor development.",
