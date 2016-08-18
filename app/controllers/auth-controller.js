@@ -1,14 +1,14 @@
-var request = require('request'),
-    crypto = require('crypto'),
-    url = require('url'),
-    _ = require('lodash'),
-    referrer = require('./middleware/referrer.js'),
-    querystring = require('querystring'),
-    User = require('../models/user'),
-    Channel = require('../models/channel');
+var request            = require('request'),
+    crypto             = require('crypto'),
+    url                = require('url'),
+    _                  = require('lodash'),
+    referrer           = require('./middleware/referrer.js'),
+    querystring        = require('querystring'),
+    User               = require('../models/user'),
+    Channel            = require('../models/channel');
 var SecurityController = require('./middleware/security-controller');
-var isAuthenticated = (new SecurityController()).isAuthenticated;
-var UserSession = require('../models/user-session-model');
+var isAuthenticated    = (new SecurityController()).isAuthenticated;
+var UserSession        = require('../models/user-session-model');
 
 module.exports = function (app, passport, config) {
     var userSession = new UserSession();
@@ -171,9 +171,11 @@ module.exports = function (app, passport, config) {
     };
 
     var getOAuthCallbackUrl = function (req, channelid) {
-        return (req.headers.host.indexOf('octoblu.com')>=0) ? 'https://'+ req.headers.host + '/api/auth/' + channelid + '/callback/custom'
-          : req.protocol + '://' + req.headers.host + '/api/auth/' + channelid + '/callback/custom';
-        // return req.protocol + '://' + req.headers.host + '/api/auth/' + channelid + '/callback/custom';
+        var protocol = req.protocol 
+        if (req.headers.host.indexOf('octoblu.com') > -1) {
+          protocol = 'https'
+        }
+        return req.protocol + '://' + req.headers.host + '/api/auth/' + channelid + '/callback/custom';
     };
 
     var handleApiCompleteRedirect = function (res, channelid, err) {

@@ -95,7 +95,7 @@ app.use(session(
   {
     name: 'octoblu:sess',
     secret: meshbluJSON.uuid + meshbluJSON.token,
-    domain: configAuth.domain,
+    domain: 'app' + configAuth.domain,
     secureProxy: (process.env.NODE_ENV !== 'development')
   }
 ));
