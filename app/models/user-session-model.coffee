@@ -1,6 +1,6 @@
+_           = require 'lodash'
 url         = require 'url'
 async       = require 'async'
-_           = require 'lodash'
 nodefn      = require 'when/node'
 MeshbluHTTP = require 'meshblu-http'
 debug       = require('debug')('octoblu:user-session-model')
@@ -11,7 +11,6 @@ class UserSession
   @ERROR_FAILED_TO_UPDATE_DEVICE: 'Failed to update device'
 
   constructor: (dependencies={}) ->
-    @request = dependencies.request ? require 'request'
     @config  = dependencies.config ? require '../../config/auth'
     @databaseConfig = dependencies.databaseConfig ? require '../../config/database'
     @users = dependencies.database?.users ? require('../lib/database').getCollection('users')
@@ -69,67 +68,39 @@ class UserSession
       debug 'got device from meshblu', { error, device }
       return callback error if error?
       return callback new Error(UserSession.ERROR_DEVICE_NOT_FOUND) unless device?
-
       callback null, device
 
   getUserByUuid: (uuid, callback=->) =>
     debug '->getUserByUuid', { uuid }
-    nodefn.bindCallback @users.findOne('skynet.uuid': uuid), callback
+    nodefn.bindCallback @users.findOne({ 'skynet.uuid': uuid }), callback
 
   invalidateOneTimeToken: (uuid, token, callback=->) =>
     debug '->invalidateOneTimeToken', { uuid, token }
     meshbluHTTP = @_getMeshbluHTTP {uuid, token}
-    meshbluHTTP.revokeToken uuid, token, (error) =>
-      debug 'invalidated token', { error }
-      callback error
+    meshbluHTTP.revokeToken uuid, token, callback
 
   updateDevice: (uuid, token, device, callback=->) =>
     debug '->updateDevice', { uuid, token }
-    @_meshbluRequest uuid, token, 'PUT', "/devices/#{uuid}", device, (error, response) =>
-      debug 'updated device', { error, response }
-      return callback error if error?
-      return callback new Error(UserSession.ERROR_FAILED_TO_UPDATE_DEVICE) unless response.statusCode == 200
-      callback()
+    meshbluHttp = @_getMeshbluHTTP { uuid, token }
+    meshbluHttp.update uuid, device, callback
 
   _meshbluCreateSessionToken: (uuid, token, callback=->) =>
     debug '->_meshbluCreateSessionToken', { uuid, token }
-    @_meshbluRequest uuid, token, 'POST', "/devices/#{uuid}/tokens", callback
+    meshbluHttp = @_getMeshbluHTTP { uuid, token }
+    meshbluHttp.generateAndStoreToken uuid, callback
 
   _meshbluGetDevice: (uuid, token, callback=->) =>
     debug '->_meshbluGetDevice', { uuid, token }
-    @_meshbluRequest uuid, token, 'GET', "/v2/whoami", (error, response, device) =>
-      debug 'got device', { uuid, token }
-      callback error, device
-
-  _meshbluRequest: (uuid, token, method, path, json=true, callback=->) =>
-    if _.isFunction json
-      callback = json
-      json = true
-
-    {host, port} = @config.skynet
-
-    options = {
-      uri: url.format({
-        protocol: if port == 443 then 'https' else 'http'
-        hostname: host
-        port:     port
-        pathname: path
-      })
-      method: method
-      headers:
-        meshblu_auth_uuid:  uuid
-        meshblu_auth_token: token
-      json: json
-    }
-
-    @request options, callback
+    meshbluHttp = @_getMeshbluHTTP { uuid, token }
+    meshbluHttp.whoami callback
 
   _getMeshbluHTTP: ({uuid, token}) =>
-    debug 'got meshblu http', { uuid, token, skynet: @config.skynet }
-    new MeshbluHTTP
-      uuid: uuid
-      token: token
+    debug '_getMeshbluHTTP', { uuid, token, skynet: @config.skynet }
+    return new MeshbluHTTP {
+      uuid,
+      token,
       server: @config.skynet.host
       port: @config.skynet.port
+    }
 
 module.exports = UserSession

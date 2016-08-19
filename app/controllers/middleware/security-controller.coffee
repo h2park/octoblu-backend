@@ -27,6 +27,7 @@ class SecurityController
     @userSession.getDeviceFromMeshblu meshbluAuth.uuid, meshbluAuth.token, (error, userDevice) =>
       debug 'got device from meshblu', { error, userDevice }
       return response.status(502).send(error: error.message) if error && error.message == @MESHBLU_CONNECTION_ERROR
+      return response.status(502).send(error: error.message) if error && error.code == 'ECONNRESET'
       return response.status(401).send(error: error.message) if error?
       @userSession.ensureUserExists userDevice.uuid, (error, user) =>
         debug 'ensured user exists', { error, user }
