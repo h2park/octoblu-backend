@@ -34,8 +34,6 @@ var sslPort            = process.env.OCTOBLU_SSLPORT || configAuth.sslPort;
 var octobluRaven = new OctobluRaven();
 octobluRaven.patchGlobal();
 
-var ravenExpress = octobluRaven.express();
-app.use(ravenExpress.handleErrors());
 app.use(sendError());
 app.use(compression());
 
@@ -64,6 +62,9 @@ var skip = function(req, res) {
 }
 app.use(morgan('dev', { immediate:false, skip: skip })); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
+
+var ravenExpress = octobluRaven.express();
+app.use(ravenExpress.handleErrors());
 
 // increasing body size for resources
 app.use(bodyParser.urlencoded({ extended : true, limit : '1mb' }));

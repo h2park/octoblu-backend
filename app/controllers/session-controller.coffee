@@ -1,4 +1,5 @@
-THREE_MONTHS_IN_MS=1000*60*60*24*30*3
+debug              = require('debug')('octoblu:session-controller')
+THREE_MONTHS_IN_MS = 1000*60*60*24*30*3
 
 class SessionController
   @ERROR_RETRIEVING_SESSION = 'Error retrieving session'
@@ -8,7 +9,9 @@ class SessionController
   show: (request, response) =>
     {uuid,token,callbackUrl} = request.query
     userSession = new @dependencies.UserSession
+    debug '->show', { uuid, token }
     userSession.create uuid, token, (error, user, sessionToken) =>
+      debug 'user session created', { error, user, sessionToken }
       if error?
         return response.status(500).send SessionController.ERROR_RETRIEVING_SESSION unless error.code?
         return response.sendStatus(error.code) if error.code? && error.message = 'Unknown Error Occurred'
