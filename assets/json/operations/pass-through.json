@@ -1,0 +1,16 @@
+{
+  "name": "Pass Through",
+  "class": "pass-through",
+  "helpText": "Forward the message on to the next node",
+  "documentation": "https://octoblu-designer.readme.io/docs/pass-through",
+  "category": "operation",
+  "uuid": "6053ea8c-f290-44f8-a786-e6a3d8af292e",
+  "type": "operation:pass-through",
+  "defaults": {},
+  "input": 1,
+  "output": 1,
+  "formTemplatePath": "/pages/node_forms/pass_through_form.html",
+  "nanocyte": {
+    "name": "nanocyte-node-pass-through"
+  }
+}
