@@ -1,0 +1,16 @@
+{
+  "name": "JSON Template",
+  "class": "template-json",
+  "helpText": "Create a JSON string that will be parsed and returned as a javascript object. Useful for composing Objects. Supports mustache style syntax (e.g. {{msg.text}})",
+  "documentation": "https://octoblu-designer.readme.io/docs/template-json",
+  "category": "operation",
+  "uuid": "4f36a876-bd04-44cd-a518-c91133bf3c94",
+  "type": "operation:template-json",
+  "defaults": {},
+  "input": 1,
+  "output": 1,
+  "formTemplatePath": "/pages/node_forms/template_json_form.html",
+  "nanocyte": {
+    "name": "nanocyte-node-template-json"
+  }
+}
