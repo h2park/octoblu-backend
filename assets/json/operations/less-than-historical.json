@@ -1,0 +1,18 @@
+{
+  "name": "Less Than Historical",
+  "class": "less-than-historical",
+  "helpText": "The first message sets the watermark, then filter out messages that do not pass a less than test. Reference incoming messages using {{msg.values}}  \n  \nSupported inputs include: date and numbers",
+  "documentation": "https://octoblu-designer.readme.io/docs/less-than-historical",
+  "category": "operation",
+  "uuid": "1cf95f89-125a-45e3-b881-14cbddae0f0c",
+  "type": "operation:less-than-historical",
+  "defaults": {
+    "value": 0
+  },
+  "input": 1,
+  "output": 1,
+  "formTemplatePath": "/pages/node_forms/less_than_historical_form.html",
+  "nanocyte": {
+    "name": "nanocyte-node-less-than-historical"
+  }
+}

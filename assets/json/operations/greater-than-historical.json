@@ -1,0 +1,18 @@
+{
+  "name": "Greater Than Historical",
+  "class": "greater-than-historical",
+  "helpText": "The first message sets the watermark, then filter out messages that do not pass a greater than test. Reference incoming messages using {{msg.values}}  \n  \nSupported inputs include: date and numbers",
+  "documentation": "https://octoblu-designer.readme.io/docs/greater-than-historical",
+  "category": "operation",
+  "uuid": "03649ce1-5d70-40a6-86d7-f85e688d0e19",
+  "type": "operation:greater-than-historical",
+  "defaults": {
+    "value": 0
+  },
+  "input": 1,
+  "output": 1,
+  "formTemplatePath": "/pages/node_forms/greater_than_historical_form.html",
+  "nanocyte": {
+    "name": "nanocyte-node-greater-than-historical"
+  }
+}
