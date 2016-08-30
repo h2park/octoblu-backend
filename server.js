@@ -142,8 +142,6 @@ app.use(function(req, res, next) {
   meshbluAuth.gateway()(req, res, next);
 });
 
-app.use(ravenExpress.meshbluAuthContext());
-
 var security = new SecurityController();
 app.use(function(req, res, next) {
   if (canBypassAuth(req)) {
