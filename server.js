@@ -14,7 +14,6 @@ var flash              = require('connect-flash');
 var fs                 = require('fs');
 var meshbluHealthcheck = require('express-meshblu-healthcheck');
 var MeshbluAuth        = require('express-meshblu-auth');
-var sendError          = require('express-send-error');
 var expressVersion     = require('express-package-version');
 var session            = require('cookie-session');
 var OctobluRaven       = require('octoblu-raven');
@@ -34,7 +33,6 @@ var sslPort            = process.env.OCTOBLU_SSLPORT || configAuth.sslPort;
 var octobluRaven = new OctobluRaven();
 octobluRaven.patchGlobal();
 
-app.use(sendError());
 app.use(compression());
 
 var databaseOptions = {
@@ -63,8 +61,7 @@ var skip = function(req, res) {
 app.use(morgan('dev', { immediate:false, skip: skip })); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
 
-var ravenExpress = octobluRaven.express();
-app.use(ravenExpress.handleErrors());
+octobluRaven.expressBundle({ app })
 
 // increasing body size for resources
 app.use(bodyParser.urlencoded({ extended : true, limit : '1mb' }));
