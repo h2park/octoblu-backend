@@ -2,21 +2,14 @@
 require('coffee-script/register');
 
 var _                  = require('lodash');
-var express            = require('express');
-var compression        = require('compression');
+var octobluExpress     = require('express-octoblu');
 var path               = require('path');
-var morgan             = require('morgan');
 var cookieParser       = require('cookie-parser');
-var bodyParser         = require('body-parser');
-var cors               = require('cors');
 var passport           = require('passport');
 var flash              = require('connect-flash');
 var fs                 = require('fs');
-var meshbluHealthcheck = require('express-meshblu-healthcheck');
 var MeshbluAuth        = require('express-meshblu-auth');
-var expressVersion     = require('express-package-version');
 var session            = require('cookie-session');
-var OctobluRaven       = require('octoblu-raven');
 var debug              = require('debug')('octoblu:server');
 
 var databaseConfig     = require('./config/database');
@@ -26,14 +19,9 @@ var Routes             = require('./app/routes.js');
 var privateKey         = fs.readFileSync('config/server.key', 'utf8');
 var certificate        = fs.readFileSync('config/server.crt', 'utf8');
 var credentials        = {key: privateKey, cert: certificate};
-var app                = express();
+var app                = octobluExpress();
 var port               = process.env.OCTOBLU_PORT || configAuth.port;
 var sslPort            = process.env.OCTOBLU_SSLPORT || configAuth.sslPort;
-
-var octobluRaven = new OctobluRaven();
-octobluRaven.patchGlobal();
-
-app.use(compression());
 
 var databaseOptions = {
 	collections : [
@@ -51,21 +39,7 @@ var PassportStrategyLoader = require('./config/passport-strategy-loader');
 var passportStrategyLoader = new PassportStrategyLoader();
 passportStrategyLoader.load();
 
-app.use(meshbluHealthcheck());
-app.use(expressVersion({ format: '{"version": "%s"}' }));
-
-// set up our express application
-var skip = function(req, res) {
-  return res.statusCode < 400
-}
-app.use(morgan('dev', { immediate:false, skip: skip })); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
-
-octobluRaven.expressBundle({ app })
-
-// increasing body size for resources
-app.use(bodyParser.urlencoded({ extended : true, limit : '1mb' }));
-app.use(bodyParser.json({ limit : '1mb' }));
 
 var meshbluJSON;
 try {
@@ -99,7 +73,6 @@ app.use(session(
 ));
 
 app.use(passport.initialize());
-app.use(cors());
 
 // begin bypass and heartache
 var bypassedAuthRoutes = [
@@ -172,6 +145,9 @@ var server = app.listen(port, function(error) {
 
 process.on('SIGTERM', function(){
   console.log('SIGTERM received, exiting');
+  if(server != null || !_.isFunction(server.close)) {
+    return process.exit(0)
+  }
   server.close(function(){
     process.exit(0);
   });
