@@ -33,7 +33,7 @@ var winkController = function() {
             next();
           })
           .catch(function(error) {
-            res.send(500, error);
+            res.sendError(error);
           });
       });
   };

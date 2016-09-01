@@ -44,7 +44,7 @@ var permissionsController = {
         }).catch(function(error) {
             if (error) {
                 console.error(error.stack);
-                res.send(500, error);
+                res.sendError(error);
                 return;
             }
         });

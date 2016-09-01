@@ -31,7 +31,7 @@ module.exports = function (options) {
     return Flow.getFlows(req.user.resource.uuid, config).then(function(flows){
       res.send(flows);
     }, function(error){
-      res.send(500, error);
+      res.sendError(error);
     });
   };
 
@@ -39,7 +39,7 @@ module.exports = function (options) {
     return Flow.someFlows(req.user.resource.uuid, req.params.limit, function(flows){
       res.send(flows);
     }, function(error){
-      res.send(500, error);
+      res.sendError(error);
     });
   };
 
@@ -52,7 +52,7 @@ module.exports = function (options) {
 
       res.send(flow);
     }, function(error){
-      res.send(500, error);
+      res.sendError(error);
     });
   };
 
@@ -60,8 +60,8 @@ module.exports = function (options) {
     Flow.deleteByFlowIdAndUser(req.params.id, req.uuid, req.token, meshbluJSON)
       .then(function(){
         res.send(204);
-      }, function (err) {
-        res.send(500, err);
+      }, function (error) {
+        res.sendError(error);
       });
   };
 

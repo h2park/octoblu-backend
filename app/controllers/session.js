@@ -12,7 +12,7 @@ module.exports = function ( app, passport, config ) {
     passwordResetter.resetByEmail(req.body.email, req.headers.host).then(function(){
       res.send(res.send(201));
     }).catch(function(error){
-      res.send(500, error);
+      res.sendError(error);
     });
   });
 
@@ -37,8 +37,8 @@ module.exports = function ( app, passport, config ) {
   app.post('/api/reset-token', function(req, res, next){
     User.resetToken(req.uuid, req.token).then(function(token){
       res.send(token);
-    }).catch(function(err){
-      res.send(500, err);
+    }).catch(function(error){
+      res.send(error);
     });
   });
 };

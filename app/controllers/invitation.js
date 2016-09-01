@@ -161,7 +161,7 @@ var invitationController = {
     Invitation.findByUuid(req.params.id, function(error, invitation) {
       if (error) {
         console.error(error.stack);
-        return res.send(500, error);
+        return res.sendError(error);
       }
 
       if (!invitation) {

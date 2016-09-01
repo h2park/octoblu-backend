@@ -8,6 +8,6 @@ class UserChannelsController
     @channelCollection.fetch(req.user.resource.uuid).then (channels) =>
       res.send channels
     .catch (error) =>
-      res.send(error: error.message).status 500
+      res.sendError(error)
 
 module.exports = UserChannelsController;

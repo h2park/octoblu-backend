@@ -7,16 +7,16 @@ class GroupController
       .then (groups) =>
         res.send groups
       .catch (error) =>
-        res.status(500).send error.message
+        res.sendError error
 
   getGroupById: (request, response) =>
     group = new Group request.user.resource.uuid
     group.findByUuid request.params.uuid
       .then (group) =>
-        return response.status(404).send() unless group?
+        return response.sendStatus(404) unless group?
         response.send group
       .catch (error) =>
-        res.status(500).send error.message
+        res.sendError error
 
   addGroup: (request, response) =>
     group = new Group request.user.resource.uuid
@@ -24,26 +24,26 @@ class GroupController
       .then (device) =>
         response.send device
       .catch (error) =>
-        response.status(500).send error.message
+        response.sendError error
 
   deleteGroup: (request, response) =>
     group = new Group request.user.resource.uuid
     group.removeByUuid request.params.uuid
       .then =>
-        response.status(204).send()
+        response.sendStatus(204)
       .catch (error) =>
-        response.status(500).send error.message
+        response.sendError error
 
   updateGroup: (request, response) =>
     uuid = request.params.uuid
     group = new Group request.user.resource.uuid
     group.findByUuid uuid
       .then (group) =>
-        return response.status(404).send() unless group?
+        return response.sendStatus(404) unless group?
 
         group.update(request.params.uuid, request.body).then response.status(204).send
       .catch (error) =>
-        response.status(500).send error.message
+        response.sendError error
 
   getOperatorsGroup: (request, response) =>
     group = new Group request.user.resource.uuid
@@ -52,7 +52,7 @@ class GroupController
       .then (operatorsGroup) =>
         response.send operatorsGroup
       .catch (error) =>
-        response.status(500).send error.message
+        response.sendError error
 
   getGroupsContainingResource: (request, response) =>
     group = new Group request.user.resource.uuid
@@ -60,6 +60,6 @@ class GroupController
       .then (groups) =>
         response.send groups
       .catch (error) =>
-        res.status(500).send error.message
+        res.sendError error
 
 module.exports = GroupController

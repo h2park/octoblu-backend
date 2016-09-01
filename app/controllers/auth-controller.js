@@ -55,8 +55,8 @@ module.exports = function (app, passport, config) {
 
         userSession.invalidateOneTimeToken(uuid, token, function(error){
             if(error) {
-                console.error(error.stack)
-                return res.status(500).end();
+              res.sendError(error);
+              return
             }
 
             res.send(204);
@@ -171,7 +171,7 @@ module.exports = function (app, passport, config) {
     };
 
     var getOAuthCallbackUrl = function (req, channelid) {
-        var protocol = req.protocol 
+        var protocol = req.protocol
         if (req.headers.host.indexOf('octoblu.com') > -1) {
           protocol = 'https'
         }
@@ -398,7 +398,7 @@ module.exports = function (app, passport, config) {
                     }, function (error, result) {
                         if (error) {
                             console.error('Access Token Error', error.stack);
-                            return res.send(500, error);
+                            return res.sendError(error);
                         }
 
                         var token = result;

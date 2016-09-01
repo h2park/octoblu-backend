@@ -12,17 +12,17 @@ var FlowDeploy = function (options) {
 
   self.startInstance = function (req, res) {
     self.runOnInstance(req, FlowDeploy.start, true).then(function(){
-      res.send(201);
+      res.sendStatus(201);
     }).catch(function(error){
-      res.send(500, error.message);
+      res.sendError(error);
     });
   };
 
   self.stopInstance = function (req, res) {
     self.runOnInstance(req, FlowDeploy.stop, false).then(function(){
-      res.send(204);
+      res.sendStatus(204);
     }).catch(function(error){
-      res.send(500, error.message);
+      res.sendError(error);
     });
   };
 

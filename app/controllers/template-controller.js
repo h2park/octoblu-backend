@@ -18,7 +18,7 @@ var TemplateController = function (options, dependencies) {
           next();
         })
         .catch(function(error){
-          res.send(500, error.message);
+          res.sendError(error);
         });
   };
 
@@ -29,7 +29,7 @@ var TemplateController = function (options, dependencies) {
           next();
         })
         .catch(function(error){
-          res.send(500, error.message);
+          res.sendError(error);
         });
   };
 

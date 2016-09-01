@@ -23,7 +23,7 @@ var InvitationController = function (options) {
       json: betaTesterData,
     }, function (error, response, body) {
       if (error) {
-        res.send(500, error);
+        res.sendError(error);
         return;
       }
 
