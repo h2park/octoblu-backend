@@ -6,6 +6,7 @@ var textCrypt         = require('../../app/lib/textCrypt');
 
 var CONFIG = Channel.syncFindOauthConfigByType('channel:slack');
 
+CONFIG.scope = 'bot'
 CONFIG.passReqToCallback = true;
 
 var slackStrategy = new SlackStrategy(CONFIG, function(req, accessToken, refreshToken, profile, done){
