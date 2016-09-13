@@ -5378,7 +5378,12 @@
               "type": "array",
               "format": "table",
               "items": {
-                "type": "object"
+                "key": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
               },
               "required": true
             }
