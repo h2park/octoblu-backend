@@ -5370,19 +5370,22 @@
             "name": "external_id"
           },{
             "style": "body",
-            "type": "array",
+            "type": "object",
             "displayName": "Fields",
             "name": "fields",
             "schema": {
               "title": "Fields",
               "type": "array",
               "format": "table",
-              "properties": {
-                "key": {
-                  "type": "string"
-                },
-                "value": {
-                  "type": "string"
+              "items": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
                 }
               },
               "required": true
