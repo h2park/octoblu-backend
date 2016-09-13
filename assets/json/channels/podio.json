@@ -4521,7 +4521,7 @@
             "style": "url",
             "type": "string",
             "name": ":flow_id",
-            "displayName": "Flow Id", 
+            "displayName": "Flow Id",
             "required": "true"
           }
         ],
@@ -5243,7 +5243,7 @@
             "style": "body",
             "type": "string",
             "name": "config",
-            "displayName": "Config" 
+            "displayName": "Config"
           }
         ],
         "url": "https://api.podio.com/integration/:app_id"
@@ -5370,9 +5370,18 @@
             "name": "external_id"
           },{
             "style": "body",
-            "type": "object",
+            "type": "array",
             "displayName": "Fields",
-            "name": "fields"
+            "name": "fields",
+            "schema": {
+              "title": "Fields",
+              "type": "array",
+              "format": "table",
+              "items": {
+                "type": "object"
+              },
+              "required": true
+            }
           },{
             "style": "body",
             "type": "array",

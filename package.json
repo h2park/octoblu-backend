@@ -1,6 +1,6 @@
 {
   "name": "api-octoblu",
-  "version": "3.4.5",
+  "version": "3.4.6",
   "description": "octoblu.com",
   "main": "server.js",
   "private": true,
