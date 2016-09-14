@@ -5373,15 +5373,17 @@
             "type": "object",
             "displayName": "Fields",
             "name": "fields",
+            "required": true,
             "schema": {
               "title": "Fields",
               "type": "array",
-              "format": "table",
               "items": {
                 "key": {
+                  "required": true,
                   "type": "string"
                 },
                 "value": {
+                  "required": true,
                   "type": "string"
                 }
               },
