@@ -1,16 +1,18 @@
 sudo: false
 language: node_js
 node_js:
-- '0.10'
+- '5'
 services:
 - mongodb
+after_success:
+- bash <(curl -s https://codecov.io/bash) -t CODEFRESH_TOKEN
+branches:
+  only:
+  - "/^v[0-9]/"
 cache:
   bundler: true
   directories:
   - node_modules
-notifications:
-  slack:
-    secure: j8t7GC1MCh75KcJiUh+Wq8AVGrESS9mZG9EnHSHWSIHr1eGHbNYn9GWR2+/vv6M1Te+TRTCbVU38Z4/VfZf4zYOi7HoY8z9XT97h90+ArEc68qQnDpZyfSsI4n7mYLPWMZtLz41ryZGYZ2ISTLHR2gbJX8kxyTXCWrIAxtG8uT8=
 before_script:
 - if [ ${TRAVIS_BRANCH} == master ]; then export NODE_ENV=production; else export
   NODE_ENV=staging; fi
