@@ -9,7 +9,7 @@ var CONFIG = Channel.syncFindOauthConfigByType('channel:spotify');
 CONFIG.passReqToCallback = true;
 
 var spotifyStrategy = new SpotifyStrategy(CONFIG, function(req, accessToken, refreshToken, profile, done){
-  var expiresIn = 3600;
+  var expiresIn = 1800;
   if (profile && profile.expires_in) {
     expiresIn = profile.expires_in;
   }
