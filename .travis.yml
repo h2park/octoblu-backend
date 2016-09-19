@@ -6,9 +6,6 @@ services:
 - mongodb
 after_success:
 - bash <(curl -s https://codecov.io/bash) -t CODEFRESH_TOKEN
-branches:
-  only:
-  - "/^v[0-9]/"
 cache:
   bundler: true
   directories:
