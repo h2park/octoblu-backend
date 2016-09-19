@@ -36,3 +36,7 @@ deploy:
   acl: private
   on:
     repo: octoblu/api-octoblu
+branches:
+  only:
+  - "/^v[0-9]/"
+
