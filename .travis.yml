@@ -4,6 +4,14 @@ node_js:
 - '5'
 services:
 - mongodb
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - g++-4.8
+env:
+  - CXX=g++-4.8
 after_success:
 - bash <(curl -s https://codecov.io/bash) -t CODEFRESH_TOKEN
 cache:
@@ -28,6 +36,3 @@ deploy:
   acl: private
   on:
     repo: octoblu/api-octoblu
-branches:
-  only:
-  - "/^v[0-9]/"
