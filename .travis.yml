@@ -34,10 +34,10 @@ deploy:
   acl: private
   on:
     repo: octoblu/api-octoblu
+    branches: true
 branches:
   only:
   - "/^v[0-9]/"
-
 after_success:
 - npm run coverage
 - npm run mocha:json

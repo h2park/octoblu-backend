@@ -2,9 +2,9 @@ nodefn    = require 'when/node/function'
 _         = require 'lodash'
 USE_MONGO = process.env.USE_MONGO == 'true'
 
-console.log "================================================"
-console.log "  using #{if USE_MONGO then 'mongo' else 'nedb'}"
-console.log "================================================"
+console.error "================================================"
+console.error "  using #{if USE_MONGO then 'mongo' else 'nedb'}"
+console.error "================================================"
 
 class TestDatabase
   @collectionNames : ['users', 'templates']
