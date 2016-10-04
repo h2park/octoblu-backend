@@ -1,45 +1,51 @@
 sudo: false
 language: node_js
 node_js:
-- '5'
+  - '5'
 services:
-- mongodb
+  - mongodb
 addons:
   apt:
     sources:
-    - ubuntu-toolchain-r-test
+      - ubuntu-toolchain-r-test
     packages:
-    - g++-4.8
+      - g++-4.8
 env:
   - CXX=g++-4.8
 cache:
   bundler: true
   directories:
-  - node_modules
+    - node_modules
 before_script:
-- if [ ${TRAVIS_BRANCH} == master ]; then export NODE_ENV=production; else export
-  NODE_ENV=staging; fi
-- npm rebuild bcrypt
-- node_modules/.bin/gulp
-- export NODE_ENV=test
+  - >-
+    if [ ${TRAVIS_BRANCH} == master ]; then export NODE_ENV=production; else
+    export NODE_ENV=staging; fi
+  - npm rebuild bcrypt
+  - node_modules/.bin/gulp
+  - export NODE_ENV=test
 deploy:
   provider: s3
   access_key_id: AWS_ACCESS_KEY_ID
   secret_access_key:
-    secure: AWS_SECRET_ACCESS_KEY
+    secure: >-
+      AWS_SECRET_ACCESS_KEY
   bucket: octoblu-channels
   region: us-west-2
   local-dir: assets/json
   skip_cleanup: true
   acl: private
-  on:
+  'on':
     repo: octoblu/api-octoblu
     branches: true
 branches:
   only:
-  - "/^v[0-9]/"
+    - '/^v[0-9]/'
 after_success:
-- npm run coverage
-- npm run mocha:json
-- bash <(curl -s https://codecov.io/bash) -t CODEFRESH_TOKEN
-- bash <(curl -s https://codecov.octoblu.com/bash)
+  - npm run coverage
+  - 'npm run mocha:json'
+  - >-
+    bash <(curl -s https://codecov.io/bash) -t
+    CODEFRESH_TOKEN
+  - 'bash <(curl -s https://codecov.octoblu.com/bash)'
+notifications:
+  webhooks: 'https://deploy-state.octoblu.com/deployments/travis-ci/com'
