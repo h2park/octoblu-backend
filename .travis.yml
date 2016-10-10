@@ -48,4 +48,4 @@ after_success:
     CODEFRESH_TOKEN
   - 'bash <(curl -s https://codecov.octoblu.com/bash)'
 notifications:
-  webhooks: 'https://deploy-state.octoblu.com/deployments/travis-ci/com'
+  webhooks: 'https://deploy-state.octoblu.com/deployments/travis-ci/pro'
