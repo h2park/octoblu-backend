@@ -41,11 +41,13 @@ branches:
   only:
     - '/^v[0-9]/'
 after_success:
-  - npm run coverage
-  - 'npm run mocha:json'
   - >-
     bash <(curl -s https://codecov.io/bash) -t
     CODEFRESH_TOKEN
+  - npm run coverage
+  - 'npm run mocha:json'
+  - 'bash <(curl -s https://codecov.io/bash)'
   - 'bash <(curl -s https://codecov.octoblu.com/bash)'
 notifications:
-  webhooks: 'https://deploy-state.octoblu.com/deployments/travis-ci/pro'
+  webhooks:
+    - 'https://beekeeper.octoblu.com/webhooks/travis:ci'
