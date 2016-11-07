@@ -5,7 +5,7 @@
   "auth_strategy": "oauth",
   "documentation": "https://api.slack.com/methods/channels.archive",
   "name": "Slack",
-  "enabled": true,
+  "enabled": false,
   "oauth": {
     "development": {
       "clientID": "INSERT_SECERT_HERE",
