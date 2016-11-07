@@ -1,6 +1,6 @@
 {
   "name": "api-octoblu",
-  "version": "3.4.24",
+  "version": "3.4.25",
   "description": "octoblu.com",
   "main": "server.js",
   "private": true,
@@ -71,7 +71,7 @@
     "passport-redbooth": "^1.0.0",
     "passport-rightsignature": "*",
     "passport-sharefile": "^1.0.0",
-    "passport-slack": "0.0.1",
+    "passport-slack": "0.0.6",
     "passport-smartsheet": "^1.0.2",
     "passport-spotify": "^0.1.0",
     "passport-surveymonkey": "^1.1.1",
