@@ -50,9 +50,10 @@ function TemplateModel(dependencies) {
           var newFlow = _.clone(template.flow);
           newFlow.name = template.name;
           newFlow.description = template.description;
-          _.each(newFlow.nodes, function(node){
-            self.cleanId(node, newFlow.links);
+          newFlow.nodes = _.map(newFlow.nodes, function(node){
+            node = self.cleanId(node, newFlow.links);
             self.populateNode(node, flowNodeTypes);
+            return node;
           });
 
           return Flow.createByUserUUID(userUUID, newFlow, meshbluJSON);
@@ -62,9 +63,11 @@ function TemplateModel(dependencies) {
     importFlow : function(userUUID, flow, meshbluJSON, flowNodeTypes) {
       var self = this;
       var newFlow = self.cleanFlow(flow);
-      _.each(newFlow.nodes, function(node){
-        self.cleanId(node, newFlow.links);
+
+      newFlow.nodes = _.map(newFlow.nodes, function(node){
+        node = self.cleanId(node, newFlow.links);
         self.populateNode(node, flowNodeTypes);
+        return node;
       });
 
       return Flow.createByUserUUID(userUUID, newFlow, meshbluJSON);
@@ -112,12 +115,13 @@ function TemplateModel(dependencies) {
     },
 
     cleanId : function(node, links) {
+      var self = this;
       var oldId = node.id;
       var newId = uuid.v1();
       var toLinks = _.filter(links, {to: oldId});
       var fromLinks = _.filter(links, {from: oldId});
 
-      node.id = newId;
+      node = self.replaceIdReferences(node, oldId, newId);
 
       _.each(toLinks, function(toLink){
         toLink.to = newId;
@@ -125,6 +129,24 @@ function TemplateModel(dependencies) {
 
       _.each(fromLinks, function(fromLink){
         fromLink.from = newId;
+      });
+
+      return node;
+    },
+
+    replaceIdReferences: function(node, oldId, newId) {
+      var self = this;
+
+      return _.mapValues(node, function(value) {
+        if(_.isObject(value)) {
+          return self.replaceIdReferences(value, oldId, newId);
+        }
+
+        if(value === oldId) {
+          return newId;
+        }
+
+        return value;
       });
     },
 
