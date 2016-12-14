@@ -158,7 +158,14 @@ function TemplateModel(dependencies) {
       node.needsSetup         = !_.findWhere(flowNodeTypes, {type: node.type});
 
       if(node.needsConfiguration && !node.needsSetup){
-        var matchingNode = _.findWhere(flowNodeTypes, {type: node.type});
+        var name = _.get(node, 'defaults.name');
+        var matchingNode;
+        if (name) {
+          matchingNode = _.findWhere(flowNodeTypes, {name: name, type: node.type});
+        }
+        if (!matchingNode) {
+          matchingNode = _.findWhere(flowNodeTypes, {type: node.type});
+        }
 
         node.channelActivationId = matchingNode.defaults.channelActivationId;
         node.uuid                = matchingNode.defaults.uuid;
