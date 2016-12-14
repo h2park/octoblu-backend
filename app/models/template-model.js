@@ -42,7 +42,7 @@ function TemplateModel(dependencies) {
         });
     },
 
-    importTemplate : function(userUUID, templateId, meshbluJSON, flowNodeTypes) {
+    importTemplate : function(userUUID, templateId, meshbluJSON, flowNodeTypes, skipPopulateNode) {
       var self = this;
       var templateCollection = new TemplateCollection({owner: userUUID});
       return templateCollection.get({uuid: templateId})
@@ -52,7 +52,9 @@ function TemplateModel(dependencies) {
           newFlow.description = template.description;
           newFlow.nodes = _.map(newFlow.nodes, function(node){
             node = self.cleanId(node, newFlow.links);
-            self.populateNode(node, flowNodeTypes);
+            if (!skipPopulateNode) {
+              self.populateNode(node, flowNodeTypes);
+            }
             return node;
           });
 
@@ -158,14 +160,7 @@ function TemplateModel(dependencies) {
       node.needsSetup         = !_.findWhere(flowNodeTypes, {type: node.type});
 
       if(node.needsConfiguration && !node.needsSetup){
-        var name = _.get(node, 'defaults.name');
-        var matchingNode;
-        if (name) {
-          matchingNode = _.findWhere(flowNodeTypes, {name: name, type: node.type});
-        }
-        if (!matchingNode) {
-          matchingNode = _.findWhere(flowNodeTypes, {type: node.type});
-        }
+        var matchingNode = _.findWhere(flowNodeTypes, {type: node.type});
 
         node.channelActivationId = matchingNode.defaults.channelActivationId;
         node.uuid                = matchingNode.defaults.uuid;

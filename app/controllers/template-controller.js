@@ -152,9 +152,10 @@ var TemplateController = function (options, dependencies) {
   };
 
   self.importTemplate = function(req, res) {
+    var skipPopulateNode = req.query.skipPopulateNode;
     self.getFlowNodeTypes(req.uuid, req.token)
       .then(function (flowNodeTypes) {
-        return templateModel.importTemplate(req.user.resource.uuid, req.params.id, meshblu, flowNodeTypes);
+        return templateModel.importTemplate(req.user.resource.uuid, req.params.id, meshblu, flowNodeTypes, skipPopulateNode);
       })
       .then(function(flow){
         res.send(201, flow);
