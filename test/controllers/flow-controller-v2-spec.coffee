@@ -16,15 +16,11 @@ describe 'Flow Controller V2', ->
     meshbluJSON =
       uuid: 'batman-and-robin'
       token: 'joker-kills-robin'
-      server: '127.0.0.1'
+      hostname: 'localhost'
       port: 0xd00d
+      protocol: 'http'
 
     @sut = new FlowController { meshbluJSON: meshbluJSON }
-
-    @response =
-      send: (status, reply) =>
-        @statusCode = status
-        @body = reply
 
     @expectedKeys = ['flowId', 'name', 'online', 'nodes', 'description']
 
@@ -33,15 +29,18 @@ describe 'Flow Controller V2', ->
 
   describe '->getFlows', ->
     describe 'should call Flow.getFlows', ->
-      beforeEach () ->
+      beforeEach (done) ->
         request =
           user:
             resource:
               uuid: 'ownerId'
-        @sut.getFlows request, @response
+        response =
+          send: (@statusCode, @body) => done()
+        @sut.getFlows request, response
+        return
 
       it 'should return a 200 OK', ->
-        expect(@statusCode).to.be.equal(200)
+        expect(@statusCode).to.equal 200
 
       it 'should return ALL of my flows', ->
         expect(@body[0]).to.contain.keys(@expectedKeys)
@@ -51,7 +50,7 @@ describe 'Flow Controller V2', ->
 
   describe '->getSomeFlows', ->
     describe 'should call Flow.getSomeFlows', ->
-      beforeEach () ->
+      beforeEach (done) ->
         request =
           params:
             limit: 2
@@ -59,7 +58,10 @@ describe 'Flow Controller V2', ->
             resource:
               uuid: 'ownerId'
 
-        @sut.getSomeFlows request, @response
+        response =
+          send: (@statusCode, @body) => done()
+        @sut.getSomeFlows request, response
+        return
 
       it 'should return a 200 OK', ->
         expect(@statusCode).to.be.equal(200)

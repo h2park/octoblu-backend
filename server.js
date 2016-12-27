@@ -10,6 +10,7 @@ var flash              = require('connect-flash');
 var fs                 = require('fs');
 var MeshbluAuth        = require('express-meshblu-auth');
 var session            = require('cookie-session');
+var SigtermHandler     = require('sigterm-handler')
 var debug              = require('debug')('octoblu:server');
 
 var databaseConfig     = require('./config/database');
@@ -107,7 +108,7 @@ var canBypassTerms = function(req) {
 }
 var meshbluAuth = new MeshbluAuth(meshbluJSON);
 
-app.use(meshbluAuth.retrieve());
+app.use(meshbluAuth.get());
 app.use(function(req, res, next) {
   if (canBypassAuth(req)) {
     return next();
@@ -140,15 +141,10 @@ var server = app.listen(port, function(error) {
     process.exit(1);
   }
 
-  console.log('HTTP listening on port ' + port);
+  console.log('Octoblu API listening on port ' + server.address().port);
 })
 
-process.on('SIGTERM', function(){
-  console.log('SIGTERM received, exiting');
-  if(server != null || !_.isFunction(server.close)) {
-    return process.exit(0)
-  }
-  server.close(function(){
-    process.exit(0);
-  });
-});
+var sigtermHandler = new SigtermHandler({ events: ['SIGTERM', 'SIGINT']})
+if(server == null && _.isFunction(server.close)) {
+  sigtermHandler.register(server.close)
+}

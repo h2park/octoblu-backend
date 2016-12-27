@@ -47,6 +47,7 @@ class FlowModelV2
     meshbluHttp.search query, {}, (error, devices) =>
       return callback error if error?
       async.eachSeries devices, async.apply(@_migrateFlow, meshbluHttp), callback
+    return
 
   _migrateFlow: (meshbluHttp, flowDevice, callback) =>
     { flow } = flowDevice

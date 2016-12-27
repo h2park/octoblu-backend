@@ -1,16 +1,22 @@
-FROM node:5
-MAINTAINER Octoblu, Inc. <docker@octoblu.com>
+FROM node:6
+MAINTAINER Octoblu <docker@octoblu.com>
 
 EXPOSE 80
+
 ENV NPM_CONFIG_LOGLEVEL error
+ENV NODE_ENV production
+
 HEALTHCHECK CMD curl --fail http://localhost:80/healthcheck || exit 1
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
-COPY package.json /usr/src/app/
-RUN npm -s install --production
-COPY . /usr/src/app/
-RUN node_modules/.bin/gulp production
+RUN npm install --silent --global yarn
 
-CMD [ "node", "--max-old-space-size=300", "server.js" ]
+COPY package.json yarn.lock /usr/src/app/
+
+RUN yarn install
+
+COPY . /usr/src/app
+
+CMD [ "node", "--max_old_space_size=256", "server.js" ]

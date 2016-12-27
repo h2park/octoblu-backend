@@ -12,17 +12,31 @@ addons:
       - g++-4.8
 env:
   - CXX=g++-4.8
+branches:
+  only:
+    - '/^v[0-9]/'
 cache:
+  yarn: true
   bundler: true
   directories:
     - node_modules
+before_install:
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - export PATH=$HOME/.yarn/bin:$PATH
 before_script:
   - >-
     if [ ${TRAVIS_BRANCH} == master ]; then export NODE_ENV=production; else
     export NODE_ENV=staging; fi
-  - npm rebuild bcrypt
-  - node_modules/.bin/gulp
+  - yarn install
+  - yarn run build
   - export NODE_ENV=test
+script:
+  - yarn test
+after_success:
+  - yarn run coverage
+  - 'yarn run mocha:json'
+  - bash <(curl -s https://codecov.io/bash) -t CODEFRESH_TOKEN
+  - 'bash <(curl -s https://codecov.octoblu.com/bash)'
 deploy:
   provider: s3
   access_key_id: AWS_ACCESS_KEY_ID
@@ -37,17 +51,6 @@ deploy:
   'on':
     repo: octoblu/api-octoblu
     branches: true
-branches:
-  only:
-    - '/^v[0-9]/'
-after_success:
-  - >-
-    bash <(curl -s https://codecov.io/bash) -t
-    CODEFRESH_TOKEN
-  - npm run coverage
-  - 'npm run mocha:json'
-  - 'bash <(curl -s https://codecov.io/bash)'
-  - 'bash <(curl -s https://codecov.octoblu.com/bash)'
 notifications:
   webhooks:
     - 'https://beekeeper.octoblu.com/webhooks/travis:ci'

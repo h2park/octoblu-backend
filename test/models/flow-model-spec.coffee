@@ -20,8 +20,9 @@ describe 'Flow Model V2', ->
     @meshbluJSON =
       uuid: 'batman-and-robin'
       token: 'joker-kills-robin'
-      server: '127.0.0.1'
+      hostname: 'localhost'
       port: 0xd00d
+      protocol: 'http'
 
   afterEach (done) ->
     @meshblu.destroy done
@@ -67,6 +68,7 @@ describe 'Flow Model V2', ->
           .reply(200, myFlows)
 
         @sut.getFlows @ownerUUID, @meshbluJSON, (@error, @body) => done()
+        return
 
       it 'should retreive all of my flows', ->
         expect(@body).to.have.lengthOf(4)
@@ -83,6 +85,7 @@ describe 'Flow Model V2', ->
         @meshblu.post('/search/devices').reply(401)
 
         @sut.getFlows @ownerUUID, @meshbluJSON, (@error, @body) => done()
+        return
 
       it 'should respond with an error', ->
         expect(@error).to.exist
@@ -95,6 +98,7 @@ describe 'Flow Model V2', ->
           .reply(200, myFlows)
 
         @sut.getSomeFlows @ownerUUID, @meshbluJSON, 2, (@error, @body) => done()
+        return
 
       it 'should retreive some of my flows', ->
         expect(@body).to.have.lengthOf(2)
@@ -111,6 +115,7 @@ describe 'Flow Model V2', ->
           .reply(401)
 
         @sut.getSomeFlows @ownerUUID, @meshbluJSON, 2, (@error, @body) => done()
+        return
 
       it 'should respond with an error', ->
         expect(@error).to.exist
