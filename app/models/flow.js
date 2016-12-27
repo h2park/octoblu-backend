@@ -137,6 +137,9 @@ function FlowModel() {
 
     migrateFlow : function(flow, meshbluJSON) {
       var self = this;
+      if (flow == null) {
+        return when.reject(new Error("no flow to migrate"));
+      }
       if (flow.drafted) {
         return when.resolve(flow);
       }

@@ -127,7 +127,9 @@ FlowDeploy.start = function(userUUID, userToken, flow, meshbluJSON, deploymentUu
 
 FlowDeploy.stop = function(userUUID, userToken, flow, meshbluJSON, deploymentUuid){
   var flowDeploy, flowDevice, flowStatusMessenger;
-
+  if(flow == null) {
+    return when.reject(new Error('Missing flow to stop'))
+  }
   flowStatusMessenger = new FlowStatusMessenger({
     userUuid:        userUUID,
     userToken:       userToken,
