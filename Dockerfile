@@ -16,8 +16,9 @@ RUN npm install --silent --global yarn
 COPY package.json yarn.lock /usr/src/app/
 
 RUN yarn install
-RUN yarn run build:production
 
 COPY . /usr/src/app
+
+RUN yarn run build:production
 
 CMD [ "node", "--max_old_space_size=256", "server.js" ]
