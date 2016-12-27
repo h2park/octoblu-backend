@@ -1,7 +1,5 @@
 .git
 .kubernetes
 node_modules
+coverage
 test
-assets/json/channels.json
-assets/json/nodetypes.json
-assets/json/operations.json
