@@ -16,6 +16,7 @@ RUN npm install --silent --global yarn
 COPY package.json yarn.lock /usr/src/app/
 
 RUN yarn install
+RUN yarn run build:production
 
 COPY . /usr/src/app
 
