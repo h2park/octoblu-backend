@@ -28,6 +28,9 @@ function FlowModel() {
       query = {flowId: flowId, 'resource.owner.uuid': userUUID};
 
       return self.findOne(query).then(function (flow) {
+        if (flow == null) {
+          return when.reject(new Error('Unable to find flow to delete'))
+        }
         FlowDeploy.stop(userUUID, userToken, flow, meshbluJSON);
         return unregisterFlow(meshbluJSON, flow.flowId, userUUID, userToken).then(function () {
           return self.remove(query, true);
@@ -53,8 +56,8 @@ function FlowModel() {
       ];
 
       return self.findOne(query).then(function(flow) {
-        if (!flow) {
-          throw new Error('Flow not found', flowId);
+        if (flow == null) {
+          return when.reject(new Error('Unable to find flow to update'))
         }
         flow = _.extend({}, flow, flowData);
         return _.omit(flow, omittedProperties);
@@ -67,7 +70,6 @@ function FlowModel() {
     },
 
     updateForDeploy : function (flow, meshbluJSON){
-
       var meshbluHttp = new MeshbluHttp(meshbluJSON);
       flow = _.omit(flow, ['token']);
       return when.promise(function (resolve, reject) {
@@ -81,18 +83,14 @@ function FlowModel() {
     },
 
     updateMeshbluFlow : function (flow, meshbluJSON){
-
       var self = this;
       if (!meshbluJSON){
         return when.resolve(flow);
       }
-
       return when.promise(function (resolve, reject) {
         var meshbluHttp = new MeshbluHttp(meshbluJSON);
         flow = _.omit(flow, ['token']);
-
         var octobluLinks = getOctobluLinksForFlow(flow.flowId)
-
         meshbluHttp.update(flow.flowId, {name: flow.name, draft: flow, octoblu: octobluLinks}, function(error){
           if (error) {
             return reject(error);
@@ -148,7 +146,6 @@ function FlowModel() {
 
     migrateAndUseDraft : function(flow, meshbluJSON) {
       var self = this;
-
       return self.migrateFlow(flow, meshbluJSON).then(function(flow){
         var meshbluHttp = new MeshbluHttp(meshbluJSON);
         return when.promise(function (resolve, reject) {
@@ -156,11 +153,9 @@ function FlowModel() {
             if (error) {
               return reject(error);
             }
-
             if (device && device.draft) {
               return resolve(device.draft);
             }
-
             return resolve(flow);
           });
         });
@@ -168,7 +163,6 @@ function FlowModel() {
     },
 
     getFlow : function (flowId, meshbluJSON) {
-
       var self = this;
       return self.findOne({'flowId': flowId}).then(function(flow){
         return self.migrateAndUseDraft(flow, meshbluJSON);
