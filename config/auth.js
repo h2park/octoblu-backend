@@ -19,8 +19,9 @@ var config = {
       }
     },
     skynet : {
-      host : process.env.SKYNET_HOST || 'localhost',
-      port : process.env.SKYNET_PORT || 3000
+      hostname : process.env.MESHBLU_HOSTNAME || 'localhost',
+      port : process.env.MESHBLU_PORT || 3000,
+      protocol: process.env.MESHBLU_PROTOCOL || 'http'
     },
     port: process.env.PORT || 8080,
     sslPort: process.env.SSL_PORT || 8081,
@@ -33,8 +34,9 @@ var config = {
   'production': {
     promiseTimeout : 5000,
     skynet : {
-      host:            process.env.SKYNET_HOST || 'meshblu.octoblu.com',
-      port:            process.env.SKYNET_PORT || 443
+      hostname:        process.env.MESHBLU_HOSTNAME || 'meshblu.octoblu.com',
+      port:            process.env.MESHBLU_PORT || 443,
+      protocol:        process.env.MESHBLU_PROTOCOL || 'https'
     },
     port:              process.env.PORT || 80,
     sslPort:           process.env.SSL_PORT || 443,

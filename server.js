@@ -49,8 +49,9 @@ try {
   meshbluJSON = {
     uuid:   process.env.OCTOBLU_UUID,
     token:  process.env.OCTOBLU_TOKEN,
-    server: configAuth.skynet.host,
-    port:   configAuth.skynet.port
+    hostname: configAuth.skynet.hostname,
+    port:   configAuth.skynet.port,
+    protocol: configAuth.skynet.protocol
   }
 }
 

@@ -99,8 +99,10 @@ class UserSession
     return new MeshbluHTTP {
       uuid,
       token,
-      server: @config.skynet.host
-      port: @config.skynet.port
+      hostname: @config.skynet.hostname,
+      port: @config.skynet.port,
+      protocol: @config.skynet.protocol
     }
+
 
 module.exports = UserSession

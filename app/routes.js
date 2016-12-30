@@ -11,7 +11,7 @@ module.exports = function(app, passport, config, meshbluJSON){
       next();
     });
 
-    app.locals.skynetUrl = config.skynet.host + ':' + config.skynet.port;
+    app.locals.skynetUrl = config.skynet.hostname + ':' + config.skynet.port;
 
     var referrer = require('./controllers/middleware/referrer.js');
 

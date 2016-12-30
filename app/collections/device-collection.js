@@ -21,8 +21,9 @@ var DeviceCollection = function (userUUID, userToken) {
 
   self.getDevicesByOwner = function () {
     var meshbluHttp = new MeshbluHttp({
-      server: config.skynet.host,
+      hostname: config.skynet.hostname,
       port: config.skynet.port,
+      protocol: config.skynet.protocol,
       uuid: userUUID,
       token: userToken
     });

@@ -239,7 +239,7 @@ function UserModel() {
     skynetRestRequest: function(uri_fragment, json, method, auth_uuid, auth_token) {
       var self, uri, params;
       self = this;
-      uri = 'http://' + configAuth.skynet.host + ':' + configAuth.skynet.port + uri_fragment;
+      uri = configAuth.skynet.protocol + '://' + configAuth.skynet.hostname + ':' + configAuth.skynet.port + uri_fragment;
 
       params = {
         uri: uri,

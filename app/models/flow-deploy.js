@@ -61,8 +61,9 @@ var FlowDeploy = function(options){
       var protocol = (config.skynet.port == 443) ? 'https' : 'http';
       var meshbluHttp = new MeshbluHttp({
         protocol: protocol,
-        server: config.skynet.host,
+        hostname: config.skynet.hostname,
         port: config.skynet.port,
+        protocol: config.skynet.protocol,
         uuid: userUUID,
         token: userToken
       });
@@ -82,8 +83,9 @@ var FlowDeploy = function(options){
       var protocol = (config.skynet.port == 443) ? 'https' : 'http';
       var meshbluHttp = new MeshbluHttp({
         protocol: protocol,
-        server: config.skynet.host,
+        hostname: config.skynet.hostname,
         port: config.skynet.port,
+        protocol: config.skynet.protocol,
         uuid: userUUID,
         token: userToken
       });

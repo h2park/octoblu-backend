@@ -6,8 +6,9 @@ class FlowStatusMessenger
     {@userUuid, @userToken, @flowUuid, @workflow, @deploymentUuid} = options
 
     @meshbluHttp = new MeshbluHttp
-      server: config.skynet.host
+      hostname: config.skynet.hostname
       port: config.skynet.port
+      protocol: config.skynet.protocol
       uuid: @userUuid,
       token: @userToken
 
