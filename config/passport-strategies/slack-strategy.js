@@ -8,6 +8,7 @@ var CONFIG = Channel.syncFindOauthConfigByType('channel:slack');
 
 CONFIG.scope = 'bot'
 CONFIG.passReqToCallback = true;
+CONFIG.skipUserProfile = true;
 CONFIG.scope = [
   'channels:history',
   'channels:read',
