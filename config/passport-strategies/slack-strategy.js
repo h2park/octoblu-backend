@@ -8,7 +8,14 @@ var CONFIG = Channel.syncFindOauthConfigByType('channel:slack');
 
 CONFIG.scope = 'bot'
 CONFIG.passReqToCallback = true;
-CONFIG.scope = ['identity.basic', 'identity.email', 'identity.avatar', 'identity.team'];
+CONFIG.scope = [
+  'identity.basic',
+  'identity.email',
+  'identity.avatar',
+  'identity.team',
+  'channels:read',
+  'chat:write:user',
+];
 
 var slackStrategy = new SlackStrategy(CONFIG, function(req, accessToken, refreshToken, profile, done){
 
