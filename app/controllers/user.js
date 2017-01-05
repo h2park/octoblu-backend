@@ -78,9 +78,10 @@ module.exports = function (app) {
 
     var deleteUserChannel = function (req, res) {
         User.removeApiByChannelId(req.user, req.params.channelid).then(function(){
-            res.send(204);
-        }, function(){
-            res.send(404, {'error': 'not found'});
+            res.sendStatus(204);
+        }, function(error){
+            console.error(error)
+            res.sendStatus(404)
         });
     };
     app.delete('/api/user/:id/channel/:channelid', deleteUserChannel);

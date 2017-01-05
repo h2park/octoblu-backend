@@ -10,7 +10,7 @@ module.exports = function ( app, passport, config ) {
   app.post('/api/reset', function(req, res, next) {
     var passwordResetter = new PasswordResetter;
     passwordResetter.resetByEmail(req.body.email, req.headers.host).then(function(){
-      res.send(res.send(201));
+      res.sendStatus(201);
     }).catch(function(error){
       res.sendError(error);
     });
@@ -19,7 +19,7 @@ module.exports = function ( app, passport, config ) {
   app.put('/api/reset/:token', function(req, res, next){
     User.findByResetToken(req.params.token).then(function(user){
       if(!user){
-        return res.send(402, {error: 'Password reset token is invalid or has expired.', arguments: arguments});
+        return res.status(402).send({error: 'Password reset token is invalid or has expired.', arguments: arguments});
       }
 
       user.local.password       = User.generateHash(req.body.password);
@@ -27,10 +27,10 @@ module.exports = function ( app, passport, config ) {
       user.resetPasswordExpires = null;
 
       return User.update({_id: user._id}, user).then(function(returnedUser) {
-        return res.send(204);
+        return res.sendStatus(204);
       });
     }).catch(function(error){
-      return res.send(402, {error: error});
+      return res.status(402).send({error: error});
     });
   });
 

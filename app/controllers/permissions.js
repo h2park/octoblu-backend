@@ -18,7 +18,7 @@ var permissionsController = {
         }).then(function (rscPermission) {
             res.send(200, rscPermission);
         }, function (error) {
-            res.send(400, error);
+            res.status(400).send(error);
         });
     },
 
@@ -156,7 +156,7 @@ var permissionsController = {
             res.send(compiledPermissions);
         }).catch(function (err) {
             console.error(err.message, err.stack)
-            res.send(400, err);
+            res.status(400).send(err);
         });
     },
 
@@ -169,7 +169,7 @@ var permissionsController = {
         }).catch(function(error) {
             if (error) {
                 console.error(error.message, error.stack);
-                res.send(400, error);
+                res.status(400).send(error);
                 return;
             }
         });
@@ -185,7 +185,7 @@ var permissionsController = {
                 res.send(permissions);
             }, function (err) {
                 console.error(err.message, err.stack)
-                res.send(400, err);
+                res.status(400).send(err);
             });
     },
 
@@ -199,7 +199,7 @@ var permissionsController = {
             },
             function (err) {
                 console.error(err.message, err.stack)
-                res.send(400, err);
+                res.status(400).send(err);
             }
         )
     },
@@ -213,7 +213,7 @@ var permissionsController = {
             res.send(permissions);
         }, function (err) {
             console.error(err.message, err.stack)
-            res.send(400, err);
+            res.status(400).send(err);
         });
     },
 
@@ -227,7 +227,7 @@ var permissionsController = {
             },
             function (err) {
                 console.error(err.message, err.stack)
-                res.send(400, err);
+                res.status(400).send(err);
             }
         );
     },
@@ -242,7 +242,7 @@ var permissionsController = {
             },
             function (err) {
                 console.error(err.message, err.stack)
-                res.send(400, err);
+                res.status(400).send(err);
             }
         )
     },
@@ -256,7 +256,7 @@ var permissionsController = {
             },
             function (err) {
                 console.error(err.message, err.stack)
-                res.send(400, err);
+                res.status(400).send(err);
             });
     },
 
@@ -270,7 +270,7 @@ var permissionsController = {
             },
             function (err) {
                 console.error(err.message, err.stack)
-                res.send(400, err);
+                res.status(400).send(err);
             }
         );
     },
@@ -285,7 +285,7 @@ var permissionsController = {
             },
             function (err) {
                 console.error(err.message, err.stack)
-                res.send(400, err);
+                res.status(400).send(err);
             }
         );
     }

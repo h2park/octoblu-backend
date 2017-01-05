@@ -165,7 +165,7 @@ var invitationController = {
       }
 
       if (!invitation) {
-        return res.send(404);
+        return res.sendStatus(404);
       }
 
       if (invitation.status === 'ACCEPTED') {

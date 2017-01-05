@@ -35,7 +35,10 @@ describe 'Flow Controller V2', ->
             resource:
               uuid: 'ownerId'
         response =
-          send: (@statusCode, @body) => done()
+          sendError: (@error) => done()
+          status: (@statusCode) =>
+            return response
+          send: (@body) => done()
         @sut.getFlows request, response
         return
 
@@ -59,7 +62,10 @@ describe 'Flow Controller V2', ->
               uuid: 'ownerId'
 
         response =
-          send: (@statusCode, @body) => done()
+          sendError: (@error) => done()
+          status: (@statusCode) =>
+            return response
+          send: (@body) => done()
         @sut.getSomeFlows request, response
         return
 

@@ -40,7 +40,7 @@ var SignupController = function () {
   this.checkForExistingUser = function(req, res, next) {
     User.findByEmail(req.param('email')).then(function(user) {
       if (user) {
-        res.send(404, 'User already exists');
+        res.status(404).send('User already exists');
         return;
       }
       next();

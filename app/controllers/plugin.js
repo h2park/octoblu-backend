@@ -12,7 +12,7 @@ var pluginController = {
             .then(function(plugins){
                 res.send(plugins);
             }).catch(function(error){
-                res.send(400, error);
+                res.status(400).send(error);
             });
     },
     getDefaultOptions: function (req, res) {
@@ -20,7 +20,7 @@ var pluginController = {
         pluginMetaData.getDefaultOptions(req.params.name).then(function(options){
             res.send(options);
         }).catch(function(error){
-            res.send(400, error);
+            res.status(400).send(error);
         });
     },
 
@@ -29,7 +29,7 @@ var pluginController = {
       pluginMetaData.getPlugin(req.params.name).then(function(plugin){
           res.send(plugin);
       }).catch(function(error){
-          res.send(400, error);
+          res.status(400).send(error);
       });
     }
 };

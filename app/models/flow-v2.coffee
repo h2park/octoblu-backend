@@ -34,12 +34,13 @@ class FlowModelV2
         resolve flows
 
   _mapFlow: (flow) =>
-    return updatedFlow =
+    return {
       name: flow.draft?.name || flow.name || flow.uuid
       flowId: flow.draft?.flowId || flow.uuid
       online: flow.online
       nodes: flow.draft?.nodes || []
       description: flow.draft?.description
+    }
 
   migrateNoDraftFlows: (ownerUUID, meshbluJSON, callback) =>
     meshbluHttp = new MeshbluHttp(meshbluJSON)

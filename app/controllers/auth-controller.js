@@ -30,7 +30,7 @@ module.exports = function (app, passport, config) {
         var user = req.user;
 
         if (! user || ! user._id) {
-            res.send(401, {error: 'unauthorized'});
+            res.status(401).send({error: 'unauthorized'})
             return;
         }
         res.send(user);
