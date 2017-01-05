@@ -140,7 +140,7 @@ function TemplateModel(dependencies) {
       var self = this;
 
       return _.mapValues(node, function(value) {
-        if(_.isObject(value)) {
+        if(_.isPlainObject(value)) {
           return self.replaceIdReferences(value, oldId, newId);
         }
 
