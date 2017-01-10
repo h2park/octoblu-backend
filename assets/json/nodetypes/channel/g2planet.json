@@ -5,7 +5,7 @@
   "categories": ["Office"],
   "description": "Badge Reader",
   "helpText": "Reads badge ID's for events. For example, get attendee information by badge ID.",
-  "enabled": true,
+  "enabled": false,
   "name": "G2 Planet",
   "skynet": {
     "type": "channel",

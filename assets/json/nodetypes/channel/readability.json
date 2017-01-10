@@ -6,7 +6,7 @@
   "description": "",
   "documentation": "https://www.readability.com/developers/api",
   "helpText": "A web and mobile app that zaps online clutter and saves web articles in a comfortable reading view. Retrieving an article's content, creating a bookmark, & getting the authenticated users' profile.",
-  "enabled": true,
+  "enabled": false,
   "name": "Readability",
   "skynet": {
     "type": "channel",
