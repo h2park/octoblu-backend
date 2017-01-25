@@ -114,6 +114,29 @@
         "url": "https://api.stripe.com/v1/customers/:id"
       },
       {
+        "httpMethod": "GET",
+        "doc": {
+          "url": "https://stripe.com/docs/api#retrieve_customer",
+          "t": "Retrieves the details of an existing customer"
+        },
+        "authentication": {
+          "required": "true"
+        },
+        "displayName": "Retrieve All Customers",
+        "path": "/customers",
+        "params": [
+          {
+            "name": "limit",
+            "displayName": "Limit",
+            "style": "query",
+            "type": "number",
+            "value": "3",
+            "required": "true"
+          }
+        ],
+        "url": "https://api.stripe.com/v1/customers"
+      },
+      {
         "httpMethod": "POST",
         "doc": {
           "url": "https://stripe.com/docs/api#create_card",
@@ -475,6 +498,45 @@
           }
         ],
         "url": "https://api.stripe.com/v1/charges/:charge_id/capture"
+      },
+      {
+        "httpMethod": "POST",
+        "doc": {
+          "url": "https://api.stripe.com/",
+          "t": "Verify Bank Account"
+        },
+        "authentication": {
+          "required": "true"
+        },
+        "displayName": "Verify Bank Account",
+        "path": "/customers/:customerId/sources/:bankId/verify",
+        "params": [
+          {
+            "name": ":customerId",
+            "displayName" : "Customer Id",
+            "style": "url",
+            "type": "string",
+            "value": "",
+            "required": "true"
+          },
+          {
+            "name": ":bankId",
+            "displayName" : "Bank Account Id",
+            "style": "url",
+            "type": "string",
+            "value": "",
+            "required": "true"
+          },
+          {
+            "name": "amounts",
+            "displayName": "Amounts",
+            "style": "body",
+            "type": "array",
+            "value": "",
+            "required": "true"
+          }
+        ],
+        "url": "https://api.stripe.com/v1/customers/:customerId/sources/:bankId/verify"
       }
     ]
   }
