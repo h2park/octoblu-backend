@@ -155,6 +155,105 @@
         },
         "httpMethod": "POST",
         "url": "https://api.particle.io/v1/devices/events"
+      },
+      {
+        "params": [
+          {
+            "required": "true",
+            "type": "string",
+            "style": "body",
+            "name": "event",
+            "displayName": "Event"
+          },
+          {
+            "required": "true",
+            "type": "string",
+            "style": "body",
+            "name": "url",
+            "displayName": "Url"
+          },
+          {
+            "required": "true",
+            "type": "string",
+            "style": "body",
+            "name": "requestType",
+            "displayName": "Request Type"
+          },
+          {
+            "type": "string",
+            "style": "body",
+            "name": "deviceID",
+            "displayName": "Device ID"
+          }
+          ],
+        "path": "/webhooks",
+        "displayName": "Register Webhook",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "https://docs.particle.io/reference/api/#integrations-webhooks-"
+        },
+        "httpMethod": "POST",
+        "url": "https://api.particle.io/v1/webhooks"
+      },
+      {
+        "params": [
+          {
+            "required": "true",
+            "type": "string",
+            "style": "url",
+            "name": ":integrationId",
+            "displayName": "Integration ID"
+          },
+          {
+            "type": "string",
+            "style": "body",
+            "name": "event",
+            "displayName": "Event"
+          },
+          {
+            "type": "string",
+            "style": "body",
+            "name": "url",
+            "displayName": "Url"
+          },
+          {
+            "type": "string",
+            "style": "body",
+            "name": "requestType",
+            "displayName": "Request Type"
+          },
+          {
+            "type": "string",
+            "style": "body",
+            "name": "deviceID",
+            "displayName": "Device ID"
+          }
+          ],
+        "path": "/integrations/:integrationId",
+        "displayName": "Edit Webhook",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "https://docs.particle.io/reference/api/#integrations-webhooks-"
+        },
+        "httpMethod": "PUT",
+        "url": "https://api.particle.io/v1/webhooks"
+      },
+      {
+        "params": [],
+        "path": "/webhooks",
+        "displayName": "Get Webhooks",
+        "authentication": {
+          "required": "true"
+        },
+        "doc": {
+          "url": "https://docs.particle.io/reference/api/#integrations-webhooks-"
+        },
+        "httpMethod": "GET",
+        "url": "https://api.particle.io/v1/webhooks"
       }
     ]
   }
