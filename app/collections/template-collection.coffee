@@ -57,7 +57,7 @@ class TemplateCollection
       return @collection.find query unless limit?
 
       When.promise (resolve, reject) =>
-        @collection.originalFind(query).skip(offset).limit limit, (error, docs) =>
+        @collection.originalFind(query).sort({_id: -1}).skip(offset).limit limit, (error, docs) =>
           return reject error if error?
           resolve docs
 
