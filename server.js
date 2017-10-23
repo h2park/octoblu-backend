@@ -61,7 +61,7 @@ app.use(
     secret: meshbluJSON.uuid + meshbluJSON.token,
     domain: "app" + configAuth.domain,
     secureProxy: process.env.NODE_ENV !== "development",
-  }),
+  })
 )
 
 app.use(passport.initialize())
