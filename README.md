@@ -1,2 +1,3 @@
-# Octoblu
-IoT OS
+# api-octoblu
+
+Octoblu backend service
