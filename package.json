@@ -3,7 +3,7 @@
   "version": "5.0.8",
   "description": "octoblu.com",
   "main": "server.js",
-  "private": true,
+  "license": "MIT"
   "author": "Octoblu Inc.",
   "dependencies": {
     "async": "^0.9.0",
