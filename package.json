@@ -1,9 +1,9 @@
 {
-  "name": "api-octoblu",
-  "version": "5.0.8",
-  "description": "octoblu.com",
+  "name": "octoblu-backend",
+  "version": "5.0.9",
+  "description": "api.octoblu.com",
   "main": "server.js",
-  "license": "MIT"
+  "license": "MIT",
   "author": "Octoblu Inc.",
   "dependencies": {
     "async": "^0.9.0",
