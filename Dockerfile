@@ -1,4 +1,4 @@
-FROM node:6
+FROM node:8
 MAINTAINER Octoblu <docker@octoblu.com>
 
 EXPOSE 80
@@ -10,8 +10,6 @@ HEALTHCHECK CMD curl --fail http://localhost:80/healthcheck || exit 1
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
-
-RUN npm install --silent --global yarn
 
 COPY package.json yarn.lock /usr/src/app/
 
