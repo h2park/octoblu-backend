@@ -8,6 +8,7 @@ class SecurityController
     @MESHBLU_CONNECTION_ERROR="Error connecting to meshblu"
 
   enforceTerms: (request, response, next=->) =>
+    return next() # skip this middleware for now
     return next() unless request.user?
     debug '->enforceTerms', { user: request.user }
     return response.status(401).end() unless request.user.userDevice?
